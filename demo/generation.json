@@ -1,66 +1,96 @@
 {
   "key": "demo",
-  "seed": 71004,
-  "checkpoint": "ponyDiffusionV6XL_v6StartWithThisOne.safetensors",
-  "checkpoint_source": "Pony Diffusion V6 XL, version \"V6 (start with this one)\", https://civitai.com/models/257749",
+  "seed": 71006,
+  "checkpoint": "hassakuXLIllustrious_v13StyleA.safetensors",
+  "checkpoint_source": "Hassaku XL (Illustrious), version \"v1.3 - Style A\" (CivitAI model 140272, version 1240288), https://civitai.com/models/140272; publisher Ikena",
+  "checkpoint_sha256": "79408e8b5a794bdb4b0786e05d4a77e3610b1a242226ed063fb45d6075ae4d60",
+  "checkpoint_sha256_note": "the SHA256 the CivitAI API lists for the version's file (https://civitai.com/api/v1/model-versions/1240288, observed 2026-10-11), not hashed on the box",
+  "licence": "Fair AI Public License 1.0-SD",
+  "licence_note": "the model page's \"Version and License info\" section, observed 2026-10-11: \"All Models using the Fair AI Public License 1.0-SD license\"; the API record's allowNoCredit is false (credit the model when sharing)",
+  "credit": "Painted with Hassaku XL (Illustrious) v1.3 Style A by Ikena (https://civitai.com/models/140272), Fair AI Public License 1.0-SD.",
   "loras": [],
   "trigger": "",
   "sampler": {
     "steps": 30,
-    "cfg": 6.0,
+    "cfg": 6,
     "sampler": "euler_ancestral",
     "scheduler": "normal"
   },
   "control": {
-    "skeleton": "stand_clasp",
+    "skeleton": "pose.json",
+    "skeleton_note": "a pose file (rig-parts issue #198): eighteen OpenPose points on an 832x1216 canvas, arms held away from the body with the wrists at (206, 590) and (626, 590), clear of the skirt, so the hands are painted apart and open; rig-parts draws the control image from it",
     "strength": 0.8,
-    "end_percent": 0.7,
     "start_percent": 0.0,
+    "end_percent": 0.7,
     "model": "controlnet-openpose-sdxl-1.0.safetensors",
-    "model_note": "read from the ComfyUI workflow embedded in painting.png (its tEXt \"prompt\" chunk), which is left in the file as provenance"
+    "model_note": "read from the painting step's ComfyUI workflow (its tEXt \"prompt\" chunk)"
   },
   "latent": [
     832,
     1216
   ],
-  "upscale": "4x-AnimeSharp.pth (ImageUpscaleWithModel), then ImageScaleBy lanczos x0.5; read from the workflow embedded in painting.png",
+  "upscale": "4x-AnimeSharp.pth (ImageUpscaleWithModel), then ImageScaleBy lanczos x0.5; read from the painting step's workflow",
   "size": [
     1664,
     2432
   ],
-  "elapsed_s": 18.3,
+  "elapsed_s": 12.3,
+  "painted_by": "`rig-parts comfy paint` (rig-parts' own ComfyUI adapter), like `scarf`; not the reference implementation's generation script that painted `reference-sample` and `reference-demo`",
   "prompt_parts": {
     "identity": "1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings",
     "costume": "idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands",
-    "pose": "full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, hands clasped in front of waist, own hands together, relaxed pose, gentle smile, feet visible, shoes",
+    "pose": "full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, arms away from body, hands apart away from skirt, open hands, relaxed fingers, relaxed pose, gentle smile, feet visible, shoes",
     "style": "anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
     "negative_extra": "revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, microphone, holding microphone, stage, stage lights, flat color, cel shading, monochrome, lineart",
-    "negative_pose": "cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet",
-    "pose_note": "generation.pose is set explicitly (the stand_clasp skeleton's words plus framing), so the generation script's default pose words are not used"
+    "negative_pose": "cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet"
   },
-  "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings, idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, hands clasped in front of waist, own hands together, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+  "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings, idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, arms away from body, hands apart away from skirt, open hands, relaxed fingers, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
   "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, microphone, holding microphone, stage, stage lights, flat color, cel shading, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet",
-  "variant": "idol",
-  "seed_selection": {
-    "table": "candidates.json (18 candidates, measured; the images are not published)",
-    "passing_without_h_over_w": [
-      "idol_71004",
-      "gothic_73001"
-    ],
-    "chosen": "idol_71004",
-    "figures": {
-      "border_white_frac": 1.0,
-      "border_median_rgb": [
-        254,
-        252,
-        252
-      ],
-      "components_ge_1pct": 1,
-      "lowest_row_frac": 0.9914,
-      "top_row_frac": 0.0173,
-      "bbox_h_over_w": 1.816,
-      "dark_clusters_outside_figure": 0
+  "steps": [
+    {
+      "step": "paint",
+      "by": "rig-parts comfy paint --config <config> --out <dir> --seeds 2 --seed0 71005",
+      "writes": "painting_71006.png (1664x2432; sha256 d27c9b33ba202196d31f033d056b30cff5161746d2420d7075b26dad70678e2f), not published: `comfy paint` reproduces it from this record on a box with the same models",
+      "prompt_id": "57339943-f50f-4617-a1c2-60bbf5416066"
     },
-    "why": "with the bbox_h_over_w rule dropped (see candidates.json criteria), idol_71004 and gothic_73001 pass every remaining criterion; idol_71004 was chosen for the README demo"
+    {
+      "step": "hand detailer",
+      "by": "one ComfyUI graph (detail_graph.json): Impact Pack MaskToSEGS over detail_mask.png (crop_factor 3.0, bbox_fill), then DetailerForEach with the same checkpoint and the painting's prompts plus \", detailed hands, five fingers\" on the positive",
+      "settings": {
+        "seed": 71006,
+        "steps": 20,
+        "cfg": 6.0,
+        "sampler": "euler_ancestral",
+        "scheduler": "normal",
+        "denoise": 0.45,
+        "guide_size": 512,
+        "max_size": 1024,
+        "feather": 5,
+        "noise_mask": true,
+        "force_inpaint": true
+      },
+      "mask_boxes": [
+        [
+          270,
+          1140,
+          471,
+          1301
+        ],
+        [
+          1190,
+          1140,
+          1391,
+          1301
+        ]
+      ],
+      "mask_boxes_note": "x0, y0, x1, y1 in painting pixels, end-exclusive: the two filled rectangles of detail_mask.png, one per hand, drawn by eye on the painting step's output",
+      "writes": "painting.png (sha256 81b0c67699b3c51e54664990b4445a8a272025f7f076b01a8334fdb7e690b099), which carries the detailer's graph in its own tEXt \"prompt\" chunk"
+    }
+  ],
+  "selection": {
+    "table": "candidates.json (16 images, each read by eye at full size at the hands; the images are not published)",
+    "rule": "issue #227: the hands must read as hands at full resolution; a person reads a crop of each hand. No figure was computed to choose: the layer WARN count the older characters were chosen on cannot see fingers",
+    "chosen": "71006 after the hand detailer",
+    "why": "the two wide-pose seeds (71005, 71006) are the only ones whose hands are painted clear of the skirt and the hair; 71005's fingers are over-long and splayed before and after the detailer, and 71006 after the detailer reads at full size as two relaxed hands, thumb and folded fingers, where before it the fingertips were muddy"
   }
 }

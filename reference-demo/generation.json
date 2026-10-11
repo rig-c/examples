@@ -1,0 +1,66 @@
+{
+  "key": "demo",
+  "seed": 71004,
+  "checkpoint": "ponyDiffusionV6XL_v6StartWithThisOne.safetensors",
+  "checkpoint_source": "Pony Diffusion V6 XL, version \"V6 (start with this one)\", https://civitai.com/models/257749",
+  "loras": [],
+  "trigger": "",
+  "sampler": {
+    "steps": 30,
+    "cfg": 6.0,
+    "sampler": "euler_ancestral",
+    "scheduler": "normal"
+  },
+  "control": {
+    "skeleton": "stand_clasp",
+    "strength": 0.8,
+    "end_percent": 0.7,
+    "start_percent": 0.0,
+    "model": "controlnet-openpose-sdxl-1.0.safetensors",
+    "model_note": "read from the ComfyUI workflow embedded in painting.png (its tEXt \"prompt\" chunk), which is left in the file as provenance"
+  },
+  "latent": [
+    832,
+    1216
+  ],
+  "upscale": "4x-AnimeSharp.pth (ImageUpscaleWithModel), then ImageScaleBy lanczos x0.5; read from the workflow embedded in painting.png",
+  "size": [
+    1664,
+    2432
+  ],
+  "elapsed_s": 18.3,
+  "prompt_parts": {
+    "identity": "1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings",
+    "costume": "idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands",
+    "pose": "full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, hands clasped in front of waist, own hands together, relaxed pose, gentle smile, feet visible, shoes",
+    "style": "anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+    "negative_extra": "revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, microphone, holding microphone, stage, stage lights, flat color, cel shading, monochrome, lineart",
+    "negative_pose": "cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet",
+    "pose_note": "generation.pose is set explicitly (the stand_clasp skeleton's words plus framing), so the generation script's default pose words are not used"
+  },
+  "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings, idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, hands clasped in front of waist, own hands together, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+  "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, microphone, holding microphone, stage, stage lights, flat color, cel shading, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet",
+  "variant": "idol",
+  "seed_selection": {
+    "table": "candidates.json (18 candidates, measured; the images are not published)",
+    "passing_without_h_over_w": [
+      "idol_71004",
+      "gothic_73001"
+    ],
+    "chosen": "idol_71004",
+    "figures": {
+      "border_white_frac": 1.0,
+      "border_median_rgb": [
+        254,
+        252,
+        252
+      ],
+      "components_ge_1pct": 1,
+      "lowest_row_frac": 0.9914,
+      "top_row_frac": 0.0173,
+      "bbox_h_over_w": 1.816,
+      "dark_clusters_outside_figure": 0
+    },
+    "why": "with the bbox_h_over_w rule dropped (see candidates.json criteria), idol_71004 and gothic_73001 pass every remaining criterion; idol_71004 was chosen for the README demo"
+  }
+}
