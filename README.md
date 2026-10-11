@@ -1,7 +1,7 @@
-# spine-parts-examples
+# parts-examples
 
 The heavy inputs of the public example characters of
-[rig-parts](https://github.com/firejune/rig-parts): for each character, the
+[`@rig-c/parts`](https://github.com/rig-c/parts) (the `rig-parts` command): for each character, the
 painting, the two images See-through was fed, and the two See-through layer
 sets that came back. rig-parts tracks the light half of each example — the
 character config, the proposal, the reference implementation's outputs and
