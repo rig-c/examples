@@ -1,0 +1,678 @@
+{
+  "note": "Eighteen candidate paintings, six seeds for each of three prompt variants, all generated with the same checkpoint, sampler and control. Only idol_71004 is published as an image; the rest are recorded here as measurements.",
+  "shared": {
+    "checkpoint": "ponyDiffusionV6XL_v6StartWithThisOne.safetensors",
+    "loras": [],
+    "trigger": "",
+    "sampler": {
+      "steps": 30,
+      "cfg": 6.0,
+      "sampler": "euler_ancestral",
+      "scheduler": "normal"
+    },
+    "control": {
+      "skeleton": "stand_clasp",
+      "strength": 0.8,
+      "end_percent": 0.7
+    }
+  },
+  "variants": [
+    {
+      "name": "idol",
+      "identity": "1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings",
+      "costume": "idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands",
+      "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings, idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, hands clasped in front of waist, own hands together, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+      "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, microphone, holding microphone, stage, stage lights, flat color, cel shading, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet",
+      "seeds": [
+        71001,
+        71002,
+        71003,
+        71004,
+        71005,
+        71006
+      ]
+    },
+    {
+      "name": "shrine",
+      "identity": "1girl, solo, adult woman, very long silver hair in a high ponytail, long side locks, red eyes, red hair ribbon with long trailing tails, red tassel earrings",
+      "costume": "modern shrine maiden outfit, white kimono top with very wide long sleeves, red pleated long skirt, red cord belt with hanging tassels, black loafers, fully clothed, empty hands",
+      "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long silver hair in a high ponytail, long side locks, red eyes, red hair ribbon with long trailing tails, red tassel earrings, modern shrine maiden outfit, white kimono top with very wide long sleeves, red pleated long skirt, red cord belt with hanging tassels, black loafers, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, hands clasped in front of waist, own hands together, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+      "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, animal ears, fox ears, weapon, sword, gohei, flat color, cel shading, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet",
+      "seeds": [
+        72001,
+        72002,
+        72003,
+        72004,
+        72005,
+        72006
+      ]
+    },
+    {
+      "name": "gothic",
+      "identity": "1girl, solo, adult woman, very long straight black hair with purple inner color, two long side locks, violet eyes, black lace headdress with long hanging ribbons, silver cross earrings",
+      "costume": "gothic lolita dress, black and purple, long sleeves with wide lace cuffs, high neck with ribbon bow, knee-length layered frilled skirt, black tights, black platform mary jane shoes, fully clothed, empty hands",
+      "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long straight black hair with purple inner color, two long side locks, violet eyes, black lace headdress with long hanging ribbons, silver cross earrings, gothic lolita dress, black and purple, long sleeves with wide lace cuffs, high neck with ribbon bow, knee-length layered frilled skirt, black tights, black platform mary jane shoes, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, hands clasped in front of waist, own hands together, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+      "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, umbrella, parasol, doll, flat color, cel shading, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet",
+      "seeds": [
+        73001,
+        73002,
+        73003,
+        73004,
+        73005,
+        73006
+      ]
+    }
+  ],
+  "criteria": {
+    "border_white_frac": "fraction of pixels in the outer 8 px ring whose minimum channel is >= 235 (the assembler's near-white threshold)",
+    "silhouette": "pixels that are not near-white AND differ from the border's median colour by > 40 on some channel, opened twice (3x3)",
+    "components_ge_1pct": "8-connected components of the silhouette with area >= 1 % of the largest (a single figure = 1)",
+    "lowest_row_frac / top_row_frac": "extent of those components over the image height; < 0.995 and > 0.01 mean the feet and the head are inside the frame",
+    "bbox_h_over_w": "height / width of the largest component's bounding box",
+    "dark_clusters_outside_figure": "8-connected components of pixels with min channel < 90, area 20-3000 px, centred outside the main bbox (+-10 px): a proxy for text, watermarks and stray marks",
+    "pass_rule": "border_white_frac >= 0.99 and components_ge_1pct == 1 and lowest_row_frac < 0.995 and top_row_frac > 0.01 and bbox_h_over_w >= 3 and dark_clusters_outside_figure == 0",
+    "bbox_rule_dropped": "the bbox_h_over_w >= 3 rule was tuned on one slim silhouette (sample) and is not a property of a good standing figure: ball-gown skirts, twin tails and wide sleeves are wide by design, so it was dropped for this set; PASS_without_h_over_w is the rule without it"
+  },
+  "criteria_as_recorded": "PASS = border_white_frac>=0.99 (outer 8 px, min channel>=235) and components_ge_1pct==1 and lowest_row_frac<0.995 and top_row_frac>0.01 and bbox_h_over_w>=3 and dark_clusters_outside_figure==0; silhouette = not near-white and >40 from border median colour, opened x2",
+  "images": [
+    {
+      "label": "idol_71001",
+      "variant": "idol",
+      "seed": 71001,
+      "elapsed_s": 28.3,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.5927,
+      "border_median_rgb": [
+        253,
+        251,
+        249
+      ],
+      "border_minch_mean": 201.8,
+      "border_std": 51.2,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.7151,
+      "lowest_row": 2431,
+      "lowest_row_frac": 0.9996,
+      "bbox_main": [
+        0,
+        5,
+        1663,
+        2431
+      ],
+      "bbox_h_over_w": 1.459,
+      "top_row_frac": 0.0021,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "idol_71002",
+      "variant": "idol",
+      "seed": 71002,
+      "elapsed_s": 17.0,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.8731,
+      "border_median_rgb": [
+        255,
+        252,
+        252
+      ],
+      "border_minch_mean": 229.8,
+      "border_std": 57.9,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.5293,
+      "lowest_row": 2431,
+      "lowest_row_frac": 0.9996,
+      "bbox_main": [
+        0,
+        44,
+        1663,
+        2431
+      ],
+      "bbox_h_over_w": 1.435,
+      "top_row_frac": 0.0181,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "idol_71003",
+      "variant": "idol",
+      "seed": 71003,
+      "elapsed_s": 16.7,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.2444,
+      "border_median_rgb": [
+        220,
+        223,
+        225
+      ],
+      "border_minch_mean": 226.5,
+      "border_std": 11.4,
+      "components_ge_1pct": 5,
+      "main_area_frac": 0.1617,
+      "lowest_row": 2372,
+      "lowest_row_frac": 0.9753,
+      "bbox_main": [
+        124,
+        1415,
+        1504,
+        2372
+      ],
+      "bbox_h_over_w": 0.694,
+      "top_row_frac": 0.0625,
+      "dark_clusters_outside_figure": 105,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "idol_71004",
+      "variant": "idol",
+      "seed": 71004,
+      "elapsed_s": 18.3,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 1.0,
+      "border_median_rgb": [
+        254,
+        252,
+        252
+      ],
+      "border_minch_mean": 251.9,
+      "border_std": 1.1,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.4194,
+      "lowest_row": 2411,
+      "lowest_row_frac": 0.9914,
+      "bbox_main": [
+        154,
+        42,
+        1458,
+        2411
+      ],
+      "bbox_h_over_w": 1.816,
+      "top_row_frac": 0.0173,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": true
+    },
+    {
+      "label": "idol_71005",
+      "variant": "idol",
+      "seed": 71005,
+      "elapsed_s": 20.8,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.5684,
+      "border_median_rgb": [
+        241,
+        242,
+        245
+      ],
+      "border_minch_mean": 167.5,
+      "border_std": 83.7,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.7763,
+      "lowest_row": 2431,
+      "lowest_row_frac": 0.9996,
+      "bbox_main": [
+        0,
+        17,
+        1663,
+        2431
+      ],
+      "bbox_h_over_w": 1.451,
+      "top_row_frac": 0.007,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "idol_71006",
+      "variant": "idol",
+      "seed": 71006,
+      "elapsed_s": 20.3,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.9187,
+      "border_median_rgb": [
+        241,
+        242,
+        244
+      ],
+      "border_minch_mean": 240.5,
+      "border_std": 3.8,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.2895,
+      "lowest_row": 2410,
+      "lowest_row_frac": 0.991,
+      "bbox_main": [
+        344,
+        82,
+        1322,
+        2410
+      ],
+      "bbox_h_over_w": 2.379,
+      "top_row_frac": 0.0337,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "shrine_72001",
+      "variant": "shrine",
+      "seed": 72001,
+      "elapsed_s": 21.4,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0,
+      "border_median_rgb": [
+        161,
+        165,
+        169
+      ],
+      "border_minch_mean": 171.7,
+      "border_std": 27.0,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.4274,
+      "lowest_row": 2431,
+      "lowest_row_frac": 0.9996,
+      "bbox_main": [
+        232,
+        0,
+        1507,
+        2431
+      ],
+      "bbox_h_over_w": 1.906,
+      "top_row_frac": 0.0,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "shrine_72002",
+      "variant": "shrine",
+      "seed": 72002,
+      "elapsed_s": 18.9,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0,
+      "border_median_rgb": [
+        233,
+        232,
+        229
+      ],
+      "border_minch_mean": 210.0,
+      "border_std": 46.9,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.5857,
+      "lowest_row": 2397,
+      "lowest_row_frac": 0.9856,
+      "bbox_main": [
+        102,
+        0,
+        1536,
+        2397
+      ],
+      "bbox_h_over_w": 1.671,
+      "top_row_frac": 0.0,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "shrine_72003",
+      "variant": "shrine",
+      "seed": 72003,
+      "elapsed_s": 18.8,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0,
+      "border_median_rgb": [
+        61,
+        64,
+        61
+      ],
+      "border_minch_mean": 62.2,
+      "border_std": 45.5,
+      "components_ge_1pct": 2,
+      "main_area_frac": 0.519,
+      "lowest_row": 2431,
+      "lowest_row_frac": 0.9996,
+      "bbox_main": [
+        120,
+        0,
+        1663,
+        2431
+      ],
+      "bbox_h_over_w": 1.575,
+      "top_row_frac": 0.0,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "shrine_72004",
+      "variant": "shrine",
+      "seed": 72004,
+      "elapsed_s": 20.3,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.9834,
+      "border_median_rgb": [
+        244,
+        244,
+        241
+      ],
+      "border_minch_mean": 238.4,
+      "border_std": 17.9,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.3143,
+      "lowest_row": 2366,
+      "lowest_row_frac": 0.9729,
+      "bbox_main": [
+        282,
+        0,
+        1409,
+        2366
+      ],
+      "bbox_h_over_w": 2.098,
+      "top_row_frac": 0.0,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "shrine_72005",
+      "variant": "shrine",
+      "seed": 72005,
+      "elapsed_s": 18.3,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0,
+      "border_median_rgb": [
+        208,
+        210,
+        210
+      ],
+      "border_minch_mean": 207.9,
+      "border_std": 0.6,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.1597,
+      "lowest_row": 2354,
+      "lowest_row_frac": 0.9679,
+      "bbox_main": [
+        495,
+        113,
+        1122,
+        2354
+      ],
+      "bbox_h_over_w": 3.57,
+      "top_row_frac": 0.0465,
+      "dark_clusters_outside_figure": 4,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "shrine_72006",
+      "variant": "shrine",
+      "seed": 72006,
+      "elapsed_s": 18.8,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0,
+      "border_median_rgb": [
+        183,
+        182,
+        179
+      ],
+      "border_minch_mean": 174.6,
+      "border_std": 31.3,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.4444,
+      "lowest_row": 2431,
+      "lowest_row_frac": 0.9996,
+      "bbox_main": [
+        113,
+        0,
+        1404,
+        2431
+      ],
+      "bbox_h_over_w": 1.882,
+      "top_row_frac": 0.0,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "gothic_73001",
+      "variant": "gothic",
+      "seed": 73001,
+      "elapsed_s": 22.6,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 1.0,
+      "border_median_rgb": [
+        248,
+        249,
+        249
+      ],
+      "border_minch_mean": 248.2,
+      "border_std": 0.8,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.487,
+      "lowest_row": 2400,
+      "lowest_row_frac": 0.9868,
+      "bbox_main": [
+        88,
+        91,
+        1598,
+        2400
+      ],
+      "bbox_h_over_w": 1.529,
+      "top_row_frac": 0.0374,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": true
+    },
+    {
+      "label": "gothic_73002",
+      "variant": "gothic",
+      "seed": 73002,
+      "elapsed_s": 18.3,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0,
+      "border_median_rgb": [
+        4,
+        7,
+        8
+      ],
+      "border_minch_mean": 9.5,
+      "border_std": 13.7,
+      "components_ge_1pct": 6,
+      "main_area_frac": 0.1602,
+      "lowest_row": 2390,
+      "lowest_row_frac": 0.9827,
+      "bbox_main": [
+        128,
+        746,
+        1391,
+        2314
+      ],
+      "bbox_h_over_w": 1.241,
+      "top_row_frac": 0.0559,
+      "dark_clusters_outside_figure": 11,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "gothic_73003",
+      "variant": "gothic",
+      "seed": 73003,
+      "elapsed_s": 19.1,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0,
+      "border_median_rgb": [
+        2,
+        5,
+        2
+      ],
+      "border_minch_mean": 38.8,
+      "border_std": 69.2,
+      "components_ge_1pct": 12,
+      "main_area_frac": 0.1922,
+      "lowest_row": 2431,
+      "lowest_row_frac": 0.9996,
+      "bbox_main": [
+        0,
+        157,
+        1663,
+        2242
+      ],
+      "bbox_h_over_w": 1.254,
+      "top_row_frac": 0.0378,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "gothic_73004",
+      "variant": "gothic",
+      "seed": 73004,
+      "elapsed_s": 20.8,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0,
+      "border_median_rgb": [
+        207,
+        206,
+        209
+      ],
+      "border_minch_mean": 203.8,
+      "border_std": 11.7,
+      "components_ge_1pct": 1,
+      "main_area_frac": 0.2942,
+      "lowest_row": 2407,
+      "lowest_row_frac": 0.9897,
+      "bbox_main": [
+        326,
+        104,
+        1299,
+        2407
+      ],
+      "bbox_h_over_w": 2.366,
+      "top_row_frac": 0.0428,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "gothic_73005",
+      "variant": "gothic",
+      "seed": 73005,
+      "elapsed_s": 18.9,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0222,
+      "border_median_rgb": [
+        161,
+        165,
+        174
+      ],
+      "border_minch_mean": 154.1,
+      "border_std": 35.8,
+      "components_ge_1pct": 3,
+      "main_area_frac": 0.6609,
+      "lowest_row": 2431,
+      "lowest_row_frac": 0.9996,
+      "bbox_main": [
+        0,
+        44,
+        1663,
+        2431
+      ],
+      "bbox_h_over_w": 1.435,
+      "top_row_frac": 0.0,
+      "dark_clusters_outside_figure": 0,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    },
+    {
+      "label": "gothic_73006",
+      "variant": "gothic",
+      "seed": 73006,
+      "elapsed_s": 20.3,
+      "size": [
+        1664,
+        2432
+      ],
+      "border_white_frac": 0.0807,
+      "border_median_rgb": [
+        43,
+        51,
+        51
+      ],
+      "border_minch_mean": 68.9,
+      "border_std": 63.1,
+      "components_ge_1pct": 23,
+      "main_area_frac": 0.0913,
+      "lowest_row": 2431,
+      "lowest_row_frac": 0.9996,
+      "bbox_main": [
+        399,
+        33,
+        1490,
+        1551
+      ],
+      "bbox_h_over_w": 1.391,
+      "top_row_frac": 0.0136,
+      "dark_clusters_outside_figure": 7,
+      "PASS_as_run": false,
+      "PASS_without_h_over_w": false
+    }
+  ],
+  "passing_without_h_over_w": [
+    "idol_71004",
+    "gothic_73001"
+  ],
+  "chosen": "idol_71004"
+}

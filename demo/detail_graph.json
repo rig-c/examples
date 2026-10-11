@@ -1,0 +1,126 @@
+{
+  "note": "the hand-detailer pass that turned the painting step's output (seed 71006, not published) into painting.png: one ComfyUI graph, queued once; node 1 loads that output, node 9 loads detail_mask.png (two 201x161 boxes over the hands, authored by eye: the box has no hand detector); the LoadImage names are the names the box stored the uploads under",
+  "seed": 71006,
+  "prompt_id": "6ea26d67-4d16-4348-aab5-46e69b3aca58",
+  "graph": {
+    "1": {
+      "class_type": "LoadImage",
+      "inputs": {
+        "image": "sq227_sq227-cand-hassaku-wide_painting_71006.png"
+      }
+    },
+    "2": {
+      "class_type": "CheckpointLoaderSimple",
+      "inputs": {
+        "ckpt_name": "hassakuXLIllustrious_v13StyleA.safetensors"
+      }
+    },
+    "3": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings, idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, arms away from body, hands apart away from skirt, open hands, relaxed fingers, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background, detailed hands, five fingers",
+        "clip": [
+          "2",
+          1
+        ]
+      }
+    },
+    "4": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, microphone, holding microphone, stage, stage lights, flat color, cel shading, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet",
+        "clip": [
+          "2",
+          1
+        ]
+      }
+    },
+    "9": {
+      "class_type": "LoadImage",
+      "inputs": {
+        "image": "sq227_mask_sq227-mask-hassaku-wide-71006.png"
+      }
+    },
+    "5": {
+      "class_type": "ImageToMask",
+      "inputs": {
+        "image": [
+          "9",
+          0
+        ],
+        "channel": "red"
+      }
+    },
+    "6": {
+      "class_type": "MaskToSEGS",
+      "inputs": {
+        "mask": [
+          "5",
+          0
+        ],
+        "combined": false,
+        "crop_factor": 3.0,
+        "bbox_fill": true,
+        "drop_size": 10,
+        "contour_fill": false
+      }
+    },
+    "7": {
+      "class_type": "DetailerForEach",
+      "inputs": {
+        "image": [
+          "1",
+          0
+        ],
+        "segs": [
+          "6",
+          0
+        ],
+        "model": [
+          "2",
+          0
+        ],
+        "clip": [
+          "2",
+          1
+        ],
+        "vae": [
+          "2",
+          2
+        ],
+        "guide_size": 512,
+        "guide_size_for": true,
+        "max_size": 1024,
+        "seed": 71006,
+        "steps": 20,
+        "cfg": 6.0,
+        "sampler_name": "euler_ancestral",
+        "scheduler": "normal",
+        "positive": [
+          "3",
+          0
+        ],
+        "negative": [
+          "4",
+          0
+        ],
+        "denoise": 0.45,
+        "feather": 5,
+        "noise_mask": true,
+        "force_inpaint": true,
+        "wildcard": "",
+        "cycle": 1
+      }
+    },
+    "8": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "sq227_detail",
+        "images": [
+          "7",
+          0
+        ]
+      }
+    }
+  }
+}
