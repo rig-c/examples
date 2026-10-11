@@ -1,0 +1,95 @@
+{
+  "key": "three-quarter",
+  "seed": 250011,
+  "checkpoint": "hassakuXLIllustrious_v13StyleA.safetensors",
+  "checkpoint_source": "Hassaku XL (Illustrious), version \"v1.3 - Style A\" (CivitAI model 140272, version 1240288), https://civitai.com/models/140272; publisher Ikena",
+  "checkpoint_sha256": "79408e8b5a794bdb4b0786e05d4a77e3610b1a242226ed063fb45d6075ae4d60",
+  "checkpoint_sha256_note": "the SHA256 the CivitAI API lists for the version's file (https://civitai.com/api/v1/model-versions/1240288, observed 2026-10-11), not hashed on the box",
+  "licence": "Fair AI Public License 1.0-SD",
+  "licence_note": "the model page's \"Version and License info\" section, observed 2026-10-11: \"All Models using the Fair AI Public License 1.0-SD license\"; the API record's allowNoCredit is false (credit the model when sharing)",
+  "credit": "Painted with Hassaku XL (Illustrious) v1.3 Style A by Ikena (https://civitai.com/models/140272), Fair AI Public License 1.0-SD.",
+  "loras": [],
+  "trigger": "",
+  "sampler": {
+    "steps": 30,
+    "cfg": 6,
+    "sampler": "euler_ancestral",
+    "scheduler": "normal"
+  },
+  "control": null,
+  "control_note": "no control skeleton: a body-18 OpenPose skeleton carries the face's points (nose, eyes, ears), which would hold the face frontal; the pose words alone turn the head",
+  "latent": [
+    832,
+    1216
+  ],
+  "upscale": "4x-AnimeSharp.pth (ImageUpscaleWithModel), then ImageScaleBy lanczos x0.5; read from the workflow embedded in painting.png",
+  "size": [
+    1664,
+    2432
+  ],
+  "elapsed_s": 12.8,
+  "painted_by": "`rig-parts comfy paint` (rig-parts' own ComfyUI adapter), like `demo` and `scarf`; no detailer pass",
+  "prompt_parts": {
+    "identity": "1girl, solo, adult woman, medium length straight brown hair, green eyes, small white hair clip",
+    "costume": "navy blue school blazer, white shirt, red ribbon tie, grey pleated skirt to the knees, black tights, brown loafers, fully clothed, empty hands",
+    "pose": "full body, head to toe, entire body in frame, standing, (three-quarter view:1.3), (head turned to the side:1.2), looking to the side, arms at sides, relaxed pose, gentle smile, feet visible, shoes",
+    "style": "anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+    "negative_extra": "revealing clothes, bare shoulders, 2girls, multiple girls, holding, bag, weapon, clouds, sky, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, grey background, dark background, black background, spotlight, flat color, monochrome, lineart",
+    "negative_pose": "cropped, out of frame, cut off feet, close-up, portrait, upper body, profile, from behind, sitting, kneeling, squatting, crouching, leg up, dynamic pose, arms raised, hand on face, cast shadow, floor, multiple views, reference sheet, front view, facing viewer"
+  },
+  "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, medium length straight brown hair, green eyes, small white hair clip, navy blue school blazer, white shirt, red ribbon tie, grey pleated skirt to the knees, black tights, brown loafers, fully clothed, empty hands, full body, head to toe, entire body in frame, standing, (three-quarter view:1.3), (head turned to the side:1.2), looking to the side, arms at sides, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+  "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, 2girls, multiple girls, holding, bag, weapon, clouds, sky, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, grey background, dark background, black background, spotlight, flat color, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, profile, from behind, sitting, kneeling, squatting, crouching, leg up, dynamic pose, arms raised, hand on face, cast shadow, floor, multiple views, reference sheet, front view, facing viewer",
+  "prompt_id": "ef8d4c60-77b8-41f7-90f2-eae06847a331",
+  "seed_selection": {
+    "purpose": "a face painted three-quarter, to read rig-parts' head-frame turn figures against frontal faces (rig-parts issue #250)",
+    "seeds": [
+      250001,
+      250002,
+      250003,
+      250004,
+      250011,
+      250012,
+      250013,
+      250014,
+      250015,
+      250016
+    ],
+    "batches": [
+      {
+        "seeds": [
+          250001,
+          250002,
+          250003,
+          250004
+        ],
+        "pose": "full body, head to toe, entire body in frame, three-quarter view, face turned to the side, head turned, looking to the side, standing, arms at sides, relaxed pose, gentle smile, feet visible, shoes",
+        "negative_differs": "its negative lacks \"squatting, crouching, leg up\"; otherwise as below",
+        "reading": "250001 seated; 250002 standing, the face turned only slightly; 250003 crouching beside a second, cropped figure; 250004 cropped, the head out of frame"
+      },
+      {
+        "seeds": [
+          250011,
+          250012,
+          250013,
+          250014,
+          250015,
+          250016
+        ],
+        "pose": "the pose words above",
+        "reading": "250011 standing, the whole figure in frame, the head turned clearly toward image left and tilted; 250012 standing, small in the frame, the face turned only slightly; 250013 cropped, the head out of frame; 250014 two figures, one cropped; 250015 an upside-down figure among cropped legs; 250016 two cropped figures"
+      }
+    ],
+    "rule": "read by eye: the first seed whose painting holds the whole figure and a face turned clearly to one side; no figure was computed to choose",
+    "note": "the identity words ask for brown hair; the chosen painting's hair is silver-white, and is published as painted"
+  },
+  "seethrough": {
+    "head_box": [
+      249,
+      0,
+      789,
+      540
+    ],
+    "head_box_note": "rig-parts propose --head-box on the full run: the proposed [249, -24, 789, 516] ran 24 px above the painting and the command shifted it down at the same 540 px side",
+    "inputs_note": "cut by a short PIL script with rig-parts inputs' geometry (that command needs a full config): the full input is the painting at x 384 with 384 px of white either side, 2432x2432; the head input is the head box cropped at its exact size, 540x540; both RGB"
+  }
+}
