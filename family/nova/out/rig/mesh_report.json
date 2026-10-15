@@ -1,0 +1,153 @@
+[
+ {
+  "part": "neck",
+  "vertices": 16,
+  "triangles": 18,
+  "hull": 12,
+  "bones": [
+   "chest",
+   "head"
+  ],
+  "max_influences": 2,
+  "mean_influences": 1.81,
+  "art_coverage": 1,
+  "grid": 57
+ },
+ {
+  "part": "topwear",
+  "vertices": 359,
+  "triangles": 612,
+  "hull": 104,
+  "bones": [
+   "boob_l",
+   "boob_r",
+   "chest",
+   "hem_l0",
+   "hem_l1",
+   "hem_r0",
+   "hem_r1"
+  ],
+  "max_influences": 4,
+  "mean_influences": 2.88,
+  "art_coverage": 1,
+  "mode": "contour",
+  "params": {
+   "tolerance": 2,
+   "margin": 2,
+   "spacing": 36,
+   "maxEdge": 64,
+   "budget": null,
+   "stray": 400,
+   "bridges": true
+  },
+  "contour": {
+   "boundaryVertices": 104,
+   "interiorVertices": 255,
+   "interiorBySource": [
+    {
+     "source": "region \"bust_r\"",
+     "vertices": 57
+    },
+    {
+     "source": "region \"bust_l\"",
+     "vertices": 57
+    },
+    {
+     "source": "background",
+     "vertices": 141
+    }
+   ],
+   "triangles": 612,
+   "tracedVertices": 2752,
+   "artPixels": 240367,
+   "coveredArtPixels": 240367,
+   "coverage": 1,
+   "overshoot": 4,
+   "overshootBound": 5,
+   "meshArea": 249170,
+   "enclosedTransparentArea": 8803,
+   "filledHolePixels": 4216,
+   "smallestAngle": {
+    "triangle": 13,
+    "value": 3.865241
+   },
+   "largestEdgeRatio": {
+    "triangle": 13,
+    "value": 14.826075
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 1,
+   "strayPixels": 1,
+   "grownPixels": 4297,
+   "pinchFilledPixels": 0,
+   "grownHolePixels": 0,
+   "outlineCut": 8,
+   "bridges": {
+    "islands": [
+     240367
+    ],
+    "units": [
+     [
+      240367
+     ]
+    ],
+    "joins": []
+   }
+  },
+  "regions": [
+   {
+    "name": "bust_r",
+    "bone": "boob_r",
+    "reached": 48,
+    "whole": 9
+   },
+   {
+    "name": "bust_l",
+    "bone": "boob_l",
+    "reached": 48,
+    "whole": 9
+   }
+  ]
+ },
+ {
+  "part": "hair_back",
+  "vertices": 66,
+  "triangles": 96,
+  "hull": 34,
+  "bones": [
+   "hairback_l0",
+   "hairback_l1",
+   "hairback_l2",
+   "hairback_r0",
+   "hairback_r1",
+   "hairback_r2",
+   "head"
+  ],
+  "max_influences": 4,
+  "mean_influences": 3.7,
+  "art_coverage": 1,
+  "grid": 57
+ },
+ {
+  "part": "hair_front",
+  "vertices": 50,
+  "triangles": 64,
+  "hull": 34,
+  "bones": [
+   "bang_c0",
+   "bang_c1",
+   "bang_l0",
+   "bang_l1",
+   "bang_r0",
+   "bang_r1",
+   "hair_l0",
+   "hair_l1",
+   "hair_l2",
+   "head"
+  ],
+  "max_influences": 4,
+  "mean_influences": 3.86,
+  "art_coverage": 1,
+  "grid": 57
+ }
+]

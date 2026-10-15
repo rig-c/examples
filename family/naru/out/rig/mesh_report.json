@@ -1,0 +1,175 @@
+[
+ {
+  "part": "hair_back",
+  "vertices": 46,
+  "triangles": 66,
+  "hull": 24,
+  "bones": [
+   "hairback_l0",
+   "hairback_l1",
+   "hairback_l2",
+   "hairback_r0",
+   "hairback_r1",
+   "hairback_r2",
+   "head"
+  ],
+  "max_influences": 4,
+  "mean_influences": 3.72,
+  "art_coverage": 1,
+  "grid": 57
+ },
+ {
+  "part": "bottomwear",
+  "vertices": 129,
+  "triangles": 208,
+  "hull": 48,
+  "bones": [
+   "hip",
+   "skirt_c0",
+   "skirt_c1",
+   "skirt_c2",
+   "skirt_l0",
+   "skirt_l1",
+   "skirt_l2",
+   "skirt_r0",
+   "skirt_r1",
+   "skirt_r2"
+  ],
+  "max_influences": 4,
+  "mean_influences": 2.74,
+  "art_coverage": 1,
+  "grid": 57
+ },
+ {
+  "part": "neck",
+  "vertices": 20,
+  "triangles": 24,
+  "hull": 14,
+  "bones": [
+   "chest",
+   "head"
+  ],
+  "max_influences": 2,
+  "mean_influences": 1.8,
+  "art_coverage": 1,
+  "grid": 57
+ },
+ {
+  "part": "topwear",
+  "vertices": 285,
+  "triangles": 470,
+  "hull": 98,
+  "bones": [
+   "boob_l",
+   "boob_r",
+   "chest",
+   "hip"
+  ],
+  "max_influences": 3,
+  "mean_influences": 2.16,
+  "art_coverage": 1,
+  "mode": "contour",
+  "params": {
+   "tolerance": 2,
+   "margin": 2,
+   "spacing": 36,
+   "maxEdge": 64,
+   "budget": null,
+   "stray": 400,
+   "bridges": true
+  },
+  "contour": {
+   "boundaryVertices": 98,
+   "interiorVertices": 187,
+   "interiorBySource": [
+    {
+     "source": "region \"bust_r\"",
+     "vertices": 58
+    },
+    {
+     "source": "region \"bust_l\"",
+     "vertices": 58
+    },
+    {
+     "source": "background",
+     "vertices": 71
+    }
+   ],
+   "triangles": 470,
+   "tracedVertices": 2308,
+   "artPixels": 150168,
+   "coveredArtPixels": 150168,
+   "coverage": 1,
+   "overshoot": 3.605551,
+   "overshootBound": 5,
+   "meshArea": 154060,
+   "enclosedTransparentArea": 3892,
+   "filledHolePixels": 137,
+   "smallestAngle": {
+    "triangle": 134,
+    "value": 5.444178
+   },
+   "largestEdgeRatio": {
+    "triangle": 134,
+    "value": 7.73603
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 0,
+   "strayPixels": 0,
+   "grownPixels": 3748,
+   "pinchFilledPixels": 0,
+   "grownHolePixels": 0,
+   "outlineCut": 5,
+   "bridges": {
+    "islands": [
+     150168
+    ],
+    "units": [
+     [
+      150168
+     ]
+    ],
+    "joins": []
+   }
+  },
+  "regions": [
+   {
+    "name": "bust_r",
+    "bone": "boob_r",
+    "reached": 49,
+    "whole": 9
+   },
+   {
+    "name": "bust_l",
+    "bone": "boob_l",
+    "reached": 49,
+    "whole": 9
+   }
+  ]
+ },
+ {
+  "part": "hair_front",
+  "vertices": 40,
+  "triangles": 50,
+  "hull": 28,
+  "bones": [
+   "bang_c0",
+   "bang_c1",
+   "bang_l0",
+   "bang_l1",
+   "bang_r0",
+   "bang_r1",
+   "hair_l0",
+   "hair_l1",
+   "hair_l2",
+   "hair_r0",
+   "hair_r1",
+   "hair_r2",
+   "head"
+  ],
+  "max_influences": 4,
+  "mean_influences": 3.77,
+  "art_coverage": 1,
+  "grid": 57
+ }
+]

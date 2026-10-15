@@ -1,0 +1,526 @@
+{
+ "gate_spine_html_green": true,
+ "rigc_entry": {
+  "entry": "cli.ts",
+  "spine_core": "4.3.13"
+ },
+ "pack_mode": {
+  "page_edges": "free",
+  "pack_shape": "polygon"
+ },
+ "loop_max_diff": 0,
+ "loop_physics": [
+  {
+   "name": "hairback_r0_phys",
+   "bone": "hairback_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_r1_phys",
+   "bone": "hairback_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_r2_phys",
+   "bone": "hairback_r2",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_l0_phys",
+   "bone": "hairback_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_l1_phys",
+   "bone": "hairback_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_l2_phys",
+   "bone": "hairback_l2",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_r0_phys",
+   "bone": "bang_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_r1_phys",
+   "bone": "bang_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_c0_phys",
+   "bone": "bang_c0",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_c1_phys",
+   "bone": "bang_c1",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_l0_phys",
+   "bone": "bang_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_l1_phys",
+   "bone": "bang_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_r0_phys",
+   "bone": "skirt_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_r1_phys",
+   "bone": "skirt_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_r2_phys",
+   "bone": "skirt_r2",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_c0_phys",
+   "bone": "skirt_c0",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_c1_phys",
+   "bone": "skirt_c1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_c2_phys",
+   "bone": "skirt_c2",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_l0_phys",
+   "bone": "skirt_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_l1_phys",
+   "bone": "skirt_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_l2_phys",
+   "bone": "skirt_l2",
+   "in": "rig.json"
+  },
+  {
+   "name": "boob_r_phys",
+   "bone": "boob_r",
+   "in": "rig.json"
+  },
+  {
+   "name": "boob_l_phys",
+   "bone": "boob_l",
+   "in": "rig.json"
+  }
+ ],
+ "seam_mean": 0.118,
+ "seam_px_over_40": 9,
+ "seam_px_over_80": 0,
+ "seam_frame_scale": 0.998488,
+ "BREATH_VISIBLE": {
+  "status": "PASS",
+  "torso_parts": [
+   "topwear"
+  ],
+  "torso_heat_mean": 17.242,
+  "torso_floor": 3.809,
+  "feet_parts": [
+   "shoes"
+  ],
+  "feet_heat_max": 0,
+  "feet_ceiling": 0
+ },
+ "BLINK_NO_HOLE": {
+  "status": "SKIP",
+  "reason": "no part comes from a See-through \"eyewhite\" layer, so there is no eye to look behind"
+ },
+ "CHAIN_LAG": {
+  "status": "PASS",
+  "chains": [
+   "neck > head_ctl: period 3.333s, phase 0.080 0.120, amp 0.350 0.900",
+   "bang_r0_ctl > bang_r1_ctl: period 3.333s, phase 0.180 0.280, amp 0.600 1.300",
+   "bang_c0_ctl > bang_c1_ctl: period 3.333s, phase 0.180 0.280, amp 0.500 1.100",
+   "bang_l0_ctl > bang_l1_ctl: period 3.333s, phase 0.180 0.280, amp 0.600 1.300",
+   "sleeve_r0_ctl > sleeve_r1_ctl > sleeve_r2_ctl: period 3.333s, phase 0.220 0.300 0.380, amp 0.200 0.500 0.900",
+   "sleeve_l0_ctl > sleeve_l1_ctl > sleeve_l2_ctl: period 3.333s, phase 0.770 0.850 0.930, amp 0.200 1.200 2.600",
+   "skirt_c0_ctl > skirt_c1_ctl > skirt_c2_ctl: period 3.333s, phase 0.340 0.410 0.480, amp 0.060 0.150 0.300"
+  ],
+  "lags": [
+   "neck > head_ctl +0.040",
+   "head_ctl > hairback_r0_ctl +0.080",
+   "head_ctl > hairback_l0_ctl +0.120",
+   "head_ctl > bang_r0_ctl +0.060",
+   "bang_r0_ctl > bang_r1_ctl +0.100",
+   "head_ctl > bang_c0_ctl +0.060",
+   "bang_c0_ctl > bang_c1_ctl +0.100",
+   "head_ctl > bang_l0_ctl +0.060",
+   "bang_l0_ctl > bang_l1_ctl +0.100",
+   "sleeve_r0_ctl > sleeve_r1_ctl +0.080",
+   "sleeve_r1_ctl > sleeve_r2_ctl +0.080",
+   "sleeve_l0_ctl > sleeve_l1_ctl +0.080",
+   "sleeve_l1_ctl > sleeve_l2_ctl +0.080",
+   "skirt_c0_ctl > skirt_c1_ctl +0.070",
+   "skirt_c1_ctl > skirt_c2_ctl +0.070"
+  ],
+  "min_step": 0.04,
+  "step_floor": 0.001,
+  "other_period": [
+   "head_ctl > earring0_ctl"
+  ],
+  "unread": [],
+  "first_violation": null
+ },
+ "TIP_OVER_ROOT": {
+  "status": "PASS",
+  "instrument": "geometry",
+  "parts": [
+   {
+    "part": "bottomwear",
+    "root_rig_px": 0.144,
+    "tip_rig_px": 1.312,
+    "ratio": 9.124
+   },
+   {
+    "part": "handwear_r",
+    "root_rig_px": 3.485,
+    "tip_rig_px": 14.704,
+    "ratio": 4.219
+   },
+   {
+    "part": "handwear_l",
+    "root_rig_px": 3.689,
+    "tip_rig_px": 8.531,
+    "ratio": 2.313
+   }
+  ],
+  "ratio_floor": 1.4725
+ },
+ "STILL_REGIONS_DARK": {
+  "status": "PASS",
+  "face": {
+   "parts": [
+    "face"
+   ],
+   "head_bone": "head",
+   "instrument": "geometry",
+   "still_slots": [
+    {
+     "slot": "face",
+     "max_rig_px": 8.983e-13,
+     "rms_rig_px": 2.604e-13
+    },
+    {
+     "slot": "nose",
+     "max_rig_px": 5.387e-13,
+     "rms_rig_px": 1.93e-13
+    },
+    {
+     "slot": "lash_r",
+     "max_rig_px": 6.289e-13,
+     "rms_rig_px": 2.041e-13
+    },
+    {
+     "slot": "lash_l",
+     "max_rig_px": 5.681e-13,
+     "rms_rig_px": 2.114e-13
+    },
+    {
+     "slot": "brow_l",
+     "max_rig_px": 4.549e-13,
+     "rms_rig_px": 2.068e-13
+    },
+    {
+     "slot": "ear_r",
+     "max_rig_px": 4.457e-13,
+     "rms_rig_px": 2.098e-13
+    }
+   ],
+   "max_rig_px": 8.983e-13,
+   "at": null,
+   "rms_rig_px": 2.544e-13,
+   "tolerance_rig_px": 4.573e-11,
+   "crossing": [
+    {
+     "slot": "hair_front",
+     "depth_rig_px": 1.829,
+     "area_rig_px2": 173.334,
+     "frame": 0
+    }
+   ],
+   "driven_slots": []
+  },
+  "feet": {
+   "parts": [
+    "shoes"
+   ],
+   "instrument": "geometry",
+   "still_slots": [
+    {
+     "slot": "shoes",
+     "max_rig_px": 0,
+     "rms_rig_px": 0
+    }
+   ],
+   "max_rig_px": 0,
+   "at": null,
+   "rms_rig_px": 0,
+   "tolerance_rig_px": 2.814e-12,
+   "crossing": [
+    {
+     "slot": "bottomwear",
+     "depth_rig_px": 3.819,
+     "area_rig_px2": 181.183,
+     "frame": 28
+    }
+   ]
+  }
+ },
+ "TEXTURE_STRETCH": {
+  "status": "PASS",
+  "meshes": 8,
+  "triangles": 1030,
+  "frames": 41,
+  "severity": 1.132,
+  "severity_ceiling": 1.926544,
+  "worst": {
+   "slot": "topwear",
+   "triangle": 341,
+   "vertices": [
+    164,
+    175,
+    165
+   ],
+   "edge": [
+    175,
+    165
+   ],
+   "frame": 19,
+   "ratio": 0.883
+  },
+  "max_ratio": 1.131,
+  "min_ratio": 0.883,
+  "per_mesh": [
+   {
+    "slot": "bottomwear",
+    "triangles": 306,
+    "max_ratio": 1.01,
+    "max_at": "triangle 277 (vertices 44 43 42), edge 44-43, idle frame 31",
+    "min_ratio": 0.992,
+    "min_at": "triangle 237 (vertices 162 166 167), edge 167-162, idle frame 30",
+    "severity": 1.01
+   },
+   {
+    "slot": "handwear_r",
+    "triangles": 98,
+    "max_ratio": 1.015,
+    "max_at": "triangle 11 (vertices 4 45 5), edge 45-5, idle frame 6",
+    "min_ratio": 0.993,
+    "min_at": "triangle 11 (vertices 4 45 5), edge 45-5, idle frame 26",
+    "severity": 1.015
+   },
+   {
+    "slot": "neck",
+    "triangles": 22,
+    "max_ratio": 1.013,
+    "max_at": "triangle 17 (vertices 17 18 6), edge 18-6, idle frame 13",
+    "min_ratio": 0.992,
+    "min_at": "triangle 7 (vertices 14 12 16), edge 16-14, idle frame 14",
+    "severity": 1.013
+   },
+   {
+    "slot": "topwear",
+    "triangles": 464,
+    "max_ratio": 1.131,
+    "max_at": "triangle 298 (vertices 149 201 204), edge 201-204, idle frame 19",
+    "min_ratio": 0.883,
+    "min_at": "triangle 341 (vertices 164 175 165), edge 175-165, idle frame 19",
+    "severity": 1.132
+   },
+   {
+    "slot": "handwear_l",
+    "triangles": 38,
+    "max_ratio": 1.03,
+    "max_at": "triangle 37 (vertices 12 14 13), edge 14-13, idle frame 26",
+    "min_ratio": 0.975,
+    "min_at": "triangle 10 (vertices 19 18 20), edge 19-18, idle frame 25",
+    "severity": 1.03
+   },
+   {
+    "slot": "hair_back",
+    "triangles": 74,
+    "max_ratio": 1.051,
+    "max_at": "triangle 68 (vertices 56 28 27), edge 28-27, idle frame 26",
+    "min_ratio": 0.96,
+    "min_at": "triangle 68 (vertices 56 28 27), edge 28-27, idle frame 5",
+    "severity": 1.051
+   },
+   {
+    "slot": "earring",
+    "triangles": 4,
+    "max_ratio": 1.009,
+    "max_at": "triangle 0 (vertices 0 2 1), edge 2-1, idle frame 0",
+    "min_ratio": 0.991,
+    "min_at": "triangle 0 (vertices 0 2 1), edge 2-1, idle frame 30",
+    "severity": 1.009
+   },
+   {
+    "slot": "hair_front",
+    "triangles": 24,
+    "max_ratio": 1.041,
+    "max_at": "triangle 21 (vertices 18 9 8), edge 9-8, idle frame 18",
+    "min_ratio": 0.967,
+    "min_at": "triangle 21 (vertices 18 9 8), edge 9-8, idle frame 0",
+    "severity": 1.041
+   }
+  ]
+ },
+ "ANIMATIONS_DO_NOT_FOLD": {
+  "status": "PASS",
+  "animations": [
+   "idle"
+  ],
+  "fps": 12,
+  "physics_left_out": 23,
+  "folding": [],
+  "folding_undeclared": 0,
+  "declared_not_folding": [],
+  "bar": 0
+ },
+ "STRESS_OFF_CHAIN": {
+  "status": "PASS",
+  "tags": [
+   "handwear"
+  ],
+  "turns": [
+   90,
+   -90,
+   180
+  ],
+  "parts_read": 2,
+  "reading": 1,
+  "worst": {
+   "part": "handwear_l",
+   "link": "sleeve_l0_ctl",
+   "turn": 180
+  },
+  "bar": 1,
+  "per_part": [
+   {
+    "part": "handwear_r",
+    "link": "sleeve_r0_ctl",
+    "links": 3,
+    "off_chain": [],
+    "poses": [
+     {
+      "turn": 90,
+      "reading": 1,
+      "worst": {
+       "triangle": 35,
+       "edge": [
+        53,
+        9
+       ],
+       "ratio": 1
+      }
+     },
+     {
+      "turn": -90,
+      "reading": 1,
+      "worst": {
+       "triangle": 37,
+       "edge": [
+        36,
+        35
+       ],
+       "ratio": 1
+      }
+     },
+     {
+      "turn": 180,
+      "reading": 1,
+      "worst": {
+       "triangle": 37,
+       "edge": [
+        36,
+        35
+       ],
+       "ratio": 1
+      }
+     }
+    ]
+   },
+   {
+    "part": "handwear_l",
+    "link": "sleeve_l0_ctl",
+    "links": 3,
+    "off_chain": [],
+    "poses": [
+     {
+      "turn": 90,
+      "reading": 1,
+      "worst": {
+       "triangle": 35,
+       "edge": [
+        16,
+        15
+       ],
+       "ratio": 1
+      }
+     },
+     {
+      "turn": -90,
+      "reading": 1,
+      "worst": {
+       "triangle": 35,
+       "edge": [
+        16,
+        15
+       ],
+       "ratio": 1
+      }
+     },
+     {
+      "turn": 180,
+      "reading": 1,
+      "worst": {
+       "triangle": 35,
+       "edge": [
+        16,
+        15
+       ],
+       "ratio": 1
+      }
+     }
+    ]
+   }
+  ],
+  "not_read": []
+ },
+ "RECOMPOSITE_HOLES": {
+  "status": "REPORTED",
+  "error_px": 16091,
+  "uncovered_error_px": 6353,
+  "hole_count": 481,
+  "largest": {
+   "px": 1092,
+   "box": "505,1055 48x872",
+   "borders": [
+    "bottomwear 934 px"
+   ]
+  }
+ },
+ "PASS": true
+}
