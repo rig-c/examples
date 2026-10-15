@@ -19,6 +19,92 @@
   "grid": 57
  },
  {
+  "part": "bottomwear",
+  "vertices": 426,
+  "triangles": 589,
+  "hull": 261,
+  "bones": [
+   "hip",
+   "skirt_c0",
+   "skirt_c1",
+   "skirt_l0",
+   "skirt_l1",
+   "skirt_r0",
+   "skirt_r1"
+  ],
+  "max_influences": 4,
+  "mean_influences": 1.51,
+  "art_coverage": 1,
+  "mode": "contour",
+  "params": {
+   "tolerance": 1,
+   "margin": 2,
+   "spacing": 36,
+   "maxEdge": 48,
+   "budget": null,
+   "stray": 0,
+   "bridges": true
+  },
+  "contour": {
+   "boundaryVertices": 261,
+   "interiorVertices": 165,
+   "interiorBySource": [
+    {
+     "source": "region \"fixed_upper_and_support\"",
+     "vertices": 147
+    },
+    {
+     "source": "background",
+     "vertices": 18
+    }
+   ],
+   "triangles": 589,
+   "tracedVertices": 2296,
+   "artPixels": 244848,
+   "coveredArtPixels": 244848,
+   "coverage": 1,
+   "overshoot": 3,
+   "overshootBound": 4,
+   "meshArea": 248846.5,
+   "enclosedTransparentArea": 3998.5,
+   "filledHolePixels": 0,
+   "smallestAngle": {
+    "triangle": 125,
+    "value": 3.17983
+   },
+   "largestEdgeRatio": {
+    "triangle": 164,
+    "value": 15.454773
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 0,
+   "strayPixels": 0,
+   "grownPixels": 4017,
+   "pinchFilledPixels": 0,
+   "grownHolePixels": 0,
+   "outlineCut": 8,
+   "bridges": {
+    "islands": [
+     244848
+    ],
+    "units": [
+     [
+      244848
+     ]
+    ],
+    "joins": []
+   }
+  },
+  "regions": [
+   {
+    "name": "fixed_upper_and_support",
+    "bone": "hip",
+    "reached": 344,
+    "whole": 339
+   }
+  ]
+ },
+ {
   "part": "neck",
   "vertices": 16,
   "triangles": 18,

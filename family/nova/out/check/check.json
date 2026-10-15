@@ -114,18 +114,38 @@
    "name": "boob_l_phys",
    "bone": "boob_l",
    "in": "rig.json"
+  },
+  {
+   "name": "cuff_r0_phys",
+   "bone": "cuff_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "cuff_r1_phys",
+   "bone": "cuff_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "cuff_l0_phys",
+   "bone": "cuff_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "cuff_l1_phys",
+   "bone": "cuff_l1",
+   "in": "rig.json"
   }
  ],
- "seam_mean": 0.135,
+ "seam_mean": 0.136,
  "seam_px_over_40": 1,
  "seam_px_over_80": 0,
- "seam_frame_scale": 1.068074,
+ "seam_frame_scale": 1.068051,
  "BREATH_VISIBLE": {
   "status": "PASS",
   "torso_parts": [
    "topwear"
   ],
-  "torso_heat_mean": 16.76,
+  "torso_heat_mean": 16.672,
   "torso_floor": 3.809,
   "feet_parts": [
    "shoes"
@@ -145,10 +165,10 @@
   "idle_frames_closed": [
    34
   ],
-  "box_px": 4961,
+  "box_px": 5002,
   "hole_px": 0,
   "hole_bar": 0,
-  "patch_max": 12,
+  "patch_max": 10,
   "patch_px_over_40": 0
  },
  "CHAIN_LAG": {
@@ -157,7 +177,9 @@
    "neck > head_ctl: period 3.333s, phase 0.080 0.120, amp 0.350 0.850",
    "bang_r0_ctl > bang_r1_ctl: period 3.333s, phase 0.180 0.280, amp 0.500 1.100",
    "bang_c0_ctl > bang_c1_ctl: period 3.333s, phase 0.180 0.280, amp 0.450 1.000",
-   "bang_l0_ctl > bang_l1_ctl: period 3.333s, phase 0.180 0.280, amp 0.500 1.100"
+   "bang_l0_ctl > bang_l1_ctl: period 3.333s, phase 0.180 0.280, amp 0.500 1.100",
+   "cuff_r0_ctl > cuff_r1_ctl: period 3.333s, phase 0.300 0.370, amp 0.300 0.900",
+   "cuff_l0_ctl > cuff_l1_ctl: period 3.333s, phase 0.340 0.410, amp 0.300 0.900"
   ],
   "lags": [
    "neck > head_ctl +0.040",
@@ -169,7 +191,9 @@
    "head_ctl > bang_c0_ctl +0.060",
    "bang_c0_ctl > bang_c1_ctl +0.100",
    "head_ctl > bang_l0_ctl +0.060",
-   "bang_l0_ctl > bang_l1_ctl +0.100"
+   "bang_l0_ctl > bang_l1_ctl +0.100",
+   "cuff_r0_ctl > cuff_r1_ctl +0.070",
+   "cuff_l0_ctl > cuff_l1_ctl +0.070"
   ],
   "min_step": 0.04,
   "step_floor": 0.001,
@@ -178,13 +202,13 @@
   "first_violation": null
  },
  "TIP_OVER_ROOT": {
-  "status": "FAIL",
+  "status": "PASS",
   "instrument": "geometry",
   "parts": [
    {
     "part": "bottomwear",
     "root_rig_px": 0,
-    "tip_rig_px": 0,
+    "tip_rig_px": 0.467,
     "ratio": null
    }
   ],
@@ -217,8 +241,8 @@
    "crossing": [
     {
      "slot": "hair_front",
-     "depth_rig_px": 1.375,
-     "area_rig_px2": 127.891,
+     "depth_rig_px": 1.482,
+     "area_rig_px2": 143.06,
      "frame": 19
     }
    ],
@@ -240,13 +264,20 @@
    "at": null,
    "rms_rig_px": 0,
    "tolerance_rig_px": 5.627e-12,
-   "crossing": []
+   "crossing": [
+    {
+     "slot": "bottomwear",
+     "depth_rig_px": 1.82,
+     "area_rig_px2": 52.903,
+     "frame": 1
+    }
+   ]
   }
  },
  "TEXTURE_STRETCH": {
   "status": "PASS",
-  "meshes": 4,
-  "triangles": 856,
+  "meshes": 5,
+  "triangles": 1666,
   "frames": 41,
   "severity": 1.277,
   "severity_ceiling": 1.926544,
@@ -271,11 +302,20 @@
    {
     "slot": "hair_back",
     "triangles": 120,
-    "max_ratio": 1.079,
+    "max_ratio": 1.09,
     "max_at": "triangle 110 (vertices 73 21 74), edge 73-21, idle frame 24",
-    "min_ratio": 0.938,
-    "min_at": "triangle 110 (vertices 73 21 74), edge 73-21, idle frame 4",
-    "severity": 1.079
+    "min_ratio": 0.929,
+    "min_at": "triangle 112 (vertices 74 21 75), edge 21-75, idle frame 24",
+    "severity": 1.09
+   },
+   {
+    "slot": "bottomwear",
+    "triangles": 810,
+    "max_ratio": 1.109,
+    "max_at": "triangle 187 (vertices 155 157 156), edge 156-155, idle frame 25",
+    "min_ratio": 0.891,
+    "min_at": "triangle 205 (vertices 168 171 169), edge 169-168, idle frame 24",
+    "severity": 1.123
    },
    {
     "slot": "neck",
@@ -298,11 +338,11 @@
    {
     "slot": "hair_front",
     "triangles": 80,
-    "max_ratio": 1.07,
+    "max_ratio": 1.08,
     "max_at": "triangle 72 (vertices 23 21 53), edge 21-53, idle frame 25",
-    "min_ratio": 0.943,
-    "min_at": "triangle 72 (vertices 23 21 53), edge 21-53, idle frame 4",
-    "severity": 1.07
+    "min_ratio": 0.95,
+    "min_at": "triangle 72 (vertices 23 21 53), edge 21-53, idle frame 3",
+    "severity": 1.08
    }
   ]
  },
@@ -312,7 +352,7 @@
    "idle"
   ],
   "fps": 12,
-  "physics_left_out": 21,
+  "physics_left_out": 25,
   "folding": [],
   "folding_undeclared": 0,
   "declared_not_folding": [],
@@ -335,20 +375,20 @@
   "status": "REPORTED",
   "painting_px": "800x2284",
   "stage_px": "800x2284",
-  "render_px": "748x2284",
+  "render_px": "744x2284",
   "render_scale": 1.0681,
-  "mean_abs": 2.804,
+  "mean_abs": 2.807,
   "within_limit": 8,
   "within_share": 0.9712,
   "error_limit": 40,
-  "error_px": 31796,
+  "error_px": 31819,
   "covered_alpha": 128,
-  "uncovered_error_px": 20603,
-  "hole_count": 536,
+  "uncovered_error_px": 20634,
+  "hole_count": 538,
   "largest": {
-   "px": 9570,
-   "box": "335,1478 42x431"
+   "px": 9695,
+   "box": "321,1478 56x431"
   }
  },
- "PASS": false
+ "PASS": true
 }

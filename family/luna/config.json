@@ -405,6 +405,60 @@
         525,
         1165
       ]
+    },
+    {
+      "chain": "skirt_r",
+      "parent": "hip",
+      "points": [
+        [
+          255,
+          1490
+        ],
+        [
+          260,
+          1560
+        ]
+      ],
+      "tip": [
+        265,
+        1620
+      ]
+    },
+    {
+      "chain": "skirt_c",
+      "parent": "hip",
+      "points": [
+        [
+          390,
+          1490
+        ],
+        [
+          397,
+          1560
+        ]
+      ],
+      "tip": [
+        403,
+        1620
+      ]
+    },
+    {
+      "chain": "skirt_l",
+      "parent": "hip",
+      "points": [
+        [
+          525,
+          1490
+        ],
+        [
+          535,
+          1560
+        ]
+      ],
+      "tip": [
+        545,
+        1620
+      ]
     }
   ],
   "meshes": {
@@ -531,12 +585,65 @@
         "hem_r",
         "hem_l"
       ]
+    },
+    "bottomwear": {
+      "contour": {
+        "tolerance": 1,
+        "margin": 2,
+        "spacing": 36,
+        "maxEdge": 48,
+        "stray": 0,
+        "bridges": true,
+        "regions": [
+          {
+            "name": "fixed_upper_and_support",
+            "shape": "polygon",
+            "points": [
+              [
+                130,
+                930
+              ],
+              [
+                590,
+                930
+              ],
+              [
+                590,
+                1480
+              ],
+              [
+                130,
+                1480
+              ]
+            ],
+            "bone": "hip",
+            "spacing": 36,
+            "band": 40
+          }
+        ]
+      },
+      "r": 12,
+      "segments": [
+        [
+          "hip",
+          [
+            200,
+            1000
+          ],
+          [
+            550,
+            1000
+          ]
+        ],
+        "skirt_r",
+        "skirt_c",
+        "skirt_l"
+      ]
     }
   },
   "regions": {
     "shoes": "root",
     "legwear": "hip",
-    "bottomwear": "hip",
     "face": "head",
     "eyewhite_r": "eye_r",
     "eyewhite_l": "eye_l",
@@ -687,6 +794,36 @@
         "period": 3.3333333333333335,
         "phase": 0.32,
         "lag": 0.08
+      },
+      {
+        "chain": "skirt_r",
+        "amps": [
+          0.875,
+          2.75
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.3,
+        "lag": 0.07
+      },
+      {
+        "chain": "skirt_c",
+        "amps": [
+          0.875,
+          2.75
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.33999999999999997,
+        "lag": 0.07
+      },
+      {
+        "chain": "skirt_l",
+        "amps": [
+          0.875,
+          2.75
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.38,
+        "lag": 0.07
       }
     ],
     "blink": {
@@ -713,7 +850,7 @@
       "strength": 220.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.2,
+      "wind": 0.88,
       "gravity": 0.15,
       "mix": 1
     },
@@ -726,7 +863,7 @@
       "strength": 170.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.45,
+      "wind": 1.65,
       "gravity": 0.3,
       "mix": 1
     },
@@ -739,7 +876,7 @@
       "strength": 130.0,
       "damping": 0.86,
       "mass": 1,
-      "wind": 0.75,
+      "wind": 2.53,
       "gravity": 0.5,
       "mix": 1
     },
@@ -752,7 +889,7 @@
       "strength": 220.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.2,
+      "wind": 0.88,
       "gravity": 0.15,
       "mix": 1
     },
@@ -765,7 +902,7 @@
       "strength": 170.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.45,
+      "wind": 1.65,
       "gravity": 0.3,
       "mix": 1
     },
@@ -778,7 +915,7 @@
       "strength": 130.0,
       "damping": 0.86,
       "mass": 1,
-      "wind": 0.75,
+      "wind": 2.53,
       "gravity": 0.5,
       "mix": 1
     },
@@ -791,7 +928,7 @@
       "strength": 220.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.2,
+      "wind": 0.88,
       "gravity": 0.15,
       "mix": 1
     },
@@ -804,7 +941,7 @@
       "strength": 170.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.45,
+      "wind": 1.65,
       "gravity": 0.3,
       "mix": 1
     },
@@ -817,7 +954,7 @@
       "strength": 130.0,
       "damping": 0.86,
       "mass": 1,
-      "wind": 0.75,
+      "wind": 2.53,
       "gravity": 0.5,
       "mix": 1
     },
@@ -830,7 +967,7 @@
       "strength": 220.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.2,
+      "wind": 0.88,
       "gravity": 0.15,
       "mix": 1
     },
@@ -843,7 +980,7 @@
       "strength": 170.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.45,
+      "wind": 1.65,
       "gravity": 0.3,
       "mix": 1
     },
@@ -856,7 +993,7 @@
       "strength": 130.0,
       "damping": 0.86,
       "mass": 1,
-      "wind": 0.75,
+      "wind": 2.53,
       "gravity": 0.5,
       "mix": 1
     },
@@ -869,7 +1006,7 @@
       "strength": 240.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.15,
+      "wind": 0.625,
       "gravity": 0.1,
       "mix": 1
     },
@@ -882,7 +1019,7 @@
       "strength": 180.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.35,
+      "wind": 1.375,
       "gravity": 0.2,
       "mix": 1
     },
@@ -895,7 +1032,7 @@
       "strength": 240.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.15,
+      "wind": 0.625,
       "gravity": 0.1,
       "mix": 1
     },
@@ -908,7 +1045,7 @@
       "strength": 180.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.35,
+      "wind": 1.375,
       "gravity": 0.2,
       "mix": 1
     },
@@ -921,7 +1058,7 @@
       "strength": 240.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.15,
+      "wind": 0.625,
       "gravity": 0.1,
       "mix": 1
     },
@@ -934,7 +1071,7 @@
       "strength": 180.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.35,
+      "wind": 1.375,
       "gravity": 0.2,
       "mix": 1
     },
@@ -1017,6 +1154,84 @@
       "wind": 0.16,
       "gravity": 0.08,
       "mix": 1.0
+    },
+    {
+      "type": "physics",
+      "name": "skirt_r0_phys",
+      "bone": "skirt_r0",
+      "rotate": 1,
+      "inertia": 0.18,
+      "strength": 360,
+      "damping": 0.93,
+      "mass": 1,
+      "wind": 3,
+      "gravity": 0.1,
+      "mix": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_r1_phys",
+      "bone": "skirt_r1",
+      "rotate": 1,
+      "inertia": 0.24,
+      "strength": 300,
+      "damping": 0.91,
+      "mass": 1,
+      "wind": 6,
+      "gravity": 0.1,
+      "mix": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_c0_phys",
+      "bone": "skirt_c0",
+      "rotate": 1,
+      "inertia": 0.18,
+      "strength": 360,
+      "damping": 0.93,
+      "mass": 1,
+      "wind": 3,
+      "gravity": 0.1,
+      "mix": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_c1_phys",
+      "bone": "skirt_c1",
+      "rotate": 1,
+      "inertia": 0.24,
+      "strength": 300,
+      "damping": 0.91,
+      "mass": 1,
+      "wind": 6,
+      "gravity": 0.1,
+      "mix": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_l0_phys",
+      "bone": "skirt_l0",
+      "rotate": 1,
+      "inertia": 0.18,
+      "strength": 360,
+      "damping": 0.93,
+      "mass": 1,
+      "wind": 3,
+      "gravity": 0.1,
+      "mix": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_l1_phys",
+      "bone": "skirt_l1",
+      "rotate": 1,
+      "inertia": 0.24,
+      "strength": 300,
+      "damping": 0.91,
+      "mass": 1,
+      "wind": 6,
+      "gravity": 0.1,
+      "mix": 1
     }
   ],
   "stops": [

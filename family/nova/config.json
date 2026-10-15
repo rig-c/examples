@@ -351,6 +351,42 @@
         495,
         1245
       ]
+    },
+    {
+      "chain": "cuff_r",
+      "parent": "hip",
+      "points": [
+        [
+          311,
+          1850
+        ],
+        [
+          325,
+          1970
+        ]
+      ],
+      "tip": [
+        335,
+        2080
+      ]
+    },
+    {
+      "chain": "cuff_l",
+      "parent": "hip",
+      "points": [
+        [
+          429,
+          1850
+        ],
+        [
+          423,
+          1970
+        ]
+      ],
+      "tip": [
+        420,
+        2080
+      ]
     }
   ],
   "meshes": {
@@ -491,11 +527,79 @@
         "hem_r",
         "hem_l"
       ]
+    },
+    "bottomwear": {
+      "contour": {
+        "tolerance": 1,
+        "margin": 2,
+        "spacing": 36,
+        "maxEdge": 48,
+        "stray": 0,
+        "bridges": true,
+        "regions": [
+          {
+            "name": "fixed_upper_and_support",
+            "shape": "polygon",
+            "points": [
+              [
+                175,
+                950
+              ],
+              [
+                580,
+                950
+              ],
+              [
+                580,
+                1780
+              ],
+              [
+                380,
+                1780
+              ],
+              [
+                380,
+                2110
+              ],
+              [
+                360,
+                2110
+              ],
+              [
+                360,
+                1780
+              ],
+              [
+                175,
+                1780
+              ]
+            ],
+            "bone": "hip",
+            "spacing": 36,
+            "band": 40
+          }
+        ]
+      },
+      "r": 12,
+      "segments": [
+        [
+          "hip",
+          [
+            200,
+            1000
+          ],
+          [
+            550,
+            1000
+          ]
+        ],
+        "cuff_r",
+        "cuff_l"
+      ]
     }
   },
   "regions": {
     "shoes": "root",
-    "bottomwear": "hip",
     "ear_l": "head",
     "face": "head",
     "eyewhite_r": "eye_r",
@@ -624,6 +728,26 @@
         "period": 3.3333333333333335,
         "phase": 0.32,
         "lag": 0.08
+      },
+      {
+        "chain": "cuff_r",
+        "amps": [
+          0.3,
+          0.9
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.3,
+        "lag": 0.07
+      },
+      {
+        "chain": "cuff_l",
+        "amps": [
+          0.3,
+          0.9
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.33999999999999997,
+        "lag": 0.07
       }
     ],
     "blink": {
@@ -650,7 +774,7 @@
       "strength": 220.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.2,
+      "wind": 0.5,
       "gravity": 0.15,
       "mix": 1
     },
@@ -663,7 +787,7 @@
       "strength": 170.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.45,
+      "wind": 0.95,
       "gravity": 0.3,
       "mix": 1
     },
@@ -676,7 +800,7 @@
       "strength": 130.0,
       "damping": 0.86,
       "mass": 1,
-      "wind": 0.75,
+      "wind": 1.45,
       "gravity": 0.5,
       "mix": 1
     },
@@ -689,7 +813,7 @@
       "strength": 220.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.2,
+      "wind": 0.5,
       "gravity": 0.15,
       "mix": 1
     },
@@ -702,7 +826,7 @@
       "strength": 170.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.45,
+      "wind": 0.95,
       "gravity": 0.3,
       "mix": 1
     },
@@ -715,7 +839,7 @@
       "strength": 130.0,
       "damping": 0.86,
       "mass": 1,
-      "wind": 0.75,
+      "wind": 1.45,
       "gravity": 0.5,
       "mix": 1
     },
@@ -728,7 +852,7 @@
       "strength": 220.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.2,
+      "wind": 0.5,
       "gravity": 0.15,
       "mix": 1
     },
@@ -741,7 +865,7 @@
       "strength": 170.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.45,
+      "wind": 0.95,
       "gravity": 0.3,
       "mix": 1
     },
@@ -754,7 +878,7 @@
       "strength": 130.0,
       "damping": 0.86,
       "mass": 1,
-      "wind": 0.75,
+      "wind": 1.45,
       "gravity": 0.5,
       "mix": 1
     },
@@ -767,7 +891,7 @@
       "strength": 240.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.15,
+      "wind": 0.42,
       "gravity": 0.1,
       "mix": 1
     },
@@ -780,7 +904,7 @@
       "strength": 180.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.35,
+      "wind": 0.91,
       "gravity": 0.2,
       "mix": 1
     },
@@ -793,7 +917,7 @@
       "strength": 240.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.15,
+      "wind": 0.42,
       "gravity": 0.1,
       "mix": 1
     },
@@ -806,7 +930,7 @@
       "strength": 180.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.35,
+      "wind": 0.91,
       "gravity": 0.2,
       "mix": 1
     },
@@ -819,7 +943,7 @@
       "strength": 240.0,
       "damping": 0.9,
       "mass": 1,
-      "wind": 0.15,
+      "wind": 0.42,
       "gravity": 0.1,
       "mix": 1
     },
@@ -832,7 +956,7 @@
       "strength": 180.0,
       "damping": 0.88,
       "mass": 1,
-      "wind": 0.35,
+      "wind": 0.91,
       "gravity": 0.2,
       "mix": 1
     },
@@ -915,6 +1039,58 @@
       "wind": 0.19,
       "gravity": 0.1,
       "mix": 1.0
+    },
+    {
+      "type": "physics",
+      "name": "cuff_r0_phys",
+      "bone": "cuff_r0",
+      "rotate": 1,
+      "inertia": 0.16,
+      "strength": 400,
+      "damping": 0.94,
+      "mass": 1,
+      "wind": 0.8,
+      "gravity": 0.1,
+      "mix": 1
+    },
+    {
+      "type": "physics",
+      "name": "cuff_r1_phys",
+      "bone": "cuff_r1",
+      "rotate": 1,
+      "inertia": 0.22,
+      "strength": 340,
+      "damping": 0.92,
+      "mass": 1,
+      "wind": 1.4,
+      "gravity": 0.1,
+      "mix": 1
+    },
+    {
+      "type": "physics",
+      "name": "cuff_l0_phys",
+      "bone": "cuff_l0",
+      "rotate": 1,
+      "inertia": 0.16,
+      "strength": 400,
+      "damping": 0.94,
+      "mass": 1,
+      "wind": 0.8,
+      "gravity": 0.1,
+      "mix": 1
+    },
+    {
+      "type": "physics",
+      "name": "cuff_l1_phys",
+      "bone": "cuff_l1",
+      "rotate": 1,
+      "inertia": 0.22,
+      "strength": 340,
+      "damping": 0.92,
+      "mass": 1,
+      "wind": 1.4,
+      "gravity": 0.1,
+      "mix": 1
     }
   ],
   "stops": [
