@@ -90,11 +90,24 @@ family/
 빌드 명령:
 
 ```bash
-python3 scripts/upgrade_jinni_4x.py
-npx --prefix /path/to/rig-parts rig-parts build --config jinni/config.json --dir jinni/inputs --out jinni/out
+# family/ 디렉터리에서 실행합니다. Node.js, npm, Bun이 PATH에 필요합니다.
+# 커밋된 정제 입력을 사용하므로 이 빌드 경로에는 Python이 필요하지 않습니다.
+npm install --prefix .tools --no-audit --no-fund @rig-c/parts@1.25.0
+./.tools/node_modules/.bin/rig-parts build --config jinni/config.json \
+  --source jinni/inputs/painting.png \
+  --full jinni/inputs/layers/full --head jinni/inputs/layers/head \
+  --out jinni/out
 ```
 
-### 검증 지표 (11/11 PASS)
+정제 레이어와 config를 원본 `full_orig`·`head_orig`에서 다시 생성하려는 경우에만, Pillow·NumPy·SciPy가 설치된 별도 Python 환경에서 다음 선택 단계를 먼저 실행합니다. 위 빌드 명령은 저장된 정제 입력을 사용하며 이 Python 환경을 준비하지 않습니다.
+
+```bash
+python3 scripts/upgrade_jinni_4x.py
+```
+
+### 저장된 검증 지표 (11/11 PASS)
+
+아래 수치와 `docs/` 이미지는 이 PR에 저장된 산출물의 기록입니다. 위 명령으로 재빌드한 결과는 `jinni/out/check/check.json`과 `jinni/out/check/gate_spine-html.txt`에서 별도로 확인합니다. 저장된 `ANIMATIONS_DO_NOT_FOLD` 측정은 물리 제약 24개를 제외한 `idle` 애니메이션을 검사했습니다(`physics_left_out: 24`). 이 표를 브라우저의 바람·드래그에 따른 실시간 물리 검증으로 해석하지 않습니다.
 
 | 항목 | 수치 | 기준 | 결과 |
 | :--- | :--- | :--- | :--- |
@@ -104,13 +117,13 @@ npx --prefix /path/to/rig-parts rig-parts build --config jinni/config.json --dir
 | `contact` | 6 poses (`wind`, `breath`, `sway`, `turn`, `nod`, `tilt`), `worst_tear=0.052` | 찢어짐 없음 | **PASS** |
 
 ````carousel
-![Idle Loop GIF](./jinni/out/idle.gif)
+![Idle Loop GIF](./jinni/docs/idle.gif)
 <!-- slide -->
-![6-Pose Contact Sheet](./jinni/out/contact.png)
+![6-Pose Contact Sheet](./jinni/docs/contact.png)
 <!-- slide -->
-![Motion Heatmap](./jinni/out/motion_heat.png)
+![Motion Heatmap](./jinni/docs/motion_heat.png)
 <!-- slide -->
-![Recomposite](./jinni/out/recomposite.png)
+![Recomposite](./jinni/docs/recomposite.png)
 ````
 
 ---
