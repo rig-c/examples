@@ -9,18 +9,18 @@
       "name": "hair_back",
       "from": "head:back hair",
       "x": 290,
-      "y": 255,
-      "w": 432,
-      "h": 441,
-      "opaque_px": 89557,
-      "visible_px": 24273,
-      "occluded_px": 65284,
-      "projected_core_px": 12055,
-      "source_px_taken": 12014,
-      "visible_not_projected_px": 12259,
-      "refused_drift_px": 47,
+      "y": 254,
+      "w": 433,
+      "h": 491,
+      "opaque_px": 134208,
+      "visible_px": 58597,
+      "occluded_px": 75611,
+      "projected_core_px": 5408,
+      "source_px_taken": 5408,
+      "visible_not_projected_px": 53189,
+      "refused_drift_px": 0,
       "merged_px": 0,
-      "seam_override_px": 10
+      "seam_override_px": 0
     },
     {
       "name": "shoes",
@@ -69,46 +69,36 @@
       "y": 465,
       "w": 128,
       "h": 155,
-      "opaque_px": 14343,
-      "visible_px": 8530,
-      "occluded_px": 5813,
-      "projected_core_px": 6350,
-      "source_px_taken": 5572,
-      "visible_not_projected_px": 2958,
-      "refused_drift_px": 833,
+      "opaque_px": 14376,
+      "visible_px": 7661,
+      "occluded_px": 6715,
+      "projected_core_px": 3107,
+      "source_px_taken": 3107,
+      "visible_not_projected_px": 4554,
+      "refused_drift_px": 0,
       "merged_px": 0,
-      "seam_override_px": 518,
-      "fringe_pushed_back": [
-        {
-          "part": "hair_back",
-          "px": 33
-        }
-      ]
+      "seam_override_px": 40
     },
     {
       "name": "topwear",
       "from": "full:topwear",
       "x": 229,
-      "y": 552,
+      "y": 532,
       "w": 473,
-      "h": 693,
-      "opaque_px": 239716,
-      "visible_px": 236392,
-      "occluded_px": 3324,
-      "projected_core_px": 221373,
-      "source_px_taken": 221356,
-      "visible_not_projected_px": 15036,
-      "refused_drift_px": 1204,
+      "h": 713,
+      "opaque_px": 239114,
+      "visible_px": 236755,
+      "occluded_px": 2359,
+      "projected_core_px": 221470,
+      "source_px_taken": 221445,
+      "visible_not_projected_px": 15310,
+      "refused_drift_px": 1230,
       "merged_px": 0,
-      "seam_override_px": 1370,
+      "seam_override_px": 67,
       "fringe_pushed_back": [
         {
-          "part": "hair_back",
-          "px": 84
-        },
-        {
           "part": "neck",
-          "px": 21
+          "px": 18
         }
       ]
     },
@@ -119,19 +109,19 @@
       "y": 403,
       "w": 43,
       "h": 70,
-      "opaque_px": 2055,
-      "visible_px": 1957,
-      "occluded_px": 98,
-      "projected_core_px": 1116,
-      "source_px_taken": 1116,
-      "visible_not_projected_px": 841,
+      "opaque_px": 2056,
+      "visible_px": 1213,
+      "occluded_px": 843,
+      "projected_core_px": 382,
+      "source_px_taken": 382,
+      "visible_not_projected_px": 831,
       "refused_drift_px": 0,
       "merged_px": 0,
       "seam_override_px": 0,
       "fringe_pushed_back": [
         {
           "part": "hair_back",
-          "px": 18
+          "px": 17
         }
       ]
     },
@@ -142,19 +132,19 @@
       "y": 309,
       "w": 172,
       "h": 222,
-      "opaque_px": 28903,
-      "visible_px": 14180,
+      "opaque_px": 28953,
+      "visible_px": 14230,
       "occluded_px": 14723,
       "projected_core_px": 10143,
       "source_px_taken": 10070,
-      "visible_not_projected_px": 4110,
+      "visible_not_projected_px": 4160,
       "refused_drift_px": 133,
       "merged_px": 0,
       "seam_override_px": 14,
       "fringe_pushed_back": [
         {
           "part": "hair_back",
-          "px": 55
+          "px": 5
         }
       ]
     },
@@ -306,11 +296,11 @@
       "w": 42,
       "h": 28,
       "opaque_px": 568,
-      "visible_px": 558,
-      "occluded_px": 10,
+      "visible_px": 554,
+      "occluded_px": 14,
       "projected_core_px": 1,
       "source_px_taken": 1,
-      "visible_not_projected_px": 557,
+      "visible_not_projected_px": 553,
       "refused_drift_px": 0,
       "merged_px": 0,
       "seam_override_px": 0,
@@ -399,30 +389,26 @@
     {
       "name": "hair_front",
       "from": "head:front hair",
-      "x": 298,
+      "x": 290,
       "y": 254,
-      "w": 404,
-      "h": 368,
-      "opaque_px": 52335,
-      "visible_px": 52335,
+      "w": 412,
+      "h": 379,
+      "opaque_px": 62314,
+      "visible_px": 62314,
       "occluded_px": 0,
-      "projected_core_px": 41221,
-      "source_px_taken": 41211,
-      "visible_not_projected_px": 11124,
-      "refused_drift_px": 10,
+      "projected_core_px": 46739,
+      "source_px_taken": 46739,
+      "visible_not_projected_px": 15575,
+      "refused_drift_px": 0,
       "merged_px": 0,
-      "seam_override_px": 53,
+      "seam_override_px": 7,
       "fringe_pushed_back": [
         {
           "part": "hair_back",
-          "px": 5
-        },
-        {
-          "part": "face",
           "px": 1
         },
         {
-          "part": "brow_l",
+          "part": "face",
           "px": 1
         }
       ]
@@ -441,7 +427,7 @@
     "full:eyewhite-r": 0,
     "full:face": 0,
     "full:footwear": 0,
-    "full:front hair": 124,
+    "full:front hair": 99,
     "full:handwear-l": 0,
     "full:handwear-r": 0,
     "full:irides-l": 0,
@@ -455,7 +441,7 @@
     "full:tail": 0,
     "full:topwear": 0,
     "full:wings": 0,
-    "head:back hair": 2017,
+    "head:back hair": 30,
     "head:bottomwear": 0,
     "head:ears": 0,
     "head:eyebrow-l": 0,
@@ -466,7 +452,7 @@
     "head:eyewhite-r": 0,
     "head:face": 0,
     "head:footwear": 0,
-    "head:front hair": 0,
+    "head:front hair": 1723,
     "head:handwear-l": 0,
     "head:handwear-r": 0,
     "head:irides-l": 0,
@@ -482,14 +468,14 @@
     "head:wings": 0
   },
   "recomposite": {
-    "mean_abs": 2.68,
+    "mean_abs": 2.625,
     "within_limit": 8,
-    "within_share": 0.9767,
+    "within_share": 0.9764,
     "error_limit": 40,
-    "error_px": 29846,
+    "error_px": 30342,
     "covered_alpha": 128,
-    "uncovered_error_px": 21033,
-    "hole_count": 664,
+    "uncovered_error_px": 20076,
+    "hole_count": 663,
     "holes_listed": 5,
     "holes": [
       {
@@ -519,32 +505,15 @@
         ]
       },
       {
-        "px": 670,
-        "x": 583,
-        "y": 579,
-        "w": 90,
-        "h": 168,
-        "borders": [
-          {
-            "part": "topwear",
-            "px": 231
-          },
-          {
-            "part": "hair_back",
-            "px": 176
-          }
-        ]
-      },
-      {
-        "px": 401,
+        "px": 517,
         "x": 234,
-        "y": 739,
-        "w": 18,
-        "h": 307,
+        "y": 660,
+        "w": 76,
+        "h": 386,
         "borders": [
           {
             "part": "topwear",
-            "px": 333
+            "px": 470
           }
         ]
       },
@@ -562,6 +531,19 @@
           {
             "part": "topwear",
             "px": 51
+          }
+        ]
+      },
+      {
+        "px": 231,
+        "x": 491,
+        "y": 1628,
+        "w": 8,
+        "h": 176,
+        "borders": [
+          {
+            "part": "bottomwear",
+            "px": 194
           }
         ]
       }
