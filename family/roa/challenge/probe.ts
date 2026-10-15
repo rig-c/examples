@@ -20,10 +20,10 @@ const core = resolve(arg('core'));
 const diagnosticSetup=argv.includes('--diagnostic-setup');
 const setupFailures:string[]=[];
 const selectedCases = arg('cases','impulse').split(',');
-const selectedVariants = arg('variants','before,after-light,after-heavy,mode-none').split(',');
+const selectedVariants = arg('variants','light,heavy').split(',');
 const protocolPath = join(import.meta.dir, 'protocol.json');
 const P = JSON.parse(readFileSync(protocolPath,'utf8'));
-if(selectedCases.some(x=>!P.cases.includes(x))||selectedVariants.some(x=>!P.variants.includes(x))||selectedVariants[0]!=='before')throw Error('DECLARED_SELECTION_REQUIRED');
+if(selectedCases.some(x=>!P.cases.includes(x))||selectedVariants.some(x=>!P.variants.includes(x))||selectedVariants[0]!=='light')throw Error('DECLARED_SELECTION_REQUIRED');
 const hash = (p: string) => createHash('sha256').update(readFileSync(p)).digest('hex');
 const read = <T>(p: string): T => JSON.parse(readFileSync(p,'utf8')) as T;
 const clone = <T>(o: T): T => structuredClone(o);
@@ -78,7 +78,7 @@ function motion(kind: string, seconds=P.timing.seconds): Motion {
  if(kind==='impulse')tracks.push({bone:'root',property:'translatey',keys:P.timing.impulse.map(([t,y]:number[])=>({t,v:[y]}))});
  if(tracks.length===0)tracks.push({bone:'root',property:'translatey',keys:[{t:0,v:[0]},{t:seconds,v:[0]}]});
  // Breath has a declared last key, held through the end; it is the same source keys in every variant.
- m.animations.challenge={duration:seconds,loop:false,note:'Deterministic Roa-only '+kind+'; no random input; analytic mound is not measured depth.',tracks};return m;
+ m.animations.challenge={duration:seconds,loop:false,note:'Deterministic Roa-only '+kind+'; no random input; original translation physics; no mesh rewrite.',tracks};return m;
 }
 async function build(name:string,r:Rig,m:Motion){
  const dir=join(out,name);mkdirSync(dir,{recursive:true});
@@ -91,32 +91,16 @@ async function render(dir:string,poser:string,fps=P.timing.fps,max=P.render.max,
  await run(dir.split('/').at(-1)+'-'+poser,['bun',cli,'render','--candidate',join(dir,'build'),'--animation','challenge','--fps',String(fps),'--max',String(max),'--viewport',viewport.join(','),'--geometry','--folds','--environment',env,'--poser',poser,'--out',dest]);
  const files:string[]=[];function walk(p:string){for(const x of readdirSync(p,{withFileTypes:true})){const q=join(p,x.name);if(x.isDirectory())walk(q);else if(x.name==='geometry.json')files.push(q);}}walk(dest);check(files.length===1,'ONE_GEOMETRY '+dir+' '+poser);return read<Geometry>(files[0]);
 }
-function helpers():Rig{
- const r=clone(base);r.constraints=r.constraints.filter(c=>!['boob_r_phys','boob_l_phys'].includes(String(c.name)));
- for(const h of P.helpers){const b=base.bones.find(b=>b.name===h.bone)!;r.bones.push({name:h.helper,parent:b.parent,x:b.x,y:(b.y??0)+(h.anchorOffsetY??0),rotation:P.driver.rotation,length:h.length});const old=base.constraints.find(c=>c.bone===h.bone)!;r.constraints.push({type:'physics',name:h.helper+'_phys',bone:h.helper,scaleX:1,scaleY:'volume',inertia:old.inertia,strength:old.strength,damping:old.damping,mass:old.mass,wind:old.wind,gravity:old.gravity,mix:1});}return r;
-}
-// A normal gated, unweighted helper build supplies the official setup bind matrices.
-const prep=await build('bind-setup',helpers(),motion('rest',.1));const bind=await render(prep,'spine',1,32);
+// The baseline is the original rig, including its original translation physics.
+const prep=await build('bind-setup',clone(base),motion('rest',.1));const bind=await render(prep,'spine',1,32);
 const bindBone=new Map(bind.setup.bones.map(b=>[b.name,b]));const world=bind.rest.find(a=>a.slot==='topwear')!.vertices;
 const local=(b:Matrix,x:number,y:number)=>{const dx=x-b.worldX,dy=y-b.worldY,det=b.a*b.d-b.b*b.c;check(Math.abs(det)>0,'NONCOLLAPSED_BIND');return [(b.d*dx-b.b*dy)/det,(-b.c*dx+b.a*dy)/det];};
 function variant(name:string):Rig{
- if(name==='before')return clone(base);
- if(name==='noop-rebind'){const r=clone(base);attachment(r).weights=attachment(r).weights.map((row,i)=>{if(!row.some(w=>P.helpers.some((h:{bone:string})=>h.bone===w.bone)&&w.weight>0))return row;const sum=row.reduce((s,v)=>s+v.weight,0);return row.map(v=>{const q=local(bindBone.get(v.bone)!,world[2*i]/sum,world[2*i+1]/sum);return {...v,x:q[0],y:q[1]};});});return r;}
- const r=helpers();
- if(name==='after-heavy')for(const c of r.constraints)if(String(c.name).startsWith('roa_tension_')){c.mass=Number(c.mass)*P.driver.heavy.massMultiplier;c.strength=Number(c.strength)*P.driver.heavy.strengthMultiplier;c.inertia=P.driver.heavy.inertia;c.damping=P.driver.heavy.damping;}
- if(name==='mode-none')for(const c of r.constraints)if(String(c.name).startsWith('roa_tension_'))c.scaleY='none';
- const a=attachment(r);
- a.weights=a.weights.map((row,i)=>{
-  const h=P.helpers.find((h:{bone:string})=>row.some(w=>w.bone===h.bone&&w.weight>0));if(!h)return row;
-  const old=row.find(w=>w.bone===h.bone)!;const helper=bindBone.get(h.helper)!;const x=world[i*2],y=world[i*2+1];
-  const center=bindBone.get(h.bone)!;const dist=Math.hypot(x-center.worldX,y-center.worldY);
-  const w=name==='driver'?old.weight:.5*(1+Math.cos(Math.PI*Math.min(dist/h.reach,1)));
-  const rest=row.filter(v=>v.bone!==h.bone);const sum=rest.reduce((s,v)=>s+v.weight,0);
-  const supports=sum>0?rest.map(v=>({...v,weight:v.weight/sum*(1-w)})):[{bone:'chest',x:0,y:0,weight:1-w}];
-  const weights=[...supports,{bone:h.helper,x:0,y:0,weight:w}].filter(v=>v.weight>0);
-  return weights.map(v=>{const q=local(bindBone.get(v.bone)!,x,y);return {...v,x:q[0],y:q[1]};});
- });
- check(JSON.stringify(a.uvs)===JSON.stringify(attachment(base).uvs)&&JSON.stringify(a.triangles)===JSON.stringify(attachment(base).triangles),'TOPOLOGY_UV_PRESERVED');return r;
+ const r=clone(base);check(name==='light'||name==='heavy','VARIANT_NAME '+name);
+ if(name==='heavy')for(const h of P.helpers){const c=r.constraints.find(c=>c.type==='physics'&&c.bone===h.bone);check(c,'PHYSICS_BY_NAME '+h.bone);c!.inertia=Number(c!.inertia)*P.heavy.inertiaMultiplier;}
+ check(JSON.stringify(r.bones)===JSON.stringify(base.bones)&&JSON.stringify(r.skins)===JSON.stringify(base.skins),'ORIGINAL_BONES_MESH_WEIGHTS_EXACT');
+ const expected=clone(base);if(name==='heavy')for(const h of P.helpers){const c=expected.constraints.find(c=>c.type==='physics'&&c.bone===h.bone)!;c.inertia=Number(c.inertia)*P.heavy.inertiaMultiplier;}
+ check(JSON.stringify(r)===JSON.stringify(expected),'ONLY_DECLARED_INERTIA_CHANGE');return r;
 }
 const responseIds=attachment(base).weights.flatMap((row,i)=>row.some(w=>P.helpers.some((h:{bone:string})=>h.bone===w.bone)&&w.weight>0)?[i]:[]);
 const supportIds=Array.from({length:376},(_,i)=>i).filter(i=>!responseIds.includes(i));
@@ -139,30 +123,38 @@ for(const kind of selectedCases)for(const name of selectedVariants){
  const landmarks=P.helpers.flatMap((h:{helper:string;length:number;reach:number;side:string;bone:string})=>{const center=bindBone.get(h.bone)!;const ids=responseIds.filter(i=>attachment(base).weights[i].some(w=>w.bone===h.bone&&w.weight>0));const closest=(x:number,y:number,points:number[])=>points.reduce((a,i)=>Math.hypot(world[2*i]-x,world[2*i+1]-y)<Math.hypot(world[2*a]-x,world[2*a+1]-y)?i:a,points[0]);let maxId=ids[0],maxValue=0;for(const f of native.frames){const v=relative(f);for(const i of ids){const value=Math.hypot(v[2*i]-initial[2*i],v[2*i+1]-initial[2*i+1]);if(value>maxValue){maxValue=value;maxId=i;}}}return [{name:h.side+'-center-nearest',vertex:closest(center.worldX,center.worldY,ids)},{name:h.side+'-upper-support',vertex:closest(center.worldX,center.worldY+h.reach,Array.from({length:104},(_,i)=>i))},{name:h.side+'-maximum-response',vertex:maxId}];});
  for(const [i,[px,py]]of (P.landmarks?.placketSourceImagePoints??[]).entries()){const x=px-400,y=2284-py;let vertex=0;for(let v=1;v<376;v++)if(Math.hypot(world[2*v]-x,world[2*v+1]-y)<Math.hypot(world[2*vertex]-x,world[2*vertex+1]-y))vertex=v;landmarks.push({name:'placket-'+i,vertex});}
  const signed=native.frames.map(f=>{const v=relative(f);return {time:f.time,landmarks:landmarks.map(l=>({...l,dx:v[2*l.vertex]-initial[2*l.vertex],dy:v[2*l.vertex+1]-initial[2*l.vertex+1]}))};});put(join(dir,'signed-landmarks.json'),{coordinates:'chest-local, y up, relative to frame0; nearest existing vertices, not an invented exact center',landmarks,frames:signed});
- const driverTrace=native.frames.map(f=>({time:f.time,bones:P.helpers.map((h:{helper:string;bone:string})=>{const b=f.bones.find(b=>b.name===(name==='before'||name==='noop-rebind'?h.bone:h.helper))!;const ch=f.bones.find(b=>b.name==='chest')!;const det=ch.a*ch.d-ch.b*ch.c;const ax=(ch.d*b.a-ch.b*b.c)/det,ay=(-ch.c*b.a+ch.a*b.c)/det,bx=(ch.d*b.b-ch.b*b.d)/det,by=(-ch.c*b.b+ch.a*b.d)/det;return {bone:b.name,localOrigin:local(ch,b.worldX,b.worldY),axisXLength:Math.hypot(ax,ay),axisYLength:Math.hypot(bx,by),localDeterminant:ax*by-ay*bx};})}));put(join(dir,'driver-matrix-trace.json'),{note:'Effective helper local axis lengths, not a claim to native internal scaleOffset field',frames:driverTrace});
- const ref=name==='before'?native:geometry.get(kind+'-before')!;let supportDelta=0,hullDelta=0;for(let i=0;i<native.frames.length;i++){const a=relative(native.frames[i]),b=relative(ref.frames[i]);hullDelta=Math.max(hullDelta,maxDiff(a.slice(0,208),b.slice(0,208)));for(const v of supportIds)supportDelta=Math.max(supportDelta,Math.abs(a[2*v]-b[2*v]),Math.abs(a[2*v+1]-b[2*v+1]));}
+ const driverTrace=native.frames.map(f=>({time:f.time,bones:P.helpers.map((h:{helper:string;bone:string})=>{const b=f.bones.find(b=>b.name===(h.bone))!;const ch=f.bones.find(b=>b.name==='chest')!;const det=ch.a*ch.d-ch.b*ch.c;const ax=(ch.d*b.a-ch.b*b.c)/det,ay=(-ch.c*b.a+ch.a*b.c)/det,bx=(ch.d*b.b-ch.b*b.d)/det,by=(-ch.c*b.b+ch.a*b.d)/det;return {bone:b.name,localOrigin:local(ch,b.worldX,b.worldY),axisXLength:Math.hypot(ax,ay),axisYLength:Math.hypot(bx,by),localDeterminant:ax*by-ay*bx};})}));put(join(dir,'driver-matrix-trace.json'),{note:'Effective helper local axis lengths, not a claim to native internal scaleOffset field',frames:driverTrace});
+ const ref=name==='light'?native:geometry.get(kind+'-light')!;let supportDelta=0,hullDelta=0;for(let i=0;i<native.frames.length;i++){const a=relative(native.frames[i]),b=relative(ref.frames[i]);hullDelta=Math.max(hullDelta,maxDiff(a.slice(0,208),b.slice(0,208)));for(const v of supportIds)supportDelta=Math.max(supportDelta,Math.abs(a[2*v]-b[2*v]),Math.abs(a[2*v+1]-b[2*v+1]));}
  metrics[id]={nativeOwnMaxDelta:delta,setupDelta,supportDelta,supportVertices:supportIds.length,hullDelta,foldCount,peak,peakAt,settle,settleThreshold,frames:native.frames.length};put(join(dir,'response-trace.json'),trace);put(join(out,'metrics.json'),metrics);geometry.set(id,native);
  // Do not turn a failed bar into an unlabelled preview success; preserve values before refusing.
  check(delta===0,'NATIVE_OWN_PARITY '+id+' '+delta);if(setupDelta>P.bars.setupDeltaWorldUnits){setupFailures.push(id);if(!diagnosticSetup)throw Error('SETUP_DRIFT '+id+' '+setupDelta);console.log('DIAGNOSTIC_SETUP_FAIL',id,setupDelta);}check(supportDelta<=P.bars.supportDeltaWorldUnits,'SUPPORT_DRIFT '+id+' '+supportDelta);check(foldCount===0,'FOLDS '+id+' '+foldCount);
 }
-for(const kind of selectedCases.filter(x=>x!=='rest')){
- if(!selectedVariants.includes('mode-none')||!selectedVariants.includes('after-light'))continue;
- const a=geometry.get(kind+'-after-light')!,n=geometry.get(kind+'-mode-none')!;const delta=Math.max(...a.frames.map((f,i)=>maxDiff(top(f),top(n.frames[i]))));put(join(out,kind+'-mode-control.json'),{volumeNoneDifference:delta});check(delta>P.bars.responsePresentAboveWorldUnits,'MODE_NEGATIVE_NOT_OBSERVED '+kind);
-}
-// Compose only exact renderer frame names; no contact/setup PNGs enter the video.
-const ffmpeg=Bun.which('ffmpeg');
-const names=['before','after-light','after-heavy'];
-if(ffmpeg && selectedCases.includes('impulse') && names.every(n=>selectedVariants.includes(n))){
- for(const n of names)await render(join(out,'impulse-'+n),'spine',P.timing.fps,P.render.max,P.render.closeViewport,'spine-close');
- const frameDirs=names.map(n=>join(out,'impulse-'+n,'spine-close','challenge@60fps'));
- for(const d of frameDirs)check(existsSync(join(d,'f0000.png')),'RENDER_FRAME_CONVENTION '+d);
+// Compare signed center first rebound and recovery to the frozen original, not a slower preset.
+const goalRows:unknown[]=[];let goalsPassed=true;
+for(const kind of selectedCases.filter(k=>k==='impulse'))for(const h of P.helpers){
+ const series=(name:string)=>{const g=geometry.get(kind+'-'+name)!;const center=bindBone.get(h.bone)!;const ids=responseIds.filter(i=>attachment(base).weights[i].some(w=>w.bone===h.bone&&w.weight>0));const vertex=ids.reduce((a:number,i:number)=>Math.hypot(world[2*i]-center.worldX,world[2*i+1]-center.worldY)<Math.hypot(world[2*a]-center.worldX,world[2*a+1]-center.worldY)?i:a,ids[0]);const init=relative(g.frames[0]);return {vertex,values:g.frames.map(f=>({time:f.time,dy:relative(f)[2*vertex+1]-init[2*vertex+1]}))};};
+ const ls=series('light'),hs=series('heavy');const measured=(values:{time:number;dy:number}[],threshold:number)=>{const extrema=values.filter((v,i)=>i>0&&i<values.length-1&&v.time>=P.targets.release&&(v.dy-values[i-1].dy)*(values[i+1].dy-v.dy)<0&&Math.abs(v.dy)>.05);const settle=values.find((v,i)=>v.time>=P.targets.release&&values.slice(i).every(q=>Math.abs(q.dy)<=threshold))?.time??null;return{first:extrema[0],next:extrema[1],settle,threshold};};
+ const frozen=P.targets[h.side],threshold=.05*frozen.peak;const light=measured(ls.values,threshold),heavy=measured(hs.values,threshold);check(light.first&&light.next&&heavy.first&&heavy.next,'MEASURED_REBOUND '+h.side);
+ check(Math.abs(light.first.dy-frozen.firstRebound)<1e-9&&Math.abs(light.first.time-frozen.firstAt)<1e-9&&Math.abs(light.next.time-frozen.nextAt)<1e-9&&Math.abs(light.settle!-frozen.settle)<1e-9,'ORIGINAL_BASELINE_REPRODUCED '+h.side);
+ const ratio=Math.abs(heavy.first.dy/light.first.dy),nextRatio=Math.abs(heavy.next.dy/light.next.dy),signsPreserved=heavy.first.dy*light.first.dy>0&&heavy.next.dy*light.next.dy>0,firstTiming=Math.abs(heavy.first.time-light.first.time),halfCycleDelta=Math.abs((heavy.next.time-heavy.first.time)-(light.next.time-light.first.time));const passed=signsPreserved&&nextRatio>1&&ratio>=P.targets.firstReboundRatio[0]&&ratio<=P.targets.firstReboundRatio[1]&&firstTiming<=P.targets.timingFrames/P.timing.fps+1e-12&&halfCycleDelta<=P.targets.timingFrames/P.timing.fps+1e-12&&heavy.settle!==null&&heavy.settle<=light.settle!+P.targets.recoveryExtraSeconds+1e-12;
+ goalsPassed&&=passed;goalRows.push({side:h.side,vertex:ls.vertex,light,heavy,ratio,nextRatio,signsPreserved,firstTiming,halfCycleDelta,passed});
+}put(join(out,'rebound-goals.json'),{goalsPassed,rows:goalRows,userVisualVerdict:'not inferred from these targets'});
+// The movie runs at actual 60Hz; only the 0.4–2.0s editorial excerpt is repeated.
+const ffmpeg=Bun.which('ffmpeg');check(ffmpeg,'FFMPEG_REQUIRED_FOR_USER_PREVIEW');
+if(selectedCases.includes('impulse')&&selectedVariants.includes('light')&&selectedVariants.includes('heavy')){
+ const names=['light','heavy'];for(const n of names)await render(join(out,'impulse-'+n),'spine',P.timing.fps,P.render.max,P.render.closeViewport,'spine-close');
+ const frameDirs=names.map(n=>join(out,'impulse-'+n,'spine-close','challenge@60fps'));check(hash(join(frameDirs[0],'f0000.png'))===hash(join(frameDirs[1],'f0000.png')),'INITIAL_NATIVE_FRAME_EXACT');
+ const font='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf';check(existsSync(font),'PREVIEW_FONT');const common='fontfile='+font+':fontcolor=white:box=1:boxcolor=black@0.7';
+ const labels=names.map((n,i)=>`drawtext=${common}:text='${n==='light'?'light - original':'heavy - original inertia x1.35'}':fontsize=30:x=${16+800*i}:y=16`);
+ labels.push(`drawtext=${common}:text='t %{pts\\:flt}s | impulse dt %{pts\\:flt\\:-0.5}s':fontsize=24:x=16:y=h-42`);
  const inputs=frameDirs.flatMap(d=>['-framerate',String(P.timing.fps),'-i',join(d,'f%04d.png')]);
- await run('comparison-video',[ffmpeg,'-y','-threads','4',...inputs,'-filter_complex','[0:v][1:v][2:v]hstack=inputs=3[v]','-map','[v]','-c:v','libx264','-threads','4','-pix_fmt','yuv420p',join(out,'before-light-heavy.mp4')]);
- const times=[0,.55,.75,1,2,7.9];
- const files=names.flatMap((n,row)=>times.map((t,col)=>({row,col,path:join(frameDirs[row],'f'+Math.round(t*P.timing.fps).toString().padStart(4,'0')+'.png')})));
- for(const f of files)check(existsSync(f.path),'CONTACT_FRAME '+f.path);
+ await run('original8-video',[ffmpeg!,'-y','-threads','4',...inputs,'-filter_complex','[0:v][1:v]hstack=inputs=2,'+labels.join(',')+'[v]','-map','[v]','-c:v','libx264','-threads','4','-pix_fmt','yuv420p',join(out,'light-heavy-original8s.mp4')]);
+ const excerpt=`[0:v]trim=start=${P.preview.segment[0]}:end=${P.preview.segment[1]},setpts=PTS-STARTPTS,split=3[a][b][c];[a][b][c]concat=n=3:v=1:a=0,drawtext=${common}:text='3 editorial repeats - actual speed - not a physics loop':fontsize=22:x=16:y=h-76[v]`;
+ await run('repeated-preview',[ffmpeg!,'-y','-threads','4','-i',join(out,'light-heavy-original8s.mp4'),'-filter_complex',excerpt,'-map','[v]','-c:v','libx264','-threads','4','-pix_fmt','yuv420p',join(out,'light-heavy-rebound-3repeats.mp4')]);
+ const times=[0,.65,.8833333333333333,1.1,1.5];const files=names.flatMap((_,row)=>times.map((t,col)=>({row,col,path:join(frameDirs[row],'f'+Math.round(t*P.timing.fps).toString().padStart(4,'0')+'.png')})));for(const f of files)check(existsSync(f.path),'CONTACT_FRAME '+f.path);
  const rows=names.map((_,r)=>files.filter(f=>f.row===r).map((f,c)=>`[${r*times.length+c}:v]`).join('')+`hstack=inputs=${times.length}[r${r}]`).join(';');
- await run('comparison-contact',[ffmpeg,'-y','-threads','4',...files.flatMap(f=>['-i',f.path]),'-filter_complex',rows+';[r0][r1][r2]vstack=inputs=3[v]','-map','[v]','-frames:v','1',join(out,'before-light-heavy-contact.png')]);
- put(join(out,'preview-manifest.json'),{rows:names,columnsSeconds:times,images:files,video:'before-light-heavy.mp4',contact:'before-light-heavy-contact.png'});
-}else put(join(out,'video-status.json'),{status:'unavailable',ffmpeg:ffmpeg??null});
-put(join(out,'complete.json'),{status:setupFailures.length?'diagnostic-setup-failed':'geometry-bars-passed',setupFailures,selectedCases,selectedVariants,metrics,protocolHash:hash(protocolPath),probeHash:hash(import.meta.path),note:'Offline native/own proof; visual quality awaits root review. No browser or publication.'});console.log('ROA_EXPERIMENT_COMPLETE',out);
+ await run('rebound-contact',[ffmpeg!,'-y','-threads','4',...files.flatMap(f=>['-i',f.path]),'-filter_complex',rows+';[r0][r1]vstack=inputs=2[v]','-map','[v]','-frames:v','1',join(out,'light-heavy-rebound-contact.png')]);
+ await run('clock-check',[ffmpeg!,'-y','-ss','0.35','-i',join(out,'light-heavy-rebound-3repeats.mp4'),'-frames:v','1',join(out,'preview-clock-check-075.png')]);
+ put(join(out,'preview-manifest.json'),{rows:names,columnsSeconds:times,images:files,initialFrameHash:hash(join(frameDirs[0],'f0000.png')),segment:P.preview.segment,editorialRepeats:3,speed:1,note:P.preview.note});
+}
+put(join(out,'complete.json'),{status:setupFailures.length?'diagnostic-setup-failed':goalsPassed?'quantitative-targets-passed':'physical-targets-failed',setupFailures,goalsPassed,selectedCases,selectedVariants,metrics,protocolHash:hash(protocolPath),probeHash:hash(import.meta.path),note:'Original is exact light; user visual verdict remains required. No browser/publication/editor claim.'});console.log('ROA_REBOUND_COMPLETE',out);
