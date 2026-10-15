@@ -41,11 +41,6 @@
         "topwear"
       ],
       [
-        "handwear_l",
-        "full",
-        "handwear-l"
-      ],
-      [
         "hair_back",
         "head",
         "back hair"
@@ -307,28 +302,6 @@
       ]
     },
     {
-      "chain": "sleeve_l",
-      "parent": "chest",
-      "points": [
-        [
-          530,
-          505
-        ],
-        [
-          600,
-          558
-        ],
-        [
-          544,
-          638
-        ]
-      ],
-      "tip": [
-        520,
-        725
-      ]
-    },
-    {
       "chain": "skirt_r",
       "parent": "hip",
       "points": [
@@ -404,7 +377,7 @@
           "head",
           [
             365,
-            394
+            430
           ],
           [
             365,
@@ -486,13 +459,6 @@
       "r": 6,
       "segments": [
         "sleeve_r"
-      ]
-    },
-    "handwear_l": {
-      "grid": 57,
-      "r": 12,
-      "segments": [
-        "sleeve_l"
       ]
     },
     "topwear": {
@@ -682,9 +648,9 @@
       {
         "chain": "hairback_r",
         "amps": [
-          0.35,
-          0.8,
-          1.4
+          0.15,
+          0.45,
+          0.85
         ],
         "period": 3.3333333333333335,
         "phase": 0.2,
@@ -693,9 +659,9 @@
       {
         "chain": "hairback_l",
         "amps": [
-          0.35,
-          0.8,
-          1.4
+          0.15,
+          0.45,
+          0.85
         ],
         "period": 3.3333333333333335,
         "phase": 0.24,
@@ -734,7 +700,7 @@
       {
         "chain": "earring",
         "amps": [
-          3.5
+          2.2
         ],
         "period": 1.6666666666666667,
         "phase": 0.25,
@@ -749,17 +715,6 @@
         ],
         "period": 3.3333333333333335,
         "phase": 0.22,
-        "lag": 0.08
-      },
-      {
-        "chain": "sleeve_l",
-        "amps": [
-          -0.2,
-          -1.2,
-          -2.6
-        ],
-        "period": 3.3333333333333335,
-        "phase": 0.27,
         "lag": 0.08
       },
       {
@@ -803,12 +758,12 @@
       "name": "hairback_r0_phys",
       "bone": "hairback_r0",
       "rotate": 1,
-      "inertia": 0.45,
-      "strength": 220.0,
-      "damping": 0.9,
+      "inertia": 0.25,
+      "strength": 260.0,
+      "damping": 0.92,
       "mass": 1,
-      "wind": 0.2,
-      "gravity": 0.15,
+      "wind": 0.1,
+      "gravity": 0.1,
       "mix": 1
     },
     {
@@ -816,12 +771,12 @@
       "name": "hairback_r1_phys",
       "bone": "hairback_r1",
       "rotate": 1,
-      "inertia": 0.55,
-      "strength": 170.0,
-      "damping": 0.88,
+      "inertia": 0.4,
+      "strength": 200.0,
+      "damping": 0.9,
       "mass": 1,
-      "wind": 0.45,
-      "gravity": 0.3,
+      "wind": 0.25,
+      "gravity": 0.2,
       "mix": 1
     },
     {
@@ -829,12 +784,12 @@
       "name": "hairback_r2_phys",
       "bone": "hairback_r2",
       "rotate": 1,
-      "inertia": 0.65,
-      "strength": 130.0,
-      "damping": 0.86,
+      "inertia": 0.5,
+      "strength": 160.0,
+      "damping": 0.88,
       "mass": 1,
-      "wind": 0.75,
-      "gravity": 0.5,
+      "wind": 0.45,
+      "gravity": 0.35,
       "mix": 1
     },
     {
@@ -842,12 +797,12 @@
       "name": "hairback_l0_phys",
       "bone": "hairback_l0",
       "rotate": 1,
-      "inertia": 0.45,
-      "strength": 220.0,
-      "damping": 0.9,
+      "inertia": 0.25,
+      "strength": 260.0,
+      "damping": 0.92,
       "mass": 1,
-      "wind": 0.2,
-      "gravity": 0.15,
+      "wind": 0.1,
+      "gravity": 0.1,
       "mix": 1
     },
     {
@@ -855,12 +810,12 @@
       "name": "hairback_l1_phys",
       "bone": "hairback_l1",
       "rotate": 1,
-      "inertia": 0.55,
-      "strength": 170.0,
-      "damping": 0.88,
+      "inertia": 0.4,
+      "strength": 200.0,
+      "damping": 0.9,
       "mass": 1,
-      "wind": 0.45,
-      "gravity": 0.3,
+      "wind": 0.25,
+      "gravity": 0.2,
       "mix": 1
     },
     {
@@ -868,12 +823,12 @@
       "name": "hairback_l2_phys",
       "bone": "hairback_l2",
       "rotate": 1,
-      "inertia": 0.65,
-      "strength": 130.0,
-      "damping": 0.86,
+      "inertia": 0.5,
+      "strength": 160.0,
+      "damping": 0.88,
       "mass": 1,
-      "wind": 0.75,
-      "gravity": 0.5,
+      "wind": 0.45,
+      "gravity": 0.35,
       "mix": 1
     },
     {

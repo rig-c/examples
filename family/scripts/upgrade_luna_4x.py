@@ -29,20 +29,26 @@ luma_4x = (
 )
 yy_4x, xx_4x = np.mgrid[0:H, 0:W]
 
-# Trim any light-grey rembg fringe on outer dark blazer/skirt rim (y=580..1615) so painting.png has zero white dots!
+# Trim any light-grey rembg fringe on outer dark blazer/skirt rim (y=655..1615, strictly below hair curls!)
+# Also trim the 3px dark skirt-corner protrusion at the outer-left leg top (x <= 244, y = 1621..1627)
+alpha_4x[alpha_4x < 24] = 0
+left_skirt_corner_jut = (xx_4x <= 244) & (yy_4x >= 1621) & (yy_4x <= 1627) & (luma_4x < 95)
+alpha_4x[left_skirt_corner_jut] = 0
+
 rim_4x = (alpha_4x > 0) & (~binary_erosion(alpha_4x >= 220, iterations=4))
 inner_blouse_4x = (xx_4x >= 320) & (xx_4x <= 455) & (yy_4x >= 555) & (yy_4x <= 890)
 hands_papers_4x = (xx_4x >= 240) & (xx_4x <= 515) & (yy_4x >= 1010) & (yy_4x <= 1435)
-dark_suit_outer_rim = rim_4x & (yy_4x >= 580) & (yy_4x <= 1615) & (~inner_blouse_4x) & (~hands_papers_4x)
+dark_suit_outer_rim = rim_4x & (yy_4x >= 655) & (yy_4x <= 1615) & (~inner_blouse_4x) & (~hands_papers_4x)
 alpha_4x[dark_suit_outer_rim & (luma_4x > 95)] = 0
 
-solid_4x = binary_erosion(alpha_4x >= 235, iterations=3) & (~( (yy_4x >= 580) & (yy_4x <= 1615) & (~inner_blouse_4x) & (~hands_papers_4x) & (luma_4x > 85) ))
+interior_opaque = binary_erosion(alpha_4x >= 240, iterations=3)
+solid_4x = interior_opaque | (binary_erosion(alpha_4x >= 235, iterations=1) & (~( (yy_4x >= 655) & (yy_4x <= 1615) & (~inner_blouse_4x) & (~hands_papers_4x) & (luma_4x > 85) )))
 _, solid_idx = distance_transform_edt(~solid_4x, return_indices=True)
 bled_painting = rgba[:, :, :3].copy()
 for c in range(3):
-    bled_painting[:, :, c] = rgba[:, :, c][solid_idx[0], solid_idx[1]]
+    bled_painting[:, :, c] = np.where(solid_4x, rgba[:, :, c], rgba[:, :, c][solid_idx[0], solid_idx[1]])
 
-# Save binary-masked painting.png (no white alpha blending!) so --seam silhouette never stamps grey/white rim pixels!
+# Save binary-masked painting.png (no white alpha blending!) so --seam near-white never stamps grey/white rim pixels!
 painting = bled_painting.copy()
 painting[alpha_4x < 210] = [255, 255, 255]
 Image.fromarray(painting, "RGB").save("inputs/painting.png")
@@ -106,7 +112,7 @@ head_rx = 150.0 + (hx_grid + 0.5) * (440.0 / 1024.0)
 head_ry = 270.0 + (hy_grid + 0.5) * (440.0 / 1024.0)
 head_rx_clamped = np.clip(np.round(head_rx).astype(int), 0, W - 1)
 head_ry_clamped = np.clip(np.round(head_ry).astype(int), 0, H - 1)
-head_src_rgb = bled_painting[head_ry_clamped, head_rx_clamped]
+head_src_rgb = rgba[head_ry_clamped, head_rx_clamped, :3]
 head_src_a = alpha_4x[head_ry_clamped, head_rx_clamped]
 head_src_luma = (
     0.299 * head_src_rgb[:, :, 0].astype(np.float32) +
@@ -134,52 +140,94 @@ for l in head_meta["layers"]:
         save_layer_canvas("inputs/layers/head", head_meta, l["name"], np.zeros((1024, 1024, 4), dtype=np.uint8))
 
 # ---------------------------------------------------------
-# 2. HEAD:BACK HAIR & HEAD:FRONT HAIR
+# 2. HEAD:BACK HAIR & HEAD:FRONT HAIR — Unify shoulder curls into `back hair` (drawn over `topwear`) & strip dark blazer!
 # ---------------------------------------------------------
+from scipy.ndimage import label
+
 h_bh = load_layer_canvas("inputs/layers/head_orig", head_meta, "back hair")
 h_fh = load_layer_canvas("inputs/layers/head_orig", head_meta, "front hair")
-
-dark_blazer_in_head = (head_ry >= 575) & (head_src_luma < 90)
-h_bh[dark_blazer_in_head, 3] = 0
-h_bh[(head_ry < 610) & (head_src_a < 24), 3] = 0
-h_bh = prefill_rgb(h_bh)
-save_layer_canvas("inputs/layers/head", head_meta, "back hair", h_bh)
-
-h_fh[head_src_a < 16, 3] = 0
-fh_vis = (h_fh[:, :, 3] > 32) & (head_src_a > 200)
-for c in range(3):
-    h_fh[:, :, c] = np.where(fh_vis, head_src_rgb[:, :, c], h_fh[:, :, c])
-h_fh = prefill_rgb(h_fh)
-save_layer_canvas("inputs/layers/head", head_meta, "front hair", h_fh)
-
-# ---------------------------------------------------------
-# 3. HEAD:NECK — Clean separation & under-tuck under white inner shirt collar
-# ---------------------------------------------------------
 h_neck = load_layer_canvas("inputs/layers/head_orig", head_meta, "neck")
 h_face = load_layer_canvas("inputs/layers/head_orig", head_meta, "face")
 
-neck_skin = (
-    (head_rx >= 312) & (head_rx <= 425) & (head_ry >= 540) & (head_ry <= 662) &
-    (head_src_a > 200) &
-    (head_src_rgb[:, :, 0] > 155) &
-    ((head_src_rgb[:, :, 0].astype(int) - head_src_rgb[:, :, 2].astype(int)) > 35)
-)
-h_neck[:, :, 3] = np.where(neck_skin, np.maximum(h_neck[:, :, 3], 255), h_neck[:, :, 3])
-for c in range(3):
-    h_neck[:, :, c] = np.where(neck_skin, head_src_rgb[:, :, c], h_neck[:, :, c])
+head_rb = head_src_rgb[:, :, 0].astype(np.int32) - head_src_rgb[:, :, 2].astype(np.int32)
+full_rb = full_src_rgb[:, :, 0].astype(np.int32) - full_src_rgb[:, :, 2].astype(np.int32)
 
+# Unify lower side/shoulder hair (outside upper forehead bangs box) from `front hair` into `back hair`!
+in_bang_box = (head_ry <= 478) & (head_rx >= 285) & (head_rx <= 472)
+h_bh_combined_a = np.maximum(h_bh[:, :, 3], np.where(~in_bang_box, h_fh[:, :, 3], 0))
+h_fh[~in_bang_box, 3] = 0
+
+# In `head:back hair`:
+# 1) Keep 100% of true peach-blonde & orange-red hair curls (R >= 115, R-B >= 22, R-G >= 30) down to y=645
+# 2) Strip ONLY the actual center neck/blouse gap (x = 330..412, y >= 518) and dark blazer pixels!
+head_rg = head_src_rgb[:, :, 0].astype(np.int32) - head_src_rgb[:, :, 1].astype(np.int32)
+center_neck_blouse_gap = (
+    ((head_ry >= 522) & (head_ry < 560) & (head_rx >= 334) & (head_rx <= 404)) |
+    ((head_ry >= 560) & (head_rx >= 328) & (head_rx <= 414))
+)
+is_blonde_curl_4x = (head_src_a > 120) & (head_src_rgb[:, :, 0] >= 115) & (head_rb >= 22) & (head_rg >= 30) & (~center_neck_blouse_gap)
+not_blonde_hair_below_500 = (head_ry >= 500) & ((~is_blonde_curl_4x) | center_neck_blouse_gap)
+
+h_bh[:, :, 3] = h_bh_combined_a
+shoulder_curl_fill = (head_ry >= 480) & (head_ry <= 650) & is_blonde_curl_4x
+h_bh[:, :, 3] = np.where(shoulder_curl_fill, np.maximum(h_bh[:, :, 3], head_src_a), h_bh[:, :, 3])
+h_bh[not_blonde_hair_below_500, 3] = 0
+h_bh[head_src_a < 32, 3] = 0
+h_bh[(head_ry >= 500) & (h_bh[:, :, 3] < 110), 3] = 0
+
+# Remove small disconnected islands on h_bh
+lbl_bh, n_bh = label(h_bh[:, :, 3] > 0)
+for cid in range(1, n_bh + 1):
+    comp = lbl_bh == cid
+    if comp.sum() < 500:
+        h_bh[comp, 3] = 0
+
+bh_vis = (h_bh[:, :, 3] > 0) & (head_src_a > 160) & (~not_blonde_hair_below_500)
+for c in range(3):
+    h_bh[:, :, c] = np.where(bh_vis, head_src_rgb[:, :, c], h_bh[:, :, c])
+bh_blonde_core = binary_erosion((h_bh[:, :, 3] > 200) & (head_src_luma > 105) & (head_rb > 22), iterations=1)
+h_bh = prefill_rgb(h_bh, core_mask=bh_blonde_core)
+save_layer_canvas("inputs/layers/head", head_meta, "back hair", h_bh)
+
+# Clean `head:front hair` (`h_fh`, upper bangs)
+h_fh[head_src_a < 32, 3] = 0
+lbl_fh, n_fh = label(h_fh[:, :, 3] > 0)
+for cid in range(1, n_fh + 1):
+    comp = lbl_fh == cid
+    if comp.sum() < 80:
+        h_fh[comp, 3] = 0
+
+fh_vis = (h_fh[:, :, 3] > 0) & (head_src_a > 160)
+for c in range(3):
+    h_fh[:, :, c] = np.where(fh_vis, head_src_rgb[:, :, c], h_fh[:, :, c])
+fh_blonde_core = binary_erosion((h_fh[:, :, 3] > 200) & (head_src_luma > 115) & (head_rb > 22), iterations=1)
+h_fh = prefill_rgb(h_fh, core_mask=fh_blonde_core)
+save_layer_canvas("inputs/layers/head", head_meta, "front hair", h_fh)
+
+# ---------------------------------------------------------
+# 3. HEAD:NECK — Broad skin backing behind `face`, `hair_back`, and `topwear` so zero white holes can appear!
+# ---------------------------------------------------------
+neck_skin = (
+    (head_rx >= 308) & (head_rx <= 438) & (head_ry >= 500) & (head_ry <= 655) &
+    (head_src_a > 200) &
+    (head_src_rgb[:, :, 0] > 145) &
+    (head_rb > 30)
+)
+h_neck[:, :, 3] = np.where(neck_skin, 255, h_neck[:, :, 3])
 blazer_on_neck = (head_ry >= 575) & (head_src_luma < 85) & ((head_rx < 322) | (head_rx > 416))
 h_neck[blazer_on_neck, 3] = 0
 
-neck_core = h_neck[:, :, 3] > 200
+neck_core = (h_neck[:, :, 3] > 200) & (head_src_rgb[:, :, 0] > 165) & (head_rb > 38)
 _, nearest_idx = distance_transform_edt(~neck_core, return_indices=True)
-neck_dilated = binary_dilation(neck_core, iterations=14)
-under_tuck = neck_dilated & (~neck_core) & (head_ry >= 565) & (head_ry <= 685) & (head_rx >= 308) & (head_rx <= 430)
-h_neck[:, :, 3] = np.where(under_tuck, np.maximum(h_neck[:, :, 3], 255), h_neck[:, :, 3])
+neck_dilated = binary_dilation(neck_core, iterations=22)
+under_tuck = (neck_dilated & (head_ry >= 505) & (head_ry <= 685) & (head_rx >= 305) & (head_rx <= 440)) | (
+    (head_rx >= 322) & (head_rx <= 416) & (head_ry >= 555) & (head_ry <= 680)
+)
+h_neck[:, :, 3] = np.where(under_tuck, 255, h_neck[:, :, 3])
 for c in range(3):
-    h_neck[:, :, c] = np.where(under_tuck, h_neck[:, :, c][nearest_idx[0], nearest_idx[1]], h_neck[:, :, c])
+    h_neck[:, :, c] = np.where(neck_core, head_src_rgb[:, :, c], head_src_rgb[:, :, c][nearest_idx[0], nearest_idx[1]])
 
-h_neck = prefill_rgb(h_neck)
+h_neck = prefill_rgb(h_neck, core_mask=neck_core)
 save_layer_canvas("inputs/layers/head", head_meta, "neck", h_neck)
 
 h_ew = load_layer_canvas("inputs/layers/head_orig", head_meta, "eyewear")
@@ -211,7 +259,7 @@ h_ew = prefill_rgb(h_ew)
 save_layer_canvas("inputs/layers/head", head_meta, "eyewear", h_ew)
 
 # ---------------------------------------------------------
-# 4. FULL:TOPWEAR — Remove neck skin bleed at top & white triangle at bottom center
+# 4. FULL:TOPWEAR — Clean curved blouse neckline & remove white triangle at bottom center
 # ---------------------------------------------------------
 f_top = load_layer_canvas("inputs/layers/full_orig", full_meta, "topwear")
 f_hw_r = load_layer_canvas("inputs/layers/full_orig", full_meta, "handwear-r")
@@ -220,20 +268,15 @@ f_bw = load_layer_canvas("inputs/layers/full_orig", full_meta, "bottomwear")
 f_lw = load_layer_canvas("inputs/layers/full_orig", full_meta, "legwear")
 f_fw = load_layer_canvas("inputs/layers/full_orig", full_meta, "footwear")
 
-neck_in_top = (
-    (full_rx >= 320) & (full_rx <= 418) & (full_ry < 658) &
-    (f_top[:, :, 0].astype(int) - f_top[:, :, 2].astype(int) > 35) &
-    (full_src_rgb[:, :, 0].astype(int) - full_src_rgb[:, :, 2].astype(int) > 35)
-)
+# Smooth curved neckline along the top of the white inner blouse (`x = 322..416, y = 640..658`):
+# Everything above `blouse_neck_y` in the center column is pure `neck` skin (zero stray dots or red triangles on `topwear`!)
+blouse_neck_y = np.interp(full_rx, [320, 335, 355, 378, 400, 412, 420], [635, 648, 655, 658, 653, 642, 625])
+neck_in_top = (full_rx >= 322) & (full_rx <= 416) & (full_ry < blouse_neck_y)
 f_top[neck_in_top, 3] = 0
 
-collar_rim = (
-    (full_rx >= 320) & (full_rx <= 418) & (full_ry >= 640) & (full_ry <= 666) &
-    (full_src_a > 200) & (f_top[:, :, 3] > 0)
-)
-rb_diff = (full_src_rgb[:, :, 0].astype(np.float32) - full_src_rgb[:, :, 2].astype(np.float32))
-shirt_t = np.clip((42.0 - rb_diff) / 28.0, 0.0, 1.0)
-f_top[:, :, 3] = np.where(collar_rim, np.round(255.0 * shirt_t).astype(np.uint8), f_top[:, :, 3])
+# Make sure the white inner blouse below `blouse_neck_y` (`y = blouse_neck_y..880, x = 322..418`) is 100% solid 255 on `f_top`!
+blouse_solid = (full_rx >= 322) & (full_rx <= 418) & (full_ry >= blouse_neck_y) & (full_ry <= 880) & (full_src_a > 200)
+f_top[blouse_solid, 3] = 255
 
 top_luma = (
     0.299 * f_top[:, :, 0].astype(np.float32) +
@@ -280,39 +323,38 @@ hw_outer_zone = (
 )
 near_hw = binary_dilation(combined_hw[:, :, 3] > 24, iterations=5) & hw_outer_zone & (full_src_a > 200)
 combined_hw[:, :, 3] = np.where(near_hw & ((full_rx <= 190) | (full_rx >= 520)), np.maximum(combined_hw[:, :, 3], full_src_a), combined_hw[:, :, 3])
-# Clamp combined_hw strictly inside 4x figure silhouette so outer sleeve edges never pick up background!
 combined_hw[:, :, 3] = np.minimum(combined_hw[:, :, 3], full_src_a)
 
 for c in range(3):
     combined_hw[:, :, c] = np.where(combined_hw[:, :, 3] > 0, full_src_rgb[:, :, c], combined_hw[:, :, c])
-# Decontaminate outer sleeve edges (y <= 1050) strictly from dark sleeve core
-hw_core = binary_erosion(combined_hw[:, :, 3] > 220, iterations=3) & (~((full_ry <= 1040) & (full_src_luma > 85)))
+hw_core = binary_erosion(combined_hw[:, :, 3] > 220, iterations=2)
 combined_hw = prefill_rgb(combined_hw, core_mask=hw_core)
 save_layer_canvas("inputs/layers/full", full_meta, "handwear-r", combined_hw)
 save_layer_canvas("inputs/layers/full", full_meta, "objects", np.zeros((1024, 1024, 4), dtype=np.uint8))
 
 # ---------------------------------------------------------
-# 6. FULL:BOTTOMWEAR — Smooth occluded diary/hand region & remove all edge white dots / pink hem skin
+# 6. FULL:BOTTOMWEAR — Cover 100% of dark skirt; set bottom 2 rows (`skirt_hem_y - 3.5 .. skirt_hem_y`) to `alpha=248 (< CORE_ALPHA 250)`!
 # ---------------------------------------------------------
-bw_zone = (full_rx >= 145) & (full_rx <= 585) & (full_ry >= 950) & (full_ry <= 1608)
-near_bw = binary_dilation(f_bw[:, :, 3] > 16, iterations=6) & bw_zone & (full_src_a > 200)
-f_bw[:, :, 3] = np.where(near_bw, np.maximum(f_bw[:, :, 3], full_src_a), f_bw[:, :, 3])
-f_bw[:, :, 3] = np.minimum(f_bw[:, :, 3], full_src_a)
-
-# Trim pink leg skin at the bottom skirt hem (full_ry >= 1580)
-hem_pink_skin = (full_ry >= 1580) & (
-    ((full_src_rgb[:, :, 0].astype(int) - full_src_rgb[:, :, 2].astype(int)) > 16) |
-    (full_src_luma > 78)
+skirt_hem_y = np.interp(
+    full_rx,
+    [220, 235, 275, 335, 375, 405, 435, 455, 475, 505, 535, 548, 560],
+    [1623, 1624, 1625, 1626, 1626, 1626, 1625, 1623, 1622, 1620, 1616, 1612, 1608]
 )
-f_bw[hem_pink_skin, 3] = 0
-f_bw[full_ry > 1608, 3] = 0
+is_pink_leg_below_skirt = (full_ry > skirt_hem_y)
+bw_zone = (full_rx >= 145) & (full_rx <= 585) & (full_ry >= 950) & (full_ry <= 1628) & (~is_pink_leg_below_skirt)
+near_bw = (binary_dilation(f_bw[:, :, 3] > 16, iterations=8) | ((full_ry >= 1580) & (full_rx >= 230) & (full_rx <= 552) & (full_rb <= 28))) & bw_zone & (full_src_a > 32)
+f_bw[:, :, 3] = np.where(near_bw, full_src_a, f_bw[:, :, 3])
+f_bw[:, :, 3] = np.minimum(f_bw[:, :, 3], full_src_a)
+f_bw[is_pink_leg_below_skirt, 3] = 0
+# Set the bottom 2 rows in 1024 space (`full_ry >= skirt_hem_y - 3.5`) to `alpha = 248 (< 250)` so `seamOverride` NEVER projects pink onto `bottomwear`!
+bw_hem_guard = (f_bw[:, :, 3] >= 248) & (full_ry >= skirt_hem_y - 3.5)
+f_bw[bw_hem_guard, 3] = 248
 
 skirt_occ = binary_dilation(combined_hw[:, :, 3] > 24, iterations=4) | binary_dilation(f_top[:, :, 3] > 32, iterations=2)
-# Only allow dark skirt pixels (full_src_luma < 72) in skirt_clean_core so bright paper edges or leg skin never bleed onto the skirt!
-skirt_clean_core = binary_erosion(f_bw[:, :, 3] > 220, iterations=3) & (~skirt_occ) & (full_src_a > 230) & (full_src_luma < 72)
+skirt_clean_core = binary_erosion(f_bw[:, :, 3] > 220, iterations=3) & (~skirt_occ) & (full_src_a > 230) & (full_src_luma < 72) & (full_rb <= 22) & (full_ry <= 1608)
 _, sk_idx = distance_transform_edt(~skirt_clean_core, return_indices=True)
 
-occ_or_bright_on_skirt = ((f_bw[:, :, 3] > 0) & skirt_occ) | ((f_bw[:, :, 3] > 0) & (full_src_luma > 78))
+occ_or_bright_on_skirt = ((f_bw[:, :, 3] > 0) & skirt_occ) | ((f_bw[:, :, 3] > 0) & ((full_src_luma > 75) | (full_rb > 24) | (full_ry >= 1610)))
 w_occ_bw = np.where(occ_or_bright_on_skirt, 1.0, gaussian_filter(occ_or_bright_on_skirt.astype(np.float32), sigma=2.0))
 for c in range(3):
     nearest_skirt_c = gaussian_filter(full_src_rgb[:, :, c][sk_idx[0], sk_idx[1]].astype(np.float32), sigma=2.5)
@@ -323,7 +365,7 @@ f_bw = prefill_rgb(f_bw, core_mask=skirt_clean_core)
 save_layer_canvas("inputs/layers/full", full_meta, "bottomwear", f_bw)
 
 # ---------------------------------------------------------
-# 7. FULL:TOPWEAR, LEGWEAR, FOOTWEAR — 100% 4x RGB on unoccluded & claim shield
+# 7. FULL:TOPWEAR, LEGWEAR, FOOTWEAR — Clean dark-blazer shoulders & `alpha=248 (< CORE_ALPHA 250)` legwear under-tuck!
 # ---------------------------------------------------------
 h_hair_union = np.maximum(h_fh[:, :, 3], h_bh[:, :, 3])
 hair_hx = np.round((full_rx - 150.0) * (1024.0 / 440.0)).astype(int)
@@ -333,48 +375,73 @@ hair_hx_c = np.clip(hair_hx, 0, 1023)
 hair_hy_c = np.clip(hair_hy, 0, 1023)
 head_hair_in_full_a = np.where(in_head_box, h_hair_union[hair_hy_c, hair_hx_c], 0)
 
-top_zone = (full_rx >= 115) & (full_rx <= 585) & (full_ry >= 575) & (full_ry <= 1225) & (~white_triangle) & (~neck_in_top) & (~collar_rim)
-near_top = binary_dilation(f_top[:, :, 3] > 16, iterations=6) & top_zone & (full_src_a > 200) & (head_hair_in_full_a < 64)
+# Sloping blazer shoulders (`y = 600..624`) so `topwear` never pokes above the hair or collar!
+blazer_top_y = np.interp(full_rx, [155, 200, 260, 322, 416, 465, 515, 550], [614, 604, 600, 596, 596, 602, 610, 624])
+top_zone = (full_rx >= 115) & (full_rx <= 585) & (full_ry >= blazer_top_y) & (full_ry <= 1225) & (~white_triangle) & (~neck_in_top)
+near_top = binary_dilation(f_top[:, :, 3] > 16, iterations=6) & top_zone & (full_src_a > 200)
 f_top[:, :, 3] = np.where(near_top, np.maximum(f_top[:, :, 3], full_src_a), f_top[:, :, 3])
+f_top[(full_ry < blazer_top_y) | neck_in_top, 3] = 0
 f_top[:, :, 3] = np.minimum(f_top[:, :, 3], full_src_a)
+f_top[blouse_solid, 3] = 255
 
-top_occ = binary_dilation((combined_hw[:, :, 3] > 32) | (head_hair_in_full_a > 64), iterations=2)
-w_occ_top = np.where(top_occ, 1.0, gaussian_filter(top_occ.astype(np.float32), sigma=2.0))
+# Replace ALL hair-curl pixels on `f_top` shoulders (`y <= 658`, outside center white blouse `x = 324..416`) with pure dark blazer!
+shoulder_hair_on_top = (full_ry <= 658) & ((full_rx <= 324) | (full_rx >= 416)) & ((head_hair_in_full_a > 0) | (full_src_luma > 68) | (full_rb > 14))
+hw_occ_on_top = binary_dilation(combined_hw[:, :, 3] > 32, iterations=2)
+
+dark_blazer_ref = (f_top[:, :, 3] > 220) & (~shoulder_hair_on_top) & (~hw_occ_on_top) & (full_src_luma < 65) & (full_ry >= 645) & ((full_rx < 320) | (full_rx > 420))
+_, db_idx = distance_transform_edt(~dark_blazer_ref, return_indices=True)
+inpaint_dark_blazer = full_src_rgb[db_idx[0], db_idx[1]].copy()
 for c in range(3):
-    qwen_c = f_top[:, :, c].astype(np.float32)
-    src_c = full_src_rgb[:, :, c].astype(np.float32)
-    f_top[:, :, c] = np.clip(np.round(w_occ_top * qwen_c + (1.0 - w_occ_top) * src_c), 0, 255).astype(np.uint8)
+    inpaint_dark_blazer[:, :, c] = np.clip(np.round(gaussian_filter(inpaint_dark_blazer[:, :, c].astype(np.float32), sigma=2.5)), 0, 255).astype(np.uint8)
 
-inner_blouse_full = (full_rx >= 320) & (full_rx <= 455) & (full_ry >= 555) & (full_ry <= 890)
-top_core = binary_erosion(f_top[:, :, 3] > 220, iterations=3) & (~((~inner_blouse_full) & (full_src_luma > 82)))
-f_top = prefill_rgb(f_top, core_mask=top_core)
+w_hw_top = np.where(hw_occ_on_top, 1.0, gaussian_filter(hw_occ_on_top.astype(np.float32), sigma=2.0))
+w_hair_top = np.where(shoulder_hair_on_top, 1.0, gaussian_filter(shoulder_hair_on_top.astype(np.float32), sigma=1.5))
+w_hair_top = np.where((full_ry > 662) | ((full_rx > 324) & (full_rx < 416)), 0.0, w_hair_top)
+for c in range(3):
+    src_c = full_src_rgb[:, :, c].astype(np.float32)
+    qwen_c = f_top[:, :, c].astype(np.float32)
+    db_c = inpaint_dark_blazer[:, :, c].astype(np.float32)
+    base_c = w_hw_top * qwen_c + (1.0 - w_hw_top) * src_c
+    f_top[:, :, c] = np.clip(np.round(w_hair_top * db_c + (1.0 - w_hair_top) * base_c), 0, 255).astype(np.uint8)
+
+f_top = prefill_rgb(f_top)
 save_layer_canvas("inputs/layers/full", full_meta, "topwear", f_top)
 
-shield_canvas = np.zeros((1024, 1024, 4), dtype=np.uint8)
-shield_mask = binary_dilation(head_hair_in_full_a > 64, iterations=3)
-shield_canvas[:, :, 3] = np.where(shield_mask, 255, 0)
-save_layer_canvas("inputs/layers/full", full_meta, "front hair", shield_canvas)
+# Legwear (`f_lw`): pink legs below `skirt_hem_y`, PLUS an `alpha=248 (< CORE_ALPHA 250)` band across `y = 1608..1630`
+# so `pushBackFringe` & `seamOverride` NEVER touch the skirt-to-leg transition!
+lw_visible = (
+    (full_rx >= 165) & (full_rx <= 680) &
+    (full_ry > skirt_hem_y) & (full_ry <= 2245) &
+    (full_src_a > 16)
+)
+lw_tuck = binary_dilation(lw_visible & (full_src_a > 180), iterations=6) & (~lw_visible) & (full_ry >= 1606) & (f_bw[:, :, 3] >= 220)
+f_lw[:, :, 3] = 0
+f_lw[lw_visible, 3] = full_src_a[lw_visible]
+f_lw[lw_tuck, 3] = 248
+f_lw[(f_lw[:, :, 3] > 248) & (full_ry <= 1630), 3] = 248
 
-# Extend legwear up to y=1565 strictly within the exact leg widths (x=204..292 and x=444..532) so there is zero gap and zero protruding pink tab!
-in_leg_cols = ((full_rx >= 204) & (full_rx <= 292)) | ((full_rx >= 444) & (full_rx <= 532))
-f_lw[(full_ry <= 1615) & (~in_leg_cols), 3] = 0
-lw_tuck = in_leg_cols & (full_ry >= 1565) & (full_ry <= 1615) & (full_src_a > 200)
-f_lw[:, :, 3] = np.where(lw_tuck, 255, f_lw[:, :, 3])
-lw_zone = (full_rx >= 165) & (full_rx <= 680) & (full_ry >= 1565) & (full_ry <= 2245) & ((full_ry > 1615) | in_leg_cols)
-near_lw = binary_dilation(f_lw[:, :, 3] > 16, iterations=5) & lw_zone & (full_src_a > 120)
-f_lw[:, :, 3] = np.where(near_lw, np.maximum(f_lw[:, :, 3], full_src_a), f_lw[:, :, 3])
-f_lw[:, :, 3] = np.minimum(f_lw[:, :, 3], full_src_a)
-
-lw_occ = binary_dilation((f_bw[:, :, 3] > 32) | (f_fw[:, :, 3] > 32), iterations=2)
-lw_skin_core = (f_lw[:, :, 3] > 220) & (~lw_occ) & (full_src_luma > 95)
+dark_hem_on_lw = (full_ry <= 1632) & ((full_src_luma < 105) | (full_rb < 40) | (full_src_rgb[:, :, 0] < 180))
+lw_occ = binary_dilation(f_fw[:, :, 3] > 32, iterations=2) | lw_tuck | dark_hem_on_lw
+lw_skin_core = (full_ry >= 1632) & (full_ry <= 1720) & (f_lw[:, :, 3] > 220) & (full_src_luma > 105) & (full_rb > 45)
 _, lw_idx = distance_transform_edt(~lw_skin_core, return_indices=True)
-w_occ_lw = np.where(lw_occ, 1.0, gaussian_filter(lw_occ.astype(np.float32), sigma=2.0))
+w_occ_lw = np.where(lw_occ, 1.0, gaussian_filter(lw_occ.astype(np.float32), sigma=1.2))
+w_occ_lw = np.where(lw_visible & (~lw_occ), 0.0, w_occ_lw)
 for c in range(3):
     skin_c = full_src_rgb[:, :, c][lw_idx[0], lw_idx[1]].astype(np.float32)
     src_c = full_src_rgb[:, :, c].astype(np.float32)
     f_lw[:, :, c] = np.clip(np.round(w_occ_lw * skin_c + (1.0 - w_occ_lw) * src_c), 0, 255).astype(np.uint8)
 f_lw = prefill_rgb(f_lw, core_mask=lw_skin_core)
 save_layer_canvas("inputs/layers/full", full_meta, "legwear", f_lw)
+
+# Shield strictly inside opaque head hair (`head_hair_in_full_a >= 16` on shoulders) AND the entire skirt hem transition band (`y = 1608..1634`)!
+shield_canvas = np.zeros((1024, 1024, 4), dtype=np.uint8)
+shield_mask = (
+    (binary_erosion(head_hair_in_full_a >= 220, iterations=1) & (full_ry <= 658)) |
+    (shoulder_hair_on_top & (head_hair_in_full_a >= 16)) |
+    ((full_ry >= 1608) & (full_ry <= 1634) & ((f_bw[:, :, 3] > 0) | (f_lw[:, :, 3] > 0)))
+)
+shield_canvas[:, :, 3] = np.where(shield_mask, 255, 0)
+save_layer_canvas("inputs/layers/full", full_meta, "front hair", shield_canvas)
 
 fw_zone = (full_rx >= 280) & (full_rx <= 685) & (full_ry >= 2000) & (full_ry <= 2265)
 near_fw = binary_dilation(f_fw[:, :, 3] > 16, iterations=6) & fw_zone & (full_src_a > 96)
@@ -391,7 +458,7 @@ with open("inputs/layers/head/layers.json", "w") as f:
     json.dump(head_meta, f, indent=2)
 
 # ---------------------------------------------------------
-# 8. Write Luna's 4x config.json (No skirt physics; jacket hem physics + dome bust jiggle)
+# 8. Write Luna's 4x config.json (No skirt physics; jacket hem physics + dome bust jiggle; hair_back over topwear)
 # ---------------------------------------------------------
 config = {
   "key": "luna",
@@ -405,13 +472,13 @@ config = {
   "assemble": {
     "rig_scale": 1.0,
     "plan": [
-      ["hair_back", "head", "back hair"],
       ["shoes", "full", "footwear"],
       ["legwear", "full", "legwear"],
       ["bottomwear", "full", "bottomwear"],
       ["neck", "head", "neck"],
       ["topwear", "full", "topwear"],
       ["handwear_r", "full", "handwear-r"],
+      ["hair_back", "head", "back hair"],
       ["face", "head", "face"],
       ["eyewhite_r", "head", "eyewhite-r"],
       ["eyewhite_l", "head", "eyewhite-l"],
@@ -455,13 +522,13 @@ config = {
       "chain": "hair_r",
       "parent": "head",
       "points": [[275, 430], [250, 520], [235, 595]],
-      "tip": [245, 675]
+      "tip": [245, 655]
     },
     {
       "chain": "hair_l",
       "parent": "head",
       "points": [[475, 445], [485, 535], [485, 610]],
-      "tip": [468, 690]
+      "tip": [468, 660]
     },
     {
       "chain": "bang_r",
@@ -507,7 +574,9 @@ config = {
       "segments": [
         ["head", [370, 555], [370, 310]],
         "hairback_r",
-        "hairback_l"
+        "hairback_l",
+        "hair_r",
+        "hair_l"
       ]
     },
     "hair_front": {
@@ -517,9 +586,7 @@ config = {
         ["head", [370, 555], [370, 310]],
         "bang_r",
         "bang_c",
-        "bang_l",
-        "hair_r",
-        "hair_l"
+        "bang_l"
       ]
     },
     "neck": {

@@ -241,10 +241,18 @@
           if (!names.includes('eye_r') || !names.includes('eye_l')) return;
           const sy = 1.0 - blink.closeAmount * 0.88;
           const by = -blink.closeAmount * 1.2;
-          pose.bone('eye_r').scaleY = sy;
-          pose.bone('eye_l').scaleY = sy;
-          if (names.includes('brow_r')) pose.bone('brow_r').y = by;
-          if (names.includes('brow_l')) pose.bone('brow_l').y = by;
+          const er = pose.bone('eye_r');
+          const el = pose.bone('eye_l');
+          er.scaleY = (er.setup.scaleY ?? 1) * sy;
+          el.scaleY = (el.setup.scaleY ?? 1) * sy;
+          if (names.includes('brow_r')) {
+            const br = pose.bone('brow_r');
+            br.y = (br.setup.y ?? 0) + by;
+          }
+          if (names.includes('brow_l')) {
+            const bl = pose.bone('brow_l');
+            bl.y = (bl.setup.y ?? 0) + by;
+          }
         },
       });
       const anim = assets.animations[0]?.name || 'idle';

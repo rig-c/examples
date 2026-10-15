@@ -16,11 +16,6 @@
     "rig_scale": 1.0,
     "plan": [
       [
-        "hair_back",
-        "head",
-        "back hair"
-      ],
-      [
         "shoes",
         "full",
         "footwear"
@@ -49,6 +44,11 @@
         "handwear_r",
         "full",
         "handwear-r"
+      ],
+      [
+        "hair_back",
+        "head",
+        "back hair"
       ],
       [
         "face",
@@ -269,7 +269,7 @@
       ],
       "tip": [
         245,
-        675
+        655
       ]
     },
     {
@@ -291,7 +291,7 @@
       ],
       "tip": [
         468,
-        690
+        660
       ]
     },
     {
@@ -424,7 +424,9 @@
           ]
         ],
         "hairback_r",
-        "hairback_l"
+        "hairback_l",
+        "hair_r",
+        "hair_l"
       ]
     },
     "hair_front": {
@@ -444,9 +446,7 @@
         ],
         "bang_r",
         "bang_c",
-        "bang_l",
-        "hair_r",
-        "hair_l"
+        "bang_l"
       ]
     },
     "neck": {

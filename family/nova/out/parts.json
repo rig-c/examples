@@ -18,9 +18,9 @@
       "projected_core_px": 20386,
       "source_px_taken": 20202,
       "visible_not_projected_px": 4503,
-      "refused_drift_px": 458,
+      "refused_drift_px": 459,
       "merged_px": 0,
-      "seam_override_px": 140
+      "seam_override_px": 142
     },
     {
       "name": "bottomwear",
@@ -29,15 +29,15 @@
       "y": 971,
       "w": 374,
       "h": 1132,
-      "opaque_px": 277747,
-      "visible_px": 206603,
-      "occluded_px": 71144,
-      "projected_core_px": 191840,
-      "source_px_taken": 191840,
-      "visible_not_projected_px": 14763,
-      "refused_drift_px": 1,
+      "opaque_px": 276830,
+      "visible_px": 205760,
+      "occluded_px": 71070,
+      "projected_core_px": 191362,
+      "source_px_taken": 191362,
+      "visible_not_projected_px": 14398,
+      "refused_drift_px": 0,
       "merged_px": 0,
-      "seam_override_px": 128,
+      "seam_override_px": 60,
       "fringe_pushed_back": [
         {
           "part": "shoes",
@@ -69,19 +69,19 @@
       "y": 554,
       "w": 473,
       "h": 702,
-      "opaque_px": 240368,
-      "visible_px": 220669,
-      "occluded_px": 19699,
-      "projected_core_px": 207600,
-      "source_px_taken": 207600,
-      "visible_not_projected_px": 13069,
-      "refused_drift_px": 59,
+      "opaque_px": 239412,
+      "visible_px": 237878,
+      "occluded_px": 1534,
+      "projected_core_px": 225362,
+      "source_px_taken": 225308,
+      "visible_not_projected_px": 12570,
+      "refused_drift_px": 1321,
       "merged_px": 0,
-      "seam_override_px": 8188,
+      "seam_override_px": 149,
       "fringe_pushed_back": [
         {
           "part": "neck",
-          "px": 249
+          "px": 105
         }
       ]
     },
@@ -92,19 +92,19 @@
       "y": 254,
       "w": 432,
       "h": 442,
-      "opaque_px": 87128,
-      "visible_px": 28605,
+      "opaque_px": 87130,
+      "visible_px": 28607,
       "occluded_px": 58523,
-      "projected_core_px": 16516,
-      "source_px_taken": 16516,
-      "visible_not_projected_px": 12089,
+      "projected_core_px": 16510,
+      "source_px_taken": 16510,
+      "visible_not_projected_px": 12097,
       "refused_drift_px": 0,
       "merged_px": 0,
-      "seam_override_px": 303,
+      "seam_override_px": 257,
       "fringe_pushed_back": [
         {
           "part": "topwear",
-          "px": 60
+          "px": 52
         },
         {
           "part": "neck",
@@ -411,7 +411,7 @@
       "visible_not_projected_px": 11178,
       "refused_drift_px": 0,
       "merged_px": 0,
-      "seam_override_px": 9,
+      "seam_override_px": 8,
       "fringe_pushed_back": [
         {
           "part": "hair_back",
@@ -441,7 +441,7 @@
     "full:eyewhite-r": 0,
     "full:face": 0,
     "full:footwear": 0,
-    "full:front hair": 0,
+    "full:front hair": 42,
     "full:handwear-l": 0,
     "full:handwear-r": 0,
     "full:irides-l": 0,
@@ -455,7 +455,7 @@
     "full:tail": 0,
     "full:topwear": 0,
     "full:wings": 0,
-    "head:back hair": 1793,
+    "head:back hair": 1799,
     "head:bottomwear": 0,
     "head:ears": 0,
     "head:eyebrow-l": 0,
@@ -482,16 +482,42 @@
     "head:wings": 0
   },
   "recomposite": {
-    "mean_abs": 1.382,
+    "mean_abs": 2.925,
     "within_limit": 8,
-    "within_share": 0.9831,
+    "within_share": 0.9773,
     "error_limit": 40,
-    "error_px": 18222,
+    "error_px": 31615,
     "covered_alpha": 128,
-    "uncovered_error_px": 9182,
-    "hole_count": 589,
+    "uncovered_error_px": 22907,
+    "hole_count": 553,
     "holes_listed": 5,
     "holes": [
+      {
+        "px": 9565,
+        "x": 335,
+        "y": 1478,
+        "w": 42,
+        "h": 431,
+        "borders": [
+          {
+            "part": "bottomwear",
+            "px": 818
+          }
+        ]
+      },
+      {
+        "px": 4890,
+        "x": 515,
+        "y": 798,
+        "w": 74,
+        "h": 129,
+        "borders": [
+          {
+            "part": "topwear",
+            "px": 420
+          }
+        ]
+      },
       {
         "px": 1563,
         "x": 342,
@@ -535,41 +561,15 @@
         ]
       },
       {
-        "px": 258,
-        "x": 370,
-        "y": 1653,
-        "w": 6,
-        "h": 248,
+        "px": 313,
+        "x": 631,
+        "y": 702,
+        "w": 42,
+        "h": 36,
         "borders": [
           {
-            "part": "bottomwear",
-            "px": 260
-          }
-        ]
-      },
-      {
-        "px": 231,
-        "x": 491,
-        "y": 1628,
-        "w": 8,
-        "h": 176,
-        "borders": [
-          {
-            "part": "bottomwear",
-            "px": 194
-          }
-        ]
-      },
-      {
-        "px": 193,
-        "x": 466,
-        "y": 1881,
-        "w": 14,
-        "h": 91,
-        "borders": [
-          {
-            "part": "bottomwear",
-            "px": 114
+            "part": "topwear",
+            "px": 55
           }
         ]
       }

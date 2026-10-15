@@ -116,7 +116,7 @@
    "in": "rig.json"
   }
  ],
- "seam_mean": 0.127,
+ "seam_mean": 0.13,
  "seam_px_over_40": 8,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.068073,
@@ -125,7 +125,7 @@
   "torso_parts": [
    "topwear"
   ],
-  "torso_heat_mean": 16.569,
+  "torso_heat_mean": 17.841,
   "torso_floor": 3.809,
   "feet_parts": [
    "shoes"
@@ -178,8 +178,17 @@
   "first_violation": null
  },
  "TIP_OVER_ROOT": {
-  "status": "SKIP",
-  "reason": "none of \"bottomwear\" could be measured: bottomwear: declared not swinging by the scene file's not_swinging, so it is not held to the bar"
+  "status": "FAIL",
+  "instrument": "geometry",
+  "parts": [
+   {
+    "part": "bottomwear",
+    "root_rig_px": 0,
+    "tip_rig_px": 0,
+    "ratio": null
+   }
+  ],
+  "ratio_floor": 1.4725
  },
  "STILL_REGIONS_DARK": {
   "status": "PASS",
@@ -237,21 +246,21 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 4,
-  "triangles": 790,
+  "triangles": 780,
   "frames": 41,
   "severity": 1.454,
   "severity_ceiling": 1.926544,
   "worst": {
    "slot": "topwear",
-   "triangle": 67,
+   "triangle": 59,
    "vertices": [
-    46,
-    49,
-    48
+    38,
+    41,
+    40
    ],
    "edge": [
-    49,
-    48
+    41,
+    40
    ],
    "frame": 10,
    "ratio": 0.688
@@ -270,11 +279,11 @@
    },
    {
     "slot": "topwear",
-    "triangles": 612,
+    "triangles": 602,
     "max_ratio": 1.282,
-    "max_at": "triangle 78 (vertices 53 358 54), edge 54-53, idle frame 10",
+    "max_at": "triangle 70 (vertices 45 347 46), edge 46-45, idle frame 10",
     "min_ratio": 0.688,
-    "min_at": "triangle 67 (vertices 46 49 48), edge 49-48, idle frame 10",
+    "min_at": "triangle 59 (vertices 38 41 40), edge 41-40, idle frame 10",
     "severity": 1.454
    },
    {
@@ -311,37 +320,16 @@
  },
  "RECOMPOSITE_HOLES": {
   "status": "REPORTED",
-  "error_px": 18222,
-  "uncovered_error_px": 9182,
-  "hole_count": 589,
+  "error_px": 31615,
+  "uncovered_error_px": 22907,
+  "hole_count": 553,
   "largest": {
-   "px": 1563,
-   "box": "342,558 82x65",
+   "px": 9565,
+   "box": "335,1478 42x431",
    "borders": [
-    "hair_back 209 px",
-    "topwear 113 px",
-    "neck 53 px"
+    "bottomwear 818 px"
    ]
   }
  },
- "requirements": {
-  "fps": 12,
-  "summary": {
-   "declared": 0,
-   "measured": 0,
-   "pass": 0,
-   "fail": 0,
-   "not_measurable": 0,
-   "not_declared": [
-    "contact",
-    "follow",
-    "aim",
-    "range",
-    "stretch",
-    "seam"
-   ]
-  },
-  "lines": {}
- },
- "PASS": true
+ "PASS": false
 }

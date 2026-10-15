@@ -49,18 +49,27 @@ bright_garment_rim = (
 rgba[bright_garment_rim, 3] = 0
 alpha_4x = rgba[:, :, 3].copy()
 
-# Build decontaminated `bled_painting` from dark interior cores on dark garment zones
-core_4x = binary_erosion(alpha_4x >= 235, iterations=3)
+# Build decontaminated `bled_painting`: preserve 100% of interior opaque pixels (`interior_opaque`)
+# so Nova's white shirt, purple vest, brooch, and left hand on her waist are never altered!
+interior_opaque = binary_erosion(alpha_4x >= 240, iterations=3)
 dark_garment_band = (yy >= 540) & (~inner_shirt_or_neck) & (~peeking_hands) & (~ankles_zone) & (~orange_hair_4x)
-core_4x = core_4x & (~dark_garment_band | (luma_4x < 75))
+core_4x = interior_opaque | (binary_erosion(alpha_4x >= 235, iterations=1) & ((~dark_garment_band) | (luma_4x < 75)))
 _, core_idx = distance_transform_edt(~core_4x, return_indices=True)
 bled_painting = rgba[:, :, :3].copy()
 for c in range(3):
     bled_painting[:, :, c] = np.where(core_4x, rgba[:, :, c], rgba[:, :, c][core_idx[0], core_idx[1]])
-    rgba[:, :, c] = np.where(alpha_4x > 0, bled_painting[:, :, c], 255)
+    rgba[:, :, c] = np.where(alpha_4x >= 230, rgba[:, :, c], np.where(alpha_4x > 0, bled_painting[:, :, c], 255))
 
+# IMPORTANT: Keep interior holes (the enclosed arm hole at x=505..595, y=740..925 and the narrow leg gap at x=340..390, y=1360..2045)
+# filled with `bled_painting` (dark navy) in `painting.png` instead of `[255, 255, 255]`, because `figureSilhouette` flood-fills from
+# the outer canvas border and treats enclosed holes as interior — setting `[255, 255, 255]` inside interior holes causes `projectSource`
+# to stamp white specks onto the inner hole edges!
+interior_hole_zone = (
+    ((xx >= 505) & (xx <= 595) & (yy >= 740) & (yy <= 925)) |
+    ((xx >= 340) & (xx <= 390) & (yy >= 1360) & (yy <= 2045))
+)
 painting = bled_painting.copy()
-painting[alpha_4x < 210] = [255, 255, 255]
+painting[(alpha_4x < 210) & (~interior_hole_zone)] = [255, 255, 255]
 Image.fromarray(rgba, "RGBA").save("inputs/painting_rgba.png")
 Image.fromarray(painting, "RGB").save("inputs/painting.png")
 
@@ -112,7 +121,7 @@ full_ry = (fy_grid + 0.5) * (2284.0 / 1024.0)
 full_rx_clamped = np.clip(np.round(full_rx).astype(int), 0, W - 1)
 full_ry_clamped = np.clip(np.round(full_ry).astype(int), 0, H - 1)
 full_in_bounds = (full_rx >= 0) & (full_rx < W) & (full_ry >= 0) & (full_ry < H)
-full_src_rgb = bled_painting[full_ry_clamped, full_rx_clamped]
+full_src_rgb = rgba[full_ry_clamped, full_rx_clamped, :3]
 full_src_a = np.where(full_in_bounds, alpha_4x[full_ry_clamped, full_rx_clamped], 0)
 full_src_luma = (
     0.299 * full_src_rgb[:, :, 0].astype(np.float32) +
@@ -126,7 +135,7 @@ head_rx = 200.0 + (hx_grid + 0.5) * (530.0 / 1024.0)
 head_ry = 230.0 + (hy_grid + 0.5) * (530.0 / 1024.0)
 head_rx_clamped = np.clip(np.round(head_rx).astype(int), 0, W - 1)
 head_ry_clamped = np.clip(np.round(head_ry).astype(int), 0, H - 1)
-head_src_rgb = bled_painting[head_ry_clamped, head_rx_clamped]
+head_src_rgb = rgba[head_ry_clamped, head_rx_clamped, :3]
 head_src_a = alpha_4x[head_ry_clamped, head_rx_clamped]
 head_src_luma = (
     0.299 * head_src_rgb[:, :, 0].astype(np.float32) +
@@ -183,17 +192,14 @@ is_true_orange_hair = (
 torso_in_hbh = (head_ry >= 510) & (~is_true_orange_hair)
 h_bh[torso_in_hbh, 3] = 0
 h_bh[head_src_a < 24, 3] = 0
-# Remove collar-edge sliver in the V-neck gap (x=342..422, y>=582) where there is no back hair
 h_bh[(head_rx >= 342) & (head_rx <= 422) & (head_ry >= 582), 3] = 0
 
-# Snap outer silhouette of orange-red hair in head:back hair
 orange_hair_zone = is_true_orange_hair & (head_ry >= 250) & (head_ry <= 758) & (~((head_rx >= 342) & (head_rx <= 422) & (head_ry >= 582)))
 near_hbh = binary_dilation(h_bh[:, :, 3] > 24, iterations=4) & orange_hair_zone
 h_bh[:, :, 3] = np.where(near_hbh, np.maximum(h_bh[:, :, 3], head_src_a), h_bh[:, :, 3])
 h_bh[:, :, 3] = np.minimum(h_bh[:, :, 3], head_src_a)
 h_bh[(head_ry >= 520) & (h_bh[:, :, 3] < 110), 3] = 0
 
-# Remove small disconnected islands (< 350 px) in h_bh
 from scipy.ndimage import label
 lbl_nbh, n_nbh = label(h_bh[:, :, 3] > 0)
 for cid in range(1, n_nbh + 1):
@@ -201,12 +207,10 @@ for cid in range(1, n_nbh + 1):
     if comp.sum() < 350:
         h_bh[comp, 3] = 0
 
-# Pad lower hair curls (y >= 515) by 3px in head-run space at alpha=255 so 100% of orange hair pixels over topwear are owned by hair_back
 lower_orange_solid = binary_dilation((head_ry >= 515) & (h_bh[:, :, 3] >= 110), iterations=3) & (head_src_a > 200) & (~cream_vneck_in_head) & (~neck_skin_center_in_head)
 h_bh[lower_orange_solid, 3] = 255
 h_bh[(head_ry >= 515) & (h_bh[:, :, 3] > 0), 3] = 255
 
-# Inject clean 4x orange-red hair RGB on head:back hair (never bleeding dark blazer or white shirt!)
 bh_occ = binary_dilation((h_fh[:, :, 3] > 64) | (h_face[:, :, 3] > 64), iterations=2)
 orange_core = (h_bh[:, :, 3] > 210) & (~bh_occ) & is_true_orange_hair
 _, orange_idx = distance_transform_edt(~orange_core, return_indices=True)
@@ -219,7 +223,6 @@ for c in range(3):
 h_bh = prefill_rgb(h_bh, core_mask=orange_core)
 save_layer_canvas("inputs/layers/head", head_meta, "back hair", h_bh)
 
-# Clean front hair and inject 100% 4x RGB
 h_fh[head_src_a < 16, 3] = 0
 h_fh[torso_in_hbh, 3] = 0
 h_fh[(head_rx >= 342) & (head_rx <= 422) & (head_ry >= 582), 3] = 0
@@ -285,17 +288,12 @@ f_bw = load_layer_canvas("inputs/layers/full_orig", full_meta, "bottomwear")
 f_lw = load_layer_canvas("inputs/layers/full_orig", full_meta, "legwear")
 f_fw = load_layer_canvas("inputs/layers/full_orig", full_meta, "footwear")
 
-# (a) Merge peeking right hand (`handwear-r`) into `topwear`
-hwr_a = f_hwr[:, :, 3].astype(np.float32) / 255.0
-top_a = f_top[:, :, 3].astype(np.float32) / 255.0
-out_top_a = hwr_a + top_a * (1.0 - hwr_a)
-safe_top_a = np.where(out_top_a > 1e-5, out_top_a, 1.0)
-for c in range(3):
-    f_top[:, :, c] = np.clip(
-        np.round((f_hwr[:, :, c].astype(np.float32) * hwr_a + f_top[:, :, c].astype(np.float32) * top_a * (1.0 - hwr_a)) / safe_top_a),
-        0, 255
-    ).astype(np.uint8)
-f_top[:, :, 3] = np.clip(np.round(out_top_a * 255.0), 0, 255).astype(np.uint8)
+# Trim stray red fragments on f_hwr below y=1100
+f_hwr[full_ry > 1100, 3] = 0
+save_layer_canvas("inputs/layers/full", full_meta, "handwear-l", np.zeros((1024, 1024, 4), dtype=np.uint8))
+
+# Combine alpha of topwear + handwear-r + handwear-l
+combined_top_a = np.maximum(np.maximum(f_top[:, :, 3], f_hwr[:, :, 3]), f_hwl[:, :, 3])
 
 # Map cleaned head hair and head neck into full space
 h_hair_union = np.maximum(h_fh[:, :, 3], h_bh[:, :, 3])
@@ -314,88 +312,71 @@ neck_in_top = (
     (full_src_rgb[:, :, 0] > 170) & (full_src_rgb[:, :, 1] > 85) &
     ((full_src_rgb[:, :, 0].astype(int) - full_src_rgb[:, :, 2].astype(int)) > 40)
 )
-f_top[neck_in_top, 3] = 0
 
-# (b) Merge HANDWEAR-L (Left arm resting on hip) into TOPWEAR
-hwl_outer = (full_rx >= 380) & (full_rx <= 695) & (full_ry >= 600) & (full_ry <= 1055)
-near_hwl = binary_dilation(f_hwl[:, :, 3] > 24, iterations=4) & hwl_outer & (full_src_a > 140)
-f_hwl[:, :, 3] = np.where(near_hwl & (full_rx >= 540), np.maximum(f_hwl[:, :, 3], full_src_a), f_hwl[:, :, 3])
-save_layer_canvas("inputs/layers/full", full_meta, "handwear-l", np.zeros((1024, 1024, 4), dtype=np.uint8))
-
-hwl_a = f_hwl[:, :, 3:4].astype(np.float32) / 255.0
-top_a = f_top[:, :, 3:4].astype(np.float32) / 255.0
-out_a = hwl_a + top_a * (1.0 - hwl_a)
-safe_a = np.where(out_a > 1e-6, out_a, 1.0)
-f_top[:, :, :3] = np.clip(np.round((f_hwl[:, :, :3].astype(np.float32) * hwl_a + f_top[:, :, :3].astype(np.float32) * top_a * (1.0 - hwl_a)) / safe_a), 0, 255).astype(np.uint8)
-f_top[:, :, 3] = np.clip(np.round(out_a[:, :, 0] * 255.0), 0, 255).astype(np.uint8)
-
-# (c) Refine `topwear` — Trim above the natural sloping blazer shoulder line & fill V-neck + collar cleanly under hair!
+# Refine `topwear` — Trim above the natural sloping blazer shoulder line & fill V-neck + collar cleanly under hair!
 blazer_top_y = np.interp(full_rx, [265, 315, 355, 395, 480, 520, 585, 640], [685, 645, 616, 590, 558, 562, 605, 665])
-f_top[full_ry < blazer_top_y, 3] = 0
 
 vneck_and_collar = (
     (full_rx >= 285) & (full_rx <= 535) & (full_ry >= blazer_top_y) & (full_ry <= 715) &
     (~neck_in_top) & (full_src_a > 180)
 )
+
+top_zone = (full_rx >= 230) & (full_rx <= 695) & (full_ry >= blazer_top_y) & (full_ry <= 1300) & (~neck_in_top)
+near_top = binary_dilation(combined_top_a > 16, iterations=4) & top_zone & (full_src_a > 160) & (head_hair_in_full_a < 64)
+f_top[:, :, 3] = np.where(near_top, np.maximum(combined_top_a, full_src_a), combined_top_a)
+f_top[full_ry < blazer_top_y, 3] = 0
+f_top[neck_in_top, 3] = 0
 f_top[:, :, 3] = np.where(vneck_and_collar, 255, f_top[:, :, 3])
-
-top_zone = (full_rx >= 235) & (full_rx <= 695) & (full_ry >= blazer_top_y) & (full_ry <= 1300) & (~neck_in_top)
-near_top = binary_dilation(f_top[:, :, 3] > 16, iterations=4) & top_zone & (full_src_a > 140) & (head_hair_in_full_a < 64)
-f_top[:, :, 3] = np.where(near_top, np.maximum(f_top[:, :, 3], full_src_a), f_top[:, :, 3])
 f_top[:, :, 3] = np.where(head_hair_in_full_a < 64, np.minimum(f_top[:, :, 3], full_src_a), f_top[:, :, 3])
-# Strip any bright background halo on the outer/inner sleeve edges (x >= 500, y >= 680)
-f_top[(full_rx >= 500) & (full_ry >= 680) & (full_src_luma > 88) & (full_src_a < 245), 3] = 0
+# Tighten arm-hole inner edge (x=505..595, y=740..925) to alpha_4x >= 242 so zero fringe extends into the hole!
+in_arm_hole_full = (full_rx >= 505) & (full_rx <= 595) & (full_ry >= 740) & (full_ry <= 925)
+f_top[in_arm_hole_full & (full_src_a < 242), 3] = 0
 
-# Inpaint orange hair curls over `f_top` using cream-white shirt color inside V-neck and dark navy blazer color on shoulders/lapels!
-full_rb = full_src_rgb[:, :, 0].astype(int) - full_src_rgb[:, :, 2].astype(int)
-full_rg = full_src_rgb[:, :, 0].astype(int) - full_src_rgb[:, :, 1].astype(int)
-is_orange_on_top = (full_ry < 760) & (full_src_rgb[:, :, 0] >= 115) & (full_rb >= 35) & (full_rg >= 15)
-top_occ = binary_dilation((head_hair_in_full_a > 24) | is_orange_on_top, iterations=3)
+# Inpaint orange hair curls over `f_top` ONLY where `head_hair_in_full_a` covers `topwear`!
+# Everywhere outside `head_hair_in_full_a`, preserve 100% of the crisp 4x source RGB!
+top_occ = (head_hair_in_full_a >= 64) & (full_ry <= 765)
 
-dark_blazer_ref = binary_erosion(f_top[:, :, 3] > 220, iterations=2) & (~top_occ) & (full_src_a > 220) & (full_src_luma < 72)
+dark_blazer_ref = binary_erosion(f_top[:, :, 3] > 220, iterations=2) & (~top_occ) & (full_src_a > 220) & (full_src_luma < 72) & (full_ry <= 920)
 _, dark_blazer_idx = distance_transform_edt(~dark_blazer_ref, return_indices=True)
 
 cream_shirt_ref = (
     (f_top[:, :, 3] > 220) & (~top_occ) & (full_src_a > 220) &
-    (full_rx >= 290) & (full_rx <= 405) & (full_ry >= 575) & (full_ry <= 725) &
-    (full_src_rgb[:, :, 1] > 155) & (full_src_rgb[:, :, 2] > 140)
+    (full_rx >= 250) & (full_rx <= 405) & (full_ry >= 575) & (full_ry <= 780) &
+    (full_src_rgb[:, :, 1] > 140) & (full_src_rgb[:, :, 2] > 130)
 )
 _, cream_shirt_idx = distance_transform_edt(~cream_shirt_ref, return_indices=True)
 
 in_vneck_shirt_zone = (
-    (full_rx >= 295) & (full_rx <= 398) & (full_ry >= 572) & (full_ry <= 710) &
+    (full_rx >= 250) & (full_rx <= 398) & (full_ry >= 572) & (full_ry <= 760) &
     (full_ry >= 575 + (355 - full_rx) * 0.7) &
-    (full_ry <= 715 + (full_rx - 320) * 1.6)
+    (full_ry <= 735 + (full_rx - 300) * 1.6)
 )
 
-w_occ_top = np.where(top_occ, 1.0, gaussian_filter(top_occ.astype(np.float32), sigma=2.0))
-# Also decontaminate dark blazer outer/inner sleeve edges (x >= 490, y >= 680) where source luma > 78
-sleeve_halo = (full_rx >= 490) & (full_ry >= 680) & (full_src_luma > 78)
+w_occ_top = np.where(top_occ, 1.0, gaussian_filter(top_occ.astype(np.float32), sigma=1.5))
+w_occ_top = np.where((full_ry > 765) | (head_hair_in_full_a < 16), 0.0, w_occ_top)
 for c in range(3):
     blazer_c = gaussian_filter(full_src_rgb[:, :, c][dark_blazer_idx[0], dark_blazer_idx[1]].astype(np.float32), sigma=2.0)
     cream_c = gaussian_filter(full_src_rgb[:, :, c][cream_shirt_idx[0], cream_shirt_idx[1]].astype(np.float32), sigma=2.0)
     inpaint_c = np.where(in_vneck_shirt_zone, cream_c, blazer_c)
-    src_c = np.where(sleeve_halo, blazer_c, full_src_rgb[:, :, c].astype(np.float32))
+    src_c = full_src_rgb[:, :, c].astype(np.float32)
     f_top[:, :, c] = np.clip(np.round(w_occ_top * inpaint_c + (1.0 - w_occ_top) * src_c), 0, 255).astype(np.uint8)
-f_top = prefill_rgb(f_top, core_mask=(dark_blazer_ref | cream_shirt_ref))
+f_top = prefill_rgb(f_top)
 save_layer_canvas("inputs/layers/full", full_meta, "topwear", f_top)
 
-# Shield full:topwear from projectSource overwriting under head hair using unused `25 front hair`
+# Shield full:topwear strictly inside opaque head hair (`head_hair_in_full_a >= 220`)
 shield_canvas = np.zeros((1024, 1024, 4), dtype=np.uint8)
-shield_mask = binary_dilation(top_occ, iterations=2)
+shield_mask = binary_erosion(head_hair_in_full_a >= 220, iterations=1) & (full_ry <= 765)
 shield_canvas[:, :, 3] = np.where(shield_mask, 255, 0)
 save_layer_canvas("inputs/layers/full", full_meta, "front hair", shield_canvas)
 
 # (d) Merge `bottomwear` + `legwear` into unified dark trousers (`bottomwear`) with ZERO white dots!
 f_trousers = np.zeros((1024, 1024, 4), dtype=np.uint8)
 f_trousers[:, :, 3] = np.maximum(f_bw[:, :, 3], f_lw[:, :, 3])
-# Warm ankle skin or shoes below y=2045 belong to footwear
 ankle_in_fw = (full_ry >= 2045) & (
     ((full_src_rgb[:, :, 0].astype(int) - full_src_rgb[:, :, 2].astype(int) > 32) & (full_src_luma > 85)) |
     (full_ry >= 2100)
 )
 f_trousers[ankle_in_fw, 3] = 0
-# Remove any bright background rim pixels on trousers (e.g. near right arm/hip at (518, 1323) or between legs)
 f_trousers[(full_src_luma > 80) & (f_top[:, :, 3] < 32), 3] = 0
 
 cuff_dark = (full_rx >= 260) & (full_rx <= 495) & (full_ry >= 1980) & (full_ry <= 2100) & (~ankle_in_fw) & (full_src_a > 96) & (full_src_luma < 78)
@@ -405,6 +386,9 @@ trouser_zone = (full_rx >= 180) & (full_rx <= 555) & (full_ry >= 1000) & (full_r
 near_tr = binary_dilation(f_trousers[:, :, 3] > 24, iterations=4) & trouser_zone & (full_src_a > 120)
 f_trousers[:, :, 3] = np.where(near_tr, np.maximum(f_trousers[:, :, 3], full_src_a), f_trousers[:, :, 3])
 f_trousers[:, :, 3] = np.minimum(f_trousers[:, :, 3], full_src_a)
+# Tighten leg-gap inner edge (x=340..390, y=1360..2045) to alpha_4x >= 242 so zero fringe extends into the leg gap!
+in_leg_gap_full = (full_rx >= 340) & (full_rx <= 390) & (full_ry >= 1360) & (full_ry <= 2045)
+f_trousers[in_leg_gap_full & (full_src_a < 242), 3] = 0
 
 tr_occ = binary_dilation(f_top[:, :, 3] > 32, iterations=2)
 tr_clean_ref = binary_erosion(f_trousers[:, :, 3] > 220, iterations=3) & (~tr_occ) & (full_src_a > 220) & (full_src_luma < 72)

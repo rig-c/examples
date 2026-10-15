@@ -101,7 +101,7 @@ head_rb = head_src_rgb[:, :, 0].astype(np.int32) - head_src_rgb[:, :, 2].astype(
 os.system("rm -rf inputs/layers/full inputs/layers/head && cp -r inputs/layers/full_orig inputs/layers/full && cp -r inputs/layers/head_orig inputs/layers/head")
 
 # ---------------------------------------------------------
-# 1. HEAD:BACK HAIR — Remove ALL face, earring, and shirt collar pixels!
+# 1. HEAD:BACK HAIR — Preserve all brown hair curls on both sides of neck while stripping skin/collar
 # ---------------------------------------------------------
 from scipy.ndimage import label
 
@@ -110,6 +110,9 @@ f_bh = load_layer_canvas("inputs/layers/full_orig", full_meta, "back hair")
 h_face = load_layer_canvas("inputs/layers/head_orig", head_meta, "face")
 h_earw = load_layer_canvas("inputs/layers/head_orig", head_meta, "earwear")
 
+full_rb = full_src_rgb[:, :, 0].astype(np.int32) - full_src_rgb[:, :, 2].astype(np.int32)
+full_rg = full_src_rgb[:, :, 0].astype(np.int32) - full_src_rgb[:, :, 1].astype(np.int32)
+
 # Include dark hair under jaw/earrings ONLY where source is true dark brown hair (never warm skin or lavender shirt!)
 is_warm_skin_or_gold = (
     ((head_src_rgb[:, :, 1] > 88) & (head_src_rgb[:, :, 0] > 130)) |
@@ -117,27 +120,28 @@ is_warm_skin_or_gold = (
 )
 is_true_brown_hair = (
     (head_src_a > 200) &
-    (head_src_luma < 112) &
-    (head_src_rgb[:, :, 2] < 95) &
-    (head_rb >= 8) &
+    (head_src_luma < 118) &
+    (head_src_rgb[:, :, 2] < 102) &
+    (head_rb >= 6) &
     (~is_warm_skin_or_gold)
 )
-# In the lower collar/shoulder zone (y >= 412), allow anti-aliased brown hair edge up to luma < 130 (strictly excluding skin & lavender collar)
 is_collar_hair_edge = (
-    (head_ry >= 412) &
+    (head_ry >= 395) &
     (head_src_a > 200) &
-    (head_src_luma < 130) &
-    (head_src_rgb[:, :, 2] < 110) &
-    (head_rb >= 12) &
+    (head_src_luma < 134) &
+    (head_src_rgb[:, :, 2] < 112) &
+    (head_rb >= 10) &
     (~is_warm_skin_or_gold)
 )
 valid_brown_hair = is_true_brown_hair | (is_collar_hair_edge & binary_dilation(is_true_brown_hair, iterations=2))
 
-jaw_hair_zone = (head_rx >= 230) & (head_rx <= 460) & (head_ry >= 330) & (head_ry <= 490)
-# Exclude neck/face skin center (only below y=335 so upper-left crown hair at y=195..330 is never cut!)
+jaw_hair_zone = (head_rx >= 225) & (head_rx <= 465) & (head_ry >= 325) & (head_ry <= 495)
+# Narrow neck/chin center mask so left hair curls (x <= 307) and right hair curls (x >= 353) are 100% preserved!
 face_neck_center = (
-    ((head_rx >= 295) & (head_rx <= 415) & (head_ry >= 325) & (head_ry <= 350)) |
-    ((head_rx >= 285) & (head_rx <= 395) & (head_ry >= 350) & (head_ry <= 500))
+    ((head_rx >= 302) & (head_rx <= 400) & (head_ry >= 325) & (head_ry <= 352)) |
+    ((head_rx >= 308) & (head_rx <= 368) & (head_ry > 352) & (head_ry <= 405)) |
+    ((head_rx >= 308) & (head_rx <= 352) & (head_ry > 405) & (head_ry <= 448)) |
+    ((head_rx >= 308) & (head_rx <= 380) & (head_ry > 448) & (head_ry <= 505))
 )
 dark_hair_fill = jaw_hair_zone & valid_brown_hair & (~face_neck_center)
 h_bh[:, :, 3] = np.where(dark_hair_fill, 255, h_bh[:, :, 3])
@@ -148,23 +152,23 @@ h_bh[face_neck_center, 3] = 0
 h_bh[head_src_a < 48, 3] = 0
 h_bh[(head_ry >= 315) & (h_bh[:, :, 3] < 140), 3] = 0
 
-# Remove small disconnected islands (< 250 px)
+# Remove small disconnected islands (< 180 px)
 lbl_bh, n_bh = label(h_bh[:, :, 3] > 0)
 for cid in range(1, n_bh + 1):
     comp = lbl_bh == cid
-    if comp.sum() < 250:
+    if comp.sum() < 180:
         h_bh[comp, 3] = 0
 
 # Solidify lower curls to alpha=255 strictly within valid_brown_hair (plus 1px dilation away from white collar)
-lower_curls_1px = binary_dilation((head_ry >= 405) & (h_bh[:, :, 3] >= 140), iterations=1) & (~face_neck_center) & (~is_warm_skin_or_gold) & (head_src_luma < 138)
+lower_curls_1px = binary_dilation((head_ry >= 360) & (h_bh[:, :, 3] >= 140), iterations=1) & (~face_neck_center) & (~is_warm_skin_or_gold) & (head_src_luma < 140)
 h_bh[lower_curls_1px, 3] = 255
-h_bh[(head_ry >= 380) & (h_bh[:, :, 3] > 0), 3] = 255
+h_bh[(head_ry >= 340) & (h_bh[:, :, 3] > 0), 3] = 255
 
 # Inject 4x brown hair RGB and decontaminate from pure dark-brown interior core
-vis_bh = (h_bh[:, :, 3] > 0) & is_true_brown_hair
+vis_bh = (h_bh[:, :, 3] > 0) & valid_brown_hair
 for c in range(3):
     h_bh[:, :, c] = np.where(vis_bh, head_src_rgb[:, :, c], h_bh[:, :, c])
-bh_core = binary_erosion(is_true_brown_hair & (h_bh[:, :, 3] > 200), iterations=2) & (head_src_luma < 95) & (head_src_rgb[:, :, 2] < 85)
+bh_core = binary_erosion(is_true_brown_hair & (h_bh[:, :, 3] > 200), iterations=1) & (head_src_luma < 105) & (head_src_rgb[:, :, 2] < 92)
 h_bh = prefill_rgb(h_bh, core_mask=bh_core)
 save_layer_canvas("inputs/layers/head", head_meta, "back hair", h_bh)
 
@@ -190,8 +194,8 @@ neck_right_x = np.interp(head_ry, [345, 400, 435, 475, 505, 528, 545], [378, 368
 
 in_neck_bounds = (
     (head_ry >= 345) & (head_ry <= 538) &
-    (head_rx >= neck_left_x - 14.0) &
-    (head_rx <= neck_right_x + 14.0)
+    (head_rx >= neck_left_x - 22.0) &
+    (head_rx <= neck_right_x + 22.0)
 )
 vis_neck = (
     (head_ry >= 350) & (head_ry <= 528) &
@@ -216,28 +220,13 @@ f_neck_unused = np.zeros((1024, 1024, 4), dtype=np.uint8)
 save_layer_canvas("inputs/layers/full", full_meta, "neck", f_neck_unused)
 
 # ---------------------------------------------------------
-# 3. FULL:HANDWEAR-L & FULL:TOPWEAR — Seamless right shoulder/chest & clean collar under hair
+# 3. FULL:TOPWEAR (Unified with resting left arm `handwear-l` so hand & shirt never tear!)
 # ---------------------------------------------------------
 f_tw_orig = load_layer_canvas("inputs/layers/full_orig", full_meta, "topwear")
 f_hwl_orig = load_layer_canvas("inputs/layers/full_orig", full_meta, "handwear-l")
 
-hwl_cut_x = np.interp(full_ry, [465, 500, 526, 540, 580, 620, 735], [516, 518, 520, 502, 488, 476, 474])
-keep_in_hwl = (full_rx >= hwl_cut_x) & (full_ry >= 470) & (full_ry <= 740)
-
-f_hwl = f_hwl_orig.copy()
-f_hwl[~keep_in_hwl, 3] = 0
-sleeve_seam_band = (full_ry >= 470) & (full_ry < 535) & (full_rx >= hwl_cut_x) & (full_rx < hwl_cut_x + 4.0)
-ramp_hwl = np.clip((full_rx - hwl_cut_x) / 4.0, 0.0, 1.0)
-f_hwl[:, :, 3] = np.where(sleeve_seam_band, np.round(f_hwl[:, :, 3] * ramp_hwl).astype(np.uint8), f_hwl[:, :, 3])
-
-hwl_outer = (full_rx >= 474) & (full_rx <= 760) & (full_ry >= 485) & (full_ry <= 740)
-near_hwl = binary_dilation(f_hwl[:, :, 3] > 32, iterations=4) & hwl_outer & (full_src_a > 96) & keep_in_hwl
-f_hwl[:, :, 3] = np.where(near_hwl, np.maximum(f_hwl[:, :, 3], full_src_a), f_hwl[:, :, 3])
-f_hwl[:, :, 3] = np.minimum(f_hwl[:, :, 3], full_src_a)
-for c in range(3):
-    f_hwl[:, :, c] = np.where(f_hwl[:, :, 3] > 0, full_src_rgb[:, :, c], f_hwl[:, :, c])
-f_hwl = prefill_rgb(f_hwl)
-save_layer_canvas("inputs/layers/full", full_meta, "handwear-l", f_hwl)
+# Clear unused `handwear-l` layer
+save_layer_canvas("inputs/layers/full", full_meta, "handwear-l", np.zeros((1024, 1024, 4), dtype=np.uint8))
 
 # Map cleaned `h_bh` into full space
 h_bh_hx = np.clip(np.round((full_rx - 120.0) * (1024.0 / 440.0)).astype(int), 0, 1023)
@@ -245,13 +234,13 @@ h_bh_hy = np.clip(np.round((full_ry - 110.0) * (1024.0 / 440.0)).astype(int), 0,
 in_head_box_full = (full_rx >= 120) & (full_rx < 560) & (full_ry >= 110) & (full_ry < 550)
 h_bh_in_full_a = np.where(in_head_box_full, h_bh[h_bh_hy, h_bh_hx, 3], 0)
 
-# Now build `full:topwear`:
+# Build unified `full:topwear` from `f_tw_orig` + `f_hwl_orig`
 f_tw = f_tw_orig.copy()
-shirt_shoulder_fill = (
-    (full_rx >= 390) & (full_rx <= 538) & (full_ry >= 445) & (full_ry <= 620) &
-    (full_src_a > 96) & ((f_tw[:, :, 3] > 32) | (f_hwl_orig[:, :, 3] > 32))
-)
-f_tw[:, :, 3] = np.where(shirt_shoulder_fill, 255, f_tw[:, :, 3])
+combined_tw_a = np.maximum(f_tw_orig[:, :, 3], f_hwl_orig[:, :, 3])
+tw_outer_zone = (full_rx >= 160) & (full_rx <= 755) & (full_ry >= 398) & (full_ry <= 965)
+near_tw = binary_dilation(combined_tw_a > 24, iterations=4) & tw_outer_zone & (full_src_a > 96)
+f_tw[:, :, 3] = np.where(near_tw, np.maximum(combined_tw_a, full_src_a), combined_tw_a)
+f_tw[:, :, 3] = np.minimum(f_tw[:, :, 3], full_src_a)
 
 # Ensure shirt collar & shoulders under hair curls (y=410..520, x=210..480) are 100% solid where figure exists (and not neck skin)
 collar_under_hair = (
@@ -263,26 +252,19 @@ f_tw[:, :, 3] = np.where(collar_under_hair, 255, f_tw[:, :, 3])
 # Trim boxy Qwen ghost blocks floating above the natural sloping shoulder lines!
 left_sh_y_lim = np.interp(full_rx, [160, 215, 260, 295], [492, 468, 412, 398])
 right_sh_y_lim = np.interp(full_rx, [375, 410, 465, 535], [398, 412, 462, 488])
-above_shoulders = ((full_rx <= 295) & (full_ry < left_sh_y_lim)) | ((full_rx >= 375) & (full_ry < right_sh_y_lim))
+above_shoulders = ((full_rx <= 295) & (full_ry < left_sh_y_lim)) | ((full_rx >= 375) & (full_rx <= 535) & (full_ry < right_sh_y_lim))
 f_tw[above_shoulders, 3] = 0
 
 left_torso_edge = (full_rx >= 165) & (full_rx <= 228) & (full_ry >= 460) & (full_ry <= 845) & (f_tw[:, :, 3] > 96)
 f_tw[left_torso_edge, 3] = 255
 
-right_waist_edge = binary_dilation(f_tw[:, :, 3] > 32, iterations=3) & (full_rx >= 440) & (full_rx <= 515) & (full_ry >= 680) & (full_ry <= 855) & (full_src_a > 96)
-f_tw[:, :, 3] = np.where(right_waist_edge, np.maximum(f_tw[:, :, 3], full_src_a), f_tw[:, :, 3])
-
-# Clean dark hair pixels & Qwen gray blotches at top of `f_tw` using clean white/lavender shirt core!
-occluded_by_hand = binary_dilation(f_hwl[:, :, 3] > 16, iterations=3) & (full_ry >= 522)
-occluded_by_hair = binary_dilation(h_bh_in_full_a > 24, iterations=3) | (
-    (full_ry < 515) & ((full_src_luma < 165) | (full_src_rgb[:, :, 2] < 145))
-)
-occluded_tw = occluded_by_hand | occluded_by_hair
+# Clean dark hair pixels at top of `f_tw` (y < 525) ONLY where `h_bh_in_full_a` covers `topwear`, keeping 100% crisp 4x RGB everywhere visible!
+occluded_by_hair = (h_bh_in_full_a >= 64) & (full_ry < 525)
 
 shirt_clean_ref = (
-    (f_tw[:, :, 3] > 220) & (~occluded_tw) &
+    (f_tw[:, :, 3] > 220) & (~occluded_by_hair) &
     (full_ry >= 415) & (full_ry <= 650) &
-    (full_src_luma > 180) & (full_src_rgb[:, :, 2] > 165)
+    (full_src_luma > 180) & (full_src_rgb[:, :, 2] > 165) & (full_rb < 45)
 )
 _, shirt_idx = distance_transform_edt(~shirt_clean_ref, return_indices=True)
 inpainted_shirt_rgb = full_src_rgb[shirt_idx[0], shirt_idx[1]].copy()
@@ -291,13 +273,12 @@ for c in range(3):
         np.round(gaussian_filter(inpainted_shirt_rgb[:, :, c].astype(np.float32), sigma=2.5)), 0, 255
     ).astype(np.uint8)
 
-# For hand occlusion use Qwen's finger inpaint, for hair occlusion use clean lavender-white shirt inpaint
-clean_target_rgb = np.where(occluded_by_hand[:, :, None], f_tw_orig[:, :, :3], inpainted_shirt_rgb)
-blend_w = gaussian_filter(occluded_tw.astype(np.float32), sigma=2.0)
-blend_w = np.where(occluded_tw, 1.0, blend_w)
+blend_w = gaussian_filter(occluded_by_hair.astype(np.float32), sigma=1.5)
+blend_w = np.where(occluded_by_hair, 1.0, blend_w)
+blend_w = np.where((full_ry >= 525) | (h_bh_in_full_a < 16), 0.0, blend_w)
 for c in range(3):
     f_tw[:, :, c] = np.clip(
-        np.round(clean_target_rgb[:, :, c] * blend_w + full_src_rgb[:, :, c] * (1.0 - blend_w)),
+        np.round(inpainted_shirt_rgb[:, :, c] * blend_w + full_src_rgb[:, :, c] * (1.0 - blend_w)),
         0, 255
     ).astype(np.uint8)
 
@@ -307,7 +288,6 @@ f_neck_right_x = np.interp(full_ry, [350, 400, 435, 475, 505, 526], [375, 365, 3
 in_vneck_box = (full_ry >= 345) & (full_ry <= 525) & (full_rx >= f_neck_left_x + 1.0) & (full_rx <= f_neck_right_x - 1.0)
 skin_score = (full_src_rgb[:, :, 0].astype(np.float32) - full_src_rgb[:, :, 2].astype(np.float32)) - 38.0
 vneck_keep_factor = np.where(in_vneck_box & (~occluded_by_hair), np.clip(1.0 - (skin_score / 14.0), 0.0, 1.0), 1.0)
-# Inside V-neck box where it is clearly skin (not collar), zero out alpha
 clear_neck_skin = in_vneck_box & ((full_src_rgb[:, :, 0].astype(int) - full_src_rgb[:, :, 2].astype(int)) > 42)
 f_tw[:, :, 3] = np.round(f_tw[:, :, 3].astype(np.float32) * vneck_keep_factor).astype(np.uint8)
 f_tw[clear_neck_skin, 3] = 0
@@ -316,14 +296,8 @@ vneck_fringe = in_vneck_box & (f_tw[:, :, 3] > 0) & (f_tw[:, :, 3] < 250)
 for c in range(3):
     f_tw[:, :, c] = np.where(vneck_fringe, inpainted_shirt_rgb[:, :, c], f_tw[:, :, c])
 
-f_tw = prefill_rgb(f_tw, core_mask=shirt_clean_ref)
+f_tw = prefill_rgb(f_tw)
 save_layer_canvas("inputs/layers/full", full_meta, "topwear", f_tw)
-
-# Build clean occlusion shield on unused `19 full:front hair`
-f_fh_shield = np.zeros((1024, 1024, 4), dtype=np.uint8)
-shield_mask_tw = binary_dilation((f_hwl[:, :, 3] > 16) | (h_bh_in_full_a > 24), iterations=3)
-f_fh_shield[shield_mask_tw, 3] = 255
-save_layer_canvas("inputs/layers/full", full_meta, "front hair", f_fh_shield)
 
 # ---------------------------------------------------------
 # 4. FULL:HANDWEAR-R + FULL:OBJECTS (Coffee cup merged into right arm)
@@ -349,25 +323,40 @@ f_hwr_merged = prefill_rgb(f_hwr_merged)
 save_layer_canvas("inputs/layers/full", full_meta, "handwear-r", f_hwr_merged)
 
 # ---------------------------------------------------------
-# 5. FULL:BOTTOMWEAR & FULL:FOOTWEAR — Snap outer silhouette
+# 5. FULL:BOTTOMWEAR & FULL:FOOTWEAR — Exact pants hem curve separation
 # ---------------------------------------------------------
 f_bw = load_layer_canvas("inputs/layers/full_orig", full_meta, "bottomwear")
-bw_zone = (full_rx >= 160) & (full_rx <= 565) & (full_ry >= 830) & (full_ry <= 2195)
-near_bw = binary_dilation(f_bw[:, :, 3] > 16, iterations=5) & bw_zone & (full_src_a > 96)
+pants_hem_y = np.interp(
+    full_rx,
+    [215, 235, 250, 265, 280, 295, 310, 325, 340, 355, 368, 380, 384, 415, 460, 472, 485],
+    [2118, 2124, 2127, 2134, 2138, 2144, 2149, 2155, 2160, 2167, 2195, 2204, 2205, 2209, 2211, 2206, 2162]
+)
+is_foot_or_shoe_below_hem = (full_ry > pants_hem_y) | ((full_ry >= 2115) & (full_rb > 20))
+bw_zone = (full_rx >= 160) & (full_rx <= 565) & (full_ry >= 830) & (full_ry <= 2215) & (~is_foot_or_shoe_below_hem)
+near_bw = (binary_dilation(f_bw[:, :, 3] > 16, iterations=5) | ((full_ry >= 2030) & (full_rx >= 215) & (full_rx <= 485))) & bw_zone & (full_src_a > 96)
 f_bw[:, :, 3] = np.where(near_bw, np.maximum(f_bw[:, :, 3], full_src_a), f_bw[:, :, 3])
+f_bw[is_foot_or_shoe_below_hem, 3] = 0
 for c in range(3):
-    f_bw[:, :, c] = np.where(near_bw, full_src_rgb[:, :, c], f_bw[:, :, c])
+    f_bw[:, :, c] = np.where(f_bw[:, :, 3] > 0, full_src_rgb[:, :, c], f_bw[:, :, c])
 f_bw = prefill_rgb(f_bw)
 save_layer_canvas("inputs/layers/full", full_meta, "bottomwear", f_bw)
 
 f_fw = load_layer_canvas("inputs/layers/full_orig", full_meta, "footwear")
-fw_zone = (full_rx >= 210) & (full_rx <= 490) & (full_ry >= 2050) & (full_ry <= 2270)
-near_fw = binary_dilation(f_fw[:, :, 3] > 32, iterations=4) & fw_zone & (full_src_a > 96)
-f_fw[:, :, 3] = np.where(near_fw, np.maximum(f_fw[:, :, 3], full_src_a), f_fw[:, :, 3])
+fw_visible = (full_rx >= 210) & (full_rx <= 490) & (full_ry >= 2115) & (full_ry <= 2270) & is_foot_or_shoe_below_hem & (full_src_a > 96)
+fw_tuck = binary_dilation(fw_visible, iterations=3) & (full_ry >= pants_hem_y - 8.0) & (full_src_a > 96)
+f_fw[:, :, 3] = 0
+f_fw[fw_visible | fw_tuck, 3] = full_src_a[fw_visible | fw_tuck]
+f_fw[fw_visible & (full_src_a > 200), 3] = 255
 for c in range(3):
-    f_fw[:, :, c] = np.where(near_fw, full_src_rgb[:, :, c], f_fw[:, :, c])
-f_fw = prefill_rgb(f_fw)
+    f_fw[:, :, c] = np.where(fw_visible, full_src_rgb[:, :, c], f_fw[:, :, c])
+f_fw = prefill_rgb(f_fw, core_mask=fw_visible)
 save_layer_canvas("inputs/layers/full", full_meta, "footwear", f_fw)
+
+# Build clean occlusion shield on unused `19 full:front hair` strictly inside opaque hair_back AND footwear under-tuck!
+f_fh_shield = np.zeros((1024, 1024, 4), dtype=np.uint8)
+shield_mask_tw = binary_erosion(h_bh_in_full_a >= 220, iterations=1) | (fw_tuck & (~fw_visible))
+f_fh_shield[shield_mask_tw, 3] = 255
+save_layer_canvas("inputs/layers/full", full_meta, "front hair", f_fh_shield)
 
 # ---------------------------------------------------------
 # 6. CRISP FACIAL FEATURES
@@ -407,7 +396,6 @@ cfg = {
       ["handwear_r", "full", "handwear-r"],
       ["neck", "head", "neck"],
       ["topwear", "full", "topwear"],
-      ["handwear_l", "full", "handwear-l"],
       ["hair_back", "head", "back hair"],
       ["ear_l", "head", "ears-l"],
       ["earring", "head", "earwear"],
@@ -474,12 +462,6 @@ cfg = {
       "tip": [145, 1415]
     },
     {
-      "chain": "sleeve_l",
-      "parent": "chest",
-      "points": [[530, 505], [600, 558], [544, 638]],
-      "tip": [520, 725]
-    },
-    {
       "chain": "skirt_r",
       "parent": "hip",
       "points": [[295, 1580], [312, 1780], [330, 1980]],
@@ -503,7 +485,7 @@ cfg = {
       "grid": 57,
       "r": 15,
       "segments": [
-        ["head", [365, 394], [365, 164]],
+        ["head", [365, 430], [365, 164]],
         "hairback_r",
         "hairback_l"
       ]
@@ -538,11 +520,6 @@ cfg = {
       "grid": 57,
       "r": 6,
       "segments": ["sleeve_r"]
-    },
-    "handwear_l": {
-      "grid": 57,
-      "r": 12,
-      "segments": ["sleeve_l"]
     },
     "topwear": {
       "contour": {
@@ -600,26 +577,25 @@ cfg = {
       {"bone": "boob_r", "prop": "translatex", "amp": 0.65, "period": 3.3333333333333335, "phase": 0.12},
       {"bone": "boob_l", "prop": "translatey", "amp": 2.4, "period": 3.3333333333333335, "phase": 0.18},
       {"bone": "boob_l", "prop": "translatex", "amp": 0.75, "period": 3.3333333333333335, "phase": 0.18},
-      {"chain": "hairback_r", "amps": [0.35, 0.8, 1.4], "period": 3.3333333333333335, "phase": 0.2, "lag": 0.08},
-      {"chain": "hairback_l", "amps": [0.35, 0.8, 1.4], "period": 3.3333333333333335, "phase": 0.24, "lag": 0.08},
+      {"chain": "hairback_r", "amps": [0.15, 0.45, 0.85], "period": 3.3333333333333335, "phase": 0.2, "lag": 0.08},
+      {"chain": "hairback_l", "amps": [0.15, 0.45, 0.85], "period": 3.3333333333333335, "phase": 0.24, "lag": 0.08},
       {"chain": "bang_r", "amps": [0.6, 1.3], "period": 3.3333333333333335, "phase": 0.18, "lag": 0.1},
       {"chain": "bang_c", "amps": [0.5, 1.1], "period": 3.3333333333333335, "phase": 0.18, "lag": 0.1},
       {"chain": "bang_l", "amps": [0.6, 1.3], "period": 3.3333333333333335, "phase": 0.18, "lag": 0.1},
-      {"chain": "earring", "amps": [3.5], "period": 1.6666666666666667, "phase": 0.25, "lag": 0},
+      {"chain": "earring", "amps": [2.2], "period": 1.6666666666666667, "phase": 0.25, "lag": 0},
       {"chain": "sleeve_r", "amps": [0.2, 0.5, 0.9], "period": 3.3333333333333335, "phase": 0.22, "lag": 0.08},
-      {"chain": "sleeve_l", "amps": [-0.2, -1.2, -2.6], "period": 3.3333333333333335, "phase": 0.27, "lag": 0.08},
       {"chain": "skirt_r", "amps": [0.06, 0.15, 0.3], "period": 3.3333333333333335, "phase": 0.3, "lag": 0.07},
       {"chain": "skirt_c", "amps": [0.06, 0.15, 0.3], "period": 3.3333333333333335, "phase": 0.34, "lag": 0.07},
       {"chain": "skirt_l", "amps": [0.06, 0.15, 0.3], "period": 3.3333333333333335, "phase": 0.38, "lag": 0.07}
     ]
   },
   "constraints": [
-    {"type": "physics", "name": "hairback_r0_phys", "bone": "hairback_r0", "rotate": 1, "inertia": 0.45, "strength": 220.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
-    {"type": "physics", "name": "hairback_r1_phys", "bone": "hairback_r1", "rotate": 1, "inertia": 0.55, "strength": 170.0, "damping": 0.88, "mass": 1, "wind": 0.45, "gravity": 0.3, "mix": 1},
-    {"type": "physics", "name": "hairback_r2_phys", "bone": "hairback_r2", "rotate": 1, "inertia": 0.65, "strength": 130.0, "damping": 0.86, "mass": 1, "wind": 0.75, "gravity": 0.5, "mix": 1},
-    {"type": "physics", "name": "hairback_l0_phys", "bone": "hairback_l0", "rotate": 1, "inertia": 0.45, "strength": 220.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
-    {"type": "physics", "name": "hairback_l1_phys", "bone": "hairback_l1", "rotate": 1, "inertia": 0.55, "strength": 170.0, "damping": 0.88, "mass": 1, "wind": 0.45, "gravity": 0.3, "mix": 1},
-    {"type": "physics", "name": "hairback_l2_phys", "bone": "hairback_l2", "rotate": 1, "inertia": 0.65, "strength": 130.0, "damping": 0.86, "mass": 1, "wind": 0.75, "gravity": 0.5, "mix": 1},
+    {"type": "physics", "name": "hairback_r0_phys", "bone": "hairback_r0", "rotate": 1, "inertia": 0.25, "strength": 260.0, "damping": 0.92, "mass": 1, "wind": 0.1, "gravity": 0.1, "mix": 1},
+    {"type": "physics", "name": "hairback_r1_phys", "bone": "hairback_r1", "rotate": 1, "inertia": 0.4, "strength": 200.0, "damping": 0.9, "mass": 1, "wind": 0.25, "gravity": 0.2, "mix": 1},
+    {"type": "physics", "name": "hairback_r2_phys", "bone": "hairback_r2", "rotate": 1, "inertia": 0.5, "strength": 160.0, "damping": 0.88, "mass": 1, "wind": 0.45, "gravity": 0.35, "mix": 1},
+    {"type": "physics", "name": "hairback_l0_phys", "bone": "hairback_l0", "rotate": 1, "inertia": 0.25, "strength": 260.0, "damping": 0.92, "mass": 1, "wind": 0.1, "gravity": 0.1, "mix": 1},
+    {"type": "physics", "name": "hairback_l1_phys", "bone": "hairback_l1", "rotate": 1, "inertia": 0.4, "strength": 200.0, "damping": 0.9, "mass": 1, "wind": 0.25, "gravity": 0.2, "mix": 1},
+    {"type": "physics", "name": "hairback_l2_phys", "bone": "hairback_l2", "rotate": 1, "inertia": 0.5, "strength": 160.0, "damping": 0.88, "mass": 1, "wind": 0.45, "gravity": 0.35, "mix": 1},
     {"type": "physics", "name": "bang_r0_phys", "bone": "bang_r0", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.1, "mix": 1},
     {"type": "physics", "name": "bang_r1_phys", "bone": "bang_r1", "rotate": 1, "inertia": 0.35, "strength": 180.0, "damping": 0.88, "mass": 1, "wind": 0.35, "gravity": 0.2, "mix": 1},
     {"type": "physics", "name": "bang_c0_phys", "bone": "bang_c0", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.1, "mix": 1},
