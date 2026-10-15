@@ -618,34 +618,6 @@
         "phase": 0.08
       },
       {
-        "bone": "boob_r",
-        "prop": "translatey",
-        "amp": 3.4,
-        "period": 3.3333333333333335,
-        "phase": 0.14
-      },
-      {
-        "bone": "boob_r",
-        "prop": "translatex",
-        "amp": 1.0,
-        "period": 3.3333333333333335,
-        "phase": 0.14
-      },
-      {
-        "bone": "boob_l",
-        "prop": "translatey",
-        "amp": 3.7,
-        "period": 3.3333333333333335,
-        "phase": 0.2
-      },
-      {
-        "bone": "boob_l",
-        "prop": "translatex",
-        "amp": 1.15,
-        "period": 3.3333333333333335,
-        "phase": 0.2
-      },
-      {
         "chain": "hairback_r",
         "amps": [
           0.15,
@@ -1030,28 +1002,28 @@
       "type": "physics",
       "name": "boob_r_phys",
       "bone": "boob_r",
-      "x": 0.72,
+      "x": 0.35,
       "y": 1.0,
-      "inertia": 2.35,
-      "strength": 156.0,
-      "damping": 0.956,
-      "mass": 1.52,
-      "wind": 0.55,
-      "gravity": 2.12,
+      "inertia": 0.45,
+      "strength": 285.0,
+      "damping": 0.89,
+      "mass": 1.35,
+      "wind": 0.24,
+      "gravity": 0.14,
       "mix": 1.0
     },
     {
       "type": "physics",
       "name": "boob_l_phys",
       "bone": "boob_l",
-      "x": 0.76,
+      "x": 0.38,
       "y": 1.0,
-      "inertia": 2.42,
-      "strength": 150.0,
-      "damping": 0.956,
-      "mass": 1.58,
-      "wind": 0.58,
-      "gravity": 2.2,
+      "inertia": 0.47,
+      "strength": 278.0,
+      "damping": 0.89,
+      "mass": 1.38,
+      "wind": 0.26,
+      "gravity": 0.14,
       "mix": 1.0
     }
   ],

@@ -95,12 +95,6 @@ cfg["meshes"]["topwear"] = {
 }
 
 cfg["motion"]["tracks"] = [t for t in cfg["motion"]["tracks"] if t.get("bone") not in ("boob_r", "boob_l")]
-cfg["motion"]["tracks"].extend([
-    {"bone": "boob_r", "prop": "translatey", "amp": 2.8, "period": 3.3333333333333335, "phase": 0.12},
-    {"bone": "boob_r", "prop": "translatex", "amp": 0.9, "period": 3.3333333333333335, "phase": 0.12},
-    {"bone": "boob_l", "prop": "translatey", "amp": 3.0, "period": 3.3333333333333335, "phase": 0.18},
-    {"bone": "boob_l", "prop": "translatex", "amp": 1.0, "period": 3.3333333333333335, "phase": 0.18}
-])
 
 if "blink" in cfg.get("motion", {}):
     cfg["motion"]["blink"]["t"] = 2.05
@@ -128,8 +122,8 @@ cfg["constraints"] = [
     {"type": "physics", "name": "skirt_l1_phys", "bone": "skirt_l1", "rotate": 1, "inertia": 0.45, "strength": 190.0, "damping": 0.88, "mass": 1, "wind": 0.4, "gravity": 0.3, "mix": 1},
     {"type": "physics", "name": "skirt_l2_phys", "bone": "skirt_l2", "rotate": 1, "inertia": 0.55, "strength": 145.0, "damping": 0.86, "mass": 1, "wind": 0.65, "gravity": 0.45, "mix": 1},
     {"type": "physics", "name": "earring_phys", "bone": "earring", "x": 0.4, "y": 0.8, "inertia": 0.3, "strength": 200.0, "damping": 0.9, "mass": 1, "wind": 0.25, "gravity": 0.2, "mix": 1},
-    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.65, "y": 1.0, "inertia": 2.18, "strength": 172.0, "damping": 0.950, "mass": 1.35, "wind": 0.48, "gravity": 1.88, "mix": 1.0},
-    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.68, "y": 1.0, "inertia": 2.24, "strength": 166.0, "damping": 0.950, "mass": 1.40, "wind": 0.50, "gravity": 1.94, "mix": 1.0}
+    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.32, "y": 1.0, "inertia": 0.41, "strength": 325.0, "damping": 0.88, "mass": 1.24, "wind": 0.21, "gravity": 0.12, "mix": 1.0},
+    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.34, "y": 1.0, "inertia": 0.43, "strength": 318.0, "damping": 0.88, "mass": 1.27, "wind": 0.23, "gravity": 0.12, "mix": 1.0}
 ]
 
 cfg["stops"] = [

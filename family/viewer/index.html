@@ -106,8 +106,8 @@
       <span>물리(치마/헤어/가슴)</span>
       <label>바람 <input id="wind" type="range" min="-4" max="4" step="0.1" value="0" /></label>
       <span id="windVal" style="font-size:12px;min-width:28px;">0.0</span>
-      <label>중력 <input id="gravity" type="range" min="-3" max="3" step="0.1" value="1.0" /></label>
-      <span id="gravVal" style="font-size:12px;min-width:28px;">1.0</span>
+      <label>중력 <input id="gravity" type="range" min="-3" max="3" step="0.1" value="0" /></label>
+      <span id="gravVal" style="font-size:12px;min-width:28px;">0.0</span>
       <button id="gustBtn" title="사인파 산들바람 자동 변화">산들바람</button>
       <button id="joltBtn" title="캐릭터에 순간 관성 충격 주기">찰랑이기</button>
     </div>
@@ -158,60 +158,6 @@
     let paused = false;
     let speed = 1.0;
     let autoGust = false;
-
-    // 5-tier bust gravity & non-linear J-curve tension parameters per character
-    const BUST_PHYSICS_TIERS = {
-      luna:  { mass: 0.82, wn: 17.5, zeta: 0.125, k3: 0.24, sag: 1.1, dropGain: 1.35, squash: 0.018 },
-      nova:  { mass: 1.00, wn: 15.8, zeta: 0.112, k3: 0.20, sag: 1.5, dropGain: 1.65, squash: 0.024 },
-      naru:  { mass: 1.18, wn: 14.4, zeta: 0.102, k3: 0.17, sag: 1.9, dropGain: 1.95, squash: 0.030 },
-      jinni: { mass: 1.35, wn: 13.2, zeta: 0.092, k3: 0.15, sag: 2.4, dropGain: 2.30, squash: 0.036 },
-      roa:   { mass: 1.52, wn: 12.0, zeta: 0.085, k3: 0.13, sag: 2.9, dropGain: 2.65, squash: 0.042 },
-    };
-
-    function createBustGravityState(key) {
-      const cfg = BUST_PHYSICS_TIERS[key] || BUST_PHYSICS_TIERS.naru;
-      return {
-        cfg,
-        prevChestY: null,
-        prevChestVel: 0,
-        r: { y: 0, vy: 0 },
-        l: { y: 0, vy: 0 },
-      };
-    }
-
-    function stepBustGravityState(bs, chestY, dt, gravG) {
-      if (dt <= 0 || dt > 0.1) return;
-      const { cfg } = bs;
-      if (bs.prevChestY === null) {
-        bs.prevChestY = chestY;
-        return;
-      }
-      const chestVel = (chestY - bs.prevChestY) / dt;
-      const chestAcc = (chestVel - bs.prevChestVel) / dt;
-      bs.prevChestY = chestY;
-      bs.prevChestVel = chestVel;
-
-      // Downward gravity acceleration intensifies when chest transitions from rise to fall
-      const gravPull = Math.max(0, gravG);
-      const downwardRelease = chestVel < 0 ? -chestVel * 2.2 * gravPull : 0;
-
-      for (const [side, lagScale] of [['r', 1.0], ['l', 0.91]]) {
-        const s = bs[side];
-        const wn = cfg.wn * (side === 'l' ? 0.96 : 1.0);
-        const c = 2.0 * cfg.zeta * wn;
-        const eqY = -(gravG - 1.0) * cfg.sag * lagScale;
-        const dy = s.y - eqY;
-        // Asymmetric stiffness: softer upward (free gravity arc), stiffer + cubic J-curve ligament tension at the bottom!
-        const kLin = dy >= 0 ? (0.72 * wn) ** 2 : (1.32 * wn) ** 2;
-        const fSpring = dy >= 0
-          ? -kLin * dy
-          : -kLin * dy - cfg.k3 * (wn ** 2) * (dy * dy * dy);
-        const drive = (-0.18 * Math.max(-180, Math.min(180, chestAcc)) - downwardRelease * cfg.dropGain) * lagScale;
-        const acc = fSpring - c * s.vy + drive;
-        s.vy += acc * dt;
-        s.y = Math.max(-7.5, Math.min(5.5, s.y + s.vy * dt));
-      }
-    }
 
     function syncEnvironment(windOverride = null) {
       const w = windOverride !== null ? windOverride : parseFloat(windInput.value);
@@ -289,30 +235,9 @@
       sub.style.cssText = `position: absolute; left: ${offsetX}px; top: 0px;`;
 
       const blink = createBlinkState();
-      const bustGrav = createBustGravityState(key);
       const player = new RigPlayer(sub, assets, {
         adjust(pose) {
           const names = pose.names;
-          // 1. Apply real-time Gravity + Non-linear J-Curve Tension on bust bones
-          if (names.includes('chest_ctl') && names.includes('boob_r') && names.includes('boob_l')) {
-            const chestCtl = pose.bone('chest_ctl');
-            const gravG = parseFloat(gravInput.value);
-            stepBustGravityState(bustGrav, chestCtl.y ?? 0, 1 / 60, gravG);
-            const br = pose.bone('boob_r');
-            const bl = pose.bone('boob_l');
-            const sq = bustGrav.cfg.squash;
-            br.y = (br.y ?? 0) + bustGrav.r.y;
-            br.x = (br.x ?? 0) - bustGrav.r.y * 0.26;
-            br.scaleX = (br.scaleX ?? 1) * (1 - sq * (bustGrav.r.y / 3.5));
-            br.scaleY = (br.scaleY ?? 1) * (1 + sq * (bustGrav.r.y / 3.5));
-
-            bl.y = (bl.y ?? 0) + bustGrav.l.y;
-            bl.x = (bl.x ?? 0) - bustGrav.l.y * 0.26;
-            bl.scaleX = (bl.scaleX ?? 1) * (1 - sq * (bustGrav.l.y / 3.5));
-            bl.scaleY = (bl.scaleY ?? 1) * (1 + sq * (bustGrav.l.y / 3.5));
-          }
-
-          // 2. Apply natural blink with occasional double-blink
           if (!names.includes('eye_r') || !names.includes('eye_l')) return;
           const sy = 1.0 - blink.closeAmount * 0.88;
           const by = -blink.closeAmount * 1.2;
@@ -336,7 +261,7 @@
         player.frame(phaseOffset);
       }
       const b = assets.stage ?? player.bounds() ?? { x: -400, y: 0, width: 800, height: 2284 };
-      return { key, player, sub, bounds: b, offsetX, anim, blink, bustGrav };
+      return { key, player, sub, bounds: b, offsetX, anim, blink };
     }
 
     async function openCharacter(key) {
@@ -444,14 +369,7 @@
       container.style.top = `${parseFloat(container.style.top) + dy}px`;
       const clampMove = (v, lim) => Math.max(-lim, Math.min(lim, v));
       const impulse = { x: clampMove((dx / scale) * 0.25, 8), y: clampMove((-dy / scale) * 0.25, 6) };
-      for (const p of players) {
-        p.player.moved(impulse);
-        if (p.bustGrav) {
-          const dropImp = clampMove((dy / scale) * 4.5, 42) * p.bustGrav.cfg.mass;
-          p.bustGrav.r.vy -= dropImp;
-          p.bustGrav.l.vy -= dropImp * 0.92;
-        }
-      }
+      for (const p of players) p.player.moved(impulse);
     });
 
     pauseBtn.addEventListener('click', () => {
@@ -491,14 +409,7 @@
 
     joltBtn.addEventListener('click', () => {
       if (players.length === 0) return;
-      for (const p of players) {
-        p.player.moved({ x: 18, y: -10 });
-        if (p.bustGrav) {
-          const m = p.bustGrav.cfg.mass;
-          p.bustGrav.r.vy = -48 * m;
-          p.bustGrav.l.vy = -44 * m;
-        }
-      }
+      for (const p of players) p.player.moved({ x: 18, y: -10 });
       setTimeout(() => {
         for (const p of players) p.player.moved({ x: -18, y: 10 });
       }, 90);

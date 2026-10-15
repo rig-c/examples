@@ -584,10 +584,6 @@ cfg = {
       {"bone": "chest", "prop": "scalex", "amp": 0.004, "period": 3.3333333333333335, "phase": 0, "base": 1.004},
       {"bone": "head", "prop": "rotate", "amp": 0.9, "period": 3.3333333333333335, "phase": 0.12},
       {"bone": "neck", "prop": "rotate", "amp": 0.35, "period": 3.3333333333333335, "phase": 0.08},
-      {"bone": "boob_r", "prop": "translatey", "amp": 3.4, "period": 3.3333333333333335, "phase": 0.14},
-      {"bone": "boob_r", "prop": "translatex", "amp": 1.0, "period": 3.3333333333333335, "phase": 0.14},
-      {"bone": "boob_l", "prop": "translatey", "amp": 3.7, "period": 3.3333333333333335, "phase": 0.20},
-      {"bone": "boob_l", "prop": "translatex", "amp": 1.15, "period": 3.3333333333333335, "phase": 0.20},
       {"chain": "hairback_r", "amps": [0.15, 0.45, 0.85], "period": 3.3333333333333335, "phase": 0.2, "lag": 0.08},
       {"chain": "hairback_l", "amps": [0.15, 0.45, 0.85], "period": 3.3333333333333335, "phase": 0.24, "lag": 0.08},
       {"chain": "bang_r", "amps": [0.6, 1.3], "period": 3.3333333333333335, "phase": 0.18, "lag": 0.1},
@@ -622,8 +618,8 @@ cfg = {
     {"type": "physics", "name": "skirt_l0_phys", "bone": "skirt_l0", "rotate": 1, "inertia": 0.2, "strength": 280.0, "damping": 0.92, "mass": 1, "wind": 0.08, "gravity": 0.1, "mix": 1},
     {"type": "physics", "name": "skirt_l1_phys", "bone": "skirt_l1", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.15, "mix": 1},
     {"type": "physics", "name": "skirt_l2_phys", "bone": "skirt_l2", "rotate": 1, "inertia": 0.3, "strength": 200.0, "damping": 0.88, "mass": 1, "wind": 0.25, "gravity": 0.2, "mix": 1},
-    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.72, "y": 1.0, "inertia": 2.35, "strength": 156.0, "damping": 0.956, "mass": 1.52, "wind": 0.55, "gravity": 2.12, "mix": 1.0},
-    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.76, "y": 1.0, "inertia": 2.42, "strength": 150.0, "damping": 0.956, "mass": 1.58, "wind": 0.58, "gravity": 2.20, "mix": 1.0}
+    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.35, "y": 1.0, "inertia": 0.45, "strength": 285.0, "damping": 0.89, "mass": 1.35, "wind": 0.24, "gravity": 0.14, "mix": 1.0},
+    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.38, "y": 1.0, "inertia": 0.47, "strength": 278.0, "damping": 0.89, "mass": 1.38, "wind": 0.26, "gravity": 0.14, "mix": 1.0}
   ],
   "stops": [
     {"chain": "skirt_r", "against": "hip", "at": [-20, 0], "inward": -1.0, "outward": 3.5, "lower": {"inward": -1.5, "outward": 4.5}},

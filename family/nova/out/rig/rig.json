@@ -86,28 +86,16 @@
    "y": 22
   },
   {
-   "name": "boob_r_ctl",
+   "name": "boob_r",
    "parent": "chest",
    "x": -98,
    "y": 5
   },
   {
-   "name": "boob_r",
-   "parent": "boob_r_ctl",
-   "x": 0,
-   "y": 0
-  },
-  {
-   "name": "boob_l_ctl",
+   "name": "boob_l",
    "parent": "chest",
    "x": 25,
    "y": -5
-  },
-  {
-   "name": "boob_l",
-   "parent": "boob_l_ctl",
-   "x": 0,
-   "y": 0
   },
   {
    "name": "hairback_r0_ctl",
@@ -14927,28 +14915,28 @@
    "type": "physics",
    "name": "boob_r_phys",
    "bone": "boob_r",
-   "x": 0.52,
+   "x": 0.27,
    "y": 1,
-   "inertia": 1.85,
-   "strength": 215,
-   "damping": 0.935,
-   "mass": 1,
-   "wind": 0.38,
-   "gravity": 1.45,
+   "inertia": 0.33,
+   "strength": 425,
+   "damping": 0.86,
+   "mass": 0.98,
+   "wind": 0.17,
+   "gravity": 0.1,
    "mix": 1
   },
   {
    "type": "physics",
    "name": "boob_l_phys",
    "bone": "boob_l",
-   "x": 0.55,
+   "x": 0.28,
    "y": 1,
-   "inertia": 1.9,
-   "strength": 208,
-   "damping": 0.935,
-   "mass": 1.04,
-   "wind": 0.4,
-   "gravity": 1.5,
+   "inertia": 0.35,
+   "strength": 415,
+   "damping": 0.86,
+   "mass": 1.02,
+   "wind": 0.19,
+   "gravity": 0.1,
    "mix": 1
   }
  ],

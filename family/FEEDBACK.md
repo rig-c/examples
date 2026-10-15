@@ -178,34 +178,30 @@
 - `rig-parts`가 기본 생성하는 단일 정현파(`sineTrack`, $y(t) = A\sin(\omega_0 t)$)와 Spine 4.3의 기본 선형 `PhysicsConstraint`만으로는 가슴(`boob_r`, `boob_l`) 등 연부조직(soft-body)이 **위·아래 대칭 가속도로 움직여 마치 우주(무중력)에 둥둥 떠 있는 것처럼 보이는 현상**이 발생합니다.
 - 실제 중력 환경에서 나타나는 **① 호흡 정점 이후의 빠른 중력 자유낙하(Free-Fall Drop), ② 최저점(바닥)에서 피부·쿠퍼인대·브라컵의 인장 한계에 걸려 팽팽하게 튕겨 오르는 탄성 텐션 스냅(Elastic Snap Rebound), ③ 바닥 충격 시 위아래가 눌리고 좌우 볼륨이 부풀어 오르는 3D 부피 보존 변형(Volume-Preserving Squash & Stretch)**이 기본 플레이어와 모션 생성기만으로는 표현되지 않습니다.
 
-### 원인 분석 (`motion.ts`, Spine 4.3 `PhysicsConstraint.js`, `@rig-c/play`)
-1. **단일 대칭 정현파의 무중력감 (`motion.ts`의 `sineTrack`)**:
-   - 단일 사인파는 상승 구간과 하강 구간의 체류 시간 및 최대 가속도 크기가 완벽히 대칭($\ddot{y}_{\max} = -\ddot{y}_{\min}$)이므로, 중력 가속도($-g$)에 의한 하강 가속과 바닥 텐션 반동의 비대칭 물리 파형을 표현할 수 없습니다.
-2. **Spine 4.3 `PhysicsConstraint`의 대칭 선형 복원력 한계 및 `damping` 수식 반전**:
-   - `@esotericsoftware/spine-core`의 `PhysicsConstraint.js`는 복원력을 대칭 선형 후크 법칙($F = -k \cdot y_{\text{offset}}$)으로만 계산하므로, 위쪽(느슨한 인대)은 부드럽고 아래쪽(하단 인장 스토퍼)은 급격히 강해지는 **비대칭 3차 비선형 J-커브 장력($F = -k_{\text{down}}\Delta y - k_3 \Delta y^3$)**을 계산하지 못합니다.
-   - 또한 Spine 4.3에서 `damping`은 감쇠비($\zeta$)가 아니라 **1/60초 프레임당 속도 유지율(`d = p.damping ** (60 * t); this.yVelocity *= d;`)**로 구현되어 있습니다. 일반적인 감쇠비 감각으로 `damping = 0.45 ~ 0.52`를 입력하면 매 1/60초마다 속도에 `0.45`가 곱해져 **단 3프레임(`0.05s`) 만에 속도의 91%가 증발하는 시멘트급 과감쇠($\zeta \approx 8.0$) 상태**가 되어 탄성 여진이 완전히 사라집니다(실제 언더댐핑 탄성 반동을 얻으려면 `damping = 0.925 ~ 0.958`, `strength = 155 ~ 250` 구간을 사용해야 함).
-3. **길이 0인 포인트 본에서 `PhysicsConstraint.scaleX` 사용 불가 (`A23_PHYSICS_CONSTRAINT_EFFECTIVE`)**:
-   - `boob_r`/`boob_l`은 `length = 0`인 포인트 본으로 생성되는데, Spine의 `PhysicsConstraint`는 본의 `length`로 변위를 나누어 스케일을 계산하므로 `scaleX`를 설정하면 `rig-c` 관문(`A23_PHYSICS_CONSTRAINT_EFFECTIVE`)에서 거부됩니다. 따라서 `PhysicsConstraint`만으로는 하단 텐션 도달 시의 부피 보존 Squash & Stretch를 구동할 수 없습니다.
-4. **`@rig-c/play` 플레이어의 소프트바디 중력·텐션 후처리 부재**:
-   - `@rig-c/play`의 `RigPlayer`는 스켈레톤 키프레임과 기본 Spine `PhysicsConstraint`만 재생할 뿐, 부모 흉곽 본(`chest_ctl`)의 실시간 가속도·속도와 중력(`environment.gravity`)을 결합한 비선형 소프트바디 텐션 및 부피 보존 스케일링을 플레이어 차원에서 처리해주지 않아 각 뷰어가 `adjust(pose)` 훅으로 직접 물리 솔버를 구현해야 했습니다.
+### 원인 분석 (`motion.ts`, `@rig-c/play`의 `Do()` 물리 솔버 수식)
+1. **`boob_r`/`boob_l` 수동 `sineTrack`과 `PhysicsConstraint` 동시 사용 시 호흡 중 상시 흔들림 발생**:
+   - `@rig-c/play`의 물리 업데이트 함수(`Do()`)는 매 프레임 본의 월드 위치 변화량 `(o.uy - p) * e.inertia`를 `o.yOffset`에 직접 누적합니다.
+   - 부모 본 `chest`가 이미 호흡 트랙(`translatey`, `amp = 5.0`)으로 움직이는 상태에서 자식 본 `boob_r`/`boob_l`에 수동 정현파 트랙(`motion.tracks`)까지 중복 부여하고 `inertia > 1.5`를 주면, 느린 호흡 중에도 매 프레임 큰 변위가 `yOffset`에 주입되어 가슴이 쉬지 않고 출렁이는 부작용이 발생합니다.
+2. **낮은 `strength` + 높은 `damping`(`> 0.92`) + 과도한 `gravity` 조합 시 물풍선 진동 및 과도한 처짐 발생**:
+   - `@rig-c/play`에서 중력 가속 항은 `C = e.gravity * e.referenceScale` (`referenceScale = 100`)으로 스케일링되어 `o.yVelocity -= (C * d.gravity[1] + o.yOffset * e.strength) * stepM`으로 적분됩니다.
+   - 따라서 정적 중력 평형점 이동량은 $y_{\text{eq}} = -\frac{100 \cdot \text{gravity} \cdot d.\text{gravity}[1]}{\text{strength}}$이 되며, 낮은 `strength`(`150 ~ 200`)에 높은 `gravity`(`1.5 ~ 2.2`) 및 외부 베이킹/보정을 중첩하면 평형점이 `25 ~ 35px` 아래로 끌려 내려가 과도하게 늘어지는 현상이 발생합니다.
+   - 또한 `damping`은 1/60초 프레임당 속도 유지율(`Math.pow(e.damping, 60 * dt)`)이므로, `damping = 0.94 ~ 0.96`과 낮은 `strength`를 결합하면 감쇠비 $\zeta < 0.14$가 되어 충격 후 7~10회 이상 출렁이는 물풍선 현상이 나타납니다.
 
-### 현재 우회법 (`scripts/bake_gravity_bust_motion.py` & `viewer/index.html`)
-1. **정적 모션 베이킹 (`scripts/bake_gravity_bust_motion.py`)**:
-   - `rig-parts rig` 직후 `out/rig/motion.json`의 `boob_r_ctl`/`boob_l_ctl` 트랙을 중력 가속 낙하($-g$) + 비선형 J-커브 하단 텐션 미분방정식
-     $$m \ddot{y} + c \dot{y} + k_{\text{up/down}}(y - y_{\text{sag}}) + k_3 \max(0, y_{\text{sag}} - y)^3 = F_{\text{chest}}(t) - m g$$
-     의 정상 상태 주기해(40-키프레임 Cubic Hermite 곡선: `translatey`, `translatex`, `scalex`, `scaley`)로 교체한 뒤 `rig-parts check`를 통과시켰습니다.
-2. **뷰어 런타임 60fps 중력·텐션 솔버 (`viewer/index.html`의 `adjust(pose)`)**:
-   - `@rig-c/play`의 `adjust(pose)` 콜백 내부에 5단계 바스트 체급별(`luna` $\to$ `nova` $\to$ `naru` $\to$ `jinni` $\to$ `roa`) 실시간 비선형 J-커브 ODE 솔버(`stepBustGravityState`)를 구현하여, `chest_ctl`의 실시간 속도·가속도, 뷰어 `gravity` 슬라이더(기본값 `1.0G`), 마우스 드래그 및 `찰랑이기` 충격에 따라 **실시간 중력 처짐(Gravity Sag) + 하단 텐션 리바운드 + 부피 보존 `scaleX`/`scaleY` 변형**이 즉시 작동하도록 처리했습니다.
+### 순수 `rig-c` 해결 및 5단계 바스트 탄력도 캘리브레이션 (`config.json`)
+외부 베이킹 스크립트나 뷰어 런타임 보정 코드를 모두 걷어내고, **순수 `rig-parts` + `@rig-c/play`의 `PhysicsConstraint`만으로 2~3회 바운스 후 제자리를 찾는 탱글탱글한 탄성**을 구현하기 위해 다음과 같이 설정했습니다:
+1. **`motion.tracks`에서 `boob_r` / `boob_l` 수동 트랙 제거**:
+   - `boob_r`/`boob_l`은 `chest`의 자식 본으로서 수동 키프레임 없이 오직 `boob_r_phys`/`boob_l_phys` 물리 제약(`PhysicsConstraint`)으로만 구동됩니다.
+2. **고강성(`strength = 278 ~ 480`) + 적정 속도 유지율(`damping = 0.85 ~ 0.89`) + 절제된 `inertia`(`0.30 ~ 0.47`) & `gravity`(`0.08 ~ 0.14`)**:
+   - 느린 호흡(`period = 3.33s`, $\omega \approx 1.88\text{ rad/s}$)에서는 높은 복원 강성(`strength`) 덕분에 진폭이 `0.07 ~ 0.23px`로 억제되어 호흡 중 불필요하게 계속 흔들리지 않습니다.
+   - 반면 드래그나 `찰랑이기` 등 빠른 충격이 가해지면 `3.0 ~ 5.2px` 범위로 탄력 있게 반응한 뒤 **정확히 2~2.5회 바운스(`0.45초` 이내) 만에 원위치로 수렴**합니다:
+     - **Tier 1 (`luna`, Light-Perky, `r=22`)**: `strength: 480, damping: 0.85, inertia: 0.30, mass: 0.85, gravity: 0.08` (2.5회 바운스, 호흡 변위 `0.07px`)
+     - **Tier 2 (`nova`, Medium-Firm, `r=23`)**: `strength: 425, damping: 0.86, inertia: 0.33, mass: 0.98, gravity: 0.10` (2.5회 바운스, 호흡 변위 `0.10px`)
+     - **Tier 3 (`naru`, Medium-Full, `r=24`)**: `strength: 375, damping: 0.87, inertia: 0.37, mass: 1.10, gravity: 0.11` (2.0회 바운스, 호흡 변위 `0.14px`)
+     - **Tier 4 (`jinni`, Heavy-Glamour, `r=25`)**: `strength: 325, damping: 0.88, inertia: 0.41, mass: 1.24, gravity: 0.12` (2.0회 바운스, 호흡 변위 `0.18px`)
+     - **Tier 5 (`roa`, Max-Glamour, `r=28`)**: `strength: 285, damping: 0.89, inertia: 0.45, mass: 1.35, gravity: 0.14` (1.5~2.0회 바운스, 호흡 변위 `0.23px`)
 
-### 개선 제안 (`@rig-c/play` 및 `rig-parts` 내장 지원)
-1. **`@rig-c/play` (`RigPlayer`)에 내장 소프트바디 중력 + 비선형 J-커브 텐션 솔버 탑재**:
-   - 소비자 뷰어마다 `adjust(pose)`에 물리 미분방정식을 직접 작성하지 않아도 되도록, `@rig-c/play`의 `RigPlayer`가 소프트바디 타겟 본(`boob_r`, `boob_l` 또는 `rig.model.json`에 선언된 soft-body 본)에 대해 매 프레임 자동으로:
-     - 부모 본(`chest` / `chest_ctl`)의 월드/로컬 속도·가속도 추출 및 호흡 하강 전환 시 **중력 가속 낙하 임펄스** 인가,
-     - `environment.gravity`(기본값 `[0, 1.0]`)에 비례하는 **정적 중력 처짐(Gravity Sag, $y_{\text{eq}} = -g \cdot \text{sag}_0$)** 적용,
-     - 상단 완만·하단 급경사 **비대칭 3차 비선형 J-커브 복원력($-k_{\text{down}}\Delta y - k_3 \Delta y^3$)** 적분을 통한 바닥 텐션 스냅 리바운드 및 2.2~2.8Hz 언더댐핑 여진 생성,
-     - 수직 변위 $\Delta y$와 속도 $\dot{y}$에 연동된 **3D 부피 보존 Squash & Stretch (`scaleX = 1 - s \cdot \Delta y`, `scaleY = 1 + s \cdot \Delta y`)** 커플링
-     을 기본 수행하도록 플레이어 엔진 차원에서 내장할 것을 제안합니다.
-2. **`contour.regions` 반경(`r`) 기반 바스트 체급(가벼운/무거운 탄력도) 자동 프리셋 산출**:
-   - `config.json`의 `contour.regions`에 선언된 `bust_r`/`bust_l`의 반경(`r` 및 `band`)으로부터 질량($m \propto r^2$), 고유진동수($\omega_n \propto 1/\sqrt{m}$), 감쇠비($\zeta$), 하단 텐션 계수($k_3$), Squash 비율을 `rig-parts`와 `@rig-c/play`가 자동 도출(또는 `tier: "light" | "medium" | "heavy" | "glamour"` 옵션 지원)하면, 별도의 외부 파이썬 베이킹 스크립트 없이도 캐릭터별 바스트 사이즈에 맞는 무게감과 탱글탱글한 텐션 베리에이션이 파이프라인 기본 기능으로 완성됩니다.
-
-
+### 향후 `@rig-c/play` / `rig-parts` 엔진 개선 제안
+1. **`PhysicsConstraint`에 하드/소프트 변위 제한(`limit` / 비선형 J-커브 텐션) 옵션 추가**:
+   - 선형 스프링(`strength * yOffset`)만으로는 큰 충격이나 높은 중력(`gravity`)에서 하단 변위가 선형 비례로 늘어납니다. 일정 변위 이상에서 복원력이 3차 비선형($k_3 \Delta y^3$)으로 급증하는 **하단 텐션 스토퍼(`maxOffset` 또는 `tensionCurve`)**를 `@rig-c/play`의 `Do()` 솔버에 지원하면, 어떤 강한 외부 충격에도 가슴이 배꼽 쪽으로 늘어지지 않고 탱글하게 튕겨 오릅니다.
+2. **저주파 호흡 속도 필터링(High-Pass Inertia Filter)**:
+   - 부모 본(`chest`)의 느린 호흡 이동($< 0.5\text{Hz}$)에는 `inertia`가 과민 반응하지 않고, 빠른 가속도 변화(임펄스/드래그/점프)에만 `inertia`가 전달되도록 고역통과(High-Pass) 또는 가속도 기반 임펄스 모드를 지원하면 더욱 자연스러운 정지 호흡과 강한 타격감을 동시에 얻을 수 있습니다.
