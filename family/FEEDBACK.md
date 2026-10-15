@@ -170,3 +170,42 @@
   1. 실루엣 판정은 RGB 색상 차이가 아닌 **원화 알파 채널(`source.alpha >= 128`)**을 기준으로 수행하며,
   2. `projectSource()`와 `seamOverride()`가 참조하는 원화 RGB는 `source.alpha >= 245`인 순수 불투명 내부 코어 픽셀들로부터 바깥쪽으로 4~6px 거리 변환 외삽(`distance_transform_edt` / unpremultiplied color decontamination)한 RGB를 사용하도록 개선하면, 어떤 배경색에서도 가장자리 흰 점 현상이 원천 차단됩니다.
 
+---
+
+## 11. `@rig-c/play` / `rig-parts` — 가슴 지글의 무중력(Zero-G) 유영 현상 해결을 위한 **중력 가속 낙하 + 비선형 J-커브 탄성 텐션(Hyperelastic Tension)** 솔버 내장 제안
+
+### 현상
+- `rig-parts`가 기본 생성하는 단일 정현파(`sineTrack`, $y(t) = A\sin(\omega_0 t)$)와 Spine 4.3의 기본 선형 `PhysicsConstraint`만으로는 가슴(`boob_r`, `boob_l`) 등 연부조직(soft-body)이 **위·아래 대칭 가속도로 움직여 마치 우주(무중력)에 둥둥 떠 있는 것처럼 보이는 현상**이 발생합니다.
+- 실제 중력 환경에서 나타나는 **① 호흡 정점 이후의 빠른 중력 자유낙하(Free-Fall Drop), ② 최저점(바닥)에서 피부·쿠퍼인대·브라컵의 인장 한계에 걸려 팽팽하게 튕겨 오르는 탄성 텐션 스냅(Elastic Snap Rebound), ③ 바닥 충격 시 위아래가 눌리고 좌우 볼륨이 부풀어 오르는 3D 부피 보존 변형(Volume-Preserving Squash & Stretch)**이 기본 플레이어와 모션 생성기만으로는 표현되지 않습니다.
+
+### 원인 분석 (`motion.ts`, Spine 4.3 `PhysicsConstraint.js`, `@rig-c/play`)
+1. **단일 대칭 정현파의 무중력감 (`motion.ts`의 `sineTrack`)**:
+   - 단일 사인파는 상승 구간과 하강 구간의 체류 시간 및 최대 가속도 크기가 완벽히 대칭($\ddot{y}_{\max} = -\ddot{y}_{\min}$)이므로, 중력 가속도($-g$)에 의한 하강 가속과 바닥 텐션 반동의 비대칭 물리 파형을 표현할 수 없습니다.
+2. **Spine 4.3 `PhysicsConstraint`의 대칭 선형 복원력 한계 및 `damping` 수식 반전**:
+   - `@esotericsoftware/spine-core`의 `PhysicsConstraint.js`는 복원력을 대칭 선형 후크 법칙($F = -k \cdot y_{\text{offset}}$)으로만 계산하므로, 위쪽(느슨한 인대)은 부드럽고 아래쪽(하단 인장 스토퍼)은 급격히 강해지는 **비대칭 3차 비선형 J-커브 장력($F = -k_{\text{down}}\Delta y - k_3 \Delta y^3$)**을 계산하지 못합니다.
+   - 또한 Spine 4.3에서 `damping`은 감쇠비($\zeta$)가 아니라 **1/60초 프레임당 속도 유지율(`d = p.damping ** (60 * t); this.yVelocity *= d;`)**로 구현되어 있습니다. 일반적인 감쇠비 감각으로 `damping = 0.45 ~ 0.52`를 입력하면 매 1/60초마다 속도에 `0.45`가 곱해져 **단 3프레임(`0.05s`) 만에 속도의 91%가 증발하는 시멘트급 과감쇠($\zeta \approx 8.0$) 상태**가 되어 탄성 여진이 완전히 사라집니다(실제 언더댐핑 탄성 반동을 얻으려면 `damping = 0.925 ~ 0.958`, `strength = 155 ~ 250` 구간을 사용해야 함).
+3. **길이 0인 포인트 본에서 `PhysicsConstraint.scaleX` 사용 불가 (`A23_PHYSICS_CONSTRAINT_EFFECTIVE`)**:
+   - `boob_r`/`boob_l`은 `length = 0`인 포인트 본으로 생성되는데, Spine의 `PhysicsConstraint`는 본의 `length`로 변위를 나누어 스케일을 계산하므로 `scaleX`를 설정하면 `rig-c` 관문(`A23_PHYSICS_CONSTRAINT_EFFECTIVE`)에서 거부됩니다. 따라서 `PhysicsConstraint`만으로는 하단 텐션 도달 시의 부피 보존 Squash & Stretch를 구동할 수 없습니다.
+4. **`@rig-c/play` 플레이어의 소프트바디 중력·텐션 후처리 부재**:
+   - `@rig-c/play`의 `RigPlayer`는 스켈레톤 키프레임과 기본 Spine `PhysicsConstraint`만 재생할 뿐, 부모 흉곽 본(`chest_ctl`)의 실시간 가속도·속도와 중력(`environment.gravity`)을 결합한 비선형 소프트바디 텐션 및 부피 보존 스케일링을 플레이어 차원에서 처리해주지 않아 각 뷰어가 `adjust(pose)` 훅으로 직접 물리 솔버를 구현해야 했습니다.
+
+### 현재 우회법 (`scripts/bake_gravity_bust_motion.py` & `viewer/index.html`)
+1. **정적 모션 베이킹 (`scripts/bake_gravity_bust_motion.py`)**:
+   - `rig-parts rig` 직후 `out/rig/motion.json`의 `boob_r_ctl`/`boob_l_ctl` 트랙을 중력 가속 낙하($-g$) + 비선형 J-커브 하단 텐션 미분방정식
+     $$m \ddot{y} + c \dot{y} + k_{\text{up/down}}(y - y_{\text{sag}}) + k_3 \max(0, y_{\text{sag}} - y)^3 = F_{\text{chest}}(t) - m g$$
+     의 정상 상태 주기해(40-키프레임 Cubic Hermite 곡선: `translatey`, `translatex`, `scalex`, `scaley`)로 교체한 뒤 `rig-parts check`를 통과시켰습니다.
+2. **뷰어 런타임 60fps 중력·텐션 솔버 (`viewer/index.html`의 `adjust(pose)`)**:
+   - `@rig-c/play`의 `adjust(pose)` 콜백 내부에 5단계 바스트 체급별(`luna` $\to$ `nova` $\to$ `naru` $\to$ `jinni` $\to$ `roa`) 실시간 비선형 J-커브 ODE 솔버(`stepBustGravityState`)를 구현하여, `chest_ctl`의 실시간 속도·가속도, 뷰어 `gravity` 슬라이더(기본값 `1.0G`), 마우스 드래그 및 `찰랑이기` 충격에 따라 **실시간 중력 처짐(Gravity Sag) + 하단 텐션 리바운드 + 부피 보존 `scaleX`/`scaleY` 변형**이 즉시 작동하도록 처리했습니다.
+
+### 개선 제안 (`@rig-c/play` 및 `rig-parts` 내장 지원)
+1. **`@rig-c/play` (`RigPlayer`)에 내장 소프트바디 중력 + 비선형 J-커브 텐션 솔버 탑재**:
+   - 소비자 뷰어마다 `adjust(pose)`에 물리 미분방정식을 직접 작성하지 않아도 되도록, `@rig-c/play`의 `RigPlayer`가 소프트바디 타겟 본(`boob_r`, `boob_l` 또는 `rig.model.json`에 선언된 soft-body 본)에 대해 매 프레임 자동으로:
+     - 부모 본(`chest` / `chest_ctl`)의 월드/로컬 속도·가속도 추출 및 호흡 하강 전환 시 **중력 가속 낙하 임펄스** 인가,
+     - `environment.gravity`(기본값 `[0, 1.0]`)에 비례하는 **정적 중력 처짐(Gravity Sag, $y_{\text{eq}} = -g \cdot \text{sag}_0$)** 적용,
+     - 상단 완만·하단 급경사 **비대칭 3차 비선형 J-커브 복원력($-k_{\text{down}}\Delta y - k_3 \Delta y^3$)** 적분을 통한 바닥 텐션 스냅 리바운드 및 2.2~2.8Hz 언더댐핑 여진 생성,
+     - 수직 변위 $\Delta y$와 속도 $\dot{y}$에 연동된 **3D 부피 보존 Squash & Stretch (`scaleX = 1 - s \cdot \Delta y`, `scaleY = 1 + s \cdot \Delta y`)** 커플링
+     을 기본 수행하도록 플레이어 엔진 차원에서 내장할 것을 제안합니다.
+2. **`contour.regions` 반경(`r`) 기반 바스트 체급(가벼운/무거운 탄력도) 자동 프리셋 산출**:
+   - `config.json`의 `contour.regions`에 선언된 `bust_r`/`bust_l`의 반경(`r` 및 `band`)으로부터 질량($m \propto r^2$), 고유진동수($\omega_n \propto 1/\sqrt{m}$), 감쇠비($\zeta$), 하단 텐션 계수($k_3$), Squash 비율을 `rig-parts`와 `@rig-c/play`가 자동 도출(또는 `tier: "light" | "medium" | "heavy" | "glamour"` 옵션 지원)하면, 별도의 외부 파이썬 베이킹 스크립트 없이도 캐릭터별 바스트 사이즈에 맞는 무게감과 탱글탱글한 텐션 베리에이션이 파이프라인 기본 기능으로 완성됩니다.
+
+
