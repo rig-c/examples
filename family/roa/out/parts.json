@@ -8,36 +8,36 @@
     {
       "name": "shoes",
       "from": "full:footwear",
-      "x": 214,
-      "y": 2109,
-      "w": 262,
-      "h": 153,
-      "opaque_px": 14324,
-      "visible_px": 12682,
-      "occluded_px": 1642,
-      "projected_core_px": 9623,
-      "source_px_taken": 9623,
-      "visible_not_projected_px": 3059,
+      "x": 227,
+      "y": 2050,
+      "w": 247,
+      "h": 210,
+      "opaque_px": 33225,
+      "visible_px": 16058,
+      "occluded_px": 17167,
+      "projected_core_px": 12428,
+      "source_px_taken": 12428,
+      "visible_not_projected_px": 3630,
       "refused_drift_px": 6,
       "merged_px": 0,
-      "seam_override_px": 5
+      "seam_override_px": 8
     },
     {
       "name": "bottomwear",
       "from": "full:bottomwear",
-      "x": 156,
+      "x": 160,
       "y": 826,
-      "w": 398,
-      "h": 1387,
-      "opaque_px": 385197,
-      "visible_px": 375335,
-      "occluded_px": 9862,
-      "projected_core_px": 357430,
-      "source_px_taken": 357430,
-      "visible_not_projected_px": 17905,
-      "refused_drift_px": 32,
+      "w": 392,
+      "h": 1357,
+      "opaque_px": 377306,
+      "visible_px": 353345,
+      "occluded_px": 23961,
+      "projected_core_px": 338093,
+      "source_px_taken": 338008,
+      "visible_not_projected_px": 15337,
+      "refused_drift_px": 109,
       "merged_px": 0,
-      "seam_override_px": 0
+      "seam_override_px": 82
     },
     {
       "name": "handwear_r",
@@ -86,12 +86,12 @@
       "y": 409,
       "w": 616,
       "h": 450,
-      "opaque_px": 168355,
-      "visible_px": 160722,
-      "occluded_px": 7633,
+      "opaque_px": 168353,
+      "visible_px": 160699,
+      "occluded_px": 7654,
       "projected_core_px": 148260,
       "source_px_taken": 147972,
-      "visible_not_projected_px": 12750,
+      "visible_not_projected_px": 12727,
       "refused_drift_px": 1416,
       "merged_px": 0,
       "seam_override_px": 409,
@@ -103,6 +103,10 @@
         {
           "part": "handwear_r",
           "px": 22
+        },
+        {
+          "part": "bottomwear",
+          "px": 2
         }
       ]
     },
@@ -113,12 +117,12 @@
       "y": 152,
       "w": 385,
       "h": 353,
-      "opaque_px": 60478,
-      "visible_px": 47443,
-      "occluded_px": 13035,
-      "projected_core_px": 36644,
-      "source_px_taken": 36644,
-      "visible_not_projected_px": 10799,
+      "opaque_px": 62284,
+      "visible_px": 46350,
+      "occluded_px": 15934,
+      "projected_core_px": 35883,
+      "source_px_taken": 35883,
+      "visible_not_projected_px": 10467,
       "refused_drift_px": 2,
       "merged_px": 0,
       "seam_override_px": 34,
@@ -140,21 +144,15 @@
       "y": 335,
       "w": 40,
       "h": 53,
-      "opaque_px": 865,
-      "visible_px": 151,
-      "occluded_px": 714,
+      "opaque_px": 896,
+      "visible_px": 40,
+      "occluded_px": 856,
       "projected_core_px": 0,
       "source_px_taken": 0,
-      "visible_not_projected_px": 151,
+      "visible_not_projected_px": 40,
       "refused_drift_px": 0,
       "merged_px": 0,
-      "seam_override_px": 0,
-      "fringe_pushed_back": [
-        {
-          "part": "hair_back",
-          "px": 31
-        }
-      ]
+      "seam_override_px": 0
     },
     {
       "name": "earring",
@@ -190,23 +188,23 @@
       "y": 189,
       "w": 176,
       "h": 233,
-      "opaque_px": 29985,
-      "visible_px": 19953,
+      "opaque_px": 30875,
+      "visible_px": 20843,
       "occluded_px": 10032,
-      "projected_core_px": 15990,
-      "source_px_taken": 15936,
-      "visible_not_projected_px": 4017,
+      "projected_core_px": 17277,
+      "source_px_taken": 17223,
+      "visible_not_projected_px": 3620,
       "refused_drift_px": 322,
       "merged_px": 0,
-      "seam_override_px": 38,
+      "seam_override_px": 30,
       "fringe_pushed_back": [
-        {
-          "part": "hair_back",
-          "px": 56
-        },
         {
           "part": "earring",
           "px": 25
+        },
+        {
+          "part": "hair_back",
+          "px": 12
         },
         {
           "part": "neck",
@@ -393,7 +391,7 @@
   ],
   "ghost_px": {
     "full:back hair": 47,
-    "full:bottomwear": 1,
+    "full:bottomwear": 0,
     "full:ears-l": 0,
     "full:ears-r": 0,
     "full:earwear": 0,
@@ -404,8 +402,8 @@
     "full:eyewhite-l": 0,
     "full:eyewhite-r": 0,
     "full:face": 0,
-    "full:footwear": 0,
-    "full:front hair": 27,
+    "full:footwear": 48,
+    "full:front hair": 56,
     "full:handwear-l": 0,
     "full:handwear-r": 58,
     "full:irides-l": 0,
@@ -443,26 +441,26 @@
     "head:wings": 7
   },
   "recomposite": {
-    "mean_abs": 0.838,
+    "mean_abs": 0.877,
     "within_limit": 8,
-    "within_share": 0.9823,
+    "within_share": 0.983,
     "error_limit": 40,
-    "error_px": 13838,
+    "error_px": 13556,
     "covered_alpha": 128,
-    "uncovered_error_px": 6151,
-    "hole_count": 500,
+    "uncovered_error_px": 6398,
+    "hole_count": 510,
     "holes_listed": 5,
     "holes": [
       {
-        "px": 1092,
-        "x": 505,
-        "y": 1055,
-        "w": 48,
-        "h": 872,
+        "px": 834,
+        "x": 479,
+        "y": 1639,
+        "w": 30,
+        "h": 522,
         "borders": [
           {
             "part": "bottomwear",
-            "px": 934
+            "px": 558
           }
         ]
       },
@@ -484,19 +482,19 @@
         ]
       },
       {
-        "px": 186,
+        "px": 194,
         "x": 461,
         "y": 756,
         "w": 30,
-        "h": 115,
+        "h": 117,
         "borders": [
           {
             "part": "topwear",
-            "px": 120
+            "px": 119
           },
           {
             "part": "bottomwear",
-            "px": 56
+            "px": 57
           }
         ]
       },
@@ -514,15 +512,15 @@
         ]
       },
       {
-        "px": 141,
-        "x": 693,
-        "y": 570,
-        "w": 53,
-        "h": 59,
+        "px": 146,
+        "x": 549,
+        "y": 1059,
+        "w": 3,
+        "h": 112,
         "borders": [
           {
-            "part": "topwear",
-            "px": 112
+            "part": "bottomwear",
+            "px": 118
           }
         ]
       }

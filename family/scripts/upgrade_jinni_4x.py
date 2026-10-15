@@ -20,18 +20,46 @@ FAMILY_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JINNI_DIR = os.path.join(FAMILY_DIR, "jinni")
 os.chdir(JINNI_DIR)
 
-# 1. Load 1x base config and build the updated 800x2284 (2x) config with physics limits, stops & breast jiggle
-with open("config_400x1142.json") as f:
-    orig_cfg = json.load(f)
+# 1. Load 800x2284 config.json (or 1x config_400x1142.json if present) and update physics limits, stops & breast jiggle
+if os.path.exists("config_400x1142.json"):
+    with open("config_400x1142.json") as f:
+        orig_cfg = json.load(f)
+    cfg = json.loads(json.dumps(orig_cfg))
+    cfg["seethrough"]["head_box"] = [x * 2 for x in cfg["seethrough"]["head_box"]]
+    for b in cfg["bones"]:
+        if "at" in b:
+            b["at"] = [x * 2 for x in b["at"]]
+        if "points" in b:
+            b["points"] = [[p[0] * 2, p[1] * 2] for p in b["points"]]
+        if "tip" in b:
+            b["tip"] = [x * 2 for x in b["tip"]]
+    for mname, m in cfg["meshes"].items():
+        if "grid" in m:
+            m["grid"] = m["grid"] * 2
+        if "r" in m:
+            m["r"] = m["r"] * 2
+        if "segments" in m:
+            new_segs = []
+            for s in m["segments"]:
+                if isinstance(s, list):
+                    new_segs.append([s[0], [s[1][0] * 2, s[1][1] * 2], [s[2][0] * 2, s[2][1] * 2]])
+                else:
+                    new_segs.append(s)
+            m["segments"] = new_segs
+    for t in cfg["motion"]["tracks"]:
+        if t.get("prop") in ("translatex", "translatey"):
+            if "amp" in t:
+                t["amp"] = round(t["amp"] * 2, 4)
+            if "base" in t:
+                t["base"] = round(t["base"] * 2, 4)
+else:
+    with open("config.json") as f:
+        cfg = json.load(f)
 
-cfg = json.loads(json.dumps(orig_cfg))
-
-# Remove "hairback_r" from hair_front segments so back hair physics never pulls hair_front across face/neck/shoulder!
 cfg["meshes"]["hair_front"]["segments"] = [
     s for s in cfg["meshes"]["hair_front"]["segments"] if s != "hairback_r"
 ]
 
-# Tighten idle amplitudes slightly on hairback & skirt so idle + physics stays gentle
 for t in cfg["motion"]["tracks"]:
     if t.get("chain") in ("hairback_r", "hairback_l"):
         t["amps"] = [0.35, 0.8, 1.4]
@@ -40,115 +68,7 @@ for t in cfg["motion"]["tracks"]:
     elif t.get("chain") in ("skirt_r", "skirt_c", "skirt_l"):
         t["amps"] = [0.25, 0.6, 1.1]
 
-# Stiffer, well-damped physics constraints with controlled wind/gravity multipliers
-cfg["constraints"] = [
-    # Back hair right (viewer-left)
-    {"type": "physics", "name": "hairback_r0_phys", "bone": "hairback_r0", "rotate": 1, "inertia": 0.45, "strength": 220.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
-    {"type": "physics", "name": "hairback_r1_phys", "bone": "hairback_r1", "rotate": 1, "inertia": 0.55, "strength": 170.0, "damping": 0.88, "mass": 1, "wind": 0.45, "gravity": 0.3, "mix": 1},
-    {"type": "physics", "name": "hairback_r2_phys", "bone": "hairback_r2", "rotate": 1, "inertia": 0.65, "strength": 130.0, "damping": 0.86, "mass": 1, "wind": 0.75, "gravity": 0.5, "mix": 1},
-    # Back hair left (viewer-right)
-    {"type": "physics", "name": "hairback_l0_phys", "bone": "hairback_l0", "rotate": 1, "inertia": 0.45, "strength": 220.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
-    {"type": "physics", "name": "hairback_l1_phys", "bone": "hairback_l1", "rotate": 1, "inertia": 0.55, "strength": 170.0, "damping": 0.88, "mass": 1, "wind": 0.45, "gravity": 0.3, "mix": 1},
-    {"type": "physics", "name": "hairback_l2_phys", "bone": "hairback_l2", "rotate": 1, "inertia": 0.65, "strength": 130.0, "damping": 0.86, "mass": 1, "wind": 0.75, "gravity": 0.5, "mix": 1},
-    # Front bangs
-    {"type": "physics", "name": "bang_r0_phys", "bone": "bang_r0", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.1, "mix": 1},
-    {"type": "physics", "name": "bang_r1_phys", "bone": "bang_r1", "rotate": 1, "inertia": 0.35, "strength": 180.0, "damping": 0.88, "mass": 1, "wind": 0.35, "gravity": 0.2, "mix": 1},
-    {"type": "physics", "name": "bang_c0_phys", "bone": "bang_c0", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.1, "mix": 1},
-    {"type": "physics", "name": "bang_c1_phys", "bone": "bang_c1", "rotate": 1, "inertia": 0.35, "strength": 180.0, "damping": 0.88, "mass": 1, "wind": 0.35, "gravity": 0.2, "mix": 1},
-    {"type": "physics", "name": "bang_l0_phys", "bone": "bang_l0", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.1, "mix": 1},
-    {"type": "physics", "name": "bang_l1_phys", "bone": "bang_l1", "rotate": 1, "inertia": 0.35, "strength": 180.0, "damping": 0.88, "mass": 1, "wind": 0.35, "gravity": 0.2, "mix": 1},
-    # Skirt (bottomwear)
-    {"type": "physics", "name": "skirt_r0_phys", "bone": "skirt_r0", "rotate": 1, "inertia": 0.35, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
-    {"type": "physics", "name": "skirt_r1_phys", "bone": "skirt_r1", "rotate": 1, "inertia": 0.45, "strength": 190.0, "damping": 0.88, "mass": 1, "wind": 0.4, "gravity": 0.3, "mix": 1},
-    {"type": "physics", "name": "skirt_r2_phys", "bone": "skirt_r2", "rotate": 1, "inertia": 0.55, "strength": 145.0, "damping": 0.86, "mass": 1, "wind": 0.65, "gravity": 0.45, "mix": 1},
-    {"type": "physics", "name": "skirt_c0_phys", "bone": "skirt_c0", "rotate": 1, "inertia": 0.35, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
-    {"type": "physics", "name": "skirt_c1_phys", "bone": "skirt_c1", "rotate": 1, "inertia": 0.45, "strength": 190.0, "damping": 0.88, "mass": 1, "wind": 0.4, "gravity": 0.3, "mix": 1},
-    {"type": "physics", "name": "skirt_c2_phys", "bone": "skirt_c2", "rotate": 1, "inertia": 0.55, "strength": 145.0, "damping": 0.86, "mass": 1, "wind": 0.65, "gravity": 0.45, "mix": 1},
-    {"type": "physics", "name": "skirt_l0_phys", "bone": "skirt_l0", "rotate": 1, "inertia": 0.35, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
-    {"type": "physics", "name": "skirt_l1_phys", "bone": "skirt_l1", "rotate": 1, "inertia": 0.45, "strength": 190.0, "damping": 0.88, "mass": 1, "wind": 0.4, "gravity": 0.3, "mix": 1},
-    {"type": "physics", "name": "skirt_l2_phys", "bone": "skirt_l2", "rotate": 1, "inertia": 0.55, "strength": 145.0, "damping": 0.86, "mass": 1, "wind": 0.65, "gravity": 0.45, "mix": 1},
-    # Earring
-    {"type": "physics", "name": "earring_phys", "bone": "earring", "x": 0.4, "y": 0.8, "inertia": 0.3, "strength": 200.0, "damping": 0.9, "mass": 1, "wind": 0.25, "gravity": 0.2, "mix": 1}
-]
-
-# Add `stops` (RigStop) to hard-clamp inward rotation into the flesh (neck/shoulder/thighs) and cap outward swing!
-cfg["stops"] = [
-    {
-        "chain": "skirt_r",
-        "against": "hip",
-        "at": [10, -240],
-        "inward": -1.5,
-        "outward": 8.0,
-        "lower": {"inward": -2.0, "outward": 10.0}
-    },
-    {
-        "chain": "skirt_c",
-        "against": "hip",
-        "at": [-40, -240],
-        "inward": -5.0,
-        "outward": 5.0,
-        "lower": {"inward": -6.0, "outward": 6.0}
-    },
-    {
-        "chain": "skirt_l",
-        "against": "hip",
-        "at": [-10, -240],
-        "inward": -1.5,
-        "outward": 8.0,
-        "lower": {"inward": -2.0, "outward": 10.0}
-    },
-    {
-        "chain": "hairback_r",
-        "against": "chest",
-        "at": [0, 120],
-        "inward": -1.5,
-        "outward": 7.0,
-        "lower": {"inward": -2.0, "outward": 9.0}
-    },
-    {
-        "chain": "hairback_l",
-        "against": "chest",
-        "at": [0, 120],
-        "inward": -1.5,
-        "outward": 7.0,
-        "lower": {"inward": -2.0, "outward": 9.0}
-    }
-]
-
-# Scale coordinates to 800x2284 (2x)
-cfg["seethrough"]["head_box"] = [x * 2 for x in cfg["seethrough"]["head_box"]]
-
-for b in cfg["bones"]:
-    if "at" in b:
-        b["at"] = [x * 2 for x in b["at"]]
-    if "points" in b:
-        b["points"] = [[p[0] * 2, p[1] * 2] for p in b["points"]]
-    if "tip" in b:
-        b["tip"] = [x * 2 for x in b["tip"]]
-
-for mname, m in cfg["meshes"].items():
-    if "grid" in m:
-        m["grid"] = m["grid"] * 2
-    if "r" in m:
-        m["r"] = m["r"] * 2
-    if "segments" in m:
-        new_segs = []
-        for s in m["segments"]:
-            if isinstance(s, list):
-                new_segs.append([s[0], [s[1][0] * 2, s[1][1] * 2], [s[2][0] * 2, s[2][1] * 2]])
-            else:
-                new_segs.append(s)
-        m["segments"] = new_segs
-
-for t in cfg["motion"]["tracks"]:
-    if t.get("prop") in ("translatex", "translatey"):
-        if "amp" in t:
-            t["amp"] = round(t["amp"] * 2, 4)
-        if "base" in t:
-            t["base"] = round(t["base"] * 2, 4)
-
-# Add independent breast jiggle bones (`boob_r`, `boob_l`), contour refinement regions (`bust_r`, `bust_l`),
-# phase-staggered idle bounce tracks, and 2D spring physics constraints!
+cfg["bones"] = [b for b in cfg["bones"] if b.get("name") not in ("boob_r", "boob_l")]
 cfg["bones"].extend([
     {"name": "boob_r", "parent": "chest", "at": [384, 724]},
     {"name": "boob_l", "parent": "chest", "at": [514, 720]}
@@ -163,8 +83,8 @@ cfg["meshes"]["topwear"] = {
         "stray": 400,
         "bridges": True,
         "regions": [
-            {"name": "bust_r", "shape": "circle", "cx": 384, "cy": 724, "r": 16, "bone": "boob_r", "spacing": 14, "band": 32},
-            {"name": "bust_l", "shape": "circle", "cx": 514, "cy": 720, "r": 18, "bone": "boob_l", "spacing": 14, "band": 36}
+            {"name": "bust_r", "shape": "circle", "cx": 384, "cy": 724, "r": 24, "bone": "boob_r", "spacing": 14, "band": 38},
+            {"name": "bust_l", "shape": "circle", "cx": 514, "cy": 720, "r": 25, "bone": "boob_l", "spacing": 14, "band": 39}
         ]
     },
     "r": 16,
@@ -174,20 +94,51 @@ cfg["meshes"]["topwear"] = {
     ]
 }
 
+cfg["motion"]["tracks"] = [t for t in cfg["motion"]["tracks"] if t.get("bone") not in ("boob_r", "boob_l")]
 cfg["motion"]["tracks"].extend([
-    {"bone": "boob_r", "prop": "translatey", "amp": 2.1, "period": 3.3333333333333335, "phase": 0.12},
-    {"bone": "boob_r", "prop": "translatex", "amp": 0.6, "period": 3.3333333333333335, "phase": 0.12},
-    {"bone": "boob_l", "prop": "translatey", "amp": 2.4, "period": 3.3333333333333335, "phase": 0.18},
-    {"bone": "boob_l", "prop": "translatex", "amp": 0.75, "period": 3.3333333333333335, "phase": 0.18}
+    {"bone": "boob_r", "prop": "translatey", "amp": 2.8, "period": 3.3333333333333335, "phase": 0.12},
+    {"bone": "boob_r", "prop": "translatex", "amp": 0.9, "period": 3.3333333333333335, "phase": 0.12},
+    {"bone": "boob_l", "prop": "translatey", "amp": 3.0, "period": 3.3333333333333335, "phase": 0.18},
+    {"bone": "boob_l", "prop": "translatex", "amp": 1.0, "period": 3.3333333333333335, "phase": 0.18}
 ])
 
 if "blink" in cfg.get("motion", {}):
     cfg["motion"]["blink"]["t"] = 2.05
 
-cfg["constraints"].extend([
-    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.45, "y": 1.0, "inertia": 0.55, "strength": 120.0, "damping": 0.82, "mass": 1.1, "wind": 0.25, "gravity": 0.35, "mix": 1.0},
-    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.5, "y": 1.0, "inertia": 0.58, "strength": 115.0, "damping": 0.8, "mass": 1.15, "wind": 0.28, "gravity": 0.38, "mix": 1.0}
-])
+cfg["constraints"] = [
+    {"type": "physics", "name": "hairback_r0_phys", "bone": "hairback_r0", "rotate": 1, "inertia": 0.45, "strength": 220.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
+    {"type": "physics", "name": "hairback_r1_phys", "bone": "hairback_r1", "rotate": 1, "inertia": 0.55, "strength": 170.0, "damping": 0.88, "mass": 1, "wind": 0.45, "gravity": 0.3, "mix": 1},
+    {"type": "physics", "name": "hairback_r2_phys", "bone": "hairback_r2", "rotate": 1, "inertia": 0.65, "strength": 130.0, "damping": 0.86, "mass": 1, "wind": 0.75, "gravity": 0.5, "mix": 1},
+    {"type": "physics", "name": "hairback_l0_phys", "bone": "hairback_l0", "rotate": 1, "inertia": 0.45, "strength": 220.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
+    {"type": "physics", "name": "hairback_l1_phys", "bone": "hairback_l1", "rotate": 1, "inertia": 0.55, "strength": 170.0, "damping": 0.88, "mass": 1, "wind": 0.45, "gravity": 0.3, "mix": 1},
+    {"type": "physics", "name": "hairback_l2_phys", "bone": "hairback_l2", "rotate": 1, "inertia": 0.65, "strength": 130.0, "damping": 0.86, "mass": 1, "wind": 0.75, "gravity": 0.5, "mix": 1},
+    {"type": "physics", "name": "bang_r0_phys", "bone": "bang_r0", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.1, "mix": 1},
+    {"type": "physics", "name": "bang_r1_phys", "bone": "bang_r1", "rotate": 1, "inertia": 0.35, "strength": 180.0, "damping": 0.88, "mass": 1, "wind": 0.35, "gravity": 0.2, "mix": 1},
+    {"type": "physics", "name": "bang_c0_phys", "bone": "bang_c0", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.1, "mix": 1},
+    {"type": "physics", "name": "bang_c1_phys", "bone": "bang_c1", "rotate": 1, "inertia": 0.35, "strength": 180.0, "damping": 0.88, "mass": 1, "wind": 0.35, "gravity": 0.2, "mix": 1},
+    {"type": "physics", "name": "bang_l0_phys", "bone": "bang_l0", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.1, "mix": 1},
+    {"type": "physics", "name": "bang_l1_phys", "bone": "bang_l1", "rotate": 1, "inertia": 0.35, "strength": 180.0, "damping": 0.88, "mass": 1, "wind": 0.35, "gravity": 0.2, "mix": 1},
+    {"type": "physics", "name": "skirt_r0_phys", "bone": "skirt_r0", "rotate": 1, "inertia": 0.35, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
+    {"type": "physics", "name": "skirt_r1_phys", "bone": "skirt_r1", "rotate": 1, "inertia": 0.45, "strength": 190.0, "damping": 0.88, "mass": 1, "wind": 0.4, "gravity": 0.3, "mix": 1},
+    {"type": "physics", "name": "skirt_r2_phys", "bone": "skirt_r2", "rotate": 1, "inertia": 0.55, "strength": 145.0, "damping": 0.86, "mass": 1, "wind": 0.65, "gravity": 0.45, "mix": 1},
+    {"type": "physics", "name": "skirt_c0_phys", "bone": "skirt_c0", "rotate": 1, "inertia": 0.35, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
+    {"type": "physics", "name": "skirt_c1_phys", "bone": "skirt_c1", "rotate": 1, "inertia": 0.45, "strength": 190.0, "damping": 0.88, "mass": 1, "wind": 0.4, "gravity": 0.3, "mix": 1},
+    {"type": "physics", "name": "skirt_c2_phys", "bone": "skirt_c2", "rotate": 1, "inertia": 0.55, "strength": 145.0, "damping": 0.86, "mass": 1, "wind": 0.65, "gravity": 0.45, "mix": 1},
+    {"type": "physics", "name": "skirt_l0_phys", "bone": "skirt_l0", "rotate": 1, "inertia": 0.35, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.2, "gravity": 0.15, "mix": 1},
+    {"type": "physics", "name": "skirt_l1_phys", "bone": "skirt_l1", "rotate": 1, "inertia": 0.45, "strength": 190.0, "damping": 0.88, "mass": 1, "wind": 0.4, "gravity": 0.3, "mix": 1},
+    {"type": "physics", "name": "skirt_l2_phys", "bone": "skirt_l2", "rotate": 1, "inertia": 0.55, "strength": 145.0, "damping": 0.86, "mass": 1, "wind": 0.65, "gravity": 0.45, "mix": 1},
+    {"type": "physics", "name": "earring_phys", "bone": "earring", "x": 0.4, "y": 0.8, "inertia": 0.3, "strength": 200.0, "damping": 0.9, "mass": 1, "wind": 0.25, "gravity": 0.2, "mix": 1},
+    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.55, "y": 1.0, "inertia": 0.96, "strength": 86.0, "damping": 0.49, "mass": 1.15, "wind": 0.30, "gravity": 0.40, "mix": 1.0},
+    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.6, "y": 1.0, "inertia": 1.00, "strength": 82.0, "damping": 0.49, "mass": 1.20, "wind": 0.32, "gravity": 0.42, "mix": 1.0}
+]
+
+cfg["stops"] = [
+    {"chain": "skirt_r", "against": "hip", "at": [10, -240], "inward": -1.5, "outward": 8.0, "lower": {"inward": -2.0, "outward": 10.0}},
+    {"chain": "skirt_c", "against": "hip", "at": [-40, -240], "inward": -5.0, "outward": 5.0, "lower": {"inward": -6.0, "outward": 6.0}},
+    {"chain": "skirt_l", "against": "hip", "at": [-10, -240], "inward": -1.5, "outward": 8.0, "lower": {"inward": -2.0, "outward": 10.0}},
+    {"chain": "hairback_r", "against": "chest", "at": [0, 120], "inward": -1.5, "outward": 7.0, "lower": {"inward": -2.0, "outward": 9.0}},
+    {"chain": "hairback_l", "against": "chest", "at": [0, 120], "inward": -1.5, "outward": 7.0, "lower": {"inward": -2.0, "outward": 9.0}}
+]
 
 with open("config.json", "w") as f:
     json.dump(cfg, f, indent=2)

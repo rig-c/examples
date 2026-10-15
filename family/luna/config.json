@@ -16,6 +16,11 @@
     "rig_scale": 1.0,
     "plan": [
       [
+        "hair_back",
+        "head",
+        "back hair"
+      ],
+      [
         "shoes",
         "full",
         "footwear"
@@ -44,11 +49,6 @@
         "handwear_r",
         "full",
         "handwear-r"
-      ],
-      [
-        "hair_back",
-        "head",
-        "back hair"
       ],
       [
         "face",
@@ -424,14 +424,12 @@
           ]
         ],
         "hairback_r",
-        "hairback_l",
-        "hair_r",
-        "hair_l"
+        "hairback_l"
       ]
     },
     "hair_front": {
       "grid": 57,
-      "r": 10,
+      "r": 12,
       "segments": [
         [
           "head",
@@ -446,7 +444,9 @@
         ],
         "bang_r",
         "bang_c",
-        "bang_l"
+        "bang_l",
+        "hair_r",
+        "hair_l"
       ]
     },
     "neck": {
@@ -498,20 +498,20 @@
             "shape": "circle",
             "cx": 308,
             "cy": 785,
-            "r": 16,
+            "r": 22,
             "bone": "boob_r",
             "spacing": 14,
-            "band": 32
+            "band": 36
           },
           {
             "name": "bust_l",
             "shape": "circle",
             "cx": 436,
             "cy": 785,
-            "r": 16,
+            "r": 22,
             "bone": "boob_l",
             "spacing": 14,
-            "band": 32
+            "band": 36
           }
         ]
       },
@@ -586,30 +586,30 @@
       {
         "bone": "boob_r",
         "prop": "translatey",
-        "amp": 2.0,
+        "amp": 2.3,
         "period": 3.3333333333333335,
-        "phase": 0.12
+        "phase": 0.14
       },
       {
         "bone": "boob_r",
         "prop": "translatex",
-        "amp": 0.6,
+        "amp": 0.65,
         "period": 3.3333333333333335,
-        "phase": 0.12
+        "phase": 0.14
       },
       {
         "bone": "boob_l",
         "prop": "translatey",
-        "amp": 2.2,
+        "amp": 2.5,
         "period": 3.3333333333333335,
-        "phase": 0.18
+        "phase": 0.2
       },
       {
         "bone": "boob_l",
         "prop": "translatex",
-        "amp": 0.7,
+        "amp": 0.72,
         "period": 3.3333333333333335,
-        "phase": 0.18
+        "phase": 0.2
       },
       {
         "chain": "hairback_r",
@@ -1022,28 +1022,28 @@
       "type": "physics",
       "name": "boob_r_phys",
       "bone": "boob_r",
-      "x": 0.55,
-      "y": 1.0,
-      "inertia": 0.65,
-      "strength": 90.0,
-      "damping": 0.74,
-      "mass": 1.2,
+      "x": 0.45,
+      "y": 0.95,
+      "inertia": 0.85,
+      "strength": 115.0,
+      "damping": 0.52,
+      "mass": 0.92,
       "wind": 0.35,
-      "gravity": 0.45,
+      "gravity": 0.4,
       "mix": 1.0
     },
     {
       "type": "physics",
       "name": "boob_l_phys",
       "bone": "boob_l",
-      "x": 0.6,
-      "y": 1.0,
-      "inertia": 0.72,
-      "strength": 85.0,
-      "damping": 0.72,
-      "mass": 1.25,
-      "wind": 0.4,
-      "gravity": 0.5,
+      "x": 0.48,
+      "y": 0.95,
+      "inertia": 0.88,
+      "strength": 110.0,
+      "damping": 0.52,
+      "mass": 0.95,
+      "wind": 0.38,
+      "gravity": 0.42,
       "mix": 1.0
     }
   ],

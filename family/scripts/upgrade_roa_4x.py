@@ -159,26 +159,28 @@ for cid in range(1, n_bh + 1):
     if comp.sum() < 180:
         h_bh[comp, 3] = 0
 
-# Solidify lower curls to alpha=255 strictly within valid_brown_hair (plus 1px dilation away from white collar)
+# Solidify lower curls and the area behind the right hoop earring in `h_bh` with dark brown hair so there is zero hole behind `face`!
+right_hoop_patch = (head_rx >= 388) & (head_rx <= 432) & (head_ry >= 342) & (head_ry <= 416) & (head_src_a > 200)
 lower_curls_1px = binary_dilation((head_ry >= 360) & (h_bh[:, :, 3] >= 140), iterations=1) & (~face_neck_center) & (~is_warm_skin_or_gold) & (head_src_luma < 140)
-h_bh[lower_curls_1px, 3] = 255
+h_bh[lower_curls_1px | right_hoop_patch, 3] = 255
 h_bh[(head_ry >= 340) & (h_bh[:, :, 3] > 0), 3] = 255
 
 # Inject 4x brown hair RGB and decontaminate from pure dark-brown interior core
-vis_bh = (h_bh[:, :, 3] > 0) & valid_brown_hair
+vis_bh = (h_bh[:, :, 3] > 0) & valid_brown_hair & (~right_hoop_patch)
 for c in range(3):
     h_bh[:, :, c] = np.where(vis_bh, head_src_rgb[:, :, c], h_bh[:, :, c])
-bh_core = binary_erosion(is_true_brown_hair & (h_bh[:, :, 3] > 200), iterations=1) & (head_src_luma < 105) & (head_src_rgb[:, :, 2] < 92)
+bh_core = binary_erosion(is_true_brown_hair & (h_bh[:, :, 3] > 200) & (~right_hoop_patch), iterations=1) & (head_src_luma < 105) & (head_src_rgb[:, :, 2] < 92)
 h_bh = prefill_rgb(h_bh, core_mask=bh_core)
 save_layer_canvas("inputs/layers/head", head_meta, "back hair", h_bh)
 
 # Keep only the left-side earring (head_rx < 340) in `earwear` (driven by `earring` chain),
-# and place the right-side gold hoop earring + inner shadow (x=392..432, y=350..415) onto `face` (driven by `head`) so it never tears!
-right_hoop_zone = (head_rx >= 390) & (head_rx <= 432) & (head_ry >= 345) & (head_ry <= 415) & (head_src_a > 200) & (h_bh[:, :, 3] < 128)
+# and place the entire right-side gold hoop earring + inner shadow patch onto `face` (driven by `head`) so no thin gold crescent boundary exists between `hair_back` and `face`!
+h_face = prefill_rgb(h_face)
+right_hoop_zone = (head_rx >= 390) & (head_rx <= 430) & (head_ry >= 345) & (head_ry <= 414) & (head_src_a > 200)
+right_hoop_rgb_zone = binary_dilation(right_hoop_zone, iterations=4)
 h_face[:, :, 3] = np.where(right_hoop_zone, 255, h_face[:, :, 3])
 for c in range(3):
-    h_face[:, :, c] = np.where(right_hoop_zone, head_src_rgb[:, :, c], h_face[:, :, c])
-h_face = prefill_rgb(h_face)
+    h_face[:, :, c] = np.where(right_hoop_rgb_zone, head_src_rgb[:, :, c], h_face[:, :, c])
 save_layer_canvas("inputs/layers/head", head_meta, "face", h_face)
 
 h_earw[head_rx >= 340, 3] = 0
@@ -323,38 +325,47 @@ f_hwr_merged = prefill_rgb(f_hwr_merged)
 save_layer_canvas("inputs/layers/full", full_meta, "handwear-r", f_hwr_merged)
 
 # ---------------------------------------------------------
-# 5. FULL:BOTTOMWEAR & FULL:FOOTWEAR — Exact pants hem curve separation
+# 5. FULL:BOTTOMWEAR & FULL:FOOTWEAR — Preserve See-through's exact separation of pants and both shoes
 # ---------------------------------------------------------
 f_bw = load_layer_canvas("inputs/layers/full_orig", full_meta, "bottomwear")
-pants_hem_y = np.interp(
-    full_rx,
-    [215, 235, 250, 265, 280, 295, 310, 325, 340, 355, 368, 380, 384, 415, 460, 472, 485],
-    [2118, 2124, 2127, 2134, 2138, 2144, 2149, 2155, 2160, 2167, 2195, 2204, 2205, 2209, 2211, 2206, 2162]
-)
-is_foot_or_shoe_below_hem = (full_ry > pants_hem_y) | ((full_ry >= 2115) & (full_rb > 20))
-bw_zone = (full_rx >= 160) & (full_rx <= 565) & (full_ry >= 830) & (full_ry <= 2215) & (~is_foot_or_shoe_below_hem)
-near_bw = (binary_dilation(f_bw[:, :, 3] > 16, iterations=5) | ((full_ry >= 2030) & (full_rx >= 215) & (full_rx <= 485))) & bw_zone & (full_src_a > 96)
-f_bw[:, :, 3] = np.where(near_bw, np.maximum(f_bw[:, :, 3], full_src_a), f_bw[:, :, 3])
-f_bw[is_foot_or_shoe_below_hem, 3] = 0
+f_fw = load_layer_canvas("inputs/layers/full_orig", full_meta, "footwear")
+
+# Keep See-through's exact bottomwear alpha, stripping semi-transparent ghosting or warm shoe-vamp skin at the hem (`y >= 2045`)!
+bw_upper_zone = (full_rx >= 160) & (full_rx <= 565) & (full_ry >= 830) & (full_ry <= 2000)
+near_bw_upper = binary_dilation(f_bw[:, :, 3] > 24, iterations=2) & bw_upper_zone & (full_src_a > 96) & (f_fw[:, :, 3] == 0)
+f_bw[:, :, 3] = np.where(near_bw_upper, np.maximum(f_bw[:, :, 3], full_src_a), f_bw[:, :, 3])
+f_bw[:, :, 3] = np.minimum(f_bw[:, :, 3], full_src_a)
+
+shoe_vamp_or_sole = (full_ry >= 2045) & ((full_rb > 22) | (full_src_luma > 62) | (f_bw[:, :, 3] < 140))
+f_bw[shoe_vamp_or_sole, 3] = 0
+f_bw[(full_ry >= 2000) & (f_bw[:, :, 3] >= 140) & (full_src_a > 200), 3] = 255
+
+bw_fw_overlap = (f_bw[:, :, 3] > 0) & (f_fw[:, :, 3] > 0)
+bw_dark_core = binary_erosion((f_bw[:, :, 3] > 210) & (full_src_luma < 56) & (full_rb < 18), iterations=1)
+_, bw_dark_idx = distance_transform_edt(~bw_dark_core, return_indices=True)
 for c in range(3):
-    f_bw[:, :, c] = np.where(f_bw[:, :, 3] > 0, full_src_rgb[:, :, c], f_bw[:, :, c])
-f_bw = prefill_rgb(f_bw)
+    f_bw[:, :, c] = np.where(
+        (f_bw[:, :, 3] > 0) & (~bw_fw_overlap) & (full_src_luma < 60) & (full_rb < 20),
+        full_src_rgb[:, :, c],
+        full_src_rgb[:, :, c][bw_dark_idx[0], bw_dark_idx[1]]
+    )
+f_bw = prefill_rgb(f_bw, core_mask=bw_dark_core)
 save_layer_canvas("inputs/layers/full", full_meta, "bottomwear", f_bw)
 
-f_fw = load_layer_canvas("inputs/layers/full_orig", full_meta, "footwear")
-fw_visible = (full_rx >= 210) & (full_rx <= 490) & (full_ry >= 2115) & (full_ry <= 2270) & is_foot_or_shoe_below_hem & (full_src_a > 96)
-fw_tuck = binary_dilation(fw_visible, iterations=3) & (full_ry >= pants_hem_y - 8.0) & (full_src_a > 96)
-f_fw[:, :, 3] = 0
-f_fw[fw_visible | fw_tuck, 3] = full_src_a[fw_visible | fw_tuck]
-f_fw[fw_visible & (full_src_a > 200), 3] = 255
+# For footwear (`f_fw`), preserve BOTH shoes and See-through's hidden upper-foot inpainting under the pants hem!
+fw_vis_below_pants = (full_ry >= 2030) & (full_src_a > 32) & (f_bw[:, :, 3] < 128)
+f_fw[:, :, 3] = np.where(fw_vis_below_pants, np.maximum(f_fw[:, :, 3], full_src_a), f_fw[:, :, 3])
+f_fw[f_bw[:, :, 3] == 0, 3] = np.minimum(f_fw[f_bw[:, :, 3] == 0, 3], full_src_a[f_bw[:, :, 3] == 0])
 for c in range(3):
-    f_fw[:, :, c] = np.where(fw_visible, full_src_rgb[:, :, c], f_fw[:, :, c])
-f_fw = prefill_rgb(f_fw, core_mask=fw_visible)
+    f_fw[:, :, c] = np.where(fw_vis_below_pants, full_src_rgb[:, :, c], f_fw[:, :, c])
+# Cap the hidden under-tuck of footwear (where covered by bottomwear) at alpha=248 (< CORE_ALPHA 250)
+f_fw[bw_fw_overlap & (f_fw[:, :, 3] > 248), 3] = 248
+f_fw = prefill_rgb(f_fw)
 save_layer_canvas("inputs/layers/full", full_meta, "footwear", f_fw)
 
-# Build clean occlusion shield on unused `19 full:front hair` strictly inside opaque hair_back AND footwear under-tuck!
+# Build clean occlusion shield on unused `19 full:front hair` strictly inside opaque hair_back AND pants-to-shoe overlap!
 f_fh_shield = np.zeros((1024, 1024, 4), dtype=np.uint8)
-shield_mask_tw = binary_erosion(h_bh_in_full_a >= 220, iterations=1) | (fw_tuck & (~fw_visible))
+shield_mask_tw = binary_erosion(h_bh_in_full_a >= 220, iterations=1) | bw_fw_overlap
 f_fh_shield[shield_mask_tw, 3] = 255
 save_layer_canvas("inputs/layers/full", full_meta, "front hair", f_fh_shield)
 
@@ -530,8 +541,8 @@ cfg = {
         "stray": 400,
         "bridges": True,
         "regions": [
-          {"name": "bust_r", "shape": "circle", "cx": 296, "cy": 650, "r": 18, "bone": "boob_r", "spacing": 14, "band": 34},
-          {"name": "bust_l", "shape": "circle", "cx": 438, "cy": 650, "r": 18, "bone": "boob_l", "spacing": 14, "band": 36}
+          {"name": "bust_r", "shape": "circle", "cx": 296, "cy": 650, "r": 26, "bone": "boob_r", "spacing": 14, "band": 42},
+          {"name": "bust_l", "shape": "circle", "cx": 438, "cy": 650, "r": 28, "bone": "boob_l", "spacing": 14, "band": 44}
         ]
       },
       "r": 15,
@@ -573,10 +584,10 @@ cfg = {
       {"bone": "chest", "prop": "scalex", "amp": 0.004, "period": 3.3333333333333335, "phase": 0, "base": 1.004},
       {"bone": "head", "prop": "rotate", "amp": 0.9, "period": 3.3333333333333335, "phase": 0.12},
       {"bone": "neck", "prop": "rotate", "amp": 0.35, "period": 3.3333333333333335, "phase": 0.08},
-      {"bone": "boob_r", "prop": "translatey", "amp": 2.2, "period": 3.3333333333333335, "phase": 0.12},
-      {"bone": "boob_r", "prop": "translatex", "amp": 0.65, "period": 3.3333333333333335, "phase": 0.12},
-      {"bone": "boob_l", "prop": "translatey", "amp": 2.4, "period": 3.3333333333333335, "phase": 0.18},
-      {"bone": "boob_l", "prop": "translatex", "amp": 0.75, "period": 3.3333333333333335, "phase": 0.18},
+      {"bone": "boob_r", "prop": "translatey", "amp": 3.4, "period": 3.3333333333333335, "phase": 0.14},
+      {"bone": "boob_r", "prop": "translatex", "amp": 1.0, "period": 3.3333333333333335, "phase": 0.14},
+      {"bone": "boob_l", "prop": "translatey", "amp": 3.7, "period": 3.3333333333333335, "phase": 0.20},
+      {"bone": "boob_l", "prop": "translatex", "amp": 1.15, "period": 3.3333333333333335, "phase": 0.20},
       {"chain": "hairback_r", "amps": [0.15, 0.45, 0.85], "period": 3.3333333333333335, "phase": 0.2, "lag": 0.08},
       {"chain": "hairback_l", "amps": [0.15, 0.45, 0.85], "period": 3.3333333333333335, "phase": 0.24, "lag": 0.08},
       {"chain": "bang_r", "amps": [0.6, 1.3], "period": 3.3333333333333335, "phase": 0.18, "lag": 0.1},
@@ -611,8 +622,8 @@ cfg = {
     {"type": "physics", "name": "skirt_l0_phys", "bone": "skirt_l0", "rotate": 1, "inertia": 0.2, "strength": 280.0, "damping": 0.92, "mass": 1, "wind": 0.08, "gravity": 0.1, "mix": 1},
     {"type": "physics", "name": "skirt_l1_phys", "bone": "skirt_l1", "rotate": 1, "inertia": 0.25, "strength": 240.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.15, "mix": 1},
     {"type": "physics", "name": "skirt_l2_phys", "bone": "skirt_l2", "rotate": 1, "inertia": 0.3, "strength": 200.0, "damping": 0.88, "mass": 1, "wind": 0.25, "gravity": 0.2, "mix": 1},
-    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.55, "y": 1.0, "inertia": 0.65, "strength": 90.0, "damping": 0.74, "mass": 1.2, "wind": 0.35, "gravity": 0.45, "mix": 1.0},
-    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.6, "y": 1.0, "inertia": 0.72, "strength": 85.0, "damping": 0.72, "mass": 1.25, "wind": 0.4, "gravity": 0.5, "mix": 1.0}
+    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.75, "y": 1.0, "inertia": 1.12, "strength": 58.0, "damping": 0.46, "mass": 1.45, "wind": 0.55, "gravity": 0.65, "mix": 1.0},
+    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.80, "y": 1.0, "inertia": 1.18, "strength": 54.0, "damping": 0.45, "mass": 1.50, "wind": 0.60, "gravity": 0.70, "mix": 1.0}
   ],
   "stops": [
     {"chain": "skirt_r", "against": "hip", "at": [-20, 0], "inward": -1.0, "outward": 3.5, "lower": {"inward": -1.5, "outward": 4.5}},

@@ -1,8 +1,8 @@
-# Family — 5인 그룹 일러스트 업스케일 & 멀티 캐릭터 Spine 리깅 데모
+# Family — ComfyUI See-through 해상도 한계 극복 & 5인 그룹 Spine 리깅 데모
 
-`family/`는 한 장의 와이드 그룹 일러스트(`1024×571` RGBA)를 `4x-AnimeSharp`로 고해상도(`4096×2284`) 업스케일한 뒤, 5명의 캐릭터(`luna`, `roa`, `jinni`, `nova`, `naru`)를 개별 분리하여 [`@rig-c/parts`](https://github.com/rig-c/parts)(`rig-parts`) + [`@rig-c/core`](https://github.com/rig-c/core)(`rigc`)로 리깅하고 [`@rig-c/play`](https://github.com/rig-c/play)로 실시간 물리·합성 데모를 구동하는 실전 예제입니다.
+`family/`는 한 장의 와이드 그룹 일러스트(`1024×571` RGBA)를 `4x-AnimeSharp`로 고해상도(`4096×2284`) 업스케일한 뒤, **ComfyUI See-through (`jtydhr88/ComfyUI-See-through` / `layerdifforg/seethroughv0.0.2_layerdiff3d`)의 `1024×1024` 고정 해상도 한계를 극복**하여 5명의 캐릭터(`roa`, `luna`, `jinni`, `naru`, `nova`)를 개별 리깅하고 [`@rig-c/play`](https://github.com/rig-c/play)로 실시간 물리·합성 데모를 구동하는 실전 레퍼런스 예제입니다.
 
-첫 번째 완주 캐릭터인 **#3 Jinni (`jinni`, `800×2284`)**를 제작하면서 겪은 **저해상도(1024px) 레이어 분해 결과물과 4x 업스케일 원화 간의 정합 문제, `projectSource` 전경 스탬핑, Lanczos3 경계 링잉, 물리 관통 제어, 3/4 뷰 가슴 지글 리깅**의 전체 해결 과정과 재현 스크립트를 포함하고 있습니다.
+ComfyUI See-through가 제공하는 **우수한 은폐 영역(가려진 뒷머리·목·어깨·다리) 인페인팅**은 100% 원본 그대로 보존하면서, 전신 `2284px` 높이를 `1024×1024`에 우겨넣을 때 발생하는 해상도 저하를 **2-Pass (`full` 전신 + `head` 헤드 크롭) 분해**와 **가시 표면 `4x-AnimeSharp` 디테일 주입(`upgrade_*_4x.py`)**으로 해결한 전체 파이프라인 및 캐릭터별 바스트 탄성 베리에이션 설정을 포함하고 있습니다.
 
 > 파이프라인(`@rig-c/parts` / `@rig-c/core` / `@rig-c/play`) 개선을 위한 상세 기술 제안은 [FEEDBACK.md](./FEEDBACK.md)에 별도로 정리되어 있습니다.
 
@@ -12,7 +12,7 @@
 
 ```text
 family/
-├── README.md                                 # 본 문서 (워크플로, 삽질 과정, 스크립트 및 데모 안내)
+├── README.md                                 # 본 문서 (See-through 해상도 한계 극복 워크플로, 스크립트 및 데모 안내)
 ├── FEEDBACK.md                               # @rig-c/parts · @rig-c/core · @rig-c/play 기술 피드백 문서
 ├── group_1024x571_rgba.png                   # 원본 5인 와이드 투명 배경 일러스트 (1024×571 RGBA)
 ├── group_2048x1142_rgba.png                  # 2x Lanczos 업스케일 중간본 (2048×1142 RGBA)
@@ -28,13 +28,13 @@ family/
 │   ├── index.html                            # @rig-c/play 기반 인터랙티브 Spine WebGL + 5인 동시 물리 데모 뷰어
 │   └── server.mjs                            # 로컬 확인용 정적 파일 서버 (기본 포트: 4568)
 └── roa/ luna/ jinni/ naru/ nova/             # 5인 전원 (각 800×2284, 전원 check PASS 완료)
-    ├── config.json                           # 4x 해상도(800×2284) 최종 rig-parts 설정 (물리·stops·가슴 지글 포함)
+    ├── config.json                           # 4x 해상도(800×2284) 최종 rig-parts 설정 (물리·stops·가슴 탄성 베리에이션 포함)
     ├── inputs/
     │   ├── painting.png                      # 4x 크롭 원화 (800×2284 RGB, 흰색 매트)
     │   ├── painting_rgba.png                 # 4x 크롭 원화 (800×2284 RGBA)
     │   └── layers/
-    │       ├── full_orig/                    # Qwen-Image-Layered 원본 전신 분해 결과 (1024×1024)
-    │       ├── head_orig/                    # Qwen-Image-Layered 원본 헤드 분해 결과 (1024×1024)
+    │       ├── full_orig/                    # ComfyUI See-through 원본 전신 분해 결과 (1024×1024)
+    │       ├── head_orig/                    # ComfyUI See-through 원본 헤드 분해 결과 (1024×1024)
     │       ├── full/                         # upgrade_*_4x.py가 정제·재구축한 전신 레이어 세트
     │       └── head/                         # upgrade_*_4x.py가 정제·재구축한 헤드 레이어 세트
     ├── out/                                  # rig-parts build 최종 산출물 (skeleton.json, skeleton.atlas, skeleton.png, idle.gif)
@@ -43,19 +43,24 @@ family/
 
 ---
 
-## 1. 입력 그림 및 4x 업스케일 파이프라인
+## 1. ComfyUI See-through 해상도 한계 극복 파이프라인
 
 ### 1.1 원본 그룹 이미지와 4x-AnimeSharp 업스케일
 - **원본 (`group_1024x571_rgba.png`)**: 5명의 캐릭터가 나란히 서 있는 `1024×571` RGBA 이미지입니다. 개별 캐릭터의 폭이 약 `200px`에 불과해, 그대로 리깅하면 눈매·머리카락 결·손가락 디테일이 뭉개집니다.
 - **4x 업스케일 (`group_4096x2284_animesharp_rgba.png`)**:
   - ComfyUI의 `4x-AnimeSharp.pth` 모델로 RGB 채널(검정 배경 매트)과 알파 마스크(3채널 그레이스케일 변환)를 각각 `4096×2284`로 업스케일하여 외곽선 수축률이 정확히 일치하도록 결합했습니다 (`alpha < 8` 미세 노이즈 클리핑).
-  - **#3 Jinni 크롭 영역**: 1x 기준 `x = 408..608` (`200×571`) → 4x 기준 `x = 1632..2432` (`800×2284`)를 잘라 [`jinni/inputs/painting.png`](./jinni/inputs/painting.png)로 사용합니다.
+  - 각 캐릭터를 `800×2284`로 크롭하여 `<char>/inputs/painting.png`로 사용합니다.
 
 ![Upscale Comparison](./jinni/docs/upscale_compare.png)
 
-### 1.2 Qwen-Image-Layered (`1024×1024`) 입력 보존
-- 레이어 분해 모델(`Qwen-Image-Layered`)은 고정 해상도(`1024×1024`)에서 동작하므로, 최초 분해 결과는 [`jinni/inputs/layers/full_orig/`](./jinni/inputs/layers/full_orig/) 및 [`jinni/inputs/layers/head_orig/`](./jinni/inputs/layers/head_orig/)에 원본 그대로 보존되어 있습니다.
-- [`scripts/upgrade_jinni_4x.py`](./scripts/upgrade_jinni_4x.py)가 이 `full_orig` / `head_orig`의 의미론적(semantic) 파츠 마스크와 인페인팅(가려진 뒷배경 복원) 정보를 읽어, 4x 원화(`800×2284`)의 칼같은 선화 및 알파 경계에 맞춰 [`jinni/inputs/layers/full/`](./jinni/inputs/layers/full/)과 [`jinni/inputs/layers/head/`](./jinni/inputs/layers/head/)를 재구축합니다.
+### 1.2 ComfyUI See-through (`1024×1024`) 은폐 영역 보존 + 가시 표면 4x 디테일 결합
+- **See-through의 강점과 해상도 한계**:
+  - ComfyUI See-through(`rig-parts comfy seethrough`, `layerdifforg/seethroughv0.0.2_layerdiff3d`)는 19개 시맨틱 레이어(`back hair`, `front hair`, `face`, `neck`, `topwear`, `bottomwear`, `legwear`, `footwear` 등)를 분리하면서 **앞 레이어에 가려진 뒷머리, 목기둥, 어깨/칼라, 다리 안쪽을 자연스럽게 인페인팅(복원)**해 줍니다.
+  - 하지만 모델 추론 해상도가 **`1024×1024`로 고정**되어 있어, `800×2284` 전신을 정사각형 패딩(`2284×2284`) 후 `1024×1024`로 넣어 분해하면 전신 레이어(`full_orig`)의 실효 해상도가 원본 대비 약 `0.45배`(`358×1024`)로 낮아집니다.
+- **해상도 한계 극복 전략 (`scripts/upgrade_*_4x.py`)**:
+  1. **2-Pass 분해 (`full_orig` + `head_orig`)**: 얼굴·눈·눈썹·입·앞머리·뒷머리·목은 `head_box`(`440×440` ~ `530×530`) 영역만 크롭해 `1024×1024`로 분해(`head_orig`)함으로써 오히려 원본 4x보다 약 `2배` 높은 밀도로 정밀 분해합니다.
+  2. **See-through 순정 인페인팅(숨겨진 영역) 100% 보존**: 물리 모션 시 노출되는 **가려진 영역(`back hair`의 얼굴/목 뒤쪽 인페인팅, `head_orig:topwear`의 머리카락 아래 어깨/칼라 인페인팅, `neck`의 옷깃 아래 언더턱)**은 인위적으로 도려내지 않고 See-through가 생성한 부드러운 인페인팅 픽셀을 그대로 보존합니다.
+  3. **가시 표면(Visible Surface) 4x-AnimeSharp 주입**: 가려지지 않고 외부에 직접 노출되는 픽셀에만 `painting_rgba.png`(`800×2284`)의 선명한 4x RGB와 알파 외곽선을 가우시안 경계 블렌딩으로 주입하여, **정지 상태에서는 4x 원화의 칼같은 선명도를 유지하고 물리 모션 시에는 찢어짐이나 구멍 없이 See-through의 인페인팅 영역이 자연스럽게 드러나도록** 구성했습니다.
 
 ---
 
@@ -112,14 +117,14 @@ npx --prefix /path/to/rig-parts rig-parts build --config jinni/config.json --dir
 
 ## 4. 삽질 과정과 해결 스크립트 (`scripts/upgrade_jinni_4x.py`)
 
-저해상도(`1024×1024`) Qwen 레이어와 고해상도(`800×2284`) 4x 원화를 결합해 리깅하면서 발생한 **6가지 핵심 난제와 해결 기법**입니다. 모든 처리는 [`scripts/upgrade_jinni_4x.py`](./scripts/upgrade_jinni_4x.py)에 코드로 문서화되어 있으며 언제든 100% 재현됩니다.
+`1024×1024` See-through 레이어와 고해상도(`800×2284`) 4x 원화를 결합해 리깅하면서 발생한 **6가지 핵심 난제와 해결 기법**입니다. 모든 처리는 [`scripts/upgrade_jinni_4x.py`](./scripts/upgrade_jinni_4x.py)에 코드로 문서화되어 있으며 언제든 100% 재현됩니다.
 
 ### 삽질 1: 치마(`bottomwear`) 파츠에 오른손이 그대로 찍히는 문제
 - **원인**:
   1. 1차 스크립트에서 4x 원화의 픽셀을 `bottomwear` 마스크 전체에 덮어씌우면서 치마 위에 겹쳐진 오른손(`handwear_r`) 픽셀까지 치마 레이어에 혼입됨.
   2. 설령 치마 레이어에서 손을 지우더라도, `rig-parts`의 `assemble.ts`가 실행하는 `projectSource()` 단계에서 `handwear-r`의 반투명 외곽(`alpha < 250`) 픽셀은 `pixelOwners` 코어로 인정받지 못해, 바로 아래에 깔린 불투명한 `bottomwear`(`alpha = 255`)가 원화의 검은 소매·손가락 테두리를 그대로 흡수(stamping)함.
 - **해결**:
-  - [`jinni/inputs/layers/full_orig/parts/bottomwear.png`](./jinni/inputs/layers/full_orig/parts/bottomwear.png)에 Qwen이 인페인팅해 둔 **손 아래의 핑크색 대각선 치마 주름**을 `hwr_arm_zone` 영역에 복원하고 경계를 가우시안 블렌딩(`sigma=3.5`) 처리.
+  - [`jinni/inputs/layers/full_orig/parts/bottomwear.png`](./jinni/inputs/layers/full_orig/parts/bottomwear.png)에 See-through가 인페인팅해 둔 **손 아래의 핑크색 대각선 치마 주름**을 `hwr_arm_zone` 영역에 복원하고 경계를 가우시안 블렌딩(`sigma=3.5`) 처리.
   - `layers.json` 순서상 `10 bottomwear` 위, `17 handwear-r` 아래에 위치한 미사용 레이어 **`12 full:neck` (`rank == -1`)**에 팔/손 모양의 불투명 마스크(`alpha = 255`)를 씌워 **`projectSource` 차폐 실드(shield)**로 활용. 이로써 `17 handwear-r`는 4x 원화 투영을 정상적으로 받으면서 `10 bottomwear`에는 손이 단 1픽셀도 찍히지 않음.
   - 추가로 `handwear_r` 손가락 끝의 반투명 픽셀에서 배경 치마 색상을 역산 제거(color decontamination)하고, `handwear_l`에 남아 있던 몸통 잔여물(`rx < 246`)을 클리닝.
 
@@ -151,15 +156,17 @@ npx --prefix /path/to/rig-parts rig-parts build --config jinni/config.json --dir
   - `config.json`에 `stops` (`skirt_r/c/l` vs `hip`, `hairback_r/l` vs `chest`)를 추가하고 스프링 `strength`/`damping`을 높여 역방향 관통을 원천 차단.
   - [`viewer/index.html`](./viewer/index.html)에서 드래그 시 전달되는 `player.moved(dx, dy)` 임펄스를 프레임당 `[-14, 14]px`로 클램핑.
 
-### 삽질 5: 3/4 뷰 양쪽 가슴 지글(`boob_r`, `boob_l`)과 `RIG_CONTOUR_REGIONS_OVERLAP`
+### 삽질 5: 3/4 뷰 양쪽 가슴 지글(`boob_r`, `boob_l`)과 캐릭터별 바스트 탄성 베리에이션
 - **원인**:
-  - 캐릭터가 3/4 각도로 서 있어 왼쪽 가슴(화면 우측, `x=500..558`)이 실루엣 밖으로 돌출되어 있음.
-  - `meshes.topwear`에 두 개의 `contour.regions` 원(`bust_r`, `bust_l`)을 넣을 때 `(r1 + band1) + (r2 + band2)`가 두 원 중심 간 거리보다 크면 `rig-parts`가 `RIG_CONTOUR_REGIONS_OVERLAP` 에러를 발생시킴. 반대로 원을 작게 줄이면 화면 우측 돌출부(`x=540..558`)가 `band` 감쇠 구간에 걸려 가슴 끝단만 고정된 채 안쪽만 흔들리는 어색한 변형이 생김.
+  - 과감쇠(`damping: 0.80..0.82`)와 좁은 코어 반경(`r=15..18`)을 쓰면 가슴이 통통 튀는 탄력(underdamped spring bounce) 없이 뻣뻣하게 밀리기만 함.
 - **해결**:
-  - 중심점과 반경을 비대칭으로 정밀 설계:
-    - `bust_r` (화면 좌측 가슴): `center=[384, 724], radius=38, band=20` → 우측 끝 `384 + 58 = 442`
-    - `bust_l` (화면 우측 돌출 가슴): `center=[514, 720], radius=46, band=24` → 좌측 끝 `514 - 70 = 444`, 우측 `weight=1.0` 구간 `514 + 46 = 560` (돌출 실루엣 `x=558` 완벽 포함)
-  - 두 영역 사이에 정확히 `2px`의 안전 간격(`442` vs `444`)을 확보하여 오버랩 에러 없이 양쪽 가슴 전체가 부드럽게 2D 지글하도록 완성.
+  - `contour.regions`의 코어 반경(`r = 22..28`)과 탄성 감쇠 밴드(`band = 36..44`)를 대폭 넓히고, 감쇠비를 부족감쇠 구간(`damping = 0.45..0.52`), 관성(`inertia = 0.85..1.18`)으로 튜닝하여 탱글탱글한 잔진동(overshoot & settle)을 구현.
+  - 캐릭터별 예상 바스트 볼륨에 따라 **무거운/가벼운 탄성 5단계 베리에이션**을 차등 적용:
+    - **#1 Roa (Heavy & Voluminous)**: `r=26/28, band=42/44`, `inertia=1.12/1.18, strength=58/54, damping=0.46/0.45, mass=1.45/1.50` — 묵직하고 깊이 출렁이는 저주파 탄성
+    - **#5 Nova (Medium-Heavy & Snappy)**: `r=26/26, band=42/42`, `inertia=1.02/1.06, strength=74/70, damping=0.48/0.48, mass=1.25/1.30` — 볼륨감 있으면서 탄탄하게 튕기는 탄성
+    - **#3 Jinni (Medium & Bouncy)**: `r=25/26, band=40/42`, `inertia=0.96/1.00, strength=86/82, damping=0.49/0.49, mass=1.15/1.20` — 균형 잡힌 탱글탱글한 표준 스프링 탄성
+    - **#4 Naru (Light-Medium & Perky)**: `r=24/24, band=38/38`, `inertia=0.92/0.95, strength=102/98, damping=0.50/0.50, mass=0.98/1.02` — 가볍고 통통 튀는 고주파 탄성
+    - **#2 Luna (Light & Firm)**: `r=22/22, band=36/36`, `inertia=0.85/0.88, strength=115/110, damping=0.52/0.52, mass=0.92/0.95` — 단단한 정장 핏에 맞춘 절제되고 기민한 탄성
 
 ![Bust Contour Grid](./jinni/docs/diag_bust_grid.png)
 
@@ -169,11 +176,11 @@ npx --prefix /path/to/rig-parts rig-parts build --config jinni/config.json --dir
 
 | 순번 | 캐릭터 | 4x 크롭 구간 (`x`) | `head_box` | 정제 스크립트 | `check` 결과 | 주요 리깅 및 피드백 반영 특징 |
 | :---: | :--- | :---: | :---: | :--- | :---: | :--- |
-| **#1** | **Roa (`roa`)** | `96..896` | `[120, 110, 560, 550]` | [`scripts/upgrade_roa_4x.py`](./scripts/upgrade_roa_4x.py) | **PASS (`10/10`)** | 웨이브 보브(`hair_back`) 내 얼굴/귀걸이/셔츠 칼라 분리, 골반~무릎(`hip`) 고정 + 무릎 아래 와이드 팬츠 하단 물리, 커피잔+오른손 단일 메시 |
-| **#2** | **Luna (`luna`)** | `896..1696` | `[150, 270, 590, 710]` | [`scripts/upgrade_luna_4x.py`](./scripts/upgrade_luna_4x.py) | **PASS (`10/10`)** | 타이트 펜슬 스커트 물리 제거(`not_swinging: ["bottomwear"]`) + 재킷 하단 밑자락(`hem_r`, `hem_l`) 물리, 어두운 의상 외곽 흰 점(Halo) 제거 |
-| **#3** | **Jinni (`jinni`)** | `1688..2488` | `[216, 152, 656, 592]` | [`scripts/upgrade_jinni_4x.py`](./scripts/upgrade_jinni_4x.py) | **PASS (`11/11`)** | 오프숄더 니트 언더턱, 레드 플리츠 스커트 오른손 스탬핑 차폐(`12 full:neck` 실드), 봉긋한 코어(`r=16..18`)+넓은 탄성 경사(`band=34..36`) 가슴 지글 |
-| **#4** | **Naru (`naru`)** | `2496..3296` | `[160, 300, 600, 740]` | [`scripts/upgrade_naru_4x.py`](./scripts/upgrade_naru_4x.py) | **PASS (`10/10`)** | 좌상단 어깨 흰색 잡티 제거 및 갈색 머리끝 복원, 골반~무릎(`hip`) 고정 + 무릎 아래 스커트 밑단 물리, 스커트 외곽 흰 점(Halo) 제거 |
-| **#5** | **Nova (`nova`)** | `3296..4096` | `[200, 230, 730, 760]` | [`scripts/upgrade_nova_4x.py`](./scripts/upgrade_nova_4x.py) | **PASS (`9/9`)** | 오렌지-레드 `hair_back` 내 몸통(블레이저/셔츠) 픽셀 완전 분리 및 인페인팅, 바지 물리 제거(`not_swinging`) + 블레이저 밑자락(`hem_r`, `hem_l`) 물리, 바지/소매 외곽 흰 점 제거 |
+| **#1** | **Roa (`roa`)** | `96..896` | `[120, 110, 560, 550]` | [`scripts/upgrade_roa_4x.py`](./scripts/upgrade_roa_4x.py) | **PASS (`10/10`)** | See-through 원본 바지/신발 분리 보존(오른쪽 신발 고정), 무릎 아래 와이드 팬츠 하단 물리, Heavy & Voluminous 바스트 탄성 |
+| **#2** | **Luna (`luna`)** | `896..1696` | `[150, 270, 590, 710]` | [`scripts/upgrade_luna_4x.py`](./scripts/upgrade_luna_4x.py) | **PASS (`10/10`)** | See-through 원본 뒷머리/어깨 은폐 영역 보존, 타이트 스커트 고정 + 재킷 밑자락(`hem_r/l`) 물리, Light & Firm 바스트 탄성 |
+| **#3** | **Jinni (`jinni`)** | `1688..2488` | `[216, 152, 656, 592]` | [`scripts/upgrade_jinni_4x.py`](./scripts/upgrade_jinni_4x.py) | **PASS (`11/11`)** | 오프숄더 니트 언더턱, 레드 플리츠 스커트 오른손 스탬핑 차폐(`12 full:neck` 실드), Medium & Bouncy 바스트 탄성 |
+| **#4** | **Naru (`naru`)** | `2496..3296` | `[160, 300, 600, 740]` | [`scripts/upgrade_naru_4x.py`](./scripts/upgrade_naru_4x.py) | **PASS (`10/10`)** | See-through 원본 뒷머리/어깨 은폐 영역 보존, 치마단 아래 다리 좌측 불필요 돌출 이미지 제거, Light-Medium & Perky 바스트 탄성 |
+| **#5** | **Nova (`nova`)** | `3296..4096` | `[200, 230, 730, 760]` | [`scripts/upgrade_nova_4x.py`](./scripts/upgrade_nova_4x.py) | **PASS (`9/9`)** | See-through 원본 뒷머리 및 `head_orig:topwear` 어깨 인페인팅 보존(머리-몸 이음부 구멍 완전 제거), Medium-Heavy & Snappy 바스트 탄성 |
 
 ![Family 5 Characters Recomposite](./docs_family_5chars_recomposite.png)
 

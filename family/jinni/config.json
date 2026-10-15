@@ -556,20 +556,20 @@
             "shape": "circle",
             "cx": 384,
             "cy": 724,
-            "r": 16,
+            "r": 24,
             "bone": "boob_r",
             "spacing": 14,
-            "band": 32
+            "band": 38
           },
           {
             "name": "bust_l",
             "shape": "circle",
             "cx": 514,
             "cy": 720,
-            "r": 18,
+            "r": 25,
             "bone": "boob_l",
             "spacing": 14,
-            "band": 36
+            "band": 39
           }
         ]
       },
@@ -781,28 +781,28 @@
       {
         "bone": "boob_r",
         "prop": "translatey",
-        "amp": 2.1,
+        "amp": 2.8,
         "period": 3.3333333333333335,
         "phase": 0.12
       },
       {
         "bone": "boob_r",
         "prop": "translatex",
-        "amp": 0.6,
+        "amp": 0.9,
         "period": 3.3333333333333335,
         "phase": 0.12
       },
       {
         "bone": "boob_l",
         "prop": "translatey",
-        "amp": 2.4,
+        "amp": 3.0,
         "period": 3.3333333333333335,
         "phase": 0.18
       },
       {
         "bone": "boob_l",
         "prop": "translatex",
-        "amp": 0.75,
+        "amp": 1.0,
         "period": 3.3333333333333335,
         "phase": 0.18
       }
@@ -1113,28 +1113,28 @@
       "type": "physics",
       "name": "boob_r_phys",
       "bone": "boob_r",
-      "x": 0.45,
+      "x": 0.55,
       "y": 1.0,
-      "inertia": 0.55,
-      "strength": 120.0,
-      "damping": 0.82,
-      "mass": 1.1,
-      "wind": 0.25,
-      "gravity": 0.35,
+      "inertia": 0.96,
+      "strength": 86.0,
+      "damping": 0.49,
+      "mass": 1.15,
+      "wind": 0.3,
+      "gravity": 0.4,
       "mix": 1.0
     },
     {
       "type": "physics",
       "name": "boob_l_phys",
       "bone": "boob_l",
-      "x": 0.5,
+      "x": 0.6,
       "y": 1.0,
-      "inertia": 0.58,
-      "strength": 115.0,
-      "damping": 0.8,
-      "mass": 1.15,
-      "wind": 0.28,
-      "gravity": 0.38,
+      "inertia": 1.0,
+      "strength": 82.0,
+      "damping": 0.49,
+      "mass": 1.2,
+      "wind": 0.32,
+      "gravity": 0.42,
       "mix": 1.0
     }
   ],
