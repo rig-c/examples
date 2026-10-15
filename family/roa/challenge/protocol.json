@@ -1,0 +1,171 @@
+{
+  "spec": "roa-tension-challenge/1",
+  "sourceIdentity": "family/roa / key roa",
+  "depth": "No measured depth map. Explicit analytic cosine mound inside existing authored reach; not source depth.",
+  "sourceHashes": {
+    "config.json": "9a97c7ed057c1b25545eb3b0508bc607ccbc9e8621a2f21335668cbc94e6bcc7",
+    "out/rig/rig.json": "5e98211337752a2651d10e3e3749173cde4ef0e2def53bc7a22f4cf1ecaba6fb",
+    "out/rig/motion.json": "0389d8edf15a17221e8a3a62131600efd397c0b9fc7663da277e8e02700f1beb",
+    "out/rig/images/topwear.png": "cf7e86ae6a1d1f219c827948f102b684f15f868364a7f13b5a96f5fd0eaadbdc",
+    "inputs/painting.png": "7f54f8deb4e1b6c032417c04e6f16b86241dd43e3b4f1710b93ba1e7f24b1d83",
+    "inputs/painting_rgba.png": "140bfd37f508e0fdccd7f1df1453185377857b4c1d80b6ebc2bfb499f31b0e9b"
+  },
+  "geometry": {
+    "vertices": 376,
+    "triangles": 646,
+    "hull": 104
+  },
+  "helpers": [
+    {
+      "side": "r",
+      "bone": "boob_r",
+      "helper": "roa_tension_r",
+      "length": 68,
+      "reach": 68,
+      "anchorOffsetY": 68
+    },
+    {
+      "side": "l",
+      "bone": "boob_l",
+      "helper": "roa_tension_l",
+      "length": 72,
+      "reach": 72,
+      "anchorOffsetY": 72
+    }
+  ],
+  "driver": {
+    "rotation": 90,
+    "scaleX": 1,
+    "scaleY": "volume",
+    "massHeavyMultiplier": 2,
+    "otherPhysics": "preserve non-bust constraints; replace only two old bust constraints with finite scale-only drivers using existing inertia/strength/damping/mass/wind/gravity",
+    "anchor": "upper support in authored parent-bone coordinates; y offset is reach, transformed by existing parent matrix, not a physical depth",
+    "heavy": {
+      "massMultiplier": 2,
+      "strengthMultiplier": 0.55,
+      "inertia": 0.65,
+      "damping": 0.93
+    },
+    "finiteLength": "same authored reach value, not a measured tissue or depth dimension"
+  },
+  "cases": [
+    "rest",
+    "impulse",
+    "breath"
+  ],
+  "variants": [
+    "before",
+    "driver",
+    "after-light",
+    "after-heavy",
+    "mode-none",
+    "noop-rebind"
+  ],
+  "timing": {
+    "seconds": 8,
+    "fps": 60,
+    "impulse": [
+      [
+        0,
+        0
+      ],
+      [
+        0.5,
+        0
+      ],
+      [
+        0.5166666666666667,
+        -18
+      ],
+      [
+        0.6,
+        -18
+      ],
+      [
+        0.6166666666666667,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "impulseBone": "root",
+    "property": "translatey",
+    "environment": {
+      "wind": [
+        0,
+        0
+      ],
+      "gravity": [
+        0,
+        0
+      ]
+    },
+    "randomness": "none"
+  },
+  "render": {
+    "viewport": [
+      -400,
+      0,
+      800,
+      2284
+    ],
+    "max": 800,
+    "posers": [
+      "spine",
+      "core"
+    ],
+    "frames": "same fixed viewport; offline, no browser; original PNG bytes untouched",
+    "closeViewport": [
+      -240,
+      1430,
+      480,
+      450
+    ]
+  },
+  "bars": {
+    "normalGate": "ordinary cli.ts build --profile spine, failure stops; no emitted JSON edits",
+    "nativeOwnMaxDelta": 0,
+    "supportDeltaWorldUnits": 1e-09,
+    "setupDeltaWorldUnits": 1e-09,
+    "zeroFolds": true,
+    "topologyUvAndTextureIdentity": true,
+    "responsePresentAboveWorldUnits": 1e-06,
+    "settled": "displacement from the initial neutral chest-relative pose <= max(0.05 * peak, 0.05 world units), remains below threshold through end; operational trace definition, not visual quality bar",
+    "visual": "root evaluates actual same-source side-by-side/contact sheet; no arbitrary volume-preservation claim",
+    "lightHeavy": "report measured peaks/times/zero-crossings/settling; no preset success inferred from labels"
+  },
+  "controls": [
+    "mode-none must differ from volume under nonzero scale response",
+    "outside-region support must not move relative to corresponding before condition",
+    "runtime comparison uses actual mesh vertices, not bone names",
+    "noop-rebind preserves original bones and weights; inverse-bind same native rest positions to measure representational floor independently"
+  ],
+  "scope": "Only Roa. Generated results are untracked experiment outputs; never commit them or alter original config/inputs/out. No other character build.",
+  "landmarks": {
+    "placketSourceImagePoints": [
+      [
+        365,
+        500
+      ],
+      [
+        365,
+        575
+      ],
+      [
+        365,
+        650
+      ],
+      [
+        365,
+        725
+      ],
+      [
+        365,
+        800
+      ]
+    ],
+    "meaning": "authored nearest-mesh sample locations for central shirt placket; not pixel-measured seam annotations"
+  }
+}
