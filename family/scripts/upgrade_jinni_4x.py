@@ -122,8 +122,8 @@ cfg["constraints"] = [
     {"type": "physics", "name": "skirt_l1_phys", "bone": "skirt_l1", "rotate": 1, "inertia": 0.45, "strength": 190.0, "damping": 0.88, "mass": 1, "wind": 0.4, "gravity": 0.3, "mix": 1},
     {"type": "physics", "name": "skirt_l2_phys", "bone": "skirt_l2", "rotate": 1, "inertia": 0.55, "strength": 145.0, "damping": 0.86, "mass": 1, "wind": 0.65, "gravity": 0.45, "mix": 1},
     {"type": "physics", "name": "earring_phys", "bone": "earring", "x": 0.4, "y": 0.8, "inertia": 0.3, "strength": 200.0, "damping": 0.9, "mass": 1, "wind": 0.25, "gravity": 0.2, "mix": 1},
-    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.32, "y": 1.0, "inertia": 0.41, "strength": 325.0, "damping": 0.88, "mass": 1.24, "wind": 0.21, "gravity": 0.12, "mix": 1.0},
-    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.34, "y": 1.0, "inertia": 0.43, "strength": 318.0, "damping": 0.88, "mass": 1.27, "wind": 0.23, "gravity": 0.12, "mix": 1.0}
+    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.32, "y": 1.0, "inertia": 0.5535, "strength": 325.0, "damping": 0.88, "mass": 1.24, "wind": 0.21, "gravity": 0.12, "mix": 1.0},
+    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.34, "y": 1.0, "inertia": 0.5805, "strength": 318.0, "damping": 0.88, "mass": 1.27, "wind": 0.23, "gravity": 0.12, "mix": 1.0}
 ]
 
 cfg["stops"] = [

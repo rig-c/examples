@@ -178,8 +178,17 @@
   "first_violation": null
  },
  "TIP_OVER_ROOT": {
-  "status": "SKIP",
-  "reason": "none of \"bottomwear\" could be measured: bottomwear: declared not swinging by the scene file's not_swinging, so it is not held to the bar"
+  "status": "FAIL",
+  "instrument": "geometry",
+  "parts": [
+   {
+    "part": "bottomwear",
+    "root_rig_px": 0,
+    "tip_rig_px": 0,
+    "ratio": null
+   }
+  ],
+  "ratio_floor": 1.4725
  },
  "STILL_REGIONS_DARK": {
   "status": "PASS",
@@ -322,24 +331,24 @@
    ]
   }
  },
- "requirements": {
-  "fps": 12,
-  "summary": {
-   "declared": 0,
-   "measured": 0,
-   "pass": 0,
-   "fail": 0,
-   "not_measurable": 0,
-   "not_declared": [
-    "contact",
-    "follow",
-    "aim",
-    "range",
-    "stretch",
-    "seam"
-   ]
-  },
-  "lines": {}
+ "SETUP_POSE_VS_SOURCE": {
+  "status": "REPORTED",
+  "painting_px": "800x2284",
+  "stage_px": "800x2284",
+  "render_px": "748x2284",
+  "render_scale": 1.0681,
+  "mean_abs": 2.804,
+  "within_limit": 8,
+  "within_share": 0.9712,
+  "error_limit": 40,
+  "error_px": 31796,
+  "covered_alpha": 128,
+  "uncovered_error_px": 20603,
+  "hole_count": 536,
+  "largest": {
+   "px": 9570,
+   "box": "335,1478 42x431"
+  }
  },
- "PASS": true
+ "PASS": false
 }

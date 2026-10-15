@@ -641,8 +641,8 @@ config = {
     {"type": "physics", "name": "hem_r1_phys", "bone": "hem_r1", "rotate": 1, "inertia": 0.35, "strength": 200.0, "damping": 0.88, "mass": 1, "wind": 0.28, "gravity": 0.2, "mix": 1},
     {"type": "physics", "name": "hem_l0_phys", "bone": "hem_l0", "rotate": 1, "inertia": 0.25, "strength": 250.0, "damping": 0.9, "mass": 1, "wind": 0.15, "gravity": 0.12, "mix": 1},
     {"type": "physics", "name": "hem_l1_phys", "bone": "hem_l1", "rotate": 1, "inertia": 0.35, "strength": 200.0, "damping": 0.88, "mass": 1, "wind": 0.28, "gravity": 0.2, "mix": 1},
-    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.27, "y": 1.0, "inertia": 0.33, "strength": 425.0, "damping": 0.86, "mass": 0.98, "wind": 0.17, "gravity": 0.10, "mix": 1.0},
-    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.28, "y": 1.0, "inertia": 0.35, "strength": 415.0, "damping": 0.86, "mass": 1.02, "wind": 0.19, "gravity": 0.10, "mix": 1.0}
+    {"type": "physics", "name": "boob_r_phys", "bone": "boob_r", "x": 0.27, "y": 1.0, "inertia": 0.4455, "strength": 425.0, "damping": 0.86, "mass": 0.98, "wind": 0.17, "gravity": 0.10, "mix": 1.0},
+    {"type": "physics", "name": "boob_l_phys", "bone": "boob_l", "x": 0.28, "y": 1.0, "inertia": 0.4725, "strength": 415.0, "damping": 0.86, "mass": 1.02, "wind": 0.19, "gravity": 0.10, "mix": 1.0}
   ],
   "stops": [
     {"chain": "hem_r", "against": "hip", "at": [-40, 0], "inward": -1.0, "outward": 3.5, "lower": {"inward": -1.5, "outward": 4.5}},

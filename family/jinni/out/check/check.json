@@ -355,7 +355,7 @@
     "triangles": 423,
     "max_ratio": 1.084,
     "max_at": "triangle 315 (vertices 144 198 145), edge 198-145, idle frame 11",
-    "min_ratio": 0.962,
+    "min_ratio": 0.961,
     "min_at": "triangle 304 (vertices 140 165 164), edge 140-165, idle frame 12",
     "severity": 1.084
    },
@@ -515,6 +515,25 @@
     "handwear_l 261 px",
     "hair_front 108 px"
    ]
+  }
+ },
+ "SETUP_POSE_VS_SOURCE": {
+  "status": "REPORTED",
+  "painting_px": "800x2284",
+  "stage_px": "800x2284",
+  "render_px": "774x2284",
+  "render_scale": 1.0542,
+  "mean_abs": 1.318,
+  "within_limit": 8,
+  "within_share": 0.9688,
+  "error_limit": 40,
+  "error_px": 21093,
+  "covered_alpha": 128,
+  "uncovered_error_px": 8622,
+  "hole_count": 219,
+  "largest": {
+   "px": 1107,
+   "box": "512,326 157x647"
   }
  },
  "PASS": true
