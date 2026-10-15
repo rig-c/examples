@@ -158,15 +158,15 @@ npx --prefix /path/to/rig-parts rig-parts build --config jinni/config.json --dir
 
 ### 삽질 5: 3/4 뷰 양쪽 가슴 지글(`boob_r`, `boob_l`)과 캐릭터별 바스트 탄성 베리에이션
 - **원인**:
-  - 과감쇠(`damping: 0.80..0.82`)와 좁은 코어 반경(`r=15..18`)을 쓰면 가슴이 통통 튀는 탄력(underdamped spring bounce) 없이 뻣뻣하게 밀리기만 함.
+  - `boob_r`/`boob_l`에 수동 `sineTrack`과 `PhysicsConstraint`를 중복 부여하거나, 낮은 `strength`에 과도한 `damping`(`>0.92`)/`gravity`를 결합하면 호흡 중 상시 흔들림 및 물풍선처럼 늘어지는 부작용 발생.
 - **해결**:
-  - `contour.regions`의 코어 반경(`r = 22..28`)과 탄성 감쇠 밴드(`band = 36..44`)를 대폭 넓히고, 감쇠비를 부족감쇠 구간(`damping = 0.45..0.52`), 관성(`inertia = 0.85..1.18`)으로 튜닝하여 탱글탱글한 잔진동(overshoot & settle)을 구현.
+  - `motion.tracks`에서 `boob_r`/`boob_l` 수동 트랙을 제거하여 순수 `PhysicsConstraint`로만 구동하고, 고강성(`strength = 278..480`) + 적정 속도 유지율(`damping = 0.85..0.89`) + 절제된 `inertia`(`0.30..0.47`) & `gravity`(`0.08..0.14`)로 튜닝하여 **느린 호흡 중에는 진폭 `< 0.23px`로 안정되고, 충격/드래그 시에는 2~2.5회 바운스(`0.45초` 이내) 후 제자리를 찾는 탱글탱글한 탄성**을 구현.
   - 캐릭터별 예상 바스트 볼륨에 따라 **무거운/가벼운 탄성 5단계 베리에이션**을 차등 적용:
-    - **#1 Roa (Heavy & Voluminous)**: `r=26/28, band=42/44`, `inertia=1.12/1.18, strength=58/54, damping=0.46/0.45, mass=1.45/1.50` — 묵직하고 깊이 출렁이는 저주파 탄성
-    - **#5 Nova (Medium-Heavy & Snappy)**: `r=26/26, band=42/42`, `inertia=1.02/1.06, strength=74/70, damping=0.48/0.48, mass=1.25/1.30` — 볼륨감 있으면서 탄탄하게 튕기는 탄성
-    - **#3 Jinni (Medium & Bouncy)**: `r=25/26, band=40/42`, `inertia=0.96/1.00, strength=86/82, damping=0.49/0.49, mass=1.15/1.20` — 균형 잡힌 탱글탱글한 표준 스프링 탄성
-    - **#4 Naru (Light-Medium & Perky)**: `r=24/24, band=38/38`, `inertia=0.92/0.95, strength=102/98, damping=0.50/0.50, mass=0.98/1.02` — 가볍고 통통 튀는 고주파 탄성
-    - **#2 Luna (Light & Firm)**: `r=22/22, band=36/36`, `inertia=0.85/0.88, strength=115/110, damping=0.52/0.52, mass=0.92/0.95` — 단단한 정장 핏에 맞춘 절제되고 기민한 탄성
+    - **#1 Roa (Tier 5 · Max-Glamour)**: `r=26/28, band=42/44`, `strength=295/278, damping=0.89, inertia=0.44/0.47, mass=1.32/1.38, gravity=0.14` (1.5~2.0회 바운스)
+    - **#3 Jinni (Tier 4 · Heavy-Glamour)**: `r=25/26, band=40/42`, `strength=330/315, damping=0.88, inertia=0.40/0.42, mass=1.22/1.26, gravity=0.12` (2.0회 바운스)
+    - **#4 Naru (Tier 3 · Medium-Full)**: `r=24/24, band=38/38`, `strength=380/365, damping=0.87, inertia=0.36/0.38, mass=1.08/1.12, gravity=0.11` (2.0회 바운스)
+    - **#5 Nova (Tier 2 · Medium-Firm)**: `r=23/23, band=37/37`, `strength=430/415, damping=0.86, inertia=0.32/0.34, mass=0.96/1.00, gravity=0.10` (2.5회 바운스)
+    - **#2 Luna (Tier 1 · Light-Perky)**: `r=22/22, band=36/36`, `strength=480/465, damping=0.85, inertia=0.29/0.31, mass=0.84/0.86, gravity=0.08` (2.5회 바운스)
 
 ![Bust Contour Grid](./jinni/docs/diag_bust_grid.png)
 
@@ -174,21 +174,21 @@ npx --prefix /path/to/rig-parts rig-parts build --config jinni/config.json --dir
 
 ## 5. 에이전트 패밀리 5인 전원(`roa`, `luna`, `jinni`, `naru`, `nova`) 리깅 요약
 
-| 순번 | 캐릭터 | 4x 크롭 구간 (`x`) | `head_box` | 정제 스크립트 | `check` 결과 | 주요 리깅 및 피드백 반영 특징 |
+| 순번 | 캐릭터 | 4x 크롭 구간 (`x`) | 그룹 합체 `offsetX` / `z` | 정제 스크립트 | `check` 결과 | 주요 리깅 및 피드백 반영 특징 |
 | :---: | :--- | :---: | :---: | :--- | :---: | :--- |
-| **#1** | **Roa (`roa`)** | `96..896` | `[120, 110, 560, 550]` | [`scripts/upgrade_roa_4x.py`](./scripts/upgrade_roa_4x.py) | **PASS (`10/10`)** | See-through 원본 바지/신발 분리 보존(오른쪽 신발 고정), 무릎 아래 와이드 팬츠 하단 물리, Heavy & Voluminous 바스트 탄성 |
-| **#2** | **Luna (`luna`)** | `896..1696` | `[150, 270, 590, 710]` | [`scripts/upgrade_luna_4x.py`](./scripts/upgrade_luna_4x.py) | **PASS (`10/10`)** | See-through 원본 뒷머리/어깨 은폐 영역 보존, 타이트 스커트 고정 + 재킷 밑자락(`hem_r/l`) 물리, Light & Firm 바스트 탄성 |
-| **#3** | **Jinni (`jinni`)** | `1688..2488` | `[216, 152, 656, 592]` | [`scripts/upgrade_jinni_4x.py`](./scripts/upgrade_jinni_4x.py) | **PASS (`11/11`)** | 오프숄더 니트 언더턱, 레드 플리츠 스커트 오른손 스탬핑 차폐(`12 full:neck` 실드), Medium & Bouncy 바스트 탄성 |
-| **#4** | **Naru (`naru`)** | `2496..3296` | `[160, 300, 600, 740]` | [`scripts/upgrade_naru_4x.py`](./scripts/upgrade_naru_4x.py) | **PASS (`10/10`)** | See-through 원본 뒷머리/어깨 은폐 영역 보존, 치마단 아래 다리 좌측 불필요 돌출 이미지 제거, Light-Medium & Perky 바스트 탄성 |
-| **#5** | **Nova (`nova`)** | `3296..4096` | `[200, 230, 730, 760]` | [`scripts/upgrade_nova_4x.py`](./scripts/upgrade_nova_4x.py) | **PASS (`9/9`)** | See-through 원본 뒷머리 및 `head_orig:topwear` 어깨 인페인팅 보존(머리-몸 이음부 구멍 완전 제거), Medium-Heavy & Snappy 바스트 탄성 |
+| **#1** | **Roa (`roa`)** | `96..896` | `0` (`z=3`) | [`scripts/upgrade_roa_4x.py`](./scripts/upgrade_roa_4x.py) | **PASS (`10/10`)** | 왼팔을 루나(`luna`)의 오른쪽 어깨 위에 자연스럽게 걸치는 어깨동무 레이어링(`z=3 > z=2`), See-through 바지/신발 분리 보존, Tier 5 바스트 탄성 |
+| **#2** | **Luna (`luna`)** | `896..1696` | `435` (`z=2`) | [`scripts/upgrade_luna_4x.py`](./scripts/upgrade_luna_4x.py) | **PASS (`10/10`)** | 로아의 왼팔 아래로 어깨가 맞물리는 배치(`offsetX=435, z=2`), 뒷머리/어깨 은폐 영역 보존, 재킷 밑자락(`hem_r/l`) 물리, Tier 1 바스트 탄성 |
+| **#3** | **Jinni (`jinni`)** | `1688..2488` | `995` (`z=4`) | [`scripts/upgrade_jinni_4x.py`](./scripts/upgrade_jinni_4x.py) | **PASS (`11/11`)** | 센터 최전방(`z=4`) 배치, 오프숄더 니트 언더턱, 레드 플리츠 스커트 오른손 스탬핑 차폐(`12 full:neck` 실드), Tier 4 바스트 탄성 |
+| **#4** | **Naru (`naru`)** | `2496..3296` | `1540` (`z=3`) | [`scripts/upgrade_naru_4x.py`](./scripts/upgrade_naru_4x.py) | **PASS (`10/10`)** | 지니 우측 밀착 배치(`offsetX=1540, z=3`), 손가락 4x 리페인팅 정제, 치마단 아래 다리 좌측 돌출 이미지 제거, Tier 3 바스트 탄성 |
+| **#5** | **Nova (`nova`)** | `3296..4096` | `1915` (`z=2`) | [`scripts/upgrade_nova_4x.py`](./scripts/upgrade_nova_4x.py) | **PASS (`9/9`)** | 나루 우측 뒤편 밀착 배치(`offsetX=1915, z=2`), `head_orig:topwear` 어깨 인페인팅 결합 및 몸-머리 단차 제거, Tier 2 바스트 탄성 |
 
 ![Family 5 Characters Recomposite](./docs_family_5chars_recomposite.png)
 
 ---
 
-## 6. 라이브 뷰어 및 5인 동시 합성 데모 (`viewer/`)
+## 6. 라이브 뷰어 및 5인 밀착 합체 데모 (`viewer/`)
 
-로컬 웹 서버를 띄워 브라우저에서 실시간 Spine WebGL 렌더링, 바람(`wind`), 마우스 드래그 물리 관성, **5인 전원 동시 합성**을 바로 테스트할 수 있습니다.
+로컬 웹 서버를 띄워 브라우저에서 실시간 Spine WebGL 렌더링, 바람(`wind`), 마우스 드래그 물리 관성, **5인 전원 밀착 합체**를 바로 테스트할 수 있습니다.
 
 ```bash
 node viewer/server.mjs
@@ -197,10 +197,11 @@ node viewer/server.mjs
 
 브라우저에서 `http://localhost:4568`을 열면 다음 기능을 사용할 수 있습니다:
 - **캐릭터 및 합성 전환 (`#charSelect`)**:
-  - **`합성 · 에이전트 패밀리 전원 (5인 동시)`**: 5명 전원(`roa`, `luna`, `jinni`, `naru`, `nova`)의 Spine WebGL 플레이어를 원본 그룹 일러스트의 정확한 4x 오프셋(`0, 800, 1592, 2400, 3200`)으로 단일 스테이지에 배치하고 바람·중력·드래그 관성을 실시간 동기화하여 구동
+  - **`합성 · 에이전트 패밀리 전원 (5인 밀착 합체)`**: 단일 거대 스켈레톤으로 병합하지 않고 5개의 독립 `RigPlayer` 인스턴스를 `offsetX` (`0, 435, 995, 1540, 1915`)와 `z-index` 깊이 레이어링(`3, 2, 4, 3, 2`)으로 밀착 배치하여, **로아의 왼팔이 루나의 오른쪽 어깨 위에 자연스럽게 얹히고 지니를 중심으로 5인이 어깨를 맞댄 패밀리 대형**을 실시간 동기화 구동
+  - **`합성 · 로아 + 루나 (어깨동무 2인)`**: 로아(`offsetX=0, z=3`)와 루나(`offsetX=435, z=2`)의 어깨동무 호흡 동조 확인 모드
+  - **`합성 · 원본 크롭 간격 (5인 분리 나열)`**: 원본 4x 크롭 간격(`0, 800, 1592, 2400, 3200`) 비교 모드
   - **비동기 독립 랜덤 눈 깜빡임**: `@rig-c/play`의 `adjust(pose)` 훅을 활용해 `idle` 루프에 구워진 주기적 블링크 대신 캐릭터별 독립 비주기 랜덤 타이머(`2.0~5.8s` 간격, 20% 확률 더블 블링크)와 호흡 위상 오프셋을 적용
   - `1번 · 로아 (Roa)` / `2번 · 루나 (Luna)` / `3번 · 지니 (Jinni)` / `4번 · 나루 (Naru)` / `5번 · 노바 (Nova)` 개별 검수 모드
-  - `합성 · 로아 + 지니 (2인 동시)`
 - **실시간 물리 제어**:
   - `바람` / `산들바람`: `@rig-c/play`의 `player.environment({ wind: [w, 0], gravity: [0, g] })`를 통해 머리카락·치마/상의 밑자락·가슴 물리 체인에 실시간 풍력 인가
   - `찰랑이기` & **캔버스 드래그**: 캐릭터를 마우스로 잡고 흔들면 관성(`player.moved({ x, y })`)에 따라 머리카락, 의상, 가슴이 실시간 반응
