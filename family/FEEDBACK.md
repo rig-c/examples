@@ -205,3 +205,27 @@
    - 선형 스프링(`strength * yOffset`)만으로는 큰 충격이나 높은 중력(`gravity`)에서 하단 변위가 선형 비례로 늘어납니다. 일정 변위 이상에서 복원력이 3차 비선형($k_3 \Delta y^3$)으로 급증하는 **하단 텐션 스토퍼(`maxOffset` 또는 `tensionCurve`)**를 `@rig-c/play`의 `Do()` 솔버에 지원하면, 어떤 강한 외부 충격에도 가슴이 배꼽 쪽으로 늘어지지 않고 탱글하게 튕겨 오릅니다.
 2. **저주파 호흡 속도 필터링(High-Pass Inertia Filter)**:
    - 부모 본(`chest`)의 느린 호흡 이동($< 0.5\text{Hz}$)에는 `inertia`가 과민 반응하지 않고, 빠른 가속도 변화(임펄스/드래그/점프)에만 `inertia`가 전달되도록 고역통과(High-Pass) 또는 가속도 기반 임펄스 모드를 지원하면 더욱 자연스러운 정지 호흡과 강한 타격감을 동시에 얻을 수 있습니다.
+
+---
+
+## 12. `rig-parts compose` (`scene.ts`) — `stops` 필드 포함 빌드 병합 시 `SCENE_BUILD_FIELD_KNOWN: rig.json.stops` 에러 및 다중 인스턴스 레이어링 제안
+
+### 현상
+- 각 캐릭터의 `config.json`에 각도 제한(`stops`)을 선언하여 빌드한 뒤, `rig-parts compose --scene scene.json --out composed_out`을 실행하면 다음과 같은 스키마 검증 에러로 중단됩니다:
+  ```text
+  SCENE_BUILD_FIELD_KNOWN: roa/out/rig.json.stops — unknown field "stops" in roa/out/rig.json (rebuild with current rigc?)
+  ```
+
+### 원인 분석 (`src/scene.ts`)
+- `rig-parts/src/scene.ts` (line 385)의 `RIG_KEYS` 허용 목록이 다음과 같이 정의되어 있어, `rig.json`에 정상 출력된 `"stops"` 필드를 알 수 없는 필드로 거부합니다:
+  ```ts
+  const RIG_KEYS = new Set(['spec', 'name', 'images', 'skeleton', 'bones', 'slots', 'skins', 'constraints', 'invariants']);
+  ```
+- 또한 `composeScene()`이 멤버별 `rig.json`을 하나의 `RigSpec`으로 합칠 때 `member.rig.stops`의 본 이름에 `<memberId>_` 프리픽스를 붙여 병합하는 로직이 누락되어 있습니다.
+
+### 개선 제안
+1. **`src/scene.ts`의 `RIG_KEYS`에 `'stops'` 추가 및 네임스페이스 프리픽스 병합**:
+   - `RIG_KEYS`에 `'stops'`를 추가하고, `composeScene()`에서 각 멤버의 `stops` 배열 내 `bone` / `parent` 이름에 `<id>_` 프리픽스를 붙여 통합 `stops`로 병합하도록 수정하면 `stops`가 있는 캐릭터들도 `rig-parts compose`를 통과할 수 있습니다.
+2. **다중 캐릭터 합체 시 단일 스켈레톤 병합보다 `@rig-c/play`의 다중 레이어 스테이지(`offsetX`, `zIndex`, `phaseOffset`) 지원 권장**:
+   - 5인 그룹처럼 캐릭터들이 어깨동무를 하거나 앞뒤로 포개어지는 구도에서는, 단일 거대 아틀라스/스켈레톤으로 합치는 것보다 개별 `RigPlayer` 인스턴스를 `offsetX`와 `z-index` 깊이 레이어링으로 배치하는 방식이 **캐릭터별 독립 랜덤 블링크, 호흡 위상차(`phaseOffset`), 앞뒤 깊이 정렬(`roa z=3` → `luna z=2` 어깨동무 등), 개별 아틀라스 캐싱 면에서 훨씬 유연하고 효율적**이었습니다.
+   - `@rig-c/play`에서 여러 캐릭터를 한 스테이지에 배치하고 환경(`wind`, `gravity`)과 드래그 임펄스(`moved`)를 일괄 브로드캐스트해 주는 경량 래퍼(` createStage({ members: [{ src, offsetX, offsetY, zIndex, phaseOffset }] }) `)를 기본 제공하면 다중 캐릭터 씬 구성이 더욱 간편해집니다.
