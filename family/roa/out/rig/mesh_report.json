@@ -233,7 +233,106 @@
         "reached": 97,
         "whole": 56
       }
-    ]
+    ],
+    "shoulderSourceRestore": {
+      "source": "head_orig topwear",
+      "vertices": [
+        98,
+        99,
+        100,
+        101,
+        102
+      ],
+      "method": "5 existing outer-hull vertices extended; triangles/interior vertices/scalar bone weights unchanged",
+      "coverage": {
+        "changedVertices": [
+          {
+            "vertex": 98,
+            "before": [
+              131.0,
+              495.0
+            ],
+            "after": [
+              129,
+              487
+            ],
+            "delta": [
+              -2.0,
+              -8.0
+            ]
+          },
+          {
+            "vertex": 99,
+            "before": [
+              136.0,
+              489.0
+            ],
+            "after": [
+              136,
+              484
+            ],
+            "delta": [
+              0.0,
+              -5.0
+            ]
+          },
+          {
+            "vertex": 100,
+            "before": [
+              159.0,
+              489.0
+            ],
+            "after": [
+              159,
+              475
+            ],
+            "delta": [
+              0.0,
+              -14.0
+            ]
+          },
+          {
+            "vertex": 101,
+            "before": [
+              174.0,
+              480.0
+            ],
+            "after": [
+              174,
+              469
+            ],
+            "delta": [
+              0.0,
+              -11.0
+            ]
+          },
+          {
+            "vertex": 102,
+            "before": [
+              211.0,
+              467.0
+            ],
+            "after": [
+              211,
+              462
+            ],
+            "delta": [
+              0.0,
+              -5.0
+            ]
+          }
+        ],
+        "vertices": 448,
+        "triangles": 790,
+        "hull": 104,
+        "allOtherUVsWeightsAndTrianglesExact": true,
+        "scalarWeightsExact": true,
+        "beforeAlphaMissing": 289,
+        "afterAlphaMissing": 261,
+        "newArtMissing": 0,
+        "newlyMissingOldArt": 0
+      }
+    }
   },
   {
     "part": "hair_back",

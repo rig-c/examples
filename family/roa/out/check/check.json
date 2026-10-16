@@ -200,7 +200,7 @@
   "torso_parts": [
    "topwear"
   ],
-  "torso_heat_mean": 15.462,
+  "torso_heat_mean": 15.622,
   "torso_floor": 3.809,
   "feet_parts": [
    "shoes"
@@ -514,15 +514,34 @@
  },
  "RECOMPOSITE_HOLES": {
   "status": "REPORTED",
-  "error_px": 13556,
-  "uncovered_error_px": 6398,
-  "hole_count": 510,
+  "error_px": 13262,
+  "uncovered_error_px": 6041,
+  "hole_count": 512,
   "largest": {
    "px": 834,
    "box": "479,1639 30x522",
    "borders": [
     "bottomwear 558 px"
    ]
+  }
+ },
+ "SETUP_POSE_VS_SOURCE": {
+  "status": "REPORTED",
+  "painting_px": "800x2284",
+  "stage_px": "800x2284",
+  "render_px": "862x2284",
+  "render_scale": 0.9994,
+  "mean_abs": 1.238,
+  "within_limit": 8,
+  "within_share": 0.9718,
+  "error_limit": 40,
+  "error_px": 14600,
+  "covered_alpha": 128,
+  "uncovered_error_px": 6882,
+  "hole_count": 332,
+  "largest": {
+   "px": 985,
+   "box": "465,1521 47x641"
   }
  },
  "PASS": true

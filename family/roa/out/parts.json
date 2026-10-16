@@ -86,12 +86,9 @@
       "y": 409,
       "w": 616,
       "h": 450,
-      "opaque_px": 168353,
-      "visible_px": 160699,
-      "occluded_px": 7654,
+      "opaque_px": 169011,
       "projected_core_px": 148260,
       "source_px_taken": 147972,
-      "visible_not_projected_px": 12727,
       "refused_drift_px": 1416,
       "merged_px": 0,
       "seam_override_px": 409,
@@ -441,14 +438,14 @@
     "head:wings": 7
   },
   "recomposite": {
-    "mean_abs": 0.877,
+    "mean_abs": 0.873,
     "within_limit": 8,
-    "within_share": 0.983,
+    "within_share": 0.9831,
     "error_limit": 40,
-    "error_px": 13556,
+    "error_px": 13262,
     "covered_alpha": 128,
-    "uncovered_error_px": 6398,
-    "hole_count": 510,
+    "uncovered_error_px": 6041,
+    "hole_count": 512,
     "holes_listed": 5,
     "holes": [
       {
@@ -461,23 +458,6 @@
           {
             "part": "bottomwear",
             "px": 558
-          }
-        ]
-      },
-      {
-        "px": 297,
-        "x": 144,
-        "y": 475,
-        "w": 35,
-        "h": 17,
-        "borders": [
-          {
-            "part": "topwear",
-            "px": 36
-          },
-          {
-            "part": "hair_back",
-            "px": 24
           }
         ]
       },
@@ -521,6 +501,19 @@
           {
             "part": "bottomwear",
             "px": 118
+          }
+        ]
+      },
+      {
+        "px": 141,
+        "x": 693,
+        "y": 570,
+        "w": 53,
+        "h": 59,
+        "borders": [
+          {
+            "part": "topwear",
+            "px": 112
           }
         ]
       }

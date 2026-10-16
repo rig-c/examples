@@ -1,0 +1,245 @@
+{
+  "spec": "roa-shoulder-repair-result/1",
+  "policySHA256": "908d3b26e0aa29073e920d3f289d72b3a12fe013a65fd30a97727709a0f128fb",
+  "changedPixels": 2528,
+  "hullVertices": [
+    98,
+    99,
+    100,
+    101,
+    102
+  ],
+  "scope": "Bounded original-head shirt pixels and five existing topwear hull vertices only. Triangles, scalar weights, all interior vertices, all other attachments/bones/constraints/stops/motion unchanged. Normal official build/check required.",
+  "visibilityProvenance": {
+    "producer": "@rig-c/parts1.25.0 recomposite/measureRecomposite/recompositeRecord; current PNG alpha>8 opaque count",
+    "topwearBefore": {
+      "name": "topwear",
+      "from": "full:topwear",
+      "x": 130,
+      "y": 409,
+      "w": 616,
+      "h": 450,
+      "opaque_px": 168353,
+      "visible_px": 160699,
+      "occluded_px": 7654,
+      "projected_core_px": 148260,
+      "source_px_taken": 147972,
+      "visible_not_projected_px": 12727,
+      "refused_drift_px": 1416,
+      "merged_px": 0,
+      "seam_override_px": 409,
+      "fringe_pushed_back": [
+        {
+          "part": "neck",
+          "px": 204
+        },
+        {
+          "part": "handwear_r",
+          "px": 22
+        },
+        {
+          "part": "bottomwear",
+          "px": 2
+        }
+      ]
+    },
+    "topwearAfter": {
+      "name": "topwear",
+      "from": "full:topwear",
+      "x": 130,
+      "y": 409,
+      "w": 616,
+      "h": 450,
+      "opaque_px": 169011,
+      "projected_core_px": 148260,
+      "source_px_taken": 147972,
+      "refused_drift_px": 1416,
+      "merged_px": 0,
+      "seam_override_px": 409,
+      "fringe_pushed_back": [
+        {
+          "part": "neck",
+          "px": 204
+        },
+        {
+          "part": "handwear_r",
+          "px": 22
+        },
+        {
+          "part": "bottomwear",
+          "px": 2
+        }
+      ]
+    },
+    "removedOptionalVisibilityReason": "Current post-assembly pixels include a bounded restoration from head_orig. The old full-run pixel ownership trace cannot classify those new pixels. Preserve the old counts here; omit the three optional visibility counts as a group instead of inventing updated visibility.",
+    "schema": "@rig-c/parts1.25.0 src/parts.ts VISIBILITY_KEYS: all three or none; src/assemble.ts whole-pixel assembly traces differ from a final PNG",
+    "before": {
+      "mean_abs": 0.877,
+      "within_limit": 8,
+      "within_share": 0.983,
+      "error_limit": 40,
+      "error_px": 13556,
+      "covered_alpha": 128,
+      "uncovered_error_px": 6398,
+      "hole_count": 510,
+      "holes_listed": 5,
+      "holes": [
+        {
+          "px": 834,
+          "x": 479,
+          "y": 1639,
+          "w": 30,
+          "h": 522,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 558
+            }
+          ]
+        },
+        {
+          "px": 297,
+          "x": 144,
+          "y": 475,
+          "w": 35,
+          "h": 17,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 36
+            },
+            {
+              "part": "hair_back",
+              "px": 24
+            }
+          ]
+        },
+        {
+          "px": 194,
+          "x": 461,
+          "y": 756,
+          "w": 30,
+          "h": 117,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 119
+            },
+            {
+              "part": "bottomwear",
+              "px": 57
+            }
+          ]
+        },
+        {
+          "px": 150,
+          "x": 569,
+          "y": 615,
+          "w": 73,
+          "h": 30,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 112
+            }
+          ]
+        },
+        {
+          "px": 146,
+          "x": 549,
+          "y": 1059,
+          "w": 3,
+          "h": 112,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 118
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "mean_abs": 0.873,
+      "within_limit": 8,
+      "within_share": 0.9831,
+      "error_limit": 40,
+      "error_px": 13262,
+      "covered_alpha": 128,
+      "uncovered_error_px": 6041,
+      "hole_count": 512,
+      "holes_listed": 5,
+      "holes": [
+        {
+          "px": 834,
+          "x": 479,
+          "y": 1639,
+          "w": 30,
+          "h": 522,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 558
+            }
+          ]
+        },
+        {
+          "px": 194,
+          "x": 461,
+          "y": 756,
+          "w": 30,
+          "h": 117,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 119
+            },
+            {
+              "part": "bottomwear",
+              "px": 57
+            }
+          ]
+        },
+        {
+          "px": 150,
+          "x": 569,
+          "y": 615,
+          "w": 73,
+          "h": 30,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 112
+            }
+          ]
+        },
+        {
+          "px": 146,
+          "x": 549,
+          "y": 1059,
+          "w": 3,
+          "h": 112,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 118
+            }
+          ]
+        },
+        {
+          "px": 141,
+          "x": 693,
+          "y": 570,
+          "w": 53,
+          "h": 59,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 112
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
