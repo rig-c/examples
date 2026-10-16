@@ -14,6 +14,14 @@
 
 그 뒤의 최종 경계 교정은 [Naru 어깨·소매·팔 실루엣](./naru/repairs/BODY_EDGE_RESTORATION.md)과 [Roa 원본 어깨 복원](./roa/SHOULDER_REPAIR.md)이다. 전체 수리 과정과 채택·기각한 방법은 [사례 기록](./REPAIR_CASE_STUDY.md)을 따른다.
 
+## 움직이는 미리보기
+
+![5인 패밀리의 호흡과 짧은 바람 반응 — 투명 배경](./docs/family-preview.webp)
+
+승인된 다섯 `out/check/build/skeleton.model.json`과 현재 뷰어의 player를 그대로 재생한 960 × 832, 3.33초 WebP(7.46 MB)입니다. 호흡·눈 깜빡임·짧은 48 돌풍을 고정 시간 간격으로 렌더링하고, 브라우저 합성 결과의 alpha를 보존했습니다. 배경색 제거는 사용하지 않습니다. 루프용 눈 깜빡임은 고정 위상이며 실제 뷰어의 무작위 타이머와 구분합니다.
+
+[재현 스크립트](./scripts/render-readme-preview.mjs) · [입력 해시·프레임 시간](./docs/family-preview.json). 실시간 조작과 검증 범위는 아래 설명을 따릅니다.
+
 ## 현재 승인된 입력과 재검증
 
 현재 뷰어가 읽는 정본은 각 캐릭터의 `out/rig/`·`out/parts/`·`out/parts.json`과 `out/check/build/`다. [`accepted-inputs.json`](./accepted-inputs.json)은 이 최종 입력, provenance, 저장된 serving 산출물과 viewer의 정확한 파일 목록·SHA256을 고정한다. `config.json`, `upgrade_*_4x.py`, `MATERIAL_RESPONSE.md`, `check-cloth-hair.ts`의 미채택 실험을 다시 생성하여 이 결과를 덮어쓰지 않는다.
