@@ -7,6 +7,8 @@ import { createWindControls, BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, 
 import { readViewState, writeViewState, defaultViewState } from './view-state.mjs';
 import { fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame } from './viewport.mjs';
 import { drawOverlay } from './debug-overlay.mjs';
+import { outfitAssets, ownAssets } from './outfits.mjs';
+import { createOutfitTransaction } from './outfit-transaction.mjs';
 
 const near = (actual, expected, tolerance = 1e-8) => assert.ok(Math.abs(actual - expected) <= tolerance, `${actual} != ${expected}`);
 
@@ -224,7 +226,7 @@ async function viewerHarness(storage = { getItem() { return null; }, setItem() {
   const assets = key => ({ key, animations: [{ name: 'idle' }], stage: { x: -400, y: 0, width: 800, height: 2284 }, dispose() {} });
   const context = {
     createSceneLoader, createWindControls, BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, MAX_GUST_DURATION,
-    readViewState, writeViewState, defaultViewState, fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame, drawOverlay,
+    readViewState, writeViewState, defaultViewState, fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame, drawOverlay, outfitAssets, ownAssets, createOutfitTransaction,
     localStorage: storage, RigPlayer: Player,
     loadModel({ modelUrl }) {
       const key = modelUrl.split('/')[1];

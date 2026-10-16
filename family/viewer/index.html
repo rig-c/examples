@@ -136,6 +136,12 @@
           <option value="composed">로아 + 루나 · 어깨동무 2인</option>
         </select>
       </label>
+      <label class="scene-control"><span>나루 의상</span>
+        <select id="outfitSelect" aria-label="나루 의상">
+          <option value="office">오피스</option>
+          <option value="homewear">홈웨어</option>
+        </select>
+      </label>
       <div id="stats" role="status">로딩 중…</div>
       <button id="resetBtn" title="저장된 보기와 물리 설정을 기본값으로 되돌립니다">설정 초기화</button>
     </div>
@@ -214,7 +220,7 @@
       <div class="hud-tip">드래그: 이동 + 물리 관성 · 마우스 휠: 줌 인/아웃</div>
     </div>
     <div id="ref-pane" class="show bg-dark">
-      <div class="cap">원본 일러스트 (painting.png)</div>
+      <div id="refCaption" class="cap">원본 일러스트 (painting.png)</div>
       <img id="refImg" src="/docs_family_5chars_recomposite.png" alt="원본" />
     </div>
   </div>
@@ -226,10 +232,14 @@
     import { readViewState, writeViewState, defaultViewState } from '/viewer/view-state.mjs';
     import { fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame } from '/viewer/viewport.mjs';
     import { drawOverlay } from '/viewer/debug-overlay.mjs';
+    import { outfitAssets, ownAssets } from '/viewer/outfits.mjs';
+    import { createOutfitTransaction } from '/viewer/outfit-transaction.mjs';
 
     const stage = document.getElementById('stage');
     const stats = document.getElementById('stats');
     const charSelect = document.getElementById('charSelect');
+    const outfitSelect = document.getElementById('outfitSelect');
+    const refCaption = document.getElementById('refCaption');
     const pauseBtn = document.getElementById('pauseBtn');
     const speedInput = document.getElementById('speed');
     const speedVal = document.getElementById('speedVal');
@@ -260,6 +270,8 @@
     let ui = readViewState(storage);
     let camera = null;
     const boneSpecs = new WeakMap();
+    const assetOwners = new WeakMap();
+    let sceneVersion = 0;
     let players = [];
     let container = null;
     let box = null;
@@ -316,6 +328,7 @@
     }
     function syncUi() {
       charSelect.value = ui.character;
+      syncOutfitUi();
       paused = ui.paused; speed = ui.speed;
       speedInput.value = String(speed); speedVal.textContent = `${speed.toFixed(1)}×`;
       gravInput.value = String(ui.gravity); gravVal.textContent = ui.gravity.toFixed(1);
@@ -331,6 +344,10 @@
       windInput.value = String(wind.base); windVal.textContent = wind.base.toFixed(1);
       gustBtn.classList.toggle('on', wind.breeze); gustBtn.setAttribute('aria-pressed', String(wind.breeze));
       repeatGustBtn.classList.toggle('on', wind.repeat); repeatGustBtn.setAttribute('aria-pressed', String(wind.repeat));
+    }
+    function syncOutfitUi() {
+      outfitSelect.value = ui.outfits.naru;
+      outfitSelect.disabled = !players.some(p => p.key === 'naru');
     }
     if (ui.wind && windControls.restore) {
       try { windControls.restore(ui.wind); } catch { ui.wind = null; }
@@ -410,11 +427,92 @@
         if (phaseOffset > 0) player.frame(phaseOffset);
         player.frame(0);
         const b = assets.stage ?? player.bounds() ?? { x: -400, y: 0, width: 800, height: 2284 };
-        return { key, player, sub, bounds: b, offsetX, offsetY, zIndex, anim, blink, boneSpecs: boneSpecs.get(assets) ?? [] };
+        return { key, player, sub, bounds: b, offsetX, offsetY, zIndex, anim, blink, assets,
+          assetOwner: assetOwners.get(assets), outfit: assetOwners.get(assets)?.outfit ?? 'office', boneSpecs: boneSpecs.get(assets) ?? [] };
       } catch (error) {
         try { player.dispose(); } finally { sub.remove(); }
         throw error;
       }
+    }
+
+    async function loadRigAssets(key, outfit, bust) {
+      let specs = [];
+      const location = outfitAssets(key, outfit);
+      const raw = await loadModel({ modelUrl: `${location.modelUrl}?v=${bust}`,
+        async fetch(...args) {
+          const response = await fetch(...args);
+          if (response.ok) specs = (await response.clone().json()).bones;
+          return response;
+        },
+      });
+      const owned = ownAssets(raw);
+      owned.owner.outfit = outfit;
+      assetOwners.set(owned.assets, owned.owner);
+      boneSpecs.set(owned.assets, specs);
+      return owned.assets;
+    }
+
+    function updateReference(key, bust = Date.now()) {
+      const homewear = players.some(p => p.key === 'naru') && ui.outfits.naru === 'homewear';
+      if (key === 'naru') refImg.src = `${outfitAssets('naru', ui.outfits.naru).referenceUrl}?v=${bust}`;
+      refCaption.textContent = homewear ? (key === 'naru' ? '홈웨어 디자인 원화' : '오피스 원화 기준 · 나루 홈웨어는 이 비교 원화에 포함되지 않음') : '오피스 원화 기준';
+    }
+
+    const outfitTransaction = createOutfitTransaction({
+      current: request => request.sceneVersion === sceneVersion && players.includes(request.entry),
+      async load(request) {
+        const assets = await loadRigAssets('naru', request.outfit, Date.now());
+        try {
+          const { entry } = request;
+          if (!assets.stage || ['x', 'y', 'width', 'height'].some(key => assets.stage[key] !== entry.bounds[key])) throw new Error('나루 의상 stage 좌표가 현재 리그와 다릅니다');
+          return createRigEntry(['naru', entry.offsetX, 0, entry.offsetY, entry.zIndex], assets, document.createElement('div'));
+        } catch (error) { assets.dispose(); throw error; }
+      },
+      commit({ entry, outfit }, candidate) {
+        // Read the live phase only when the candidate is ready. Public seek replays
+        // physics; this transfers animation phase, not the old physics state.
+        const track = entry.player.entry(0);
+        const animation = track?.animation ?? entry.anim;
+        if (!candidate.assets.animations.some(a => a.name === animation)) throw new Error(`의상 리그에 애니메이션 ${animation}이 없습니다`);
+        Object.assign(candidate.blink, entry.blink);
+        candidate.player.play(animation, { loop: track?.loop ?? true });
+        const { wind } = windControls.read();
+        candidate.player.environment({ wind: [wind, 0], gravity: [0, Number(gravInput.value)] });
+        if (track) candidate.player.seek(track.animationTime);
+        candidate.anim = animation;
+        const old = { player: entry.player, sub: entry.sub, assets: entry.assetOwner.current };
+        const owner = entry.assetOwner;
+        container.appendChild(candidate.sub);
+        candidate.player.renderer.syncPixelRatio();
+        candidate.player.frame(0);
+        owner.current = candidate.assetOwner.current;
+        candidate.assetOwner.current = null;
+        Object.assign(entry, candidate, { assetOwner: owner });
+        ui.outfits.naru = outfit;
+        stats.textContent = `${ui.character} · 나루 ${outfit === 'homewear' ? '홈웨어' : '오피스'} · physics ON`;
+        // The original scene-loader record still owns this stable entry and owner.
+        for (const release of [() => old.player.dispose(), () => old.assets.dispose(), () => old.sub.remove()]) {
+          try { release(); } catch (error) { console.error(error); }
+        }
+        try { updateReference(ui.character); syncOutfitUi(); saveState(); redrawOverlay(); }
+        catch (error) { console.error(error); }
+      },
+      pending(active, request) {
+        if (active) { outfitSelect.value = request.outfit; outfitSelect.setAttribute('aria-busy', 'true'); }
+        else { outfitSelect.setAttribute('aria-busy', 'false'); syncOutfitUi(); }
+      },
+      failed(error) {
+        stats.textContent = `의상 전환 실패 · 현재 의상 유지: ${error.message}`;
+        console.error(error);
+      },
+    });
+
+    function openOutfit(outfit) {
+      const entry = players.find(p => p.key === 'naru');
+      if (!entry || !['office', 'homewear'].includes(outfit)) { syncOutfitUi(); return Promise.resolve(false); }
+      saveState();
+      if (outfit === ui.outfits.naru) { outfitTransaction.invalidate(); return Promise.resolve(true); }
+      return outfitTransaction.open({ outfit, entry, sceneVersion });
     }
 
     const sceneLoader = createSceneLoader({
@@ -423,17 +521,15 @@
         target.id = 'rig-root';
         return target;
       },
-      async loadAssets([key], { bust }) {
-        let specs = [];
-        const assets = await loadModel({ modelUrl: `/${key}/out/check/build/skeleton.model.json?v=${bust}`,
-          async fetch(...args) {
-            const response = await fetch(...args);
-            if (response.ok) specs = (await response.clone().json()).bones;
-            return response;
-          },
-        });
-        boneSpecs.set(assets, specs);
-        return assets;
+      async loadAssets([key], { bust, outfits }) {
+        const outfit = key === 'naru' ? outfits.naru : 'office';
+        try { return await loadRigAssets(key, outfit, bust); }
+        catch (error) {
+          if (key !== 'naru' || outfit !== 'homewear') throw error;
+          const assets = await loadRigAssets(key, 'office', bust);
+          assetOwners.get(assets).fallbackError = error;
+          return assets;
+        }
       },
       createEntry: createRigEntry,
       loading({ key }) {
@@ -442,6 +538,7 @@
         box = null;
         stats.textContent = `${key} 로딩 중…`;
         overlay.width = overlay.width;
+        syncOutfitUi();
       },
       failed(error) {
         players = [];
@@ -493,13 +590,21 @@
           stats.textContent = `${key} · anim: ${p.anim} · 비동기 랜덤 블링크 · physics ON`;
         }
 
+        const naru = players.find(p => p.key === 'naru');
+        if (naru) {
+          ui.outfits.naru = naru.outfit;
+          if (naru.assetOwner.fallbackError) stats.textContent += ' · 홈웨어 로드 실패: 오피스 유지';
+        }
         syncEnvironment();
+        updateReference(key, bust); syncOutfitUi();
         camera = ui.cameras[key] ? { ...ui.cameras[key] } : fitCamera(box);
         updateViewport(); saveState();
       },
     });
 
     function openCharacter(key) {
+      outfitTransaction.invalidate();
+      sceneVersion++;
       let lineup;
       if (key === 'all5') {
         lineup = [['roa', 0, 0, 0, 3], ['luna', 435, 0.06, 0, 2], ['jinni', 995, 0.45, 0, 4], ['naru', 1540, 0.85, 0, 3], ['nova', 1915, 1.25, 0, 2]];
@@ -510,7 +615,7 @@
       } else {
         lineup = [[key, 0, 0]];
       }
-      return sceneLoader.open({ key, lineup, bust: Date.now() });
+      return sceneLoader.open({ key, lineup, outfits: { ...ui.outfits }, bust: Date.now() });
     }
 
     // Background switch
@@ -641,6 +746,7 @@
       syncUi(); saveState(); openCharacter(ui.character);
     });
     charSelect.addEventListener('change', () => { camera = null; ui.character = charSelect.value; saveState(); openCharacter(charSelect.value); });
+    outfitSelect.addEventListener('change', () => { openOutfit(outfitSelect.value); });
     // Persist stable control settings on changes and when leaving; reload begins a fresh physics run.
     for (const element of [pauseBtn, speedInput, windInput, gravInput, gustBtn, pulseBtn, repeatGustBtn]) {
       element.addEventListener(element === speedInput || element === windInput || element === gravInput ? 'input' : 'click', saveState);

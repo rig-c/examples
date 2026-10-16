@@ -1,6 +1,6 @@
 {
   "spec": "family-accepted-inputs/1",
-  "baseline": "Accepted family authoring at 1ecd0d69342b04846ec4f59a0ca02b86f8e0a83f; wind viewer from main PR #4 integrated before this inventory.",
+  "baseline": "Accepted family authoring at 1ecd0d69342b04846ec4f59a0ca02b86f8e0a83f; wind viewer from main PR #4 integrated before this inventory. Naru outfit viewer adopted separately; original five-character office authoring and serving hashes retained.",
   "scope": "Final authoring rigs, motion, PNGs, part records, provenance, saved serving artifacts and viewer. Excludes unadopted configs, upgrade scripts and material experiments. No automatic manifest regeneration is provided.",
   "characters": [
     "roa",
@@ -1095,24 +1095,40 @@
       "sha256": "733aa504c10224e1d1cfeb86bd343c60e1517bede1b6751cf60b299fa386772c"
     },
     "viewer/index.html": {
-      "bytes": 32301,
-      "sha256": "84b8589ac319abb8b026c4432e846832d8870f647890bd668296408ae98f6324"
+      "bytes": 38113,
+      "sha256": "7725e938d171cc61cc7084008d4a18487b37ed975a573bd416518d6b53d30fcc"
     },
     "viewer/load-lifecycle.mjs": {
       "bytes": 2981,
       "sha256": "7fea1dba31b1a170ca663d13266c203004c1a249a42fafef509869530f3d2e7d"
     },
     "viewer/load-race.test.mjs": {
-      "bytes": 8205,
-      "sha256": "00bdfa51032e61817ba74d93dd23486c6b39a3034441313ecff24aef4d733a01"
+      "bytes": 16632,
+      "sha256": "d5169483c3e7e11fe34020835f13aefc0e6a0c08b4d5cb638cbd62a526acdc75"
+    },
+    "viewer/outfit-transaction.mjs": {
+      "bytes": 1424,
+      "sha256": "0060b2fe441d4ff50c625878fda514cc57cc0e738acecbb72592fc1e5f6d779b"
+    },
+    "viewer/outfit-transaction.test.mjs": {
+      "bytes": 2817,
+      "sha256": "59e76d143c0f36f458e04e32d6ca9a9942ed16767b4271599824bf6f6641a81f"
+    },
+    "viewer/outfits.mjs": {
+      "bytes": 911,
+      "sha256": "802941cbe2a77a9f9f77e29be27c16d978f6d9c9ef57bd41ad5af1c85ec189d9"
+    },
+    "viewer/outfits.test.mjs": {
+      "bytes": 1232,
+      "sha256": "9f3501d4b56cb45b45246779e4a1800cbc8292417a1fe60dead7aedaecb9f271"
     },
     "viewer/view-state.mjs": {
-      "bytes": 1744,
-      "sha256": "4c28a09216ab12532de13c274135c210eb3379a9a7013e80d3b08c67c14acbac"
+      "bytes": 1877,
+      "sha256": "f625565130dc26f453547d92cf9ae48e7163bb540debff10b2f404f9ee34f5c4"
     },
     "viewer/viewer-state.test.mjs": {
-      "bytes": 3597,
-      "sha256": "7b5ec8931f154fd1b11f8771981931804f90ba55b4bfc862161b41c50c45be31"
+      "bytes": 4269,
+      "sha256": "00964a5786ad2fa42f51a9cdc9417c7b80ae4cd895ac791f45fb4f341e28eaf9"
     },
     "viewer/viewport.mjs": {
       "bytes": 1305,
@@ -1123,8 +1139,8 @@
       "sha256": "dbe7a2a83bc8e0919b18144e165ebe49f0aa30b17611c8d43f680793238c374f"
     },
     "viewer/wind-controls.test.mjs": {
-      "bytes": 15762,
-      "sha256": "f6392ce16a78ac7d0e7a56143c971e607bc556765b4c3f0807a687d4d3a551e5"
+      "bytes": 15937,
+      "sha256": "0fa770992275155e8a7e5258bda3161ffe551e053d0d871486abba3cfa543631"
     }
   }
 }

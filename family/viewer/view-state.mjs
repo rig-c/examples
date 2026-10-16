@@ -2,7 +2,7 @@ export const STORAGE_KEY = 'rig-c-family-viewer:v2';
 export const CHARACTERS = ['all5', 'all5_wide', 'roa', 'luna', 'jinni', 'naru', 'nova', 'composed'];
 export function defaultViewState() {
   return { version: 2, character: 'all5', background: 'dark', comparison: true, paused: false,
-    speed: 1, gravity: 0, bones: false, mesh: false, meshOpacity: 0.55, cameras: {}, wind: null };
+    speed: 1, gravity: 0, bones: false, mesh: false, meshOpacity: 0.55, cameras: {}, wind: null, outfits: { naru: 'office' } };
 }
 const finite = (v, lo, hi) => typeof v === 'number' && Number.isFinite(v) && v >= lo && v <= hi;
 export function readViewState(storage) {
@@ -11,6 +11,7 @@ export function readViewState(storage) {
     const saved = JSON.parse(storage?.getItem(STORAGE_KEY) ?? 'null');
     if (saved?.version !== 2) return result;
     if (CHARACTERS.includes(saved.character)) result.character = saved.character;
+    if (['office', 'homewear'].includes(saved.outfits?.naru)) result.outfits.naru = saved.outfits.naru;
     if (['dark', 'white', 'grey', 'magenta'].includes(saved.background)) result.background = saved.background;
     for (const key of ['comparison', 'paused', 'bones', 'mesh']) if (typeof saved[key] === 'boolean') result[key] = saved[key];
     for (const [key, lo, hi] of [['speed', .1, 2.5], ['gravity', -3, 3], ['meshOpacity', 0, 1]]) if (finite(saved[key], lo, hi)) result[key] = saved[key];
