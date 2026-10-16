@@ -164,14 +164,14 @@
  "seam_mean": 0.133,
  "seam_px_over_40": 0,
  "seam_px_over_80": 0,
- "seam_frame_scale": 1.078954,
+ "seam_frame_scale": 1.078987,
  "seam_pairs": [],
  "BREATH_VISIBLE": {
   "status": "PASS",
   "torso_parts": [
    "topwear"
   ],
-  "torso_heat_mean": 14.896,
+  "torso_heat_mean": 14.852,
   "torso_floor": 3.809,
   "feet_parts": [
    "shoes"
@@ -313,7 +313,7 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 6,
-  "triangles": 1569,
+  "triangles": 1669,
   "frames": 41,
   "severity": 1.318,
   "severity_ceiling": 1.926544,
@@ -382,12 +382,12 @@
    },
    {
     "slot": "hair_front",
-    "triangles": 74,
-    "max_ratio": 1.042,
-    "max_at": "triangle 62 (vertices 48 15 49), edge 48-15, idle frame 24",
-    "min_ratio": 0.947,
-    "min_at": "triangle 70 (vertices 51 17 16), edge 17-16, idle frame 23",
-    "severity": 1.056
+    "triangles": 174,
+    "max_ratio": 1.072,
+    "max_at": "triangle 162 (vertices 155 92 91), edge 92-91, idle frame 1",
+    "min_ratio": 0.889,
+    "min_at": "triangle 162 (vertices 155 92 91), edge 92-91, idle frame 24",
+    "severity": 1.125
    }
   ]
  },

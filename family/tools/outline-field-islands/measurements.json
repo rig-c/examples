@@ -1,0 +1,2069 @@
+{
+  "spec": "outline-field-islands-measurements/1",
+  "scope": "Luna front only; Jinni front+earring union; Nova rear+front preserving accepted reduced outfit. No source RGBA changes.",
+  "thresholds": {
+    "coverageAlphaAtLeast": 1,
+    "motionAlphaGreaterThan": 8,
+    "sourceUVUniformSpacingPixels": 8,
+    "boundarySampling": "alternate 4-neighbor boundary pixels"
+  },
+  "rejectedAlternatives": [
+    "Plain Jinni contour and frozen single-loop clip refused two islands. Prior transparent bridge clipped73 faint positive-alpha pixels and remains rejected.",
+    "Nova T1/M2 contour generator refused11.7047px overshoot vs its4px bound. Authored clipping improves74.793048 to11.401754px but does not claim that generator bound.",
+    "Clipping previously accepted Luna/Jinni rear hair was out of scope and discarded before final official validation."
+  ],
+  "noNewAssertionSkips": "Original public parts meshes already authored; A21 rim and A28 ribbon topology were already SKIP. No invariant or validator was weakened.",
+  "rows": [
+    {
+      "character": "luna",
+      "before": {
+        "vertices": 1069,
+        "triangles": 1569
+      },
+      "after": {
+        "vertices": 1173,
+        "triangles": 1669
+      },
+      "sourceAlphaCoverage": [
+        {
+          "character": "luna",
+          "part": "hair_front",
+          "guard": {
+            "nonSkin": true,
+            "protected": true,
+            "motion": true
+          },
+          "art": 57495,
+          "missingBefore": 0,
+          "missingAfter": 0,
+          "newMissing": 0,
+          "newMissingCoordinates": [],
+          "perBoneFieldResidual": 3.449987607991634e-14,
+          "sourceImageExact": true,
+          "before": {
+            "vertices": 52,
+            "triangles": 74
+          },
+          "after": {
+            "vertices": 156,
+            "triangles": 174
+          }
+        }
+      ],
+      "authoredFitBefore": [
+        {
+          "slot": "hair_front",
+          "kind": "authored",
+          "attachments": [
+            "hair_front"
+          ],
+          "vertices": 52,
+          "triangles": 74,
+          "bones": [
+            "head",
+            "bang_r0",
+            "bang_r1",
+            "hair_r0_d",
+            "bang_c0",
+            "bang_l0",
+            "bang_l1",
+            "hair_l0_d",
+            "bang_c1",
+            "hair_l1_d",
+            "hair_l2_d",
+            "hair_r2_d",
+            "hair_r1_d"
+          ],
+          "coverage": 1,
+          "overshoot": 65.74192
+        }
+      ],
+      "authoredFitAfter": [
+        {
+          "slot": "hair_front",
+          "kind": "authored",
+          "attachments": [
+            "hair_front"
+          ],
+          "vertices": 156,
+          "triangles": 174,
+          "bones": [
+            "head",
+            "bang_r0",
+            "bang_c0",
+            "bang_r1",
+            "hair_r0_d",
+            "bang_c1",
+            "bang_l0",
+            "bang_l1",
+            "hair_l0_d",
+            "hair_l1_d",
+            "hair_l2_d",
+            "hair_r1_d",
+            "hair_r2_d"
+          ],
+          "coverage": 1,
+          "overshoot": 7.071068
+        }
+      ],
+      "motionSampling": "60Hz; alpha>8 over the unchanged padded rig image (the attachment UV basis); source UV uniform grid every8px and alternate 4-neighbour boundary pixels reported separately. Separate exhaustive alpha>=1 pixel-center coverage proof is required; motion is sampled. Matched barycentric UV correspondence; reference rest first idle pose. top20PercentPlateBand is a geometric proxy, not an anatomical/root claim. Native/core and protected-bone/attachment equality must be zero. Original accepted baseline is the current emitted live rig, including Nova density.",
+      "profiles": [
+        {
+          "name": "calm0",
+          "base": 0,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.668121224856929e-05,
+              "uniformUVRms": 1.0680571782179427e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9328072888290762,
+                "maxArtStretch": 1.0502514500058102
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.86744918124757,
+                "maxArtStretch": 1.0467109054600996
+              }
+            }
+          }
+        },
+        {
+          "name": "steady48",
+          "base": 48,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.664929868696454e-05,
+              "uniformUVRms": 1.0676009534381103e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8026394088113458,
+                "maxArtStretch": 1.4352240687628066
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.6696935892371878,
+                "maxArtStretch": 1.4352240093199558
+              }
+            }
+          }
+        },
+        {
+          "name": "steady96",
+          "base": 96,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.660370146930954e-05,
+              "uniformUVRms": 1.0674436776920102e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.7612848435082041,
+                "maxArtStretch": 1.4352240687628066
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.6696935892371878,
+                "maxArtStretch": 1.4352240093199558
+              }
+            }
+          }
+        },
+        {
+          "name": "steady-96",
+          "base": -96,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.664272562410426e-05,
+              "uniformUVRms": 1.0696133840510412e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.6982389576406453,
+                "maxArtStretch": 1.433666728534556
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.6982389576406453,
+                "maxArtStretch": 1.6644324735239706
+              }
+            }
+          }
+        },
+        {
+          "name": "default-pulse48",
+          "base": 0,
+          "peak": 48,
+          "duration": 2.4,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.668122738043498e-05,
+              "uniformUVRms": 1.0679983319951029e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8127265698709644,
+                "maxArtStretch": 1.426866375643728
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.6886017745038951,
+                "maxArtStretch": 1.4268663056494972
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-short-positive",
+          "base": 100,
+          "peak": 200,
+          "duration": 0.1,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.661661819071897e-05,
+              "uniformUVRms": 1.067425812482882e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.6308865873424623,
+                "maxArtStretch": 1.5323378943077224
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.6105030789826751,
+                "maxArtStretch": 1.5323378943077224
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-short-negative",
+          "base": -100,
+          "peak": 200,
+          "duration": 0.1,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.664385222714101e-05,
+              "uniformUVRms": 1.0696155858296349e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.5547398606727046,
+                "maxArtStretch": 1.433666728534556
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.5547398606727046,
+                "maxArtStretch": 1.6644324735239706
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-long-positive",
+          "base": 100,
+          "peak": 200,
+          "duration": 20,
+          "seconds": 24,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.65962334399925e-05,
+              "uniformUVRms": 1.0670188063115454e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.5981044590031236,
+                "maxArtStretch": 1.6302633493331053
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.5719294528504477,
+                "maxArtStretch": 1.6302633493331053
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-long-negative",
+          "base": -100,
+          "peak": 200,
+          "duration": 20,
+          "seconds": 24,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.66456095046836e-05,
+              "uniformUVRms": 1.0694955317908538e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.5228819499576082,
+                "maxArtStretch": 1.4336667288796603
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.5228819499576082,
+                "maxArtStretch": 1.6644324735239706
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "character": "jinni",
+      "before": {
+        "vertices": 605,
+        "triangles": 895
+      },
+      "after": {
+        "vertices": 685,
+        "triangles": 971
+      },
+      "sourceAlphaCoverage": [
+        {
+          "character": "jinni",
+          "part": "hair_front",
+          "guard": {
+            "nonSkin": true,
+            "originalSlots": true,
+            "siblingPolicy": true,
+            "contiguous": true,
+            "protected": true,
+            "motion": true
+          },
+          "art": 31707,
+          "missingBefore": 0,
+          "missingAfter": 0,
+          "newMissing": 0,
+          "newMissingCoordinates": [],
+          "perBoneFieldResidual": 2.842170943040401e-14,
+          "sourceImageExact": true,
+          "before": {
+            "vertices": 41,
+            "triangles": 50
+          },
+          "after": {
+            "vertices": 105,
+            "triangles": 112
+          }
+        },
+        {
+          "character": "jinni",
+          "part": "earring",
+          "guard": {
+            "nonSkin": true,
+            "originalSlots": true,
+            "siblingPolicy": true,
+            "contiguous": true,
+            "protected": true,
+            "motion": true
+          },
+          "art": 2219,
+          "missingBefore": 0,
+          "missingAfter": 0,
+          "newMissing": 0,
+          "newMissingCoordinates": [],
+          "perBoneFieldResidual": 0,
+          "sourceImageExact": true,
+          "before": {
+            "vertices": 13,
+            "triangles": 12
+          },
+          "after": {
+            "vertices": 29,
+            "triangles": 26
+          }
+        }
+      ],
+      "authoredFitBefore": [
+        {
+          "slot": "earring",
+          "kind": "authored",
+          "attachments": [
+            "earring"
+          ],
+          "vertices": 13,
+          "triangles": 12,
+          "bones": [
+            "earring"
+          ],
+          "coverage": 1,
+          "overshoot": 63.529521
+        },
+        {
+          "slot": "hair_front",
+          "kind": "authored",
+          "attachments": [
+            "hair_front"
+          ],
+          "vertices": 41,
+          "triangles": 50,
+          "bones": [
+            "head",
+            "bang_r0",
+            "bang_r1",
+            "bang_c0",
+            "bang_l0",
+            "bang_l1",
+            "bang_c1"
+          ],
+          "coverage": 1,
+          "overshoot": 70.178344
+        }
+      ],
+      "authoredFitAfter": [
+        {
+          "slot": "earring",
+          "kind": "authored",
+          "attachments": [
+            "earring"
+          ],
+          "vertices": 19,
+          "triangles": 18,
+          "bones": [
+            "earring"
+          ],
+          "coverage": 0.6845426,
+          "overshoot": 6.403124
+        },
+        {
+          "slot": "earring__island2",
+          "kind": "authored",
+          "attachments": [
+            "earring__island2"
+          ],
+          "vertices": 10,
+          "triangles": 8,
+          "bones": [
+            "earring"
+          ],
+          "coverage": 0.3154574,
+          "overshoot": 7
+        },
+        {
+          "slot": "hair_front",
+          "kind": "authored",
+          "attachments": [
+            "hair_front"
+          ],
+          "vertices": 79,
+          "triangles": 87,
+          "bones": [
+            "head",
+            "bang_r0",
+            "bang_r1",
+            "bang_c0",
+            "bang_l0",
+            "bang_l1",
+            "bang_c1"
+          ],
+          "coverage": 0.9380263,
+          "overshoot": 7.071068
+        },
+        {
+          "slot": "hair_front__island2",
+          "kind": "authored",
+          "attachments": [
+            "hair_front__island2"
+          ],
+          "vertices": 26,
+          "triangles": 25,
+          "bones": [
+            "bang_r1",
+            "bang_r0",
+            "head",
+            "bang_c1",
+            "bang_l1"
+          ],
+          "coverage": 0.0619737,
+          "overshoot": 7.071068
+        }
+      ],
+      "motionSampling": "60Hz; alpha>8 over the unchanged padded rig image (the attachment UV basis); source UV uniform grid every8px and alternate 4-neighbour boundary pixels reported separately. Separate exhaustive alpha>=1 pixel-center coverage proof is required; motion is sampled. Matched barycentric UV correspondence; reference rest first idle pose. top20PercentPlateBand is a geometric proxy, not an anatomical/root claim. Native/core and protected-bone/attachment equality must be zero. Original accepted baseline is the current emitted live rig, including Nova density.",
+      "profiles": [
+        {
+          "name": "calm0",
+          "base": 0,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 5.8614117289903794e-05,
+              "uniformUVRms": 1.2397162483857217e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9454681442761549,
+                "maxArtStretch": 1.0594345645422358
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9390257494360905,
+                "maxArtStretch": 1.0573057625056475
+              }
+            },
+            "earring": {
+              "UVMax": 2.444419871781749e-06,
+              "uniformUVRms": 7.788855365498405e-07,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941637
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941641
+              }
+            }
+          }
+        },
+        {
+          "name": "steady48",
+          "base": 48,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 5.855021992693042e-05,
+              "uniformUVRms": 1.2351102685646133e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.24701820425047122,
+                "maxArtStretch": 1.6943748985268399
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.2971937918604155,
+                "maxArtStretch": 1.633979049628101
+              }
+            },
+            "earring": {
+              "UVMax": 2.444419871781749e-06,
+              "uniformUVRms": 7.788855365085335e-07,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.996016730424572,
+                "maxArtStretch": 1.0039826357941637
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245713,
+                "maxArtStretch": 1.0039826357941641
+              }
+            }
+          }
+        },
+        {
+          "name": "steady96",
+          "base": 96,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 5.8722810558737545e-05,
+              "uniformUVRms": 1.2340862703241395e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0.006097560975609756,
+                "peakBoundaryInversion": 0.03850509626274066,
+                "peakInvertedArea": 415.7393988339211,
+                "peakNormalizedArea": 0.006254988099407555,
+                "foldTriangleFrames": 27,
+                "peakFolds": 3,
+                "minArtStretch": 0.0168155515445637,
+                "maxArtStretch": 2.1651814122982596
+              },
+              "after": {
+                "peakUniformArtInversion": 0.006097560975609756,
+                "peakBoundaryInversion": 0.03850509626274066,
+                "peakInvertedArea": 69.05766372697137,
+                "peakNormalizedArea": 0.0017953765128975161,
+                "foldTriangleFrames": 45,
+                "peakFolds": 4,
+                "minArtStretch": 0.02972640187187864,
+                "maxArtStretch": 2.035898189075511
+              }
+            },
+            "earring": {
+              "UVMax": 2.4444198800591135e-06,
+              "uniformUVRms": 7.788855365160356e-07,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941637
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941635
+              }
+            }
+          }
+        },
+        {
+          "name": "steady-96",
+          "base": -96,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 5.9708281654703065e-05,
+              "uniformUVRms": 1.248387664408609e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.34417056237048466,
+                "maxArtStretch": 1.714443335359803
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.2876814538209935,
+                "maxArtStretch": 1.8604345207167445
+              }
+            },
+            "earring": {
+              "UVMax": 2.4444198800591135e-06,
+              "uniformUVRms": 7.788855365814823e-07,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941635
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941635
+              }
+            }
+          }
+        },
+        {
+          "name": "default-pulse48",
+          "base": 0,
+          "peak": 48,
+          "duration": 2.4,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 5.861412101604651e-05,
+              "uniformUVRms": 1.2392366636859103e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.4142744850375978,
+                "maxArtStretch": 1.5286601072903032
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.4043470216597992,
+                "maxArtStretch": 1.4869043977753555
+              }
+            },
+            "earring": {
+              "UVMax": 2.4444198800591135e-06,
+              "uniformUVRms": 7.788855365113203e-07,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941637
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941635
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-short-positive",
+          "base": 100,
+          "peak": 200,
+          "duration": 0.1,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 5.9996556583027415e-05,
+              "uniformUVRms": 1.2341698363618908e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0.12195121951219512,
+                "peakBoundaryInversion": 0.32276330690826727,
+                "peakInvertedArea": 2519.6287852011537,
+                "peakNormalizedArea": 0.03790895958035916,
+                "foldTriangleFrames": 362,
+                "peakFolds": 12,
+                "minArtStretch": 0.02119260289096861,
+                "maxArtStretch": 2.6026881493152096
+              },
+              "after": {
+                "peakUniformArtInversion": 0.12195121951219512,
+                "peakBoundaryInversion": 0.32276330690826727,
+                "peakInvertedArea": 912.2402685659931,
+                "peakNormalizedArea": 0.023716625554812052,
+                "foldTriangleFrames": 756,
+                "peakFolds": 32,
+                "minArtStretch": 0.025149940489679223,
+                "maxArtStretch": 2.393830774109433
+              }
+            },
+            "earring": {
+              "UVMax": 2.4444198729548636e-06,
+              "uniformUVRms": 7.788855365270828e-07,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941635
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941635
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-short-negative",
+          "base": -100,
+          "peak": 200,
+          "duration": 0.1,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 6.069443040055056e-05,
+              "uniformUVRms": 1.2487133723050773e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0.06097560975609756,
+                "peakBoundaryInversion": 0.1755379388448471,
+                "peakInvertedArea": 552.1774610449575,
+                "peakNormalizedArea": 0.008307760720501335,
+                "foldTriangleFrames": 12,
+                "peakFolds": 4,
+                "minArtStretch": 0.04614644317752747,
+                "maxArtStretch": 1.9795663300815798
+              },
+              "after": {
+                "peakUniformArtInversion": 0.06097560975609756,
+                "peakBoundaryInversion": 0.1755379388448471,
+                "peakInvertedArea": 247.54808507289056,
+                "peakNormalizedArea": 0.006435810216658709,
+                "foldTriangleFrames": 46,
+                "peakFolds": 15,
+                "minArtStretch": 0.04614644317752747,
+                "maxArtStretch": 2.2102620886628763
+              }
+            },
+            "earring": {
+              "UVMax": 2.4444198729548636e-06,
+              "uniformUVRms": 7.788855365293895e-07,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941637
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245726,
+                "maxArtStretch": 1.0039826357941635
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-long-positive",
+          "base": 100,
+          "peak": 200,
+          "duration": 20,
+          "seconds": 24,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 5.8985281352981276e-05,
+              "uniformUVRms": 1.235391563188111e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0.09959349593495935,
+                "peakBoundaryInversion": 0.2638731596828992,
+                "peakInvertedArea": 2556.668202506983,
+                "peakNormalizedArea": 0.038466234438375456,
+                "foldTriangleFrames": 5833,
+                "peakFolds": 9,
+                "minArtStretch": 0.014973236324341596,
+                "maxArtStretch": 2.4023997058868565
+              },
+              "after": {
+                "peakUniformArtInversion": 0.09959349593495935,
+                "peakBoundaryInversion": 0.2638731596828992,
+                "peakInvertedArea": 632.9111949562157,
+                "peakNormalizedArea": 0.016454566124143127,
+                "foldTriangleFrames": 13900,
+                "peakFolds": 25,
+                "minArtStretch": 0.029214740568346182,
+                "maxArtStretch": 2.226464975237372
+              }
+            },
+            "earring": {
+              "UVMax": 2.4444198800591135e-06,
+              "uniformUVRms": 7.787438931046623e-07,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245733,
+                "maxArtStretch": 1.0039826357941637
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245733,
+                "maxArtStretch": 1.0039826357941635
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-long-negative",
+          "base": -100,
+          "peak": 200,
+          "duration": 20,
+          "seconds": 24,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_front": {
+              "UVMax": 5.981429479222133e-05,
+              "uniformUVRms": 1.251869494462241e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.3215947793291791,
+                "maxArtStretch": 1.7628587753155576
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.27121437698636175,
+                "maxArtStretch": 1.928056173223003
+              }
+            },
+            "earring": {
+              "UVMax": 2.4444198800591135e-06,
+              "uniformUVRms": 7.787438932658109e-07,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9960167304245723,
+                "maxArtStretch": 1.0039826357941635
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.996016730424572,
+                "maxArtStretch": 1.0039826357941635
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "character": "nova",
+      "before": {
+        "vertices": 643,
+        "triangles": 962
+      },
+      "after": {
+        "vertices": 904,
+        "triangles": 1217
+      },
+      "sourceAlphaCoverage": [
+        {
+          "character": "nova",
+          "part": "hair_back",
+          "guard": {
+            "nonSkin": true,
+            "originalSlots": true,
+            "siblingPolicy": true,
+            "contiguous": true,
+            "protected": true,
+            "motion": true
+          },
+          "art": 134620,
+          "missingBefore": 0,
+          "missingAfter": 0,
+          "newMissing": 0,
+          "newMissingCoordinates": [],
+          "perBoneFieldResidual": 2.842170943040401e-14,
+          "sourceImageExact": true,
+          "before": {
+            "vertices": 78,
+            "triangles": 120
+          },
+          "after": {
+            "vertices": 193,
+            "triangles": 234
+          }
+        },
+        {
+          "character": "nova",
+          "part": "hair_front",
+          "guard": {
+            "nonSkin": true,
+            "originalSlots": true,
+            "siblingPolicy": true,
+            "contiguous": true,
+            "protected": true,
+            "motion": true
+          },
+          "art": 62829,
+          "missingBefore": 0,
+          "missingAfter": 0,
+          "newMissing": 0,
+          "newMissingCoordinates": [],
+          "perBoneFieldResidual": 2.842170943040401e-14,
+          "sourceImageExact": true,
+          "before": {
+            "vertices": 56,
+            "triangles": 80
+          },
+          "after": {
+            "vertices": 202,
+            "triangles": 221
+          }
+        }
+      ],
+      "authoredFitBefore": [
+        {
+          "slot": "hair_back",
+          "kind": "authored",
+          "attachments": [
+            "hair_back"
+          ],
+          "vertices": 78,
+          "triangles": 120,
+          "bones": [
+            "head",
+            "hairback_r0_d",
+            "hairback_l0_d",
+            "hairback_r1_d",
+            "hairback_l1_d",
+            "hairback_l2_d",
+            "hairback_r2_d"
+          ],
+          "coverage": 1,
+          "overshoot": 74.793048
+        },
+        {
+          "slot": "hair_front",
+          "kind": "authored",
+          "attachments": [
+            "hair_front"
+          ],
+          "vertices": 56,
+          "triangles": 80,
+          "bones": [
+            "bang_r0",
+            "head",
+            "bang_c0",
+            "bang_r1",
+            "bang_l0",
+            "bang_l1",
+            "hair_l0_d",
+            "hair_l1_d",
+            "hair_l2_d",
+            "bang_c1"
+          ],
+          "coverage": 1,
+          "overshoot": 61.098281
+        }
+      ],
+      "authoredFitAfter": [
+        {
+          "slot": "hair_back",
+          "kind": "authored",
+          "attachments": [
+            "hair_back"
+          ],
+          "vertices": 193,
+          "triangles": 234,
+          "bones": [
+            "head",
+            "hairback_r0_d",
+            "hairback_l0_d",
+            "hairback_r1_d",
+            "hairback_l1_d",
+            "hairback_l2_d",
+            "hairback_r2_d"
+          ],
+          "coverage": 1,
+          "overshoot": 11.401754
+        },
+        {
+          "slot": "hair_front",
+          "kind": "authored",
+          "attachments": [
+            "hair_front"
+          ],
+          "vertices": 202,
+          "triangles": 221,
+          "bones": [
+            "bang_r0",
+            "bang_c0",
+            "bang_r1",
+            "bang_c1",
+            "head",
+            "bang_l0",
+            "bang_l1",
+            "hair_l0_d",
+            "hair_l1_d",
+            "hair_l2_d"
+          ],
+          "coverage": 1,
+          "overshoot": 8
+        }
+      ],
+      "motionSampling": "60Hz; alpha>8 over the unchanged padded rig image (the attachment UV basis); source UV uniform grid every8px and alternate 4-neighbour boundary pixels reported separately. Separate exhaustive alpha>=1 pixel-center coverage proof is required; motion is sampled. Matched barycentric UV correspondence; reference rest first idle pose. top20PercentPlateBand is a geometric proxy, not an anatomical/root claim. Native/core and protected-bone/attachment equality must be zero. Original accepted baseline is the current emitted live rig, including Nova density.",
+      "profiles": [
+        {
+          "name": "calm0",
+          "base": 0,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_back": {
+              "UVMax": 8.9767890216158e-05,
+              "uniformUVRms": 7.03609545564993e-06,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9059718624284758,
+                "maxArtStretch": 1.1110284617378061
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8947966388645897,
+                "maxArtStretch": 1.1131610459271828
+              }
+            },
+            "hair_front": {
+              "UVMax": 7.44230633626313e-05,
+              "uniformUVRms": 1.536818592389735e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.929358340963595,
+                "maxArtStretch": 1.0924599796534509
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.9266988878621424,
+                "maxArtStretch": 1.0924599589452582
+              }
+            }
+          }
+        },
+        {
+          "name": "steady48",
+          "base": 48,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_back": {
+              "UVMax": 8.977462610962333e-05,
+              "uniformUVRms": 7.077551157076321e-06,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.815809135728361,
+                "maxArtStretch": 1.8206594345035567
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.7968479528611895,
+                "maxArtStretch": 1.8647840555765374
+              }
+            },
+            "hair_front": {
+              "UVMax": 7.468531512969267e-05,
+              "uniformUVRms": 1.546529629137611e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8401383789942527,
+                "maxArtStretch": 1.5501270576855208
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.824306272046012,
+                "maxArtStretch": 1.576538375110557
+              }
+            }
+          }
+        },
+        {
+          "name": "steady96",
+          "base": 96,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_back": {
+              "UVMax": 8.977462610962333e-05,
+              "uniformUVRms": 7.079249358689575e-06,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8158031667608296,
+                "maxArtStretch": 1.821147952627615
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.7965176461158355,
+                "maxArtStretch": 1.8653029481436918
+              }
+            },
+            "hair_front": {
+              "UVMax": 7.468531512969267e-05,
+              "uniformUVRms": 1.546902237454963e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.4777526956735767,
+                "maxArtStretch": 1.5622498987667155
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.43513754995224035,
+                "maxArtStretch": 1.5654640159663589
+              }
+            }
+          }
+        },
+        {
+          "name": "steady-96",
+          "base": -96,
+          "peak": null,
+          "duration": null,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_back": {
+              "UVMax": 8.979333229154146e-05,
+              "uniformUVRms": 7.032142862911512e-06,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8763998545086633,
+                "maxArtStretch": 1.6940607832353338
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8763998113838195,
+                "maxArtStretch": 1.7234040270956221
+              }
+            },
+            "hair_front": {
+              "UVMax": 7.436096655884627e-05,
+              "uniformUVRms": 1.535918298428988e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8870712453243808,
+                "maxArtStretch": 1.7156005677447885
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8782429756094875,
+                "maxArtStretch": 1.8081226237270271
+              }
+            }
+          }
+        },
+        {
+          "name": "default-pulse48",
+          "base": 0,
+          "peak": 48,
+          "duration": 2.4,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_back": {
+              "UVMax": 8.977462588238685e-05,
+              "uniformUVRms": 7.0407677806439644e-06,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8107473009978006,
+                "maxArtStretch": 1.7931127078558053
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.7757637430163982,
+                "maxArtStretch": 1.8335868400105682
+              }
+            },
+            "hair_front": {
+              "UVMax": 7.468153735037248e-05,
+              "uniformUVRms": 1.5379342805560647e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8540331183760238,
+                "maxArtStretch": 1.5107750098366655
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8410651050673394,
+                "maxArtStretch": 1.533026659673573
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-short-positive",
+          "base": 100,
+          "peak": 200,
+          "duration": 0.1,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_back": {
+              "UVMax": 8.977462610962333e-05,
+              "uniformUVRms": 7.079128051374292e-06,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8158031667608296,
+                "maxArtStretch": 1.821147952627615
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.7965176461158355,
+                "maxArtStretch": 1.8653029481436918
+              }
+            },
+            "hair_front": {
+              "UVMax": 7.468531512969267e-05,
+              "uniformUVRms": 1.5468949474074926e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0.0010256410256410256,
+                "peakBoundaryInversion": 0.000580046403712297,
+                "peakInvertedArea": 4.44496678224607,
+                "peakNormalizedArea": 3.5337828796614086e-05,
+                "foldTriangleFrames": 1,
+                "peakFolds": 1,
+                "minArtStretch": 0.23364701280343717,
+                "maxArtStretch": 1.7786918146169883
+              },
+              "after": {
+                "peakUniformArtInversion": 0.0010256410256410256,
+                "peakBoundaryInversion": 0.000580046403712297,
+                "peakInvertedArea": 0.5564794530374466,
+                "peakNormalizedArea": 7.119882538910886e-06,
+                "foldTriangleFrames": 2,
+                "peakFolds": 2,
+                "minArtStretch": 0.14808704333539074,
+                "maxArtStretch": 1.778691620332516
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-short-negative",
+          "base": -100,
+          "peak": 200,
+          "duration": 0.1,
+          "seconds": 12,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_back": {
+              "UVMax": 8.979333229154146e-05,
+              "uniformUVRms": 7.032127872914716e-06,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8763998545086633,
+                "maxArtStretch": 1.6940607832353338
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8763998113838195,
+                "maxArtStretch": 1.7234040270956221
+              }
+            },
+            "hair_front": {
+              "UVMax": 7.436096655884627e-05,
+              "uniformUVRms": 1.536011123160293e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8304576353524185,
+                "maxArtStretch": 2.0704534223878635
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8117593179613289,
+                "maxArtStretch": 2.283883663773969
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-long-positive",
+          "base": 100,
+          "peak": 200,
+          "duration": 20,
+          "seconds": 24,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_back": {
+              "UVMax": 8.9774626337847e-05,
+              "uniformUVRms": 7.0780625317154e-06,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8158031664997114,
+                "maxArtStretch": 1.821147952627615
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.7965176457321029,
+                "maxArtStretch": 1.8653029481436918
+              }
+            },
+            "hair_front": {
+              "UVMax": 7.468531512969267e-05,
+              "uniformUVRms": 1.5471264239727424e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0.019487179487179488,
+                "peakBoundaryInversion": 0.022041763341067284,
+                "peakInvertedArea": 727.7516417637974,
+                "peakNormalizedArea": 0.005785681689641075,
+                "foldTriangleFrames": 869,
+                "peakFolds": 2,
+                "minArtStretch": 0.244105114404955,
+                "maxArtStretch": 2.14283190563931
+              },
+              "after": {
+                "peakUniformArtInversion": 0.019487179487179488,
+                "peakBoundaryInversion": 0.022041763341067284,
+                "peakInvertedArea": 163.809512911789,
+                "peakNormalizedArea": 0.002095862631265311,
+                "foldTriangleFrames": 1738,
+                "peakFolds": 4,
+                "minArtStretch": 0.16060123632352152,
+                "maxArtStretch": 2.167595780494488
+              }
+            }
+          }
+        },
+        {
+          "name": "stress-long-negative",
+          "base": -100,
+          "peak": 200,
+          "duration": 20,
+          "seconds": 24,
+          "nativeCoreMaxDelta": 0,
+          "bonesMaxDelta": 0,
+          "protectedAttachmentMaxDelta": 0,
+          "parts": {
+            "hair_back": {
+              "UVMax": 8.979333229332015e-05,
+              "uniformUVRms": 7.030889880368006e-06,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8763998544855341,
+                "maxArtStretch": 1.6940607832353338
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.8763998113606934,
+                "maxArtStretch": 1.7234040270956221
+              }
+            },
+            "hair_front": {
+              "UVMax": 7.436096655884627e-05,
+              "uniformUVRms": 1.5373685831884e-05,
+              "newUniformInversionSampleFrames": 0,
+              "newBoundaryInversionSampleFrames": 0,
+              "before": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.79207073519568,
+                "maxArtStretch": 2.281289757076585
+              },
+              "after": {
+                "peakUniformArtInversion": 0,
+                "peakBoundaryInversion": 0,
+                "peakInvertedArea": 0,
+                "peakNormalizedArea": 0,
+                "foldTriangleFrames": 0,
+                "peakFolds": 0,
+                "minArtStretch": 0.7638817449573345,
+                "maxArtStretch": 2.5864098032816156
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "guardControls": {
+    "controls": [
+      {
+        "label": "luna-frozen-snapshot-replay",
+        "expected": "exact final measured rig",
+        "exitCode": 0,
+        "status": "PASS"
+      },
+      {
+        "label": "jinni-frozen-snapshot-replay",
+        "expected": "exact final measured rig",
+        "exitCode": 0,
+        "status": "PASS"
+      },
+      {
+        "label": "nova-frozen-snapshot-replay",
+        "expected": "exact final measured rig",
+        "exitCode": 0,
+        "status": "PASS"
+      },
+      {
+        "label": "changed-source",
+        "expected": "CLIP_SOURCE_RIG_CHANGED",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "target-deform",
+        "expected": "CLIP_TARGET_TIMELINE_UNSUPPORTED deform",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "slot-attachment",
+        "expected": "CLIP_TARGET_TIMELINE_UNSUPPORTED tracks",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "draw-order",
+        "expected": "CLIP_DRAW_ORDER_UNSUPPORTED",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "linked",
+        "expected": "CLIP_LINKED_MESH_UNSUPPORTED",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "setup",
+        "expected": "CLIP_SLOT_SETUP_UNSUPPORTED",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "attachment-sequence",
+        "expected": "CLIP_ATTACHMENT_SEQUENCE_UNSUPPORTED",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "attachment-type",
+        "expected": "CLIP_WEIGHTED_MESH_REQUIRED",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "attachment-image",
+        "expected": "CLIP_IMAGE_IDENTITY_REQUIRED",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "same-directory",
+        "expected": "CLIP_OUTPUT_DIRECTORY_MUST_DIFFER_FROM_SOURCE",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "same-file",
+        "expected": "CLIP_OUTPUT_MUST_DIFFER_FROM_INPUT",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "existing-rig",
+        "expected": "CLIP_OUTPUT_EXISTS",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "existing-provenance",
+        "expected": "CLIP_OUTPUT_EXISTS",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      },
+      {
+        "label": "existing-report",
+        "expected": "CLIP_OUTPUT_EXISTS",
+        "exitCode": 1,
+        "unchangedOnRefusal": true,
+        "status": "PASS"
+      }
+    ],
+    "helperSHA256": "9eb0ec5b6bb9e2cda2652e67970679ac1048d91f12697845a13277dad35d3fb3",
+    "coverageSHA256": "4f6062c589ce78f128bd0696fedade87807cf655d4891e938dfd7dd91932518e",
+    "lockSHA256": "a580bc0dd115e2d84faf012dbab774456f9bb41a907b3911c5d34a9c90e9ea5d"
+  },
+  "guardedFinalReceipt": "Standard guarded4GiB/four CPUs, actual session01a14425-cd7a-7731-9445-900de182738b; snapshot replay3 plus14 refusal controls; all17PASS.",
+  "naturalOfficialPublicRun": "20261016T125631Z-83655458c7664e60beff356779a33a7a",
+  "reviewControlsRun": "20261016T130238Z-0b94dd78bdc44775940f4627630f8a2a",
+  "existingFolds": "Original Jinni lower-strand and other wind folds remain. Matched uniform/boundary inversion fractions equal baseline every profile; this is not fold repair."
+}

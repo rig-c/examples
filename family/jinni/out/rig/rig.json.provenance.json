@@ -1,0 +1,1226 @@
+[
+  {
+    "part": "hair_front",
+    "pieceName": "hair_front",
+    "pieceIndex": 0,
+    "componentPixels": 34708,
+    "derivedMaskPinchPixelsAdded": 0,
+    "components": 2,
+    "sourceImage": "hair_front.png",
+    "sourcePath": "hair_front",
+    "method": "Author-input silhouette clip of original triangle cells; weighted local coordinate contributions barycentrically interpolated by bone; no distance-weight solve, no physics change.",
+    "sourceVertices": 41,
+    "sourceTriangles": 50,
+    "vertices": 79,
+    "triangles": 87,
+    "hull": 69,
+    "sourceAlphaGt0": 31707,
+    "silhouette": {
+      "alphaThreshold": 1,
+      "dilationChebyshevPixels": 4,
+      "tolerance": 3,
+      "margin": 0,
+      "traceIslands": 1,
+      "outlineVertices": 35
+    },
+    "originTriangles": [
+      {
+        "triangle": 1,
+        "coefficients": [
+          0,
+          0.3703714156370471,
+          0.6296285843629529
+        ]
+      },
+      {
+        "triangle": 1,
+        "coefficients": [
+          0.24074057201642335,
+          0.12963108436100848,
+          0.6296283436225683
+        ]
+      },
+      {
+        "triangle": 1,
+        "coefficients": [
+          0.30174349623929536,
+          0,
+          0.6982565037607047
+        ]
+      },
+      {
+        "triangle": 2,
+        "coefficients": [
+          0.5251857293925806,
+          0.47481427060687503,
+          5.443978601249455e-13
+        ]
+      },
+      {
+        "triangle": 2,
+        "coefficients": [
+          0.5000019444429321,
+          0.46296306584364433,
+          0.03703498971342356
+        ]
+      },
+      {
+        "triangle": 2,
+        "coefficients": [
+          0.14815036625341876,
+          0.42592602057615275,
+          0.42592361317042854
+        ]
+      },
+      {
+        "triangle": 2,
+        "coefficients": [
+          0.22222438271436892,
+          0,
+          0.777775617285631
+        ]
+      },
+      {
+        "triangle": 2,
+        "coefficients": [
+          0,
+          0.04204249282425767,
+          0.9579575071757424
+        ]
+      },
+      {
+        "triangle": 4,
+        "coefficients": [
+          0.4074076971893086,
+          0.1296296584362204,
+          0.462962644374471
+        ]
+      },
+      {
+        "triangle": 4,
+        "coefficients": [
+          5.6037028857129224e-12,
+          0.2654318502811519,
+          0.7345681497132444
+        ]
+      },
+      {
+        "triangle": 5,
+        "coefficients": [
+          0.6481480699588303,
+          0.0925909770162887,
+          0.25926095302488095
+        ]
+      },
+      {
+        "triangle": 5,
+        "coefficients": [
+          0.5651358126783287,
+          0,
+          0.4348641873216713
+        ]
+      },
+      {
+        "triangle": 7,
+        "coefficients": [
+          0.16666648148144025,
+          0.38888740123591015,
+          0.4444461172826496
+        ]
+      },
+      {
+        "triangle": 7,
+        "coefficients": [
+          0,
+          0.44016951092371387,
+          0.5598304890762861
+        ]
+      },
+      {
+        "triangle": 16,
+        "coefficients": [
+          0,
+          0.2601002719462112,
+          0.7398997280537888
+        ]
+      },
+      {
+        "triangle": 17,
+        "coefficients": [
+          0.6851848930040502,
+          0.2222208086430747,
+          0.09259429835287514
+        ]
+      },
+      {
+        "triangle": 17,
+        "coefficients": [
+          0.10039270651319392,
+          0,
+          0.8996072934868061
+        ]
+      },
+      {
+        "triangle": 17,
+        "coefficients": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "triangle": 28,
+        "coefficients": [
+          0.7057088339297338,
+          2.6316403468834106e-16,
+          0.2942911660702659
+        ]
+      },
+      {
+        "triangle": 28,
+        "coefficients": [
+          0,
+          0.17950573806478703,
+          0.820494261935213
+        ]
+      },
+      {
+        "triangle": 29,
+        "coefficients": [
+          0.7592587613167616,
+          0,
+          0.24074123868323838
+        ]
+      },
+      {
+        "triangle": 29,
+        "coefficients": [
+          0.574073534979304,
+          0,
+          0.425926465020696
+        ]
+      },
+      {
+        "triangle": 28,
+        "coefficients": [
+          0,
+          0.43533187541223906,
+          0.5646681245877608
+        ]
+      },
+      {
+        "triangle": 28,
+        "coefficients": [
+          0.4126896654853066,
+          0.4444449876544418,
+          0.1428653468602516
+        ]
+      },
+      {
+        "triangle": 28,
+        "coefficients": [
+          1.7223827226564646e-11,
+          0.7882472957586583,
+          0.21175270422411796
+        ]
+      },
+      {
+        "triangle": 29,
+        "coefficients": [
+          0,
+          0.7458185980219887,
+          0.2541814019780113
+        ]
+      },
+      {
+        "triangle": 26,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "triangle": 37,
+        "coefficients": [
+          0.07407196090487983,
+          0,
+          0.9259280390951201
+        ]
+      },
+      {
+        "triangle": 37,
+        "coefficients": [
+          0,
+          0.07407188683297698,
+          0.925928113167023
+        ]
+      },
+      {
+        "triangle": 40,
+        "coefficients": [
+          0.1666652962973621,
+          0.09259350205781566,
+          0.7407412016448223
+        ]
+      },
+      {
+        "triangle": 40,
+        "coefficients": [
+          0.3518503374497374,
+          0.16666759259279873,
+          0.4814820699574638
+        ]
+      },
+      {
+        "triangle": 40,
+        "coefficients": [
+          0.5185168744868753,
+          0.16666759259279873,
+          0.31481553292032594
+        ]
+      },
+      {
+        "triangle": 40,
+        "coefficients": [
+          0.5555538827173504,
+          0.07407497942406989,
+          0.3703711378585797
+        ]
+      },
+      {
+        "triangle": 40,
+        "coefficients": [
+          0.9082882829239278,
+          0.09171171706556706,
+          1.0505110670244733e-11
+        ]
+      },
+      {
+        "triangle": 41,
+        "coefficients": [
+          0.9074064979421843,
+          0.01851746707991678,
+          0.07407603497789891
+        ]
+      },
+      {
+        "triangle": 41,
+        "coefficients": [
+          0.9612800318029696,
+          0.03871996819703041,
+          0
+        ]
+      },
+      {
+        "triangle": 34,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "triangle": 35,
+        "coefficients": [
+          0,
+          0.053240176137803887,
+          0.9467598238621961
+        ]
+      },
+      {
+        "triangle": 35,
+        "coefficients": [
+          0.05555467901215053,
+          0.07407349622157482,
+          0.8703718247662747
+        ]
+      },
+      {
+        "triangle": 34,
+        "coefficients": [
+          0.14444294789060638,
+          0.8555570521052713,
+          4.1223691127356696e-12
+        ]
+      },
+      {
+        "triangle": 34,
+        "coefficients": [
+          0.16666537345116209,
+          0.7222230493829002,
+          0.11111157716593778
+        ]
+      },
+      {
+        "triangle": 34,
+        "coefficients": [
+          0.3006527496369661,
+          0.6993472503549449,
+          8.088973935116428e-12
+        ]
+      },
+      {
+        "triangle": 35,
+        "coefficients": [
+          0.4074066090533204,
+          0.5185213278552939,
+          0.0740720630913857
+        ]
+      },
+      {
+        "triangle": 33,
+        "coefficients": [
+          0.43621229241754644,
+          0,
+          0.5637877075824536
+        ]
+      },
+      {
+        "triangle": 33,
+        "coefficients": [
+          0.5370362674895408,
+          0.259261390944844,
+          0.20370234156561517
+        ]
+      },
+      {
+        "triangle": 32,
+        "coefficients": [
+          0,
+          0.35432243297636007,
+          0.64567756702364
+        ]
+      },
+      {
+        "triangle": 32,
+        "coefficients": [
+          0.07407536831101388,
+          0.314815551440493,
+          0.6111090802484932
+        ]
+      },
+      {
+        "triangle": 32,
+        "coefficients": [
+          0.3148159032905936,
+          0.3333340740742387,
+          0.3518500226351677
+        ]
+      },
+      {
+        "triangle": 32,
+        "coefficients": [
+          0.40740849794081435,
+          0.25925998353925567,
+          0.3333315185199301
+        ]
+      },
+      {
+        "triangle": 32,
+        "coefficients": [
+          0.6851861152249021,
+          0.20370441563801828,
+          0.11110946913707959
+        ]
+      },
+      {
+        "triangle": 30,
+        "coefficients": [
+          0,
+          0.20925989465034703,
+          0.790740105349653
+        ]
+      },
+      {
+        "triangle": 30,
+        "coefficients": [
+          0.25926061316767124,
+          0.22222293827176404,
+          0.5185164485605647
+        ]
+      },
+      {
+        "triangle": 30,
+        "coefficients": [
+          0.46296415843528416,
+          0.055556234568052046,
+          0.4814796069966638
+        ]
+      },
+      {
+        "triangle": 30,
+        "coefficients": [
+          0.5740751831267095,
+          0.055556234568052046,
+          0.3703685823052385
+        ]
+      },
+      {
+        "triangle": 30,
+        "coefficients": [
+          0.6269849352524578,
+          0.37301506474408835,
+          3.4538483184576307e-12
+        ]
+      },
+      {
+        "triangle": 31,
+        "coefficients": [
+          0.6111103580245238,
+          0.01852033744789816,
+          0.370369304527578
+        ]
+      },
+      {
+        "triangle": 31,
+        "coefficients": [
+          0.611110358024524,
+          0.20370537860027352,
+          0.18518426337520252
+        ]
+      },
+      {
+        "triangle": 30,
+        "coefficients": [
+          0.8827174389562885,
+          0.11728256104371163,
+          0
+        ]
+      },
+      {
+        "triangle": 21,
+        "coefficients": [
+          0,
+          0.9120380498963315,
+          0.08796195010366847
+        ]
+      },
+      {
+        "triangle": 20,
+        "coefficients": [
+          0,
+          0.9296304258430581,
+          0.07036957415694191
+        ]
+      },
+      {
+        "triangle": 20,
+        "coefficients": [
+          0.07407425720086587,
+          0.8703710082305943,
+          0.055554734568539765
+        ]
+      },
+      {
+        "triangle": 18,
+        "coefficients": [
+          0,
+          0.783070623756435,
+          0.216929376243565
+        ]
+      },
+      {
+        "triangle": 18,
+        "coefficients": [
+          0.074074794238123,
+          0.6666672592593909,
+          0.2592579465024861
+        ]
+      },
+      {
+        "triangle": 18,
+        "coefficients": [
+          0.27777833950573594,
+          0.6296302139918993,
+          0.09259144650236473
+        ]
+      },
+      {
+        "triangle": 18,
+        "coefficients": [
+          0.27777833950573594,
+          0.2592597613169841,
+          0.46296189917728
+        ]
+      },
+      {
+        "triangle": 9,
+        "coefficients": [
+          0,
+          0.15165209527059256,
+          0.8483479047294074
+        ]
+      },
+      {
+        "triangle": 9,
+        "coefficients": [
+          0.31172961866213733,
+          0,
+          0.6882703813378627
+        ]
+      },
+      {
+        "triangle": 11,
+        "coefficients": [
+          0.4259255761316094,
+          0.5185196892998509,
+          0.055554734568539654
+        ]
+      },
+      {
+        "triangle": 10,
+        "coefficients": [
+          0.6851855504112386,
+          0.31481444958839644,
+          3.6493030819428895e-13
+        ]
+      },
+      {
+        "triangle": 1,
+        "coefficients": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "triangle": 2,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "triangle": 5,
+        "coefficients": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "triangle": 9,
+        "coefficients": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "triangle": 10,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "triangle": 13,
+        "coefficients": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "triangle": 14,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "triangle": 21,
+        "coefficients": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "triangle": 22,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "triangle": 25,
+        "coefficients": [
+          0,
+          0,
+          1
+        ]
+      }
+    ],
+    "proof": {
+      "alphaThreshold": 1,
+      "pixelTest": "every source pixel center",
+      "art": 31707,
+      "missingBefore": 0,
+      "missingAfter": 0,
+      "newMissing": 0,
+      "multiplyDrawn": 0,
+      "originalCellPartitionTriangles": 112,
+      "maxFieldResidual": 2.9271163271005207e-10
+    }
+  },
+  {
+    "part": "hair_front",
+    "pieceName": "hair_front__island2",
+    "pieceIndex": 1,
+    "componentPixels": 3932,
+    "derivedMaskPinchPixelsAdded": 0,
+    "components": 2,
+    "sourceImage": "hair_front.png",
+    "sourcePath": "hair_front",
+    "method": "Author-input silhouette clip of original triangle cells; weighted local coordinate contributions barycentrically interpolated by bone; no distance-weight solve, no physics change.",
+    "sourceVertices": 41,
+    "sourceTriangles": 50,
+    "vertices": 26,
+    "triangles": 25,
+    "hull": 25,
+    "sourceAlphaGt0": 31707,
+    "silhouette": {
+      "alphaThreshold": 1,
+      "dilationChebyshevPixels": 4,
+      "tolerance": 3,
+      "margin": 0,
+      "traceIslands": 1,
+      "outlineVertices": 11
+    },
+    "originTriangles": [
+      {
+        "triangle": 31,
+        "coefficients": [
+          0,
+          0.6873229326562377,
+          0.31267706734376227
+        ]
+      },
+      {
+        "triangle": 31,
+        "coefficients": [
+          0.07407320164589631,
+          0.6111130061722384,
+          0.31481379218186534
+        ]
+      },
+      {
+        "triangle": 31,
+        "coefficients": [
+          0.24073990534960832,
+          0.5000018148142389,
+          0.2592582798361528
+        ]
+      },
+      {
+        "triangle": 31,
+        "coefficients": [
+          0.24073990534960832,
+          0.6666683518513767,
+          0.09259174279901494
+        ]
+      },
+      {
+        "triangle": 31,
+        "coefficients": [
+          0,
+          0.9400084201230807,
+          0.05999157987691925
+        ]
+      },
+      {
+        "triangle": 38,
+        "coefficients": [
+          0.5569848132373657,
+          0.44301518676263435,
+          0
+        ]
+      },
+      {
+        "triangle": 38,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "triangle": 42,
+        "coefficients": [
+          0.07542495137318599,
+          0,
+          0.9245750486268141
+        ]
+      },
+      {
+        "triangle": 42,
+        "coefficients": [
+          2.2562692103807875e-12,
+          0.08723848429373737,
+          0.9127615157040063
+        ]
+      },
+      {
+        "triangle": 43,
+        "coefficients": [
+          0.46296173251001466,
+          0.14814881069907318,
+          0.38888945679091225
+        ]
+      },
+      {
+        "triangle": 43,
+        "coefficients": [
+          0.14814684773633666,
+          0.7222224382714368,
+          0.12963071399222648
+        ]
+      },
+      {
+        "triangle": 42,
+        "coefficients": [
+          0,
+          0.8717963620472826,
+          0.12820363795271736
+        ]
+      },
+      {
+        "triangle": 42,
+        "coefficients": [
+          0.11110980246884514,
+          0.888890197531155,
+          0
+        ]
+      },
+      {
+        "triangle": 42,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "triangle": 47,
+        "coefficients": [
+          0.5999971200138244,
+          0.4000028799861756,
+          0
+        ]
+      },
+      {
+        "triangle": 47,
+        "coefficients": [
+          0,
+          0.555555901234299,
+          0.444444098765701
+        ]
+      },
+      {
+        "triangle": 46,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "triangle": 49,
+        "coefficients": [
+          0,
+          0.6111121913571845,
+          0.38888780864281547
+        ]
+      },
+      {
+        "triangle": 48,
+        "coefficients": [
+          2.903636869736447e-11,
+          0.6111121913281482,
+          0.38888780864281547
+        ]
+      },
+      {
+        "triangle": 45,
+        "coefficients": [
+          0,
+          0.6111121913571845,
+          0.38888780864281547
+        ]
+      },
+      {
+        "triangle": 45,
+        "coefficients": [
+          0.09259127983509938,
+          0.5185209115220852,
+          0.38888780864281536
+        ]
+      },
+      {
+        "triangle": 45,
+        "coefficients": [
+          0.14814684773633666,
+          0.5925948724275106,
+          0.2592582798361527
+        ]
+      },
+      {
+        "triangle": 44,
+        "coefficients": [
+          0.7241269268067295,
+          0.2758730731932706,
+          0
+        ]
+      },
+      {
+        "triangle": 39,
+        "coefficients": [
+          0,
+          0.7161690576462885,
+          0.28383094235371154
+        ]
+      },
+      {
+        "triangle": 38,
+        "coefficients": [
+          2.2959582146690045e-12,
+          0.7077384442752104,
+          0.2922615557224937
+        ]
+      },
+      {
+        "triangle": 43,
+        "coefficients": [
+          0,
+          0,
+          1
+        ]
+      }
+    ],
+    "proof": {
+      "alphaThreshold": 1,
+      "pixelTest": "every source pixel center",
+      "art": 31707,
+      "missingBefore": 0,
+      "missingAfter": 0,
+      "newMissing": 0,
+      "multiplyDrawn": 0,
+      "originalCellPartitionTriangles": 112,
+      "maxFieldResidual": 2.9271163271005207e-10
+    }
+  },
+  {
+    "part": "earring",
+    "pieceName": "earring",
+    "pieceIndex": 0,
+    "componentPixels": 2392,
+    "derivedMaskPinchPixelsAdded": 0,
+    "components": 2,
+    "sourceImage": "earring.png",
+    "sourcePath": "earring",
+    "method": "Author-input silhouette clip of original triangle cells; weighted local coordinate contributions barycentrically interpolated by bone; no distance-weight solve, no physics change.",
+    "sourceVertices": 13,
+    "sourceTriangles": 12,
+    "vertices": 19,
+    "triangles": 18,
+    "hull": 18,
+    "sourceAlphaGt0": 2219,
+    "silhouette": {
+      "alphaThreshold": 1,
+      "dilationChebyshevPixels": 4,
+      "tolerance": 3,
+      "margin": 0,
+      "traceIslands": 1,
+      "outlineVertices": 10
+    },
+    "originTriangles": [
+      {
+        "triangle": 4,
+        "coefficients": [
+          0.3944057917946806,
+          0.6055942081999429,
+          5.3764770413522456e-12
+        ]
+      },
+      {
+        "triangle": 4,
+        "coefficients": [
+          0.38888964814890753,
+          0.4814811783266654,
+          0.1296291735244271
+        ]
+      },
+      {
+        "triangle": 4,
+        "coefficients": [
+          0.16666720370424085,
+          0.22222208230461482,
+          0.6111107139911444
+        ]
+      },
+      {
+        "triangle": 4,
+        "coefficients": [
+          0,
+          0.22222208230461482,
+          0.7777779176953852
+        ]
+      },
+      {
+        "triangle": 6,
+        "coefficients": [
+          0.27777841769588535,
+          0.22222208230461482,
+          0.4999994999994999
+        ]
+      },
+      {
+        "triangle": 6,
+        "coefficients": [
+          0,
+          0.27941168251664594,
+          0.7205883174833541
+        ]
+      },
+      {
+        "triangle": 7,
+        "coefficients": [
+          0.6481483696843598,
+          0,
+          0.35185163031564015
+        ]
+      },
+      {
+        "triangle": 7,
+        "coefficients": [
+          0.33333375308615554,
+          0,
+          0.6666662469138445
+        ]
+      },
+      {
+        "triangle": 7,
+        "coefficients": [
+          1.3158190525585598e-16,
+          0.4950014300014304,
+          0.5049985699985695
+        ]
+      },
+      {
+        "triangle": 10,
+        "coefficients": [
+          0.5500005500005501,
+          0.07142744387618163,
+          0.37857200612326825
+        ]
+      },
+      {
+        "triangle": 10,
+        "coefficients": [
+          0.4753525679409456,
+          0.5246474320590545,
+          0
+        ]
+      },
+      {
+        "triangle": 11,
+        "coefficients": [
+          0.3214289617351679,
+          0.12857148826528222,
+          0.5499995499995499
+        ]
+      },
+      {
+        "triangle": 11,
+        "coefficients": [
+          0,
+          0.9500009500009502,
+          0.049999049999049805
+        ]
+      },
+      {
+        "triangle": 9,
+        "coefficients": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "triangle": 9,
+        "coefficients": [
+          0,
+          0.27777842592657415,
+          0.7222215740734259
+        ]
+      },
+      {
+        "triangle": 9,
+        "coefficients": [
+          0.39285761989853857,
+          0.4259267222230186,
+          0.1812156578784429
+        ]
+      },
+      {
+        "triangle": 8,
+        "coefficients": [
+          9.746788174103359e-12,
+          0.4216520488274875,
+          0.5783479511627657
+        ]
+      },
+      {
+        "triangle": 5,
+        "coefficients": [
+          1.3158190525585598e-16,
+          0.4119349666757073,
+          0.5880650333242926
+        ]
+      },
+      {
+        "triangle": 4,
+        "coefficients": [
+          0,
+          1,
+          0
+        ]
+      }
+    ],
+    "proof": {
+      "alphaThreshold": 1,
+      "pixelTest": "every source pixel center",
+      "art": 2219,
+      "missingBefore": 0,
+      "missingAfter": 0,
+      "newMissing": 0,
+      "multiplyDrawn": 0,
+      "originalCellPartitionTriangles": 26,
+      "maxFieldResidual": 3.5915803664465784e-10
+    }
+  },
+  {
+    "part": "earring",
+    "pieceName": "earring__island2",
+    "pieceIndex": 1,
+    "componentPixels": 1289,
+    "derivedMaskPinchPixelsAdded": 0,
+    "components": 2,
+    "sourceImage": "earring.png",
+    "sourcePath": "earring",
+    "method": "Author-input silhouette clip of original triangle cells; weighted local coordinate contributions barycentrically interpolated by bone; no distance-weight solve, no physics change.",
+    "sourceVertices": 13,
+    "sourceTriangles": 12,
+    "vertices": 10,
+    "triangles": 8,
+    "hull": 10,
+    "sourceAlphaGt0": 2219,
+    "silhouette": {
+      "alphaThreshold": 1,
+      "dilationChebyshevPixels": 4,
+      "tolerance": 3,
+      "margin": 0,
+      "traceIslands": 1,
+      "outlineVertices": 8
+    },
+    "originTriangles": [
+      {
+        "triangle": 0,
+        "coefficients": [
+          0.4444438888878213,
+          0.5555561111121788,
+          0
+        ]
+      },
+      {
+        "triangle": 0,
+        "coefficients": [
+          0.4444438888883333,
+          0.0740740274348716,
+          0.4814820836767951
+        ]
+      },
+      {
+        "triangle": 0,
+        "coefficients": [
+          0.5185180370365555,
+          0,
+          0.4814819629634445
+        ]
+      },
+      {
+        "triangle": 0,
+        "coefficients": [
+          0.8333331666664999,
+          0,
+          0.16666683333350008
+        ]
+      },
+      {
+        "triangle": 0,
+        "coefficients": [
+          0.8817203677880352,
+          0.11827963221196473,
+          0
+        ]
+      },
+      {
+        "triangle": 1,
+        "coefficients": [
+          0.5925928491082061,
+          0.4074071508917938,
+          1.1102230246251565e-16
+        ]
+      },
+      {
+        "triangle": 1,
+        "coefficients": [
+          0.18518569821641231,
+          0.8148143017835876,
+          1.1102230246251565e-16
+        ]
+      },
+      {
+        "triangle": 1,
+        "coefficients": [
+          0.11111167078154072,
+          0.777777106996126,
+          0.11111122222233327
+        ]
+      },
+      {
+        "triangle": 1,
+        "coefficients": [
+          0.11111167078154072,
+          0.4259249032920704,
+          0.4629634259263889
+        ]
+      },
+      {
+        "triangle": 1,
+        "coefficients": [
+          0.22222271193384813,
+          0.2222211769544853,
+          0.5555561111116666
+        ]
+      }
+    ],
+    "proof": {
+      "alphaThreshold": 1,
+      "pixelTest": "every source pixel center",
+      "art": 2219,
+      "missingBefore": 0,
+      "missingAfter": 0,
+      "newMissing": 0,
+      "multiplyDrawn": 0,
+      "originalCellPartitionTriangles": 26,
+      "maxFieldResidual": 3.5915803664465784e-10
+    }
+  }
+]
