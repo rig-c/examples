@@ -1,9 +1,9 @@
 [
  {
   "part": "hair_back",
-  "vertices": 51,
-  "triangles": 74,
-  "hull": 26,
+  "vertices": 59,
+  "triangles": 80,
+  "hull": 36,
   "bones": [
    "hairback_l0",
    "hairback_l1",
@@ -14,9 +14,53 @@
    "head"
   ],
   "max_influences": 4,
-  "mean_influences": 3.65,
+  "mean_influences": 3.39,
   "art_coverage": 1,
-  "grid": 57
+  "mode": "contour",
+  "params": {
+   "tolerance": 4,
+   "margin": 4,
+   "spacing": 53,
+   "maxEdge": 53,
+   "budget": 59,
+   "stray": null
+  },
+  "contour": {
+   "boundaryVertices": 36,
+   "interiorVertices": 23,
+   "interiorBySource": [
+    {
+     "source": "background",
+     "vertices": 23
+    }
+   ],
+   "triangles": 80,
+   "tracedVertices": 1514,
+   "artPixels": 84814,
+   "coveredArtPixels": 84814,
+   "coverage": 1,
+   "overshoot": 8,
+   "overshootBound": 9,
+   "meshArea": 90078,
+   "enclosedTransparentArea": 5264,
+   "filledHolePixels": 1082,
+   "smallestAngle": {
+    "triangle": 28,
+    "value": 8.175587
+   },
+   "largestEdgeRatio": {
+    "triangle": 28,
+    "value": 4.891271
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 0,
+   "strayPixels": 0,
+   "grownPixels": 4523,
+   "pinchFilledPixels": 0,
+   "grownHolePixels": 0,
+   "outlineCut": 6
+  },
+  "regions": []
  },
  {
   "part": "bottomwear",
@@ -216,18 +260,62 @@
  },
  {
   "part": "handwear_r",
-  "vertices": 115,
-  "triangles": 166,
-  "hull": 62,
+  "vertices": 130,
+  "triangles": 159,
+  "hull": 99,
   "bones": [
    "arms_hold0",
    "arms_hold1",
    "arms_hold2"
   ],
   "max_influences": 3,
-  "mean_influences": 2.73,
+  "mean_influences": 2.85,
   "art_coverage": 1,
-  "grid": 57
+  "mode": "contour",
+  "params": {
+   "tolerance": 4,
+   "margin": 4,
+   "spacing": 53,
+   "maxEdge": 53,
+   "budget": 130,
+   "stray": null
+  },
+  "contour": {
+   "boundaryVertices": 99,
+   "interiorVertices": 31,
+   "interiorBySource": [
+    {
+     "source": "background",
+     "vertices": 31
+    }
+   ],
+   "triangles": 159,
+   "tracedVertices": 4068,
+   "artPixels": 156232,
+   "coveredArtPixels": 156232,
+   "coverage": 1,
+   "overshoot": 8,
+   "overshootBound": 9,
+   "meshArea": 170060,
+   "enclosedTransparentArea": 13828,
+   "filledHolePixels": 762,
+   "smallestAngle": {
+    "triangle": 92,
+    "value": 9.688787
+   },
+   "largestEdgeRatio": {
+    "triangle": 92,
+    "value": 5.347391
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 0,
+   "strayPixels": 0,
+   "grownPixels": 13854,
+   "pinchFilledPixels": 0,
+   "grownHolePixels": 0,
+   "outlineCut": 37
+  },
+  "regions": []
  },
  {
   "part": "hair_front",

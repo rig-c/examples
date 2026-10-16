@@ -519,7 +519,13 @@ config = {
   ],
   "meshes": {
     "hair_back": {
-      "grid": 57,
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 52,
+        "maxEdge": 52,
+        "budget": 73
+      },
       "r": 15,
       "segments": [
         ["head", [380, 575], [380, 330]],

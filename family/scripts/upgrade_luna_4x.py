@@ -544,7 +544,13 @@ config = {
   ],
   "meshes": {
     "hair_back": {
-      "grid": 57,
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 53,
+        "maxEdge": 53,
+        "budget": 59
+      },
       "r": 15,
       "segments": [
         ["head", [370, 555], [370, 310]],
@@ -573,7 +579,13 @@ config = {
       ]
     },
     "handwear_r": {
-      "grid": 57,
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 53,
+        "maxEdge": 53,
+        "budget": 130
+      },
       "r": 12,
       "segments": ["arms_hold"]
     },

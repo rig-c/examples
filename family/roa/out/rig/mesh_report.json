@@ -24,17 +24,61 @@
  {
   "part": "handwear_r",
   "vertices": 71,
-  "triangles": 98,
-  "hull": 42,
+  "triangles": 85,
+  "hull": 55,
   "bones": [
    "sleeve_r0",
    "sleeve_r1",
    "sleeve_r2"
   ],
   "max_influences": 3,
-  "mean_influences": 2.14,
+  "mean_influences": 2.07,
   "art_coverage": 1,
-  "grid": 57
+  "mode": "contour",
+  "params": {
+   "tolerance": 4,
+   "margin": 4,
+   "spacing": 57,
+   "maxEdge": 57,
+   "budget": 71,
+   "stray": null
+  },
+  "contour": {
+   "boundaryVertices": 55,
+   "interiorVertices": 16,
+   "interiorBySource": [
+    {
+     "source": "background",
+     "vertices": 16
+    }
+   ],
+   "triangles": 85,
+   "tracedVertices": 2480,
+   "artPixels": 93932,
+   "coveredArtPixels": 93932,
+   "coverage": 1,
+   "overshoot": 8,
+   "overshootBound": 9,
+   "meshArea": 101883.5,
+   "enclosedTransparentArea": 7951.5,
+   "filledHolePixels": 2,
+   "smallestAngle": {
+    "triangle": 0,
+    "value": 8.130102
+   },
+   "largestEdgeRatio": {
+    "triangle": 23,
+    "value": 4.855015
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 0,
+   "strayPixels": 0,
+   "grownPixels": 8279,
+   "pinchFilledPixels": 0,
+   "grownHolePixels": 0,
+   "outlineCut": 15
+  },
+  "regions": []
  },
  {
   "part": "neck",
@@ -145,9 +189,9 @@
  },
  {
   "part": "hair_back",
-  "vertices": 59,
-  "triangles": 86,
-  "hull": 30,
+  "vertices": 89,
+  "triangles": 94,
+  "hull": 82,
   "bones": [
    "hairback_l0",
    "hairback_l1",
@@ -158,9 +202,53 @@
    "head"
   ],
   "max_influences": 4,
-  "mean_influences": 3.59,
+  "mean_influences": 3.89,
   "art_coverage": 1,
-  "grid": 57
+  "mode": "contour",
+  "params": {
+   "tolerance": 4,
+   "margin": 4,
+   "spacing": 57,
+   "maxEdge": 57,
+   "budget": 89,
+   "stray": null
+  },
+  "contour": {
+   "boundaryVertices": 82,
+   "interiorVertices": 7,
+   "interiorBySource": [
+    {
+     "source": "background",
+     "vertices": 7
+    }
+   ],
+   "triangles": 94,
+   "tracedVertices": 2818,
+   "artPixels": 62284,
+   "coveredArtPixels": 62284,
+   "coverage": 1,
+   "overshoot": 7,
+   "overshootBound": 9,
+   "meshArea": 73313,
+   "enclosedTransparentArea": 11029,
+   "filledHolePixels": 1807,
+   "smallestAngle": {
+    "triangle": 15,
+    "value": 10.181982
+   },
+   "largestEdgeRatio": {
+    "triangle": 15,
+    "value": 5.381976
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 0,
+   "strayPixels": 0,
+   "grownPixels": 9714,
+   "pinchFilledPixels": 2,
+   "grownHolePixels": 46,
+   "outlineCut": 7
+  },
+  "regions": []
  },
  {
   "part": "earring",

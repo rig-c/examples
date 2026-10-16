@@ -134,6 +134,15 @@ cfg["stops"] = [
     {"chain": "hairback_l", "against": "chest", "at": [0, 120], "inward": -1.5, "outward": 7.0, "lower": {"inward": -2.0, "outward": 9.0}}
 ]
 
+cfg["meshes"]["hair_back"].pop("grid", None)
+cfg["meshes"]["hair_back"]["contour"] = {'tolerance': 4, 'margin': 4, 'spacing': 54, 'maxEdge': 54, 'budget': 92}
+cfg["meshes"]["handwear_r"].pop("grid", None)
+cfg["meshes"]["handwear_r"]["contour"] = {'tolerance': 4, 'margin': 4, 'spacing': 54, 'maxEdge': 54, 'budget': 65}
+cfg["meshes"]["handwear_l"].pop("grid", None)
+cfg["meshes"]["handwear_l"]["contour"] = {'tolerance': 4, 'margin': 4, 'spacing': 54, 'maxEdge': 54, 'budget': 37}
+cfg["meshes"]["bottomwear"].pop("grid", None)
+cfg["meshes"]["bottomwear"]["contour"] = {'tolerance': 4, 'margin': 4, 'spacing': 54, 'maxEdge': 54, 'budget': 96}
+
 with open("config.json", "w") as f:
     json.dump(cfg, f, indent=2)
 print("Saved updated 800x2284 config.json with bust jiggle, stops, and physics limits!")

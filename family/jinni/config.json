@@ -445,7 +445,13 @@
   ],
   "meshes": {
     "hair_back": {
-      "grid": 54,
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 54,
+        "maxEdge": 54,
+        "budget": 92
+      },
       "r": 14,
       "segments": [
         [
@@ -529,14 +535,26 @@
       ]
     },
     "handwear_r": {
-      "grid": 54,
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 54,
+        "maxEdge": 54,
+        "budget": 65
+      },
       "r": 10,
       "segments": [
         "sleeve_r"
       ]
     },
     "handwear_l": {
-      "grid": 54,
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 54,
+        "maxEdge": 54,
+        "budget": 37
+      },
       "r": 10,
       "segments": [
         "sleeve_l"
@@ -600,7 +618,13 @@
       ]
     },
     "bottomwear": {
-      "grid": 54,
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 54,
+        "maxEdge": 54,
+        "budget": 96
+      },
       "r": 20,
       "segments": [
         [

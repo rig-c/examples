@@ -493,7 +493,13 @@ cfg = {
   ],
   "meshes": {
     "hair_back": {
-      "grid": 57,
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 57,
+        "maxEdge": 57,
+        "budget": 89
+      },
       "r": 15,
       "segments": [
         ["head", [365, 430], [365, 164]],
@@ -528,7 +534,13 @@ cfg = {
       ]
     },
     "handwear_r": {
-      "grid": 57,
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 57,
+        "maxEdge": 57,
+        "budget": 71
+      },
       "r": 6,
       "segments": ["sleeve_r"]
     },
