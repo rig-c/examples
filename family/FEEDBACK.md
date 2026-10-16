@@ -8,6 +8,8 @@
 
 현행 계약 대조 기준은 parts [`bfdc4c4`](https://github.com/rig-c/parts/tree/bfdc4c443625b6eb4e214ccac93c7fd435670fe4), core [`89782d2`](https://github.com/rig-c/core/tree/89782d2ac6f43e9ddd7add248a92432626bd3757), play [`e234051`](https://github.com/rig-c/play/tree/e23405131a3bc43a9934dfe7131e62aee1b0bab2), 데모 원본 [`6142fcc`](https://github.com/rig-c/parts-examples/tree/6142fccf7b699fbd52b5351a6d9833645880bcbd)입니다. 데모의 정정 전 관찰과 당시 설명은 아래에 구분해 남깁니다.
 
+후속 데모 교정과 원래의 upstream 가설은 별도입니다. 현재 승인된 다섯 authoring 입력의 정본·공식 재빌드 방법·SKIP는 [README의 현재 입력 절](./README.md#현재-승인된-입력과-재검증), 실제 수리와 기각한 방법은 [사례 기록](./REPAIR_CASE_STUDY.md)을 따릅니다. 이 문서의 초기 config 수치·dome/solver 제안·미검증 인과 설명을 현재 구현 완료나 새 core 계약으로 읽지 않습니다. 숨은 표면 수리와 뒷머리 생성은 각각 [Luna](./LUNA_HIDDEN_QUALITY.md), [Naru](./naru/BACKHAIR_REGENERATION.md)에 저작 출처를 남깁니다. [외형 원인 조사](./BUST_APPEARANCE.md)의 반응 차이·손 texel coupling 관찰도 원화 비대칭 전체가 결함이라는 판정과 구분합니다.
+
 ---
 
 ## 1. `assemble.ts` — `projectSource()`와 `seamOverride()`가 전경 파츠 외곽을 배경 파츠에 스탬핑하는 문제
@@ -143,6 +145,8 @@ player.moved({ x: deltaX, y: deltaY, rotation: deltaDegrees });
 ### 원인 분석
 
 **정정:** §12는 이 절과 같은 누락을 다시 기록한 것입니다. 이 절을 stop 병합 문제의 정본으로 삼으며, 후속은 [parts #431](https://github.com/rig-c/parts/issues/431)에서 추적합니다. 본문의 에러는 작성자 보고이며 이번 정정에서 CLI를 새로 실행하지 않았습니다. 원문의 `src/compose.ts` 지목은 `src/scene.ts`로 바로잡습니다.
+
+**후속 상태:** #431은 [parts PR #434](https://github.com/rig-c/parts/pull/434), commit `bc5b73733bdf73c2cc9f45fbbac9f14eea51981a`에서 해결되어 닫혔습니다. 아래의 허용 키 누락 설명은 위에 고정한 과거 코드의 기록이며, 현재 미해결 결함으로 주장하지 않습니다.
 
 - `rig-parts build`(`src/rig.ts`)는 `config.stops`를 `out/rig/rig.json`의 최상위 `stops` 배열(`{ chain, links, against, at, inward, outward, lower }`)로 출력합니다.
 - 반면 실제 구현 파일인 [`src/scene.ts`의 허용 키 목록](https://github.com/rig-c/parts/blob/bfdc4c443625b6eb4e214ccac93c7fd435670fe4/src/scene.ts#L385)에는 `stops`가 누락되어 있어, `stops`를 사용한 모든 캐릭터 빌드가 `compose` 단계에서 차단됩니다.

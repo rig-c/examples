@@ -30,85 +30,35 @@ jobs:
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
         with:
           bun-version: '1.4.2'
-      - name: Record source and input identity
+      - name: Record source and frozen input identity
         run: |
           mkdir -p evidence
           python3 - <<'PY'
-          import hashlib, json, os, pathlib, re
-          root = pathlib.Path('.')
-          sources = [
-              '.github/workflows/family-demo.yml', 'family/README.md',
-              'family/viewer/index.html', 'family/viewer/load-lifecycle.mjs',
-              'family/viewer/load-race.test.mjs', 'family/viewer/server.mjs',
-              'family/viewer/assets/player.js', 'family/jinni/config.json',
-          ]
-          paths = sorted(set(sources) | {str(p) for p in (root/'family/jinni/inputs').rglob('*') if p.is_file()})
-          rows = [{'path': p, 'bytes': (root/p).stat().st_size,
-                   'sha256': hashlib.sha256((root/p).read_bytes()).hexdigest()} for p in paths]
-          encoded = json.dumps(rows, sort_keys=True, separators=(',', ':')).encode()
-          identity = {'sourceSha': os.environ['SOURCE_SHA'], 'inputSha256': hashlib.sha256(encoded).hexdigest(), 'files': rows}
-          pathlib.Path('evidence/input-manifest.json').write_text(json.dumps(identity, indent=2))
+          import json, os, pathlib, re
+          pathlib.Path('evidence/source.json').write_text(json.dumps({'sourceSha': os.environ['SOURCE_SHA']}, indent=2))
           text = pathlib.Path('family/README.md').read_text()
-          recipes = [b for b in re.findall(r'```bash\n(.*?)```', text, re.S) if '@rig-c/parts@1.25.0' in b]
-          assert len(recipes) == 1, 'exactly one public install/build recipe is required'
-          pathlib.Path('evidence/readme-recipe.sh').write_text(recipes[0])
           links = re.findall(r'!\[[^]]*\]\((\./[^)]+)\)', text)
           assert links, 'README must contain its example images'
           for link in links:
               assert (pathlib.Path('family')/link).is_file(), f'missing README image: {link}'
-          print(json.dumps({'sourceSha': identity['sourceSha'], 'inputSha256': identity['inputSha256'], 'files': len(rows), 'READMEImages': links}, indent=2))
           PY
-          node -e "if(process.release.name!=='node'||process.versions.bun)throw Error('native Node required');console.log(JSON.stringify({execPath:process.execPath,versions:process.versions}))" | tee evidence/node-runtime.json
-          bun -e 'console.log(JSON.stringify({execPath:process.execPath,version:Bun.version,revision:Bun.revision}))' | tee evidence/bun-runtime.json
-          npm --version | tee evidence/npm-version.txt
-      - name: Viewer lifecycle regression
-        run: node --test family/viewer/load-race.test.mjs 2>&1 | tee evidence/load-race.log
-      - name: Fresh installed public README build
-        working-directory: family
+          node --version | tee evidence/node-version.txt
+          bun --version | tee evidence/bun-version.txt
+          node family/tools/verify-accepted.mjs --check-inputs | tee evidence/input-inventory.json
+      - name: Input refusal controls and viewer lifecycle, state and wind regressions
+        run: node --test family/tools/verify-accepted.test.mjs family/viewer/*.test.mjs 2>&1 | tee evidence/regressions.log
+      - name: Install exact public compiler and official oracle
+        run: bun install --cwd family/tools/outline-field-islands --frozen-lockfile 2>&1 | tee evidence/install.log
+      - name: Fresh gated build and full parts check for all five accepted rigs
         run: |
-          rm -rf jinni/out .tools
-          bash -eu -o pipefail "$GITHUB_WORKSPACE/evidence/readme-recipe.sh" 2>&1 | tee "$GITHUB_WORKSPACE/evidence/fresh-build.log"
-      - name: Record installed versions and unchanged inputs
-        if: always()
-        run: |
-          python3 - <<'PY'
-          import hashlib, json, pathlib
-          out = pathlib.Path('evidence')
-          out.mkdir(exist_ok=True)
-          versions = {}
-          for name in ['@rig-c/parts', 'rig-c']:
-              p = pathlib.Path('family/.tools/node_modules')/name/'package.json'
-              versions[name] = json.loads(p.read_text())['version'] if p.is_file() else None
-          (out/'installed-versions.json').write_text(json.dumps(versions, indent=2))
-          print(json.dumps(versions, indent=2))
-          manifest = out/'input-manifest.json'
-          if manifest.is_file():
-              changed = [r['path'] for r in json.loads(manifest.read_text())['files']
-                         if hashlib.sha256(pathlib.Path(r['path']).read_bytes()).hexdigest() != r['sha256']]
-              (out/'input-changes.json').write_text(json.dumps(changed))
-              assert not changed, f'build changed source or inputs: {changed}'
-          PY
-      - name: Require fresh check verdict
-        run: |
-          python3 - <<'PY'
-          import json, pathlib
-          versions = json.loads(pathlib.Path('evidence/installed-versions.json').read_text())
-          assert versions['@rig-c/parts'] == '1.25.0', versions
-          check = json.loads(pathlib.Path('family/jinni/out/check/check.json').read_text())
-          assert check['PASS'] is True and check['gate_spine_html_green'] is True, check
-          summary = {'versions': versions, 'PASS': check['PASS'], 'rigc_entry': check['rigc_entry'],
-                     'loop_max_diff': check['loop_max_diff'],
-                     'ANIMATIONS_DO_NOT_FOLD': check['ANIMATIONS_DO_NOT_FOLD']}
-          pathlib.Path('evidence/fresh-verdict.json').write_text(json.dumps(summary, indent=2))
-          print(json.dumps(summary, indent=2))
-          PY
-      - name: Preserve raw build and verification evidence
+          bun family/tools/verify-accepted.mjs --out "$RUNNER_TEMP/family-accepted" 2>&1 | tee evidence/fresh-build.log
+      - name: Preserve source, verdicts, skips and raw public gate output
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: family-demo-${{ env.SOURCE_SHA }}
           path: |
             evidence/
-            family/jinni/out/
+            ${{ runner.temp }}/family-accepted/
           if-no-files-found: warn
           retention-days: 7

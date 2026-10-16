@@ -58,8 +58,8 @@ The new visible artwork also differs from the source painting. Public recomposit
 | --- | --- |
 | ![Before](docs/backhair-before.png) | ![After](docs/backhair-after.png) |
 
-![Matched 96 gust](docs/backhair-gust 96.png)
+![Matched 96 gust](docs/backhair-gust96.png)
 
-![Remaining positive 200 stress tip behaviour, triangle 59's maximum-area phase](docs/backhair-stress 200.png)
+![Remaining positive 200 stress tip behaviour, triangle 59's maximum-area phase](docs/backhair-stress200.png)
 
 Raw measurements, guard controls, input/output hashes and run identifiers: `backhair-regeneration.measurements.json`. Official gate/check output remains in `out/check/`. Browser captures are wall-clock UI observations, separate from the same-phase native/runtime proof.

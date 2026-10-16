@@ -8,10 +8,31 @@ character config, the proposal, the reference implementation's outputs and
 small contact sheets — under `examples/<key>/`, and fetches this repository
 into its gitignored `examples/<key>/inputs/`.
 
-Everything here was generated for publication. The paintings are generated
-images of original characters, made from public checkpoints with no LoRA and
-no text naming or describing any existing character; they depict no
-third-party character.
+The standalone input examples listed under “Layout” were generated for
+publication. Their paintings are generated images of original characters,
+made from public checkpoints with no LoRA and no text naming or describing
+any existing character; they depict no third-party character. The generation
+records and checkpoint credits below concern those standalone examples.
+
+## Family: repairing the result
+
+The [Family case study](family/REPAIR_CASE_STUDY.md) follows five characters
+from a group painting through repairs to their alpha edges, mesh bindings and
+physics. These matched Naru frames show one repair: restoring the source edge
+after a low-resolution binary mask had turned it into steps.
+
+Family has a separate [group-image and repair history](family/README.md);
+the standalone examples' checkpoint and no-LoRA statements do not describe
+its source. Its later [Naru rearhair completion](family/naru/BACKHAIR_REGENERATION.md)
+is new generated artwork, distinct from the source-backed edge repairs.
+
+| Before | After |
+| --- | --- |
+| ![Naru's stepped shoulder and sleeve edges](family/naru/repairs/body-edge-evidence/gust0-baseline-dark-f0.png) | ![Naru's repaired shoulder and sleeve edges](family/naru/repairs/body-edge-evidence/gust0-final-dark-f0.png) |
+
+The study records rejected fixes, measured motion conditions and remaining
+limits, including where alpha was inferred or new artwork generated. The
+[Family guide](family/README.md) includes the local interactive viewer.
 
 ## Layout
 

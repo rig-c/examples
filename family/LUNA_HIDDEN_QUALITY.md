@@ -1,5 +1,7 @@
 # Luna hidden skirt surface
 
+This is the historical texture-repair stage. The `rig --config` commands below require that stage's accepted config and unrepaired saved-parts baseline; current configs contain unadopted experiments and are not its preimage. To rebuild the final composed demo, use the [frozen final authoring route](README.md#현재-승인된-입력과-재검증), retaining the repaired texture and subsequent chest/hair stages. No clean hidden source layer was recovered.
+
 [Issue #9](https://github.com/rig-c/parts-examples/issues/9) separates saved-layer contamination from source pose/asymmetry. This repair changes only the lower-garment texture and its normal build descendants. The original painting remains unchanged. **The user-accepted bust jiggle is final: physics, anchors, weights and motion are frozen.** Completed clothing/hair authoring is also unchanged.
 
 ## Source and authored repair

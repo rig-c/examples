@@ -1,5 +1,7 @@
 # Family bust appearance: measured cause separation
 
+Historical diagnostic baseline: the measurements below belong to the named `e367287` snapshot, before the later [chest-field repair](MESH_REGION_REPAIR.md) and other final authoring stages. “Current” below means current at that investigation. The final demo has intentionally different topwear fields for Roa/Luna/Nova; these old texel displacements and influence areas were not remeasured on the final fields. Use the [final-input verification](README.md#현재-승인된-입력과-재검증) and per-stage evidence for the accepted output. This investigation separates causes on its frozen input; it does not establish the dominant cause of every later subjective impression.
+
 Issue: https://github.com/rig-c/parts-examples/issues/10 . Local investigation record. The user-accepted jiggle, inertia1.35, constraints, anchors, weights and source artwork remain frozen. This document records diagnostic observations; it does not authorize a physics, weight or artwork repair. No browser execution or publication is claimed.
 
 ## Finding

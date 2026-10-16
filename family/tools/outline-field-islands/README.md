@@ -1,5 +1,7 @@
 # Authored outline fields with disconnected art
 
+Historical intermediate: statements below about unchanged `out/` images apply to this clipping stage and its original preimage. Later final texture/mesh stages are recorded separately. Replaying an old policy requires the exact original companions; the [current accepted-input build/check route](../../README.md#현재-승인된-입력과-재검증) consumes the final composed authoring data directly. A refused historical preimage must not be replaced by an automatic policy update or a dirty config rebuild.
+
 This consumer authoring transform clips the accepted piecewise affine mesh field before rigc's normal build/check. It preserves each surviving source triangle cell's per-bone weighted bind-local coordinates. It does not edit Spine exports or source RGBA. The inherited authored triangle clipping implementation is the frozen tol3 helper SHA256704fa12bb0a6cf9dc57a3cbe59dbd3d9546856aeb0087ea9973b72cde39716c4; this extension adds deterministic derived-mask diagonal closure, separate contiguous island slots, fail-closed policies and exhaustive coverage/field checks.
 
 From the repository root, install with `bun install --cwd family/tools/outline-field-islands --frozen-lockfile`. Dependencies are pinned by package.json and bun.lock: parts1.25.0, rig-c2.57.0, official Spine4.3.13 and polygon-clipping0.15.7. The PNG reader imports a **private implementation subpath** of the pinned parts package; that path is not a promised stable public API. Geometry uses the published rig-c/mesh API.

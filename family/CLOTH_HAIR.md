@@ -1,5 +1,7 @@
 # Clothing and hair profiles
 
+Historical stage record: the profiles and commands below describe the original clothing/hair change, before the later mesh, cuff, strand, texture and silhouette repairs. Current configs also contain unadopted material experiments. Do not execute this config regeneration over the final accepted assets. Use the [final-input build/check route](README.md#현재-승인된-입력과-재검증) for the current demo; reproducing this earlier experiment requires its exact historical baseline. In particular, Nova's four cuff physics declarations below were later removed by the [final cuff stage](MESH_REGION_REPAIR.md#nova-narrow-cuff-physics-correction).
+
 This local family-demo experiment is tracked in [issue #8](https://github.com/rig-c/parts-examples/issues/8). It changes authoring inputs, not the physics solver. Names such as `skirt_r` are historical identifiers: Roa wears wide trousers, Nova wears slim trousers, Luna and Naru wear fitted skirts, and Jinni wears a loose pleated skirt.
 
 ## Authoring boundary

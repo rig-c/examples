@@ -2,7 +2,7 @@
 
 `family/`는 한 장의 와이드 그룹 일러스트(`1024×571` RGBA)를 `4x-AnimeSharp`로 고해상도(`4096×2284`) 업스케일한 뒤, **ComfyUI See-through (`jtydhr88/ComfyUI-See-through` / `layerdifforg/seethroughv0.0.2_layerdiff3d`)의 `1024×1024` 고정 해상도 한계를 극복**하여 5명의 캐릭터(`roa`, `luna`, `jinni`, `naru`, `nova`)를 개별 리깅하고 [`@rig-c/play`](https://github.com/rig-c/play)로 실시간 물리·합성 데모를 구동하는 실전 레퍼런스 예제입니다.
 
-ComfyUI See-through가 제공하는 **우수한 은폐 영역(가려진 뒷머리·목·어깨·다리) 인페인팅**은 100% 원본 그대로 보존하면서, 전신 `2284px` 높이를 `1024×1024`에 우겨넣을 때 발생하는 해상도 저하를 **2-Pass (`full` 전신 + `head` 헤드 크롭) 분해**와 **가시 표면 `4x-AnimeSharp` 디테일 주입(`upgrade_*_4x.py`)**으로 해결한 전체 파이프라인 및 캐릭터별 바스트 탄성 베리에이션 설정을 포함하고 있습니다.
+초기 파이프라인은 See-through의 은폐 영역 인페인팅에 **2-Pass (`full` 전신 + `head` 헤드 크롭) 분해**와 **가시 표면 `4x-AnimeSharp` 디테일 주입(`upgrade_*_4x.py`)**을 결합했습니다. 현재 데모에는 이후 승인된 레이어·메시·바인딩 교정도 포함됩니다. Luna의 숨은 치마 표면과 Naru의 뒷머리는 명시적으로 새로 저작한 영역이며, 숨은 픽셀 100% 보존이나 원화 완전 일치를 주장하지 않습니다.
 
 > 파이프라인(`@rig-c/parts` / `@rig-c/core` / `@rig-c/play`) 개선을 위한 상세 기술 제안은 [FEEDBACK.md](./FEEDBACK.md)에 별도로 정리되어 있습니다.
 
@@ -11,6 +11,39 @@ ComfyUI See-through가 제공하는 **우수한 은폐 영역(가려진 뒷머�
 지니의 현재 마지막 단계는 [귀 뒤 옆머리 바인딩·깊이 교정](./jinni/BEHIND_EAR_STRAND.md)이다. 동결 원본 → 기존 윤곽·섬 클리핑 → `apply-jinni-behind-ear-strand.ts`의 가드된 교정 → 공식 build/check 순서로 재현한다. 앞머리 본을 따라 볼·목 앞으로 나오던 별도 가닥만 `head`에 고정하고 귀·얼굴 뒤, 어깨 앞에 배치해 원화의 말린 끝을 보존한다. 원화 픽셀과 나머지 앞머리·가슴·다른 캐릭터는 이 단계에서 바꾸지 않는다.
 
 나루의 뒷머리 마지막 단계는 [생성형 숨김 영역 완성](./naru/BACKHAIR_REGENERATION.md)이다. 원래 가닥 틈은 유지하고 셔츠 경계에서 잘린 끝과 피부색 잔상을 새 갈색 머릿결로 완성한다. 이 명시적인 최종 단계는 앞의 See-through 숨김 픽셀 100% 보존 설명의 예외이며, 생성 원본·허용된 크기 변환·공개 contour payload·일상 48/96 돌풍 검증과 남은 ±200 stress 관찰을 별도로 기록한다.
+
+그 뒤의 최종 경계 교정은 [Naru 어깨·소매·팔 실루엣](./naru/repairs/BODY_EDGE_RESTORATION.md)과 [Roa 원본 어깨 복원](./roa/SHOULDER_REPAIR.md)이다. 전체 수리 과정과 채택·기각한 방법은 [사례 기록](./REPAIR_CASE_STUDY.md)을 따른다.
+
+## 현재 승인된 입력과 재검증
+
+현재 뷰어가 읽는 정본은 각 캐릭터의 `out/rig/`·`out/parts/`·`out/parts.json`과 `out/check/build/`다. [`accepted-inputs.json`](./accepted-inputs.json)은 이 최종 입력, provenance, 저장된 serving 산출물과 viewer의 정확한 파일 목록·SHA256을 고정한다. `config.json`, `upgrade_*_4x.py`, `MATERIAL_RESPONSE.md`, `check-cloth-hair.ts`의 미채택 실험을 다시 생성하여 이 결과를 덮어쓰지 않는다.
+
+저장된 입력에서 **새 출력 폴더**로 공식 build/check를 다시 실행하는 명령은 다음과 같다. 이번 착지의 별도 원격 검증은 Nova admission과 4CPU/4GiB process-tree guard를 사용했다. 이는 유지관리자의 검증 환경이며 공개 사용자의 필수 도구가 아니다. CI는 아래 명령을 GitHub runner에서 실행하고 raw 로그와 실제 버전·SKIP를 보존한다.
+
+```bash
+# 저장소 루트. Bun과 native Node가 PATH에 필요합니다.
+bun install --cwd family/tools/outline-field-islands --frozen-lockfile
+bun family/tools/verify-accepted.mjs --out /absolute/path/to/new-family-evidence
+```
+
+고정 도구는 parts 1.25.0 / rig-c 2.57.0 / 공식 Spine 4.3.13이다. 검증기는 다섯 최종 rig를 직렬로 공식 `rigc build`와 전체 `rig-parts check`에 넣고, 새 Spine·model·atlas 바이트 및 PNG 디코딩 픽셀을 현재 serving 파일과 비교한다. parts/rig PNG의 4px 패딩 내부 픽셀, 메타데이터 크기와 mesh report 정점·삼각형 수도 대조한다. 기존 입력은 쓰지 않으며, 입력 변경·다른 버전·공식 runtime 부재·실패한 gate는 거부한다.
+
+Spine/model에 남은 원래 상대 이미지 경로도 바이트 계약에 포함한다. 예를 들어 Luna의 `final`, Nova의 `pants-repair-rig` 폴더명은 새 evidence 폴더 안에 그대로 재현한다. 허용 형식은 `../../<단일 영숫자·밑줄·하이픈 폴더명>/images/`뿐이며 절대 경로·추가 중첩·상위 경로 탈출·출력 예약 이름은 거부한다. 경로 차이를 없애려고 저장된 리그를 고치거나 비교 필드를 제외하지 않는다.
+
+`node family/tools/verify-accepted.mjs --check-inputs`는 해시·목록·메타데이터만 읽는 빠른 점검이다. 공식 compiler gate를 실행하지 않고 새 리그나 검증 PASS를 발행하지 않는다. manifest를 자동 갱신하는 옵션은 없으며, 새로운 저작 결과의 채택은 별도 검토 대상이다.
+
+이 경로는 **최종 승인된 authoring 입력의 재빌드**다. 원본 생성부터 모든 과거 단계를 다시 수행하는 end-to-end replay가 아니다. 각 단계의 아래 문서는 당시 고정 입력과 거부 조건을 기록하며, 후속 수리로 이미지·parts 기록이 달라진 경우 그 이전 커밋의 정확한 preimage가 필요하다. 현재 이미지를 과거 정책에 억지로 맞추거나 dirty config에서 재생성하지 않는다.
+
+| 최종 단계 | 기록 | 보존한 경계 |
+| --- | --- | --- |
+| Luna 숨은 치마 | [저작 수리](./LUNA_HIDDEN_QUALITY.md) | 원래 alpha와 mask 바깥 픽셀 보존; 새 RGB는 복구된 원본이 아님 |
+| Roa/Luna/Nova 가슴 영역 | [authoring stage](./MESH_REGION_REPAIR.md) | 물리 계수 유지, 변형 field는 의도적으로 변경 |
+| Nova 바지 끝 | [cuff stage](./MESH_REGION_REPAIR.md#nova-narrow-cuff-physics-correction) | 네 cuff physics 제거, 원본 topology·idle 회전 유지 |
+| Jinni 귀 뒤 가닥 | [바인딩·깊이](./jinni/BEHIND_EAR_STRAND.md) | 원화 curl 보존, 해당 섬만 head에 고정 |
+| Naru 뒷머리·몸 경계 | [뒷머리](./naru/BACKHAIR_REGENERATION.md), [몸 경계](./naru/repairs/BODY_EDGE_RESTORATION.md) | 생성 머리와 원본 기반 경계 교정을 분리 |
+| Roa 어깨 | [원본 천 복원](./roa/SHOULDER_REPAIR.md) | 한정된 원본 픽셀·다섯 hull 정점만 변경 |
+
+현재 저장된 다섯 check는 모두 PASS이고 loop 차이는 0이다. Roa의 `BLINK_NO_HOLE`은 eyewhite 입력 부재로 SKIP이며 다른 네 캐릭터에는 해당 SKIP가 없다. 일반 animation-fold 검사는 Roa/Luna/Jinni/Naru/Nova 각각 23/30/24/29/21개 physics 제약을 제외한다. 별도의 48/96 gust native/core 측정과 실제 뷰어 인수는 각 최종 단계 기록을 따른다. Naru ±200 stress에서 보이는 tip fold, 다른 기존 hair stress 왜곡, Nova contour fit debt와 `RECOMPOSITE_HOLES`·`SETUP_POSE_VS_SOURCE`의 REPORTED 수치는 남은 관찰이다. check의 초록 결과를 임의 힘·원화 일치·모든 숨은 표면의 보장으로 확대하지 않는다.
 
 ---
 
@@ -25,7 +58,7 @@ family/
 ├── group_2048x1142_animesharp_rgba.png       # 2x AnimeSharp 다운샘플 비교본 (2048×1142 RGBA)
 ├── group_4096x2284_animesharp_rgba.png       # 최종 4x-AnimeSharp 업스케일 그룹 원화 (4096×2284 RGBA)
 ├── scripts/
-│   ├── upgrade_roa_4x.py                     # #1 Roa 4x 레이어 정제 & config 생성 스크립트
+│   ├── upgrade_roa_4x.py                     # 초기 레이어/config 생성 기록; 최종 승인 결과 재생성 경로 아님
 │   ├── upgrade_luna_4x.py                    # #2 Luna 4x 레이어 정제 & config 생성 스크립트
 │   ├── upgrade_jinni_4x.py                   # #3 Jinni 4x 레이어 정제 & config 생성 스크립트
 │   ├── upgrade_naru_4x.py                    # #4 Naru 4x 레이어 정제 & config 생성 스크립트
@@ -34,7 +67,7 @@ family/
 │   ├── index.html                            # @rig-c/play 기반 인터랙티브 Spine WebGL + 5인 동시 물리 데모 뷰어
 │   └── server.mjs                            # 로컬 확인용 정적 파일 서버 (기본 포트: 4568)
 └── roa/ luna/ jinni/ naru/ nova/             # 5인 전원 (각 800×2284, 전원 check PASS 완료)
-    ├── config.json                           # 4x 해상도(800×2284) 최종 rig-parts 설정 (물리·stops·가슴 탄성 베리에이션 포함)
+    ├── config.json                           # 초기 설정과 미채택 실험; 현재 정본은 out/rig
     ├── inputs/
     │   ├── painting.png                      # 4x 크롭 원화 (800×2284 RGB, 흰색 매트)
     │   ├── painting_rgba.png                 # 4x 크롭 원화 (800×2284 RGBA)
@@ -65,12 +98,12 @@ family/
   - 하지만 모델 추론 해상도가 **`1024×1024`로 고정**되어 있어, `800×2284` 전신을 정사각형 패딩(`2284×2284`) 후 `1024×1024`로 넣어 분해하면 전신 레이어(`full_orig`)의 실효 해상도가 원본 대비 약 `0.45배`(`358×1024`)로 낮아집니다.
 - **해상도 한계 극복 전략 (`scripts/upgrade_*_4x.py`)**:
   1. **2-Pass 분해 (`full_orig` + `head_orig`)**: 얼굴·눈·눈썹·입·앞머리·뒷머리·목은 `head_box`(`440×440` ~ `530×530`) 영역만 크롭해 `1024×1024`로 분해(`head_orig`)함으로써 오히려 원본 4x보다 약 `2배` 높은 밀도로 정밀 분해합니다.
-  2. **See-through 순정 인페인팅(숨겨진 영역) 100% 보존**: 물리 모션 시 노출되는 **가려진 영역(`back hair`의 얼굴/목 뒤쪽 인페인팅, `head_orig:topwear`의 머리카락 아래 어깨/칼라 인페인팅, `neck`의 옷깃 아래 언더턱)**은 인위적으로 도려내지 않고 See-through가 생성한 부드러운 인페인팅 픽셀을 그대로 보존합니다.
-  3. **가시 표면(Visible Surface) 4x-AnimeSharp 주입**: 가려지지 않고 외부에 직접 노출되는 픽셀에만 `painting_rgba.png`(`800×2284`)의 선명한 4x RGB와 알파 외곽선을 가우시안 경계 블렌딩으로 주입하여, **정지 상태에서는 4x 원화의 칼같은 선명도를 유지하고 물리 모션 시에는 찢어짐이나 구멍 없이 See-through의 인페인팅 영역이 자연스럽게 드러나도록** 구성했습니다.
+  2. **초기 See-through 숨은 영역 활용**: 가려진 뒷머리·어깨·목의 인페인팅을 유지하는 것이 초기 목표였습니다. 후속 진단에서 불필요한 잔상과 잘린 경계가 발견되어 위 최종 단계에서 일부를 교정했습니다.
+  3. **가시 표면(Visible Surface) 4x-AnimeSharp 주입**: 가시 표면에 `painting_rgba.png`의 RGB·알파를 블렌딩했습니다. 이 처리만으로 움직일 때의 구멍·찢어짐이 모두 사라지지는 않았으며, 실제 허용 범위는 후속 수리의 측정과 남은 관찰로 구분합니다.
 
 ---
 
-## 2. 리깅 설정 (`jinni/config.json`)
+## 2. 초기 리깅 설정 (`jinni/config.json`, 역사 기록)
 
 [`jinni/config.json`](./jinni/config.json)은 `800×2284` 캔버스 기준의 `rig-parts` 선언적 설정 파일입니다.
 
@@ -91,9 +124,9 @@ family/
 
 ---
 
-## 3. `rig-parts build` / `rigc build` 결과 (`jinni/out/`)
+## 3. 초기 Jinni 빌드와 저장된 지표 (역사 기록)
 
-빌드 명령:
+아래는 PR 초기 입력의 공개 build 경로입니다. 현재 승인된 결과는 상단의 최종 입력 재검증 명령을 사용합니다. 아래 명령이나 선택 upgrade 단계는 과거 입력을 별도 checkout에서 조사할 때만 사용하며, 현재 `out/`에 실행하지 않습니다.
 
 ```bash
 # family/ 디렉터리에서 실행합니다. Node.js, npm, Bun이 PATH에 필요합니다.
@@ -136,7 +169,7 @@ python3 scripts/upgrade_jinni_4x.py
 
 ## 4. 삽질 과정과 해결 스크립트 (`scripts/upgrade_jinni_4x.py`)
 
-`1024×1024` See-through 레이어와 고해상도(`800×2284`) 4x 원화를 결합해 리깅하면서 발생한 **6가지 핵심 난제와 해결 기법**입니다. 모든 처리는 [`scripts/upgrade_jinni_4x.py`](./scripts/upgrade_jinni_4x.py)에 코드로 문서화되어 있으며 언제든 100% 재현됩니다.
+`1024×1024` See-through 레이어와 고해상도 원화를 결합하던 초기 **6가지 난제와 당시 해결 기록**입니다. [`scripts/upgrade_jinni_4x.py`](./scripts/upgrade_jinni_4x.py)에는 당시 처리와 후속 미채택 실험이 함께 있으므로, 이 스크립트만으로 현재 승인 결과가 재현된다고 주장하지 않습니다. 아래 원인 설명·강한 해결 표현의 검증 상태는 [FEEDBACK.md](./FEEDBACK.md)를 함께 읽습니다.
 
 ### 삽질 1: 치마(`bottomwear`) 파츠에 오른손이 그대로 찍히는 문제
 - **원인**:
@@ -172,14 +205,14 @@ python3 scripts/upgrade_jinni_4x.py
   - 또한 `head:front hair` 텍스처 좌하단(귀 아래 `head_ry > 362`)에 뒷머리 픽셀이 섞여 있었고, 물리 체인에 각도 제한(`stops`)이 없었음.
 - **해결**:
   - `head:front hair` 좌하단의 뒷머리 영역을 `head:back hair`로 이관하고, `meshes.hair_front.segments`에서 `"hairback_r"`를 제거.
-  - `config.json`에 `stops` (`skirt_r/c/l` vs `hip`, `hairback_r/l` vs `chest`)를 추가하고 스프링 `strength`/`damping`을 높여 역방향 관통을 원천 차단.
-  - [`viewer/index.html`](./viewer/index.html)에서 드래그 시 전달되는 `player.moved(dx, dy)` 임펄스를 프레임당 `[-14, 14]px`로 클램핑.
+  - 당시 `config.json`에 `stops` (`skirt_r/c/l` vs `hip`, `hairback_r/l` vs `chest`)를 추가하고 스프링을 조정. 임의 자극에서의 관통 방지를 입증한 것은 아니며, 기존 강한 표현을 정정합니다.
+  - **호출·단위 정정:** 초기 기록의 `player.moved(dx, dy)`와 `±14px`는 현재 뷰어 계약이 아닙니다. [`viewer/index.html`](./viewer/index.html)은 화면 delta를 root scale로 나누고 `0.25`를 곱한 뒤 y축을 뒤집어, x는 `±8`, y는 `±6` skeleton world 단위로 제한한 `{ x, y }`를 `player.moved(impulse)`에 전달합니다(y-up).
 
 ### 삽질 5: 3/4 뷰 양쪽 가슴 지글(`boob_r`, `boob_l`)과 캐릭터별 바스트 탄성 베리에이션
 - **원인**:
   - `boob_r`/`boob_l`에 수동 `sineTrack`과 `PhysicsConstraint`를 중복 부여하거나, 낮은 `strength`에 과도한 `damping`(`>0.92`)/`gravity`를 결합하면 호흡 중 상시 흔들림 및 물풍선처럼 늘어지는 부작용 발생.
 - **해결**:
-  - `motion.tracks`에서 `boob_r`/`boob_l` 수동 트랙을 제거하여 순수 `PhysicsConstraint`로만 구동하고, 고강성(`strength = 278..480`) + 적정 속도 유지율(`damping = 0.85..0.89`) + 절제된 `inertia`(`0.30..0.47`) & `gravity`(`0.08..0.14`)로 튜닝하여 **느린 호흡 중에는 진폭 `< 0.23px`로 안정되고, 충격/드래그 시에는 2~2.5회 바운스(`0.45초` 이내) 후 제자리를 찾는 탱글탱글한 탄성**을 구현.
+  - 당시 `motion.tracks`에서 `boob_r`/`boob_l` 수동 트랙을 제거하고 `PhysicsConstraint`의 stiffness·damping·inertia·gravity를 조정했습니다. **측정 정정:** 당시 보고된 호흡 진폭 `<0.23px`, 충격 후 `2~2.5회` bounce와 `0.45초` 이내 수렴은 고정된 stimulus·좌표 단위·raw trace로 독립 확인하지 않은 작성자 보고값입니다. 아래 Tier의 bounce 수도 같은 역사 기록이며, 현재 acceptance bar나 재현된 응답 측정으로 사용하지 않습니다([FEEDBACK의 정정](./FEEDBACK.md#작성자-설정-및-미검증-응답-목표-configjson)).
   - 캐릭터별 예상 바스트 볼륨에 따라 **무거운/가벼운 탄성 5단계 베리에이션**을 차등 적용:
     - **#1 Roa (Tier 5 · Max-Glamour)**: `r=26/28, band=42/44`, `strength=295/278, damping=0.89, inertia=0.44/0.47, mass=1.32/1.38, gravity=0.14` (1.5~2.0회 바운스)
     - **#3 Jinni (Tier 4 · Heavy-Glamour)**: `r=25/26, band=40/42`, `strength=330/315, damping=0.88, inertia=0.40/0.42, mass=1.22/1.26, gravity=0.12` (2.0회 바운스)
@@ -193,7 +226,9 @@ python3 scripts/upgrade_jinni_4x.py
 
 ## 5. 에이전트 패밀리 5인 전원(`roa`, `luna`, `jinni`, `naru`, `nova`) 리깅 요약
 
-| 순번 | 캐릭터 | 4x 크롭 구간 (`x`) | 그룹 합체 `offsetX` / `z` | 정제 스크립트 | `check` 결과 | 주요 리깅 및 피드백 반영 특징 |
+아래 표의 check 수치와 이미지는 초기 저장 기록입니다. 현재 최종 단계·SKIP·재빌드 경로는 상단을 따릅니다.
+
+| 순번 | 캐릭터 | 4x 크롭 구간 (`x`) | 그룹 합체 `offsetX` / `z` | 초기 정제 스크립트 | 당시 `check` 결과 | 당시 주요 특징 |
 | :---: | :--- | :---: | :---: | :--- | :---: | :--- |
 | **#1** | **Roa (`roa`)** | `96..896` | `0` (`z=3`) | [`scripts/upgrade_roa_4x.py`](./scripts/upgrade_roa_4x.py) | **PASS (`10/10`)** | 왼팔을 루나(`luna`)의 오른쪽 어깨 위에 자연스럽게 걸치는 어깨동무 레이어링(`z=3 > z=2`), See-through 바지/신발 분리 보존, Tier 5 바스트 탄성 |
 | **#2** | **Luna (`luna`)** | `896..1696` | `435` (`z=2`) | [`scripts/upgrade_luna_4x.py`](./scripts/upgrade_luna_4x.py) | **PASS (`10/10`)** | 로아의 왼팔 아래로 어깨가 맞물리는 배치(`offsetX=435, z=2`), 뒷머리/어깨 은폐 영역 보존, 재킷 밑자락(`hem_r/l`) 물리, Tier 1 바스트 탄성 |
