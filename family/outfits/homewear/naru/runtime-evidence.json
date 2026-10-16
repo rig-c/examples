@@ -1,0 +1,18 @@
+{
+  "spec": "family-homewear-runtime-evidence/1",
+  "upscaleRun": "homewear-naru-01a145d2/upscale-2",
+  "logs": [
+    {
+      "name": "stdout.log",
+      "sha256": "455386298d8863ad4fcf4c52c84f2221610ddc61c09a59d1706920f30584f08b",
+      "retention": "local raw execution evidence; omitted from public artifact"
+    },
+    {
+      "name": "stderr.log",
+      "sha256": "4125ba642f182c1224b66a8f4801f87138264292abb70aa1db18c488c87b8980",
+      "retention": "local raw execution evidence; omitted from public artifact"
+    }
+  ],
+  "limits": "inputs/upscale-run/budget.json",
+  "model": "inputs/upscale-run/upscale.json"
+}

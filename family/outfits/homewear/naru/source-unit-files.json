@@ -1,0 +1,132 @@
+{
+  "spec": "family-homewear-source-unit/1",
+  "scope": "Stable source preparation only, no partial See-through or incomplete rig output",
+  "files": [
+    {
+      "path": "family/tools/homewear-naru-prepare.py",
+      "bytes": 4843,
+      "sha256": "ada5f5859390ea34d3814000aa15c3f08833601d527a92fcf9b7632c8cf3441b"
+    },
+    {
+      "path": "family/tools/homewear-naru-source-contact.py",
+      "bytes": 1476,
+      "sha256": "31af8e62d3bb8ba394e4480a7b3c54a1bd62c71be282517c9e6706e4f0acb7c3"
+    },
+    {
+      "path": "family/tools/homewear-naru-upscale.py",
+      "bytes": 9607,
+      "sha256": "44eba0dbd317344f6b7e2049f38d7d01e93a59e50c1363ee3feea66431504843"
+    },
+    {
+      "path": "family/tools/homewear-naru-matte-contact.py",
+      "bytes": 1788,
+      "sha256": "2cfb3ed82dcf2ac888787afcd9d85b9de3d29df210a86d9d4dfd1c217c3abfbd"
+    },
+    {
+      "path": "family/tools/homewear-naru-protected-check.py",
+      "bytes": 2833,
+      "sha256": "f297ef7a4bfac4eab94891909d0358634713e5ba3d0408ae18dcec7502652aef"
+    },
+    {
+      "path": "family/outfits/homewear/naru/SOURCE_PREPARATION.md",
+      "bytes": 3134,
+      "sha256": "3591b31b6d3c1761c364ae5b224285a1ed52d4c953cd9a3de060a183c62508dd"
+    },
+    {
+      "path": "family/outfits/homewear/naru/source-provenance.json",
+      "bytes": 839,
+      "sha256": "ae488fed3395a3ec64304000cd5fec3a2a7c0c7ea3342710d18752e8ef5a5d58"
+    },
+    {
+      "path": "family/outfits/homewear/naru/protected-baseline.json",
+      "bytes": 4938,
+      "sha256": "8552c6516e61a2176d00bdc65c41cc148f415804c990c954490a2f31a45473fb"
+    },
+    {
+      "path": "family/outfits/homewear/naru/landmarks-draft.json",
+      "bytes": 1887,
+      "sha256": "85457a5b48605fa092ffd935e86c0a9ea69a43ef29e130246a3835625098c032"
+    },
+    {
+      "path": "family/outfits/homewear/naru/runtime-evidence.json",
+      "bytes": 621,
+      "sha256": "88d02164c46469b3f6e3993ad777d77a0878017e66e627f85c40ca25018b28e5"
+    },
+    {
+      "path": "family/outfits/homewear/naru/config-inputs.json",
+      "bytes": 169,
+      "sha256": "7986bfb73acc1ebc05ac375b97f8e6da7f3585995c3ca557a40fb79085f892a8"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/source-group.jpeg",
+      "bytes": 2194419,
+      "sha256": "46d622aa598432ede53c946e9f8a8f9089e4ce7513ea834a8e63fe8e8892e24f"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/naru-source-crop.png",
+      "bytes": 809195,
+      "sha256": "6460fff5e35a0163ef12cfe885c469dac244a1cdb4d7c1eae4e8d241e7295eeb"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/registration-draft.png",
+      "bytes": 1632196,
+      "sha256": "e56702ce7cb337adb8068df75bb03c7719a29aaf8231ff43d6a54066374aab3f"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/painting-clothing-source.png",
+      "bytes": 862262,
+      "sha256": "f20f83c384a2b333afd5a2a78789c235b4a52be25841aafd520e8565bf3839d5"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/seethrough-input/st_input_full.png",
+      "bytes": 1403701,
+      "sha256": "8d6e03e28b406a87f502d01698d758297e815b147473cef3d860fc93318dcdc8"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/source-registration-draft.png",
+      "bytes": 747855,
+      "sha256": "83b4f8615fbdbf2261815f393618aaa1d9eccea6ec4fb9d7380269bed78d7ed2"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/matte-upscale-contact.png",
+      "bytes": 898750,
+      "sha256": "1ade7c81e9f2f88e63d84d6adcc8f078b26200491aa4a9806621813e16d769e9"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/upscale-run/animesharp-4x.png",
+      "bytes": 13559701,
+      "sha256": "a5a90f9b78cf7412d62c30d3f878d5c912967237f33fd19220e1315a4c7cb106"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/upscale-run/budget.json",
+      "bytes": 249,
+      "sha256": "2b8efbfbaf957990f09121e119ba342c6cc89fb13f9c34d565452eb307362a02"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/upscale-run/matte-source-alpha.png",
+      "bytes": 25768,
+      "sha256": "2abc88c323e28471216efa73a44393a57428384512aaef46213beba15536e33e"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/upscale-run/matte-source.png",
+      "bytes": 908082,
+      "sha256": "7a9f472ac4c40dc9b54089768b0be2f47d90e41251f7ad478c866940631ea0ef"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/upscale-run/matte.json",
+      "bytes": 167,
+      "sha256": "5e3fa29fd92da5f839c5ba7c5057993479d9c57ff7e8c80021f8ddcb0de4c157"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/upscale-run/registered-upscaled.png",
+      "bytes": 994469,
+      "sha256": "b4a2c7fc933094c9c17b27c1b397a25de9bd948a403cb30ab6e455b207531d3d"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/upscale-run/upscale.json",
+      "bytes": 918,
+      "sha256": "e95bf11017d3c87de6fe84d5144cff32941f6fc29cc686e97d1559a8966a7d3b"
+    }
+  ],
+  "totalBytes": 24069867
+}
