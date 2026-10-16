@@ -185,13 +185,15 @@
   "warmupCycles": 6,
   "physicsStepSeconds": 0.016666666666666666,
   "gust": {
-    "peak": 48,
+    "peak": 16,
     "start": 0.35,
     "duration": 1.3,
     "profile": "sin(pi*u)^2"
   },
   "blink": "viewer smooth curve, deterministic staggered schedule",
   "quality": 80,
+  "captureRecipeSha256": "1232b71b7a84330ecff311482a4de0aba47c203eafc2aeb2d602e8f068524ceb",
+  "browser": "151.0.7922.34",
   "sources": {
     "accepted-inputs.json": "a68d0eb3a561c401d626b9aad94a58eee2a8e2719c71125d2ff8af076eee96c7",
     "viewer/assets/player.js": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
@@ -206,15 +208,8 @@
     "naru/out/check/build/skeleton.png": "671c9fb591e68279a37adc1ab2ea3f093a116804942d5955b6e0c37191755f14",
     "nova/out/check/build/skeleton.png": "134523763d7fead761d9a80195c23ddc0ebc6286878fdd0204db9a445d00ef0e"
   },
-  "bytes": 7458186,
-  "sha256": "78a58087c18ac88f5674cbfa9332633a12b360d0e46d5af0a694004a2f2b6ee4",
-  "browser": "151.0.7922.34",
-  "provenance": {
-    "encoding": "Original 960x832 q80 capture retained; independently replayed with the current recipe.",
-    "independentReplayRecipeSha256": "39df4a58ba1be1137edd0c37146c41f86e00628f483f2973323ff4ff2ba1d10c",
-    "comparedPNGFiles": 101,
-    "differingPNGFileHashes": 0
-  },
+  "bytes": 7430212,
+  "sha256": "01a7e7f292f0a286f56a650f8697cccf97832a982c5b541f74c2ad6cf90f9a53",
   "verification": {
     "decodedFrames": 67,
     "durationMs": 3333,
@@ -223,14 +218,14 @@
     "everyFrameHasIntermediateAlpha": true,
     "allFourCanvasCornersAlpha": 0,
     "alphaMaxErrorFromEncodingPNG": 0,
-    "opaqueRGBMeanAbsoluteError": 2.6043093523516014,
+    "opaqueRGBMeanAbsoluteError": 2.6011262080739024,
     "foregroundPremultipliedRGBA": {
-      "adjacentMAEMin": 1.3777838945388794,
-      "adjacentMAEMedian": 2.0052091479301453,
-      "adjacentMAEMax": 3.5818252563476562,
-      "lastToFirstMAE": 1.4000518321990967,
+      "adjacentMAEMin": 1.3689442873001099,
+      "adjacentMAEMedian": 1.7685452699661255,
+      "adjacentMAEMax": 2.8282434940338135,
+      "lastToFirstMAE": 1.3907063007354736,
       "periodicFirstToExtraFrame100MAE": 0.0,
-      "frame0To33MAE": 7.922152996063232
+      "frame0To33MAE": 7.9108805656433105
     }
   }
 }
