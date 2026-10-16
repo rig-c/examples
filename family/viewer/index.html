@@ -13,30 +13,57 @@
       height: 100dvh; display: flex; flex-direction: column; overflow: hidden;
     }
     header {
-      display: flex; align-items: center; gap: 12px; padding: 10px 16px;
-      background: #1c1f26; border-bottom: 1px solid #2a2e37; flex-wrap: wrap;
-      font-size: 13px; z-index: 10;
+      flex: 0 0 auto; padding: 12px 16px 10px; z-index: 10;
+      background: #1b1e25; border-bottom: 1px solid #343945;
+      font-size: 12px; max-height: 44dvh; overflow-y: auto;
+      scrollbar-width: thin;
     }
-    h1 { font-size: 14px; font-weight: 700; color: #fff; margin-right: 6px; }
-    h1 span { color: #7a8494; font-weight: 400; font-size: 12px; }
-    .group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; max-width: 100%; }
-    .group > * { flex-shrink: 0; }
-    .group > span, button { white-space: nowrap; }
-    label { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
-    .sep { width: 1px; height: 20px; background: #2a2e37; margin: 0 4px; }
+    .masthead { display: flex; align-items: center; gap: 16px; min-width: 0; margin-bottom: 10px; }
+    h1 { flex: 0 0 auto; font-size: 14px; font-weight: 700; color: #fff; line-height: 1.4; }
+    h1 span { display: block; color: #8d98aa; font-weight: 400; font-size: 10px; letter-spacing: .03em; }
+    .scene-control { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .scene-control > span { flex: 0 0 auto; color: #a6afbf; }
+    #charSelect { width: 330px; max-width: 100%; min-width: 0; }
+    #stats { flex: 1; min-width: 0; font-size: 11px; line-height: 1.5; color: #8fd3a0; overflow-wrap: anywhere; }
+    #resetBtn { flex: 0 0 auto; color: #a6afbf; background: transparent; border-color: #343945; }
+    .toolbar-groups { display: grid; grid-template-columns: minmax(185px, .8fr) minmax(400px, 1.8fr) minmax(230px, 1fr); gap: 8px; }
+    .tool-panel { min-width: 0; padding: 9px 10px; border: 1px solid #303641; border-radius: 8px; background: #20242c; }
+    .tool-panel h2 { margin-bottom: 7px; color: #98a5b9; font-size: 10px; font-weight: 600; letter-spacing: .06em; }
+    .panel-controls, .control-set { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; }
+    .panel-controls { row-gap: 8px; }
+    .control-set { max-width: 100%; }
+    .control-set + .control-set { padding-left: 10px; margin-left: 4px; border-left: 1px solid #3a414e; }
+    .control-name { color: #a6afbf; font-size: 11px; white-space: nowrap; }
+    .value { min-width: 29px; color: #e6edf3; font-variant-numeric: tabular-nums; text-align: right; }
+    label { display: inline-flex; align-items: center; gap: 6px; min-width: 0; white-space: nowrap; color: #a6afbf; }
     button, select {
-      background: #262a33; color: #d5d9e0; border: 1px solid #363c4a;
-      border-radius: 6px; padding: 5px 10px; font: inherit; font-size: 12px;
+      background: #292f3a; color: #d5d9e0; border: 1px solid #3b4454;
+      border-radius: 5px; padding: 5px 8px; min-height: 29px; font: inherit; font-size: 12px;
       cursor: pointer;
     }
-    button:hover, select:hover { background: #323846; }
-    button.on { background: #e11d48; border-color: #f43f5e; color: #fff; font-weight: 600; }
-    input[type="range"] { width: 80px; accent-color: #e11d48; }
-    #wind { width: 120px; }
-    input[type="number"] { width: 62px; color: inherit; background: #262a33; border: 1px solid #363c4a; border-radius: 4px; padding: 3px; }
-    #pulseBtn { min-width: 100px; }
-    #pulseBtn:disabled { cursor: default; opacity: 0.7; }
-    #stats { margin-left: auto; font-size: 12px; color: #8fd3a0; font-family: ui-monospace, monospace; }
+    button { white-space: nowrap; }
+    button:hover, select:hover { background: #354053; border-color: #58677e; }
+    button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid #f47296; outline-offset: 3px; }
+    button.on { background: #782a44; border-color: #d4597e; color: #fff; }
+    #pauseBtn { min-width: 72px; }
+    input[type="range"] { width: 80px; min-width: 0; accent-color: #e85a82; cursor: pointer; }
+    #wind { width: 110px; }
+    input[type="number"] { width: 57px; min-height: 29px; color: #e6edf3; background: #171b22; border: 1px solid #3b4454; border-radius: 5px; padding: 4px 5px; font: inherit; font-variant-numeric: tabular-nums; }
+    .physics-panel { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; }
+    .physics-panel h2 { flex: 0 0 auto; margin: 0; }
+    .physics-panel h2 span { display: block; margin-top: 3px; font-size: 10px; font-weight: 400; letter-spacing: 0; color: #7f8b9d; }
+    .physics-panel .panel-controls { flex: 1; column-gap: 14px; }
+    .physics-panel .control-set + .control-set { margin-left: 0; padding-left: 14px; }
+    .wind-readout { display: inline-flex; align-items: center; gap: 5px; color: #a6afbf; font-size: 11px; }
+    #windCurrent { min-width: 36px; color: #a4dfb2; }
+    #pulseBtn { min-width: 94px; }
+    #pulseBtn:disabled { cursor: default; opacity: .7; }
+    .view-controls { column-gap: 10px; }
+    .background-controls { gap: 4px; }
+    .background-controls button { padding-inline: 7px; }
+    .diagnostic-controls { gap: 7px; }
+    .diagnostic-controls label { font-size: 11px; }
+    #meshOpacity { width: 70px; }
     #viewport {
       position: relative; flex: 1; min-height: 0; display: flex; overflow: hidden;
     }
@@ -55,12 +82,37 @@
     #ref-pane .cap { position: absolute; left: 10px; top: 10px; z-index: 2; font-size: 12px;
       color: #d5d9e0; padding: 4px 8px; background: #181b22bb; pointer-events: none; }
     #overlay { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 9; pointer-events: none; }
+    @media (max-width: 1100px) {
+      header { padding: 10px; }
+      .masthead { gap: 10px; flex-wrap: wrap; }
+      #stats { flex-basis: 200px; }
+      .toolbar-groups { grid-template-columns: minmax(0, .8fr) minmax(0, 1.7fr) minmax(0, 1fr); }
+      .control-set + .control-set { padding-left: 0; margin-left: 0; border-left: 0; }
+      .physics-panel .control-set + .control-set { padding-left: 0; }
+    }
+    @media (max-width: 760px) {
+      header { max-height: 46dvh; padding: 10px 8px; }
+      .masthead { gap: 8px 12px; }
+      h1 { flex: 1; }
+      #resetBtn { order: 1; }
+      .scene-control { order: 2; flex: 1 1 100%; }
+      #charSelect { flex: 1; width: 0; }
+      #stats { order: 3; flex-basis: 100%; }
+      .toolbar-groups { grid-template-columns: 1fr; gap: 6px; }
+      .tool-panel { display: flex; align-items: center; gap: 10px; padding: 8px; }
+      .tool-panel h2 { flex: 0 0 28px; margin: 0; }
+      .panel-controls { flex: 1; }
+      .physics-panel { align-items: flex-start; }
+      .physics-panel h2 { flex-basis: 28px; line-height: 1.5; padding-top: 3px; }
+      .physics-panel h2 span { display: none; }
+      .physics-panel .panel-controls { gap: 9px 14px; }
+      .physics-panel .control-set { flex-wrap: wrap; }
+      #wind { width: 105px; }
+      .hud-tip { max-width: calc(100% - 20px); font-size: 11px; }
+    }
     @media (orientation: portrait) {
       #viewport { flex-direction: column; }
       #ref-pane { border-left: 0; border-top: 1px solid #2a2e37; }
-      header { padding: 6px 8px; gap: 7px; max-height: 42dvh; overflow-y: auto; }
-      .sep { display: none; }
-      #charSelect { max-width: 76vw; }
     }
     .hud-tip {
       position: absolute; left: 14px; bottom: 12px; font-size: 12px; color: rgba(255,255,255,0.55);
@@ -69,79 +121,91 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Agent Family Rig-C Viewer <span>(@rig-c/play)</span></h1>
-
-    <div class="group">
-      <span>캐릭터</span>
-      <select id="charSelect">
-        <option value="all5" selected>합성 · 에이전트 패밀리 전원 (5인 밀착 합체)</option>
-        <option value="all5_wide">합성 · 원본 크롭 간격 (5인 분리 나열)</option>
-        <option value="roa">1번 · 로아 (Roa)</option>
-        <option value="luna">2번 · 루나 (Luna)</option>
-        <option value="jinni">3번 · 지니 (Jinni)</option>
-        <option value="naru">4번 · 나루 (Naru)</option>
-        <option value="nova">5번 · 노바 (Nova)</option>
-        <option value="composed">합성 · 로아 + 루나 (어깨동무 2인)</option>
-      </select>
+  <header aria-label="뷰어 컨트롤">
+    <div class="masthead">
+      <h1>Agent Family <span>Rig-C Viewer · @rig-c/play</span></h1>
+      <label class="scene-control"><span>캐릭터</span>
+        <select id="charSelect">
+          <option value="all5" selected>패밀리 전원 · 5인 밀착 합체</option>
+          <option value="all5_wide">패밀리 전원 · 원본 크롭 간격</option>
+          <option value="roa">1번 · 로아 (Roa)</option>
+          <option value="luna">2번 · 루나 (Luna)</option>
+          <option value="jinni">3번 · 지니 (Jinni)</option>
+          <option value="naru">4번 · 나루 (Naru)</option>
+          <option value="nova">5번 · 노바 (Nova)</option>
+          <option value="composed">로아 + 루나 · 어깨동무 2인</option>
+        </select>
+      </label>
+      <div id="stats" role="status">로딩 중…</div>
+      <button id="resetBtn" title="저장된 보기와 물리 설정을 기본값으로 되돌립니다">설정 초기화</button>
     </div>
 
-    <div class="sep"></div>
+    <div class="toolbar-groups">
+      <section class="tool-panel" aria-labelledby="playback-heading">
+        <h2 id="playback-heading">재생</h2>
+        <div class="panel-controls">
+          <button id="pauseBtn">일시정지</button>
+          <label>속도 <input id="speed" type="range" min="0.1" max="2.5" step="0.1" value="1.0" />
+            <span id="speedVal" class="value">1.0×</span>
+          </label>
+        </div>
+      </section>
 
-    <div class="group">
-      <span>배경</span>
-      <button data-bg="dark" class="on">다크</button>
-      <button data-bg="white">화이트</button>
-      <button data-bg="grey">회색</button>
-      <button data-bg="magenta">자홍(틈검수)</button>
+      <section class="tool-panel" aria-labelledby="view-heading">
+        <h2 id="view-heading">보기</h2>
+        <div class="panel-controls view-controls">
+          <button id="refBtn" class="on" aria-pressed="true">원화 비교</button>
+          <div class="control-set" role="group" aria-label="확대">
+            <span class="control-name">확대</span>
+            <button data-zoom="fit">맞춤</button>
+            <button data-zoom="1.5">1.5×</button>
+            <button data-zoom="2.5">2.5×</button>
+            <button data-zoom="4">4× 상반신</button>
+          </div>
+          <div class="control-set background-controls" role="group" aria-label="배경">
+            <span class="control-name">배경</span>
+            <button data-bg="dark" class="on">다크</button>
+            <button data-bg="white">화이트</button>
+            <button data-bg="grey">회색</button>
+            <button data-bg="magenta" title="메시와 파츠 사이의 틈을 확인하는 자홍 배경">자홍</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-labelledby="diagnostics-heading">
+        <h2 id="diagnostics-heading">진단</h2>
+        <div class="panel-controls diagnostic-controls">
+          <button id="bonesBtn" aria-pressed="false">뼈</button>
+          <button id="meshBtn" aria-pressed="false">메시</button>
+          <label>메시 농도 <input id="meshOpacity" type="range" min="0" max="1" step="0.05" value="0.55" /></label>
+        </div>
+      </section>
+
+      <section class="tool-panel physics-panel" aria-labelledby="physics-heading" title="바람과 돌풍은 재생 속도에 맞춰 진행하며 일시정지하면 멈춥니다">
+        <h2 id="physics-heading">물리 <span>치마 · 헤어 · 가슴</span></h2>
+        <div class="panel-controls">
+          <div class="control-set" role="group" aria-label="기본 환경">
+            <label>기본 바람 <input id="wind" type="range" min="-100" max="100" step="0.1" value="0" />
+              <span id="windVal" class="value">0.0</span>
+            </label>
+            <span class="wind-readout">현재 <output id="windCurrent" class="value" aria-label="현재 적용 바람">0.0</output></span>
+            <label>중력 <input id="gravity" type="range" min="-3" max="3" step="0.1" value="0" />
+              <span id="gravVal" class="value">0.0</span>
+            </label>
+          </div>
+          <div class="control-set" role="group" aria-label="물리 동작">
+            <button id="gustBtn" aria-pressed="false" title="기본 바람에 사인파 산들바람을 더합니다">산들바람</button>
+            <button id="joltBtn" title="캐릭터에 순간 관성 충격 주기">찰랑이기</button>
+          </div>
+          <div class="control-set" role="group" aria-label="돌풍 설정과 실행">
+            <label>돌풍 세기 <input id="gustPeak" type="number" min="0" max="200" step="1" value="48" /></label>
+            <label>시간 <input id="gustDuration" type="number" min="0.1" max="20" step="0.1" value="2.4" />초</label>
+            <button id="pulseBtn" title="선택한 세기의 돌풍을 기본 바람에 더합니다. 시작할 때 기본 바람 방향을 따르며 0이면 오른쪽. 진행 중인 돌풍의 설정은 유지됩니다">돌풍</button>
+            <button id="repeatGustBtn" aria-pressed="false" title="돌풍 시작 간격은 6초와 돌풍 시간+0.6초 중 큰 값입니다. 진행 중인 돌풍을 이어받으며, 끄면 진행 중 돌풍은 끝까지 재생합니다">돌풍 반복</button>
+          </div>
+        </div>
+      </section>
     </div>
-
-    <div class="sep"></div>
-
-    <div class="group">
-      <span>확대</span>
-      <button data-zoom="fit">맞춤</button>
-      <button data-zoom="1.5">1.5×</button>
-      <button data-zoom="2.5">2.5×</button>
-      <button data-zoom="4">4×(상반신)</button>
-    </div>
-
-    <div class="sep"></div>
-
-    <div class="group">
-      <button id="pauseBtn">일시정지</button>
-      <label>속도 <input id="speed" type="range" min="0.1" max="2.5" step="0.1" value="1.0" /></label>
-      <span id="speedVal" style="font-size:12px;min-width:28px;">1.0×</span>
-    </div>
-
-    <div class="sep"></div>
-
-    <div class="group" title="바람과 돌풍은 재생 속도에 맞춰 진행하며 일시정지하면 멈춥니다">
-      <span>물리(치마/헤어/가슴)</span>
-      <label>기본 바람 <input id="wind" type="range" min="-100" max="100" step="0.1" value="0" /></label>
-      <span id="windVal" style="font-size:12px;min-width:36px;">0.0</span>
-      <span style="font-size:12px;">현재 <output id="windCurrent" style="display:inline-block;min-width:36px;" aria-label="현재 적용 바람">0.0</output></span>
-      <label>중력 <input id="gravity" type="range" min="-3" max="3" step="0.1" value="0" /></label>
-      <span id="gravVal" style="font-size:12px;min-width:28px;">0.0</span>
-      <button id="gustBtn" aria-pressed="false" title="기본 바람에 사인파 산들바람을 더합니다">산들바람</button>
-      <label>돌풍 세기 <input id="gustPeak" type="number" min="0" max="200" step="1" value="48" /></label>
-      <label>돌풍 시간 <input id="gustDuration" type="number" min="0.1" max="20" step="0.1" value="2.4" />초</label>
-      <button id="pulseBtn" title="선택한 세기의 돌풍을 기본 바람에 더합니다. 시작할 때 기본 바람 방향을 따르며 0이면 오른쪽. 진행 중인 돌풍의 설정은 유지됩니다">돌풍</button>
-      <button id="repeatGustBtn" aria-pressed="false" title="돌풍 시작 간격은 6초와 돌풍 시간+0.6초 중 큰 값입니다. 진행 중인 돌풍을 이어받으며, 끄면 진행 중 돌풍은 끝까지 재생합니다">돌풍 반복</button>
-      <button id="joltBtn" title="캐릭터에 순간 관성 충격 주기">찰랑이기</button>
-    </div>
-
-    <div class="sep"></div>
-
-    <div class="group">
-      <button id="refBtn" class="on" aria-pressed="true">원화 비교</button>
-      <button id="bonesBtn" aria-pressed="false">뼈</button>
-      <button id="meshBtn" aria-pressed="false">메시</button>
-      <label>메시 농도 <input id="meshOpacity" type="range" min="0" max="1" step="0.05" value="0.55" /></label>
-      <button id="resetBtn">설정 초기화</button>
-    </div>
-
-    <div id="stats">로딩 중…</div>
   </header>
 
   <div id="viewport">
