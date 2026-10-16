@@ -1,0 +1,27 @@
+{
+  "publicReader": "@rig-c/parts1.25.0 readParts",
+  "status": "PASS",
+  "onlyRemovedOptionalVisibilitySet": true,
+  "originalProjectionCountersPreserved": true,
+  "recompositeUnchanged": true,
+  "topwear": {
+    "name": "topwear",
+    "from": "full:topwear",
+    "x": 154,
+    "y": 599,
+    "w": 493,
+    "h": 426,
+    "opaque_px": 146553,
+    "projected_core_px": 135343,
+    "source_px_taken": 135343,
+    "refused_drift_px": 1482,
+    "merged_px": 0,
+    "seam_override_px": 410,
+    "fringe_pushed_back": [
+      {
+        "part": "hair_back",
+        "px": 90
+      }
+    ]
+  }
+}

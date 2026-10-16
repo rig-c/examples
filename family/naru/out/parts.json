@@ -102,16 +102,13 @@
     {
       "name": "topwear",
       "from": "full:topwear",
-      "x": 160,
+      "x": 154,
       "y": 599,
-      "w": 481,
-      "h": 420,
-      "opaque_px": 147131,
-      "visible_px": 144915,
-      "occluded_px": 2216,
+      "w": 493,
+      "h": 426,
+      "opaque_px": 146553,
       "projected_core_px": 135343,
       "source_px_taken": 135343,
-      "visible_not_projected_px": 9572,
       "refused_drift_px": 1482,
       "merged_px": 0,
       "seam_override_px": 410,
@@ -503,59 +500,16 @@
     "head:wings": 0
   },
   "recomposite": {
-    "mean_abs": 1.091,
+    "mean_abs": 1.012,
     "within_limit": 8,
-    "within_share": 0.981,
+    "within_share": 0.9826,
     "error_limit": 40,
-    "error_px": 16312,
+    "error_px": 14841,
     "covered_alpha": 128,
-    "uncovered_error_px": 5759,
-    "hole_count": 555,
+    "uncovered_error_px": 4258,
+    "hole_count": 635,
     "holes_listed": 5,
     "holes": [
-      {
-        "px": 491,
-        "x": 541,
-        "y": 942,
-        "w": 101,
-        "h": 76,
-        "borders": [
-          {
-            "part": "topwear",
-            "px": 204
-          }
-        ]
-      },
-      {
-        "px": 459,
-        "x": 594,
-        "y": 753,
-        "w": 36,
-        "h": 170,
-        "borders": [
-          {
-            "part": "topwear",
-            "px": 193
-          }
-        ]
-      },
-      {
-        "px": 392,
-        "x": 181,
-        "y": 981,
-        "w": 109,
-        "h": 39,
-        "borders": [
-          {
-            "part": "topwear",
-            "px": 177
-          },
-          {
-            "part": "bottomwear",
-            "px": 17
-          }
-        ]
-      },
       {
         "px": 252,
         "x": 229,
@@ -579,6 +533,53 @@
           {
             "part": "bottomwear",
             "px": 161
+          }
+        ]
+      },
+      {
+        "px": 157,
+        "x": 549,
+        "y": 1641,
+        "w": 7,
+        "h": 138,
+        "borders": [
+          {
+            "part": "bottomwear",
+            "px": 147
+          }
+        ]
+      },
+      {
+        "px": 129,
+        "x": 298,
+        "y": 2118,
+        "w": 22,
+        "h": 119,
+        "borders": [
+          {
+            "part": "shoes",
+            "px": 143
+          },
+          {
+            "part": "legwear",
+            "px": 40
+          }
+        ]
+      },
+      {
+        "px": 101,
+        "x": 355,
+        "y": 1851,
+        "w": 25,
+        "h": 67,
+        "borders": [
+          {
+            "part": "legwear",
+            "px": 86
+          },
+          {
+            "part": "bottomwear",
+            "px": 21
           }
         ]
       }

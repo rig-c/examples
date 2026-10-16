@@ -156,17 +156,39 @@
    "in": "rig.json"
   }
  ],
- "seam_mean": 0.137,
- "seam_px_over_40": 0,
+ "seam_mean": 0.134,
+ "seam_px_over_40": 4,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.08452,
- "seam_pairs": [],
+ "seam_pairs": [
+  {
+   "parts": [
+    "iris_r",
+    "lash_r"
+   ],
+   "px_over_40": 4,
+   "px_over_80": 0,
+   "frame_box": [
+    286,
+    298,
+    287,
+    302
+   ],
+   "rig_box": [
+    339,
+    512,
+    341,
+    517
+   ],
+   "picture": "seam/01_iris_r_lash_r.png"
+  }
+ ],
  "BREATH_VISIBLE": {
   "status": "PASS",
   "torso_parts": [
    "topwear"
   ],
-  "torso_heat_mean": 18.56,
+  "torso_heat_mean": 17.939,
   "torso_floor": 3.809,
   "feet_parts": [
    "shoes"
@@ -189,7 +211,7 @@
   "box_px": 8804,
   "hole_px": 0,
   "hole_bar": 0,
-  "patch_max": 17,
+  "patch_max": 12,
   "patch_px_over_40": 0
  },
  "CHAIN_LAG": {
@@ -374,14 +396,14 @@
  },
  "RECOMPOSITE_HOLES": {
   "status": "REPORTED",
-  "error_px": 16312,
-  "uncovered_error_px": 5759,
-  "hole_count": 555,
+  "error_px": 14841,
+  "uncovered_error_px": 4258,
+  "hole_count": 635,
   "largest": {
-   "px": 491,
-   "box": "541,942 101x76",
+   "px": 252,
+   "box": "229,566 27x60",
    "borders": [
-    "topwear 204 px"
+    "hair_back 83 px"
    ]
   }
  },

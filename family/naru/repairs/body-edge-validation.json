@@ -1,0 +1,258 @@
+{
+  "runs": [
+    {
+      "run": "20261016T153402Z-0edcf10e293848c091a877573b7c20ba",
+      "result": {
+        "artifacts": {
+          "bytes": 2588395,
+          "deleted": 0,
+          "files": 7
+        },
+        "cleanupEligible": true,
+        "command": [
+          "python3",
+          "run.py"
+        ],
+        "evidenceProtocol": 1,
+        "exclusive": false,
+        "exitCode": 1,
+        "finished": 1792164860.7300467,
+        "heldSeconds": 3.1959984959999996,
+        "id": "20261016T153402Z-0edcf10e293848c091a877573b7c20ba",
+        "identity": {
+          "label": "parts-examples#16 native alpha build check motion",
+          "machine": "firejune-macbook-jinie",
+          "owner": "Codex Sol naru_body_edge",
+          "project": "naru-body-edge",
+          "sessionId": "01a14552-b349-7cc1-a3f4-c8f9c9cf11d5"
+        },
+        "inputSha256": "a839716cfb664b6043dd333067d9a8ea69e28b6ddf39ea704449897af82b5e90",
+        "install": "bun install --frozen-lockfile",
+        "local": false,
+        "lock": "/tmp/nova-run.lock",
+        "out": "/home/firejune/nova-run/runs/20261016T153402Z-0edcf10e293848c091a877573b7c20ba/evidence",
+        "phase": "command",
+        "pid": 406,
+        "poolSlots": 6,
+        "processBoundary": {
+          "available": true,
+          "detail": "Linux subreaper direct-child registry empty after kill/reap",
+          "quiescent": true
+        },
+        "root": "/home/firejune/nova-run/runs/20261016T153402Z-0edcf10e293848c091a877573b7c20ba/work",
+        "runtime": {
+          "bun": "1.4.2",
+          "git": "git version 2.43.0",
+          "node": null,
+          "python3": "Python 3.12.3"
+        },
+        "slot": 0,
+        "sourceCommit": "",
+        "started": 1792164857.53405,
+        "status": "failed",
+        "timeoutSeconds": 3600
+      },
+      "receipt": {
+        "id": "20261016T153402Z-0edcf10e293848c091a877573b7c20ba",
+        "manifestSha256": "69282d0246d556adc6f8f31b752339ce9093945cacf3dfcaeba5f055d781181a",
+        "protocol": 1,
+        "resultSha256": "d67e6233544d64c55b14eff615db192cb8a664a097cb157db8bbde423e7e5233",
+        "verifiedAt": 1792164862.424792
+      }
+    },
+    {
+      "run": "20261016T153442Z-2f3bfdd9fdcb4f379a167ba6381d6d5f",
+      "result": {
+        "artifacts": {
+          "bytes": 31602188,
+          "deleted": 0,
+          "files": 50
+        },
+        "cleanupEligible": true,
+        "command": [
+          "python3",
+          "run.py"
+        ],
+        "evidenceProtocol": 1,
+        "exclusive": false,
+        "exitCode": 1,
+        "finished": 1792164897.6687875,
+        "heldSeconds": 8.241717889999997,
+        "id": "20261016T153442Z-2f3bfdd9fdcb4f379a167ba6381d6d5f",
+        "identity": {
+          "label": "parts-examples#16 native alpha UV domain correction",
+          "machine": "firejune-macbook-jinie",
+          "owner": "Codex Sol naru_body_edge",
+          "project": "naru-body-edge",
+          "sessionId": "01a14552-b349-7cc1-a3f4-c8f9c9cf11d5"
+        },
+        "inputSha256": "ee81eaa4312208e27873dd2f768a46a50a6b96fa0d5713e3d9fe116c7fe44ce7",
+        "install": "bun install --frozen-lockfile",
+        "local": false,
+        "lock": "/tmp/nova-run.lock",
+        "out": "/home/firejune/nova-run/runs/20261016T153442Z-2f3bfdd9fdcb4f379a167ba6381d6d5f/evidence",
+        "phase": "command",
+        "pid": 378,
+        "poolSlots": 6,
+        "processBoundary": {
+          "available": true,
+          "detail": "Linux subreaper direct-child registry empty after kill/reap",
+          "quiescent": true
+        },
+        "root": "/home/firejune/nova-run/runs/20261016T153442Z-2f3bfdd9fdcb4f379a167ba6381d6d5f/work",
+        "runtime": {
+          "bun": "1.4.2",
+          "git": "git version 2.43.0",
+          "node": null,
+          "python3": "Python 3.12.3"
+        },
+        "slot": 0,
+        "sourceCommit": "",
+        "started": 1792164889.4240713,
+        "status": "failed",
+        "timeoutSeconds": 3600
+      },
+      "receipt": {
+        "id": "20261016T153442Z-2f3bfdd9fdcb4f379a167ba6381d6d5f",
+        "manifestSha256": "8502a93447c758a9c2432d2edad831b7863483198b9f7fc2509c006601d114b6",
+        "protocol": 1,
+        "resultSha256": "11930f9ff8123c7efc0b01a154cee5c410a56784e3590e792d649fffe939b7c7",
+        "verifiedAt": 1792164900.861407
+      }
+    },
+    {
+      "run": "20261016T153606Z-f15467d59f9a47778d982e5125f75a61",
+      "result": {
+        "artifacts": {
+          "bytes": 10330802,
+          "deleted": 0,
+          "files": 58
+        },
+        "cleanupEligible": true,
+        "command": [
+          "python3",
+          "run-check.py"
+        ],
+        "evidenceProtocol": 1,
+        "exclusive": false,
+        "exitCode": 0,
+        "finished": 1792164983.7895672,
+        "heldSeconds": 11.49290102400002,
+        "id": "20261016T153606Z-f15467d59f9a47778d982e5125f75a61",
+        "identity": {
+          "label": "parts-examples#16 coherent metadata public check",
+          "machine": "firejune-macbook-jinie",
+          "owner": "Codex Sol naru_body_edge",
+          "project": "naru-body-edge",
+          "sessionId": "01a14552-b349-7cc1-a3f4-c8f9c9cf11d5"
+        },
+        "inputSha256": "2ca436d016fe03987e550f9c6d170e38502fe8d110bbc2dcef6569d238ae2aba",
+        "install": "bun install --frozen-lockfile",
+        "local": false,
+        "lock": "/tmp/nova-run.lock",
+        "out": "/home/firejune/nova-run/runs/20261016T153606Z-f15467d59f9a47778d982e5125f75a61/evidence",
+        "phase": "command",
+        "pid": 774,
+        "poolSlots": 6,
+        "processBoundary": {
+          "available": true,
+          "detail": "Linux subreaper direct-child registry empty after kill/reap",
+          "quiescent": true
+        },
+        "root": "/home/firejune/nova-run/runs/20261016T153606Z-f15467d59f9a47778d982e5125f75a61/work",
+        "runtime": {
+          "bun": "1.4.2",
+          "git": "git version 2.43.0",
+          "node": null,
+          "python3": "Python 3.12.3"
+        },
+        "slot": 1,
+        "sourceCommit": "",
+        "started": 1792164970.6186993,
+        "status": "passed",
+        "timeoutSeconds": 3600
+      },
+      "receipt": {
+        "id": "20261016T153606Z-f15467d59f9a47778d982e5125f75a61",
+        "manifestSha256": "893b819034bfc0fe286156512233fe575173fc14b93aa5a9709575df05235e0f",
+        "protocol": 1,
+        "resultSha256": "d986e834eb963659873dc9c5a671bba05e91951773b7053c7874415efaf980bc",
+        "verifiedAt": 1792164986.211027
+      }
+    },
+    {
+      "run": "20261016T154001Z-c40393de403b45b4bf23b58082f6234e",
+      "result": {
+        "artifacts": {
+          "bytes": 41872844,
+          "deleted": 0,
+          "files": 103
+        },
+        "cleanupEligible": true,
+        "command": [
+          "python3",
+          "run.py"
+        ],
+        "evidenceProtocol": 1,
+        "exclusive": false,
+        "exitCode": 0,
+        "finished": 1792165228.7321095,
+        "heldSeconds": 20.246970421,
+        "id": "20261016T154001Z-c40393de403b45b4bf23b58082f6234e",
+        "identity": {
+          "label": "parts-examples#16 final shoulder sleeve cuff recovery",
+          "machine": "firejune-macbook-jinie",
+          "owner": "Codex Sol naru_body_edge",
+          "project": "naru-body-edge",
+          "sessionId": "01a14552-b349-7cc1-a3f4-c8f9c9cf11d5"
+        },
+        "inputSha256": "ee9db825d89b9ebfffeb60bac3880eefc41397685de03f62e0e287fe2b5dfab2",
+        "install": "bun install --frozen-lockfile",
+        "local": false,
+        "lock": "/tmp/nova-run.lock",
+        "out": "/home/firejune/nova-run/runs/20261016T154001Z-c40393de403b45b4bf23b58082f6234e/evidence",
+        "phase": "command",
+        "pid": 398,
+        "poolSlots": 6,
+        "processBoundary": {
+          "available": true,
+          "detail": "Linux subreaper direct-child registry empty after kill/reap",
+          "quiescent": true
+        },
+        "root": "/home/firejune/nova-run/runs/20261016T154001Z-c40393de403b45b4bf23b58082f6234e/work",
+        "runtime": {
+          "bun": "1.4.2",
+          "git": "git version 2.43.0",
+          "node": null,
+          "python3": "Python 3.12.3"
+        },
+        "slot": 0,
+        "sourceCommit": "",
+        "started": 1792165208.4851406,
+        "status": "passed",
+        "timeoutSeconds": 3600
+      },
+      "receipt": {
+        "id": "20261016T154001Z-c40393de403b45b4bf23b58082f6234e",
+        "manifestSha256": "5e1da315caf6e5a4ad1041b77a574c0393dcd68072ad55a1585f55ccfc1bf8ba",
+        "protocol": 1,
+        "resultSha256": "c67da67a9dfb790910294a58c29323b58abdc678daf037be3a3a68b99ffcef41",
+        "verifiedAt": 1792165230.780898
+      }
+    }
+  ],
+  "rejectedAttempts": [
+    {
+      "stage": "scratch distance-dependent hull offset",
+      "reason": "Four small boundary triangles reversed orientation. Replaced by a constant 6 px source-normal offset."
+    },
+    {
+      "run": "20261016T153402Z-0edcf10e293848c091a877573b7c20ba",
+      "reason": "A22_MESH_UVS_IN_UNIT_RANGE rejected expanded hull outside the old image domain. The part canvas now includes transparent space around the expanded hull."
+    },
+    {
+      "run": "20261016T153442Z-2f3bfdd9fdcb4f379a167ba6381d6d5f",
+      "reason": "PARTS_COUNTS_ADD_UP rejected stale assembly visibility totals. Recounted opaque alpha > 8, preserved the unchanged occluded set, adjusted visible totals, and remeasured the flat recomposite through public parts APIs."
+    }
+  ]
+}
