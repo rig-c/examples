@@ -8,6 +8,8 @@ ComfyUI See-through가 제공하는 **우수한 은폐 영역(가려진 뒷머�
 
 현재 Roa/Luna/Nova의 가슴 영역 및 Nova 바지 품질 교정은 [MESH_REGION_REPAIR.md](./MESH_REGION_REPAIR.md)의 마지막 authoring 단계를 따른다. 기존 `config.json`·upgrade 스크립트의 독립적인 재질 실험을 통째로 재빌드하지 않고, 고정된 머리 클리핑 입력을 재현한 뒤 가드된 attachment 교정을 적용하고 공식 build/check를 실행한다.
 
+지니의 현재 마지막 단계는 [귀 뒤 옆머리 바인딩·깊이 교정](./jinni/BEHIND_EAR_STRAND.md)이다. 동결 원본 → 기존 윤곽·섬 클리핑 → `apply-jinni-behind-ear-strand.ts`의 가드된 교정 → 공식 build/check 순서로 재현한다. 앞머리 본을 따라 볼·목 앞으로 나오던 별도 가닥만 `head`에 고정하고 귀·얼굴 뒤, 어깨 앞에 배치해 원화의 말린 끝을 보존한다. 원화 픽셀과 나머지 앞머리·가슴·다른 캐릭터는 이 단계에서 바꾸지 않는다.
+
 ---
 
 ## 디렉토리 구조 (Layout)

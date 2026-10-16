@@ -131,11 +131,54 @@
    "in": "rig.json"
   }
  ],
- "seam_mean": 0.126,
- "seam_px_over_40": 0,
+ "seam_mean": 0.127,
+ "seam_px_over_40": 11,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.055297,
- "seam_pairs": [],
+ "seam_pairs": [
+  {
+   "parts": [
+    "face",
+    "hair_front"
+   ],
+   "px_over_40": 8,
+   "px_over_80": 0,
+   "frame_box": [
+    324,
+    308,
+    325,
+    314
+   ],
+   "rig_box": [
+    335,
+    459,
+    337,
+    466
+   ],
+   "picture": "seam/01_face_hair_front.png"
+  },
+  {
+   "parts": [
+    "ear_r",
+    "hair_front"
+   ],
+   "px_over_40": 3,
+   "px_over_80": 0,
+   "frame_box": [
+    323,
+    306,
+    323,
+    308
+   ],
+   "rig_box": [
+    334,
+    457,
+    335,
+    460
+   ],
+   "picture": "seam/02_ear_r_hair_front.png"
+  }
+ ],
  "BREATH_VISIBLE": {
   "status": "PASS",
   "torso_parts": [
@@ -379,6 +422,15 @@
     "severity": 1.02
    },
    {
+    "slot": "hair_front__island2",
+    "triangles": 25,
+    "max_ratio": 1.008,
+    "max_at": "triangle 0 (vertices 0 3 4), edge 4-0, idle frame 10",
+    "min_ratio": 1,
+    "min_at": "triangle 23 (vertices 19 16 18), edge 18-19, idle frame 30",
+    "severity": 1.008
+   },
+   {
     "slot": "hair_front",
     "triangles": 87,
     "max_ratio": 1.043,
@@ -386,15 +438,6 @@
     "min_ratio": 0.963,
     "min_at": "triangle 68 (vertices 77 44 43), edge 44-43, idle frame 20",
     "severity": 1.043
-   },
-   {
-    "slot": "hair_front__island2",
-    "triangles": 25,
-    "max_ratio": 1.024,
-    "max_at": "triangle 6 (vertices 6 23 24), edge 6-23, idle frame 0",
-    "min_ratio": 0.981,
-    "min_at": "triangle 6 (vertices 6 23 24), edge 6-23, idle frame 21",
-    "severity": 1.024
    }
   ]
  },

@@ -511,6 +511,25 @@
       "dilationChebyshevPixels": 4,
       "tolerance": 3,
       "derivedMaskPinchPixelsAdded": 0
+    },
+    "behindEarStrand": {
+      "spec": "jinni-behind-ear-strand-result/1",
+      "input": "e782eba8dd74c01f8de9c1ed8ea9b0b5175bfe5dd025eabc3e4e0192dde9fb92",
+      "motion": "c7bf32822d7447792066bdcd29db93006d03f8f2faf57970df2a028c1691e3af",
+      "slot": "hair_front__island2",
+      "targetBone": "head",
+      "oldWeightBones": [
+        "bang_c1",
+        "bang_l1",
+        "bang_r0",
+        "bang_r1",
+        "head"
+      ],
+      "oldSlotIndex": 25,
+      "newSlotIndex": 11,
+      "setupWorldMaxDelta": 1.4210854715202004e-14,
+      "preserved": "All other rig payload, source UV, topology, source pixels and motion unchanged",
+      "sourceReason": "Source side strand emerges behind ear and follows neck edge into shoulder curl; front bang ownership and topmost slot are incorrect."
     }
   }
 ]
