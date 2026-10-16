@@ -22,7 +22,7 @@ test('still air, extended signed range and invalid inputs', () => {
   for (const bad of [NaN, Infinity, -0.1]) assert.throws(() => wind.advance(bad), /wind dt/);
 });
 
-test('one smooth 2.4-second gust adds 6, follows the starting base sign and returns to base', () => {
+test('one smooth 2.4-second gust peaks at 12, follows the starting base sign and returns to base', () => {
   for (const base of [-3, 0, 3]) {
     const wind = createWindControls();
     wind.setBase(base);
@@ -30,7 +30,9 @@ test('one smooth 2.4-second gust adds 6, follows the starting base sign and retu
     assert.equal(wind.read().wind, base);
     // Flat start/end slopes prevent an impulse when the pulse begins or ends.
     assert.ok(Math.abs(wind.advance(0.0001).wind - base) < 0.000001);
-    near(wind.advance(1.2 - 0.0001).wind, base + (base < 0 ? -6 : 6));
+    const peak = wind.advance(1.2 - 0.0001);
+    near(peak.gust, base < 0 ? -12 : 12);
+    near(peak.wind, base < 0 ? -12 : 12);
     near(wind.advance(1.2).wind, base);
     assert.equal(wind.read().gusting, false);
   }
@@ -38,25 +40,25 @@ test('one smooth 2.4-second gust adds 6, follows the starting base sign and retu
   wind.setBase(-2);
   wind.triggerGust();
   wind.setBase(2);
-  near(wind.advance(1.2).wind, -4, 1e-8); // Direction belongs to this pulse's start.
+  near(wind.advance(1.2).wind, -10, 1e-8); // Direction belongs to this pulse's start.
 });
 
 test('repeated clicks keep one continuous pulse; repeat uses a six-second start interval and finishes when disabled', () => {
   const wind = createWindControls();
   wind.setRepeat(true);
-  near(wind.advance(1.2).wind, 6);
+  near(wind.advance(1.2).wind, 12);
   wind.triggerGust();
-  near(wind.read().wind, 6);
+  near(wind.read().wind, 12);
   near(wind.advance(1.2).wind, 0);
   near(wind.advance(3.6).wind, 0);
-  near(wind.advance(1.2).wind, 6);
+  near(wind.advance(1.2).wind, 12);
   wind.setRepeat(false);
-  near(wind.read().wind, 6);
+  near(wind.read().wind, 12);
   near(wind.advance(1.2).wind, 0);
   near(wind.advance(6).wind, 0);
   // A large elapsed step retains the pulse phase rather than accumulating pulses.
   wind.setRepeat(true);
-  near(wind.advance(13.2).wind, 6, 1e-8);
+  near(wind.advance(13.2).wind, 12, 1e-8);
 });
 
 test('base reversal plus clicks and enabling repeat preserve the current pulse, then use the new direction', () => {
@@ -65,12 +67,12 @@ test('base reversal plus clicks and enabling repeat preserve the current pulse, 
   wind.triggerGust();
   near(wind.advance(1.2).wind, 12);
   wind.setBase(-6);
-  near(wind.read().wind, 0);
+  near(wind.read().wind, 6);
   wind.triggerGust();
-  near(wind.read().wind, 0);
+  near(wind.read().wind, 6);
   wind.setRepeat(true);
-  near(wind.read().wind, 0);
-  near(wind.read().gust, 6);
+  near(wind.read().wind, 6);
+  near(wind.read().gust, 12);
   near(wind.advance(1.2).wind, -6);
   near(wind.advance(3.6).wind, -6);
   near(wind.advance(1.2).wind, -12);
@@ -188,6 +190,27 @@ async function viewerHarness() {
   };
 }
 
+test('actual HTML default gust delivers peak 12 to every player with the base slider left at zero', async () => {
+  const h = await viewerHarness();
+  assert.equal(h.node('wind').value, '0');
+  h.click('pulseBtn');
+  h.step(1.2);
+  near(h.viewer.state().wind, 12);
+  assert.equal(h.node('windCurrent').textContent, '12.0');
+  assert.equal(h.node('wind').value, '0');
+  assert.equal(h.node('pulseBtn').disabled, true);
+  for (const entry of h.viewer.players()) {
+    near(entry.player.env.wind[0], 12);
+    near(entry.player.frames.at(-1).wind, 12);
+  }
+  h.click('pulseBtn');
+  near(h.viewer.state().wind, 12);
+  h.step(1.2 + 1 / 60);
+  near(h.viewer.state().wind, 0);
+  assert.equal(h.node('pulseBtn').disabled, false);
+  h.viewer.dispose();
+});
+
 test('actual HTML controls preserve selected base, apply one composed environment per frame, and retain gravity', async () => {
   const h = await viewerHarness();
   assert.match(h.html, /id="wind"[^>]*min="-6"[^>]*max="6"[^>]*step="0.1"[^>]*value="0"/);
@@ -220,13 +243,13 @@ test('actual HTML controls preserve selected base, apply one composed environmen
   assert.equal(h.node('windCurrent').textContent, '-12.0');
   h.input('wind', 6);
   // Changing the base mid-pulse does not silently reverse the active gust.
-  assert.equal(h.node('windCurrent').textContent, '0.0');
+  assert.equal(h.node('windCurrent').textContent, '-6.0');
   assert.equal(h.node('pulseBtn').disabled, true);
   assert.equal(h.node('pulseBtn').textContent, '돌풍 진행 중');
   h.click('pulseBtn');
-  assert.equal(h.node('windCurrent').textContent, '0.0');
+  assert.equal(h.node('windCurrent').textContent, '-6.0');
   h.click('repeatGustBtn');
-  assert.equal(h.node('windCurrent').textContent, '0.0');
+  assert.equal(h.node('windCurrent').textContent, '-6.0');
   h.step(1.2 + 1 / 60); // Check after the end frame, independent of float accumulation.
   assert.equal(h.node('pulseBtn').disabled, false);
   assert.equal(h.node('pulseBtn').textContent, '돌풍');
@@ -241,7 +264,7 @@ test('actual HTML pause freezes wind and repeat clocks; speed applies to wind an
   const h = await viewerHarness();
   h.click('repeatGustBtn');
   h.step(0.6);
-  near(h.viewer.state().wind, 3);
+  near(h.viewer.state().wind, 6);
   h.click('pauseBtn');
   const frozen = h.viewer.state();
   const frameCount = h.viewer.players()[0].player.frames.length;
@@ -249,11 +272,11 @@ test('actual HTML pause freezes wind and repeat clocks; speed applies to wind an
   assert.deepEqual(h.viewer.state(), frozen);
   assert.equal(h.viewer.players()[0].player.frames.length, frameCount);
   h.input('gravity', 2);
-  near(h.viewer.players()[0].player.env.wind[0], 3);
+  near(h.viewer.players()[0].player.env.wind[0], 6);
   h.input('speed', 2);
   h.click('pauseBtn');
   h.step(0.3);
-  near(h.viewer.state().wind, 6);
+  near(h.viewer.state().wind, 12);
   near(h.viewer.players()[0].player.frames.at(-1).dt, 1 / 30);
   h.click('repeatGustBtn');
   assert.equal(h.node('repeatGustBtn').attributes.get('aria-pressed'), 'false');
@@ -267,7 +290,7 @@ test('actual HTML character load freezes pulse and new players inherit current w
   h.input('wind', -2);
   h.click('pulseBtn');
   h.step(1.2);
-  near(h.viewer.state().wind, -8);
+  near(h.viewer.state().wind, -12);
   h.blockLoad();
   const loading = h.viewer.openCharacter('nova');
   const time = h.viewer.state().time;
@@ -276,7 +299,7 @@ test('actual HTML character load freezes pulse and new players inherit current w
   h.releaseLoad();
   await loading;
   assert.equal(h.viewer.players().length, 1);
-  near(h.viewer.players()[0].player.env.wind[0], -8);
+  near(h.viewer.players()[0].player.env.wind[0], -12);
   assert.equal(h.node('wind').value, '-2');
   h.step(1.2);
   near(h.viewer.players()[0].player.env.wind[0], -2);

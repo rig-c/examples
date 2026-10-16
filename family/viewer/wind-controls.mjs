@@ -1,7 +1,7 @@
 export const BASE_WIND_LIMIT = 6;
 export const WIND_LIMIT = 12;
 export const GUST_DURATION = 2.4;
-export const GUST_PEAK = 6;
+export const GUST_PEAK = 12;
 export const GUST_PERIOD = 6;
 
 /** Consumer-side wind timing; the player remains the only physics solver. */
