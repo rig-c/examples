@@ -53,3 +53,7 @@ Paired9wind profiles at60Hz, including48/96gust and stronger±100/200stress, mea
 Natural official parser/build and public parts check passed for each composed character. Frozen guarded replay reproduces the measured authored payloads exactly; negative controls cover changed source, target deform/slot attachment, draw-order, linked mesh and setup attachment. These checks establish the current frozen fields, not arbitrary future deformation robustness.
 
 `measurements.json` keeps the per-part absolute coverage and authored fit, all9 paired motion profiles (including original/candidate fold counts and inversion fractions), exact final counts, and reviewed helper/control hashes. Full-alpha coverage and sampled motion are different instruments; the measured boundaries remain explicit.
+
+## Final family attachment composition
+
+The frozen inputs and counts above describe the accepted hair-clipping intermediate. The current Roa/Luna/Nova outputs additionally apply [the final mesh-repair stage](../../MESH_REGION_REPAIR.md). Replay this helper first, then apply the character's guarded `mesh-repair.json` into another fresh authoring directory, then run official build/check. That last stage changes only the approved topwear attachments and restores Nova's original364v576t trousers; it preserves the clipped hair payloads exactly. Do not stop at this historical intermediate or regenerate it from dirty material configs.

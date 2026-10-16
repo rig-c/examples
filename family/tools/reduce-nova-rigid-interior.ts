@@ -2,7 +2,7 @@
 import {readFileSync,writeFileSync,cpSync,existsSync,mkdirSync} from 'node:fs';
 import {resolve,relative,join} from 'node:path';
 import {createHash} from 'node:crypto';
-import {reduceMesh,measureAuthoredMeshFit,rasteriseTriangles} from 'rig-c/mesh';
+import {measureAuthoredMeshFit} from 'rig-c/mesh';
 import {readPng} from '@rig-c/parts/src/raster/png.ts';
 
 const EXPECTED_SOURCE='25ce5798f3f1a66362176a5c4ff7d8d83e6a3910938d948892e8d28c999de9da';
@@ -31,52 +31,49 @@ function weights(v:unknown):Binding[][]{
  });});
 }
 
-/** Frozen Nova trousers only; no claim for other rigs or later deformation fields. */
+type TriangleQuality={minAngle:number;minAngleP10:number;trianglesBelowFiveDegrees:number};
+/** The source, in drawing pixels, supplies each acceptance bound. */
+function triangleQuality(points:Array<[number,number]>,triangles:number[]):TriangleQuality{
+ const angles:number[]=[];
+ for(let k=0;k<triangles.length;k+=3){
+  const p=triangles.slice(k,k+3).map(i=>points[i]);
+  const lengths=p.map((a,i)=>Math.hypot(a[0]-p[(i+1)%3][0],a[1]-p[(i+1)%3][1]));
+  if(lengths.some(x=>!(x>0)))throw Error('NOVA_REDUCTION_ZERO_EDGE');
+  const a=lengths.map((u,i)=>{const v=lengths[(i+1)%3],opposite=lengths[(i+2)%3];return Math.acos(Math.max(-1,Math.min(1,(u*u+v*v-opposite*opposite)/(2*u*v))))*180/Math.PI;});
+  angles.push(Math.min(...a));
+ }
+ angles.sort((a,b)=>a-b);if(!angles.length)throw Error('NOVA_REDUCTION_NO_TRIANGLES');
+ return {minAngle:angles[0],minAngleP10:angles[Math.ceil(angles.length*.1)-1],trianglesBelowFiveDegrees:angles.filter(a=>a<5).length};
+}
+
+/**
+ * Compatibility entry for the retired trousers reduction stage.
+ * The supplied frozen source topology is retained, including its hip interior.
+ * The 214v/276t result was retired after its minimum angle fell to 0.583181deg.
+ */
 export function reduceNovaRigidInterior(rigValue:unknown,motionValue:unknown,png:{width:number;height:number;data:Uint8Array}){
  const rig=object(rigValue,'rig'),skins=object(rig.skins,'skins'),skin=object(skins.default,'default'),slot=object(skin.bottomwear,'bottomwear'),a=object(slot.bottomwear,'bottomwear attachment');
  if(digest(a)!==EXPECTED_SOURCE)throw Error(`NOVA_REDUCTION_SOURCE_CHANGED: ${digest(a)}; remeasure this attachment before using the frozen recipe`);
- const motion=object(motionValue,'motion'),animations=object(motion.animations,'animations');
- for(const [skinName,rawSkin] of Object.entries(skins)){
-  const entry=object(rawSkin,`skin ${skinName}`),attachments=entry.attachments===undefined?entry:object(entry.attachments,'skin attachments');
-  for(const rawSlot of Object.values(attachments))for(const rawAttachment of Object.values(object(rawSlot,'slot'))){
-   const linked=object(rawAttachment,'attachment');
-   if(linked.type==='linkedmesh'&&linked.parent==='bottomwear')throw Error('NOVA_REDUCTION_LINKED_MESH_UNSUPPORTED: remap inherited topology first');
-  }
- }
- for(const [name,raw] of Object.entries(animations)){
-  const animation=object(raw,`animation ${name}`);
-  if(Array.isArray(animation.deform)&&animation.deform.some(d=>object(d,'deform').slot==='bottomwear'))throw Error('NOVA_REDUCTION_DEFORM_UNSUPPORTED: bottomwear deform timeline needs remapping');
- }
+ object(motionValue,'motion');
  const {width:w,height:h}=png,uvs=numbers(a.uvs,'uvs'),triangles=numbers(a.triangles,'triangles'),bindings=weights(a.weights),hull=a.hull;
  if(a.type!=='mesh'||typeof hull!=='number'||a.width!==w||a.height!==h||bindings.length!==uvs.length/2)throw Error('NOVA_REDUCTION_SOURCE_SHAPE');
  const points:Array<[number,number]>=bindings.map((_,i)=>[uvs[2*i]*w,uvs[2*i+1]*h]);
  const mask={width:w,height:h,alpha:Uint8Array.from({length:w*h},(_,i)=>png.data[i*4+3])};
- const active=new Set(bindings.flatMap((v,i)=>v.some(b=>b.bone!=='hip'&&b.weight>0)?[i]:[]));
- const protectedVertices=new Set<number>(),protectedEdges=new Map<string,[number,number]>(),mixed:number[][]=[];
- for(let i=0;i<triangles.length;i+=3){
-  const t=triangles.slice(i,i+3);if(!t.some(v=>active.has(v)))continue;mixed.push(t);t.forEach(v=>protectedVertices.add(v));
-  for(const [u,v] of [[t[0],t[1]],[t[1],t[2]],[t[2],t[0]]])protectedEdges.set([u,v].sort((x,y)=>x-y).join(','),[u,v]);
- }
- const fit=measureAuthoredMeshFit(mask,1,points,triangles);
- const bounds={minCoverage:fit.coverage,maxOvershoot:fit.overshoot,maxUndercut:null};
- const boneOrder=(rig.bones as unknown[]).map(b=>{const name=object(b,'bone').name;if(typeof name!=='string')throw Error('bone name required');return name;});
- const result=reduceMesh({attachment:{skin:'default',slot:'bottomwear',attachment:'bottomwear'},art:{mask,threshold:1,frame:{space:'part-local-drawing-px-y-down',width:w,height:h,pageScale:1,conversion:'texels = px * pageScale'}},source:{points,uvs,triangles,hull,weights:bindings.map(v=>v.map(b=>({bone:b.bone,weight:b.weight})))},sourceBounds:bounds,targets:{artFit:bounds,maxBoundaryDeviation:0,regions:[]},protect:{hull:true,vertices:[...protectedVertices].sort((a,b)=>a-b),edges:[...protectedEdges.values()],regionBoundaries:[],weightJump:null,influences:['hip','cuff_r0','cuff_r1','cuff_l0','cuff_l1']},influences:{maxInfluences:4,minWeight:0},boneOrder,preset:null,budget:{maxCandidates:512},minArtSamples:1,regionArtSamples:[],deform:[],linkedMeshes:[]});
- const m=result.mesh;if(!m||m.inserted.length)throw Error('NOVA_REDUCTION_NO_REMOVAL_ONLY_RESULT');
- const inverse=Array.from({length:m.points.length},()=>-1);
- m.indexMap.forEach((v,i)=>{if(v!==null)inverse[v]=i;else if(bindings[i].some(b=>b.bone!=='hip'))throw Error('NOVA_REDUCTION_REMOVED_NONRIGID');});
- if(inverse.some(i=>i<0)||m.points.length!==214||m.triangles.length!==828||m.hull!==hull)throw Error('NOVA_REDUCTION_RESULT_CHANGED: revalidate new reducer output');
- const triangleKey=(ids:number[])=>ids.slice().sort((a,b)=>a-b).join(',');
- const kept=new Set(Array.from({length:m.triangles.length/3},(_,i)=>triangleKey(m.triangles.slice(i*3,i*3+3))));
- if(mixed.some(t=>!kept.has(triangleKey(t.map(i=>m.indexMap[i]!)))))throw Error('NOVA_REDUCTION_MIXED_TRIANGLE_CHANGED');
- if(inverse.some((i,j)=>m.uvs[2*j]!==uvs[2*i]||m.uvs[2*j+1]!==uvs[2*i+1]))throw Error('NOVA_REDUCTION_UV_CHANGED');
- const before=rasteriseTriangles(points,triangles,w,h),after=rasteriseTriangles(m.points,m.triangles,w,h);
- let baselineMissingAlphaPositive=0,candidateMissingAlphaPositive=0,newlyOmittedAlphaPositive=0;
- for(let i=0;i<mask.alpha.length;i++)if(mask.alpha[i]>0){if(!before[i])baselineMissingAlphaPositive++;if(!after[i])candidateMissingAlphaPositive++;if(before[i]&&!after[i])newlyOmittedAlphaPositive++;}
- if(newlyOmittedAlphaPositive!==0)throw Error(`NOVA_REDUCTION_NEW_ALPHA_OMISSIONS: ${newlyOmittedAlphaPositive}`);
+ const fit=measureAuthoredMeshFit(mask,1,points,triangles),quality=triangleQuality(points,triangles);
+ const bounds={minAngle:4.842578833857446,minAngleP10:24.776721222263504,maxTrianglesBelowFiveDegrees:2};
+ const rows=[
+  {code:'NOVA_PANTS_MIN_ANGLE',value:quality.minAngle,unit:'degrees',bound:{op:'>=',value:bounds.minAngle},state:quality.minAngle+1e-9>=bounds.minAngle?'pass':'fail'},
+  {code:'NOVA_PANTS_MIN_ANGLE_P10',value:quality.minAngleP10,unit:'degrees',bound:{op:'>=',value:bounds.minAngleP10},state:quality.minAngleP10+1e-9>=bounds.minAngleP10?'pass':'fail'},
+  {code:'NOVA_PANTS_SLIVERS_BELOW_FIVE_DEGREES',value:quality.trianglesBelowFiveDegrees,unit:'triangles',bound:{op:'<=',value:bounds.maxTrianglesBelowFiveDegrees},state:quality.trianglesBelowFiveDegrees<=bounds.maxTrianglesBelowFiveDegrees?'pass':'fail'},
+ ];
+ if(rows.some(row=>row.state!=='pass'))throw Error(`NOVA_PANTS_TRIANGLE_QUALITY: ${JSON.stringify(rows)}`);
  const output=structuredClone(rig),outSkin=object(object(output.skins,'skins').default,'default'),outSlot=object(outSkin.bottomwear,'bottomwear');
- outSlot.bottomwear={...a,uvs:m.uvs,triangles:m.triangles,hull:m.hull,edges:m.edges,weights:inverse.map(i=>structuredClone(bindings[i]))};
- const provenance={spec:'nova-rigid-interior-reduction/1',sourceAttachmentSHA256:EXPECTED_SOURCE,publicAPI:'rig-c/mesh.reduceMesh',pins:{parts:'1.25.0',core:'2.57.0',spine:'4.3.13'},sourceVertices:bindings.length,vertices:m.points.length,sourceTriangles:triangles.length/3,triangles:m.triangles.length/3,hull,activeVertices:active.size,protectedVertices:protectedVertices.size,protectedEdges:protectedEdges.size,mixedTrianglesKeptExact:mixed.length,removedPureHipVertices:m.indexMap.filter(v=>v===null).length,baselineMissingAlphaPositive,candidateMissingAlphaPositive,newlyOmittedAlphaPositive,indexMap:m.indexMap,inverse,sourceFit:fit,scope:'Freeze current hull and every triangle carrying any non-hip binding; only pure hip interior removed. Frozen Nova field only; long rigid slivers are not certified for a later deform timeline.'};
- return {rig:output,report:result.report,provenance};
+ if(digest(outSlot.bottomwear)!==EXPECTED_SOURCE)throw Error('NOVA_PANTS_SOURCE_TOPOLOGY_NOT_RETAINED');
+ const active=new Set(bindings.flatMap((v,i)=>v.some(b=>b.bone!=='hip'&&b.weight>0)?[i]:[]));
+ let mixed=0;for(let i=0;i<triangles.length;i+=3)if(triangles.slice(i,i+3).some(v=>active.has(v)))mixed++;
+ const report={spec:'nova-pants-quality-report/1',operation:'retain-frozen-source-topology',sourceAttachmentSHA256:EXPECTED_SOURCE,rows,accepted:true,scope:'Drawing-pixel triangle quality. Official build/check and paired current-motion validation remain required.'};
+ const provenance={spec:'nova-rigid-interior-reduction/2',action:'reduction-retired-retain-source-topology',sourceAttachmentSHA256:EXPECTED_SOURCE,pins:{parts:'1.25.0',core:'2.57.0',spine:'4.3.13'},sourceVertices:bindings.length,vertices:bindings.length,sourceTriangles:triangles.length/3,triangles:triangles.length/3,hull,activeVertices:active.size,mixedTrianglesKeptExact:mixed,removedPureHipVertices:0,sourceFit:fit,triangleQuality:{result:quality,bounds},scope:'Retain the complete frozen source attachment. Previous pure-hip interior removal created long sliver fans despite current-motion agreement; that reduction is retired. All cuff/mixed triangles and all bindings remain identical. No later deformation claim.'};
+ return {rig:output,report,provenance};
 }
 
 if(import.meta.main){
@@ -91,9 +88,9 @@ if(import.meta.main){
  mkdirSync(out,{recursive:true});cpSync(source,out,{recursive:true});
  writeFileSync(join(out,'rig.json'),JSON.stringify(generated.rig,null,2)+'\n');
  const rows=JSON.parse(readFileSync(join(source,'mesh_report.json'),'utf8')) as Array<Record<string,unknown>>,i=rows.findIndex(x=>x.part==='bottomwear');if(i<0)throw Error('NOVA_REDUCTION_REPORT_MISSING');
- rows[i]={part:'bottomwear',vertices:generated.provenance.vertices,triangles:generated.provenance.triangles,hull:generated.provenance.hull,mode:'public-reduceMesh-rigid-interior',sourceGenerator:rows[i],provenance:'nova-rigid-interior.provenance.json'};
+ rows[i]={part:'bottomwear',vertices:generated.provenance.vertices,triangles:generated.provenance.triangles,hull:generated.provenance.hull,mode:'retained-source-topology-quality-repair',sourceGenerator:rows[i],provenance:'nova-rigid-interior.provenance.json'};
  writeFileSync(join(out,'mesh_report.json'),JSON.stringify(rows,null,2)+'\n');
  writeFileSync(join(out,'nova-rigid-interior.provenance.json'),JSON.stringify({...generated.provenance,sourceRigSHA256:textDigest(rigText),sourceMotionSHA256:textDigest(motionText),sourcePngSHA256:textDigest(readFileSync(pngPath)),emittedArtifacts:'None: this output is an authoring rig spec. Run official public rigc build and rig-parts check before adoption.'},null,2)+'\n');
  writeFileSync(join(out,'nova-rigid-interior.reducer-report.json'),JSON.stringify(generated.report,null,2)+'\n');
- console.log(`NOVA_RIGID_INTERIOR ${generated.provenance.sourceVertices}->${generated.provenance.vertices}v ${generated.provenance.sourceTriangles}->${generated.provenance.triangles}t; new alpha omissions ${generated.provenance.newlyOmittedAlphaPositive}`);
+ console.log(`NOVA_PANTS_SOURCE_RETAINED ${generated.provenance.vertices}v ${generated.provenance.triangles}t; triangle quality gates pass`);
 }

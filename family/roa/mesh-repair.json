@@ -1,0 +1,114 @@
+{
+  "spec": "family-mesh-repair/1",
+  "payload": "mesh-repair.attachments.json",
+  "targets": [
+    {
+      "part": "topwear",
+      "imageSHA256": "cf7e86ae6a1d1f219c827948f102b684f15f868364a7f13b5a96f5fd0eaadbdc",
+      "meshReport": {
+        "part": "topwear",
+        "vertices": 448,
+        "triangles": 790,
+        "hull": 104,
+        "bones": [
+          "boob_l",
+          "boob_r",
+          "chest",
+          "hip"
+        ],
+        "max_influences": 3,
+        "mean_influences": 1.79,
+        "art_coverage": 0.99999,
+        "mode": "contour",
+        "params": {
+          "tolerance": 2,
+          "margin": 2,
+          "spacing": 36,
+          "maxEdge": 64,
+          "budget": null,
+          "stray": 400,
+          "bridges": true
+        },
+        "contour": {
+          "boundaryVertices": 104,
+          "interiorVertices": 344,
+          "interiorBySource": [
+            {
+              "source": "region \"bust_r\"",
+              "vertices": 130
+            },
+            {
+              "source": "region \"bust_l\"",
+              "vertices": 149
+            },
+            {
+              "source": "background",
+              "vertices": 65
+            }
+          ],
+          "triangles": 790,
+          "tracedVertices": 2708,
+          "artPixels": 168351,
+          "coveredArtPixels": 168351,
+          "coverage": 1,
+          "overshoot": 4,
+          "overshootBound": 5,
+          "meshArea": 173016.5,
+          "enclosedTransparentArea": 4665.5,
+          "filledHolePixels": 85,
+          "smallestAngle": {
+            "triangle": 141,
+            "value": 3.814075
+          },
+          "largestEdgeRatio": {
+            "triangle": 141,
+            "value": 12.508459
+          },
+          "nonDelaunayEdges": 0,
+          "strayIslands": 1,
+          "strayPixels": 2,
+          "grownPixels": 4535,
+          "pinchFilledPixels": 0,
+          "grownHolePixels": 54,
+          "outlineCut": 4,
+          "bridges": {
+            "islands": [
+              168351
+            ],
+            "units": [
+              [
+                168351
+              ]
+            ],
+            "joins": []
+          }
+        },
+        "regions": [
+          {
+            "name": "bust_r",
+            "bone": "boob_r",
+            "reached": 86,
+            "whole": 53
+          },
+          {
+            "name": "bust_l",
+            "bone": "boob_l",
+            "reached": 97,
+            "whole": 56
+          }
+        ]
+      },
+      "producer": {
+        "kind": "public rig-parts rig",
+        "parts": "1.25.0",
+        "rigc": "2.57.0",
+        "spine": "4.3.13"
+      },
+      "sourceAttachmentSHA256": "9ab55242ea5d4df5c360168eef0bbf676113e775f644d8deab8aaaa0d88ef369",
+      "outputAttachmentSHA256": "93e897ab861f2276ed37a21a0809c1304a52ec9a530ca7a55128fdef7f6991b1"
+    }
+  ],
+  "bonesSHA256": "5d1ab29f102797d0e18d3b0d7cc3eca5cae4d81ca4d625d13c5a9be4d317ffb2",
+  "motionSHA256": "0389d8edf15a17221e8a3a62131600efd397c0b9fc7663da277e8e02700f1beb",
+  "bindingContextSHA256": "75d8b061829d17c0dccfbfefdb3019f6bf21bbd7af27185e28c28b1a23da28f9"
+}
