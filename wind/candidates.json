@@ -1,0 +1,1035 @@
+{
+  "note": "Twenty-four candidate paintings, seeds 372001-372008, 372101-372108 and 372201-372208, under three wordings of one prompt on one checkpoint, sampler and pose file. Each was screened by `rig-parts painting` on the pose file's joints scaled x2; the seven best were re-read with the wrists, knees and ankles placed by eye. Only 372108 is published as an image; the rest are recorded here as measurements.",
+  "shared": {
+    "checkpoint": "hassakuXLIllustrious_v13StyleA.safetensors",
+    "loras": [],
+    "trigger": "",
+    "sampler": {
+      "steps": 30,
+      "cfg": 6.0,
+      "sampler": "euler_ancestral",
+      "scheduler": "normal"
+    },
+    "control": {
+      "skeleton": "pose.json",
+      "strength": 0.8,
+      "start_percent": 0.0,
+      "end_percent": 0.7,
+      "model": "controlnet-openpose-sdxl-1.0.safetensors"
+    },
+    "latent": [
+      832,
+      1216
+    ],
+    "size": [
+      1664,
+      2432
+    ],
+    "prompt_note": "pose, style, negative_extra and negative_pose are generation.json's prompt_parts for every row; identity and costume differ by wording"
+  },
+  "wordings": {
+    "1": {
+      "identity": "1girl, solo, adult woman, very long twin tails reaching the thighs, deep blue hair, amber eyes, long red hair ribbons trailing from the twin tails",
+      "costume": "white blouse with long fitted sleeves, red ribbon bow at the collar with long trailing ribbon ends, wide flared layered ruffled miniskirt above the knees, knees visible, white thighhighs, red ankle boots, fully clothed, empty hands"
+    },
+    "2": {
+      "identity": "1girl, solo, adult woman, very long twin tails reaching the knees, deep blue hair, amber eyes, large red hair ribbons with long trailing ends",
+      "costume": "white blouse with long fitted sleeves, red ribbon bow at the collar with long trailing ribbon ends, very wide flared tiered skirt, three ruffled layers, petticoat, skirt above the knees, knees visible, white thighhighs, red ankle boots, fully clothed, empty hands",
+      "note": "generation.json's prompt_parts"
+    },
+    "3": {
+      "identity": "1girl, solo, adult woman, very long twin tails reaching the knees, deep blue hair, amber eyes, large red hair ribbons with long trailing ends",
+      "costume": "white blouse with long fitted sleeves, red ribbon bow at the collar with long trailing ribbon ends, very wide flared tiered skirt, three ruffled layers, layered skirt, petticoat, skirt above the knees, knees visible, white thighhighs, red ankle boots, fully clothed, empty hands",
+      "note": "wording 2 with \"layered skirt\" after \"three ruffled layers\""
+    }
+  },
+  "criteria": {
+    "painting": "`rig-parts painting` (docs/PAINTING.md): PASS when the painting holds every requirement the check reads, else FAIL with the refusals it names",
+    "gaps_background_of_sampled": "for each gap the check reads (wrist to hip on each arm, wrist to wrist, knee to knee, ankle to ankle), [background pixels on the line, pixels sampled]",
+    "joints": "\"pose file x2\": the pose file's points scaled to the painting, a screen rather than a reading, since a pose-file joint can land off the painted limb (PAINTING_JOINT_ON_FIGURE on 372004, 372006 and 372102 is that, not the painting); \"read by eye\": wrists, knees and ankles placed by eye at full resolution on a 50 px grid, the hips under the skirt at the pose file x2",
+    "eye": "what a person reads at full size and the check does not: the skirt, the ribbons and twin tails, and whether clothing sits on an elbow",
+    "paint_elapsed_s": "the GPU job time of the painting, as `comfy paint` recorded it"
+  },
+  "selection_rule": "pass `rig-parts painting` on eye-read joints, with elbows and knees clear by eye; then the best match to a wind figure: very long hair, ribbons, a wide layered skirt, with a rest shape that physics can swing from",
+  "images": [
+    {
+      "seed": 372001,
+      "wording": 1,
+      "paint_elapsed_s": 27.4,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            138,
+            413
+          ],
+          "arm_l": [
+            118,
+            413
+          ],
+          "hands": [
+            286,
+            993
+          ],
+          "knees": [
+            119,
+            257
+          ],
+          "ankles": [
+            231,
+            361
+          ]
+        }
+      },
+      "painting_eye": {
+        "joints": "read by eye",
+        "verdict": "PASS",
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            139,
+            429
+          ],
+          "arm_l": [
+            119,
+            405
+          ],
+          "hands": [
+            287,
+            1001
+          ],
+          "knees": [
+            116,
+            261
+          ],
+          "ankles": [
+            220,
+            356
+          ]
+        }
+      },
+      "eye": "skirt a narrow pleated miniskirt with one frill, not wide and not layered; free red hair ribbons that loop out"
+    },
+    {
+      "seed": 372002,
+      "wording": 1,
+      "paint_elapsed_s": 18.2,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "FAIL",
+        "refusals": [
+          "PAINTING_BACKGROUND_PLAIN"
+        ],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            184,
+            413
+          ],
+          "arm_l": [
+            200,
+            413
+          ],
+          "hands": [
+            379,
+            993
+          ],
+          "knees": [
+            208,
+            257
+          ],
+          "ankles": [
+            250,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372003,
+      "wording": 1,
+      "paint_elapsed_s": 18.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            107,
+            413
+          ],
+          "arm_l": [
+            69,
+            413
+          ],
+          "hands": [
+            167,
+            993
+          ],
+          "knees": [
+            139,
+            257
+          ],
+          "ankles": [
+            225,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372004,
+      "wording": 1,
+      "paint_elapsed_s": 18.5,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "FAIL",
+        "refusals": [
+          "PAINTING_JOINT_ON_FIGURE"
+        ],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            101,
+            413
+          ],
+          "arm_l": [
+            73,
+            413
+          ],
+          "hands": [
+            206,
+            993
+          ],
+          "knees": [
+            164,
+            257
+          ],
+          "ankles": [
+            210,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372005,
+      "wording": 1,
+      "paint_elapsed_s": 18.5,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            72,
+            413
+          ],
+          "arm_l": [
+            141,
+            413
+          ],
+          "hands": [
+            9,
+            993
+          ],
+          "knees": [
+            129,
+            257
+          ],
+          "ankles": [
+            224,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372006,
+      "wording": 1,
+      "paint_elapsed_s": 19.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "FAIL",
+        "refusals": [
+          "PAINTING_JOINT_ON_FIGURE"
+        ],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            129,
+            413
+          ],
+          "arm_l": [
+            123,
+            413
+          ],
+          "hands": [
+            324,
+            993
+          ],
+          "knees": [
+            146,
+            257
+          ],
+          "ankles": [
+            249,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372007,
+      "wording": 1,
+      "paint_elapsed_s": 18.5,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            179,
+            413
+          ],
+          "arm_l": [
+            175,
+            413
+          ],
+          "hands": [
+            335,
+            993
+          ],
+          "knees": [
+            133,
+            257
+          ],
+          "ankles": [
+            220,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372008,
+      "wording": 1,
+      "paint_elapsed_s": 18.6,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            103,
+            413
+          ],
+          "arm_l": [
+            109,
+            413
+          ],
+          "hands": [
+            195,
+            993
+          ],
+          "knees": [
+            157,
+            257
+          ],
+          "ankles": [
+            259,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372101,
+      "wording": 2,
+      "paint_elapsed_s": 18.7,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            54,
+            413
+          ],
+          "arm_l": [
+            79,
+            413
+          ],
+          "hands": [
+            167,
+            993
+          ],
+          "knees": [
+            160,
+            257
+          ],
+          "ankles": [
+            221,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372102,
+      "wording": 2,
+      "paint_elapsed_s": 18.2,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "FAIL",
+        "refusals": [
+          "PAINTING_JOINT_ON_FIGURE"
+        ],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            77,
+            413
+          ],
+          "arm_l": [
+            120,
+            413
+          ],
+          "hands": [
+            205,
+            993
+          ],
+          "knees": [
+            150,
+            257
+          ],
+          "ankles": [
+            253,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372103,
+      "wording": 2,
+      "paint_elapsed_s": 18.2,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            122,
+            413
+          ],
+          "arm_l": [
+            109,
+            413
+          ],
+          "hands": [
+            278,
+            993
+          ],
+          "knees": [
+            177,
+            257
+          ],
+          "ankles": [
+            236,
+            361
+          ]
+        }
+      },
+      "painting_eye": {
+        "joints": "read by eye",
+        "verdict": "PASS",
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            111,
+            384
+          ],
+          "arm_l": [
+            103,
+            375
+          ],
+          "hands": [
+            271,
+            926
+          ],
+          "knees": [
+            176,
+            294
+          ],
+          "ankles": [
+            250,
+            346
+          ]
+        }
+      },
+      "eye": "short puff sleeves whose frilled cuff ends on the elbow"
+    },
+    {
+      "seed": 372104,
+      "wording": 2,
+      "paint_elapsed_s": 18.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "FAIL",
+        "refusals": [
+          "PAINTING_BACKGROUND_PLAIN",
+          "PAINTING_LEGS_APART"
+        ],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            97,
+            413
+          ],
+          "arm_l": [
+            103,
+            413
+          ],
+          "hands": [
+            238,
+            993
+          ],
+          "knees": [
+            0,
+            257
+          ],
+          "ankles": [
+            256,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372105,
+      "wording": 2,
+      "paint_elapsed_s": 18.3,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "FAIL",
+        "refusals": [
+          "PAINTING_BACKGROUND_PLAIN"
+        ],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            34,
+            413
+          ],
+          "arm_l": [
+            103,
+            413
+          ],
+          "hands": [
+            93,
+            993
+          ],
+          "knees": [
+            162,
+            257
+          ],
+          "ankles": [
+            258,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372106,
+      "wording": 2,
+      "paint_elapsed_s": 18.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "FAIL",
+        "refusals": [
+          "PAINTING_BACKGROUND_PLAIN"
+        ],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            86,
+            413
+          ],
+          "arm_l": [
+            117,
+            413
+          ],
+          "hands": [
+            276,
+            993
+          ],
+          "knees": [
+            149,
+            257
+          ],
+          "ankles": [
+            297,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372107,
+      "wording": 2,
+      "paint_elapsed_s": 18.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            88,
+            413
+          ],
+          "arm_l": [
+            107,
+            413
+          ],
+          "hands": [
+            160,
+            993
+          ],
+          "knees": [
+            127,
+            257
+          ],
+          "ankles": [
+            207,
+            361
+          ]
+        }
+      },
+      "painting_eye": {
+        "joints": "read by eye",
+        "verdict": "PASS",
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            104,
+            424
+          ],
+          "arm_l": [
+            105,
+            425
+          ],
+          "hands": [
+            161,
+            1016
+          ],
+          "knees": [
+            123,
+            261
+          ],
+          "ankles": [
+            209,
+            321
+          ]
+        }
+      },
+      "eye": "three-tier skirt over a ruffled petticoat; twin tails painted already swept out sideways, as if blown"
+    },
+    {
+      "seed": 372108,
+      "wording": 2,
+      "paint_elapsed_s": 18.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            60,
+            413
+          ],
+          "arm_l": [
+            77,
+            413
+          ],
+          "hands": [
+            157,
+            993
+          ],
+          "knees": [
+            139,
+            257
+          ],
+          "ankles": [
+            252,
+            361
+          ]
+        }
+      },
+      "painting_eye": {
+        "joints": "read by eye",
+        "verdict": "PASS",
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            60,
+            429
+          ],
+          "arm_l": [
+            76,
+            415
+          ],
+          "hands": [
+            157,
+            1011
+          ],
+          "knees": [
+            137,
+            261
+          ],
+          "ankles": [
+            248,
+            351
+          ]
+        }
+      },
+      "eye": "the widest skirt, a white overskirt on a full red ruffled underlayer; long sleeves; twin tails to mid-thigh wrapped by long red ribbons, hanging behind the arms",
+      "chosen": true
+    },
+    {
+      "seed": 372201,
+      "wording": 3,
+      "paint_elapsed_s": 19,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            64,
+            413
+          ],
+          "arm_l": [
+            57,
+            413
+          ],
+          "hands": [
+            116,
+            993
+          ],
+          "knees": [
+            172,
+            257
+          ],
+          "ankles": [
+            219,
+            361
+          ]
+        }
+      },
+      "painting_eye": {
+        "joints": "read by eye",
+        "verdict": "PASS",
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            66,
+            419
+          ],
+          "arm_l": [
+            59,
+            395
+          ],
+          "hands": [
+            95,
+            981
+          ],
+          "knees": [
+            169,
+            291
+          ],
+          "ankles": [
+            208,
+            326
+          ]
+        }
+      },
+      "eye": "layered skirt over a ruffled petticoat; twin tails only to the waist"
+    },
+    {
+      "seed": 372202,
+      "wording": 3,
+      "paint_elapsed_s": 18.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            80,
+            413
+          ],
+          "arm_l": [
+            92,
+            413
+          ],
+          "hands": [
+            244,
+            993
+          ],
+          "knees": [
+            176,
+            257
+          ],
+          "ankles": [
+            283,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372203,
+      "wording": 3,
+      "paint_elapsed_s": 18.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            63,
+            413
+          ],
+          "arm_l": [
+            48,
+            413
+          ],
+          "hands": [
+            143,
+            993
+          ],
+          "knees": [
+            139,
+            257
+          ],
+          "ankles": [
+            256,
+            361
+          ]
+        }
+      },
+      "painting_eye": {
+        "joints": "read by eye",
+        "verdict": "PASS",
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            64,
+            444
+          ],
+          "arm_l": [
+            47,
+            385
+          ],
+          "hands": [
+            142,
+            996
+          ],
+          "knees": [
+            135,
+            281
+          ],
+          "ankles": [
+            238,
+            336
+          ]
+        }
+      },
+      "eye": "floor-length ribbons from the sleeves, tied in bows at the elbows, over the joint"
+    },
+    {
+      "seed": 372204,
+      "wording": 3,
+      "paint_elapsed_s": 18.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "FAIL",
+        "refusals": [
+          "PAINTING_BACKGROUND_PLAIN"
+        ],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            110,
+            413
+          ],
+          "arm_l": [
+            104,
+            413
+          ],
+          "hands": [
+            273,
+            993
+          ],
+          "knees": [
+            150,
+            257
+          ],
+          "ankles": [
+            226,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372205,
+      "wording": 3,
+      "paint_elapsed_s": 18.1,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            67,
+            413
+          ],
+          "arm_l": [
+            75,
+            413
+          ],
+          "hands": [
+            177,
+            993
+          ],
+          "knees": [
+            173,
+            257
+          ],
+          "ankles": [
+            222,
+            361
+          ]
+        }
+      },
+      "painting_eye": {
+        "joints": "read by eye",
+        "verdict": "PASS",
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            59,
+            389
+          ],
+          "arm_l": [
+            74,
+            385
+          ],
+          "hands": [
+            208,
+            941
+          ],
+          "knees": [
+            171,
+            306
+          ],
+          "ankles": [
+            213,
+            346
+          ]
+        }
+      },
+      "eye": "the longest twin tails and a wide three-tier skirt; short puff sleeves with the frill on the elbow"
+    },
+    {
+      "seed": 372206,
+      "wording": 3,
+      "paint_elapsed_s": 18.3,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            109,
+            413
+          ],
+          "arm_l": [
+            103,
+            413
+          ],
+          "hands": [
+            258,
+            993
+          ],
+          "knees": [
+            145,
+            257
+          ],
+          "ankles": [
+            194,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372207,
+      "wording": 3,
+      "paint_elapsed_s": 18.3,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "FAIL",
+        "refusals": [
+          "PAINTING_ARM_CLEAR",
+          "PAINTING_BACKGROUND_PLAIN",
+          "PAINTING_HANDS_APART"
+        ],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            0,
+            413
+          ],
+          "arm_l": [
+            0,
+            413
+          ],
+          "hands": [
+            0,
+            993
+          ],
+          "knees": [
+            184,
+            257
+          ],
+          "ankles": [
+            263,
+            361
+          ]
+        }
+      }
+    },
+    {
+      "seed": 372208,
+      "wording": 3,
+      "paint_elapsed_s": 18.9,
+      "painting": {
+        "joints": "pose file x2",
+        "verdict": "PASS",
+        "refusals": [],
+        "gaps_background_of_sampled": {
+          "arm_r": [
+            100,
+            413
+          ],
+          "arm_l": [
+            88,
+            413
+          ],
+          "hands": [
+            144,
+            993
+          ],
+          "knees": [
+            137,
+            257
+          ],
+          "ankles": [
+            237,
+            361
+          ]
+        }
+      }
+    }
+  ]
+}

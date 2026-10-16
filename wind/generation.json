@@ -1,0 +1,186 @@
+{
+  "key": "wind",
+  "seed": 372108,
+  "checkpoint": "hassakuXLIllustrious_v13StyleA.safetensors",
+  "checkpoint_source": "Hassaku XL (Illustrious), version \"v1.3 - Style A\" (CivitAI model 140272, version 1240288), https://civitai.com/models/140272; publisher Ikena",
+  "checkpoint_sha256": "79408e8b5a794bdb4b0786e05d4a77e3610b1a242226ed063fb45d6075ae4d60",
+  "checkpoint_sha256_note": "the SHA256 demo/generation.json records (from the CivitAI API, observed 2026-10-11), not hashed on the box; the box loaded the same file name",
+  "licence": "Fair AI Public License 1.0-SD",
+  "licence_note": "as demo/generation.json records it (observed 2026-10-11)",
+  "credit": "Painted with Hassaku XL (Illustrious) v1.3 Style A by Ikena (https://civitai.com/models/140272), Fair AI Public License 1.0-SD.",
+  "loras": [],
+  "trigger": "",
+  "sampler": {
+    "steps": 30,
+    "cfg": 6,
+    "sampler": "euler_ancestral",
+    "scheduler": "normal"
+  },
+  "control": {
+    "skeleton": "pose.json",
+    "skeleton_note": "a pose file (rig-parts issue #198): eighteen OpenPose points on an 832x1216 canvas, demo/pose.json with the head, neck and shoulders unchanged and the limbs moved: the wrists at (168, 540) and (664, 540), 72 px above the hips' line (demo: 22); the knees at (352, 862) and (480, 862), 128 px apart (demo: 64); the ankles at (326, 1100) and (506, 1100), 180 px apart (demo: 56); rig-parts draws the control image from it",
+    "strength": 0.8,
+    "start_percent": 0.0,
+    "end_percent": 0.7,
+    "model": "controlnet-openpose-sdxl-1.0.safetensors",
+    "model_note": "read from the workflow embedded in painting.png (its tEXt \"prompt\" chunk)"
+  },
+  "pose": {
+    "width": 832,
+    "height": 1216,
+    "points": {
+      "nose": [
+        416,
+        176
+      ],
+      "neck": [
+        416,
+        252
+      ],
+      "r_shoulder": [
+        340,
+        272
+      ],
+      "r_elbow": [
+        258,
+        418
+      ],
+      "r_wrist": [
+        168,
+        540
+      ],
+      "l_shoulder": [
+        492,
+        272
+      ],
+      "l_elbow": [
+        574,
+        418
+      ],
+      "l_wrist": [
+        664,
+        540
+      ],
+      "r_hip": [
+        374,
+        612
+      ],
+      "r_knee": [
+        352,
+        862
+      ],
+      "r_ankle": [
+        326,
+        1100
+      ],
+      "l_hip": [
+        458,
+        612
+      ],
+      "l_knee": [
+        480,
+        862
+      ],
+      "l_ankle": [
+        506,
+        1100
+      ],
+      "r_eye": [
+        398,
+        160
+      ],
+      "l_eye": [
+        434,
+        160
+      ],
+      "r_ear": [
+        378,
+        170
+      ],
+      "l_ear": [
+        454,
+        170
+      ]
+    }
+  },
+  "latent": [
+    832,
+    1216
+  ],
+  "upscale": "4x-AnimeSharp.pth (ImageUpscaleWithModel), then ImageScaleBy lanczos x0.5; read from the workflow embedded in painting.png",
+  "size": [
+    1664,
+    2432
+  ],
+  "elapsed_s": 18.1,
+  "painted_by": "`rig-parts comfy paint` (rig-parts' own ComfyUI adapter), like demo, scarf and three-quarter; no detailer pass",
+  "prompt_heads": {
+    "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed",
+    "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated",
+    "note": "comfy paint puts these in front of every prompt (POSITIVE_HEAD and NEGATIVE_HEAD in rig-parts src/graphs.ts), on this Illustrious checkpoint as on the Pony one; positive is the positive head, then identity, costume, pose and style, and negative the negative head, then negative_extra and negative_pose, each joined by \", \""
+  },
+  "prompt_parts": {
+    "identity": "1girl, solo, adult woman, very long twin tails reaching the knees, deep blue hair, amber eyes, large red hair ribbons with long trailing ends",
+    "costume": "white blouse with long fitted sleeves, red ribbon bow at the collar with long trailing ribbon ends, very wide flared tiered skirt, three ruffled layers, petticoat, skirt above the knees, knees visible, white thighhighs, red ankle boots, fully clothed, empty hands",
+    "pose": "full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, legs apart, arms spread away from body, arms out to the sides, hands apart away from skirt, open hands, spread fingers, relaxed pose, gentle smile, feet visible, feet facing forward, shoes",
+    "style": "anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+    "negative_extra": "revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, flat color, cel shading, monochrome, lineart, long skirt, knee-length skirt, cape, legs together, knees together, crossed legs, hands on skirt, holding skirt, wide sleeves",
+    "negative_pose": "cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet"
+  },
+  "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long twin tails reaching the knees, deep blue hair, amber eyes, large red hair ribbons with long trailing ends, white blouse with long fitted sleeves, red ribbon bow at the collar with long trailing ribbon ends, very wide flared tiered skirt, three ruffled layers, petticoat, skirt above the knees, knees visible, white thighhighs, red ankle boots, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, legs apart, arms spread away from body, arms out to the sides, hands apart away from skirt, open hands, spread fingers, relaxed pose, gentle smile, feet visible, feet facing forward, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background",
+  "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, flat color, cel shading, monochrome, lineart, long skirt, knee-length skirt, cape, legs together, knees together, crossed legs, hands on skirt, holding skirt, wide sleeves, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet",
+  "prompt_id": "c1c7cabb-4a0f-42d4-a477-26e64622f751",
+  "painting_sha256": "20869a096df84bcb4e9f206bd72a876c89c38260f3530faaba206e78fbe969cf",
+  "seethrough": {
+    "by": "`rig-parts comfy seethrough`, the ComfyUI-See-through wrapper (version not recorded), as for scarf, demo and three-quarter",
+    "settings": {
+      "resolution": 1024,
+      "steps": 30,
+      "seed": 42,
+      "quant": "none",
+      "offload": true,
+      "lama": false
+    },
+    "inputs": {
+      "full": "inputs/st_input_full.png, 2432x2432 RGBA, every alpha 255: the painting at x 384 with 384 px of white either side",
+      "head": "inputs/st_input_head.png, 1014x1014 RGBA, every alpha 255: the crop [310, 0, 1324, 1014] of the painting (x0, y0, x1, y1, end-exclusive); `rig-parts propose --head-box` proposed [310, -184, 1324, 830], 184 px above the top edge, and it was shifted down at the same size"
+    },
+    "runs": {
+      "full": {
+        "elapsed_s": 191.2,
+        "layers": 29,
+        "layers_warn_lines": 0
+      },
+      "head": {
+        "elapsed_s": 173,
+        "layers": 29,
+        "layers_warn_lines": 0
+      }
+    },
+    "runs_note": "elapsed and layer counts from each meta.json; layers_warn_lines are the WARN lines `rig-parts layers` printed over each run"
+  },
+  "seed_selection": {
+    "purpose": "rig-parts issue #372: a painting that passes `rig-parts painting`, made as a figure for wind interaction (cloth and hair moved by physics under a side gust): long twin tails wrapped in ribbons and a wide two-layer skirt",
+    "table": "candidates.json (24 seeds under three wordings, measured; the images are not published)",
+    "screen": "`rig-parts painting` on the pose file's joints x2, all 24: 15 PASS, 9 FAIL (6 PAINTING_BACKGROUND_PLAIN — hair or a ribbon at the frame's edge; 3 PAINTING_JOINT_ON_FIGURE — a pose-file joint off the painted limb, a fault of the screen; one also PAINTING_LEGS_APART at the knees, an overskirt to the shins; one also PAINTING_ARM_CLEAR on both arms and PAINTING_HANDS_APART, a ring of hair round the figure). Knee gap in 23 of 24, ankle gap in 24 of 24, both arm gaps in 23 of 24",
+    "reading": "the seven best re-read with wrists, knees and ankles placed by eye at full size on a 50 px grid, hips at the pose file x2 (under the skirt): all seven PASS; three of them have a frill or a bow on the elbow, which `painting` does not read",
+    "chosen": 372108,
+    "painting_lines": [
+      "rig-parts painting: painting.png, joints from keypoints.json person \"a\" (source: read by eye from the painting at full resolution on a 50 px grid (wrists, knees, ankles); hips under the skirt, occluded, at the pose file x2; head and shoulders from the pose file x2 (not read by the check))",
+      "  painting 1664x2432: background 2558081 px, figure 1488767 px; border 8188 px, 0 not background-coloured",
+      "  joints: 16 observed, 2 occluded with a position (r_hip, l_hip), 18 on the figure",
+      "  gap right arm (r_wrist to r_hip): 60 of 429 sampled pixels are background (r_hip occluded, read at its position)",
+      "  gap left arm (l_wrist to l_hip): 76 of 415 sampled pixels are background (l_hip occluded, read at its position)",
+      "  gap hands (r_wrist to l_wrist): 157 of 1011 sampled pixels are background",
+      "  gap knees (r_knee to l_knee): 137 of 261 sampled pixels are background",
+      "  gap ankles (r_ankle to l_ankle): 248 of 351 sampled pixels are background",
+      "  PASS  the painting holds every requirement this check reads (docs/PAINTING.md); what only an eye reads is listed there"
+    ],
+    "painting_lines_note": "`rig-parts painting` with the occluded-hip reading of rig-parts issue #372, on the eye-read wrists, knees and ankles and the hips occluded at the pose file x2; the five gap counts equal those of the run that wrote the hips observed (candidates.json)",
+    "why": [
+      "its ribbons wrap the twin tails; free ribbon arcs, as on 372001, would become the rest shape a physics constraint swings from",
+      "372107 is painted with its tails already swept out, as if blown, which is also a poor rest shape",
+      "372108 has the widest two-layer skirt, the largest surface for wind, and its tails hang behind the figure, so they come out from behind it under a side gust"
+    ]
+  }
+}
