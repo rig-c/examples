@@ -1,6 +1,6 @@
 {
   "spec": "family-homewear-source-unit/1",
-  "scope": "Stable source preparation only, no partial See-through or incomplete rig output",
+  "scope": "Source preparation records, with current local-demo status and optional required-variant completion check; original art and upscale outputs unchanged.",
   "files": [
     {
       "path": "family/tools/homewear-naru-prepare.py",
@@ -24,13 +24,13 @@
     },
     {
       "path": "family/tools/homewear-naru-protected-check.py",
-      "bytes": 2833,
-      "sha256": "f297ef7a4bfac4eab94891909d0358634713e5ba3d0408ae18dcec7502652aef"
+      "bytes": 3165,
+      "sha256": "0e52746b04e516d3138b4ed464a427adf7c9df6973885b92fb4b70c0c1bfe373"
     },
     {
       "path": "family/outfits/homewear/naru/SOURCE_PREPARATION.md",
-      "bytes": 3134,
-      "sha256": "3591b31b6d3c1761c364ae5b224285a1ed52d4c953cd9a3de060a183c62508dd"
+      "bytes": 3356,
+      "sha256": "a2a197a8def0bda7285271eee73e6ca20da96d9540d9c15d17b0651b365175ab"
     },
     {
       "path": "family/outfits/homewear/naru/source-provenance.json",
@@ -128,5 +128,5 @@
       "sha256": "e95bf11017d3c87de6fe84d5144cff32941f6fc29cc686e97d1559a8966a7d3b"
     }
   ],
-  "totalBytes": 24069867
+  "totalBytes": 24070421
 }

@@ -1,0 +1,446 @@
+{
+  "rig_size": [
+    800,
+    2284
+  ],
+  "scale_rig_per_source": 1,
+  "ghost_px": {},
+  "parts": [
+    {
+      "name": "hair_back",
+      "from": "head:author:generated-backhair",
+      "x": 160,
+      "y": 300,
+      "w": 440,
+      "h": 440,
+      "opaque_px": 81097,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "shoes",
+      "x": 0,
+      "y": 2080,
+      "w": 800,
+      "h": 204,
+      "opaque_px": 31916,
+      "from": "full:author:homewear-shoes",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "bottomwear",
+      "x": 0,
+      "y": 1112,
+      "w": 800,
+      "h": 1028,
+      "opaque_px": 291660,
+      "from": "full:author:homewear-bottomwear",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "neck",
+      "x": 307,
+      "y": 552,
+      "w": 139,
+      "h": 106,
+      "opaque_px": 10092,
+      "from": "full:author:homewear-neck",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "topwear",
+      "x": 225,
+      "y": 630,
+      "w": 323,
+      "h": 770,
+      "opaque_px": 130400,
+      "from": "full:author:homewear-topwear",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "cardigan",
+      "x": 166,
+      "y": 612,
+      "w": 459,
+      "h": 788,
+      "opaque_px": 72164,
+      "from": "full:author:homewear-cardigan",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "sleeves",
+      "x": 130,
+      "y": 652,
+      "w": 530,
+      "h": 408,
+      "opaque_px": 99155,
+      "from": "full:author:homewear-sleeves",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "hands",
+      "x": 340,
+      "y": 820,
+      "w": 166,
+      "h": 126,
+      "opaque_px": 12017,
+      "from": "full:author:homewear-hands",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "ear_r",
+      "from": "head:ears-r",
+      "x": 278,
+      "y": 517,
+      "w": 44,
+      "h": 47,
+      "opaque_px": 1156,
+      "visible_px": 866,
+      "occluded_px": 290,
+      "projected_core_px": 321,
+      "source_px_taken": 321,
+      "visible_not_projected_px": 545,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "hair_back",
+          "px": 2
+        }
+      ]
+    },
+    {
+      "name": "ear_l",
+      "from": "head:ears-l",
+      "x": 443,
+      "y": 469,
+      "w": 35,
+      "h": 63,
+      "opaque_px": 1453,
+      "visible_px": 855,
+      "occluded_px": 598,
+      "projected_core_px": 411,
+      "source_px_taken": 411,
+      "visible_not_projected_px": 444,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "hair_back",
+          "px": 4
+        }
+      ]
+    },
+    {
+      "name": "face",
+      "from": "head:face",
+      "x": 271,
+      "y": 385,
+      "w": 187,
+      "h": 217,
+      "opaque_px": 30394,
+      "visible_px": 13897,
+      "occluded_px": 16497,
+      "projected_core_px": 10351,
+      "source_px_taken": 10292,
+      "visible_not_projected_px": 3605,
+      "refused_drift_px": 241,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "hair_back",
+          "px": 21
+        }
+      ]
+    },
+    {
+      "name": "eyewhite_r",
+      "from": "head:eyewhite-r",
+      "x": 302,
+      "y": 506,
+      "w": 42,
+      "h": 30,
+      "opaque_px": 865,
+      "visible_px": 446,
+      "occluded_px": 419,
+      "projected_core_px": 58,
+      "source_px_taken": 58,
+      "visible_not_projected_px": 388,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 41
+        }
+      ]
+    },
+    {
+      "name": "eyewhite_l",
+      "from": "head:eyewhite-l",
+      "x": 386,
+      "y": 480,
+      "w": 46,
+      "h": 31,
+      "opaque_px": 1148,
+      "visible_px": 554,
+      "occluded_px": 594,
+      "projected_core_px": 54,
+      "source_px_taken": 54,
+      "visible_not_projected_px": 500,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 18
+        }
+      ]
+    },
+    {
+      "name": "iris_r",
+      "from": "head:irides-r",
+      "x": 316,
+      "y": 508,
+      "w": 26,
+      "h": 25,
+      "opaque_px": 490,
+      "visible_px": 473,
+      "occluded_px": 17,
+      "projected_core_px": 159,
+      "source_px_taken": 159,
+      "visible_not_projected_px": 314,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 27
+        },
+        {
+          "part": "eyewhite_r",
+          "px": 3
+        }
+      ]
+    },
+    {
+      "name": "iris_l",
+      "from": "head:irides-l",
+      "x": 395,
+      "y": 485,
+      "w": 28,
+      "h": 26,
+      "opaque_px": 569,
+      "visible_px": 563,
+      "occluded_px": 6,
+      "projected_core_px": 205,
+      "source_px_taken": 205,
+      "visible_not_projected_px": 358,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "eyewhite_l",
+          "px": 28
+        },
+        {
+          "part": "face",
+          "px": 13
+        }
+      ]
+    },
+    {
+      "name": "nose",
+      "from": "head:nose",
+      "x": 357,
+      "y": 529,
+      "w": 14,
+      "h": 23,
+      "opaque_px": 223,
+      "visible_px": 223,
+      "occluded_px": 0,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "visible_not_projected_px": 223,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 4
+        }
+      ]
+    },
+    {
+      "name": "mouth",
+      "from": "head:mouth",
+      "x": 362,
+      "y": 556,
+      "w": 42,
+      "h": 19,
+      "opaque_px": 503,
+      "visible_px": 503,
+      "occluded_px": 0,
+      "projected_core_px": 79,
+      "source_px_taken": 79,
+      "visible_not_projected_px": 424,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "lash_r",
+      "from": "head:eyelash-r",
+      "x": 288,
+      "y": 493,
+      "w": 56,
+      "h": 44,
+      "opaque_px": 1217,
+      "visible_px": 1194,
+      "occluded_px": 23,
+      "projected_core_px": 157,
+      "source_px_taken": 157,
+      "visible_not_projected_px": 1037,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 56
+        },
+        {
+          "part": "eyewhite_r",
+          "px": 1
+        }
+      ]
+    },
+    {
+      "name": "lash_l",
+      "from": "head:eyelash-l",
+      "x": 380,
+      "y": 470,
+      "w": 61,
+      "h": 43,
+      "opaque_px": 1136,
+      "visible_px": 1059,
+      "occluded_px": 77,
+      "projected_core_px": 45,
+      "source_px_taken": 45,
+      "visible_not_projected_px": 1014,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 46
+        },
+        {
+          "part": "eyewhite_l",
+          "px": 1
+        }
+      ]
+    },
+    {
+      "name": "brow_r",
+      "from": "head:eyebrow-r",
+      "x": 279,
+      "y": 475,
+      "w": 52,
+      "h": 34,
+      "opaque_px": 328,
+      "visible_px": 229,
+      "occluded_px": 99,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "visible_not_projected_px": 229,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "brow_l",
+      "from": "head:eyebrow-l",
+      "x": 363,
+      "y": 460,
+      "w": 76,
+      "h": 13,
+      "opaque_px": 411,
+      "visible_px": 278,
+      "occluded_px": 133,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "visible_not_projected_px": 278,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "hair_front",
+      "from": "head:front hair",
+      "x": 252,
+      "y": 327,
+      "w": 251,
+      "h": 331,
+      "opaque_px": 42482,
+      "visible_px": 42482,
+      "occluded_px": 0,
+      "projected_core_px": 30477,
+      "source_px_taken": 30477,
+      "visible_not_projected_px": 12005,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "hair_back",
+          "px": 3
+        },
+        {
+          "part": "face",
+          "px": 2
+        }
+      ]
+    }
+  ]
+}

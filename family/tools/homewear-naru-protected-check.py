@@ -4,8 +4,11 @@
 This verifies preservation, not garment appearance or compiler acceptance.
 """
 import hashlib
+import argparse
 import json
 import pathlib
+
+parser=argparse.ArgumentParser();parser.add_argument("--require-variant",action="store_true");args=parser.parse_args()
 
 family = pathlib.Path(__file__).resolve().parents[1]
 home = family / "outfits/homewear/naru"
@@ -47,6 +50,9 @@ if variant.is_file():
             if image and (family / "naru/out/rig/images" / image).read_bytes() != (home / "out/rig/images" / image).read_bytes():
                 errors.append({"image": image, "reason": "protected face/hair PNG changed"})
     result["commonSlotsChecked"] = common
+if args.require_variant and not variant.is_file():
+    errors.append({"field":"variant", "reason":"completion mode requires the authored variant"})
+result["completionMode"] = args.require_variant
 result["status"] = "FAIL" if errors else ("PRESERVATION_PASS" if variant.is_file() else "SOURCE_PREPARATION_PASS_VARIANT_PENDING")
 print(json.dumps(result, indent=2))
 raise SystemExit(1 if errors else 0)

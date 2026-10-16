@@ -1,0 +1,23 @@
+{
+  "spec": "family-homewear-imagegen/1",
+  "mode": "built-in image_gen",
+  "transparentBackground": true,
+  "calls": 1,
+  "referenceImages": [
+    "edit-target.png",
+    "reference-composite.png",
+    "edit-mask.png"
+  ],
+  "rawGeneratedImage": "generated-upper-body.png",
+  "use": "Generated hidden-material repair; consumer mask invariants in admission.json; no whole-image substitution",
+  "prompt": "prompt.txt",
+  "outputCanvas": [
+    1254,
+    1254
+  ],
+  "requestedCanvas": [
+    1024,
+    1024
+  ],
+  "registrationRequired": true
+}

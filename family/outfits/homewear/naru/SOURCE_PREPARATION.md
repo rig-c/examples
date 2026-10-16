@@ -1,14 +1,14 @@
 # Naru homewear source preparation
 
 This folder prepares the fourth character from the user-selected homewear group
-image for a separate outfit variant. It is a source preparation unit, not a
-completed rig or an appearance acceptance result.
+image for a separate outfit variant. It records the source preparation stage. The completed local variant and its
+separate compiler, physics and browser evidence are described in [README.md](README.md).
 
 `inputs/source-group.jpeg` is the unchanged 2752×1536 RGB source copy.
 `source-provenance.json` records its SHA-256 and the provisional crop/resize.
 The original download is never edited. Retaining the original group follows
 the existing family example's practice of retaining its source group image;
-publication remains subject to the repository owner's existing publication hold.
+this first prototype is a local demo; public publication is outside its scope.
 
 The copied Naru crop is 538×1536. The installed RMBG-2.0 node produced a
 nontrivial alpha mask, then the existing 4x-AnimeSharp model processed RGB and
@@ -22,8 +22,9 @@ Model hashes, actual sizes and matting counts are in
 `docs/matte-upscale-contact.png` compares the original crop with the real result
 on white and checker backgrounds. Alpha min/max and a nonempty box are guards
 against the node's silent error fallback; they do not certify every strand or
-slipper-edge pixel. Footwear versus floor-shadow ownership still needs checking
-when the garment layers are extracted.
+slipper-edge pixel. Footwear versus floor-shadow ownership was subsequently checked against the
+source in `docs/slipper-alpha-contact.png`: the sole is retained and the floor
+reflection excluded.
 
 The full-body input was created by the public `rig-parts inputs` command:
 800×2284 painting, 2284×2284 input square, 742 pixels of white pad on either side.
@@ -49,6 +50,6 @@ python3 family/tools/homewear-naru-protected-check.py
 Raw process logs stay in local execution evidence, outside the repository.
 `runtime-evidence.json` retains their hashes. No host or user-machine address is
 stored here. A failed See-through load is preserved separately as a resource
-admission refusal; it is not a layer output. Final garment splitting, neck/hand
-ownership, new geometry, approved face/hair reuse, official build/check and live
-motion evidence remain subsequent stages.
+admission refusal; it is not a layer output. Subsequent garment splitting, neck/hand ownership, new geometry, approved
+face/hair reuse, official build/check and live motion evidence are recorded in
+`README.md`; the source-preparation hashes remain independently checkable.

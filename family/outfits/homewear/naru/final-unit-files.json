@@ -1,0 +1,794 @@
+{
+  "spec": "family-homewear-final-unit/1",
+  "scope": "Naru local homewear asset and dedicated authoring/verification tools only; viewer files remain a separate unit",
+  "files": [
+    {
+      "path": "family/outfits/homewear/naru/README.md",
+      "bytes": 8407,
+      "sha256": "2b8db82897c38aeca7a7d6a99cac8c5d92429e3729c68308b37715bebf1e0af9"
+    },
+    {
+      "path": "family/outfits/homewear/naru/SOURCE_PREPARATION.md",
+      "bytes": 3356,
+      "sha256": "a2a197a8def0bda7285271eee73e6ca20da96d9540d9c15d17b0651b365175ab"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/config.json",
+      "bytes": 20327,
+      "sha256": "8e24635321bf15a39f8527d51fee6c3f1b91a2381d610da0ad699bd7ef06e852"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/inputs/parts/bottomwear.png",
+      "bytes": 379911,
+      "sha256": "b59b8b762be13ae391873c3246c23e4703d303a0bb20137b2619ead1bb6cdf01"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/inputs/parts/cardigan.png",
+      "bytes": 388109,
+      "sha256": "54d6cf92fb13cfb6f9955ef2a958e50208c060f9d321337ff80e2609e8420253"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/inputs/parts/hands.png",
+      "bytes": 33974,
+      "sha256": "2b5a85ecc143f48e824d58edbe9f36cb5a0b4a70c62ab6cb4164d5d22643edbd"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/inputs/parts/neck.png",
+      "bytes": 16345,
+      "sha256": "1ada44cbe84a4026c96f2c212af539395b9877397fb2d192504c7df9fcc859a4"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/inputs/parts/shoes.png",
+      "bytes": 63567,
+      "sha256": "d2551bd416d894c5f1bb74f13a48a922f26334076c3f760ce8c62c38667af4af"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/inputs/parts/sleeves.png",
+      "bytes": 228874,
+      "sha256": "05a1be0155f1ecc350603fd808799b39269e9c25246dba317a488dc716977b28"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/inputs/parts/topwear.png",
+      "bytes": 305154,
+      "sha256": "7e98e56ea8288282c72177ef555de2a665a9c300a1876c30c73074c7a4d3bf81"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/inputs/parts.json",
+      "bytes": 2278,
+      "sha256": "ca3e45c8254710d6376c95d188a8b0150f69001356108149c3335e7d4662b0bb"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/rig/mesh_report.json",
+      "bytes": 5641,
+      "sha256": "a339c609547d37db680efd9c99872e16c6a9d73e4026397929b5d3e327abf0c7"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring/weight-proof.json",
+      "bytes": 1018,
+      "sha256": "5e3ca06b97bf41fca03009e8fdee90f45693eb422ac024bd64cec61c2427d980"
+    },
+    {
+      "path": "family/outfits/homewear/naru/authoring-plan.json",
+      "bytes": 4130,
+      "sha256": "1fc921045c7de8c6a9457d7c1d2577c411abcf02fad073571da0b0169217f3b4"
+    },
+    {
+      "path": "family/outfits/homewear/naru/closure-comparison.json",
+      "bytes": 1090,
+      "sha256": "877e71066abf710f9fd5dae44cb0bbac4519413a785a7cb9d1c71e8932d456b9"
+    },
+    {
+      "path": "family/outfits/homewear/naru/closure-controls.json",
+      "bytes": 470,
+      "sha256": "c907f5a0c51ced7d25e74d0bb1fd1f92a91cb2bab76998d91a6efbc893c147af"
+    },
+    {
+      "path": "family/outfits/homewear/naru/completion-control.json",
+      "bytes": 379,
+      "sha256": "a876bac8aa0840afef939482ebd4f6f32defb819e0505009cde18fd4cc0e7bd9"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/browser-family-homewear.png",
+      "bytes": 883990,
+      "sha256": "3d3769048117fc319ec8ce8f5d716f0eabad2f66552424ce8856559836a16970"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/browser-naru-homewear.png",
+      "bytes": 613986,
+      "sha256": "4f1f921c51dea5bf3379b9745902da3ffa12e32819d347c6889ea22c7112d3ba"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/final-jolt-full.png",
+      "bytes": 356484,
+      "sha256": "19f2885b1c011f818464408b4ac9fee217df137dcc102baadd76d276220cecf2"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/final-neck-f0060.png",
+      "bytes": 577811,
+      "sha256": "cd87c9a7e79b15b9a8d57c25a117de36fabc868ceff2c58af525fd3f84f096d5"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/final-neck-f0150.png",
+      "bytes": 574127,
+      "sha256": "90dad8050a2b03ecb2cc3ab278fce42166c5db44f03ac645d8072af072045f8b"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/garment-boundaries-grid.png",
+      "bytes": 491567,
+      "sha256": "1ff485a7b0af387e222d802951f9682e8b5d8f6188913b9a70b11c7833beaca1"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/hidden-repair-mask-contact.png",
+      "bytes": 167567,
+      "sha256": "28b612bfde866749395a52abc68bf0444b6a4f675d8bc7d7e294e04fdbd23011"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/neck-motion-before-after.png",
+      "bytes": 751585,
+      "sha256": "e6a328ed329e376f226a6367c7f3793fe7c18b3f10f41c5deb954fe67728b880"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/seethrough-raw-contact.png",
+      "bytes": 128148,
+      "sha256": "604e9dc6193dd6cbb74dbb3335ef755332cecef12802ea4812668c3ff44bb5ce"
+    },
+    {
+      "path": "family/outfits/homewear/naru/docs/slipper-alpha-contact.png",
+      "bytes": 260079,
+      "sha256": "ab0a77262c60f201611db7a18b897a5c1988f73d10401608b25bc4b55a0f59a5"
+    },
+    {
+      "path": "family/outfits/homewear/naru/hidden-repair/admission.json",
+      "bytes": 2228,
+      "sha256": "81b6eb68fd2d366fc2f2e372a800371128137ac8293ec527813375779909ec27"
+    },
+    {
+      "path": "family/outfits/homewear/naru/hidden-repair/consumer-mask.png",
+      "bytes": 2832,
+      "sha256": "c807ab65cc7e32da3b9f2b3f470bdbeb6529ea18264eaf41096471d19f6ba689"
+    },
+    {
+      "path": "family/outfits/homewear/naru/hidden-repair/edit-mask.png",
+      "bytes": 7762,
+      "sha256": "9033f11dad17e360e28be36ec48b537dd7c5d5edf85eaae8a8ed4f9d34ef1515"
+    },
+    {
+      "path": "family/outfits/homewear/naru/hidden-repair/edit-target.png",
+      "bytes": 216427,
+      "sha256": "d87fa5e417120e83ae0d82bae59fbe0d2247b8a216ba6261b6eb901d8c37916e"
+    },
+    {
+      "path": "family/outfits/homewear/naru/hidden-repair/generated-upper-body.png",
+      "bytes": 431621,
+      "sha256": "279290b055720d69882c34fefb5145ba911a807acdc19977ded68af488961cc6"
+    },
+    {
+      "path": "family/outfits/homewear/naru/hidden-repair/generator.json",
+      "bytes": 542,
+      "sha256": "95919bad33ff6270067c7909824704ca3f87e00093b1784c118211b36707d55f"
+    },
+    {
+      "path": "family/outfits/homewear/naru/hidden-repair/input.json",
+      "bytes": 742,
+      "sha256": "b7857aec81756a035a447ad55cd97eae7643fca96b7ba1ddfcbad1dcdc20f26b"
+    },
+    {
+      "path": "family/outfits/homewear/naru/hidden-repair/prompt.txt",
+      "bytes": 1330,
+      "sha256": "dd704d07d0ad7b203eba70bbb9298f1d908f84a5e48841be21c8fee3969de27d"
+    },
+    {
+      "path": "family/outfits/homewear/naru/hidden-repair/reference-composite.png",
+      "bytes": 314211,
+      "sha256": "bae8a9d57f1048c23a33af2e04ae691c0ea2edb630f25889c22bbde7ce84c2b6"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/budget.json",
+      "bytes": 290,
+      "sha256": "aeed1c77ab6408e709f6d21e78840a9400690a2d7d4238d55d7decfd08f4181e"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/layers.json",
+      "bytes": 4610,
+      "sha256": "81322b8a3a81300a09ad7cc20601e2a40cd7abea8c4ace0180ca9f1e15d84d99"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/load-admission.json",
+      "bytes": 335,
+      "sha256": "63a5f30700e788159199975a548559714c9a6bc960293809dca67648d2c6a3b1"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/meta.json",
+      "bytes": 855,
+      "sha256": "8dec6b03c48852bbfd6ccb8c8e58a23b999058788c9475484b8d4923e40f7112"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/back hair.png",
+      "bytes": 358671,
+      "sha256": "b060117495b3a373be0e55664ce3d6b275dd03e6a03865fe0e1679b20a75b880"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/bottomwear.png",
+      "bytes": 476492,
+      "sha256": "81b55c1e776607d60591f1f59e7c57f9454e2f5d05cd4aa918853c739ddecc28"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/ears-l.png",
+      "bytes": 1132,
+      "sha256": "d10904899747c82e9becbaabbc472873608f9dc4c2156b4bde23ca4283a98844"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/ears-r.png",
+      "bytes": 1183,
+      "sha256": "7ba5cecc0bfc26f60881d612b0dd2aa119d4a87e011684ff63fc51beb5509d82"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/eyebrow-l.png",
+      "bytes": 646,
+      "sha256": "763204e78233fe4fc8a6203adaba686a759f2a071deea21982f964f5b51861f9"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/eyebrow-r.png",
+      "bytes": 893,
+      "sha256": "c0b6b1618d936faef86a5e2451e260cd1fe154e5c188c7a0465420fdb76d3bbc"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/eyelash-l.png",
+      "bytes": 1331,
+      "sha256": "5e9c4f5b4993cb860944dc680697a1a9421b240edf95a73119c6011e7d774050"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/eyelash-r.png",
+      "bytes": 1069,
+      "sha256": "b3c879b089db6c63e028316fe6499ae4658b7004b6e1730d0bee25faba33b937"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/eyewhite-l.png",
+      "bytes": 1240,
+      "sha256": "e5b046ac8b16c1180c138989caec80b9e93a468f1e35bf0df65bba5976eaf006"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/eyewhite-r.png",
+      "bytes": 968,
+      "sha256": "e86fbc8bf196c0a46ca76734c8086b2a81a9a8f4132aa03cdc717281aa6948ed"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/face.png",
+      "bytes": 11961,
+      "sha256": "f5cf9ecabb56c45bbf57785e8c0722e0392a27b08f5dcd46168ae88eaa4ac419"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/footwear.png",
+      "bytes": 517583,
+      "sha256": "546f1cb16316f70f528050650812a3a394411047dad59b1f2bbf602b44478283"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/front hair.png",
+      "bytes": 332615,
+      "sha256": "445301708555753bf032b272ce8aa3ca9cc902c5ee891e0aba6f5f048df28901"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/handwear-l.png",
+      "bytes": 67422,
+      "sha256": "a6eab5654c490145a831916770f596c7902369f111df1bab725ae3b21504ba86"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/handwear-r.png",
+      "bytes": 106,
+      "sha256": "21388d3e1d99e0d0b76235b9a4ba23dd2753eec1de8c7cd40fd8f585a7af2e74"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/irides-l.png",
+      "bytes": 971,
+      "sha256": "d9e4a94969468b4ea2a3a6649149f5747ecea94f7f961eb45f960d8c2b13d88a"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/irides-r.png",
+      "bytes": 777,
+      "sha256": "8ca7232336dbedd5f881d9a4b7a65622a1f7c343f02b35e7862decd808ff8281"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/legwear.png",
+      "bytes": 491581,
+      "sha256": "b94f3ac3385181747b572c2344cc883b060af272d720f85b891dee458a6a3c47"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/mouth.png",
+      "bytes": 1256,
+      "sha256": "1b37cefc2836239654e1fce902f88e327f69fddd21e2302af40d72398ba7a31e"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/neck.png",
+      "bytes": 222521,
+      "sha256": "90855b91bdfcaed393c43b985863cf12da87aee12f36542200f7dd271bc45309"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/neckwear.png",
+      "bytes": 439629,
+      "sha256": "4a14b39a0007b5f05a7d390b4b28a82915d9ff18dfaa0cfa1ada59d2bebe8281"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/objects.png",
+      "bytes": 475243,
+      "sha256": "204ce4492134de35b0cfce8cec632e877762596c3895702c2e61515d3ecada20"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/tail.png",
+      "bytes": 479820,
+      "sha256": "fd410dbd13f56de4efa0bdc00f18a798f60d55045c56029b4498fce4bf400055"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/topwear.png",
+      "bytes": 630587,
+      "sha256": "59cdb6c019428a305a41e5dc9c9df8dbf34028e80a86ae92e2601a8c321e8227"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/parts/wings.png",
+      "bytes": 475109,
+      "sha256": "e60e07e45ecd4ff8d6abc34001fff64d0c472b2c95bf938bb659f39ef24aa766"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/layers/full_orig/resource-admission.json",
+      "bytes": 326,
+      "sha256": "fd3cf6300c0ae4f07f8bd8833a6e9e7140e3876be9b643baaa8103cb218f9cf0"
+    },
+    {
+      "path": "family/outfits/homewear/naru/inputs/painting.png",
+      "bytes": 855255,
+      "sha256": "55894b13a4b4683213f75c84aa8183aeefe883c973aca17c245791c802349bf7"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/assembly.json",
+      "bytes": 1105,
+      "sha256": "09ee44b8d9e5d247b7f5014b97bd6d49d05fc46b027db692657c24b6cf14e7ef"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/check/build/skeleton.atlas",
+      "bytes": 1529,
+      "sha256": "7c92e97fb8b7c371169a26755173167330688dd3cd259afdb7e333e855657f68"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/check/build/skeleton.json",
+      "bytes": 448957,
+      "sha256": "f6d00bdcbe7a97cfea474a199b86a7d0ccf0f6be620bb9f0ad2ace2f2414657b"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/check/build/skeleton.model.json",
+      "bytes": 701918,
+      "sha256": "dfbe220fdb2ead0d78cb389bde05eb43405c1652911aa127aef4fcee6d43c061"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/check/build/skeleton.png",
+      "bytes": 2369210,
+      "sha256": "38ff2ce4dc14788f56c21ded927a99895dcd924777d902bdb2dcea5629ff2e46"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/check/check.json",
+      "bytes": 9711,
+      "sha256": "c1dfb99e5be0b6eb51cca5f839aadfa244c2496d9e588609919ae9e06ff10c84"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/check/gate_spine-html.txt",
+      "bytes": 690,
+      "sha256": "1a3641f94993590687d9b3ce8d1c448d3af3affb77f99dfd52a866921e9e7d43"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/neck-seam-stitch.json",
+      "bytes": 14089,
+      "sha256": "c9c97bd043790853c47252137db0347cf7616902cf87da69d7ebf05407ae910a"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/bottomwear.png",
+      "bytes": 379911,
+      "sha256": "b59b8b762be13ae391873c3246c23e4703d303a0bb20137b2619ead1bb6cdf01"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/brow_l.png",
+      "bytes": 1118,
+      "sha256": "02bddf74c15118c62e74206e2e540ac53ceb68ffef26dc2e78409a35173f0e38"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/brow_r.png",
+      "bytes": 991,
+      "sha256": "dd8bef60501484c8f904cdce33a8b11b0190d922fcfe61dcbf437513f87b9e79"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/cardigan.png",
+      "bytes": 388109,
+      "sha256": "54d6cf92fb13cfb6f9955ef2a958e50208c060f9d321337ff80e2609e8420253"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/ear_l.png",
+      "bytes": 5011,
+      "sha256": "3fdc4a97cf79915c8c28aae7c9cf8440e77ba67974564f9464a6a1608cbdaa0c"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/ear_r.png",
+      "bytes": 3797,
+      "sha256": "b8fa845c640add9405f38724dd0a4aad5e4118b7d0d24a5061b02cc9ef1f2eae"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/eyewhite_l.png",
+      "bytes": 4022,
+      "sha256": "b9a61827a2710f12268d9fe918ea0e5756e5bf2bd2e587838ed6a2f36f7d120c"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/eyewhite_r.png",
+      "bytes": 3250,
+      "sha256": "67e9268da6045318efdb1eb9a78add7ee9048678ef74948e1e2b3228005c4851"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/face.png",
+      "bytes": 53784,
+      "sha256": "3e47ba28dff6babffee48b8513bd3cafe736410f7f50421513db4821a799f631"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/hair_back.png",
+      "bytes": 140159,
+      "sha256": "44a861dd5072cd427eae42819ffe596cdfd3d23a0838d19c361fcc675befa962"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/hair_front.png",
+      "bytes": 111690,
+      "sha256": "ec3a10242675535b98b6c759afe2f9a7d41d7ecf3488c17091cbc92bb2e67b09"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/hands.png",
+      "bytes": 33974,
+      "sha256": "2b5a85ecc143f48e824d58edbe9f36cb5a0b4a70c62ab6cb4164d5d22643edbd"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/iris_l.png",
+      "bytes": 2149,
+      "sha256": "c716cc3f3611c8564caec2ced06db901fd53b9499e4da5773e116bbd1e1cef90"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/iris_r.png",
+      "bytes": 1924,
+      "sha256": "2d69323f004d77434650ae5027e3249cde5b66dda374b184969e50a753bf09d9"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/lash_l.png",
+      "bytes": 3787,
+      "sha256": "f5a55a8359aba04da16201f4cbfcc5145dff613bc5088c001927cb63f5f8c32b"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/lash_r.png",
+      "bytes": 4318,
+      "sha256": "6a40d9b65526a6bac15dc7bde34540a8fe98b7e1ed2c65766749da47899b653a"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/mouth.png",
+      "bytes": 1674,
+      "sha256": "09f24c31852aad0f11637f1d49c230813d4913073db1670b5cbb91ee28d7d313"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/neck.png",
+      "bytes": 16345,
+      "sha256": "1ada44cbe84a4026c96f2c212af539395b9877397fb2d192504c7df9fcc859a4"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/nose.png",
+      "bytes": 745,
+      "sha256": "ba09d442f8d046f2e4a58b6cacab8037bc55372ec2fa6703e5b9e768deb058fb"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/shoes.png",
+      "bytes": 63567,
+      "sha256": "d2551bd416d894c5f1bb74f13a48a922f26334076c3f760ce8c62c38667af4af"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/sleeves.png",
+      "bytes": 228874,
+      "sha256": "05a1be0155f1ecc350603fd808799b39269e9c25246dba317a488dc716977b28"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts/topwear.png",
+      "bytes": 305154,
+      "sha256": "7e98e56ea8288282c72177ef555de2a665a9c300a1876c30c73074c7a4d3bf81"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/parts.json",
+      "bytes": 9497,
+      "sha256": "487190f325a214ca2154ea8a3c8b20c9eba7c5f9f10552b22eb1032661a44620"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/bottomwear.png",
+      "bytes": 511784,
+      "sha256": "b88436d739ba4efc59ea167620bf093aa7ef828de71df3f0ebe30da2374c483d"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/brow_l.png",
+      "bytes": 1138,
+      "sha256": "9cf9b707c5fc215e09281b5e7249f1e5a93ab812916f97e1206eed5f2d22b93d"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/brow_r.png",
+      "bytes": 1005,
+      "sha256": "56088605343293f716853f8cb30a1b2dfeda448865069da86427149873801317"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/cardigan.png",
+      "bytes": 549349,
+      "sha256": "97ca0cd41adfac939124bec99be569d4cdc361a1536a61cafd210c54722e40a0"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/ear_l.png",
+      "bytes": 5029,
+      "sha256": "389e6189edab25443136b8177a0b9264ca03f5b0b49267c75db1d0de5f7bb6e3"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/ear_r.png",
+      "bytes": 3811,
+      "sha256": "f2ed3516b1356cee062f0734fab2af12ce635a750d4807bd51102e4bef07be49"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/eyewhite_l.png",
+      "bytes": 4041,
+      "sha256": "eadb7419a65e314f700f0182809894de0414e8d564fc23ef53b2c09befc0a0c6"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/eyewhite_r.png",
+      "bytes": 3276,
+      "sha256": "965a4756bc81f9afe84a54d6f3c6710480ad1472d3b35ccfc8f6a801bb369256"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/face.png",
+      "bytes": 54257,
+      "sha256": "0f994ac58a9a37166f368611fab9dd86ec1966fbbec706aa0c859811733cbea3"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/hair_back.png",
+      "bytes": 179749,
+      "sha256": "09d324f0e1a380349912a313974d1214cb3ad9912e0906a91d1f9f6e05d6caa9"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/hair_front.png",
+      "bytes": 112697,
+      "sha256": "7193299a385139338992148fd4a07cf838953aa90cae09c31bcfdb5e17b72ecf"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/hands.png",
+      "bytes": 42458,
+      "sha256": "d9a2c6e4bdf477336582194181a14c65f0961da92a6f2a0f5a11ce0c11f4134f"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/iris_l.png",
+      "bytes": 2180,
+      "sha256": "95203489b8e125e8c4b499d512374ee8adc71d94984e3d6d4cec15d57fd57a12"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/iris_r.png",
+      "bytes": 1948,
+      "sha256": "401b59fa9acaba0f7f5a2c8f5585b4fcd4afc3e5b177e649bbd63358f2586b10"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/lash_l.png",
+      "bytes": 3841,
+      "sha256": "624a49357953ce499536f435e820fd8a4c6afcf4620e24d2cda8eae05a92e709"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/lash_r.png",
+      "bytes": 4377,
+      "sha256": "d6f4f1726f7c8c1e6824d7111c3618d45303ccc6da5e3fd919d6b0d7c96d822f"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/mouth.png",
+      "bytes": 1707,
+      "sha256": "982179a3a1fb93bb5599be2db5acf29ddcc66c0a6bb9a705b9ba4fa691fc326c"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/neck.png",
+      "bytes": 21236,
+      "sha256": "ea148effca9671b71ea71afcd63b70ed37cf8d7a31f3cc3259c6c007a97691b7"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/nose.png",
+      "bytes": 760,
+      "sha256": "78bab8cb9d6d9b14815c23e95a3c040e455c623cfc8fdec4574a76e716da0e0b"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/shoes.png",
+      "bytes": 72421,
+      "sha256": "9ae4c565f398c2685ae49aac06d1b2c8354ea429caeaa87f9319ff51d22a3f75"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/sleeves.png",
+      "bytes": 285026,
+      "sha256": "f7219b66a02c654e935a848c66959b5c51a03b2b4af269b50b621f4136deb6e8"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/images/topwear.png",
+      "bytes": 437294,
+      "sha256": "4781151dc20a8cca2db9b91291d6fb9ed2574c9f591599eaf9e1d09b5c2e830a"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/mesh_report.json",
+      "bytes": 9468,
+      "sha256": "050bd409c1d2980d1fcb5eb8b99b3cc1eefee6a78f846452de0780fd8194a2b7"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/motion.json",
+      "bytes": 49516,
+      "sha256": "030708e65da20a848878a988c324c3ba9061a68333cfba05d5fc71bd03364f76"
+    },
+    {
+      "path": "family/outfits/homewear/naru/out/rig/rig.json",
+      "bytes": 467269,
+      "sha256": "92251675910ef0f88851160f0d650af98ee63b8bdda1ccf698cb358d27b63729"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared/assembled-white.png",
+      "bytes": 855255,
+      "sha256": "55894b13a4b4683213f75c84aa8183aeefe883c973aca17c245791c802349bf7"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared/parts/bottomwear.png",
+      "bytes": 379911,
+      "sha256": "b59b8b762be13ae391873c3246c23e4703d303a0bb20137b2619ead1bb6cdf01"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared/parts/cardigan.png",
+      "bytes": 388109,
+      "sha256": "54d6cf92fb13cfb6f9955ef2a958e50208c060f9d321337ff80e2609e8420253"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared/parts/hands.png",
+      "bytes": 33974,
+      "sha256": "2b5a85ecc143f48e824d58edbe9f36cb5a0b4a70c62ab6cb4164d5d22643edbd"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared/parts/neck.png",
+      "bytes": 16345,
+      "sha256": "1ada44cbe84a4026c96f2c212af539395b9877397fb2d192504c7df9fcc859a4"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared/parts/shoes.png",
+      "bytes": 63567,
+      "sha256": "d2551bd416d894c5f1bb74f13a48a922f26334076c3f760ce8c62c38667af4af"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared/parts/sleeves.png",
+      "bytes": 228874,
+      "sha256": "05a1be0155f1ecc350603fd808799b39269e9c25246dba317a488dc716977b28"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared/parts/topwear.png",
+      "bytes": 305154,
+      "sha256": "7e98e56ea8288282c72177ef555de2a665a9c300a1876c30c73074c7a4d3bf81"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared/prototype.json",
+      "bytes": 5123,
+      "sha256": "29a1cb30806898b493bfa3caca1ca2e5c1768507ea8fcabf95e6748e0a7cb1a2"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared-base/parts/bottomwear.png",
+      "bytes": 379911,
+      "sha256": "b59b8b762be13ae391873c3246c23e4703d303a0bb20137b2619ead1bb6cdf01"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared-base/parts/cardigan.png",
+      "bytes": 387976,
+      "sha256": "a24980be8e2d5bcd66a38087c5f91fda024c9c1e3f6e9d1fa26d24a29687ede3"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared-base/parts/hands.png",
+      "bytes": 33974,
+      "sha256": "2b5a85ecc143f48e824d58edbe9f36cb5a0b4a70c62ab6cb4164d5d22643edbd"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared-base/parts/neck.png",
+      "bytes": 16548,
+      "sha256": "61eae108f15c2ab6c8bb3d8cadf38d4318b43f8aa32b83bdc8c696bd8a591e7f"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared-base/parts/shoes.png",
+      "bytes": 63567,
+      "sha256": "d2551bd416d894c5f1bb74f13a48a922f26334076c3f760ce8c62c38667af4af"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared-base/parts/sleeves.png",
+      "bytes": 228829,
+      "sha256": "b1be7cdb3a78faa72627b1fe168a856324cd95ab781c45fb76c1326a22b5e5e9"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared-base/parts/topwear.png",
+      "bytes": 304900,
+      "sha256": "3d962dc1cc26bb0e7e1fba14bd6f9ead24ac006cb34999354db680cf22b20bf8"
+    },
+    {
+      "path": "family/outfits/homewear/naru/prepared-base/prototype.json",
+      "bytes": 4993,
+      "sha256": "edfaf10382591ef7e508f39a2caaacd234d77e66f80d7259a03b37cba4c2d659"
+    },
+    {
+      "path": "family/outfits/homewear/naru/runtime/physics.json",
+      "bytes": 10108,
+      "sha256": "4e244cf0b82a90a83d2cb317d01cce1375e1cf7531ac5423edd2c40e366f93fe"
+    },
+    {
+      "path": "family/outfits/homewear/naru/seethrough-load-refusal.json",
+      "bytes": 290,
+      "sha256": "c17adc651f59150616a5cd433bf05a12ec57bd5a50beb3bffd44e85ae7f913e9"
+    },
+    {
+      "path": "family/outfits/homewear/naru/serving-independent-proof.json",
+      "bytes": 1108,
+      "sha256": "ce3777568f38aad890674886ce02a88a961da2d41d28e6002edd1acd260946a4"
+    },
+    {
+      "path": "family/outfits/homewear/naru/source-unit-files.json",
+      "bytes": 5024,
+      "sha256": "418025ca5e3004836616e0abb99429a59c0f501afd6c47389d83b001d81480b2"
+    },
+    {
+      "path": "family/outfits/homewear/naru/validation-runs.json",
+      "bytes": 4073,
+      "sha256": "af6556eeeb844243c4ddf349a9d9e6bdb49c90558b50f0ed4820f8c611a2141d"
+    },
+    {
+      "path": "family/tools/homewear-naru-author-inputs.py",
+      "bytes": 3348,
+      "sha256": "37ae93ee80a1c8f5dd3c8dbef61bbd970844cd2c640844f07b342df623c81ed2"
+    },
+    {
+      "path": "family/tools/homewear-naru-guard.py",
+      "bytes": 6267,
+      "sha256": "7c745678a426269cbac9725686847d0c0ea43a29a7046e3f7a66e04f6a2c3f15"
+    },
+    {
+      "path": "family/tools/homewear-naru-merge.py",
+      "bytes": 4066,
+      "sha256": "49dff68b98b95e327ff89e6cd7ffd90c8a3ed8eac0e8fb7f24f61e039d3f20c0"
+    },
+    {
+      "path": "family/tools/homewear-naru-protected-check.py",
+      "bytes": 3165,
+      "sha256": "0e52746b04e516d3138b4ed464a427adf7c9df6973885b92fb4b70c0c1bfe373"
+    },
+    {
+      "path": "family/tools/homewear-naru-repair-composite.py",
+      "bytes": 6610,
+      "sha256": "81a00a8e10edb9cd6d64cd046458c1c0d626ecd44019690f7b03f87626ee456d"
+    },
+    {
+      "path": "family/tools/homewear-naru-runtime/bun.lock",
+      "bytes": 1970,
+      "sha256": "a580bc0dd115e2d84faf012dbab774456f9bb41a907b3911c5d34a9c90e9ea5d"
+    },
+    {
+      "path": "family/tools/homewear-naru-runtime/compare.ts",
+      "bytes": 3354,
+      "sha256": "0071b0a2f315f7c021b0b168d5ea544016d6a03d3b0190ba7cf2005559301de8"
+    },
+    {
+      "path": "family/tools/homewear-naru-runtime/package.json",
+      "bytes": 199,
+      "sha256": "b09e929bbaaed9a07a6216e1a7ccf313ef067b8737ac3fa8650752c20b32a298"
+    },
+    {
+      "path": "family/tools/homewear-naru-runtime/probe.ts",
+      "bytes": 9033,
+      "sha256": "685c5714fd58f6afd951d64d31db401eeb9d7cce39648baa50212dfa6a380281"
+    },
+    {
+      "path": "family/tools/homewear-naru-seethrough.py",
+      "bytes": 15054,
+      "sha256": "17a6883737a6a72eeb3f4a50fba6e5f2e807fc5ac001258bc27a9ea9ee9aee5f"
+    },
+    {
+      "path": "family/tools/homewear-naru-static.py",
+      "bytes": 10302,
+      "sha256": "0048b7a5f97247e3a96316cf72eb66015b8c819cc5d3ff21a8049af4ef3b8775"
+    },
+    {
+      "path": "family/tools/homewear-naru-stitch.py",
+      "bytes": 2571,
+      "sha256": "873109587acc136c899c69a214b96d4fcc568792abeba6a6cc9f86a5fa5c8fe8"
+    }
+  ],
+  "totalBytes": 25018794,
+  "manifestNotSelfHashed": true,
+  "excluded": "Full intermediate prototype directories, complete runtime/frame sequences, duplicate compiler output, private raw logs, generated-registered inspection image and all caches remain local evidence; original user files are retained."
+}

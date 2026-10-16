@@ -1,0 +1,55 @@
+{
+  "spec": "family-homewear-independent-serving/1",
+  "sourceJob": "20261016T183620Z-a2ae204d0d6d455192e6aa796514548c",
+  "rows": [
+    {
+      "stage": "compiler",
+      "file": "skeleton.atlas",
+      "kind": "exact-bytes",
+      "PASS": true
+    },
+    {
+      "stage": "compiler",
+      "file": "skeleton.json",
+      "kind": "exact-bytes",
+      "PASS": true
+    },
+    {
+      "stage": "compiler",
+      "file": "skeleton.model.json",
+      "kind": "exact-bytes",
+      "PASS": true
+    },
+    {
+      "stage": "compiler",
+      "file": "skeleton.png",
+      "kind": "decoded-RGBA",
+      "PASS": true
+    },
+    {
+      "stage": "check",
+      "file": "skeleton.atlas",
+      "kind": "exact-bytes",
+      "PASS": true
+    },
+    {
+      "stage": "check",
+      "file": "skeleton.json",
+      "kind": "exact-bytes",
+      "PASS": true
+    },
+    {
+      "stage": "check",
+      "file": "skeleton.model.json",
+      "kind": "exact-bytes",
+      "PASS": true
+    },
+    {
+      "stage": "check",
+      "file": "skeleton.png",
+      "kind": "decoded-RGBA",
+      "PASS": true
+    }
+  ],
+  "PASS": true
+}

@@ -1,0 +1,75 @@
+{
+  "spec": "family-homewear-hidden-repair-admission/1",
+  "tool": "built-in image_gen",
+  "generatedSHA256": "279290b055720d69882c34fefb5145ba911a807acdc19977ded68af488961cc6",
+  "maskSHA256": "c807ab65cc7e32da3b9f2b3f470bdbeb6529ea18264eaf41096471d19f6ba689",
+  "maskPixels": 2244,
+  "emptyMaskPixelsLeftUnchanged": 0,
+  "maskPixelsWhereGeneratedSurfaceIsTransparent": 258,
+  "sourceBox": [
+    142,
+    410,
+    1147,
+    849
+  ],
+  "targetBox": [
+    118,
+    332,
+    932,
+    692
+  ],
+  "registration": "Largest connected alpha>128 body bounding box fitted to original edit-target alpha box, then original 2x crop transform inverted. RGBA only inside fixed source-occluded mask. Transparent generated pixels remove floating material above actual shoulder contour.",
+  "maskFeatherInwardPx": 1,
+  "proof": [
+    {
+      "part": "shoes",
+      "changedPixels": 0,
+      "outsideMaskChangedPixels": 0,
+      "alphaChangedInsideMask": 0,
+      "outsideMaskAlphaMaxDelta": 0
+    },
+    {
+      "part": "bottomwear",
+      "changedPixels": 0,
+      "outsideMaskChangedPixels": 0,
+      "alphaChangedInsideMask": 0,
+      "outsideMaskAlphaMaxDelta": 0
+    },
+    {
+      "part": "neck",
+      "changedPixels": 368,
+      "outsideMaskChangedPixels": 0,
+      "alphaChangedInsideMask": 350,
+      "outsideMaskAlphaMaxDelta": 0
+    },
+    {
+      "part": "topwear",
+      "changedPixels": 1176,
+      "outsideMaskChangedPixels": 0,
+      "alphaChangedInsideMask": 1160,
+      "outsideMaskAlphaMaxDelta": 0
+    },
+    {
+      "part": "cardigan",
+      "changedPixels": 692,
+      "outsideMaskChangedPixels": 0,
+      "alphaChangedInsideMask": 684,
+      "outsideMaskAlphaMaxDelta": 0
+    },
+    {
+      "part": "sleeves",
+      "changedPixels": 8,
+      "outsideMaskChangedPixels": 0,
+      "alphaChangedInsideMask": 8,
+      "outsideMaskAlphaMaxDelta": 0
+    },
+    {
+      "part": "hands",
+      "changedPixels": 0,
+      "outsideMaskChangedPixels": 0,
+      "alphaChangedInsideMask": 0,
+      "outsideMaskAlphaMaxDelta": 0
+    }
+  ],
+  "scope": "Generated hidden material, not original source pixels. Original visible garment, all outside-mask RGBA, and exact accepted head assets are protected by the consumer composite mask."
+}
