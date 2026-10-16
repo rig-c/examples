@@ -1,0 +1,122 @@
+{
+  "spec": "luna-hidden-repair/1",
+  "authorship": "Generated repair of occluded cloth, not recovered original truth",
+  "sourcePaintingSha256": "73aa243d6156f3526a243a21158829736dea3ddf39feca05ba365e728f436fff",
+  "targetSha256": "67ec60bd836a9bca9f0d7a541fe8b135afde0e7127055a30fdf7095232521704",
+  "generatedSha256": "81db568ea698e1eee46f68ee66c4aeb50f5ea9272390db9961f9430b4d256422",
+  "generatedDimensions": [
+    1003,
+    1568
+  ],
+  "dimensions": [
+    436,
+    681
+  ],
+  "cropSource": [
+    142,
+    947
+  ],
+  "allowedSourceBox": [
+    210,
+    1090,
+    560,
+    1480
+  ],
+  "mask": "Verified foreground handwear alpha>=24, L1 expansion with full weight through24px and fade to56px, clipped to declared box with40px top/left/bottom and10px right inner feather and original alpha255 only; no source-color fill",
+  "allowedPixels": 111724,
+  "changedPixels": 109452,
+  "alphaMaxDelta": 0,
+  "outsideMaskMaxDelta": 0,
+  "repairSha256": "8ce945e199196844b308ce4c3747802effd4cbb99104aea5f68efbf8001bc159",
+  "maskSha256": "555a14db32e0e01c035a928d804239da6d12f9a8e4d18682ad15d63f4cd72604",
+  "generator": "built-in image_gen tool, edit with current part as target and original painting as reference only",
+  "rawOutputFilename": "exec-b644a973-94f3-46fd-8f1f-49ff7c3b4042.png",
+  "rawWholeImageAccepted": false,
+  "generatedNormalization": "Pixel-center bilinear RGB scaling to436x681, then masked technical composition; original alpha copied unchanged. No source-nearest-color or blur fill.",
+  "foregroundOwnership": {
+    "handwearPart": "handwear_r",
+    "sourceCrop": [
+      151,
+      603,
+      412,
+      819
+    ],
+    "skirtSourceCrop": [
+      142,
+      947,
+      436,
+      681
+    ],
+    "threshold": 24,
+    "additionalScope": "Bounded old notebook/paper cast-shadow/remnant neighborhood. This includes authored correction of object-dependent shading, not just pixels directly behind opaque hands."
+  },
+  "frozenContracts": [
+    "original painting",
+    "config and all physics including accepted final bust and completed clothing/hair",
+    "rig geometry, UVs, weights, anchors and motion",
+    "original alpha and RGBA outside mask",
+    "all other part images"
+  ],
+  "sourceEvidence": {
+    "exposedVerticalClothSamples": [
+      [
+        390,
+        1030
+      ],
+      [
+        390,
+        1070
+      ],
+      [
+        390,
+        1110
+      ],
+      [
+        390,
+        1150
+      ]
+    ],
+    "finding": "At these source points painting RGB equals saved bottomwear RGB and topwear/handwear alpha is0; preserve this source-backed exposed cloth expression.",
+    "existingTopwearOverlapSamples": [
+      [
+        390,
+        1180
+      ],
+      [
+        378,
+        1180
+      ],
+      [
+        370,
+        1200
+      ]
+    ],
+    "topwearChanged": false
+  },
+  "prompt": "Use case: precise-object-edit. Image 1 is the EDIT TARGET: a transparent extracted dark charcoal fitted pencil-skirt texture, 436 pixels wide by 681 pixels high. Image 2 is REFERENCE ONLY for the original illustrated cloth color, soft painterly diagonal folds and lighting; do not output the person or regenerate the painting. Return only the same extracted skirt texture, in exactly the same framing and proportions, preferably exactly 436x681, with the existing true transparent background. Repair ONLY the corrupted inner skirt surface that was hidden behind the hands, dark notebook and white papers in the reference. In target pixel coordinates this localized area is approximately x=95..402, y=225..485: remove residual hand/wrist silhouettes, notebook/paper rectangular edges, the tiny white paper sliver, and the sharply bounded polygonal flat-color fill patches. Continue the surrounding dark charcoal cloth and its soft diagonal folds conservatively through that occluded area. The concealed fabric is newly authored repair, not recovered photographic truth. Preserve the target's outer contour and ALL alpha edges, waistband, hem, existing recognizable cloth folds and colors outside that limited corrupted region. Do not add new folds with sharp seams, objects, hands, papers, body parts, highlights, patterns, text, background, or change the garment shape. This is a tiny interior texture cleanup, not a redesign; the upper waistband and bottom hem must remain unchanged.",
+  "verificationRun": "20261015T201825Z-9f7bf1096f704770b923449f603fc812",
+  "inputImages": [
+    {
+      "role": "edit target",
+      "path": "family/luna/out/parts/bottomwear.png",
+      "sha256": "67ec60bd836a9bca9f0d7a541fe8b135afde0e7127055a30fdf7095232521704"
+    },
+    {
+      "role": "reference only",
+      "path": "family/luna/inputs/painting.png",
+      "sha256": "73aa243d6156f3526a243a21158829736dea3ddf39feca05ba365e728f436fff"
+    }
+  ],
+  "alphaSha256": {
+    "before": "0c33af7a3d06fe4cbd5c4d73146cc231c7999452fe9130b8421e2f6bd13fa1b0",
+    "after": "0c33af7a3d06fe4cbd5c4d73146cc231c7999452fe9130b8421e2f6bd13fa1b0"
+  },
+  "outsideMaskRgbaSha256": {
+    "before": "eee821d4ceba140ca81e58c782949eedad7ae3744c2b6b47c57f9224cd4ab226",
+    "after": "eee821d4ceba140ca81e58c782949eedad7ae3744c2b6b47c57f9224cd4ab226"
+  },
+  "protectedCleanPixels": 8125,
+  "protectedCleanMaxDelta": 0,
+  "protectedCleanRule": "Source rectangle[365,1000,435,1160], original painting RGB exact-match, original bottomwear alpha255 and foreground handwear/topwear alpha0; exact original preservation with16px technical transition outside that set",
+  "protectedCleanCorrection": "Candidate3 changed two originally exposed cloth samples by6-10 RGB; rejected before application. This final mask additionally preserves8125 source-matched, foreground-free clean cloth pixels exactly."
+}

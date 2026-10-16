@@ -1,0 +1,217 @@
+{
+  "spec": "jinni-behind-ear-strand-measurements/1",
+  "issue": "https://github.com/rig-c/parts-examples/issues/14",
+  "sourceEvidence": {
+    "painting": "inputs/painting_rgba.png",
+    "original": "inputs/painting_orig.png",
+    "incorrectLayerRecipe": "scripts/upgrade_jinni_4x.py:320-353",
+    "cause": "Neckline side strand authored as front hair, then bound to bang chains and drawn above face and ears. Source strand emerges behind ear and follows neck boundary to shoulder curl."
+  },
+  "authoring": {
+    "spec": "jinni-behind-ear-strand-result/1",
+    "input": "e782eba8dd74c01f8de9c1ed8ea9b0b5175bfe5dd025eabc3e4e0192dde9fb92",
+    "motion": "c7bf32822d7447792066bdcd29db93006d03f8f2faf57970df2a028c1691e3af",
+    "slot": "hair_front__island2",
+    "targetBone": "head",
+    "oldWeightBones": [
+      "bang_c1",
+      "bang_l1",
+      "bang_r0",
+      "bang_r1",
+      "head"
+    ],
+    "oldSlotIndex": 25,
+    "newSlotIndex": 11,
+    "setupWorldMaxDelta": 1.4210854715202004e-14,
+    "preserved": "All other rig payload, source UV, topology, source pixels and motion unchanged",
+    "sourceReason": "Source side strand emerges behind ear and follows neck edge into shoulder curl; front bang ownership and topmost slot are incorrect."
+  },
+  "officialBuild": {
+    "runtime": "Spine 4.3.13",
+    "rigc": "2.57.0",
+    "measured": 27,
+    "passed": 27,
+    "skipped": 23,
+    "failures": 0
+  },
+  "publicPartsCheck": {
+    "version": "1.25.0",
+    "passed": true,
+    "measuredBars": 11,
+    "skippedBars": 0,
+    "beforeSeamMean": 0.126,
+    "afterSeamMean": 0.127,
+    "beforeSeamPxOver40": 0,
+    "afterSeamPxOver40": 11,
+    "scale": 1.055297
+  },
+  "guardControls": {
+    "rows": [
+      {
+        "label": "positive",
+        "exitCode": 0,
+        "expected": "exact measured candidate rig",
+        "pass": true
+      },
+      {
+        "label": "source",
+        "exitCode": 1,
+        "expected": "STRAND_SOURCE_RIG_CHANGED",
+        "pass": true
+      },
+      {
+        "label": "motion",
+        "exitCode": 1,
+        "expected": "STRAND_MOTION_CHANGED",
+        "pass": true
+      },
+      {
+        "label": "image",
+        "exitCode": 1,
+        "expected": "STRAND_IMAGE_CHANGED",
+        "pass": true
+      },
+      {
+        "label": "source-report",
+        "exitCode": 1,
+        "expected": "STRAND_SOURCE_REPORT_CHANGED",
+        "pass": true
+      },
+      {
+        "label": "bind-table",
+        "exitCode": 1,
+        "expected": "STRAND_BIND_TABLE_DOES_NOT_PRESERVE_SETUP",
+        "pass": true
+      },
+      {
+        "label": "output-hash",
+        "exitCode": 1,
+        "expected": "STRAND_OUTPUT_RIG_NOT_MEASURED_CANDIDATE",
+        "pass": true
+      },
+      {
+        "label": "report-shape",
+        "exitCode": 1,
+        "expected": "STRAND_SOURCE_REPORT_ARRAY_REQUIRED",
+        "pass": true
+      },
+      {
+        "label": "same-directory",
+        "exitCode": 1,
+        "expected": "STRAND_OUTPUT_DIRECTORY_MUST_DIFFER",
+        "pass": true
+      },
+      {
+        "label": "existing-output",
+        "exitCode": 1,
+        "expected": "STRAND_OUTPUT_EXISTS",
+        "pass": true
+      }
+    ],
+    "exactMeasuredCandidate": true
+  },
+  "motionProfiles": [
+    {
+      "profile": {
+        "name": "calm",
+        "base": 0,
+        "peak": 0,
+        "duration": 2.4,
+        "seconds": 12
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "maxStrand": 4.3692314628371065,
+      "worstFrame": 0,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0
+    },
+    {
+      "profile": {
+        "name": "gust48",
+        "base": 0,
+        "peak": 48,
+        "duration": 2.4,
+        "seconds": 12
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "maxStrand": 94.1275387393401,
+      "worstFrame": 75,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0
+    },
+    {
+      "profile": {
+        "name": "gust96",
+        "base": 0,
+        "peak": 96,
+        "duration": 2.4,
+        "seconds": 12
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "maxStrand": 160.30054853154593,
+      "worstFrame": 74,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0
+    },
+    {
+      "profile": {
+        "name": "stresspositive",
+        "base": 100,
+        "peak": 200,
+        "duration": 20,
+        "seconds": 24
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "maxStrand": 261.45561924384674,
+      "worstFrame": 579,
+      "peakFoldBaseline": 14,
+      "peakFoldCandidate": 0
+    },
+    {
+      "profile": {
+        "name": "stressnegative",
+        "base": -100,
+        "peak": 200,
+        "duration": 20,
+        "seconds": 24
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "maxStrand": 145.45476318736405,
+      "worstFrame": 11,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0
+    }
+  ],
+  "rejectedBehindBody": {
+    "reason": "Occludes source shoulder curl/neck-edge strand",
+    "publicCheckExit": 1,
+    "rigPixelsOver40": 1344.23,
+    "allowed": 50
+  },
+  "runs": {
+    "candidateBuildCheck": "20261016T141252Z-b27b44533c534b7d98b172456cf87fe6",
+    "candidateBatchExit": 1,
+    "candidateBatchFailure": "Only rejected behind-body comparator check failed; selected head-body-front build and check both exit0.",
+    "pairedMotion": "20261016T141423Z-c5fc9c212a464ba48bacb8e85b958998",
+    "pairedMotionExit": 0,
+    "finalGuardControls": "20261016T141606Z-41ba8364897640bdb7de8467bebebf64",
+    "finalGuardControlsExit": 0,
+    "fullFrozenAuthorPipeline": "20261016T141704Z-9cf9654c468f422594b512086ae2993c",
+    "fullFrozenAuthorPipelineExit": 0
+  },
+  "limits": [
+    "Only hair_front__island2 is rebound; original front bangs, rear hair, face identity, chest and all other payloads unchanged.",
+    "Other pre-existing hair distortions under high stress remain outside this correction.",
+    "Official rigc reports its 23 inapplicable assertions as SKIP; public parts check measures all11 bars."
+  ]
+}

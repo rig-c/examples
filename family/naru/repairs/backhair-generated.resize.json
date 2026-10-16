@@ -1,0 +1,22 @@
+{
+  "authorization": "User explicitly allowed1254\u2192440 resize in resumed turn",
+  "input": "candidate-04.png",
+  "inputSha256": "d1aa4d21efde3765129e5651e9a83f59f2ec02e88add3c965f6f812807e473ea",
+  "output": "candidate-final-440.png",
+  "outputSha256": "44a861dd5072cd427eae42819ffe596cdfd3d23a0838d19c361fcc675befa962",
+  "inputSize": [
+    1254,
+    1254
+  ],
+  "outputSize": [
+    440,
+    440
+  ],
+  "method": "Pillow Image.resize with Image.Resampling.LANCZOS; RGBA mode; no crop, translation, alpha threshold or painting",
+  "physicalDomain": [
+    160,
+    300,
+    600,
+    740
+  ]
+}

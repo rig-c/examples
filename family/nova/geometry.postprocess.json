@@ -1,0 +1,49 @@
+{
+  "spec": "family-nova-density/1",
+  "pins": {
+    "@rig-c/parts": "1.25.0",
+    "rig-c": "2.57.0",
+    "@esotericsoftware/spine-core": "4.3.13"
+  },
+  "configEdit": {
+    "path": "meshes.topwear.contour.spacing",
+    "from": 36,
+    "to": 60
+  },
+  "postprocess": {
+    "helper": "../tools/reduce-nova-rigid-interior.ts",
+    "stage": "authoring rig spec after public parts rig; before official build/check",
+    "sourceAttachmentSHA256": "25ce5798f3f1a66362176a5c4ff7d8d83e6a3910938d948892e8d28c999de9da",
+    "sourceSlot": "bottomwear",
+    "anchor": "hip",
+    "expected": {
+      "vertices": 364,
+      "triangles": 576
+    },
+    "action": "reduction-retired-retain-source-topology"
+  },
+  "acceptance": {
+    "noNewAlphaOmissions": true,
+    "baselineFaintOmissions": {
+      "topwear": 90,
+      "bottomwear": 200
+    },
+    "nativeCoreDelta": 0,
+    "boneDelta": 0,
+    "nonTargetDelta": 0,
+    "bustBandUVMax": 0.02137596434012735,
+    "pantsUVMax": 0.000894906649680404,
+    "pantsTriangleQuality": {
+      "minAngle": 4.842578833857446,
+      "minAngleP10": 24.776721222263504,
+      "maxTrianglesBelowFiveDegrees": 2,
+      "measurement": "source UVs in drawing pixels; nearest-rank P10"
+    }
+  },
+  "composition": {
+    "frozenHairReplay": "outline-field-islands.source.json + outline-field-islands.json",
+    "finalAttachmentStage": "../tools/apply-family-mesh-repair.ts --policy mesh-repair.json",
+    "order": "Replay frozen hair, then apply mesh-repair.json (topwear and original full trousers), then normal official build/check",
+    "chestRegionSettings": "chest-regions.json"
+  }
+}

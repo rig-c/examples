@@ -1,0 +1,97 @@
+{
+  "spec": "naru-body-edge-restoration/1",
+  "sourceRigFiles": {
+    "rig.json": "2d5d0280d86c3da24d34793b140ceb05a9826df9c3ebd69293d2e6df7294b044",
+    "motion.json": "030708e65da20a848878a988c324c3ba9061a68333cfba05d5fc71bd03364f76",
+    "mesh_report.json": "28e22347746cca39cd6385169f3b0be5e6c72fca2871ac7eef5479ca6720ace0",
+    "images/bottomwear.png": "1c46d73be435ce6cf5304dce032fce4c3d2b2a68e358c664d1b72923d1f08003",
+    "images/brow_l.png": "9cf9b707c5fc215e09281b5e7249f1e5a93ab812916f97e1206eed5f2d22b93d",
+    "images/brow_r.png": "56088605343293f716853f8cb30a1b2dfeda448865069da86427149873801317",
+    "images/ear_l.png": "389e6189edab25443136b8177a0b9264ca03f5b0b49267c75db1d0de5f7bb6e3",
+    "images/ear_r.png": "f2ed3516b1356cee062f0734fab2af12ce635a750d4807bd51102e4bef07be49",
+    "images/eyewhite_l.png": "eadb7419a65e314f700f0182809894de0414e8d564fc23ef53b2c09befc0a0c6",
+    "images/eyewhite_r.png": "965a4756bc81f9afe84a54d6f3c6710480ad1472d3b35ccfc8f6a801bb369256",
+    "images/face.png": "0f994ac58a9a37166f368611fab9dd86ec1966fbbec706aa0c859811733cbea3",
+    "images/hair_back.png": "09d324f0e1a380349912a313974d1214cb3ad9912e0906a91d1f9f6e05d6caa9",
+    "images/hair_front.png": "7193299a385139338992148fd4a07cf838953aa90cae09c31bcfdb5e17b72ecf",
+    "images/iris_l.png": "95203489b8e125e8c4b499d512374ee8adc71d94984e3d6d4cec15d57fd57a12",
+    "images/iris_r.png": "401b59fa9acaba0f7f5a2c8f5585b4fcd4afc3e5b177e649bbd63358f2586b10",
+    "images/lash_l.png": "624a49357953ce499536f435e820fd8a4c6afcf4620e24d2cda8eae05a92e709",
+    "images/lash_r.png": "d6f4f1726f7c8c1e6824d7111c3618d45303ccc6da5e3fd919d6b0d7c96d822f",
+    "images/legwear.png": "075a8821c63265f7918a2f25577ff0d00219bcb47b291ca356a7259a5bb5e1e3",
+    "images/mouth.png": "982179a3a1fb93bb5599be2db5acf29ddcc66c0a6bb9a705b9ba4fa691fc326c",
+    "images/neck.png": "2a3ab39f0243110e67e30561cc350abb8f8c70bd8b2deebc42509c10f77f21d0",
+    "images/nose.png": "78bab8cb9d6d9b14815c23e95a3c040e455c623cfc8fdec4574a76e716da0e0b",
+    "images/shoes.png": "1ec30e75edfea0feb877fc428c4165b74517814b6b102b7368949310b537ae82",
+    "images/topwear.png": "f8918a45526bc1f7b6983e13c0a2484e821e86f96e2cdf7c535c1256acf5adb4"
+  },
+  "sourcePartsFiles": {
+    "parts.json": "fe7981a50d78213e17c768b99d31ed9f81d247d98ae878a99c2c469c31e1a7f4",
+    "parts/bottomwear.png": "f5f89388ce01b06d5d051778aeee278d51af7b91123bfdb689cd8fee92c92316",
+    "parts/brow_l.png": "02bddf74c15118c62e74206e2e540ac53ceb68ffef26dc2e78409a35173f0e38",
+    "parts/brow_r.png": "dd8bef60501484c8f904cdce33a8b11b0190d922fcfe61dcbf437513f87b9e79",
+    "parts/ear_l.png": "3fdc4a97cf79915c8c28aae7c9cf8440e77ba67974564f9464a6a1608cbdaa0c",
+    "parts/ear_r.png": "b8fa845c640add9405f38724dd0a4aad5e4118b7d0d24a5061b02cc9ef1f2eae",
+    "parts/eyewhite_l.png": "b9a61827a2710f12268d9fe918ea0e5756e5bf2bd2e587838ed6a2f36f7d120c",
+    "parts/eyewhite_r.png": "67e9268da6045318efdb1eb9a78add7ee9048678ef74948e1e2b3228005c4851",
+    "parts/face.png": "3e47ba28dff6babffee48b8513bd3cafe736410f7f50421513db4821a799f631",
+    "parts/hair_back.png": "44a861dd5072cd427eae42819ffe596cdfd3d23a0838d19c361fcc675befa962",
+    "parts/hair_front.png": "ec3a10242675535b98b6c759afe2f9a7d41d7ecf3488c17091cbc92bb2e67b09",
+    "parts/iris_l.png": "c716cc3f3611c8564caec2ced06db901fd53b9499e4da5773e116bbd1e1cef90",
+    "parts/iris_r.png": "2d69323f004d77434650ae5027e3249cde5b66dda374b184969e50a753bf09d9",
+    "parts/lash_l.png": "f5a55a8359aba04da16201f4cbfcc5145dff613bc5088c001927cb63f5f8c32b",
+    "parts/lash_r.png": "6a40d9b65526a6bac15dc7bde34540a8fe98b7e1ed2c65766749da47899b653a",
+    "parts/legwear.png": "9473a30759d9ef7bb3c5200be4a338f1c308e5ded2635d925a794a854402e4fa",
+    "parts/mouth.png": "09f24c31852aad0f11637f1d49c230813d4913073db1670b5cbb91ee28d7d313",
+    "parts/neck.png": "4ee22faef5c5659132eac5f0ab38f1a8d68f6bd92619be2b840b50fd721aa694",
+    "parts/nose.png": "ba09d442f8d046f2e4a58b6cacab8037bc55372ec2fa6703e5b9e768deb058fb",
+    "parts/shoes.png": "e3a7eec5ec9033de96cc49b28c412437db43af1566a3549dfec389dbb14fee78",
+    "parts/topwear.png": "01a8eaeb932770c9a2ef0a72282d4b54fa815f6cb18939b8dc6d68af668220f4"
+  },
+  "sourcePaintingRGBA": "a58fc5b76d4b3f45c4f9b65cb8e02e8fe1d9eeb9acf1e87b82e3897d72d7b0cb",
+  "sourcePainting": "5d42a62c304be818369c8a6356b93c73bd9a3e81a14b0c453f80a6ddf371daf1",
+  "repairDomain": {
+    "rowStart": 655,
+    "rowEndExclusive": 1028,
+    "stripRadius": 8,
+    "supportDistance": 12,
+    "normalSigma": 2,
+    "hullNeighbourhood": 10,
+    "boundaryDistance": 12,
+    "outwardMargin": 6,
+    "shoulder": {
+      "rowStart": 655,
+      "rowEndExclusive": 696,
+      "interiorColumn": 300,
+      "fringeBefore": 1,
+      "insideAfter": 11
+    },
+    "semantic": {
+      "boxes": [
+        [
+          235,
+          900,
+          426,
+          1030
+        ],
+        [
+          480,
+          880,
+          611,
+          1027
+        ]
+      ],
+      "trimapDistance": 10,
+      "sourceAlphaMinimum": 250,
+      "luminanceBackground": 40,
+      "luminanceForeground": 65,
+      "provenance": "Source-RGB-guided matte over the accepted semantic boundary; inferred alpha, not an original separate foreground matte."
+    }
+  },
+  "reviewedOutput": {
+    "rigSHA256": "2ec51af51fe8d2cba35c0840a3f01531f7f477bb61ef3caa732795d1549cf7a1",
+    "partRGBA": "73a7ffab4744449be8fa21f82cddb2ab1cd7e8767322e552d9fbcd7d01a96baf",
+    "rigRGBA": "04c64e21ca68789f2dd58f780ab4a2514a0c9ca43bdec1c786c17cdb90399235"
+  },
+  "sourceGroupRGBA": "901330fda514ad4303daba4252d0b2e57affd14a9517dbbbb1dc8b9945e965ac"
+}

@@ -1,0 +1,84 @@
+[
+  {
+    "label": "baseline-official-build",
+    "args": [
+      "bun",
+      "--bun",
+      "run",
+      "rigc",
+      "build",
+      "--rig",
+      "baseline/rig/rig.json",
+      "--motion",
+      "baseline/rig/motion.json",
+      "--out",
+      "baseline/build",
+      "--profile",
+      "rig-play",
+      "--pack",
+      "--page-edges",
+      "free",
+      "--pack-shape",
+      "polygon"
+    ],
+    "exitCode": 0,
+    "peakTreeRssBytes": 296230912
+  },
+  {
+    "label": "final-official-build",
+    "args": [
+      "bun",
+      "--bun",
+      "run",
+      "rigc",
+      "build",
+      "--rig",
+      "final/rig/rig.json",
+      "--motion",
+      "final/rig/motion.json",
+      "--out",
+      "final/build",
+      "--profile",
+      "rig-play",
+      "--pack",
+      "--page-edges",
+      "free",
+      "--pack-shape",
+      "polygon"
+    ],
+    "exitCode": 0,
+    "peakTreeRssBytes": 314847232
+  },
+  {
+    "label": "motion",
+    "args": [
+      "bun",
+      "motion.ts"
+    ],
+    "exitCode": 0,
+    "peakTreeRssBytes": 256208896
+  },
+  {
+    "label": "final-public-check",
+    "args": [
+      "bun",
+      "--bun",
+      "run",
+      "rig-parts",
+      "check",
+      "--rig",
+      "final/rig",
+      "--parts",
+      "parts-input",
+      "--out",
+      "final/check",
+      "--page-edges",
+      "free",
+      "--pack-shape",
+      "polygon",
+      "--seam-pairs"
+    ],
+    "exitCode": 0,
+    "peakTreeRssBytes": 944168960
+  }
+]

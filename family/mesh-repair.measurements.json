@@ -1,0 +1,751 @@
+{
+  "protocol": {
+    "fps": 60,
+    "seconds": 12,
+    "gravity": [
+      0,
+      0
+    ],
+    "animation": "idle",
+    "reference": "accepted served build",
+    "candidate": "final composed authored inputs",
+    "conditionDefinition": "gustA=A*(sin(t*2.2)*2+sin(t*5.1)*.8)/2.8; jolt .5 +18,-10 and .59 -18,+10; all else constant named wind",
+    "topwearComparison": "new topology and field: fold readings measured separately; no identity claim",
+    "native": "4.3.13",
+    "core": "2.57.0"
+  },
+  "characters": {
+    "roa": [
+      {
+        "condition": "calm",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind48",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind-48",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind96",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind-96",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "gust48",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "gust96",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "stress200",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "jolt",
+        "samples": 722,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      }
+    ],
+    "luna": [
+      {
+        "condition": "calm",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind48",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind-48",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind96",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind-96",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "gust48",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "gust96",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "stress200",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "jolt",
+        "samples": 722,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      }
+    ],
+    "nova": [
+      {
+        "condition": "calm",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind48",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind-48",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind96",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "wind-96",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "gust48",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "gust96",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "stress200",
+        "samples": 721,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      },
+      {
+        "condition": "jolt",
+        "samples": 722,
+        "nativeCore": 0,
+        "bones": 0,
+        "protectedMax": 0,
+        "topwearFoldReadings": [
+          0,
+          0
+        ],
+        "topwearPeakFoldTriangles": [
+          0,
+          0
+        ],
+        "topwearPeakInvertedArea": [
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "publicChecks": {
+    "roa": {
+      "PASS": true,
+      "rigc_entry": {
+        "entry": "cli.ts",
+        "spine_core": "4.3.13"
+      },
+      "pack_mode": {
+        "page_edges": "free",
+        "pack_shape": "polygon"
+      },
+      "loop_max_diff": 0,
+      "seam_mean": 0.138,
+      "seam_px_over_40": 7
+    },
+    "luna": {
+      "PASS": true,
+      "rigc_entry": {
+        "entry": "cli.ts",
+        "spine_core": "4.3.13"
+      },
+      "pack_mode": {
+        "page_edges": "free",
+        "pack_shape": "polygon"
+      },
+      "loop_max_diff": 0,
+      "seam_mean": 0.133,
+      "seam_px_over_40": 0
+    },
+    "nova": {
+      "PASS": true,
+      "rigc_entry": {
+        "entry": "cli.ts",
+        "spine_core": "4.3.13"
+      },
+      "pack_mode": {
+        "page_edges": "free",
+        "pack_shape": "polygon"
+      },
+      "loop_max_diff": 0,
+      "seam_mean": 0.136,
+      "seam_px_over_40": 0
+    }
+  },
+  "frozenReplay": {
+    "roa": {
+      "exactFinalAuthorRig": true,
+      "negativeControls": [
+        {
+          "kind": "source",
+          "error": "Error: FAMILY_MESH_SOURCE_CHANGED topwear"
+        },
+        {
+          "kind": "payload",
+          "error": "Error: FAMILY_MESH_PAYLOAD_CHANGED topwear"
+        },
+        {
+          "kind": "bone",
+          "error": "Error: FAMILY_MESH_BINDING_CONTEXT_CHANGED"
+        },
+        {
+          "kind": "stop",
+          "error": "Error: FAMILY_MESH_BINDING_CONTEXT_CHANGED"
+        },
+        {
+          "kind": "image",
+          "error": "Error: FAMILY_MESH_IMAGE_CHANGED topwear"
+        },
+        {
+          "kind": "motion",
+          "error": "FAMILY_MESH_MOTION_CHANGED"
+        },
+        {
+          "kind": "fresh-output",
+          "error": "FAMILY_MESH_OUTPUT_MUST_BE_FRESH_OUTSIDE_SOURCE"
+        }
+      ]
+    },
+    "luna": {
+      "exactFinalAuthorRig": true,
+      "negativeControls": [
+        {
+          "kind": "source",
+          "error": "Error: FAMILY_MESH_SOURCE_CHANGED topwear"
+        },
+        {
+          "kind": "payload",
+          "error": "Error: FAMILY_MESH_PAYLOAD_CHANGED topwear"
+        },
+        {
+          "kind": "bone",
+          "error": "Error: FAMILY_MESH_BINDING_CONTEXT_CHANGED"
+        },
+        {
+          "kind": "stop",
+          "error": "Error: FAMILY_MESH_BINDING_CONTEXT_CHANGED"
+        },
+        {
+          "kind": "image",
+          "error": "Error: FAMILY_MESH_IMAGE_CHANGED topwear"
+        },
+        {
+          "kind": "motion",
+          "error": "FAMILY_MESH_MOTION_CHANGED"
+        },
+        {
+          "kind": "fresh-output",
+          "error": "FAMILY_MESH_OUTPUT_MUST_BE_FRESH_OUTSIDE_SOURCE"
+        }
+      ]
+    },
+    "nova": {
+      "exactFinalAuthorRig": true,
+      "negativeControls": [
+        {
+          "kind": "source",
+          "error": "Error: FAMILY_MESH_SOURCE_CHANGED topwear"
+        },
+        {
+          "kind": "payload",
+          "error": "Error: FAMILY_MESH_PAYLOAD_CHANGED topwear"
+        },
+        {
+          "kind": "bone",
+          "error": "Error: FAMILY_MESH_BINDING_CONTEXT_CHANGED"
+        },
+        {
+          "kind": "stop",
+          "error": "Error: FAMILY_MESH_BINDING_CONTEXT_CHANGED"
+        },
+        {
+          "kind": "image",
+          "error": "Error: FAMILY_MESH_IMAGE_CHANGED topwear"
+        },
+        {
+          "kind": "motion",
+          "error": "FAMILY_MESH_MOTION_CHANGED"
+        },
+        {
+          "kind": "fresh-output",
+          "error": "FAMILY_MESH_OUTPUT_MUST_BE_FRESH_OUTSIDE_SOURCE"
+        }
+      ]
+    }
+  },
+  "evidenceRuns": {
+    "finalCheckAndMotion": "20261016T132412Z-e0161c19cdcc447d8ed38cb25ed089a0",
+    "exactReplayAndControls": "20261016T133057Z-790a3cf6a22a41719a96b3ca7ebba221"
+  },
+  "corrections": [
+    "First replay attempt failed before geometry because copied helper dependencies had not been installed. Exact helper locks are now installed.",
+    "Second replay stopped at the added naive authored-bone membership check: valid stop-derived hem_*_d bones are synthesized by the compiler. That check was replaced by exact bones/constraints/stops context identity and official build validation."
+  ],
+  "authoringHelperSHA256": "19840c42aa6364d06b44d30bd030310c00e32daf4e1d51f57949e40094b01751",
+  "finalCountsFromActualAuthorAttachments": {
+    "roa": {
+      "vertices": 1065,
+      "triangles": 1539
+    },
+    "luna": {
+      "vertices": 1221,
+      "triangles": 1765
+    },
+    "jinni": {
+      "vertices": 685,
+      "triangles": 971
+    },
+    "naru": {
+      "vertices": 811,
+      "triangles": 1150
+    },
+    "nova": {
+      "vertices": 1064,
+      "triangles": 1532
+    },
+    "family": {
+      "vertices": 4846,
+      "triangles": 6957
+    }
+  },
+  "evidenceRecovery": {
+    "remoteExecutionRepeated": false,
+    "initialFetchTimedOutAfterSeconds": 600,
+    "standardRecoveryRetry": "done",
+    "receipt": {
+      "id": "20261016T133057Z-790a3cf6a22a41719a96b3ca7ebba221",
+      "manifestSha256": "67c187b794e1dbc45e8c9988ea1b588ed546046ab137710399a89bc5417bdfa9",
+      "protocol": 1,
+      "resultSha256": "36d7a29c89fcce6281443e28835a87fbdaf3bab8754574ab6bab6831bc8e792d",
+      "verifiedAt": 1792158224.985541
+    }
+  },
+  "browser": {
+    "target": "http://localhost:4568",
+    "isolatedInAppBrowser": true,
+    "characters": [
+      "roa",
+      "luna",
+      "nova"
+    ],
+    "meshOverlay": true,
+    "observedGustCurrent": [
+      48,
+      47.9,
+      48
+    ],
+    "gustSetting": 48,
+    "duration": 2.4,
+    "zoomFitPanActions": 0,
+    "consoleWarningErrorCount": 0,
+    "restored": "all5, mesh off, wind/gravity0, speed1, referenceon; original user browser untouched",
+    "scope": "Actual single-character natural-camera mesh/gust inspection, plus restored family view; exact asset byte hashes checked via HTTP."
+  }
+}

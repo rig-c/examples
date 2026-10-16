@@ -1,0 +1,22 @@
+{
+  "spec": "family-mesh-repair-provenance/1",
+  "policySHA256": "028667c017e4be27cdeeff9b19450418f10547e6fb7cfaa6122521162fc95178",
+  "bonesSHA256": "afe49de29a1a835647b4cb63a9c196d809c32caece14b2b1fbc988dc63803bac",
+  "bindingContextSHA256": "c54756e80cc718b1cccc716804117ae34108d554aa379f479f4a61c7afe48bea",
+  "targets": [
+    {
+      "part": "topwear",
+      "sourceAttachmentSHA256": "8d6e37f139648e9877c5618bab8d19aed8f6c27c7605853a6cdcd3bf2482e310",
+      "outputAttachmentSHA256": "b28db1fb8f7c4cbde164ee1c9ab377a67fb5fd6451f3d1d1cb8165ecab5cfe4c",
+      "imageSHA256": "bba992e5f74d4d3130ab2f4452667faeca8990e78c0aca65edef2d07172b6f1a",
+      "producer": {
+        "kind": "public rig-parts rig",
+        "parts": "1.25.0",
+        "rigc": "2.57.0",
+        "spine": "4.3.13"
+      }
+    }
+  ],
+  "scope": "Authoring rig attachments only. Physics parameters, bones, motion, slots and other attachments preserved. Topwear deformation fields intentionally change. Run normal official build/check.",
+  "helperSHA256": "19840c42aa6364d06b44d30bd030310c00e32daf4e1d51f57949e40094b01751"
+}

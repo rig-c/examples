@@ -1,0 +1,441 @@
+{
+  "spec": "roa-shoulder-repair-measurements/1",
+  "issue": "https://github.com/rig-c/parts-examples/issues/17",
+  "geometry": {
+    "changedVertices": [
+      {
+        "vertex": 98,
+        "before": [
+          131.0,
+          495.0
+        ],
+        "after": [
+          129,
+          487
+        ],
+        "delta": [
+          -2.0,
+          -8.0
+        ]
+      },
+      {
+        "vertex": 99,
+        "before": [
+          136.0,
+          489.0
+        ],
+        "after": [
+          136,
+          484
+        ],
+        "delta": [
+          0.0,
+          -5.0
+        ]
+      },
+      {
+        "vertex": 100,
+        "before": [
+          159.0,
+          489.0
+        ],
+        "after": [
+          159,
+          475
+        ],
+        "delta": [
+          0.0,
+          -14.0
+        ]
+      },
+      {
+        "vertex": 101,
+        "before": [
+          174.0,
+          480.0
+        ],
+        "after": [
+          174,
+          469
+        ],
+        "delta": [
+          0.0,
+          -11.0
+        ]
+      },
+      {
+        "vertex": 102,
+        "before": [
+          211.0,
+          467.0
+        ],
+        "after": [
+          211,
+          462
+        ],
+        "delta": [
+          0.0,
+          -5.0
+        ]
+      }
+    ],
+    "vertices": 448,
+    "triangles": 790,
+    "hull": 104,
+    "allOtherUVsWeightsAndTrianglesExact": true,
+    "scalarWeightsExact": true,
+    "beforeAlphaMissing": 289,
+    "afterAlphaMissing": 261,
+    "newArtMissing": 0,
+    "newlyMissingOldArt": 0
+  },
+  "motion": [
+    {
+      "profile": {
+        "name": "calm",
+        "base": 0,
+        "peak": 0,
+        "duration": 2.4,
+        "seconds": 4
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0,
+      "topwearProtectedMax": 0,
+      "folded": [
+        [],
+        []
+      ]
+    },
+    {
+      "profile": {
+        "name": "gust48",
+        "base": 0,
+        "peak": 48,
+        "duration": 2.4,
+        "seconds": 4
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0,
+      "topwearProtectedMax": 0,
+      "folded": [
+        [],
+        []
+      ]
+    },
+    {
+      "profile": {
+        "name": "gust96",
+        "base": 0,
+        "peak": 96,
+        "duration": 2.4,
+        "seconds": 4
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0,
+      "topwearProtectedMax": 0,
+      "folded": [
+        [],
+        []
+      ]
+    }
+  ],
+  "guardControls": [
+    {
+      "case": "positive exact accepted input",
+      "expected": "PASS",
+      "exitCode": 0,
+      "matched": true,
+      "detail": "PASS"
+    },
+    {
+      "case": "occupied output refused",
+      "expected": "ROA_SHOULDER_FRESH_OUTSIDE_OUTPUT_REQUIRED",
+      "exitCode": 1,
+      "matched": true,
+      "detail": "    if out.exists() or source==out or source in out.parents:raise ValueError('ROA_SHOULDER_FRESH_OUTSIDE_OUTPUT_REQUIRED')"
+    },
+    {
+      "case": "changed motion refused",
+      "expected": "ROA_SHOULDER_SOURCE_CHANGED",
+      "exitCode": 1,
+      "matched": true,
+      "detail": "    for path,sha in policy['sourceManifest'].items():require_hash(source/path,sha,'ROA_SHOULDER_SOURCE_CHANGED')"
+    },
+    {
+      "case": "changed bitmap asset refused",
+      "expected": "ROA_SHOULDER_ASSET_CHANGED",
+      "exitCode": 1,
+      "matched": true,
+      "detail": "    for path,sha in policy['assets'].items():require_hash(home/path,sha,'ROA_SHOULDER_ASSET_CHANGED')"
+    },
+    {
+      "case": "interior vertex patch refused",
+      "expected": "ROA_SHOULDER_ONLY_HULL_VERTICES",
+      "exitCode": 1,
+      "matched": true,
+      "detail": "    if i>=a['hull']:raise ValueError('ROA_SHOULDER_ONLY_HULL_VERTICES')"
+    }
+  ],
+  "partsMetadata": {
+    "producer": "@rig-c/parts1.25.0 recomposite/measureRecomposite/recompositeRecord; current PNG alpha>8 opaque count",
+    "topwearBefore": {
+      "name": "topwear",
+      "from": "full:topwear",
+      "x": 130,
+      "y": 409,
+      "w": 616,
+      "h": 450,
+      "opaque_px": 168353,
+      "visible_px": 160699,
+      "occluded_px": 7654,
+      "projected_core_px": 148260,
+      "source_px_taken": 147972,
+      "visible_not_projected_px": 12727,
+      "refused_drift_px": 1416,
+      "merged_px": 0,
+      "seam_override_px": 409,
+      "fringe_pushed_back": [
+        {
+          "part": "neck",
+          "px": 204
+        },
+        {
+          "part": "handwear_r",
+          "px": 22
+        },
+        {
+          "part": "bottomwear",
+          "px": 2
+        }
+      ]
+    },
+    "topwearAfter": {
+      "name": "topwear",
+      "from": "full:topwear",
+      "x": 130,
+      "y": 409,
+      "w": 616,
+      "h": 450,
+      "opaque_px": 169011,
+      "projected_core_px": 148260,
+      "source_px_taken": 147972,
+      "refused_drift_px": 1416,
+      "merged_px": 0,
+      "seam_override_px": 409,
+      "fringe_pushed_back": [
+        {
+          "part": "neck",
+          "px": 204
+        },
+        {
+          "part": "handwear_r",
+          "px": 22
+        },
+        {
+          "part": "bottomwear",
+          "px": 2
+        }
+      ]
+    },
+    "removedOptionalVisibilityReason": "Current post-assembly pixels include a bounded restoration from head_orig. The old full-run pixel ownership trace cannot classify those new pixels. Preserve the old counts here; omit the three optional visibility counts as a group instead of inventing updated visibility.",
+    "schema": "@rig-c/parts1.25.0 src/parts.ts VISIBILITY_KEYS: all three or none; src/assemble.ts whole-pixel assembly traces differ from a final PNG",
+    "before": {
+      "mean_abs": 0.877,
+      "within_limit": 8,
+      "within_share": 0.983,
+      "error_limit": 40,
+      "error_px": 13556,
+      "covered_alpha": 128,
+      "uncovered_error_px": 6398,
+      "hole_count": 510,
+      "holes_listed": 5,
+      "holes": [
+        {
+          "px": 834,
+          "x": 479,
+          "y": 1639,
+          "w": 30,
+          "h": 522,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 558
+            }
+          ]
+        },
+        {
+          "px": 297,
+          "x": 144,
+          "y": 475,
+          "w": 35,
+          "h": 17,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 36
+            },
+            {
+              "part": "hair_back",
+              "px": 24
+            }
+          ]
+        },
+        {
+          "px": 194,
+          "x": 461,
+          "y": 756,
+          "w": 30,
+          "h": 117,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 119
+            },
+            {
+              "part": "bottomwear",
+              "px": 57
+            }
+          ]
+        },
+        {
+          "px": 150,
+          "x": 569,
+          "y": 615,
+          "w": 73,
+          "h": 30,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 112
+            }
+          ]
+        },
+        {
+          "px": 146,
+          "x": 549,
+          "y": 1059,
+          "w": 3,
+          "h": 112,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 118
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "mean_abs": 0.873,
+      "within_limit": 8,
+      "within_share": 0.9831,
+      "error_limit": 40,
+      "error_px": 13262,
+      "covered_alpha": 128,
+      "uncovered_error_px": 6041,
+      "hole_count": 512,
+      "holes_listed": 5,
+      "holes": [
+        {
+          "px": 834,
+          "x": 479,
+          "y": 1639,
+          "w": 30,
+          "h": 522,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 558
+            }
+          ]
+        },
+        {
+          "px": 194,
+          "x": 461,
+          "y": 756,
+          "w": 30,
+          "h": 117,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 119
+            },
+            {
+              "part": "bottomwear",
+              "px": 57
+            }
+          ]
+        },
+        {
+          "px": 150,
+          "x": 569,
+          "y": 615,
+          "w": 73,
+          "h": 30,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 112
+            }
+          ]
+        },
+        {
+          "px": 146,
+          "x": 549,
+          "y": 1059,
+          "w": 3,
+          "h": 112,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 118
+            }
+          ]
+        },
+        {
+          "px": 141,
+          "x": 693,
+          "y": 570,
+          "w": 53,
+          "h": 59,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 112
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "execution": {
+    "runner": "nova-run shared pool",
+    "runId": "20261016T153545Z-4d62e11d4aa34060aff6a48309cbb7a4",
+    "exitCode": 0,
+    "receiptSHA256": "89605a8b7cc06e0d9f2986f303175da530f822876505cb1742c8ca2a133b9198",
+    "inputManifestSHA256": "2116840d9e35cf9490b77ca420c4378ed69d406d5aeac8936e6580c0e511fb7b",
+    "command": "bash run.sh",
+    "pins": {
+      "parts": "1.25.0",
+      "rig-c": "2.57.0",
+      "spine-core": "4.3.13"
+    }
+  },
+  "normalCheck": {
+    "status": "PASS",
+    "measured": 10,
+    "skipped": [
+      "BLINK_NO_HOLE"
+    ],
+    "remaining": "Existing RECOMPOSITE_HOLES and SETUP_POSE_VS_SOURCE remain informational reports about the entire assembled source; this repair certifies only the bounded shoulder."
+  }
+}

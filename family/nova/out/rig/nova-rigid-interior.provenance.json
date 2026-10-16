@@ -1,0 +1,37 @@
+{
+  "spec": "nova-rigid-interior-reduction/2",
+  "action": "reduction-retired-retain-source-topology",
+  "sourceAttachmentSHA256": "25ce5798f3f1a66362176a5c4ff7d8d83e6a3910938d948892e8d28c999de9da",
+  "pins": {
+    "parts": "1.25.0",
+    "core": "2.57.0",
+    "spine": "4.3.13"
+  },
+  "sourceVertices": 364,
+  "vertices": 364,
+  "sourceTriangles": 576,
+  "triangles": 576,
+  "hull": 150,
+  "activeVertices": 82,
+  "mixedTrianglesKeptExact": 148,
+  "removedPureHipVertices": 0,
+  "sourceFit": {
+    "artPixels": 277833,
+    "coveredArt": 277633,
+    "coverage": 0.9992801431075502,
+    "overshoot": 4
+  },
+  "triangleQuality": {
+    "result": {
+      "minAngle": 4.842578833857446,
+      "minAngleP10": 24.776721222263504,
+      "trianglesBelowFiveDegrees": 2
+    },
+    "bounds": {
+      "minAngle": 4.842578833857446,
+      "minAngleP10": 24.776721222263504,
+      "maxTrianglesBelowFiveDegrees": 2
+    }
+  },
+  "scope": "Retain the complete frozen source attachment. Previous pure-hip interior removal created long sliver fans despite current-motion agreement; that reduction is retired. All cuff/mixed triangles and all bindings remain identical. No later deformation claim."
+}

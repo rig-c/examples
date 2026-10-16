@@ -1,0 +1,193 @@
+{
+  "sourceIdentity": "family/roa / key roa",
+  "sourceHashes": {
+    "config.json": "9a97c7ed057c1b25545eb3b0508bc607ccbc9e8621a2f21335668cbc94e6bcc7",
+    "out/rig/rig.json": "5e98211337752a2651d10e3e3749173cde4ef0e2def53bc7a22f4cf1ecaba6fb",
+    "out/rig/motion.json": "0389d8edf15a17221e8a3a62131600efd397c0b9fc7663da277e8e02700f1beb",
+    "out/rig/images/topwear.png": "cf7e86ae6a1d1f219c827948f102b684f15f868364a7f13b5a96f5fd0eaadbdc",
+    "inputs/painting.png": "7f54f8deb4e1b6c032417c04e6f16b86241dd43e3b4f1710b93ba1e7f24b1d83",
+    "inputs/painting_rgba.png": "140bfd37f508e0fdccd7f1df1453185377857b4c1d80b6ebc2bfb499f31b0e9b"
+  },
+  "geometry": {
+    "vertices": 376,
+    "triangles": 646,
+    "hull": 104
+  },
+  "timing": {
+    "seconds": 8,
+    "fps": 60,
+    "impulse": [
+      [
+        0,
+        0
+      ],
+      [
+        0.5,
+        0
+      ],
+      [
+        0.5166666666666667,
+        -18
+      ],
+      [
+        0.6,
+        -18
+      ],
+      [
+        0.6166666666666667,
+        0
+      ],
+      [
+        8,
+        0
+      ]
+    ],
+    "impulseBone": "root",
+    "property": "translatey",
+    "environment": {
+      "wind": [
+        0,
+        0
+      ],
+      "gravity": [
+        0,
+        0
+      ]
+    },
+    "randomness": "none"
+  },
+  "render": {
+    "viewport": [
+      -400,
+      0,
+      800,
+      2284
+    ],
+    "max": 800,
+    "posers": [
+      "spine",
+      "core"
+    ],
+    "frames": "same fixed viewport; offline, no browser; original PNG bytes untouched",
+    "closeViewport": [
+      -240,
+      1430,
+      480,
+      450
+    ]
+  },
+  "landmarks": {
+    "placketSourceImagePoints": [
+      [
+        365,
+        500
+      ],
+      [
+        365,
+        575
+      ],
+      [
+        365,
+        650
+      ],
+      [
+        365,
+        725
+      ],
+      [
+        365,
+        800
+      ]
+    ],
+    "meaning": "authored nearest-mesh sample locations for central shirt placket; not pixel-measured seam annotations"
+  },
+  "spec": "roa-rebound-challenge/2",
+  "correction": "User rejected upper-pivot slow heavy. Original translation physics is exact light. Longer period is not success.",
+  "depth": "No depth map, new analytic mound, helper bones, mesh rebind, or solver. Existing source rig/weights stay unchanged.",
+  "helpers": [
+    {
+      "side": "r",
+      "bone": "boob_r",
+      "helper": "boob_r",
+      "reach": 68
+    },
+    {
+      "side": "l",
+      "bone": "boob_l",
+      "helper": "boob_l",
+      "reach": 72
+    }
+  ],
+  "cases": [
+    "rest",
+    "impulse"
+  ],
+  "variants": [
+    "light",
+    "heavy"
+  ],
+  "heavy": {
+    "change": "inertia only on boob_r_phys and boob_l_phys",
+    "inertiaMultiplier": 1.35,
+    "allOtherFields": "exact original; mass/strength/damping/channels/mix unchanged"
+  },
+  "bars": {
+    "normalGate": "ordinary cli.ts build --profile spine, failure stops; no emitted JSON edits",
+    "nativeOwnMaxDelta": 0,
+    "supportDeltaWorldUnits": 1e-09,
+    "setupDeltaWorldUnits": 1e-09,
+    "zeroFolds": true,
+    "topologyUvAndTextureIdentity": true,
+    "responsePresentAboveWorldUnits": 1e-06,
+    "settled": "displacement from the initial neutral chest-relative pose <= max(0.05 * peak, 0.05 world units), remains below threshold through end; operational trace definition, not visual quality bar",
+    "visual": "root evaluates actual same-source side-by-side/contact sheet; no arbitrary volume-preservation claim",
+    "lightHeavy": "First post-release signed rebound amplitude 1.30\u20131.60x original, first-rebound and half-cycle timing within one 60Hz frame, recovery to ORIGINAL fixed absolute center threshold no later than original +0.10s. User visual verdict remains SSOT."
+  },
+  "targets": {
+    "release": 0.6166666666666667,
+    "firstReboundRatio": [
+      1.3,
+      1.6
+    ],
+    "timingFrames": 1,
+    "recoveryExtraSeconds": 0.1,
+    "baselineSource": "central/impulse-before signed-landmarks actual frozen prior output, same source/stimulus/native oracle",
+    "r": {
+      "firstRebound": -8.073172551299429,
+      "firstAt": 0.65,
+      "nextAt": 0.8666666666666667,
+      "peak": 8.099999986286328,
+      "settle": 1.3833333333333333
+    },
+    "l": {
+      "firstRebound": -8.201893674866604,
+      "firstAt": 0.65,
+      "nextAt": 0.8833333333333333,
+      "peak": 8.459999986332384,
+      "settle": 1.4
+    },
+    "preserveSigns": true,
+    "nextReboundMustAlsoIncrease": true
+  },
+  "controls": [
+    "light rig is original rig including original physics and weights",
+    "heavy differs only in two named physics inertia values",
+    "native/core compare every vertex every frame",
+    "support209 and hull104 remain exact relative to light",
+    "initial native close frame PNG must be byte-identical"
+  ],
+  "preview": {
+    "variants": [
+      "light",
+      "heavy"
+    ],
+    "segment": [
+      0.4,
+      2
+    ],
+    "editorialRepeats": 3,
+    "speed": 1,
+    "note": "Repeat editing is not proof of a physics loop. Original 8-second comparison also retained."
+  },
+  "scope": "Only Roa. Generated results are untracked experiment outputs; never commit them or alter original config/inputs/out. No other character build."
+}

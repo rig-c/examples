@@ -1,0 +1,5 @@
+/** Freeze a reviewed authored rig and its exact plate/attachment identities; keep this policy with the consumer. */
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';import{createHash}from'node:crypto';
+const args=process.argv.slice(2);const arg=(key:string)=>{const i=args.indexOf('--'+key);if(i<0||!args[i+1])throw Error('ARG_REQUIRED '+key);return args[i+1];};
+const input=arg('input'),images=arg('images'),out=arg('output'),parts=arg('parts').split(','),motion=arg('motion');if(existsSync(out))throw Error('POLICY_OUTPUT_EXISTS');const rig=JSON.parse(readFileSync(input,'utf8'));const digest=(v:unknown)=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
+writeFileSync(out,JSON.stringify({spec:'rigc-outline-field-clip/1',sourceRigSHA256:digest(rig),sourceMotionSHA256:digest(JSON.parse(readFileSync(motion,'utf8'))),targets:parts.map(part=>({part,attachmentSHA256:digest(rig.skins.default[part][part]),imageSHA256:createHash('sha256').update(readFileSync(`${images}/${part}.png`)).digest('hex')})),silhouette:{dilation:4,tolerance:3},mergeAffine:true,affineResidualTolerance:1e-9},null,2)+'\n');

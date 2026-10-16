@@ -1,0 +1,39 @@
+{
+  "spec": "nova-pants-quality-report/1",
+  "operation": "retain-frozen-source-topology",
+  "sourceAttachmentSHA256": "25ce5798f3f1a66362176a5c4ff7d8d83e6a3910938d948892e8d28c999de9da",
+  "rows": [
+    {
+      "code": "NOVA_PANTS_MIN_ANGLE",
+      "value": 4.842578833857446,
+      "unit": "degrees",
+      "bound": {
+        "op": ">=",
+        "value": 4.842578833857446
+      },
+      "state": "pass"
+    },
+    {
+      "code": "NOVA_PANTS_MIN_ANGLE_P10",
+      "value": 24.776721222263504,
+      "unit": "degrees",
+      "bound": {
+        "op": ">=",
+        "value": 24.776721222263504
+      },
+      "state": "pass"
+    },
+    {
+      "code": "NOVA_PANTS_SLIVERS_BELOW_FIVE_DEGREES",
+      "value": 2,
+      "unit": "triangles",
+      "bound": {
+        "op": "<=",
+        "value": 2
+      },
+      "state": "pass"
+    }
+  ],
+  "accepted": true,
+  "scope": "Drawing-pixel triangle quality. Official build/check and paired current-motion validation remain required."
+}

@@ -1,0 +1,568 @@
+{
+  "spec": "naru-backhair-regeneration-measurements/1",
+  "acceptedRigSHA256": "2d5d0280d86c3da24d34793b140ceb05a9826df9c3ebd69293d2e6df7294b044",
+  "acceptedPartsSHA256": "fe7981a50d78213e17c768b99d31ed9f81d247d98ae878a99c2c469c31e1a7f4",
+  "scope": "Generated hidden rearhair completion; sampled calm and48/96gust acceptance;\u00b1200 stress not solved",
+  "versions": {
+    "parts": "1.25.0",
+    "rig-c": "2.57.0",
+    "spine-core": "4.3.13"
+  },
+  "resize": {
+    "authorization": "User explicitly allowed1254\u2192440 resize in resumed turn",
+    "input": "candidate-04.png",
+    "inputSha256": "d1aa4d21efde3765129e5651e9a83f59f2ec02e88add3c965f6f812807e473ea",
+    "output": "candidate-final-440.png",
+    "outputSha256": "44a861dd5072cd427eae42819ffe596cdfd3d23a0838d19c361fcc675befa962",
+    "inputSize": [
+      1254,
+      1254
+    ],
+    "outputSize": [
+      440,
+      440
+    ],
+    "method": "Pillow Image.resize with Image.Resampling.LANCZOS; RGBA mode; no crop, translation, alpha threshold or painting",
+    "physicalDomain": [
+      160,
+      300,
+      600,
+      740
+    ]
+  },
+  "mesh": {
+    "part": "hair_back",
+    "vertices": 80,
+    "triangles": 99,
+    "hull": 59,
+    "bones": [
+      "hairback_l0",
+      "hairback_l1",
+      "hairback_l2",
+      "hairback_r0",
+      "hairback_r1",
+      "hairback_r2",
+      "head"
+    ],
+    "max_influences": 4,
+    "mean_influences": 3.6,
+    "art_coverage": 0.99996,
+    "mode": "contour",
+    "params": {
+      "tolerance": 4,
+      "margin": 4,
+      "spacing": 52,
+      "maxEdge": 52,
+      "budget": 160,
+      "stray": null,
+      "bridges": true
+    },
+    "contour": {
+      "boundaryVertices": 59,
+      "interiorVertices": 21,
+      "interiorBySource": [
+        {
+          "source": "background",
+          "vertices": 21
+        }
+      ],
+      "triangles": 99,
+      "tracedVertices": 2062,
+      "artPixels": 81094,
+      "coveredArtPixels": 81094,
+      "coverage": 1,
+      "overshoot": 6.708204,
+      "overshootBound": 9,
+      "meshArea": 88239.5,
+      "enclosedTransparentArea": 7145.5,
+      "filledHolePixels": 687,
+      "smallestAngle": {
+        "triangle": 37,
+        "value": 13.025101
+      },
+      "largestEdgeRatio": {
+        "triangle": 37,
+        "value": 4.413928
+      },
+      "nonDelaunayEdges": 0,
+      "strayIslands": 0,
+      "strayPixels": 0,
+      "grownPixels": 6624,
+      "pinchFilledPixels": 8,
+      "grownHolePixels": 3,
+      "outlineCut": 7,
+      "bridges": {
+        "islands": [
+          81094
+        ],
+        "units": [
+          [
+            81094
+          ]
+        ],
+        "joins": [],
+        "faint": [
+          {
+            "art": 1,
+            "maxAlpha": 9,
+            "box": [
+              381,
+              321,
+              1,
+              1
+            ]
+          },
+          {
+            "art": 1,
+            "maxAlpha": 9,
+            "box": [
+              279,
+              345,
+              1,
+              1
+            ]
+          },
+          {
+            "art": 1,
+            "maxAlpha": 9,
+            "box": [
+              195,
+              350,
+              1,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "regions": []
+  },
+  "guard": {
+    "occupied-output": {
+      "refused": true,
+      "namedFailure": "NARU_BACKHAIR_OUTPUT_MUST_BE_FRESH_OUTSIDE_SOURCE"
+    },
+    "rig-context": {
+      "refused": true,
+      "namedFailure": "NARU_BACKHAIR_SOURCE_RIG_CHANGED"
+    },
+    "motion-bytes": {
+      "refused": true,
+      "namedFailure": "NARU_BACKHAIR_MOTION_CHANGED"
+    },
+    "mesh-report": {
+      "refused": true,
+      "namedFailure": "NARU_BACKHAIR_MESH_REPORT_CHANGED"
+    },
+    "protected-image": {
+      "refused": true,
+      "namedFailure": "NARU_BACKHAIR_IMAGE_CHANGED"
+    },
+    "parts-record": {
+      "refused": true,
+      "namedFailure": "NARU_BACKHAIR_PARTS_CHANGED"
+    },
+    "positive": {
+      "exactReviewedRig": true,
+      "exactReviewedParts": true,
+      "allNonTargetAuthoringExact": true,
+      "allNonTargetImagesExact": true,
+      "motionBytesExact": true
+    }
+  },
+  "motion": [
+    {
+      "profile": {
+        "name": "calm",
+        "base": 0,
+        "peak": 0,
+        "duration": 2.4,
+        "seconds": 12
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0
+    },
+    {
+      "profile": {
+        "name": "gust48",
+        "base": 0,
+        "peak": 48,
+        "duration": 2.4,
+        "seconds": 12
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0
+    },
+    {
+      "profile": {
+        "name": "gust96",
+        "base": 0,
+        "peak": 96,
+        "duration": 2.4,
+        "seconds": 12
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 0
+    },
+    {
+      "profile": {
+        "name": "stresspositive",
+        "base": 100,
+        "peak": 200,
+        "duration": 20,
+        "seconds": 24
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 6
+    },
+    {
+      "profile": {
+        "name": "stressnegative",
+        "base": -100,
+        "peak": 200,
+        "duration": 20,
+        "seconds": 24
+      },
+      "nativeMax": 0,
+      "protectedMax": 0,
+      "boneMax": 0,
+      "peakFoldBaseline": 0,
+      "peakFoldCandidate": 4
+    }
+  ],
+  "stressExposure": [
+    {
+      "profile": {
+        "base": 100,
+        "peak": 200,
+        "duration": 20,
+        "seconds": 24,
+        "hz": 60
+      },
+      "peakFolds": 6,
+      "foldFrames": 845,
+      "visibleFrames": 760,
+      "maxVisiblePixelsOver1": 77,
+      "maxVisiblePixelsOver8": 52,
+      "maxDelta": 184,
+      "foldTriangleFrameSamples": 3435,
+      "triangles": [
+        {
+          "triangle": 38,
+          "foldFrames": 845,
+          "maxInverseAreaRigPx2": 744.7914344267724,
+          "atFrame": 571,
+          "visibleFrames": 0,
+          "maxVisiblePixelsOver1": 0,
+          "maxVisiblePixelsOver8": 0,
+          "maxChannelDelta": 0
+        },
+        {
+          "triangle": 59,
+          "foldFrames": 763,
+          "maxInverseAreaRigPx2": 80.87313791961826,
+          "atFrame": 603,
+          "visibleFrames": 760,
+          "maxVisiblePixelsOver1": 77,
+          "maxVisiblePixelsOver8": 52,
+          "maxChannelDelta": 184
+        },
+        {
+          "triangle": 42,
+          "foldFrames": 619,
+          "maxInverseAreaRigPx2": 90.7871594368452,
+          "atFrame": 572,
+          "visibleFrames": 0,
+          "maxVisiblePixelsOver1": 0,
+          "maxVisiblePixelsOver8": 0,
+          "maxChannelDelta": 0
+        },
+        {
+          "triangle": 45,
+          "foldFrames": 564,
+          "maxInverseAreaRigPx2": 93.08261542887388,
+          "atFrame": 570,
+          "visibleFrames": 0,
+          "maxVisiblePixelsOver1": 0,
+          "maxVisiblePixelsOver8": 0,
+          "maxChannelDelta": 0
+        },
+        {
+          "triangle": 58,
+          "foldFrames": 574,
+          "maxInverseAreaRigPx2": 5.772794033481741,
+          "atFrame": 604,
+          "visibleFrames": 395,
+          "maxVisiblePixelsOver1": 3,
+          "maxVisiblePixelsOver8": 1,
+          "maxChannelDelta": 29
+        },
+        {
+          "triangle": 40,
+          "foldFrames": 70,
+          "maxInverseAreaRigPx2": 0.7022708767316592,
+          "atFrame": 567,
+          "visibleFrames": 0,
+          "maxVisiblePixelsOver1": 0,
+          "maxVisiblePixelsOver8": 0,
+          "maxChannelDelta": 0
+        }
+      ],
+      "method": "For every inverted triangle in every sampled frame, rasterize full composition and same composition omitting just this triangle on tight pixel-aligned viewport covering the entire triangle (including any part outside the standard picture). Counts measure actual visible final RGB contribution;1.5 pixels per rig pixel. Triangle maximum-area full pictures retained."
+    },
+    {
+      "profile": {
+        "base": -100,
+        "peak": 200,
+        "duration": 20,
+        "seconds": 24,
+        "hz": 60
+      },
+      "peakFolds": 4,
+      "foldFrames": 1433,
+      "visibleFrames": 535,
+      "maxVisiblePixelsOver1": 31,
+      "maxVisiblePixelsOver8": 3,
+      "maxDelta": 185,
+      "foldTriangleFrameSamples": 2291,
+      "triangles": [
+        {
+          "triangle": 37,
+          "foldFrames": 1433,
+          "maxInverseAreaRigPx2": 184.78963647047897,
+          "atFrame": 651,
+          "visibleFrames": 221,
+          "maxVisiblePixelsOver1": 31,
+          "maxVisiblePixelsOver8": 1,
+          "maxChannelDelta": 40
+        },
+        {
+          "triangle": 39,
+          "foldFrames": 24,
+          "maxInverseAreaRigPx2": 81.95622742069395,
+          "atFrame": 14,
+          "visibleFrames": 0,
+          "maxVisiblePixelsOver1": 0,
+          "maxVisiblePixelsOver8": 0,
+          "maxChannelDelta": 1
+        },
+        {
+          "triangle": 38,
+          "foldFrames": 204,
+          "maxInverseAreaRigPx2": 59.39435336783697,
+          "atFrame": 653,
+          "visibleFrames": 61,
+          "maxVisiblePixelsOver1": 11,
+          "maxVisiblePixelsOver8": 0,
+          "maxChannelDelta": 2
+        },
+        {
+          "triangle": 36,
+          "foldFrames": 630,
+          "maxInverseAreaRigPx2": 254.8579438743494,
+          "atFrame": 651,
+          "visibleFrames": 483,
+          "maxVisiblePixelsOver1": 8,
+          "maxVisiblePixelsOver8": 3,
+          "maxChannelDelta": 185
+        }
+      ],
+      "method": "For every inverted triangle in every sampled frame, rasterize full composition and same composition omitting just this triangle on tight pixel-aligned viewport covering the entire triangle (including any part outside the standard picture). Counts measure actual visible final RGB contribution;1.5 pixels per rig pixel. Triangle maximum-area full pictures retained."
+    }
+  ],
+  "publicCheck": {
+    "status": "PASS",
+    "measured": 10,
+    "skipped": 0,
+    "physicsFoldBarExcludesPhysics": true
+  },
+  "recompositeMetadata": {
+    "producer": "Public parts1.25 recomposite/measureRecomposite/recompositeRecord on unchanged painting.png and updated coherent parts",
+    "before": {
+      "mean_abs": 0.756,
+      "within_limit": 8,
+      "within_share": 0.9872,
+      "error_limit": 40,
+      "error_px": 12085,
+      "covered_alpha": 128,
+      "uncovered_error_px": 5121,
+      "hole_count": 510,
+      "holes_listed": 5,
+      "holes": [
+        {
+          "px": 491,
+          "x": 541,
+          "y": 942,
+          "w": 101,
+          "h": 76,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 204
+            }
+          ]
+        },
+        {
+          "px": 459,
+          "x": 594,
+          "y": 753,
+          "w": 36,
+          "h": 170,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 193
+            }
+          ]
+        },
+        {
+          "px": 392,
+          "x": 181,
+          "y": 981,
+          "w": 109,
+          "h": 39,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 177
+            },
+            {
+              "part": "bottomwear",
+              "px": 17
+            }
+          ]
+        },
+        {
+          "px": 181,
+          "x": 578,
+          "y": 1172,
+          "w": 6,
+          "h": 151,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 161
+            }
+          ]
+        },
+        {
+          "px": 157,
+          "x": 549,
+          "y": 1641,
+          "w": 7,
+          "h": 138,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 147
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "mean_abs": 1.091,
+      "within_limit": 8,
+      "within_share": 0.981,
+      "error_limit": 40,
+      "error_px": 16312,
+      "covered_alpha": 128,
+      "uncovered_error_px": 5759,
+      "hole_count": 555,
+      "holes_listed": 5,
+      "holes": [
+        {
+          "px": 491,
+          "x": 541,
+          "y": 942,
+          "w": 101,
+          "h": 76,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 204
+            }
+          ]
+        },
+        {
+          "px": 459,
+          "x": 594,
+          "y": 753,
+          "w": 36,
+          "h": 170,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 193
+            }
+          ]
+        },
+        {
+          "px": 392,
+          "x": 181,
+          "y": 981,
+          "w": 109,
+          "h": 39,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 177
+            },
+            {
+              "part": "bottomwear",
+              "px": 17
+            }
+          ]
+        },
+        {
+          "px": 252,
+          "x": 229,
+          "y": 566,
+          "w": 27,
+          "h": 60,
+          "borders": [
+            {
+              "part": "hair_back",
+              "px": 83
+            }
+          ]
+        },
+        {
+          "px": 181,
+          "x": 578,
+          "y": 1172,
+          "w": 6,
+          "h": 151,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 161
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "rejectedCandidates": [
+    "Temporary fullbox grid violates contour intent and folds in gust96",
+    "Narrow hard head/tip regions fold in48/96gust",
+    "Broad smooth head region introduces visible negative200fold despite lower count"
+  ],
+  "evidenceRuns": {
+    "acceptedGates": "20261016T151314Z-76f6c91874d9476da5df0f02502c75ac",
+    "acceptedMotion": "20261016T145959Z-457b390b8e5a48e18790335d4ef591cc",
+    "allFoldExposure": "20261016T150751Z-cf1be8e7e4d84be6a2b5296ecaf02457"
+  }
+}

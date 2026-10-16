@@ -1,0 +1,524 @@
+{
+  "spec": "roa-shoulder-repair/1",
+  "sourceManifest": {
+    "rig/images/bottomwear.png": "6e210b69be292bd33698907ec874be1090283cc8b445570b86c28faf37df3e7e",
+    "rig/images/brow_l.png": "9c0d7145d4818bac7d7eb87f6881f14434c5af535bd93d90190e6e5cdbd98345",
+    "rig/images/brow_r.png": "af89b18aa16b3ea17a74513da4dc87c065faaa1855f1e8d3fc4ffddf2ac3f833",
+    "rig/images/ear_l.png": "bd58820d823be75635d651cd0c532ec28d7a6ccd6da27529e444bf797ab98986",
+    "rig/images/ear_r.png": "52f5a65810fbb891bbac3824640aa7705d05f5ab26779c01c00c915d4e4c4f55",
+    "rig/images/earring.png": "eae3116fbbf05278da10c12819df341430d5ed64c170f35cac9f35669c773a98",
+    "rig/images/face.png": "6fbf05f254bbd6b2e74a68330a783408f9e5106a6e68164528980577325e7eea",
+    "rig/images/hair_back.png": "4ad2c536aee4214a5ce6b851fda1c586185a15716bc598eca2c1564167ede5f9",
+    "rig/images/hair_front.png": "93c847c30dcf0ac6678a1edcf42098ab3c9c8d19ae447aa7a512eb805e25b5ab",
+    "rig/images/handwear_r.png": "dc7ed8b2bd9db99e504720eb7dc3c4e665be59bbc8890d6ddd652e1d70e39052",
+    "rig/images/lash_l.png": "9b63914012cb263e4421727f8e6a27e601a695c9dc35f9ab59a0f62e40139072",
+    "rig/images/lash_r.png": "c800ac2682b898119ce05dd3fa2c107b81d29f365ba7ad72d18975723f5e28ec",
+    "rig/images/mouth.png": "adac57e62d5906cdf040d1ebdaddce55035f78b05459c60aea472e70dc4a9564",
+    "rig/images/neck.png": "a4f8c6eba251da28c5221fbeb947d9aa681b5d6bf15de6163cc11ab29a843fa9",
+    "rig/images/nose.png": "d6f29d2713e79fc3772a652a63a882a479a45697d0a9c18fe7b50660da500351",
+    "rig/images/shoes.png": "77f03ee186e1e36571e22943dbde4d04a6b308990b4cb9f2f46deee084f9b931",
+    "rig/images/topwear.png": "cf7e86ae6a1d1f219c827948f102b684f15f868364a7f13b5a96f5fd0eaadbdc",
+    "rig/mesh-repair.provenance.json": "8f3deb002f941bf056c5085a39a4b76a1ece37d5b313904145df02babbca6778",
+    "rig/mesh_report.json": "1229abe977ff0aad4ef3a4318ecc17f8c57d11f5346ffa9efab9957bcff621d2",
+    "rig/motion.json": "0389d8edf15a17221e8a3a62131600efd397c0b9fc7663da277e8e02700f1beb",
+    "rig/outline.policy.json": "b34df479a102bd2299f701b77c8343969575a650a947b45a51f61d2d8f72fd57",
+    "rig/rig.json": "461b1016e72a029ba4d7cab957018367848e144864b1401e40164c3cc2b4fcde",
+    "rig/rig.json.provenance.json": "c03015aaa5be2cdf4ed41d3dd1ae6f2c8decc120298a74c18502f750100ad165",
+    "parts/bottomwear.png": "06d0e5345702a1c74a53a24b5ce235712413c7770851bbc53a15a43bb6b3ca4c",
+    "parts/brow_l.png": "449da76be0fcb00d14550be6c6cea1ffd23db00d832b37c2511a69110b3046ae",
+    "parts/brow_r.png": "2439951157d3356b364bd56b17f1e323acb03c12ce459c84e0885e5c5e05c64f",
+    "parts/ear_l.png": "ea23179cec7ba030e91de5793d6d55998e4762ec7feaa92a626d9ca85d437c02",
+    "parts/ear_r.png": "2607e6b44438f1131d7253b48f1632f0d35ae326b76578d051576411b6ffc453",
+    "parts/earring.png": "564f39e1d80d774e3161c1df515eb1b3b5432753afd33a25188a6cfb8d349ee4",
+    "parts/face.png": "3153ea7c9d6910502dfa1abfa5c22eccc506a5000c1eb07519f405d3d5d84faa",
+    "parts/hair_back.png": "d20e9f16f0fdbc8a05fddeaf7d5aee9262c1823f3a4cffbb431d46faed49119b",
+    "parts/hair_front.png": "59be50fe674365d192d538da6aa651ad8ffa0eae1792b5e549d97d72378fca2b",
+    "parts/handwear_r.png": "4685094fa7ede1a04addc0f6cfe408af304ad0c0529f455815627f71ee50b055",
+    "parts/lash_l.png": "78a35aec2211ee3a0fe41651b2801ebb43d1470583b4d2fb5ac011a0128a8b28",
+    "parts/lash_r.png": "560964991271b0b76e548c3e89e70f7938f003a5a0242a8d95886f369d5c05e6",
+    "parts/mouth.png": "71e641d0f6d10f7c1ac380f208b32d49a71788ec1cfa762f90d9895a3667963e",
+    "parts/neck.png": "2ee698e3eff819f9659165cbe7b45c8e6b9455a8f5c7c3f6ad8f1bd53e6c22e1",
+    "parts/nose.png": "88a11e164c0c3cc49c1555d296ed475cbe463c9e7fe7d18845c263d846f82a9e",
+    "parts/shoes.png": "8dc899a3125211da4ba22104fe6cdd40e26d696a98331d3c789831cc0a2785e4",
+    "parts/topwear.png": "233c91105ccb4a9fe154c3c1175dbb199c484de5218e035f06376ca21a062339",
+    "parts.json": "b3ee338cc7ad916f509f29fa79b8959703814ae8257b0a4a2ea77f203e2d4372"
+  },
+  "sourceArt": {
+    "inputs/layers/head_orig/parts/topwear.png": "58ccdf42e056cdbb145c242d347345dd08047e038235121058cfc17a1912174b",
+    "inputs/layers/head_orig/layers.json": "44f83cab5976f9bc41ed7bfb3a80686cf7a787f289bb9bc8bfee676aaaad5c00",
+    "inputs/painting.png": "7f54f8deb4e1b6c032417c04e6f16b86241dd43e3b4f1710b93ba1e7f24b1d83"
+  },
+  "assets": {
+    "shoulder-repair.parts.png": "9bab215a5476ace03327629e6c9bbde01e23f9b9ecaedf060409ae1a5da093db",
+    "shoulder-repair.rig-image.png": "4ce0f6b42d75512bd098c766053fb929e00c0227d0be1719d8f09672723afd80",
+    "shoulder-repair.mask.png": "a10757a181e6fdc485097c87cb479ab23d9d476b1653a13f188f6637c8cf32ad",
+    "shoulder-repair.parts.json": "8183875119f1e4df95ab94934291e6c9bf8aab95c044de5ca34b67c149fc4d52",
+    "shoulder-repair.mesh-report.json": "a3fe5e620fc155fdc1c4668635f4e9180cbd5def468669dc981ce71c4f9782e8"
+  },
+  "partsImage": "shoulder-repair.parts.png",
+  "mask": "shoulder-repair.mask.png",
+  "cropROI": [
+    130,
+    465,
+    225,
+    506
+  ],
+  "partOffset": [
+    130,
+    409
+  ],
+  "sourceRecipe": {
+    "layer": "inputs/layers/head_orig/parts/topwear.png",
+    "runCanvas": [
+      1024,
+      1024
+    ],
+    "cropBox": [
+      120,
+      110,
+      560,
+      550
+    ],
+    "resampling": "Pillow LANCZOS RGBA 1024->440",
+    "newAlpha": "max(baseline, original-head alpha) where original exceeds baseline and baseline alpha<240, within ROI",
+    "RGB": "original-head RGB feathered into existing shoulder: full source until distance 4px from added support, linear to baseline at 18px. Every other pixel preserved."
+  },
+  "vertices": [
+    {
+      "vertex": 98,
+      "before": [
+        131.0,
+        495.0
+      ],
+      "after": [
+        129,
+        487
+      ],
+      "delta": [
+        -2.0,
+        -8.0
+      ],
+      "uvs": [
+        0.004808,
+        0.179039
+      ]
+    },
+    {
+      "vertex": 99,
+      "before": [
+        136.0,
+        489.0
+      ],
+      "after": [
+        136,
+        484
+      ],
+      "delta": [
+        0.0,
+        -5.0
+      ],
+      "uvs": [
+        0.016026,
+        0.172489
+      ]
+    },
+    {
+      "vertex": 100,
+      "before": [
+        159.0,
+        489.0
+      ],
+      "after": [
+        159,
+        475
+      ],
+      "delta": [
+        0.0,
+        -14.0
+      ],
+      "uvs": [
+        0.052885,
+        0.152838
+      ]
+    },
+    {
+      "vertex": 101,
+      "before": [
+        174.0,
+        480.0
+      ],
+      "after": [
+        174,
+        469
+      ],
+      "delta": [
+        0.0,
+        -11.0
+      ],
+      "uvs": [
+        0.076923,
+        0.139738
+      ]
+    },
+    {
+      "vertex": 102,
+      "before": [
+        211.0,
+        467.0
+      ],
+      "after": [
+        211,
+        462
+      ],
+      "delta": [
+        0.0,
+        -5.0
+      ],
+      "uvs": [
+        0.136218,
+        0.124454
+      ]
+    }
+  ],
+  "outputRigSHA256": "1c0eb50745d89e87eea327a156a1db74491939652e352b889714d510258b2382",
+  "outputs": {
+    "shoulder-repair.parts.png": "parts/topwear.png",
+    "shoulder-repair.rig-image.png": "rig/images/topwear.png",
+    "shoulder-repair.parts.json": "parts.json",
+    "shoulder-repair.mesh-report.json": "rig/mesh_report.json"
+  },
+  "outputManifest": {
+    "parts/topwear.png": "9bab215a5476ace03327629e6c9bbde01e23f9b9ecaedf060409ae1a5da093db",
+    "rig/images/topwear.png": "4ce0f6b42d75512bd098c766053fb929e00c0227d0be1719d8f09672723afd80",
+    "parts.json": "8183875119f1e4df95ab94934291e6c9bf8aab95c044de5ca34b67c149fc4d52",
+    "rig/mesh_report.json": "a3fe5e620fc155fdc1c4668635f4e9180cbd5def468669dc981ce71c4f9782e8",
+    "rig/rig.json": "1c0eb50745d89e87eea327a156a1db74491939652e352b889714d510258b2382"
+  },
+  "visibilityProvenance": {
+    "producer": "@rig-c/parts1.25.0 recomposite/measureRecomposite/recompositeRecord; current PNG alpha>8 opaque count",
+    "topwearBefore": {
+      "name": "topwear",
+      "from": "full:topwear",
+      "x": 130,
+      "y": 409,
+      "w": 616,
+      "h": 450,
+      "opaque_px": 168353,
+      "visible_px": 160699,
+      "occluded_px": 7654,
+      "projected_core_px": 148260,
+      "source_px_taken": 147972,
+      "visible_not_projected_px": 12727,
+      "refused_drift_px": 1416,
+      "merged_px": 0,
+      "seam_override_px": 409,
+      "fringe_pushed_back": [
+        {
+          "part": "neck",
+          "px": 204
+        },
+        {
+          "part": "handwear_r",
+          "px": 22
+        },
+        {
+          "part": "bottomwear",
+          "px": 2
+        }
+      ]
+    },
+    "topwearAfter": {
+      "name": "topwear",
+      "from": "full:topwear",
+      "x": 130,
+      "y": 409,
+      "w": 616,
+      "h": 450,
+      "opaque_px": 169011,
+      "projected_core_px": 148260,
+      "source_px_taken": 147972,
+      "refused_drift_px": 1416,
+      "merged_px": 0,
+      "seam_override_px": 409,
+      "fringe_pushed_back": [
+        {
+          "part": "neck",
+          "px": 204
+        },
+        {
+          "part": "handwear_r",
+          "px": 22
+        },
+        {
+          "part": "bottomwear",
+          "px": 2
+        }
+      ]
+    },
+    "removedOptionalVisibilityReason": "Current post-assembly pixels include a bounded restoration from head_orig. The old full-run pixel ownership trace cannot classify those new pixels. Preserve the old counts here; omit the three optional visibility counts as a group instead of inventing updated visibility.",
+    "schema": "@rig-c/parts1.25.0 src/parts.ts VISIBILITY_KEYS: all three or none; src/assemble.ts whole-pixel assembly traces differ from a final PNG",
+    "before": {
+      "mean_abs": 0.877,
+      "within_limit": 8,
+      "within_share": 0.983,
+      "error_limit": 40,
+      "error_px": 13556,
+      "covered_alpha": 128,
+      "uncovered_error_px": 6398,
+      "hole_count": 510,
+      "holes_listed": 5,
+      "holes": [
+        {
+          "px": 834,
+          "x": 479,
+          "y": 1639,
+          "w": 30,
+          "h": 522,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 558
+            }
+          ]
+        },
+        {
+          "px": 297,
+          "x": 144,
+          "y": 475,
+          "w": 35,
+          "h": 17,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 36
+            },
+            {
+              "part": "hair_back",
+              "px": 24
+            }
+          ]
+        },
+        {
+          "px": 194,
+          "x": 461,
+          "y": 756,
+          "w": 30,
+          "h": 117,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 119
+            },
+            {
+              "part": "bottomwear",
+              "px": 57
+            }
+          ]
+        },
+        {
+          "px": 150,
+          "x": 569,
+          "y": 615,
+          "w": 73,
+          "h": 30,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 112
+            }
+          ]
+        },
+        {
+          "px": 146,
+          "x": 549,
+          "y": 1059,
+          "w": 3,
+          "h": 112,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 118
+            }
+          ]
+        }
+      ]
+    },
+    "after": {
+      "mean_abs": 0.873,
+      "within_limit": 8,
+      "within_share": 0.9831,
+      "error_limit": 40,
+      "error_px": 13262,
+      "covered_alpha": 128,
+      "uncovered_error_px": 6041,
+      "hole_count": 512,
+      "holes_listed": 5,
+      "holes": [
+        {
+          "px": 834,
+          "x": 479,
+          "y": 1639,
+          "w": 30,
+          "h": 522,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 558
+            }
+          ]
+        },
+        {
+          "px": 194,
+          "x": 461,
+          "y": 756,
+          "w": 30,
+          "h": 117,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 119
+            },
+            {
+              "part": "bottomwear",
+              "px": 57
+            }
+          ]
+        },
+        {
+          "px": 150,
+          "x": 569,
+          "y": 615,
+          "w": 73,
+          "h": 30,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 112
+            }
+          ]
+        },
+        {
+          "px": 146,
+          "x": 549,
+          "y": 1059,
+          "w": 3,
+          "h": 112,
+          "borders": [
+            {
+              "part": "bottomwear",
+              "px": 118
+            }
+          ]
+        },
+        {
+          "px": 141,
+          "x": 693,
+          "y": 570,
+          "w": 53,
+          "h": 59,
+          "borders": [
+            {
+              "part": "topwear",
+              "px": 112
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "geometryProof": {
+    "changedVertices": [
+      {
+        "vertex": 98,
+        "before": [
+          131.0,
+          495.0
+        ],
+        "after": [
+          129,
+          487
+        ],
+        "delta": [
+          -2.0,
+          -8.0
+        ]
+      },
+      {
+        "vertex": 99,
+        "before": [
+          136.0,
+          489.0
+        ],
+        "after": [
+          136,
+          484
+        ],
+        "delta": [
+          0.0,
+          -5.0
+        ]
+      },
+      {
+        "vertex": 100,
+        "before": [
+          159.0,
+          489.0
+        ],
+        "after": [
+          159,
+          475
+        ],
+        "delta": [
+          0.0,
+          -14.0
+        ]
+      },
+      {
+        "vertex": 101,
+        "before": [
+          174.0,
+          480.0
+        ],
+        "after": [
+          174,
+          469
+        ],
+        "delta": [
+          0.0,
+          -11.0
+        ]
+      },
+      {
+        "vertex": 102,
+        "before": [
+          211.0,
+          467.0
+        ],
+        "after": [
+          211,
+          462
+        ],
+        "delta": [
+          0.0,
+          -5.0
+        ]
+      }
+    ],
+    "vertices": 448,
+    "triangles": 790,
+    "hull": 104,
+    "allOtherUVsWeightsAndTrianglesExact": true,
+    "scalarWeightsExact": true,
+    "beforeAlphaMissing": 289,
+    "afterAlphaMissing": 261,
+    "newArtMissing": 0,
+    "newlyMissingOldArt": 0
+  },
+  "pins": {
+    "parts": "1.25.0",
+    "rigc": "2.57.0",
+    "spine-core": "4.3.13"
+  },
+  "sourceArtRoot": "source-out parent",
+  "rigImage": "shoulder-repair.rig-image.png"
+}

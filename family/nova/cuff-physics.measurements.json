@@ -1,0 +1,113 @@
+{
+  "spec": "nova-cuff-physics-measurement/1",
+  "sourceRigSHA256": "15ad9933c1661a1602cfc0ec2b9f00080c8f1f0ceb638a7ce96836e761c43874",
+  "outputRigSHA256": "fb82b08c4eee345333be94ce2ef1258f09cb52960eda23725a998ec0f1abc2ed",
+  "execution": {
+    "id": "20261016T135521Z-3b4db2baa0284266aa7e4013f92a7eda",
+    "inputSHA256": "6f4c5a6f87acad9a5ac880b266cc19ddab338a8cb1e95c3a009c381782410ed2",
+    "exitCode": 0,
+    "runtime": {
+      "bun": "1.4.2",
+      "git": "git version 2.43.0",
+      "node": null,
+      "python3": "Python 3.12.3"
+    },
+    "resources": "4CPU/4GiB pooled",
+    "sealedReceiptVerified": true
+  },
+  "authoring": {
+    "onlyFourNamedConstraintsRemoved": true,
+    "allBoneDefinitionsExact": true,
+    "allAttachmentPayloadsExact": true,
+    "sourceImagesExact": true,
+    "motionBytesExact": true,
+    "replayCandidateExact": true,
+    "negativeControls": {
+      "occupied-output": "NOVA_CUFF_OUTPUT_MUST_BE_FRESH_OUTSIDE_SOURCE",
+      "bone-preimage": "NOVA_CUFF_SOURCE_RIG_CHANGED",
+      "motion-preimage": "NOVA_CUFF_MOTION_CHANGED",
+      "source-image": "NOVA_CUFF_IMAGE_CHANGED",
+      "noncuff-target": "NOVA_CUFF_TARGET_INVALID"
+    }
+  },
+  "sampledMotion": {
+    "fps": 60,
+    "secondsPerCondition": 12,
+    "profiles": [
+      {
+        "name": "calm0",
+        "beforePeakFolds": 0,
+        "afterPeakFolds": 0,
+        "nativeCoreMaxDelta": 0,
+        "nonCuffBonesMaxDelta": 0,
+        "otherAttachmentMaxDelta": 0
+      },
+      {
+        "name": "steady48",
+        "beforePeakFolds": 9,
+        "afterPeakFolds": 0,
+        "nativeCoreMaxDelta": 0,
+        "nonCuffBonesMaxDelta": 0,
+        "otherAttachmentMaxDelta": 0
+      },
+      {
+        "name": "steady96",
+        "beforePeakFolds": 13,
+        "afterPeakFolds": 0,
+        "nativeCoreMaxDelta": 0,
+        "nonCuffBonesMaxDelta": 0,
+        "otherAttachmentMaxDelta": 0
+      },
+      {
+        "name": "steady-96",
+        "beforePeakFolds": 21,
+        "afterPeakFolds": 0,
+        "nativeCoreMaxDelta": 0,
+        "nonCuffBonesMaxDelta": 0,
+        "otherAttachmentMaxDelta": 0
+      },
+      {
+        "name": "default-pulse48",
+        "beforePeakFolds": 5,
+        "afterPeakFolds": 0,
+        "nativeCoreMaxDelta": 0,
+        "nonCuffBonesMaxDelta": 0,
+        "otherAttachmentMaxDelta": 0
+      },
+      {
+        "name": "steady-48",
+        "beforePeakFolds": 14,
+        "afterPeakFolds": 0,
+        "nativeCoreMaxDelta": 0,
+        "nonCuffBonesMaxDelta": 0,
+        "otherAttachmentMaxDelta": 0
+      },
+      {
+        "name": "default-pulse96",
+        "beforePeakFolds": 9,
+        "afterPeakFolds": 0,
+        "nativeCoreMaxDelta": 0,
+        "nonCuffBonesMaxDelta": 0,
+        "otherAttachmentMaxDelta": 0
+      },
+      {
+        "name": "extreme-positive200",
+        "beforePeakFolds": 23,
+        "afterPeakFolds": 0,
+        "nativeCoreMaxDelta": 0,
+        "nonCuffBonesMaxDelta": 0,
+        "otherAttachmentMaxDelta": 0
+      },
+      {
+        "name": "extreme-negative200",
+        "beforePeakFolds": 30,
+        "afterPeakFolds": 0,
+        "nativeCoreMaxDelta": 0,
+        "nonCuffBonesMaxDelta": 0,
+        "otherAttachmentMaxDelta": 0
+      }
+    ]
+  },
+  "officialBuild": "PASS; A00 official spine-core parse ran; 21 physics constraints; ordinary assertion SKIPs retained",
+  "publicPartsCheck": "PASS;10/10bars; source-assembly holes remain REPORTED; animation-fold bar excludes physics"
+}

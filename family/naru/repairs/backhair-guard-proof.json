@@ -1,0 +1,33 @@
+{
+  "occupied-output": {
+    "refused": true,
+    "namedFailure": "NARU_BACKHAIR_OUTPUT_MUST_BE_FRESH_OUTSIDE_SOURCE"
+  },
+  "rig-context": {
+    "refused": true,
+    "namedFailure": "NARU_BACKHAIR_SOURCE_RIG_CHANGED"
+  },
+  "motion-bytes": {
+    "refused": true,
+    "namedFailure": "NARU_BACKHAIR_MOTION_CHANGED"
+  },
+  "mesh-report": {
+    "refused": true,
+    "namedFailure": "NARU_BACKHAIR_MESH_REPORT_CHANGED"
+  },
+  "protected-image": {
+    "refused": true,
+    "namedFailure": "NARU_BACKHAIR_IMAGE_CHANGED"
+  },
+  "parts-record": {
+    "refused": true,
+    "namedFailure": "NARU_BACKHAIR_PARTS_CHANGED"
+  },
+  "positive": {
+    "exactReviewedRig": true,
+    "exactReviewedParts": true,
+    "allNonTargetAuthoringExact": true,
+    "allNonTargetImagesExact": true,
+    "motionBytesExact": true
+  }
+}

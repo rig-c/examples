@@ -1,0 +1,34 @@
+{
+  "spec": "family-mesh-repair-provenance/1",
+  "policySHA256": "3f31c040077733cc49ea448c7b73163fd8c0d6b5f336905d72bfe4e544143aeb",
+  "bonesSHA256": "739eb928f948862438e549eaf6e9ecadfe907f5018065f11d3e95da3f274d3f9",
+  "bindingContextSHA256": "eca6fb59be15a50ca33c50dbfed850d09e792a854080e82d273f6aaeaa6bff2f",
+  "targets": [
+    {
+      "part": "topwear",
+      "sourceAttachmentSHA256": "b5105f821088ccacfbd5460cf587f9e79f986b4d73413a57290bbf97ab4763f3",
+      "outputAttachmentSHA256": "02f229473a0e82de05a27e64ee41c7b73e801df61a4c0201f7a678a3ea4d8508",
+      "imageSHA256": "b73fe1936a21296ebd3a54108acc44790a7c0f380059aea293884d12c6e00ee1",
+      "producer": {
+        "kind": "public rig-parts rig",
+        "parts": "1.25.0",
+        "rigc": "2.57.0",
+        "spine": "4.3.13"
+      }
+    },
+    {
+      "part": "bottomwear",
+      "sourceAttachmentSHA256": "4a3a0f0c9842fe3b0724271dd4e096f49ef5d113ede4bb2f63c6fda091fa9f37",
+      "outputAttachmentSHA256": "25ce5798f3f1a66362176a5c4ff7d8d83e6a3910938d948892e8d28c999de9da",
+      "imageSHA256": "1ca7e9231e325721e792311e073f79309ac1839c3a79dae3486e50289cfd8fbf",
+      "producer": {
+        "kind": "retained original public source topology",
+        "parts": "1.25.0",
+        "rigc": "2.57.0",
+        "spine": "4.3.13"
+      }
+    }
+  ],
+  "scope": "Authoring rig attachments only. Physics parameters, bones, motion, slots and other attachments preserved. Topwear deformation fields intentionally change. Run normal official build/check.",
+  "helperSHA256": "19840c42aa6364d06b44d30bd030310c00e32daf4e1d51f57949e40094b01751"
+}

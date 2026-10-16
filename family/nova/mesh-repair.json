@@ -1,0 +1,229 @@
+{
+  "spec": "family-mesh-repair/1",
+  "payload": "mesh-repair.attachments.json",
+  "targets": [
+    {
+      "part": "topwear",
+      "imageSHA256": "b73fe1936a21296ebd3a54108acc44790a7c0f380059aea293884d12c6e00ee1",
+      "meshReport": {
+        "part": "topwear",
+        "vertices": 265,
+        "triangles": 459,
+        "hull": 69,
+        "bones": [
+          "boob_l",
+          "boob_r",
+          "chest",
+          "hem_l0",
+          "hem_l1",
+          "hem_r0",
+          "hem_r1"
+        ],
+        "max_influences": 4,
+        "mean_influences": 2.42,
+        "art_coverage": 1,
+        "mode": "contour",
+        "params": {
+          "tolerance": 2,
+          "margin": 2,
+          "spacing": 60,
+          "maxEdge": 64,
+          "budget": null,
+          "stray": 400,
+          "bridges": true
+        },
+        "contour": {
+          "boundaryVertices": 69,
+          "interiorVertices": 196,
+          "interiorBySource": [
+            {
+              "source": "region \"bust_r\"",
+              "vertices": 77
+            },
+            {
+              "source": "region \"bust_l\"",
+              "vertices": 74
+            },
+            {
+              "source": "background",
+              "vertices": 45
+            }
+          ],
+          "triangles": 459,
+          "tracedVertices": 2598,
+          "artPixels": 239114,
+          "coveredArtPixels": 239114,
+          "coverage": 1,
+          "overshoot": 4,
+          "overshootBound": 5,
+          "meshArea": 247693,
+          "enclosedTransparentArea": 8579,
+          "filledHolePixels": 4588,
+          "smallestAngle": {
+            "triangle": 54,
+            "value": 4.001219
+          },
+          "largestEdgeRatio": {
+            "triangle": 37,
+            "value": 12.797235
+          },
+          "nonDelaunayEdges": 0,
+          "strayIslands": 0,
+          "strayPixels": 0,
+          "grownPixels": 4045,
+          "pinchFilledPixels": 0,
+          "grownHolePixels": 0,
+          "outlineCut": 10,
+          "bridges": {
+            "islands": [
+              239114
+            ],
+            "units": [
+              [
+                239114
+              ]
+            ],
+            "joins": []
+          }
+        },
+        "regions": [
+          {
+            "name": "bust_r",
+            "bone": "boob_r",
+            "reached": 61,
+            "whole": 42
+          },
+          {
+            "name": "bust_l",
+            "bone": "boob_l",
+            "reached": 45,
+            "whole": 35
+          }
+        ]
+      },
+      "producer": {
+        "kind": "public rig-parts rig",
+        "parts": "1.25.0",
+        "rigc": "2.57.0",
+        "spine": "4.3.13"
+      },
+      "sourceAttachmentSHA256": "b5105f821088ccacfbd5460cf587f9e79f986b4d73413a57290bbf97ab4763f3",
+      "outputAttachmentSHA256": "02f229473a0e82de05a27e64ee41c7b73e801df61a4c0201f7a678a3ea4d8508"
+    },
+    {
+      "part": "bottomwear",
+      "imageSHA256": "1ca7e9231e325721e792311e073f79309ac1839c3a79dae3486e50289cfd8fbf",
+      "meshReport": {
+        "part": "bottomwear",
+        "vertices": 364,
+        "triangles": 576,
+        "hull": 150,
+        "mode": "retained-source-topology-quality-repair",
+        "sourceGenerator": {
+          "part": "bottomwear",
+          "vertices": 214,
+          "triangles": 276,
+          "hull": 150,
+          "mode": "public-reduceMesh-rigid-interior",
+          "sourceGenerator": {
+            "part": "bottomwear",
+            "vertices": 364,
+            "triangles": 576,
+            "hull": 150,
+            "bones": [
+              "cuff_l0",
+              "cuff_l1",
+              "cuff_r0",
+              "cuff_r1",
+              "hip"
+            ],
+            "max_influences": 4,
+            "mean_influences": 1.55,
+            "art_coverage": 1,
+            "mode": "contour",
+            "params": {
+              "tolerance": 2,
+              "margin": 2,
+              "spacing": 36,
+              "maxEdge": 48,
+              "budget": null,
+              "stray": 0,
+              "bridges": true
+            },
+            "contour": {
+              "boundaryVertices": 150,
+              "interiorVertices": 214,
+              "interiorBySource": [
+                {
+                  "source": "region \"fixed_upper_and_support\"",
+                  "vertices": 206
+                },
+                {
+                  "source": "background",
+                  "vertices": 8
+                }
+              ],
+              "triangles": 576,
+              "tracedVertices": 3204,
+              "artPixels": 276830,
+              "coveredArtPixels": 276830,
+              "coverage": 1,
+              "overshoot": 4,
+              "overshootBound": 5,
+              "meshArea": 292534.5,
+              "enclosedTransparentArea": 15704.5,
+              "filledHolePixels": 10388,
+              "smallestAngle": {
+                "triangle": 77,
+                "value": 4.842329
+              },
+              "largestEdgeRatio": {
+                "triangle": 136,
+                "value": 11.652005
+              },
+              "nonDelaunayEdges": 0,
+              "strayIslands": 0,
+              "strayPixels": 0,
+              "grownPixels": 5554,
+              "pinchFilledPixels": 0,
+              "grownHolePixels": 0,
+              "outlineCut": 17,
+              "bridges": {
+                "islands": [
+                  276830
+                ],
+                "units": [
+                  [
+                    276830
+                  ]
+                ],
+                "joins": []
+              }
+            },
+            "regions": [
+              {
+                "name": "fixed_upper_and_support",
+                "bone": "hip",
+                "reached": 305,
+                "whole": 282
+              }
+            ]
+          },
+          "provenance": "nova-rigid-interior.provenance.json"
+        },
+        "provenance": "nova-rigid-interior.provenance.json"
+      },
+      "producer": {
+        "kind": "retained original public source topology",
+        "parts": "1.25.0",
+        "rigc": "2.57.0",
+        "spine": "4.3.13"
+      },
+      "sourceAttachmentSHA256": "4a3a0f0c9842fe3b0724271dd4e096f49ef5d113ede4bb2f63c6fda091fa9f37",
+      "outputAttachmentSHA256": "25ce5798f3f1a66362176a5c4ff7d8d83e6a3910938d948892e8d28c999de9da"
+    }
+  ],
+  "bonesSHA256": "739eb928f948862438e549eaf6e9ecadfe907f5018065f11d3e95da3f274d3f9",
+  "motionSHA256": "9eb0cc074fa492a7c4de8d6983e3726b29bfd6de1624226ae21f9ffc1ceb3e41",
+  "bindingContextSHA256": "eca6fb59be15a50ca33c50dbfed850d09e792a854080e82d273f6aaeaa6bff2f"
+}
