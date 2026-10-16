@@ -571,7 +571,7 @@ config = {
       ]
     },
     "neck": {
-      "grid": 57,
+      "contour": {"tolerance": 2, "margin": 3, "spacing": 40, "maxEdge": 50},
       "r": 5,
       "segments": [
         ["chest", [370, 635], [368, 790]],

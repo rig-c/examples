@@ -150,17 +150,61 @@
  },
  {
   "part": "neck",
-  "vertices": 16,
-  "triangles": 18,
-  "hull": 12,
+  "vertices": 30,
+  "triangles": 32,
+  "hull": 26,
   "bones": [
    "chest",
    "head"
   ],
   "max_influences": 2,
-  "mean_influences": 2,
+  "mean_influences": 1.97,
   "art_coverage": 1,
-  "grid": 57
+  "mode": "contour",
+  "params": {
+   "tolerance": 2,
+   "margin": 3,
+   "spacing": 40,
+   "maxEdge": 50,
+   "budget": null,
+   "stray": null
+  },
+  "contour": {
+   "boundaryVertices": 26,
+   "interiorVertices": 4,
+   "interiorBySource": [
+    {
+     "source": "background",
+     "vertices": 4
+    }
+   ],
+   "triangles": 32,
+   "tracedVertices": 644,
+   "artPixels": 14534,
+   "coveredArtPixels": 14534,
+   "coverage": 1,
+   "overshoot": 4,
+   "overshootBound": 6,
+   "meshArea": 15947,
+   "enclosedTransparentArea": 1413,
+   "filledHolePixels": 0,
+   "smallestAngle": {
+    "triangle": 1,
+    "value": 10.633328
+   },
+   "largestEdgeRatio": {
+    "triangle": 27,
+    "value": 4.789131
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 0,
+   "strayPixels": 0,
+   "grownPixels": 1515,
+   "pinchFilledPixels": 0,
+   "grownHolePixels": 0,
+   "outlineCut": 0
+  },
+  "regions": []
  },
  {
   "part": "topwear",

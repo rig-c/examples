@@ -313,7 +313,7 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 6,
-  "triangles": 1555,
+  "triangles": 1569,
   "frames": 41,
   "severity": 1.318,
   "severity_ceiling": 1.926544,
@@ -355,12 +355,12 @@
    },
    {
     "slot": "neck",
-    "triangles": 18,
-    "max_ratio": 1.014,
-    "max_at": "triangle 17 (vertices 15 7 6), edge 7-6, idle frame 13",
-    "min_ratio": 0.993,
-    "min_at": "triangle 7 (vertices 12 10 14), edge 14-12, idle frame 14",
-    "severity": 1.014
+    "triangles": 32,
+    "max_ratio": 1.015,
+    "max_at": "triangle 17 (vertices 13 29 14), edge 14-13, idle frame 13",
+    "min_ratio": 0.991,
+    "min_at": "triangle 9 (vertices 6 29 8), edge 29-8, idle frame 34",
+    "severity": 1.015
    },
    {
     "slot": "topwear",
@@ -482,25 +482,6 @@
     "shoes 264 px"
    ]
   }
- },
- "requirements": {
-  "fps": 12,
-  "summary": {
-   "declared": 0,
-   "measured": 0,
-   "pass": 0,
-   "fail": 0,
-   "not_measurable": 0,
-   "not_declared": [
-    "contact",
-    "follow",
-    "aim",
-    "range",
-    "stretch",
-    "seam"
-   ]
-  },
-  "lines": {}
  },
  "PASS": true
 }

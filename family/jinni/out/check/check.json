@@ -284,7 +284,7 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 8,
-  "triangles": 885,
+  "triangles": 895,
   "frames": 41,
   "severity": 1.084,
   "severity_ceiling": 1.926544,
@@ -335,12 +335,12 @@
    },
    {
     "slot": "neck",
-    "triangles": 14,
-    "max_ratio": 1.008,
-    "max_at": "triangle 13 (vertices 6 8 7), edge 8-7, idle frame 39",
+    "triangles": 24,
+    "max_ratio": 1.009,
+    "max_at": "triangle 17 (vertices 11 23 14), edge 23-14, idle frame 35",
     "min_ratio": 0.992,
-    "min_at": "triangle 10 (vertices 10 8 13), edge 8-13, idle frame 14",
-    "severity": 1.008
+    "min_at": "triangle 17 (vertices 11 23 14), edge 23-14, idle frame 15",
+    "severity": 1.009
    },
    {
     "slot": "bottomwear",

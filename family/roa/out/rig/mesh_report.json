@@ -82,17 +82,61 @@
  },
  {
   "part": "neck",
-  "vertices": 19,
-  "triangles": 22,
-  "hull": 14,
+  "vertices": 30,
+  "triangles": 36,
+  "hull": 22,
   "bones": [
    "chest",
    "head"
   ],
   "max_influences": 2,
-  "mean_influences": 1.79,
+  "mean_influences": 1.8,
   "art_coverage": 1,
-  "grid": 57
+  "mode": "contour",
+  "params": {
+   "tolerance": 2,
+   "margin": 3,
+   "spacing": 40,
+   "maxEdge": 50,
+   "budget": null,
+   "stray": null
+  },
+  "contour": {
+   "boundaryVertices": 22,
+   "interiorVertices": 8,
+   "interiorBySource": [
+    {
+     "source": "background",
+     "vertices": 8
+    }
+   ],
+   "triangles": 36,
+   "tracedVertices": 760,
+   "artPixels": 21926,
+   "coveredArtPixels": 21926,
+   "coverage": 1,
+   "overshoot": 4.242641,
+   "overshootBound": 6,
+   "meshArea": 23723,
+   "enclosedTransparentArea": 1797,
+   "filledHolePixels": 0,
+   "smallestAngle": {
+    "triangle": 1,
+    "value": 4.58122
+   },
+   "largestEdgeRatio": {
+    "triangle": 1,
+    "value": 12.509996
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 0,
+   "strayPixels": 0,
+   "grownPixels": 1883,
+   "pinchFilledPixels": 0,
+   "grownHolePixels": 0,
+   "outlineCut": 7
+  },
+  "regions": []
  },
  {
   "part": "topwear",
@@ -252,17 +296,61 @@
  },
  {
   "part": "earring",
-  "vertices": 6,
-  "triangles": 4,
-  "hull": 6,
+  "vertices": 24,
+  "triangles": 24,
+  "hull": 22,
   "bones": [
    "earring0",
    "head"
   ],
   "max_influences": 2,
-  "mean_influences": 2,
+  "mean_influences": 1.79,
   "art_coverage": 1,
-  "grid": 57
+  "mode": "contour",
+  "params": {
+   "tolerance": 1,
+   "margin": 1,
+   "spacing": 24,
+   "maxEdge": 24,
+   "budget": null,
+   "stray": null
+  },
+  "contour": {
+   "boundaryVertices": 22,
+   "interiorVertices": 2,
+   "interiorBySource": [
+    {
+     "source": "background",
+     "vertices": 2
+    }
+   ],
+   "triangles": 24,
+   "tracedVertices": 220,
+   "artPixels": 1129,
+   "coveredArtPixels": 1129,
+   "coverage": 1,
+   "overshoot": 2,
+   "overshootBound": 3,
+   "meshArea": 2072,
+   "enclosedTransparentArea": 943,
+   "filledHolePixels": 765,
+   "smallestAngle": {
+    "triangle": 15,
+    "value": 8.21278
+   },
+   "largestEdgeRatio": {
+    "triangle": 15,
+    "value": 5.315073
+   },
+   "nonDelaunayEdges": 0,
+   "strayIslands": 0,
+   "strayPixels": 0,
+   "grownPixels": 151,
+   "pinchFilledPixels": 0,
+   "grownHolePixels": 0,
+   "outlineCut": 0
+  },
+  "regions": []
  },
  {
   "part": "hair_front",

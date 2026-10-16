@@ -134,6 +134,9 @@ cfg["stops"] = [
     {"chain": "hairback_l", "against": "chest", "at": [0, 120], "inward": -1.5, "outward": 7.0, "lower": {"inward": -2.0, "outward": 9.0}}
 ]
 
+cfg["meshes"]["neck"].pop("grid", None)
+cfg["meshes"]["neck"]["contour"] = {'tolerance': 2, 'margin': 3, 'spacing': 40, 'maxEdge': 50}
+
 cfg["meshes"]["hair_back"].pop("grid", None)
 cfg["meshes"]["hair_back"]["contour"] = {'tolerance': 4, 'margin': 4, 'spacing': 54, 'maxEdge': 54, 'budget': 92}
 cfg["meshes"]["handwear_r"].pop("grid", None)

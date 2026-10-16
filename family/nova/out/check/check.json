@@ -140,6 +140,29 @@
  "seam_px_over_40": 1,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.068051,
+ "seam_pairs": [
+  {
+   "parts": [
+    "iris_r",
+    "lash_r"
+   ],
+   "px_over_40": 1,
+   "px_over_80": 0,
+   "frame_box": [
+    279,
+    283,
+    279,
+    283
+   ],
+   "rig_box": [
+    370,
+    435,
+    371,
+    436
+   ],
+   "picture": "seam/01_iris_r_lash_r.png"
+  }
+ ],
  "BREATH_VISIBLE": {
   "status": "PASS",
   "torso_parts": [
@@ -277,7 +300,7 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 5,
-  "triangles": 1432,
+  "triangles": 1456,
   "frames": 41,
   "severity": 1.277,
   "severity_ceiling": 1.926544,
@@ -319,11 +342,11 @@
    },
    {
     "slot": "neck",
-    "triangles": 18,
+    "triangles": 42,
     "max_ratio": 1.014,
-    "max_at": "triangle 15 (vertices 15 8 7), edge 8-7, idle frame 13",
-    "min_ratio": 0.992,
-    "min_at": "triangle 6 (vertices 11 10 12), edge 11-10, idle frame 14",
+    "max_at": "triangle 14 (vertices 10 12 11), edge 11-10, idle frame 13",
+    "min_ratio": 0.991,
+    "min_at": "triangle 27 (vertices 22 25 24), edge 25-24, idle frame 14",
     "severity": 1.014
    },
    {
@@ -370,44 +393,6 @@
     "bottomwear 818 px"
    ]
   }
- },
- "SETUP_POSE_VS_SOURCE": {
-  "status": "REPORTED",
-  "painting_px": "800x2284",
-  "stage_px": "800x2284",
-  "render_px": "744x2284",
-  "render_scale": 1.0681,
-  "mean_abs": 2.807,
-  "within_limit": 8,
-  "within_share": 0.9712,
-  "error_limit": 40,
-  "error_px": 31819,
-  "covered_alpha": 128,
-  "uncovered_error_px": 20634,
-  "hole_count": 538,
-  "largest": {
-   "px": 9695,
-   "box": "321,1478 56x431"
-  }
- },
- "requirements": {
-  "fps": 12,
-  "summary": {
-   "declared": 0,
-   "measured": 0,
-   "pass": 0,
-   "fail": 0,
-   "not_measurable": 0,
-   "not_declared": [
-    "contact",
-    "follow",
-    "aim",
-    "range",
-    "stretch",
-    "seam"
-   ]
-  },
-  "lines": {}
  },
  "PASS": true
 }

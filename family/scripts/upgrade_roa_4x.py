@@ -518,7 +518,7 @@ cfg = {
       ]
     },
     "earring": {
-      "grid": 57,
+      "contour": {"tolerance": 1, "margin": 1, "spacing": 24, "maxEdge": 24},
       "r": 4,
       "segments": [
         ["head", [274, 321], [274, 329]],
@@ -526,7 +526,7 @@ cfg = {
       ]
     },
     "neck": {
-      "grid": 57,
+      "contour": {"tolerance": 2, "margin": 3, "spacing": 40, "maxEdge": 50},
       "r": 5,
       "segments": [
         ["chest", [365, 468], [365, 657]],
