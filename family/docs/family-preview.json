@@ -184,15 +184,20 @@
   "background": "transparent; browser compositor alpha, no chromakey",
   "warmupCycles": 6,
   "physicsStepSeconds": 0.016666666666666666,
-  "gust": {
-    "peak": 16,
-    "start": 0.35,
-    "duration": 1.3,
-    "profile": "sin(pi*u)^2"
+  "environment": {
+    "wind": [
+      4,
+      0
+    ],
+    "gravity": [
+      0,
+      0
+    ],
+    "profile": "constant gentle breeze"
   },
   "blink": "viewer smooth curve, deterministic staggered schedule",
   "quality": 80,
-  "captureRecipeSha256": "1232b71b7a84330ecff311482a4de0aba47c203eafc2aeb2d602e8f068524ceb",
+  "captureRecipeSha256": "4608117c6b4ac64cb2e27fc60698cd4936b3eba60a4147ad3368303dcb8ad975",
   "browser": "151.0.7922.34",
   "sources": {
     "accepted-inputs.json": "a68d0eb3a561c401d626b9aad94a58eee2a8e2719c71125d2ff8af076eee96c7",
@@ -208,8 +213,8 @@
     "naru/out/check/build/skeleton.png": "671c9fb591e68279a37adc1ab2ea3f093a116804942d5955b6e0c37191755f14",
     "nova/out/check/build/skeleton.png": "134523763d7fead761d9a80195c23ddc0ebc6286878fdd0204db9a445d00ef0e"
   },
-  "bytes": 7430212,
-  "sha256": "01a7e7f292f0a286f56a650f8697cccf97832a982c5b541f74c2ad6cf90f9a53",
+  "bytes": 7415440,
+  "sha256": "f55e570737e777b2dfd1ff6d257c60a9f5e0afc2135d391aacfa92df1035d217",
   "verification": {
     "decodedFrames": 67,
     "durationMs": 3333,
@@ -218,14 +223,14 @@
     "everyFrameHasIntermediateAlpha": true,
     "allFourCanvasCornersAlpha": 0,
     "alphaMaxErrorFromEncodingPNG": 0,
-    "opaqueRGBMeanAbsoluteError": 2.6011262080739024,
+    "opaqueRGBMeanAbsoluteError": 2.606284061771179,
     "foregroundPremultipliedRGBA": {
-      "adjacentMAEMin": 1.3689442873001099,
-      "adjacentMAEMedian": 1.7685452699661255,
-      "adjacentMAEMax": 2.8282434940338135,
-      "lastToFirstMAE": 1.3907063007354736,
+      "adjacentMAEMin": 1.3685954809188843,
+      "adjacentMAEMedian": 1.744076669216156,
+      "adjacentMAEMax": 2.3954851627349854,
+      "lastToFirstMAE": 1.3808507919311523,
       "periodicFirstToExtraFrame100MAE": 0.0,
-      "frame0To33MAE": 7.9108805656433105
+      "frame0To33MAE": 8.07996940612793
     }
   }
 }

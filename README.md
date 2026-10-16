@@ -16,10 +16,10 @@ records and checkpoint credits below concern those standalone examples.
 
 ## Family: repairing the result
 
-![Five Family rigs breathing and responding to a gentle gust, on a transparent background](family/docs/family-preview.webp)
+![Five Family rigs breathing and responding to a gentle breeze, on a transparent background](family/docs/family-preview.webp)
 
 The accepted five-rig composition, rendered with its real idle animation and
-physics: a 960 × 832, 3.33-second animated WebP (7.43 MB) with transparency. [Render recipe](family/scripts/render-readme-preview.mjs) · [Source hashes and timing](family/docs/family-preview.json).
+physics: a 960 × 832, 3.33-second animated WebP (7.42 MB) with transparency. [Render recipe](family/scripts/render-readme-preview.mjs) · [Source hashes and timing](family/docs/family-preview.json).
 
 The [Family case study](family/REPAIR_CASE_STUDY.md) follows five characters
 from a group painting through repairs to their alpha edges, mesh bindings and

@@ -83,11 +83,9 @@ for (const [index, [key, offset, offsetPhase, z]] of settings.lineup.entries()) 
 }
 function step() {
   tick++;
-  const t = phase(), u=(t-.35)/1.3;
-  const wind=u>0 && u<1 ? 16*Math.sin(Math.PI*u)**2 : 0;
-  for (const {player} of entries) { player.environment({wind:[wind,0],gravity:[0,0]}); player.advance(dt); }
+  for (const {player} of entries) { player.environment({wind:[4,0],gravity:[0,0]}); player.advance(dt); }
 }
-// Repeat the same gust and blink during warmup, so the captured physics is periodic.
+// Settle the constant breeze and periodic blink before capturing the idle loop.
 for(let i=0;i<period*6;i++) step();
 function draw() { for(const {player} of entries) player.draw(); }
 draw();
@@ -158,6 +156,6 @@ const encode=['-min_size','-loop','0','-lossy','-q',String(quality),'-m','4'];
 for(let i=0;i<outputFrames;i++) encode.push('-d',String(Math.round((i+1)*duration*1000/outputFrames)-Math.round(i*duration*1000/outputFrames)),path.join(evidence,`encoded-${String(i).padStart(3,'0')}.png`));
 encode.push('-o',output);
 await run('img2webp',encode);
-const metadata={schema:'family-readme-preview/1',...settings,width:outputWidth,height:outputHeight,frames:outputFrames,capture:{width,height,frames},sourceFrameIndices:indices,frameDurationsMs:Array.from({length:outputFrames},(_,i)=>Math.round((i+1)*duration*1000/outputFrames)-Math.round(i*duration*1000/outputFrames)),loop:0,renderer:'accepted viewer DOM/per-part WebGL',background:'transparent; browser compositor alpha, no chromakey',warmupCycles:6,physicsStepSeconds:1/60,gust:{peak:16,start:.35,duration:1.3,profile:'sin(pi*u)^2'},blink:'viewer smooth curve, deterministic staggered schedule',quality,captureRecipeSha256:captureRecipe.htmlSha256,browser:receipt.browser,sources,bytes:(await fs.stat(output)).size,sha256:await sha(output)};
+const metadata={schema:'family-readme-preview/1',...settings,width:outputWidth,height:outputHeight,frames:outputFrames,capture:{width,height,frames},sourceFrameIndices:indices,frameDurationsMs:Array.from({length:outputFrames},(_,i)=>Math.round((i+1)*duration*1000/outputFrames)-Math.round(i*duration*1000/outputFrames)),loop:0,renderer:'accepted viewer DOM/per-part WebGL',background:'transparent; browser compositor alpha, no chromakey',warmupCycles:6,physicsStepSeconds:1/60,environment:{wind:[4,0],gravity:[0,0],profile:'constant gentle breeze'},blink:'viewer smooth curve, deterministic staggered schedule',quality,captureRecipeSha256:captureRecipe.htmlSha256,browser:receipt.browser,sources,bytes:(await fs.stat(output)).size,sha256:await sha(output)};
 await fs.writeFile(output.replace(/\.webp$/,'.json'),JSON.stringify(metadata,null,2)+'\n');
 console.log(JSON.stringify({output,evidence,bytes:metadata.bytes,sha256:metadata.sha256}));
