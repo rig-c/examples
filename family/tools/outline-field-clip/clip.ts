@@ -1,0 +1,43 @@
+/** Consumer authoring transform: clip a gated mesh while retaining its piecewise-affine binding field. */
+import{readFileSync,writeFileSync,mkdirSync}from'node:fs';import{dirname,resolve}from'node:path';import{existsSync}from'node:fs';import{createHash}from'node:crypto';import{mergeAffineStars}from'./affine.ts';import{assertAlphaCovered}from'./coverage.ts';
+import polyclip from'polygon-clipping';import{traceAlphaOutline,simplifyClosedPolygon,offsetPolygon,findSelfIntersection,earClip,traceOutline}from'rig-c/mesh';import{readPng}from'@rig-c/parts/src/raster/png.ts';
+const args=process.argv.slice(2);function arg(k:string){const i=args.indexOf('--'+k);if(i<0||!args[i+1])throw Error('ARG_REQUIRED '+k);return args[i+1];}
+const input=arg('input'),output=arg('output'),parts=arg('parts').split(','),images=arg('images'),motion=JSON.parse(readFileSync(arg('motion'),'utf8'));
+const digest=(v:unknown)=>createHash('sha256').update(JSON.stringify(v)).digest('hex');
+const bytesDigest=(p:string)=>createHash('sha256').update(readFileSync(p)).digest('hex');
+const rig=JSON.parse(readFileSync(input,'utf8')),records=[];
+const policy=JSON.parse(readFileSync(arg('policy'),'utf8'));
+if(resolve(input)===resolve(output)||existsSync(output)||existsSync(output+'.provenance.json'))throw Error('CLIP_OUTPUT_MUST_BE_NEW');
+if(policy.spec!=='rigc-outline-field-clip/1'||policy.sourceRigSHA256!==digest(rig))throw Error('CLIP_SOURCE_RIG_MISMATCH');
+if(JSON.stringify(parts)!==JSON.stringify(policy.targets.map((t:{part:string})=>t.part)))throw Error('CLIP_TARGETS_MISMATCH');
+if(policy.silhouette?.dilation!==4||policy.silhouette?.tolerance!==3||policy.affineResidualTolerance!==1e-9)throw Error('CLIP_POLICY_PARAMETERS');
+if(policy.sourceMotionSHA256!==digest(motion))throw Error('CLIP_SOURCE_MOTION_MISMATCH');
+if(new Set(parts).size!==parts.length||parts.some(p=>!p))throw Error('CLIP_DUPLICATE_TARGET');
+for(const [name,animation]of Object.entries(motion.animations as Record<string,{deform?:{slot:string;attachment:string}[]}>))for(const track of animation.deform??[])if(parts.includes(track.slot))throw Error('CLIP_TARGET_DEFORM_UNSUPPORTED '+name+' '+track.slot);
+for(const skin of Object.values(rig.skins as Record<string,Record<string,Record<string,{type?:string;parent?:string}>>>))for(const [slot,attachments]of Object.entries(skin))for(const a of Object.values(attachments))if(a.type?.includes('linked')&&(parts.includes(slot)||(a.parent!==undefined&&parts.includes(a.parent))))throw Error('CLIP_LINKED_TARGET_UNSUPPORTED '+slot+' parent '+a.parent);
+const untouched=JSON.parse(JSON.stringify(rig));
+for(const target of policy.targets){const a=rig.skins.default[target.part]?.[target.part];if(!a||digest(a)!==target.attachmentSHA256)throw Error('CLIP_SOURCE_ATTACHMENT_MISMATCH '+target.part);if(bytesDigest(`${images}/${target.part}.png`)!==target.imageSHA256)throw Error('CLIP_SOURCE_IMAGE_MISMATCH '+target.part);}
+
+type Pt=[number,number];type Binding={bone:string,x:number,y:number,weight:number};
+const area=(a:Pt,b:Pt,c:Pt)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]);
+for(const part of parts){const a=rig.skins.default[part][part],png=readPng(`${images}/${part}.png`),w=png.width,h=png.height;if(a.type!=='mesh'||a.image!==`${part}.png`||a.sequence)throw Error('CLIP_IMAGE_BINDING_UNSUPPORTED '+part);if(!a.weights||a.width!==w||a.height!==h)throw Error('WEIGHTED_IMAGE_REQUIRED '+part);
+ const alpha=new Uint8Array(w*h);let sourceArt=0;for(let y=0;y<h;y++)for(let x=0;x<w;x++)if(png.data[(y*w+x)*4+3]>=1){sourceArt++;for(let dy=-4;dy<=4;dy++)for(let dx=-4;dx<=4;dx++){const xx=x+dx,yy=y+dy;if(xx>=0&&yy>=0&&xx<w&&yy<h)alpha[yy*w+xx]=255;}}
+ const traced=traceAlphaOutline({width:w,height:h,alpha},1);if(traced.artPixels!==traced.islandPixels)throw Error(`CLIP_MULTI_COMPONENT ${part} ${traced.islands} ${traced.islandPixels}/${traced.artPixels}`);
+ const outline=simplifyClosedPolygon(traced.outline,3).map(([x,y])=>[Math.max(0,Math.min(w,x)),Math.max(0,Math.min(h,y))]as Pt);if(findSelfIntersection(outline))throw Error('CLIP_OUTLINE_SELF_INTERSECTION '+part);
+ const points:Pt[]=[],weights:Binding[][]=[],origins:{triangle:number,coefficients:number[]}[]=[],triangles:number[]=[],indices=new Map<string,number>();
+ const uv:Pt[]=Array.from({length:a.uvs.length/2},(_,i)=>[a.uvs[2*i]*w,a.uvs[2*i+1]*h]);
+ function vertex(p:Pt,ids:number[],ti:number){p=p.map(v=>Math.round(v*1e9)/1e9)as Pt;const key=p.join(',');const prior=indices.get(key);if(prior!==undefined)return prior;const[aa,bb,cc]=ids.map(i=>uv[i]);const det=area(aa,bb,cc);const b1=area(p,bb,cc)/det,b2=area(aa,p,cc)/det,b3=1-b1-b2;let bs=[b1,b2,b3];if(Math.min(...bs)<-1e-6)throw Error('CLIP_VERTEX_OUTSIDE_SOURCE_TRIANGLE');bs=bs.map(v=>Math.max(0,Math.min(1,v)));const sum=bs.reduce((a,b)=>a+b,0);bs=bs.map(v=>v/sum);
+ const named=new Map<string,{weight:number,x:number,y:number}>();ids.forEach((id,j)=>{for(const b of a.weights[id]as Binding[]){const share=b.weight*bs[j],m=named.get(b.bone)??{weight:0,x:0,y:0};m.weight+=share;m.x+=share*b.x;m.y+=share*b.y;named.set(b.bone,m);}});const ws=[...named].filter(([,b])=>b.weight>1e-14).map(([bone,b])=>({bone,x:b.x/b.weight,y:b.y/b.weight,weight:b.weight}));
+ const at=points.length;indices.set(key,at);points.push(p);weights.push(ws);origins.push({triangle:ti,coefficients:bs});return at;}
+ for(let t=0;t<a.triangles.length;t+=3){const ids=a.triangles.slice(t,t+3),original=ids.map((i:number)=>uv[i]);const clipped=polyclip.intersection([original],[outline]);for(const polygon of clipped){if(polygon.length!==1)throw Error('CLIP_INTERSECTION_HOLE '+part);let ring=polygon[0].slice(0,-1)as Pt[];ring=ring.filter((p,i)=>i===0||Math.hypot(p[0]-ring[i-1][0],p[1]-ring[i-1][1])>1e-9);if(ring.length<3)continue;const local=earClip(ring);for(let k=0;k<local.length;k+=3){const ps=local.slice(k,k+3).map(i=>ring[i]);if(Math.abs(area(ps[0],ps[1],ps[2]))<1e-8)continue;const out=ps.map(p=>vertex(p,ids,t/3));if(area(ps[0],ps[1],ps[2])*area(original[0],original[1],original[2])<0)[out[1],out[2]]=[out[2],out[1]];triangles.push(...out);}}}
+ const merged=policy.mergeAffine===true?mergeAffineStars(points,weights,triangles,policy.affineResidualTolerance):{triangles,removed:[],tolerance:policy.affineResidualTolerance};
+ const finalTriangles=merged.triangles;
+ const used=[...new Set(finalTriangles)].sort((a,b)=>a-b),compact=new Map(used.map((v,i)=>[v,i]));const oldPoints=used.map(i=>points[i]),oldWeights=used.map(i=>weights[i]),oldOrigins=used.map(i=>origins[i]),ts=finalTriangles.map(i=>compact.get(i)!);const border=traceOutline(used.length,ts),walk=border.walk;const order=[...walk,...used.map((_,i)=>i).filter(i=>!walk.includes(i))],remap=new Map(order.map((v,i)=>[v,i]));
+ const sourceVertices=a.uvs.length/2,sourceTriangles=a.triangles.length/3;const result={...a,uvs:order.flatMap(i=>[oldPoints[i][0]/w,oldPoints[i][1]/h]),weights:order.map(i=>oldWeights[i]),triangles:ts.map(i=>remap.get(i)!),hull:border.hull};rig.skins.default[part][part]=result;
+ records.push({part,sourceRigSHA256:policy.sourceRigSHA256,sourceMotionSHA256:policy.sourceMotionSHA256,policySHA256:digest(policy),sourceAttachmentSHA256:digest(untouched.skins.default[part][part]),sourceImageSHA256:bytesDigest(`${images}/${part}.png`),affineMerge:merged.removed,affineResidualTolerance:merged.tolerance,method:'Author-input silhouette clip of original triangle cells; weighted local coordinate contributions barycentrically interpolated by bone; no distance-weight solve, no physics change.',sourceVertices,sourceTriangles,vertices:order.length,triangles:ts.length/3,hull:border.hull,sourceAlphaGt0:sourceArt,silhouette:{alphaThreshold:1,dilationChebyshevPixels:4,tolerance:3,margin:0,traceIslands:traced.islands,outlineVertices:outline.length},originTriangles:order.map(i=>oldOrigins[i])});
+ const coverage=assertAlphaCovered(part,png,result.uvs,result.triangles);
+ (records[records.length-1]as {missingAlphaGt0?:number}).missingAlphaGt0=coverage.missing;
+ console.log('CLIPPED',part,sourceVertices,sourceTriangles,'->',order.length,ts.length/3);}
+for(const key of Object.keys(untouched))if(key!=='skins'&&JSON.stringify(untouched[key])!==JSON.stringify(rig[key]))throw Error('CLIP_NON_TARGET_FIELD '+key);
+for(const skin of Object.keys(untouched.skins))for(const slot of Object.keys(untouched.skins[skin]))if((skin!=='default'||!parts.includes(slot))&&JSON.stringify(untouched.skins[skin][slot])!==JSON.stringify(rig.skins[skin][slot]))throw Error('CLIP_NON_TARGET_ATTACHMENT '+slot);
+mkdirSync(dirname(output),{recursive:true});writeFileSync(output,JSON.stringify(rig,null,2)+'\n');writeFileSync(output+'.provenance.json',JSON.stringify(records,null,2)+'\n');

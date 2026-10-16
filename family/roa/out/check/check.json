@@ -347,7 +347,7 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 7,
-  "triangles": 1207,
+  "triangles": 1395,
   "frames": 41,
   "severity": 1.083,
   "severity_ceiling": 1.926544,
@@ -367,16 +367,16 @@
    "ratio": 1.083
   },
   "max_ratio": 1.083,
-  "min_ratio": 0.952,
+  "min_ratio": 0.951,
   "per_mesh": [
    {
     "slot": "bottomwear",
-    "triangles": 298,
-    "max_ratio": 1.018,
-    "max_at": "triangle 273 (vertices 40 39 38), edge 40-39, idle frame 31",
+    "triangles": 422,
+    "max_ratio": 1.019,
+    "max_at": "triangle 335 (vertices 309 110 109), edge 110-109, idle frame 31",
     "min_ratio": 0.983,
-    "min_at": "triangle 231 (vertices 156 160 161), edge 161-156, idle frame 30",
-    "severity": 1.018
+    "min_at": "triangle 279 (vertices 69 297 70), edge 70-69, idle frame 30",
+    "severity": 1.019
    },
    {
     "slot": "handwear_r",
@@ -425,12 +425,12 @@
    },
    {
     "slot": "hair_front",
-    "triangles": 24,
-    "max_ratio": 1.067,
-    "max_at": "triangle 21 (vertices 18 9 8), edge 9-8, idle frame 19",
-    "min_ratio": 0.952,
-    "min_at": "triangle 19 (vertices 18 10 9), edge 10-9, idle frame 20",
-    "severity": 1.067
+    "triangles": 88,
+    "max_ratio": 1.071,
+    "max_at": "triangle 78 (vertices 56 54 82), edge 56-54, idle frame 19",
+    "min_ratio": 0.951,
+    "min_at": "triangle 68 (vertices 57 82 58), edge 58-57, idle frame 20",
+    "severity": 1.071
    }
   ]
  },

@@ -1,0 +1,23 @@
+{
+  "spec": "rigc-outline-field-clip/1",
+  "sourceRigSHA256": "d84275ccc0454eee6166b3d5b553d2d2cbe35a2d8d66f239538f8fb921f92d00",
+  "sourceMotionSHA256": "f4202d677653d22c51c83fd6fa3cc994f989cdc9b02fd7ab3618ab160eba1630",
+  "targets": [
+    {
+      "part": "hair_front",
+      "attachmentSHA256": "34ce8bfec742f7ca8c97531922dc4e93b53e679484c2b224db66828c3fb5e4e2",
+      "imageSHA256": "93c847c30dcf0ac6678a1edcf42098ab3c9c8d19ae447aa7a512eb805e25b5ab"
+    },
+    {
+      "part": "bottomwear",
+      "attachmentSHA256": "cd2cbd184b6e24af07930ff5a92d5be26e328b322a5e35327eb95bbc0d3ad30d",
+      "imageSHA256": "6e210b69be292bd33698907ec874be1090283cc8b445570b86c28faf37df3e7e"
+    }
+  ],
+  "silhouette": {
+    "dilation": 4,
+    "tolerance": 3
+  },
+  "mergeAffine": true,
+  "affineResidualTolerance": 1e-9
+}
