@@ -317,3 +317,26 @@ test('homewear-office-homewear cycles preserve cleanup ownership and individual 
   for (const player of h.created) assert.equal(player.disposed, 1);
   for (const request of h.requests) assert.equal(request.assets.disposed, 1);
 });
+
+test('paused zoom redraws the current pose after raster sync without advancing any player clock', async () => {
+  const h = harness(), before = await family(h);
+  h.node('pauseBtn').listeners.click();
+  const phases = before.players.map(p => p.player.phase);
+  const frameCounts = before.players.map(p => p.player.frames.length);
+  const syncCounts = before.players.map(p => p.player.fit);
+  before.camera.zoom = 3.2;
+  const settings = JSON.stringify(before.ui);
+  h.viewer.updateViewport();
+  const after = h.viewer.state();
+  assert.equal(after.camera, before.camera); assert.equal(after.camera.zoom, 3.2); assert.equal(after.ui.paused, true);
+  assert.equal(JSON.stringify(after.ui), settings);
+  for (const [i, entry] of after.players.entries()) {
+    assert.equal(entry.player.phase, phases[i]);
+    assert.equal(entry.player.fit, syncCounts[i] + 1);
+    assert.equal(entry.player.frames.length, frameCounts[i] + 1);
+    assert.equal(entry.player.frames.at(-1).dt, 0);
+    assert.equal(entry.player.frames.at(-1).fit, syncCounts[i] + 1);
+    assert.equal(entry.player.frames.at(-1).parent, after.container);
+  }
+  h.viewer.dispose();
+});

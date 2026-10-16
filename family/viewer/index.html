@@ -314,7 +314,10 @@
         const point = worldToPanel(art.x, art.y + art.height, camera, scale, panelSize(refPane));
         refImg.style.cssText = `left:${point.x}px;top:${point.y}px;width:${art.width * scale}px;height:${art.height * scale}px`;
       }
-      for (const p of players) p.player.renderer.syncPixelRatio();
+      for (const p of players) {
+        p.player.renderer.syncPixelRatio();
+        if (paused) p.player.frame(0);
+      }
       redrawOverlay();
     }
     function redrawOverlay() {
