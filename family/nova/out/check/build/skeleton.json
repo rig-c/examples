@@ -5,7 +5,7 @@
     "y": 54,
     "width": 536.99994,
     "height": 1980,
-    "images": "../../final/images/"
+    "images": "../../pants-repair-rig/images/"
   },
   "bones": [
     {
@@ -1279,50 +1279,6 @@
       "damping": 0.86,
       "mass": 1.02,
       "wind": 0.19,
-      "gravity": 0.1
-    },
-    {
-      "type": "physics",
-      "name": "cuff_r0_phys",
-      "bone": "cuff_r0",
-      "rotate": 1,
-      "inertia": 0.16,
-      "strength": 400,
-      "damping": 0.94,
-      "wind": 0.8,
-      "gravity": 0.1
-    },
-    {
-      "type": "physics",
-      "name": "cuff_r1_phys",
-      "bone": "cuff_r1",
-      "rotate": 1,
-      "inertia": 0.22,
-      "strength": 340,
-      "damping": 0.92,
-      "wind": 1.4,
-      "gravity": 0.1
-    },
-    {
-      "type": "physics",
-      "name": "cuff_l0_phys",
-      "bone": "cuff_l0",
-      "rotate": 1,
-      "inertia": 0.16,
-      "strength": 400,
-      "damping": 0.94,
-      "wind": 0.8,
-      "gravity": 0.1
-    },
-    {
-      "type": "physics",
-      "name": "cuff_l1_phys",
-      "bone": "cuff_l1",
-      "rotate": 1,
-      "inertia": 0.22,
-      "strength": 340,
-      "damping": 0.92,
-      "wind": 1.4,
       "gravity": 0.1
     }
   ],

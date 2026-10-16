@@ -1,0 +1,45 @@
+{
+  "spec": "nova-cuff-physics/1",
+  "sourceRigSHA256": "15ad9933c1661a1602cfc0ec2b9f00080c8f1f0ceb638a7ce96836e761c43874",
+  "outputRigSHA256": "fb82b08c4eee345333be94ce2ef1258f09cb52960eda23725a998ec0f1abc2ed",
+  "motionSHA256": "9eb0cc074fa492a7c4de8d6983e3726b29bfd6de1624226ae21f9ffc1ceb3e41",
+  "images": {
+    "bottomwear.png": "1ca7e9231e325721e792311e073f79309ac1839c3a79dae3486e50289cfd8fbf",
+    "brow_l.png": "5407dcf93225dfff10d834b07c3f2c776a671e29ac2df2a60385151a26e691d9",
+    "brow_r.png": "5d87993c3b5484551217406b312d26e9a07fde8a3943794099b5797c5a239430",
+    "ear_l.png": "3953c42b2eac6aa962bab6759ff408fb5f1d37d1d607706f2af8cde34020bb76",
+    "eyewhite_l.png": "69eb35ea5bde02bcb947d275514bfcf9fd6b988034afe8d241fa8f1e73ea73ca",
+    "eyewhite_r.png": "da31b7380f3a5af6732498097e2ee01f255041860b50ea56fd1858d46ea383fe",
+    "face.png": "8844e7cf9fd2b50095286b3dd481a3c3794dc374a265da3862aadf2e98c17d15",
+    "hair_back.png": "e95c89e3ca5f158aa58415c669c52a0740060afab2514367205ccbbaaf56c1f4",
+    "hair_front.png": "1098ec429640f06032d1cc049d68a246f7b5c56bfd569d9d5173a9aa044b4da6",
+    "iris_l.png": "27823784dd29b5ba2213bb442527c2b5749d1f499a550054cfe191c88aa081dd",
+    "iris_r.png": "3cb781776bc01050d69ca3f61cf91f1570beb86d9ff75fe8a9dce2dbded98b19",
+    "lash_l.png": "c8def3b38ccb1ecbaa9c4b3577500635b3c000e7d5706318f5afd06a3825b969",
+    "lash_r.png": "62a9e5651ab155add0d620d39f0a638483e1f316a1926dae33490cae3e2f7be7",
+    "mouth.png": "8ff9aa026aafefc0453d44a11d95376b8bd981cfb548b1909663fbe10149800f",
+    "neck.png": "1833e08ada8d818b210fea9fa2a054a9175eaa5ec0a432a77c437a93c24197ea",
+    "nose.png": "81ac144ce34d0007c1cc4ec9f0a68e61abf6d309b8debeb0b22bbbf3733c8c42",
+    "shoes.png": "03b4266b17c4153d4bf04eb9b86d03b2ff74b90dee5c4882789e04ca45d4bc23",
+    "topwear.png": "b73fe1936a21296ebd3a54108acc44790a7c0f380059aea293884d12c6e00ee1"
+  },
+  "constraints": [
+    {
+      "name": "cuff_r0_phys",
+      "remove": true
+    },
+    {
+      "name": "cuff_r1_phys",
+      "remove": true
+    },
+    {
+      "name": "cuff_l0_phys",
+      "remove": true
+    },
+    {
+      "name": "cuff_l1_phys",
+      "remove": true
+    }
+  ],
+  "reason": "Narrow trouser cuffs: retain authored idle, topology and weights; disable wind physics to prevent inverted cuff triangles."
+}

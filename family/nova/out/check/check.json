@@ -114,26 +114,6 @@
    "name": "boob_l_phys",
    "bone": "boob_l",
    "in": "rig.json"
-  },
-  {
-   "name": "cuff_r0_phys",
-   "bone": "cuff_r0",
-   "in": "rig.json"
-  },
-  {
-   "name": "cuff_r1_phys",
-   "bone": "cuff_r1",
-   "in": "rig.json"
-  },
-  {
-   "name": "cuff_l0_phys",
-   "bone": "cuff_l0",
-   "in": "rig.json"
-  },
-  {
-   "name": "cuff_l1_phys",
-   "bone": "cuff_l1",
-   "in": "rig.json"
   }
  ],
  "seam_mean": 0.136,
@@ -209,7 +189,7 @@
    {
     "part": "bottomwear",
     "root_rig_px": 0,
-    "tip_rig_px": 0.47,
+    "tip_rig_px": 0.373,
     "ratio": null
    }
   ],
@@ -268,9 +248,9 @@
    "crossing": [
     {
      "slot": "bottomwear",
-     "depth_rig_px": 1.992,
-     "area_rig_px2": 49.672,
-     "frame": 1
+     "depth_rig_px": 1.82,
+     "area_rig_px2": 58.835,
+     "frame": 4
     }
    ]
   }
@@ -312,11 +292,11 @@
    {
     "slot": "bottomwear",
     "triangles": 576,
-    "max_ratio": 1.105,
-    "max_at": "triangle 95 (vertices 62 183 355), edge 183-355, idle frame 26",
-    "min_ratio": 0.914,
-    "min_at": "triangle 101 (vertices 66 68 67), edge 66-68, idle frame 24",
-    "severity": 1.105
+    "max_ratio": 1.076,
+    "max_at": "triangle 95 (vertices 62 183 355), edge 183-355, idle frame 25",
+    "min_ratio": 0.923,
+    "min_at": "triangle 95 (vertices 62 183 355), edge 183-355, idle frame 6",
+    "severity": 1.083
    },
    {
     "slot": "neck",
@@ -353,7 +333,7 @@
    "idle"
   ],
   "fps": 12,
-  "physics_left_out": 25,
+  "physics_left_out": 21,
   "folding": [],
   "folding_undeclared": 0,
   "declared_not_folding": [],

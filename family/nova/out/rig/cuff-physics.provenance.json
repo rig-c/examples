@@ -1,0 +1,25 @@
+{
+  "spec": "nova-cuff-physics-provenance/1",
+  "policySHA256": "c54109dae5c14e32594736c46c359a011bfe1cf7a12d4f2fa9974dea50410e6c",
+  "sourceRigSHA256": "15ad9933c1661a1602cfc0ec2b9f00080c8f1f0ceb638a7ce96836e761c43874",
+  "outputRigSHA256": "fb82b08c4eee345333be94ce2ef1258f09cb52960eda23725a998ec0f1abc2ed",
+  "constraints": [
+    {
+      "name": "cuff_r0_phys",
+      "remove": true
+    },
+    {
+      "name": "cuff_r1_phys",
+      "remove": true
+    },
+    {
+      "name": "cuff_l0_phys",
+      "remove": true
+    },
+    {
+      "name": "cuff_l1_phys",
+      "remove": true
+    }
+  ],
+  "scope": "Only four named cuff physics constraints are removed. Authored idle, bones, weights, topology, images and all other constraints remain unchanged. Authoring input only; normal official build/check must follow."
+}

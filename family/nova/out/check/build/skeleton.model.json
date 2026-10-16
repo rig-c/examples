@@ -33955,62 +33955,6 @@
       "wind": 0.19,
       "gravity": 0.1,
       "mix": 1
-    },
-    {
-      "kind": "physics",
-      "name": "cuff_r0_phys",
-      "declaredIn": "rig",
-      "bone": "cuff_r0",
-      "rotate": 1,
-      "inertia": 0.16,
-      "strength": 400,
-      "damping": 0.94,
-      "mass": 1,
-      "wind": 0.8,
-      "gravity": 0.1,
-      "mix": 1
-    },
-    {
-      "kind": "physics",
-      "name": "cuff_r1_phys",
-      "declaredIn": "rig",
-      "bone": "cuff_r1",
-      "rotate": 1,
-      "inertia": 0.22,
-      "strength": 340,
-      "damping": 0.92,
-      "mass": 1,
-      "wind": 1.4,
-      "gravity": 0.1,
-      "mix": 1
-    },
-    {
-      "kind": "physics",
-      "name": "cuff_l0_phys",
-      "declaredIn": "rig",
-      "bone": "cuff_l0",
-      "rotate": 1,
-      "inertia": 0.16,
-      "strength": 400,
-      "damping": 0.94,
-      "mass": 1,
-      "wind": 0.8,
-      "gravity": 0.1,
-      "mix": 1
-    },
-    {
-      "kind": "physics",
-      "name": "cuff_l1_phys",
-      "declaredIn": "rig",
-      "bone": "cuff_l1",
-      "rotate": 1,
-      "inertia": 0.22,
-      "strength": 340,
-      "damping": 0.92,
-      "mass": 1,
-      "wind": 1.4,
-      "gravity": 0.1,
-      "mix": 1
     }
   ],
   "events": [],
@@ -36783,7 +36727,7 @@
   "images": [
     {
       "region": "hair_back",
-      "page": "../../final/images/hair_back.png",
+      "page": "../../pants-repair-rig/images/hair_back.png",
       "width": 441,
       "height": 499,
       "hasAlpha": true,
@@ -36791,7 +36735,7 @@
     },
     {
       "region": "shoes",
-      "page": "../../final/images/shoes.png",
+      "page": "../../pants-repair-rig/images/shoes.png",
       "width": 276,
       "height": 217,
       "hasAlpha": true,
@@ -36799,7 +36743,7 @@
     },
     {
       "region": "bottomwear",
-      "page": "../../final/images/bottomwear.png",
+      "page": "../../pants-repair-rig/images/bottomwear.png",
       "width": 382,
       "height": 1140,
       "hasAlpha": true,
@@ -36807,7 +36751,7 @@
     },
     {
       "region": "neck",
-      "page": "../../final/images/neck.png",
+      "page": "../../pants-repair-rig/images/neck.png",
       "width": 136,
       "height": 163,
       "hasAlpha": true,
@@ -36815,7 +36759,7 @@
     },
     {
       "region": "topwear",
-      "page": "../../final/images/topwear.png",
+      "page": "../../pants-repair-rig/images/topwear.png",
       "width": 481,
       "height": 721,
       "hasAlpha": true,
@@ -36823,7 +36767,7 @@
     },
     {
       "region": "ear_l",
-      "page": "../../final/images/ear_l.png",
+      "page": "../../pants-repair-rig/images/ear_l.png",
       "width": 51,
       "height": 78,
       "hasAlpha": true,
@@ -36831,7 +36775,7 @@
     },
     {
       "region": "face",
-      "page": "../../final/images/face.png",
+      "page": "../../pants-repair-rig/images/face.png",
       "width": 180,
       "height": 230,
       "hasAlpha": true,
@@ -36839,7 +36783,7 @@
     },
     {
       "region": "eyewhite_r",
-      "page": "../../final/images/eyewhite_r.png",
+      "page": "../../pants-repair-rig/images/eyewhite_r.png",
       "width": 38,
       "height": 32,
       "hasAlpha": true,
@@ -36847,7 +36791,7 @@
     },
     {
       "region": "eyewhite_l",
-      "page": "../../final/images/eyewhite_l.png",
+      "page": "../../pants-repair-rig/images/eyewhite_l.png",
       "width": 59,
       "height": 36,
       "hasAlpha": true,
@@ -36855,7 +36799,7 @@
     },
     {
       "region": "iris_r",
-      "page": "../../final/images/iris_r.png",
+      "page": "../../pants-repair-rig/images/iris_r.png",
       "width": 28,
       "height": 34,
       "hasAlpha": true,
@@ -36863,7 +36807,7 @@
     },
     {
       "region": "iris_l",
-      "page": "../../final/images/iris_l.png",
+      "page": "../../pants-repair-rig/images/iris_l.png",
       "width": 37,
       "height": 43,
       "hasAlpha": true,
@@ -36871,7 +36815,7 @@
     },
     {
       "region": "nose",
-      "page": "../../final/images/nose.png",
+      "page": "../../pants-repair-rig/images/nose.png",
       "width": 34,
       "height": 54,
       "hasAlpha": true,
@@ -36879,7 +36823,7 @@
     },
     {
       "region": "mouth",
-      "page": "../../final/images/mouth.png",
+      "page": "../../pants-repair-rig/images/mouth.png",
       "width": 54,
       "height": 40,
       "hasAlpha": true,
@@ -36887,7 +36831,7 @@
     },
     {
       "region": "lash_r",
-      "page": "../../final/images/lash_r.png",
+      "page": "../../pants-repair-rig/images/lash_r.png",
       "width": 50,
       "height": 36,
       "hasAlpha": true,
@@ -36895,7 +36839,7 @@
     },
     {
       "region": "lash_l",
-      "page": "../../final/images/lash_l.png",
+      "page": "../../pants-repair-rig/images/lash_l.png",
       "width": 72,
       "height": 43,
       "hasAlpha": true,
@@ -36903,7 +36847,7 @@
     },
     {
       "region": "brow_r",
-      "page": "../../final/images/brow_r.png",
+      "page": "../../pants-repair-rig/images/brow_r.png",
       "width": 48,
       "height": 18,
       "hasAlpha": true,
@@ -36911,7 +36855,7 @@
     },
     {
       "region": "brow_l",
-      "page": "../../final/images/brow_l.png",
+      "page": "../../pants-repair-rig/images/brow_l.png",
       "width": 78,
       "height": 28,
       "hasAlpha": true,
@@ -36919,7 +36863,7 @@
     },
     {
       "region": "hair_front",
-      "page": "../../final/images/hair_front.png",
+      "page": "../../pants-repair-rig/images/hair_front.png",
       "width": 420,
       "height": 387,
       "hasAlpha": true,
@@ -37410,6 +37354,6 @@
     }
   ],
   "spine": {
-    "sha256": "dacdd603d4073c33721c29743a3bd27ec3dec6954399e0833fb28596fecb24a0"
+    "sha256": "cecb2e439d20670496828321cdd12da205e51f5b0d4f1bd3d1550b62e24ceb87"
   }
 }
