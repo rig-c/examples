@@ -562,7 +562,7 @@ config = {
       "contour": {
         "tolerance": 2,
         "margin": 2,
-        "spacing": 36,
+        "spacing": 60,
         "maxEdge": 64,
         "stray": 400,
         "bridges": True,

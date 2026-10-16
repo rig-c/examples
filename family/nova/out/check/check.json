@@ -168,7 +168,7 @@
   "torso_parts": [
    "topwear"
   ],
-  "torso_heat_mean": 16.672,
+  "torso_heat_mean": 16.641,
   "torso_floor": 3.809,
   "feet_parts": [
    "shoes"
@@ -300,16 +300,16 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 5,
-  "triangles": 1456,
+  "triangles": 962,
   "frames": 41,
   "severity": 1.277,
   "severity_ceiling": 1.926544,
   "worst": {
    "slot": "topwear",
-   "triangle": 56,
+   "triangle": 47,
    "vertices": [
     32,
-    348,
+    36,
     33
    ],
    "edge": [
@@ -333,11 +333,11 @@
    },
    {
     "slot": "bottomwear",
-    "triangles": 576,
+    "triangles": 276,
     "max_ratio": 1.105,
-    "max_at": "triangle 95 (vertices 62 183 355), edge 183-355, idle frame 26",
+    "max_at": "triangle 113 (vertices 62 182 205), edge 182-205, idle frame 26",
     "min_ratio": 0.914,
-    "min_at": "triangle 101 (vertices 66 68 67), edge 66-68, idle frame 24",
+    "min_at": "triangle 120 (vertices 66 68 67), edge 66-68, idle frame 24",
     "severity": 1.105
    },
    {
@@ -351,11 +351,11 @@
    },
    {
     "slot": "topwear",
-    "triangles": 638,
+    "triangles": 444,
     "max_ratio": 1.277,
-    "max_at": "triangle 56 (vertices 32 348 33), edge 33-32, idle frame 10",
+    "max_at": "triangle 47 (vertices 32 36 33), edge 33-32, idle frame 10",
     "min_ratio": 0.799,
-    "min_at": "triangle 201 (vertices 88 118 89), edge 88-118, idle frame 10",
+    "min_at": "triangle 182 (vertices 88 118 89), edge 88-118, idle frame 10",
     "severity": 1.277
    },
    {
