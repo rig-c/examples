@@ -208,7 +208,7 @@
    {
     "part": "bottomwear",
     "root_rig_px": 0,
-    "tip_rig_px": 0.467,
+    "tip_rig_px": 0.47,
     "ratio": null
    }
   ],
@@ -267,8 +267,8 @@
    "crossing": [
     {
      "slot": "bottomwear",
-     "depth_rig_px": 1.82,
-     "area_rig_px2": 52.903,
+     "depth_rig_px": 1.992,
+     "area_rig_px2": 49.672,
      "frame": 1
     }
    ]
@@ -277,7 +277,7 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 5,
-  "triangles": 1666,
+  "triangles": 1432,
   "frames": 41,
   "severity": 1.277,
   "severity_ceiling": 1.926544,
@@ -310,12 +310,12 @@
    },
    {
     "slot": "bottomwear",
-    "triangles": 810,
-    "max_ratio": 1.109,
-    "max_at": "triangle 187 (vertices 155 157 156), edge 156-155, idle frame 25",
-    "min_ratio": 0.891,
-    "min_at": "triangle 205 (vertices 168 171 169), edge 169-168, idle frame 24",
-    "severity": 1.123
+    "triangles": 576,
+    "max_ratio": 1.105,
+    "max_at": "triangle 95 (vertices 62 183 355), edge 183-355, idle frame 26",
+    "min_ratio": 0.914,
+    "min_at": "triangle 101 (vertices 66 68 67), edge 66-68, idle frame 24",
+    "severity": 1.105
    },
    {
     "slot": "neck",
@@ -389,6 +389,25 @@
    "px": 9695,
    "box": "321,1478 56x431"
   }
+ },
+ "requirements": {
+  "fps": 12,
+  "summary": {
+   "declared": 0,
+   "measured": 0,
+   "pass": 0,
+   "fail": 0,
+   "not_measurable": 0,
+   "not_declared": [
+    "contact",
+    "follow",
+    "aim",
+    "range",
+    "stretch",
+    "seam"
+   ]
+  },
+  "lines": {}
  },
  "PASS": true
 }

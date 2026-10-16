@@ -708,7 +708,7 @@ config["motion"]["tracks"].extend([{'chain': 'cuff_r', 'amps': [0.3, 0.9], 'peri
   'phase': 0.33999999999999997,
   'lag': 0.07}])
 config["regions"].pop("bottomwear")
-config["meshes"]["bottomwear"] = {'contour': {'tolerance': 1,
+config["meshes"]["bottomwear"] = {'contour': {'tolerance': 2,
              'margin': 2,
              'spacing': 36,
              'maxEdge': 48,
