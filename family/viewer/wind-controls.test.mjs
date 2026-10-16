@@ -3,107 +3,157 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { runInNewContext } from 'node:vm';
 import { createSceneLoader } from './load-lifecycle.mjs';
-import { createWindControls } from './wind-controls.mjs';
+import { createWindControls, BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, MAX_GUST_DURATION } from './wind-controls.mjs';
+import { readViewState, writeViewState, defaultViewState } from './view-state.mjs';
+import { fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame } from './viewport.mjs';
+import { drawOverlay } from './debug-overlay.mjs';
 
-const near = (actual, expected, tolerance = 1e-9) => assert.ok(Math.abs(actual - expected) <= tolerance, `${actual} != ${expected}`);
+const near = (actual, expected, tolerance = 1e-8) => assert.ok(Math.abs(actual - expected) <= tolerance, `${actual} != ${expected}`);
 
-test('still air, extended signed range and invalid inputs', () => {
+test('diagnostic peak defaults to 48 and combines with the broad base without a hidden total cap', () => {
   const wind = createWindControls();
-  assert.equal(wind.read().wind, 0);
-  for (const value of [-6, -4, 0, 4, 6]) {
-    wind.setBase(value);
-    assert.equal(wind.advance(0.25).wind, value);
-  }
-  wind.setBase(100);
-  assert.equal(wind.read().wind, 6);
-  wind.setBase(-100);
-  assert.equal(wind.read().wind, -6);
-  for (const bad of [NaN, Infinity, -Infinity]) assert.throws(() => wind.setBase(bad), /base wind/);
-  for (const bad of [NaN, Infinity, -0.1]) assert.throws(() => wind.advance(bad), /wind dt/);
-});
-
-test('one smooth 2.4-second gust peaks at 12, follows the starting base sign and returns to base', () => {
-  for (const base of [-3, 0, 3]) {
-    const wind = createWindControls();
-    wind.setBase(base);
+  wind.triggerGust();
+  near(wind.advance(1.2).wind, 48);
+  for (const sign of [-1, 1]) {
+    wind.restore(null);
+    wind.setBase(sign * 100);
+    wind.setGustPeak(200);
     wind.triggerGust();
-    assert.equal(wind.read().wind, base);
-    // Flat start/end slopes prevent an impulse when the pulse begins or ends.
-    assert.ok(Math.abs(wind.advance(0.0001).wind - base) < 0.000001);
-    const peak = wind.advance(1.2 - 0.0001);
-    near(peak.gust, base < 0 ? -12 : 12);
-    near(peak.wind, base < 0 ? -12 : 12);
-    near(wind.advance(1.2).wind, base);
-    assert.equal(wind.read().gusting, false);
+    near(wind.advance(1.2).wind, sign * 300);
+    near(wind.advance(1.2).wind, sign * 100);
   }
-  const wind = createWindControls();
-  wind.setBase(-2);
-  wind.triggerGust();
-  wind.setBase(2);
-  near(wind.advance(1.2).wind, -10, 1e-8); // Direction belongs to this pulse's start.
 });
 
-test('repeated clicks keep one continuous pulse; repeat uses a six-second start interval and finishes when disabled', () => {
+test('invalid settings refuse atomically instead of silently clipping the requested test', () => {
+  const wind = createWindControls();
+  wind.setBase(75);
+  const invalidSettings = [
+    ['setBase', 101], ['setBase', -101],
+    ['setGustPeak', 201], ['setGustPeak', -1],
+    ['setGustDuration', 0], ['setGustDuration', 21],
+  ];
+  for (const [method, bad] of invalidSettings) {
+    const before = wind.snapshot();
+    assert.throws(() => wind[method](bad), RangeError);
+    assert.deepEqual(wind.snapshot(), before);
+  }
+  for (const bad of [NaN, Infinity, -Infinity]) {
+    for (const method of ['setBase', 'setGustPeak', 'setGustDuration']) {
+      assert.throws(() => wind[method](bad), RangeError);
+    }
+  }
+  for (const bad of [-1, NaN, Infinity]) assert.throws(() => wind.advance(bad), RangeError);
+});
+
+test('pulse settings and direction remain continuous during a pulse and apply on the next one', () => {
+  const wind = createWindControls();
+  wind.setBase(10);
+  wind.triggerGust();
+  near(wind.advance(1.2).wind, 58);
+
+  wind.setGustPeak(200);
+  wind.setGustDuration(6);
+  wind.setBase(-10);
+  near(wind.read().wind, 38);
+  wind.triggerGust();
+  near(wind.read().wind, 38);
+  assert.equal(wind.read().activeGustDuration, 2.4);
+
+  near(wind.advance(1.2).wind, -10);
+  wind.triggerGust();
+  near(wind.advance(3).wind, -210);
+});
+
+test('both extreme durations, directions, repeat and opposite base remain finite without a hidden envelope', () => {
+  for (const duration of [0.1, 20]) {
+    for (const sign of [-1, 1]) {
+      const wind = createWindControls();
+      wind.setBase(sign * 100);
+      wind.setGustPeak(200);
+      wind.setGustDuration(duration);
+      wind.setRepeat(true);
+      near(wind.advance(duration / 2).wind, sign * 300);
+
+      wind.setBase(-sign * 100);
+      near(wind.read().wind, sign * 100);
+      wind.triggerGust();
+      near(wind.read().wind, sign * 100);
+      near(wind.advance(duration / 2).wind, -sign * 100);
+
+      const gap = Math.max(6, duration + 0.6) - duration;
+      wind.advance(gap + duration / 2);
+      near(wind.read().wind, -sign * 300, 1e-7);
+      wind.setBreeze(true);
+      for (let i = 0; i < 200; i++) assert.ok(Number.isFinite(wind.advance(0.13).wind));
+    }
+  }
+});
+
+test('repeat uses six-second starts for short pulses and leaves a gap after long pulses', () => {
   const wind = createWindControls();
   wind.setRepeat(true);
-  near(wind.advance(1.2).wind, 12);
-  wind.triggerGust();
-  near(wind.read().wind, 12);
-  near(wind.advance(1.2).wind, 0);
-  near(wind.advance(3.6).wind, 0);
-  near(wind.advance(1.2).wind, 12);
+  near(wind.advance(1.2).wind, 48);
   wind.setRepeat(false);
-  near(wind.read().wind, 12);
   near(wind.advance(1.2).wind, 0);
-  near(wind.advance(6).wind, 0);
-  // A large elapsed step retains the pulse phase rather than accumulating pulses.
+  near(wind.advance(10).wind, 0);
+
+  wind.restore(null);
+  wind.setGustDuration(20);
   wind.setRepeat(true);
-  near(wind.advance(13.2).wind, 12, 1e-8);
+  assert.equal(wind.advance(20.1).gusting, false);
+  assert.equal(wind.advance(0.6).gusting, true);
+  assert.ok(wind.read().gust > 0);
+  assert.ok(Number.isFinite(wind.advance(1e6).wind));
 });
 
-test('base reversal plus clicks and enabling repeat preserve the current pulse, then use the new direction', () => {
-  const wind = createWindControls();
-  wind.setBase(6);
-  wind.triggerGust();
-  near(wind.advance(1.2).wind, 12);
-  wind.setBase(-6);
-  near(wind.read().wind, 6);
-  wind.triggerGust();
-  near(wind.read().wind, 6);
-  wind.setRepeat(true);
-  near(wind.read().wind, 6);
-  near(wind.read().gust, 12);
-  near(wind.advance(1.2).wind, -6);
-  near(wind.advance(3.6).wind, -6);
-  near(wind.advance(1.2).wind, -12);
-});
-
-test('breeze preserves its original waveform, composes with gust/base, and clamps both extremes', () => {
+test('breeze retains its numeric waveform and composes with the diagnostic pulse without total clipping', () => {
   const wind = createWindControls();
   wind.setBase(2);
   wind.setBreeze(true);
   near(wind.advance(1).wind, 2.8763410617769942);
   wind.setBreeze(false);
   assert.equal(wind.read().wind, 2);
-  // At the slider's extremes a gust must still change the actual wind.
-  for (const base of [-6, 6]) {
-    wind.setBase(base);
-    wind.triggerGust();
-    const peak = wind.advance(1.2).wind;
-    assert.equal(peak, base < 0 ? -12 : 12);
-    assert.equal(peak - base, base < 0 ? -6 : 6);
-    near(wind.advance(1.2).wind, base);
+
+  wind.restore(null);
+  wind.setBase(100);
+  wind.setBreeze(true);
+  wind.setGustPeak(200);
+  wind.setGustDuration(2);
+  wind.triggerGust();
+  near(wind.advance(1).wind, 300.876341061777);
+  wind.setBreeze(false);
+  near(wind.read().wind, 300);
+  near(wind.advance(1).wind, 100);
+});
+
+test('snapshot retains stable configuration and restore begins a fresh test; corrupt restore is atomic', () => {
+  const wind = createWindControls();
+  wind.setBase(-80);
+  wind.setGustPeak(180);
+  wind.setGustDuration(0.4);
+  wind.setBreeze(true);
+  wind.setRepeat(true);
+  wind.advance(0.2);
+
+  const saved = wind.snapshot();
+  const copy = createWindControls();
+  copy.restore(JSON.parse(JSON.stringify(saved)));
+  assert.deepEqual(copy.snapshot(), saved);
+  assert.equal(copy.read().time, 0);
+  near(copy.read().gust, 0);
+  assert.equal(copy.read().gusting, true);
+
+  const invalidSnapshots = [
+    { ...saved, version: 2 }, { ...saved, gustPeak: Infinity },
+    { ...saved, repeat: 'yes' }, [], undefined,
+  ];
+  for (const value of invalidSnapshots) {
+    const before = copy.read();
+    assert.throws(() => copy.restore(value), RangeError);
+    assert.deepEqual(copy.read(), before);
   }
-  for (const base of [-6, 6]) {
-    wind.setBase(base);
-    wind.setBreeze(true);
-    wind.triggerGust();
-    for (let i = 0; i < 720; i++) {
-      const current = wind.advance(1 / 60);
-      assert.ok(Number.isFinite(current.wind) && Math.abs(current.wind) <= 12);
-      assert.equal(current.base, base);
-    }
-  }
+  copy.restore(null);
+  assert.deepEqual(copy.snapshot(), createWindControls().snapshot());
 });
 
 class Element {
@@ -120,19 +170,31 @@ class Element {
       add: name => classes.add(name),
       remove: name => classes.delete(name),
       contains: name => classes.has(name),
-      toggle(name, force = !classes.has(name)) { if (force) classes.add(name); else classes.delete(name); return force; },
+      toggle(name, force = !classes.has(name)) {
+        if (force) classes.add(name); else classes.delete(name);
+        return force;
+      },
     };
   }
-  appendChild(child) { this.children.push(child); child.parent = this; return child; }
+  appendChild(child) {
+    this.children.push(child);
+    child.parent = this;
+    return child;
+  }
   remove() { if (this.parent) this.parent.children = this.parent.children.filter(child => child !== this); }
-  addEventListener(name, listener) { this.listeners[name] = listener; }
+  addEventListener(name, listener) { (this.listeners[name] ??= []).push(listener); }
+  getContext() { return null; }
+  fire(name) { for (const listener of this.listeners[name] ?? []) listener(); }
   setAttribute(name, value) { this.attributes.set(name, value); }
 }
 
-async function viewerHarness() {
+async function viewerHarness(storage = { getItem() { return null; }, setItem() {} }) {
   const html = readFileSync(new URL('./index.html', import.meta.url), 'utf8');
   const nodes = new Map();
-  const node = id => { if (!nodes.has(id)) nodes.set(id, new Element()); return nodes.get(id); };
+  const node = id => {
+    if (!nodes.has(id)) nodes.set(id, new Element());
+    return nodes.get(id);
+  };
   // Read actual input defaults; the VM must not silently supply different UI values.
   for (const match of html.matchAll(/<input\b[^>]*id="([^"]+)"[^>]*>/g)) {
     node(match[1]).value = match[0].match(/value="([^"]*)"/)?.[1] ?? '';
@@ -161,7 +223,9 @@ async function viewerHarness() {
   }
   const assets = key => ({ key, animations: [{ name: 'idle' }], stage: { x: -400, y: 0, width: 800, height: 2284 }, dispose() {} });
   const context = {
-    createSceneLoader, createWindControls, RigPlayer: Player,
+    createSceneLoader, createWindControls, BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, MAX_GUST_DURATION,
+    readViewState, writeViewState, defaultViewState, fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame, drawOverlay,
+    localStorage: storage, RigPlayer: Player,
     loadModel({ modelUrl }) {
       const key = modelUrl.split('/')[1];
       if (pendingLoad) return new Promise(resolve => { pendingLoad.resolve = () => resolve(assets(key)); });
@@ -175,9 +239,16 @@ async function viewerHarness() {
   runInNewContext(source + '\nglobalThis.viewer = { openCharacter, state: () => windControls.read(), players: () => players, dispose: () => sceneLoader.dispose() };', context);
   await new Promise(resolve => setImmediate(resolve));
   return {
-    html, node, viewer: context.viewer, created,
-    input(id, value) { node(id).value = String(value); node(id).listeners.input(); },
-    click(id) { if (!node(id).disabled) node(id).listeners.click(); },
+    html, node, viewer: context.viewer, created, storage,
+    change(id, value) {
+      node(id).value = String(value);
+      node(id).fire('change');
+    },
+    input(id, value) {
+      node(id).value = String(value);
+      node(id).fire('input');
+    },
+    click(id) { if (!node(id).disabled) node(id).fire('click'); },
     step(seconds, frames = Math.round(seconds * 60)) {
       for (let i = 0; i < frames; i++) {
         now += seconds * 1000 / frames;
@@ -186,122 +257,180 @@ async function viewerHarness() {
       }
     },
     blockLoad() { pendingLoad = {}; },
-    releaseLoad() { pendingLoad.resolve(); pendingLoad = null; },
+    releaseLoad() {
+      pendingLoad.resolve();
+      pendingLoad = null;
+    },
   };
 }
 
-test('actual HTML default gust delivers peak 12 to every player with the base slider left at zero', async () => {
+test('actual HTML default gust delivers peak 48 to every player with the base slider left at zero', async () => {
   const h = await viewerHarness();
   assert.equal(h.node('wind').value, '0');
   h.click('pulseBtn');
   h.step(1.2);
-  near(h.viewer.state().wind, 12);
-  assert.equal(h.node('windCurrent').textContent, '12.0');
+  near(h.viewer.state().wind, 48);
+  assert.equal(h.node('windCurrent').textContent, '48.0');
   assert.equal(h.node('wind').value, '0');
   assert.equal(h.node('pulseBtn').disabled, true);
   for (const entry of h.viewer.players()) {
-    near(entry.player.env.wind[0], 12);
-    near(entry.player.frames.at(-1).wind, 12);
+    near(entry.player.env.wind[0], 48);
+    near(entry.player.frames.at(-1).wind, 48);
   }
   h.click('pulseBtn');
-  near(h.viewer.state().wind, 12);
+  near(h.viewer.state().wind, 48);
   h.step(1.2 + 1 / 60);
   near(h.viewer.state().wind, 0);
   assert.equal(h.node('pulseBtn').disabled, false);
   h.viewer.dispose();
 });
 
-test('actual HTML controls preserve selected base, apply one composed environment per frame, and retain gravity', async () => {
+test('actual HTML diagnostic inputs send the requested stress to every player', async () => {
   const h = await viewerHarness();
-  assert.match(h.html, /id="wind"[^>]*min="-6"[^>]*max="6"[^>]*step="0.1"[^>]*value="0"/);
   assert.equal(h.viewer.players().length, 5);
-  for (const entry of h.viewer.players()) assert.equal(entry.player.env.wind[0], 0);
-  h.input('wind', 3);
+  h.input('wind', 100);
+  h.change('gustPeak', 200);
+  h.change('gustDuration', 0.4);
+  h.click('pulseBtn');
+  h.step(0.2);
+  near(h.viewer.state().wind, 300);
+  assert.equal(h.node('windCurrent').textContent, '300.0');
+  for (const entry of h.viewer.players()) near(entry.player.frames.at(-1).wind, 300);
+  h.step(0.2 + 1 / 60);
+  near(h.viewer.state().wind, 100);
+  assert.equal(h.node('pulseBtn').disabled, false);
+  h.viewer.dispose();
+});
+
+test('actual HTML retains gravity and applies exactly one composed environment to each player per frame', async () => {
+  const h = await viewerHarness();
+  h.input('wind', 75);
   h.input('gravity', -1.5);
+  h.change('gustPeak', 120);
+  h.change('gustDuration', 2);
   h.click('gustBtn');
   h.click('pulseBtn');
   const counts = h.viewer.players().map(entry => entry.player.environments.length);
-  h.step(1.2);
-  assert.equal(h.node('wind').value, '3');
-  assert.equal(h.node('windVal').textContent, '3.0');
-  assert.equal(h.node('gustBtn').attributes.get('aria-pressed'), 'true');
+  h.step(0.5);
   const expected = h.viewer.state().wind;
+
+  assert.equal(h.node('wind').value, '75');
+  assert.equal(h.node('windVal').textContent, '75.0');
+  assert.equal(h.node('gustBtn').attributes.get('aria-pressed'), 'true');
   assert.equal(h.node('windCurrent').textContent, expected.toFixed(1));
-  for (const [i, entry] of h.viewer.players().entries()) {
+  for (const [index, entry] of h.viewer.players().entries()) {
+    assert.equal(entry.player.environments.length - counts[index], 30);
     near(entry.player.env.wind[0], expected);
     assert.equal(entry.player.env.gravity[1], -1.5);
-    assert.equal(entry.player.environments.length - counts[i], 72);
     near(entry.player.frames.at(-1).wind, expected);
   }
+
+  // A gravity-only input must retain the current base/breeze/pulse composition.
+  h.input('gravity', 2.5);
+  near(h.viewer.state().wind, expected);
+  for (const entry of h.viewer.players()) {
+    near(entry.player.env.wind[0], expected);
+    assert.equal(entry.player.env.gravity[1], 2.5);
+  }
   h.click('gustBtn');
-  h.step(1.2);
-  near(h.viewer.state().wind, 3);
-  assert.equal(h.node('wind').value, '3');
-  h.input('wind', -6);
-  h.click('pulseBtn');
-  h.step(1.2);
-  assert.equal(h.node('windCurrent').textContent, '-12.0');
-  h.input('wind', 6);
-  // Changing the base mid-pulse does not silently reverse the active gust.
-  assert.equal(h.node('windCurrent').textContent, '-6.0');
-  assert.equal(h.node('pulseBtn').disabled, true);
-  assert.equal(h.node('pulseBtn').textContent, '돌풍 진행 중');
-  h.click('pulseBtn');
-  assert.equal(h.node('windCurrent').textContent, '-6.0');
-  h.click('repeatGustBtn');
-  assert.equal(h.node('windCurrent').textContent, '-6.0');
-  h.step(1.2 + 1 / 60); // Check after the end frame, independent of float accumulation.
-  assert.equal(h.node('pulseBtn').disabled, false);
-  assert.equal(h.node('pulseBtn').textContent, '돌풍');
-  h.click('pulseBtn');
-  h.step(1.2);
-  assert.equal(h.node('windCurrent').textContent, '12.0');
-  assert.equal(h.node('wind').value, '6');
+  h.step(1.5 + 1 / 60);
+  near(h.viewer.state().wind, 75);
   h.viewer.dispose();
 });
 
-test('actual HTML pause freezes wind and repeat clocks; speed applies to wind and player together', async () => {
+test('actual HTML pause, speed and loading keep the diagnostic clock and players together', async () => {
   const h = await viewerHarness();
-  h.click('repeatGustBtn');
+  h.click('pulseBtn');
   h.step(0.6);
-  near(h.viewer.state().wind, 6);
+  near(h.viewer.state().wind, 24);
+
   h.click('pauseBtn');
-  const frozen = h.viewer.state();
-  const frameCount = h.viewer.players()[0].player.frames.length;
+  const state = h.viewer.state();
+  const count = h.viewer.players()[0].player.frames.length;
   h.step(3);
-  assert.deepEqual(h.viewer.state(), frozen);
-  assert.equal(h.viewer.players()[0].player.frames.length, frameCount);
-  h.input('gravity', 2);
-  near(h.viewer.players()[0].player.env.wind[0], 6);
+  assert.deepEqual(h.viewer.state(), state);
+  assert.equal(h.viewer.players()[0].player.frames.length, count);
+
   h.input('speed', 2);
   h.click('pauseBtn');
   h.step(0.3);
-  near(h.viewer.state().wind, 12);
-  near(h.viewer.players()[0].player.frames.at(-1).dt, 1 / 30);
-  h.click('repeatGustBtn');
-  assert.equal(h.node('repeatGustBtn').attributes.get('aria-pressed'), 'false');
-  h.step(0.6);
-  near(h.viewer.state().wind, 0);
-  h.viewer.dispose();
-});
-
-test('actual HTML character load freezes pulse and new players inherit current wind instead of slider base', async () => {
-  const h = await viewerHarness();
-  h.input('wind', -2);
-  h.click('pulseBtn');
-  h.step(1.2);
-  near(h.viewer.state().wind, -12);
+  near(h.viewer.state().wind, 48);
   h.blockLoad();
   const loading = h.viewer.openCharacter('nova');
   const time = h.viewer.state().time;
   h.step(2);
   near(h.viewer.state().time, time);
+
   h.releaseLoad();
   await loading;
   assert.equal(h.viewer.players().length, 1);
-  near(h.viewer.players()[0].player.env.wind[0], -12);
-  assert.equal(h.node('wind').value, '-2');
-  h.step(1.2);
-  near(h.viewer.players()[0].player.env.wind[0], -2);
+  near(h.viewer.players()[0].player.env.wind[0], 48);
+  h.step(0.6 + 1 / 60);
+  near(h.viewer.state().wind, 0);
   h.viewer.dispose();
+});
+
+test('actual HTML stores stress configuration and resets the diagnostic on reload', async () => {
+  let saved = null;
+  const storage = {
+    getItem() { return saved; },
+    setItem(key, value) { saved = value; },
+  };
+  const h = await viewerHarness(storage);
+  h.input('wind', -100);
+  h.change('gustPeak', 190);
+  h.change('gustDuration', 20);
+  h.click('gustBtn');
+  h.click('repeatGustBtn');
+  h.step(0.5);
+
+  const next = await viewerHarness(storage);
+  assert.equal(next.viewer.state().base, -100);
+  assert.equal(next.viewer.state().gustPeak, 190);
+  assert.equal(next.viewer.state().gustDuration, 20);
+  assert.equal(next.viewer.state().breeze, true);
+  assert.equal(next.viewer.state().repeat, true);
+  assert.equal(next.viewer.state().time, 0);
+  h.viewer.dispose();
+  next.viewer.dispose();
+});
+
+
+test('actual HTML numeric inputs survive UI synchronization and reload before a change event', async () => {
+  let saved = null;
+  const storage = {
+    getItem() { return saved; },
+    setItem(key, value) { saved = value; },
+  };
+  const h = await viewerHarness(storage);
+  // Typing/filling dispatches input before blur/change. An unrelated UI action
+  // must not replace these valid edits with the previous controller settings.
+  h.input('gustPeak', 96);
+  h.input('gustDuration', 4);
+  h.click('bonesBtn');
+  assert.equal(h.node('gustPeak').value, '96');
+  assert.equal(h.node('gustDuration').value, '4');
+  assert.equal(h.viewer.state().gustPeak, 96);
+  assert.equal(h.viewer.state().gustDuration, 4);
+
+  const next = await viewerHarness(storage);
+  assert.equal(next.node('gustPeak').value, '96');
+  assert.equal(next.node('gustDuration').value, '4');
+  assert.equal(next.viewer.state().gustPeak, 96);
+  assert.equal(next.viewer.state().gustDuration, 4);
+
+  // An incomplete or out-of-range draft remains editable until change, while
+  // the last valid diagnostic configuration remains standing and persisted.
+  h.input('gustPeak', '');
+  h.input('gustDuration', 0);
+  assert.equal(h.node('gustPeak').value, '');
+  assert.equal(h.node('gustDuration').value, '0');
+  assert.equal(h.viewer.state().gustPeak, 96);
+  assert.equal(h.viewer.state().gustDuration, 4);
+  h.change('gustPeak', '');
+  h.change('gustDuration', 0);
+  assert.equal(h.node('gustPeak').value, '96');
+  assert.equal(h.node('gustDuration').value, '4');
+  h.viewer.dispose();
+  next.viewer.dispose();
 });

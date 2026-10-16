@@ -10,7 +10,7 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, ui-monospace, monospace;
       background: #14161a; color: #e6edf3;
-      height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+      height: 100dvh; display: flex; flex-direction: column; overflow: hidden;
     }
     header {
       display: flex; align-items: center; gap: 12px; padding: 10px 16px;
@@ -19,7 +19,10 @@
     }
     h1 { font-size: 14px; font-weight: 700; color: #fff; margin-right: 6px; }
     h1 span { color: #7a8494; font-weight: 400; font-size: 12px; }
-    .group { display: flex; align-items: center; gap: 6px; }
+    .group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; max-width: 100%; }
+    .group > * { flex-shrink: 0; }
+    .group > span, button { white-space: nowrap; }
+    label { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
     .sep { width: 1px; height: 20px; background: #2a2e37; margin: 0 4px; }
     button, select {
       background: #262a33; color: #d5d9e0; border: 1px solid #363c4a;
@@ -30,28 +33,35 @@
     button.on { background: #e11d48; border-color: #f43f5e; color: #fff; font-weight: 600; }
     input[type="range"] { width: 80px; accent-color: #e11d48; }
     #wind { width: 120px; }
+    input[type="number"] { width: 62px; color: inherit; background: #262a33; border: 1px solid #363c4a; border-radius: 4px; padding: 3px; }
     #pulseBtn { min-width: 100px; }
     #pulseBtn:disabled { cursor: default; opacity: 0.7; }
     #stats { margin-left: auto; font-size: 12px; color: #8fd3a0; font-family: ui-monospace, monospace; }
     #viewport {
-      position: relative; flex: 1; display: flex; overflow: hidden;
+      position: relative; flex: 1; min-height: 0; display: flex; overflow: hidden;
     }
     #stage {
-      position: relative; flex: 1; overflow: hidden; cursor: grab; touch-action: none;
+      position: relative; flex: 1; min-width: 0; min-height: 0; overflow: hidden; cursor: grab; touch-action: none;
     }
     #stage:active { cursor: grabbing; }
-    #stage.bg-dark { background: radial-gradient(circle at 50% 45%, #222631 0%, #12141a 100%); }
-    #stage.bg-grey { background: #808080; }
-    #stage.bg-white { background: #ffffff; }
-    #stage.bg-magenta { background: #ff00ff; }
-    #ref-pane {
-      width: 360px; border-left: 1px solid #2a2e37; background: #181b22;
-      display: none; flex-direction: column; align-items: center; justify-content: center;
-      padding: 16px; gap: 10px;
+    .bg-dark { background: radial-gradient(circle at 50% 45%, #222631 0%, #12141a 100%); }
+    .bg-grey { background: #808080; }
+    .bg-white { background: #ffffff; }
+    .bg-magenta { background: #ff00ff; }
+    #ref-pane { position: relative; flex: 1; min-width: 0; min-height: 0; overflow: hidden;
+      border-left: 1px solid #2a2e37; display: none; touch-action: none; cursor: grab; }
+    #ref-pane.show { display: block; }
+    #refImg { position: absolute; max-width: none; max-height: none; pointer-events: none; }
+    #ref-pane .cap { position: absolute; left: 10px; top: 10px; z-index: 2; font-size: 12px;
+      color: #d5d9e0; padding: 4px 8px; background: #181b22bb; pointer-events: none; }
+    #overlay { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 9; pointer-events: none; }
+    @media (orientation: portrait) {
+      #viewport { flex-direction: column; }
+      #ref-pane { border-left: 0; border-top: 1px solid #2a2e37; }
+      header { padding: 6px 8px; gap: 7px; max-height: 42dvh; overflow-y: auto; }
+      .sep { display: none; }
+      #charSelect { max-width: 76vw; }
     }
-    #ref-pane.show { display: flex; }
-    #ref-pane img { max-height: 82vh; max-width: 100%; object-fit: contain; border-radius: 8px; }
-    #ref-pane .cap { font-size: 12px; color: #8b949e; }
     .hud-tip {
       position: absolute; left: 14px; bottom: 12px; font-size: 12px; color: rgba(255,255,255,0.55);
       background: rgba(0,0,0,0.45); padding: 5px 10px; border-radius: 6px; pointer-events: none;
@@ -108,21 +118,27 @@
 
     <div class="group" title="바람과 돌풍은 재생 속도에 맞춰 진행하며 일시정지하면 멈춥니다">
       <span>물리(치마/헤어/가슴)</span>
-      <label>기본 바람 <input id="wind" type="range" min="-6" max="6" step="0.1" value="0" /></label>
+      <label>기본 바람 <input id="wind" type="range" min="-100" max="100" step="0.1" value="0" /></label>
       <span id="windVal" style="font-size:12px;min-width:36px;">0.0</span>
       <span style="font-size:12px;">현재 <output id="windCurrent" style="display:inline-block;min-width:36px;" aria-label="현재 적용 바람">0.0</output></span>
       <label>중력 <input id="gravity" type="range" min="-3" max="3" step="0.1" value="0" /></label>
       <span id="gravVal" style="font-size:12px;min-width:28px;">0.0</span>
       <button id="gustBtn" aria-pressed="false" title="기본 바람에 사인파 산들바람을 더합니다">산들바람</button>
-      <button id="pulseBtn" title="기본 바람에 2.4초 동안 최대 12를 더합니다(총 세기 최대 12). 시작할 때 기본 바람 방향을 따르며 0이면 오른쪽. 진행 중에는 끝날 때까지 기다립니다">돌풍</button>
-      <button id="repeatGustBtn" aria-pressed="false" title="돌풍을 재생 시간 6초마다 반복. 진행 중인 돌풍을 이어받으며, 끄면 진행 중 돌풍은 끝까지 재생합니다">돌풍 반복</button>
+      <label>돌풍 세기 <input id="gustPeak" type="number" min="0" max="200" step="1" value="48" /></label>
+      <label>돌풍 시간 <input id="gustDuration" type="number" min="0.1" max="20" step="0.1" value="2.4" />초</label>
+      <button id="pulseBtn" title="선택한 세기의 돌풍을 기본 바람에 더합니다. 시작할 때 기본 바람 방향을 따르며 0이면 오른쪽. 진행 중인 돌풍의 설정은 유지됩니다">돌풍</button>
+      <button id="repeatGustBtn" aria-pressed="false" title="돌풍 시작 간격은 6초와 돌풍 시간+0.6초 중 큰 값입니다. 진행 중인 돌풍을 이어받으며, 끄면 진행 중 돌풍은 끝까지 재생합니다">돌풍 반복</button>
       <button id="joltBtn" title="캐릭터에 순간 관성 충격 주기">찰랑이기</button>
     </div>
 
     <div class="sep"></div>
 
     <div class="group">
-      <button id="refBtn" class="on">원화 나란히 보기</button>
+      <button id="refBtn" class="on" aria-pressed="true">원화 비교</button>
+      <button id="bonesBtn" aria-pressed="false">뼈</button>
+      <button id="meshBtn" aria-pressed="false">메시</button>
+      <label>메시 농도 <input id="meshOpacity" type="range" min="0" max="1" step="0.05" value="0.55" /></label>
+      <button id="resetBtn">설정 초기화</button>
     </div>
 
     <div id="stats">로딩 중…</div>
@@ -130,9 +146,10 @@
 
   <div id="viewport">
     <div id="stage" class="bg-dark">
+      <canvas id="overlay" aria-label="현재 포즈의 뼈와 메시 오버레이"></canvas>
       <div class="hud-tip">드래그: 이동 + 물리 관성 · 마우스 휠: 줌 인/아웃</div>
     </div>
-    <div id="ref-pane" class="show">
+    <div id="ref-pane" class="show bg-dark">
       <div class="cap">원본 일러스트 (painting.png)</div>
       <img id="refImg" src="/docs_family_5chars_recomposite.png" alt="원본" />
     </div>
@@ -141,7 +158,10 @@
   <script type="module">
     import { l as loadModel, R as RigPlayer } from '/viewer/assets/player.js';
     import { createSceneLoader } from '/viewer/load-lifecycle.mjs';
-    import { createWindControls } from '/viewer/wind-controls.mjs';
+    import { createWindControls, BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, MAX_GUST_DURATION } from '/viewer/wind-controls.mjs';
+    import { readViewState, writeViewState, defaultViewState } from '/viewer/view-state.mjs';
+    import { fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame } from '/viewer/viewport.mjs';
+    import { drawOverlay } from '/viewer/debug-overlay.mjs';
 
     const stage = document.getElementById('stage');
     const stats = document.getElementById('stats');
@@ -162,13 +182,26 @@
     const refPane = document.getElementById('ref-pane');
     const refImg = document.getElementById('refImg');
 
+    const gustPeakInput = document.getElementById('gustPeak');
+    const gustDurationInput = document.getElementById('gustDuration');
+    windInput.min = String(-BASE_WIND_LIMIT); windInput.max = String(BASE_WIND_LIMIT);
+    gustPeakInput.max = String(MAX_GUST_PEAK);
+    gustDurationInput.min = String(MIN_GUST_DURATION); gustDurationInput.max = String(MAX_GUST_DURATION);
+    const overlay = document.getElementById('overlay');
+    const bonesBtn = document.getElementById('bonesBtn');
+    const meshBtn = document.getElementById('meshBtn');
+    const meshOpacity = document.getElementById('meshOpacity');
+    let storage;
+    try { storage = globalThis.localStorage; } catch { storage = null; }
+    let ui = readViewState(storage);
+    let camera = null;
+    const boneSpecs = new WeakMap();
     let players = [];
     let container = null;
     let box = null;
     let scale = 1;
-    let baseScale = 1;
-    let paused = false;
-    let speed = 1.0;
+    let paused = ui.paused;
+    let speed = ui.speed;
     const windControls = createWindControls();
 
     function syncEnvironment() {
@@ -183,20 +216,62 @@
       }
     }
 
+    function saveState() {
+      ui.character = charSelect.value;
+      ui.paused = paused; ui.speed = speed; ui.gravity = Number(gravInput.value);
+      if (camera && box) ui.cameras[ui.character] = { ...camera };
+      ui.wind = windControls.snapshot?.() ?? windControls.read();
+      writeViewState(storage, ui);
+    }
+
+    function panelSize(element) { return { width: element.clientWidth, height: element.clientHeight }; }
+    function updateViewport() {
+      if (!box || !container || !camera) return;
+      const stageSize = panelSize(stage), panels = [stageSize];
+      if (ui.comparison) panels.push(panelSize(refPane));
+      scale = cameraScale(box, panels, camera.zoom);
+      if (!(scale > 0)) return;
+      const origin = worldToPanel(0, 0, camera, scale, stageSize);
+      container.style.cssText = `position: absolute; transform-origin: 0 0; transform: scale(${scale}); left: ${origin.x}px; top: ${origin.y}px`;
+      if (ui.comparison) {
+        const art = referenceFrame(charSelect.value, box);
+        const point = worldToPanel(art.x, art.y + art.height, camera, scale, panelSize(refPane));
+        refImg.style.cssText = `left:${point.x}px;top:${point.y}px;width:${art.width * scale}px;height:${art.height * scale}px`;
+      }
+      for (const p of players) p.player.renderer.syncPixelRatio();
+      redrawOverlay();
+    }
+    function redrawOverlay() {
+      if (!camera || !box || !container) return;
+      drawOverlay(overlay, players, (x,y) => worldToPanel(x,y,camera,scale,panelSize(stage)), ui, globalThis.devicePixelRatio || 1);
+    }
     function fitStage(mult = 1, focusTop = false) {
       if (!box || !container) return;
-      baseScale = 0.88 * Math.min(stage.clientWidth / box.width, stage.clientHeight / box.height);
-      scale = baseScale * mult;
-      const left0 = (stage.clientWidth - box.width * scale) / 2 - box.x * scale;
-      let top0 = (stage.clientHeight - box.height * scale) / 2 + (box.y + box.height) * scale;
-      if (focusTop) {
-        top0 = stage.clientHeight * 0.25 + (box.y + box.height) * scale;
-      }
-      container.style.cssText = `position: absolute; transform-origin: 0 0; transform: scale(${scale}); left: ${left0}px; top: ${top0}px`;
-      for (const p of players) {
-        p.player.renderer.syncPixelRatio();
-      }
+      camera = fitCamera(box, mult, focusTop);
+      updateViewport(); saveState();
     }
+    function syncUi() {
+      charSelect.value = ui.character;
+      paused = ui.paused; speed = ui.speed;
+      speedInput.value = String(speed); speedVal.textContent = `${speed.toFixed(1)}×`;
+      gravInput.value = String(ui.gravity); gravVal.textContent = ui.gravity.toFixed(1);
+      pauseBtn.classList.toggle('on', paused); pauseBtn.textContent = paused ? '재생' : '일시정지';
+      stage.className = `bg-${ui.background}`; refPane.className = `${ui.comparison ? 'show ' : ''}bg-${ui.background}`;
+      for (const btn of document.querySelectorAll('[data-bg]')) btn.classList.toggle('on', btn.dataset.bg === ui.background);
+      for (const [btn, on] of [[refBtn, ui.comparison], [bonesBtn, ui.bones], [meshBtn, ui.mesh]]) {
+        btn.classList.toggle('on', on); btn.setAttribute('aria-pressed', String(on));
+      }
+      meshOpacity.value = String(ui.meshOpacity);
+      const wind = windControls.read();
+      gustPeakInput.value = String(wind.gustPeak); gustDurationInput.value = String(wind.gustDuration);
+      windInput.value = String(wind.base); windVal.textContent = wind.base.toFixed(1);
+      gustBtn.classList.toggle('on', wind.breeze); gustBtn.setAttribute('aria-pressed', String(wind.breeze));
+      repeatGustBtn.classList.toggle('on', wind.repeat); repeatGustBtn.setAttribute('aria-pressed', String(wind.repeat));
+    }
+    if (ui.wind && windControls.restore) {
+      try { windControls.restore(ui.wind); } catch { ui.wind = null; }
+    }
+    syncUi();
 
     function createBlinkState() {
       return {
@@ -269,8 +344,9 @@
         const anim = assets.animations[0]?.name || 'idle';
         player.play(anim);
         if (phaseOffset > 0) player.frame(phaseOffset);
+        player.frame(0);
         const b = assets.stage ?? player.bounds() ?? { x: -400, y: 0, width: 800, height: 2284 };
-        return { key, player, sub, bounds: b, offsetX, offsetY, zIndex, anim, blink };
+        return { key, player, sub, bounds: b, offsetX, offsetY, zIndex, anim, blink, boneSpecs: boneSpecs.get(assets) ?? [] };
       } catch (error) {
         try { player.dispose(); } finally { sub.remove(); }
         throw error;
@@ -283,8 +359,17 @@
         target.id = 'rig-root';
         return target;
       },
-      loadAssets([key], { bust }) {
-        return loadModel({ modelUrl: `/${key}/out/check/build/skeleton.model.json?v=${bust}` });
+      async loadAssets([key], { bust }) {
+        let specs = [];
+        const assets = await loadModel({ modelUrl: `/${key}/out/check/build/skeleton.model.json?v=${bust}`,
+          async fetch(...args) {
+            const response = await fetch(...args);
+            if (response.ok) specs = (await response.clone().json()).bones;
+            return response;
+          },
+        });
+        boneSpecs.set(assets, specs);
+        return assets;
       },
       createEntry: createRigEntry,
       loading({ key }) {
@@ -292,6 +377,7 @@
         container = null;
         box = null;
         stats.textContent = `${key} 로딩 중…`;
+        overlay.width = overlay.width;
       },
       failed(error) {
         players = [];
@@ -344,7 +430,8 @@
         }
 
         syncEnvironment();
-        fitStage(1, false);
+        camera = ui.cameras[key] ? { ...ui.cameras[key] } : fitCamera(box);
+        updateViewport(); saveState();
       },
     });
 
@@ -367,7 +454,8 @@
       btn.addEventListener('click', () => {
         document.querySelectorAll('[data-bg]').forEach(b => b.classList.remove('on'));
         btn.classList.add('on');
-        stage.className = `bg-${btn.dataset.bg}`;
+        ui.background = btn.dataset.bg;
+        syncUi(); saveState();
       });
     });
 
@@ -381,44 +469,36 @@
       });
     });
 
-    // Wheel zoom around cursor
-    stage.addEventListener('wheel', e => {
-      e.preventDefault();
-      if (!container || players.length === 0) return;
-      const factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
-      const rect = stage.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-      const oldLeft = parseFloat(container.style.left);
-      const oldTop = parseFloat(container.style.top);
-      const newScale = Math.max(0.2, Math.min(12, scale * factor));
-      const ratio = newScale / scale;
-      scale = newScale;
-      container.style.left = `${mx - (mx - oldLeft) * ratio}px`;
-      container.style.top = `${my - (my - oldTop) * ratio}px`;
-      container.style.transform = `scale(${scale})`;
-      for (const p of players) p.player.renderer.syncPixelRatio();
-    }, { passive: false });
-
-    // Drag stage
-    let held = null;
-    stage.addEventListener('pointerdown', e => {
-      held = { x: e.clientX, y: e.clientY };
-      stage.setPointerCapture(e.pointerId);
-    });
-    stage.addEventListener('pointerup', () => { held = null; });
-    stage.addEventListener('pointercancel', () => { held = null; });
-    stage.addEventListener('pointermove', e => {
-      if (!held || !container || players.length === 0) return;
-      const dx = e.clientX - held.x;
-      const dy = e.clientY - held.y;
-      held = { x: e.clientX, y: e.clientY };
-      container.style.left = `${parseFloat(container.style.left) + dx}px`;
-      container.style.top = `${parseFloat(container.style.top) + dy}px`;
-      const clampMove = (v, lim) => Math.max(-lim, Math.min(lim, v));
-      const impulse = { x: clampMove((dx / scale) * 0.25, 8), y: clampMove((-dy / scale) * 0.25, 6) };
-      for (const p of players) p.player.moved(impulse);
-    });
+    // Both comparison surfaces share a world-space camera and cursor-anchored zoom.
+    for (const pane of [stage, refPane]) {
+      pane.addEventListener('wheel', e => {
+        e.preventDefault();
+        if (!container || !camera) return;
+        const rect = pane.getBoundingClientRect();
+        const delta = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? pane.clientHeight : 1);
+        camera = zoomAt(camera, scale, Math.exp(-delta * .002), { x: e.clientX - rect.left, y: e.clientY - rect.top }, panelSize(pane));
+        updateViewport(); saveState();
+      }, { passive: false });
+      let held = null;
+      pane.addEventListener('pointerdown', e => { held = { x:e.clientX, y:e.clientY }; pane.setPointerCapture(e.pointerId); });
+      pane.addEventListener('pointerup', () => { held = null; saveState(); });
+      pane.addEventListener('pointercancel', () => { held = null; });
+      pane.addEventListener('pointermove', e => {
+        if (!held || !camera || !container) return;
+        const dx = e.clientX-held.x, dy = e.clientY-held.y;
+        held = { x:e.clientX, y:e.clientY };
+        camera.x -= dx/scale; camera.y += dy/scale;
+        if (pane === stage) {
+          const clampMove = (v, lim) => Math.max(-lim, Math.min(lim, v));
+          const impulse = { x:clampMove(dx/scale*.25,8), y:clampMove(-dy/scale*.25,6) };
+          for (const p of players) p.player.moved(impulse);
+        }
+        updateViewport();
+      });
+    }
+    if (typeof ResizeObserver === 'function') {
+      const observer = new ResizeObserver(updateViewport); observer.observe(stage); observer.observe(refPane);
+    }
 
     pauseBtn.addEventListener('click', () => {
       paused = !paused;
@@ -452,6 +532,17 @@
       syncEnvironment();
     });
 
+    for (const [input, setter] of [[gustPeakInput, 'setGustPeak'], [gustDurationInput, 'setGustDuration']]) {
+      const applyValue = () => {
+        const value = Number(input.value);
+        if (input.value.trim() && Number.isFinite(value) && value >= Number(input.min || 0) && value <= Number(input.max)) {
+          windControls[setter](value); saveState();
+        }
+      };
+      input.addEventListener('input', applyValue);
+      input.addEventListener('change', () => { applyValue(); syncUi(); saveState(); });
+    }
+
     pulseBtn.addEventListener('click', () => {
       windControls.triggerGust();
       syncEnvironment();
@@ -474,12 +565,26 @@
     });
 
     refBtn.addEventListener('click', () => {
-      refPane.classList.toggle('show');
-      refBtn.classList.toggle('on', refPane.classList.contains('show'));
-      setTimeout(() => fitStage(1, false), 50);
+      ui.comparison = !ui.comparison; syncUi(); updateViewport(); saveState();
     });
-
-    charSelect.addEventListener('change', () => openCharacter(charSelect.value));
+    bonesBtn.addEventListener('click', () => { ui.bones = !ui.bones; syncUi(); redrawOverlay(); saveState(); });
+    meshBtn.addEventListener('click', () => { ui.mesh = !ui.mesh; syncUi(); redrawOverlay(); saveState(); });
+    meshOpacity.addEventListener('input', () => { ui.meshOpacity = Number(meshOpacity.value); redrawOverlay(); saveState(); });
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      ui = defaultViewState(); camera = null;
+      windControls.restore?.(null);
+      if (!windControls.restore) { windControls.setBase(0); windControls.setBreeze(false); windControls.setRepeat(false); }
+      syncUi(); saveState(); openCharacter(ui.character);
+    });
+    charSelect.addEventListener('change', () => { camera = null; ui.character = charSelect.value; saveState(); openCharacter(charSelect.value); });
+    // Persist stable control settings on changes and when leaving; reload begins a fresh physics run.
+    for (const element of [pauseBtn, speedInput, windInput, gravInput, gustBtn, pulseBtn, repeatGustBtn]) {
+      element.addEventListener(element === speedInput || element === windInput || element === gravInput ? 'input' : 'click', saveState);
+    }
+    globalThis.addEventListener?.('pagehide', saveState);
+    document.addEventListener?.('visibilitychange', () => { if (document.hidden) saveState(); });
+    refImg.addEventListener('load', updateViewport);
+    globalThis.addEventListener?.('resize', updateViewport);
 
     let last = performance.now();
     requestAnimationFrame(function tick(now) {
@@ -493,10 +598,11 @@
           p.player.frame(dt * speed);
         }
       }
+      redrawOverlay();
       requestAnimationFrame(tick);
     });
 
-    openCharacter('all5');
+    openCharacter(ui.character);
   </script>
 </body>
 </html>

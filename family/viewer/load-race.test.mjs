@@ -3,7 +3,10 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { runInNewContext } from 'node:vm';
 import { createSceneLoader } from './load-lifecycle.mjs';
-import { createWindControls } from './wind-controls.mjs';
+import { createWindControls, BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, MAX_GUST_DURATION } from './wind-controls.mjs';
+import { readViewState, writeViewState, defaultViewState } from './view-state.mjs';
+import { fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame } from './viewport.mjs';
+import { drawOverlay } from './debug-overlay.mjs';
 
 class Element {
   constructor() {
@@ -19,6 +22,8 @@ class Element {
     if (this.parent) this.parent.children = this.parent.children.filter(child => child !== this);
     this.parent = null;
   }
+  getContext() { return null; }
+  setAttribute() {}
   addEventListener(name, listener) { this.listeners[name] = listener; }
 }
 
@@ -61,10 +66,12 @@ function harness() {
   // Execute the actual viewer script, replacing only its browser dependencies
   // and automatic initial navigation. The lifecycle implementation is imported.
   source = source.replace(/^\s*import .*;$/gm, '');
-  source = source.replace(/\n    openCharacter\('all5'\)(?:\.catch\(err => \{[\s\S]*?\n    \}\))?;/, '');
+  source = source.replace(/\n    openCharacter\((?:'all5'|ui\.character)\)(?:\.catch\(err => \{[\s\S]*?\n    \}\))?;/, '');
   source += '\nglobalThis.viewer = { openCharacter, state: () => ({ players, container, box, stats: stats.textContent, ref: refImg.src }), dispose: () => { if (typeof sceneLoader !== "undefined") sceneLoader.dispose(); } };';
   const context = {
     loadModel, RigPlayer: Player, createSceneLoader, createWindControls,
+    BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, MAX_GUST_DURATION,
+    readViewState, writeViewState, defaultViewState, fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame, drawOverlay,
     document: { getElementById: node, createElement: () => new Element(), querySelectorAll: () => [] },
     requestAnimationFrame() {}, performance: { now: () => 0 },
     setTimeout, console: { error: error => errors.push(error) },
