@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { runInNewContext } from 'node:vm';
 import { createSceneLoader } from './load-lifecycle.mjs';
+import { createWindControls } from './wind-controls.mjs';
 
 class Element {
   constructor() {
@@ -63,7 +64,7 @@ function harness() {
   source = source.replace(/\n    openCharacter\('all5'\)(?:\.catch\(err => \{[\s\S]*?\n    \}\))?;/, '');
   source += '\nglobalThis.viewer = { openCharacter, state: () => ({ players, container, box, stats: stats.textContent, ref: refImg.src }), dispose: () => { if (typeof sceneLoader !== "undefined") sceneLoader.dispose(); } };';
   const context = {
-    loadModel, RigPlayer: Player, createSceneLoader,
+    loadModel, RigPlayer: Player, createSceneLoader, createWindControls,
     document: { getElementById: node, createElement: () => new Element(), querySelectorAll: () => [] },
     requestAnimationFrame() {}, performance: { now: () => 0 },
     setTimeout, console: { error: error => errors.push(error) },

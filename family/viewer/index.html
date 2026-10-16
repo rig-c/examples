@@ -29,6 +29,9 @@
     button:hover, select:hover { background: #323846; }
     button.on { background: #e11d48; border-color: #f43f5e; color: #fff; font-weight: 600; }
     input[type="range"] { width: 80px; accent-color: #e11d48; }
+    #wind { width: 120px; }
+    #pulseBtn { min-width: 100px; }
+    #pulseBtn:disabled { cursor: default; opacity: 0.7; }
     #stats { margin-left: auto; font-size: 12px; color: #8fd3a0; font-family: ui-monospace, monospace; }
     #viewport {
       position: relative; flex: 1; display: flex; overflow: hidden;
@@ -103,13 +106,16 @@
 
     <div class="sep"></div>
 
-    <div class="group">
+    <div class="group" title="바람과 돌풍은 재생 속도에 맞춰 진행하며 일시정지하면 멈춥니다">
       <span>물리(치마/헤어/가슴)</span>
-      <label>바람 <input id="wind" type="range" min="-4" max="4" step="0.1" value="0" /></label>
-      <span id="windVal" style="font-size:12px;min-width:28px;">0.0</span>
+      <label>기본 바람 <input id="wind" type="range" min="-6" max="6" step="0.1" value="0" /></label>
+      <span id="windVal" style="font-size:12px;min-width:36px;">0.0</span>
+      <span style="font-size:12px;">현재 <output id="windCurrent" style="display:inline-block;min-width:36px;" aria-label="현재 적용 바람">0.0</output></span>
       <label>중력 <input id="gravity" type="range" min="-3" max="3" step="0.1" value="0" /></label>
       <span id="gravVal" style="font-size:12px;min-width:28px;">0.0</span>
-      <button id="gustBtn" title="사인파 산들바람 자동 변화">산들바람</button>
+      <button id="gustBtn" aria-pressed="false" title="기본 바람에 사인파 산들바람을 더합니다">산들바람</button>
+      <button id="pulseBtn" title="기본 바람에 2.4초 동안 최대 6을 더합니다(총 세기 최대 12). 시작할 때 기본 바람 방향을 따르며 0이면 오른쪽. 진행 중에는 끝날 때까지 기다립니다">돌풍</button>
+      <button id="repeatGustBtn" aria-pressed="false" title="돌풍을 재생 시간 6초마다 반복. 진행 중인 돌풍을 이어받으며, 끄면 진행 중 돌풍은 끝까지 재생합니다">돌풍 반복</button>
       <button id="joltBtn" title="캐릭터에 순간 관성 충격 주기">찰랑이기</button>
     </div>
 
@@ -135,6 +141,7 @@
   <script type="module">
     import { l as loadModel, R as RigPlayer } from '/viewer/assets/player.js';
     import { createSceneLoader } from '/viewer/load-lifecycle.mjs';
+    import { createWindControls } from '/viewer/wind-controls.mjs';
 
     const stage = document.getElementById('stage');
     const stats = document.getElementById('stats');
@@ -144,9 +151,12 @@
     const speedVal = document.getElementById('speedVal');
     const windInput = document.getElementById('wind');
     const windVal = document.getElementById('windVal');
+    const windCurrent = document.getElementById('windCurrent');
     const gravInput = document.getElementById('gravity');
     const gravVal = document.getElementById('gravVal');
     const gustBtn = document.getElementById('gustBtn');
+    const pulseBtn = document.getElementById('pulseBtn');
+    const repeatGustBtn = document.getElementById('repeatGustBtn');
     const joltBtn = document.getElementById('joltBtn');
     const refBtn = document.getElementById('refBtn');
     const refPane = document.getElementById('ref-pane');
@@ -159,10 +169,14 @@
     let baseScale = 1;
     let paused = false;
     let speed = 1.0;
-    let autoGust = false;
+    const windControls = createWindControls();
 
-    function syncEnvironment(windOverride = null) {
-      const w = windOverride !== null ? windOverride : parseFloat(windInput.value);
+    function syncEnvironment() {
+      const { wind: w, gusting } = windControls.read();
+      windCurrent.textContent = w.toFixed(1);
+      pulseBtn.classList.toggle('on', gusting);
+      pulseBtn.disabled = gusting;
+      pulseBtn.textContent = gusting ? '돌풍 진행 중' : '돌풍';
       const g = parseFloat(gravInput.value);
       for (const p of players) {
         p.player.environment({ wind: [w, 0], gravity: [0, g] });
@@ -418,11 +432,10 @@
     });
 
     windInput.addEventListener('input', () => {
-      autoGust = false;
-      gustBtn.classList.remove('on');
       const w = parseFloat(windInput.value);
+      windControls.setBase(w);
       windVal.textContent = w.toFixed(1);
-      syncEnvironment(w);
+      syncEnvironment();
     });
 
     gravInput.addEventListener('input', () => {
@@ -432,13 +445,24 @@
     });
 
     gustBtn.addEventListener('click', () => {
-      autoGust = !autoGust;
-      gustBtn.classList.toggle('on', autoGust);
-      if (!autoGust) {
-        windInput.value = '0';
-        windVal.textContent = '0.0';
-        syncEnvironment(0);
-      }
+      const enabled = !windControls.read().breeze;
+      windControls.setBreeze(enabled);
+      gustBtn.classList.toggle('on', enabled);
+      gustBtn.setAttribute('aria-pressed', String(enabled));
+      syncEnvironment();
+    });
+
+    pulseBtn.addEventListener('click', () => {
+      windControls.triggerGust();
+      syncEnvironment();
+    });
+
+    repeatGustBtn.addEventListener('click', () => {
+      const enabled = !windControls.read().repeat;
+      windControls.setRepeat(enabled);
+      repeatGustBtn.classList.toggle('on', enabled);
+      repeatGustBtn.setAttribute('aria-pressed', String(enabled));
+      syncEnvironment();
     });
 
     joltBtn.addEventListener('click', () => {
@@ -462,12 +486,8 @@
       const dt = Math.min((now - last) / 1000, 1 / 15);
       last = now;
       if (players.length > 0 && !paused) {
-        if (autoGust) {
-          const w = Math.sin(now * 0.0022) * 2.0 + Math.sin(now * 0.0051) * 0.8;
-          windInput.value = w.toFixed(1);
-          windVal.textContent = w.toFixed(1);
-          syncEnvironment(w);
-        }
+        windControls.advance(dt * speed);
+        syncEnvironment();
         for (const p of players) {
           if (p.blink) stepBlinkState(p.blink, dt * speed);
           p.player.frame(dt * speed);
