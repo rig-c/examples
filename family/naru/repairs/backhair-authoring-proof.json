@@ -1,0 +1,138 @@
+{
+  "producer": "@rig-c/parts1.25.0 buildRig; extract hair_back only; ordinary final rigc gate required",
+  "baselineSha256": "fb08ad7c9173ba262c0ca27210eb5cd9e4f9c0f3f9b13794df64bb81e8912769",
+  "imageSha256": "09d324f0e1a380349912a313974d1214cb3ad9912e0906a91d1f9f6e05d6caa9",
+  "inputArtSha256": "44a861dd5072cd427eae42819ffe596cdfd3d23a0838d19c361fcc675befa962",
+  "outputRigSha256": "2d5d0280d86c3da24d34793b140ceb05a9826df9c3ebd69293d2e6df7294b044",
+  "maxFrameDelta": 5.684341886080802e-14,
+  "usedBones": [
+    "head",
+    "hairback_r0",
+    "hairback_l0",
+    "hairback_l1",
+    "hairback_l2",
+    "hairback_r2",
+    "hairback_r1"
+  ],
+  "record": {
+    "name": "hair_back",
+    "from": "head:author:generated-backhair",
+    "x": 160,
+    "y": 300,
+    "w": 440,
+    "h": 440,
+    "opaque_px": 81097,
+    "projected_core_px": 0,
+    "source_px_taken": 0,
+    "refused_drift_px": 0,
+    "merged_px": 0,
+    "seam_override_px": 0
+  },
+  "meshReport": {
+    "part": "hair_back",
+    "vertices": 80,
+    "triangles": 99,
+    "hull": 59,
+    "bones": [
+      "hairback_l0",
+      "hairback_l1",
+      "hairback_l2",
+      "hairback_r0",
+      "hairback_r1",
+      "hairback_r2",
+      "head"
+    ],
+    "max_influences": 4,
+    "mean_influences": 3.6,
+    "art_coverage": 0.99996,
+    "mode": "contour",
+    "params": {
+      "tolerance": 4,
+      "margin": 4,
+      "spacing": 52,
+      "maxEdge": 52,
+      "budget": 160,
+      "stray": null,
+      "bridges": true
+    },
+    "contour": {
+      "boundaryVertices": 59,
+      "interiorVertices": 21,
+      "interiorBySource": [
+        {
+          "source": "background",
+          "vertices": 21
+        }
+      ],
+      "triangles": 99,
+      "tracedVertices": 2062,
+      "artPixels": 81094,
+      "coveredArtPixels": 81094,
+      "coverage": 1,
+      "overshoot": 6.708204,
+      "overshootBound": 9,
+      "meshArea": 88239.5,
+      "enclosedTransparentArea": 7145.5,
+      "filledHolePixels": 687,
+      "smallestAngle": {
+        "triangle": 37,
+        "value": 13.025101
+      },
+      "largestEdgeRatio": {
+        "triangle": 37,
+        "value": 4.413928
+      },
+      "nonDelaunayEdges": 0,
+      "strayIslands": 0,
+      "strayPixels": 0,
+      "grownPixels": 6624,
+      "pinchFilledPixels": 8,
+      "grownHolePixels": 3,
+      "outlineCut": 7,
+      "bridges": {
+        "islands": [
+          81094
+        ],
+        "units": [
+          [
+            81094
+          ]
+        ],
+        "joins": [],
+        "faint": [
+          {
+            "art": 1,
+            "maxAlpha": 9,
+            "box": [
+              381,
+              321,
+              1,
+              1
+            ]
+          },
+          {
+            "art": 1,
+            "maxAlpha": 9,
+            "box": [
+              279,
+              345,
+              1,
+              1
+            ]
+          },
+          {
+            "art": 1,
+            "maxAlpha": 9,
+            "box": [
+              195,
+              350,
+              1,
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "regions": []
+  }
+}

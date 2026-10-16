@@ -7,20 +7,17 @@
   "parts": [
     {
       "name": "hair_back",
-      "from": "head:back hair",
-      "x": 228,
-      "y": 322,
-      "w": 334,
-      "h": 340,
-      "opaque_px": 78754,
-      "visible_px": 21885,
-      "occluded_px": 56869,
-      "projected_core_px": 11419,
-      "source_px_taken": 11416,
-      "visible_not_projected_px": 10469,
-      "refused_drift_px": 5,
+      "from": "head:author:generated-backhair",
+      "x": 160,
+      "y": 300,
+      "w": 440,
+      "h": 440,
+      "opaque_px": 81097,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
       "merged_px": 0,
-      "seam_override_px": 1
+      "seam_override_px": 0
     },
     {
       "name": "shoes",
@@ -506,14 +503,14 @@
     "head:wings": 0
   },
   "recomposite": {
-    "mean_abs": 0.756,
+    "mean_abs": 1.091,
     "within_limit": 8,
-    "within_share": 0.9872,
+    "within_share": 0.981,
     "error_limit": 40,
-    "error_px": 12085,
+    "error_px": 16312,
     "covered_alpha": 128,
-    "uncovered_error_px": 5121,
-    "hole_count": 510,
+    "uncovered_error_px": 5759,
+    "hole_count": 555,
     "holes_listed": 5,
     "holes": [
       {
@@ -560,6 +557,19 @@
         ]
       },
       {
+        "px": 252,
+        "x": 229,
+        "y": 566,
+        "w": 27,
+        "h": 60,
+        "borders": [
+          {
+            "part": "hair_back",
+            "px": 83
+          }
+        ]
+      },
+      {
         "px": 181,
         "x": 578,
         "y": 1172,
@@ -569,19 +579,6 @@
           {
             "part": "bottomwear",
             "px": 161
-          }
-        ]
-      },
-      {
-        "px": 157,
-        "x": 549,
-        "y": 1641,
-        "w": 7,
-        "h": 138,
-        "borders": [
-          {
-            "part": "bottomwear",
-            "px": 147
           }
         ]
       }

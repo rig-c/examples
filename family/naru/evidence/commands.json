@@ -1,0 +1,50 @@
+[
+  {
+    "label": "accepted-official-build",
+    "args": [
+      "bun",
+      "--bun",
+      "run",
+      "rigc",
+      "build",
+      "--rig",
+      "accepted/rig/rig.json",
+      "--motion",
+      "accepted/rig/motion.json",
+      "--out",
+      "accepted/build",
+      "--profile",
+      "rig-play",
+      "--pack",
+      "--page-edges",
+      "free",
+      "--pack-shape",
+      "polygon"
+    ],
+    "exitCode": 0,
+    "peakTreeRssBytes": 282640384
+  },
+  {
+    "label": "accepted-public-check",
+    "args": [
+      "bun",
+      "--bun",
+      "run",
+      "rig-parts",
+      "check",
+      "--rig",
+      "accepted/rig",
+      "--parts",
+      "accepted/parts-input",
+      "--out",
+      "accepted/check",
+      "--page-edges",
+      "free",
+      "--pack-shape",
+      "polygon",
+      "--seam-pairs"
+    ],
+    "exitCode": 0,
+    "peakTreeRssBytes": 956878848
+  }
+]

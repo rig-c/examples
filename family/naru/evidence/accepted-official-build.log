@@ -1,0 +1,162 @@
+rigc build accepted/rig/rig.json
+  ..    rig    /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/rig/rig.json
+  ..    motion /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/rig/motion.json
+  ..    20 part page(s):
+  ..      hair_back                448x448  <- ../rig/images/hair_back.png
+  ..      shoes                    176x206  <- ../rig/images/shoes.png
+  ..      legwear                  203x1099  <- ../rig/images/legwear.png
+  ..      bottomwear               367x924  <- ../rig/images/bottomwear.png
+  ..      neck                     109x174  <- ../rig/images/neck.png
+  ..      topwear                  489x428  <- ../rig/images/topwear.png
+  ..      ear_r                    52x55  <- ../rig/images/ear_r.png
+  ..      ear_l                    43x71  <- ../rig/images/ear_l.png
+  ..      face                     195x225  <- ../rig/images/face.png
+  ..      eyewhite_r               50x38  <- ../rig/images/eyewhite_r.png
+  ..      eyewhite_l               54x39  <- ../rig/images/eyewhite_l.png
+  ..      iris_r                   34x33  <- ../rig/images/iris_r.png
+  ..      iris_l                   36x34  <- ../rig/images/iris_l.png
+  ..      nose                     22x31  <- ../rig/images/nose.png
+  ..      mouth                    50x27  <- ../rig/images/mouth.png
+  ..      lash_r                   64x52  <- ../rig/images/lash_r.png
+  ..      lash_l                   69x51  <- ../rig/images/lash_l.png
+  ..      brow_r                   60x42  <- ../rig/images/brow_r.png
+  ..      brow_l                   84x21  <- ../rig/images/brow_l.png
+  ..      hair_front               259x339  <- ../rig/images/hair_front.png
+  MESH  hair_back    authored 80 vertices / 99 triangles  (no budget declared)  bones=[head, hairback_r0, hairback_l0, hairback_l1, hairback_l2, hairback_r2, hairback_r1]  attachments=[hair_back]  covers 99.73% of the art, reaching 5.00px past it
+  MESH  bottomwear   authored 246 vertices / 325 triangles  (no budget declared)  bones=[hip, skirt_l0_d, skirt_c0, skirt_r0_d, skirt_l1_d, skirt_l2_d, skirt_c1, skirt_c2, skirt_r2_d, skirt_r1_d]  attachments=[bottomwear]  covers 100.00% of the art, reaching 7.00px past it
+  MESH  neck         authored 34 vertices / 38 triangles  (no budget declared)  bones=[head, chest]  attachments=[neck]  covers 100.00% of the art, reaching 4.24px past it
+  MESH  topwear      authored 324 vertices / 551 triangles  (no budget declared)  bones=[chest, hip, boob_r, boob_l]  attachments=[topwear]  covers 99.74% of the art, reaching 3.00px past it
+  MESH  hair_front   authored 134 vertices / 144 triangles  (no budget declared)  bones=[bang_r0, head, bang_c0, bang_r1, bang_l0, bang_c1, bang_l1, hair_l0_d, hair_l1_d, hair_l2_d, hair_r2_d, hair_r0_d, hair_r1_d]  attachments=[hair_front]  covers 100.00% of the art, reaching 7.00px past it
+  ..    validate (spine-core round trip + machine assertions, profile rig-play)
+  ..    profile rig-play — every assertion applies
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A52_WEIGHTED_VERTICES_SHARE_ONE_BONE_ORDER
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A12_NO_DARK_COLOR
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A14_NO_FULL_FRAME_MESH
+  PASS  A15_IDLE_NO_MESH_BONE_KEYS
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A47_IK_CONSTRAINT_NOT_MUTED_THROUGHOUT
+  PASS  A48_TRANSFORM_CONSTRAINT_NOT_MUTED_THROUGHOUT
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A19_OVERLAY_PNGS_HAVE_ALPHA
+  PASS  A26_SLOT_DRAW_ORDER
+  PASS  A51_BONES_LIE_ALONG_THEIR_DECLARED_AXIS
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A34_CONSTRAINT_TIMELINE_TARGETS: no animation carries a constraint timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path
+  SKIP  A13_MESH_BUDGET: the rig "naru_painting" declares no `invariants.meshSlots` or `invariants.meshTriangles` budget
+  SKIP  A21_MESH_RIM_PINNED: every weighted mesh here is authored or linked geometry ("hair_back", "bottomwear", "neck", "topwear", "hair_front"), not a rigc ring or ribbon — rigc did not place its rim, so it has no rim of its own to find unpinned
+  SKIP  A39_DEFORM_KEEPS_TRIANGLE_WINDING: no animation carries a deform timeline
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A42_DRIVEN_CONSTRAINTS_UPDATE_AFTER_THEIR_DRIVER: the skeleton declares no slider constraint
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  SKIP  A43_TWO_COLOR_TINT_LOADS_AND_POSES_AS_WRITTEN: no slot declares a "dark" colour and no animation keys an "rgba2" or "rgb2" timeline, so there is no two-colour tint to read back
+  SKIP  A45_SEPARABLE_COLOR_TIMELINES_OWN_THEIR_CHANNELS_AND_POSE_AS_WRITTEN: no animation keys an "rgb" or "alpha" timeline, so there is no separable slot colour to read back
+  SKIP  A44_LINKED_MESH_STATES_NO_GEOMETRY_OF_ITS_OWN: no attachment in this skeleton takes its geometry from another one
+  SKIP  A46_SEQUENCE_ATTACHMENTS_SHOW_THE_FRAME_THE_FILE_STATES: no attachment carries a "sequence" block and no animation keys a "sequence" timeline, so there is no numbered series to read back
+  SKIP  A49_PACKED_FOOTPRINTS_DO_NOT_OVERLAP: no page of the atlas carries two regions, so there is no pair of footprints to hold apart
+  SKIP  A50_STAGE_BOX_IS_THE_STAGE: nothing asks for a stage box: no rigc-compiled/3 model document beside this skeleton states one (stage.box, from the rig spec's skeleton.stageBox) — a rig that does not ask, or an export, carries no stage in its Spine files to measure
+  SKIP  A24_AXIS_SPACE_STROKE: the rig "naru_painting" declares no axis bone, so there is no axis space for a stroke to leave
+  SKIP  A25_DETACHED_BONE_PARENTAGE: the rig "naru_painting" declares no forbidden parentage
+  SKIP  A28_RIBBON_ROWS_SHARE_WEIGHTS: the rig "naru_painting" declares no ribbon mesh on this cut — its mesh slot(s) "hair_back" (authored), "bottomwear" (authored), "neck" (authored), "topwear" (authored), "hair_front" (authored) have no rows to pair: authored geometry is somebody else's topology, a contour is one silhouette loop, and a segments lattice has cells rather than cross rows
+  SKIP  A29_STROKE_WITHIN_CONTACT_DEPTH: the manifest declares no `stroke.contact_depth`, so this cut has no measured contact ceiling to hold the stroke to
+  SKIP  A30_STROKE_WITHIN_CAP_CONTAINMENT: the manifest declares no `stroke.cap_containment_ceiling`, so this cut has no measured containment ceiling
+  ..    50 assertions: 26 measured (26 passed, 0 failed), 24 skipped, 0 not in profile "rig-play"
+  ..    pages=20 regions=20 bones=105 slots=20 animations=1 version=4.3.13 regionAttachments=15 meshAttachments=5 physicsConstraints=29 physicsTimelineKeys=0 rig=naru_painting profile=rig-play
+  ..    pack: skeleton.png 700x2031, 20 region(s), 83.3% covered, padding 2, page edges free, shape polygon
+  ..      legwear                  203x1099 -> skeleton.png @ 2,2
+  ..      bottomwear               367x924 -> skeleton.png @ 2,1105
+  ..      topwear                  489x428 -> skeleton.png @ 209,2
+  ..      hair_back                448x448 -> skeleton.png @ 209,434
+  ..      hair_front               259x339 -> skeleton.png @ 373,886
+  ..      face                     195x225 -> skeleton.png @ 373,1229
+  ..      shoes                    176x206 -> skeleton.png @ 373,1458
+  ..      neck                     109x174 -> skeleton.png @ 572,1229
+  ..      brow_l                   84x21 -> skeleton.png @ 572,1407
+  ..      ear_l                    43x71 -> skeleton.png @ 636,886
+  ..      lash_l                   69x51 -> skeleton.png @ 572,1432
+  ..      lash_r                   64x52 -> skeleton.png @ 553,1487
+  ..      brow_r                   60x42 -> skeleton.png @ 636,961
+  ..      ear_r                    52x55 -> skeleton.png @ 645,1432
+  ..      eyewhite_l               54x39 -> skeleton.png @ 636,1007
+  ..      eyewhite_r               50x38 -> skeleton.png @ 636,1050
+  ..      mouth                    50x27 -> skeleton.png @ 636,1092
+  ..      iris_l                   36x34 -> skeleton.png @ 661,434
+  ..      iris_r                   34x33 -> skeleton.png @ 661,472
+  ..      nose                     22x31 -> skeleton.png @ 661,509
+  ..    validate (packed atlas, pages on disk)
+  ..    profile rig-play — every assertion applies
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A52_WEIGHTED_VERTICES_SHARE_ONE_BONE_ORDER
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A12_NO_DARK_COLOR
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A14_NO_FULL_FRAME_MESH
+  PASS  A15_IDLE_NO_MESH_BONE_KEYS
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A47_IK_CONSTRAINT_NOT_MUTED_THROUGHOUT
+  PASS  A48_TRANSFORM_CONSTRAINT_NOT_MUTED_THROUGHOUT
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A19_OVERLAY_PNGS_HAVE_ALPHA
+  PASS  A49_PACKED_FOOTPRINTS_DO_NOT_OVERLAP
+  PASS  A26_SLOT_DRAW_ORDER
+  PASS  A51_BONES_LIE_ALONG_THEIR_DECLARED_AXIS
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A34_CONSTRAINT_TIMELINE_TARGETS: no animation carries a constraint timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path
+  SKIP  A13_MESH_BUDGET: the rig "naru_painting" declares no `invariants.meshSlots` or `invariants.meshTriangles` budget
+  SKIP  A21_MESH_RIM_PINNED: every weighted mesh here is authored or linked geometry ("hair_back", "bottomwear", "neck", "topwear", "hair_front"), not a rigc ring or ribbon — rigc did not place its rim, so it has no rim of its own to find unpinned
+  SKIP  A39_DEFORM_KEEPS_TRIANGLE_WINDING: no animation carries a deform timeline
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A42_DRIVEN_CONSTRAINTS_UPDATE_AFTER_THEIR_DRIVER: the skeleton declares no slider constraint
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  SKIP  A43_TWO_COLOR_TINT_LOADS_AND_POSES_AS_WRITTEN: no slot declares a "dark" colour and no animation keys an "rgba2" or "rgb2" timeline, so there is no two-colour tint to read back
+  SKIP  A45_SEPARABLE_COLOR_TIMELINES_OWN_THEIR_CHANNELS_AND_POSE_AS_WRITTEN: no animation keys an "rgb" or "alpha" timeline, so there is no separable slot colour to read back
+  SKIP  A44_LINKED_MESH_STATES_NO_GEOMETRY_OF_ITS_OWN: no attachment in this skeleton takes its geometry from another one
+  SKIP  A46_SEQUENCE_ATTACHMENTS_SHOW_THE_FRAME_THE_FILE_STATES: no attachment carries a "sequence" block and no animation keys a "sequence" timeline, so there is no numbered series to read back
+  SKIP  A50_STAGE_BOX_IS_THE_STAGE: nothing asks for a stage box: no rigc-compiled/3 model document beside this skeleton states one (stage.box, from the rig spec's skeleton.stageBox) — a rig that does not ask, or an export, carries no stage in its Spine files to measure
+  SKIP  A24_AXIS_SPACE_STROKE: the rig "naru_painting" declares no axis bone, so there is no axis space for a stroke to leave
+  SKIP  A25_DETACHED_BONE_PARENTAGE: the rig "naru_painting" declares no forbidden parentage
+  SKIP  A28_RIBBON_ROWS_SHARE_WEIGHTS: the rig "naru_painting" declares no ribbon mesh on this cut — its mesh slot(s) "hair_back" (authored), "bottomwear" (authored), "neck" (authored), "topwear" (authored), "hair_front" (authored) have no rows to pair: authored geometry is somebody else's topology, a contour is one silhouette loop, and a segments lattice has cells rather than cross rows
+  SKIP  A29_STROKE_WITHIN_CONTACT_DEPTH: the manifest declares no `stroke.contact_depth`, so this cut has no measured contact ceiling to hold the stroke to
+  SKIP  A30_STROKE_WITHIN_CAP_CONTAINMENT: the manifest declares no `stroke.cap_containment_ceiling`, so this cut has no measured containment ceiling
+  ..    50 assertions: 27 measured (27 passed, 0 failed), 23 skipped, 0 not in profile "rig-play"
+  ..    pages=1 regions=20 bones=105 slots=20 animations=1 version=4.3.13 regionAttachments=15 meshAttachments=5 physicsConstraints=29 physicsTimelineKeys=0 rig=naru_painting profile=rig-play
+rigc: wrote /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build/skeleton.json
+rigc: wrote /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build/skeleton.atlas
+rigc: wrote /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build/skeleton.model.json
+rigc: look at it: rigc preview --candidate /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build
