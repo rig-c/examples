@@ -257,9 +257,9 @@
   },
   {
     "part": "topwear",
-    "vertices": 265,
-    "triangles": 443,
-    "hull": 85,
+    "vertices": 334,
+    "triangles": 576,
+    "hull": 90,
     "bones": [
       "boob_l",
       "boob_r",
@@ -267,7 +267,7 @@
       "hip"
     ],
     "max_influences": 3,
-    "mean_influences": 2.29,
+    "mean_influences": 2.48,
     "art_coverage": 1,
     "mode": "contour",
     "params": {
@@ -280,23 +280,23 @@
       "bridges": true
     },
     "contour": {
-      "boundaryVertices": 85,
-      "interiorVertices": 180,
+      "boundaryVertices": 90,
+      "interiorVertices": 244,
       "interiorBySource": [
         {
           "source": "region \"bust_r\"",
-          "vertices": 80
+          "vertices": 170
         },
         {
           "source": "region \"bust_l\"",
-          "vertices": 71
+          "vertices": 51
         },
         {
           "source": "background",
-          "vertices": 29
+          "vertices": 23
         }
       ],
-      "triangles": 443,
+      "triangles": 576,
       "tracedVertices": 1406,
       "artPixels": 87005,
       "coveredArtPixels": 87005,
@@ -311,7 +311,7 @@
         "value": 4.573921
       },
       "largestEdgeRatio": {
-        "triangle": 83,
+        "triangle": 84,
         "value": 11.385298
       },
       "nonDelaunayEdges": 0,
@@ -337,14 +337,14 @@
       {
         "name": "bust_r",
         "bone": "boob_r",
-        "reached": 68,
-        "whole": 11
+        "reached": 159,
+        "whole": 14
       },
       {
         "name": "bust_l",
         "bone": "boob_l",
-        "reached": 79,
-        "whole": 8
+        "reached": 70,
+        "whole": 7
       }
     ]
   },
