@@ -18,7 +18,7 @@
     "physicsClock": "public physicsClockStep",
     "environment": "wind[y]=0, gravity[0,0]; applied after first/reset pose",
     "oracle": "official Spine4.3.13; exact all posed bone matrices and attachment vertices",
-    "screenshots": "omitted by --no-render; numerical geometry only",
+    "screenshots": "native oracle rendered on dark background; no browser execution claim",
     "source": "original common 77 bones + 14 head/hair attachments compared at every same-phase frame"
   },
   "cases": [
@@ -88,7 +88,7 @@
           "maxEdgeRatio": 1.0467959236239044
         },
         "topwear": {
-          "windOrDragOnlyMax": 0.20732429472227368,
+          "windOrDragOnlyMax": 0.20681013589632016,
           "foldingTriangleReadings": 0,
           "minEdgeRatio": 0.9141665085623265,
           "maxEdgeRatio": 1.0864681316432037
@@ -128,7 +128,7 @@
           "maxEdgeRatio": 1.0467959236239044
         },
         "topwear": {
-          "windOrDragOnlyMax": 0.08929421147935236,
+          "windOrDragOnlyMax": 0.0890727948646964,
           "foldingTriangleReadings": 0,
           "minEdgeRatio": 0.91409455528846,
           "maxEdgeRatio": 1.086415361487044
@@ -208,7 +208,7 @@
           "maxEdgeRatio": 1.0467959236239044
         },
         "topwear": {
-          "windOrDragOnlyMax": 1.5027645747739866,
+          "windOrDragOnlyMax": 1.4990335024285462,
           "foldingTriangleReadings": 0,
           "minEdgeRatio": 0.9141128358627587,
           "maxEdgeRatio": 1.0869876335093571
@@ -248,7 +248,7 @@
           "maxEdgeRatio": 1.0467959236239044
         },
         "topwear": {
-          "windOrDragOnlyMax": 3.0081990391933107,
+          "windOrDragOnlyMax": 3.000721497954039,
           "foldingTriangleReadings": 0,
           "minEdgeRatio": 0.9141126733254108,
           "maxEdgeRatio": 1.0875625912607045

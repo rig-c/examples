@@ -6,10 +6,10 @@
     {
       "name": "shoes",
       "x": 114,
-      "y": 2015,
+      "y": 1994,
       "w": 475,
-      "h": 231,
-      "opaque_px": 37784,
+      "h": 252,
+      "opaque_px": 38356,
       "source": "full:seethrough-v3:shoes"
     },
     {
@@ -17,17 +17,17 @@
       "x": 184,
       "y": 945,
       "w": 480,
-      "h": 1100,
-      "opaque_px": 297346,
+      "h": 1108,
+      "opaque_px": 297739,
       "source": "full:seethrough-v3:bottomwear"
     },
     {
       "name": "neck",
       "x": 279,
       "y": 453,
-      "w": 168,
+      "w": 167,
       "h": 180,
-      "opaque_px": 16604,
+      "opaque_px": 16558,
       "source": "full:seethrough-v3:neck"
     },
     {
@@ -36,7 +36,7 @@
       "y": 549,
       "w": 356,
       "h": 440,
-      "opaque_px": 107955,
+      "opaque_px": 107481,
       "source": "full:seethrough-v3:topwear"
     },
     {
@@ -44,21 +44,21 @@
       "x": 164,
       "y": 571,
       "w": 515,
-      "h": 757,
-      "opaque_px": 77713,
+      "h": 750,
+      "opaque_px": 73423,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
     "shoes": {
-      "core": 32229,
-      "taken": 32220,
-      "refused": 775
+      "core": 34097,
+      "taken": 34097,
+      "refused": 0
     },
     "bottomwear": {
-      "core": 259261,
-      "taken": 258879,
-      "refused": 1395
+      "core": 270131,
+      "taken": 270131,
+      "refused": 0
     },
     "neck": {
       "core": 0,
@@ -66,14 +66,14 @@
       "refused": 0
     },
     "topwear": {
-      "core": 84469,
-      "taken": 84225,
-      "refused": 3920
+      "core": 85886,
+      "taken": 85850,
+      "refused": 36
     },
     "sleeves": {
-      "core": 64897,
-      "taken": 64735,
-      "refused": 912
+      "core": 61078,
+      "taken": 61069,
+      "refused": 9
     }
   },
   "projectionPolicy": {
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 549,
-    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
+    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

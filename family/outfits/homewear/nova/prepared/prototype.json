@@ -6,10 +6,10 @@
     {
       "name": "shoes",
       "x": 210,
-      "y": 2094,
+      "y": 2032,
       "w": 277,
-      "h": 160,
-      "opaque_px": 25890,
+      "h": 223,
+      "opaque_px": 26489,
       "source": "full:seethrough-v3:shoes"
     },
     {
@@ -17,8 +17,8 @@
       "x": 171,
       "y": 960,
       "w": 420,
-      "h": 1164,
-      "opaque_px": 279108,
+      "h": 1215,
+      "opaque_px": 282135,
       "source": "full:seethrough-v3:bottomwear"
     },
     {
@@ -36,29 +36,29 @@
       "y": 538,
       "w": 474,
       "h": 906,
-      "opaque_px": 240407,
+      "opaque_px": 240819,
       "source": "full:seethrough-v3:topwear"
     },
     {
       "name": "sleeves",
-      "x": 196,
-      "y": 583,
-      "w": 521,
-      "h": 754,
-      "opaque_px": 84389,
+      "x": 169,
+      "y": 580,
+      "w": 548,
+      "h": 775,
+      "opaque_px": 86553,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
     "shoes": {
-      "core": 21815,
-      "taken": 20922,
-      "refused": 900
+      "core": 24316,
+      "taken": 24316,
+      "refused": 0
     },
     "bottomwear": {
-      "core": 214543,
-      "taken": 213367,
-      "refused": 1583
+      "core": 230239,
+      "taken": 230239,
+      "refused": 0
     },
     "neck": {
       "core": 0,
@@ -66,14 +66,14 @@
       "refused": 0
     },
     "topwear": {
-      "core": 170944,
-      "taken": 169927,
-      "refused": 2129
+      "core": 192663,
+      "taken": 192663,
+      "refused": 0
     },
     "sleeves": {
-      "core": 77129,
-      "taken": 76812,
-      "refused": 877
+      "core": 83008,
+      "taken": 83008,
+      "refused": 0
     }
   },
   "projectionPolicy": {
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 576,
-    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
+    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

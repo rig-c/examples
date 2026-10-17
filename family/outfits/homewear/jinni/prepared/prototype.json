@@ -6,10 +6,10 @@
     {
       "name": "shoes",
       "x": 125,
-      "y": 2113,
+      "y": 2084,
       "w": 509,
-      "h": 147,
-      "opaque_px": 22304,
+      "h": 176,
+      "opaque_px": 22681,
       "source": "full:seethrough-v3:shoes"
     },
     {
@@ -17,8 +17,8 @@
       "x": 147,
       "y": 1012,
       "w": 527,
-      "h": 1130,
-      "opaque_px": 341332,
+      "h": 1156,
+      "opaque_px": 341426,
       "source": "full:seethrough-v3:bottomwear"
     },
     {
@@ -36,7 +36,7 @@
       "y": 554,
       "w": 527,
       "h": 1055,
-      "opaque_px": 141288,
+      "opaque_px": 141569,
       "source": "full:seethrough-v3:topwear"
     },
     {
@@ -44,21 +44,21 @@
       "x": 181,
       "y": 575,
       "w": 498,
-      "h": 760,
-      "opaque_px": 124467,
+      "h": 745,
+      "opaque_px": 80820,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
     "shoes": {
-      "core": 17143,
-      "taken": 17142,
-      "refused": 1
+      "core": 19620,
+      "taken": 19620,
+      "refused": 0
     },
     "bottomwear": {
-      "core": 295138,
-      "taken": 293986,
-      "refused": 3786
+      "core": 312476,
+      "taken": 312476,
+      "refused": 0
     },
     "neck": {
       "core": 0,
@@ -66,14 +66,14 @@
       "refused": 0
     },
     "topwear": {
-      "core": 77647,
-      "taken": 77408,
-      "refused": 1085
+      "core": 123465,
+      "taken": 123243,
+      "refused": 222
     },
     "sleeves": {
-      "core": 108820,
-      "taken": 105595,
-      "refused": 7388
+      "core": 76445,
+      "taken": 76445,
+      "refused": 0
     }
   },
   "projectionPolicy": {
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 549,
-    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
+    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

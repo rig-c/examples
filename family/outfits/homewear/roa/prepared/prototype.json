@@ -6,10 +6,10 @@
     {
       "name": "shoes",
       "x": 199,
-      "y": 2084,
+      "y": 2074,
       "w": 306,
-      "h": 169,
-      "opaque_px": 29978,
+      "h": 179,
+      "opaque_px": 30285,
       "source": "full:seethrough-v3:shoes"
     },
     {
@@ -17,8 +17,8 @@
       "x": 175,
       "y": 912,
       "w": 389,
-      "h": 1202,
-      "opaque_px": 261617,
+      "h": 1242,
+      "opaque_px": 264796,
       "source": "full:seethrough-v3:bottomwear"
     },
     {
@@ -36,7 +36,7 @@
       "y": 441,
       "w": 485,
       "h": 876,
-      "opaque_px": 235115,
+      "opaque_px": 235558,
       "source": "full:seethrough-v3:topwear"
     },
     {
@@ -45,20 +45,20 @@
       "y": 460,
       "w": 694,
       "h": 901,
-      "opaque_px": 129567,
+      "opaque_px": 118206,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
     "shoes": {
-      "core": 25688,
-      "taken": 25608,
-      "refused": 387
+      "core": 27356,
+      "taken": 27356,
+      "refused": 0
     },
     "bottomwear": {
-      "core": 223688,
-      "taken": 223609,
-      "refused": 1263
+      "core": 237614,
+      "taken": 237614,
+      "refused": 0
     },
     "neck": {
       "core": 0,
@@ -66,14 +66,14 @@
       "refused": 0
     },
     "topwear": {
-      "core": 182276,
-      "taken": 181859,
-      "refused": 2890
+      "core": 205885,
+      "taken": 205882,
+      "refused": 3
     },
     "sleeves": {
-      "core": 113030,
-      "taken": 110083,
-      "refused": 6070
+      "core": 108611,
+      "taken": 108599,
+      "refused": 12
     }
   },
   "projectionPolicy": {
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 483,
-    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
+    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

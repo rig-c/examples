@@ -181,9 +181,9 @@
   },
   {
     "part": "topwear",
-    "vertices": 585,
-    "triangles": 898,
-    "hull": 270,
+    "vertices": 579,
+    "triangles": 891,
+    "hull": 265,
     "bones": [
       "boob_l",
       "boob_r",
@@ -206,8 +206,8 @@
       "bridges": true
     },
     "contour": {
-      "boundaryVertices": 270,
-      "interiorVertices": 315,
+      "boundaryVertices": 265,
+      "interiorVertices": 314,
       "interiorBySource": [
         {
           "source": "region \"bust_r\"",
@@ -219,41 +219,41 @@
         },
         {
           "source": "background",
-          "vertices": 101
+          "vertices": 100
         }
       ],
-      "triangles": 898,
-      "tracedVertices": 2714,
-      "artPixels": 215115,
-      "coveredArtPixels": 215115,
+      "triangles": 891,
+      "tracedVertices": 2676,
+      "artPixels": 215219,
+      "coveredArtPixels": 215219,
       "coverage": 1,
       "overshoot": 4,
       "overshootBound": 5,
-      "meshArea": 221683.5,
-      "enclosedTransparentArea": 6568.5,
+      "meshArea": 221688,
+      "enclosedTransparentArea": 6469,
       "filledHolePixels": 0,
       "smallestAngle": {
-        "triangle": 156,
-        "value": 2.817277
+        "triangle": 131,
+        "value": 3.990913
       },
       "largestEdgeRatio": {
-        "triangle": 156,
-        "value": 18.671502
+        "triangle": 6,
+        "value": 13.72953
       },
       "nonDelaunayEdges": 0,
       "strayIslands": 0,
       "strayPixels": 0,
-      "grownPixels": 6570,
+      "grownPixels": 6476,
       "pinchFilledPixels": 0,
       "grownHolePixels": 0,
-      "outlineCut": 1,
+      "outlineCut": 2,
       "bridges": {
         "islands": [
-          215115
+          215219
         ],
         "units": [
           [
-            215115
+            215219
           ]
         ],
         "joins": []
@@ -276,9 +276,9 @@
   },
   {
     "part": "sleeves",
-    "vertices": 427,
-    "triangles": 517,
-    "hull": 335,
+    "vertices": 400,
+    "triangles": 476,
+    "hull": 322,
     "bones": [
       "chest"
     ],
@@ -296,69 +296,49 @@
       "bridges": true
     },
     "contour": {
-      "boundaryVertices": 335,
-      "interiorVertices": 92,
+      "boundaryVertices": 322,
+      "interiorVertices": 78,
       "interiorBySource": [
         {
           "source": "background",
-          "vertices": 92
+          "vertices": 78
         }
       ],
-      "triangles": 517,
-      "tracedVertices": 3720,
-      "artPixels": 131999,
-      "coveredArtPixels": 131999,
+      "triangles": 476,
+      "tracedVertices": 3738,
+      "artPixels": 117579,
+      "coveredArtPixels": 117579,
       "coverage": 1,
       "overshoot": 4,
       "overshootBound": 5,
-      "meshArea": 141433.5,
-      "enclosedTransparentArea": 9434.5,
-      "filledHolePixels": 1,
+      "meshArea": 126878.5,
+      "enclosedTransparentArea": 9299.5,
+      "filledHolePixels": 22,
       "smallestAngle": {
-        "triangle": 250,
-        "value": 4.120536
+        "triangle": 22,
+        "value": 3.0394
       },
       "largestEdgeRatio": {
-        "triangle": 7,
-        "value": 13.420548
+        "triangle": 22,
+        "value": 16.224981
       },
       "nonDelaunayEdges": 0,
       "strayIslands": 0,
       "strayPixels": 0,
-      "grownPixels": 9258,
+      "grownPixels": 9249,
       "pinchFilledPixels": 0,
       "grownHolePixels": 0,
-      "outlineCut": 5,
+      "outlineCut": 4,
       "bridges": {
         "islands": [
-          72499,
-          59500
+          117579
         ],
         "units": [
           [
-            72499
-          ],
-          [
-            59500
+            117579
           ]
         ],
-        "joins": [
-          {
-            "unit": 1,
-            "span": [
-              2.236068,
-              32.062439
-            ],
-            "area": 78,
-            "pair": 1,
-            "vertices": [
-              73,
-              220,
-              74,
-              219
-            ]
-          }
-        ]
+        "joins": []
       }
     },
     "regions": []

@@ -8,8 +8,8 @@
       "x": 239,
       "y": 1976,
       "w": 271,
-      "h": 143,
-      "opaque_px": 26955,
+      "h": 287,
+      "opaque_px": 55164,
       "source": "full:seethrough-v3:shoes"
     },
     {
@@ -18,7 +18,7 @@
       "y": 1112,
       "w": 368,
       "h": 886,
-      "opaque_px": 231100,
+      "opaque_px": 234775,
       "source": "full:seethrough-v3:bottomwear"
     },
     {
@@ -36,7 +36,7 @@
       "y": 612,
       "w": 443,
       "h": 758,
-      "opaque_px": 221378,
+      "opaque_px": 221588,
       "source": "full:seethrough-v3:topwear"
     },
     {
@@ -45,20 +45,20 @@
       "y": 653,
       "w": 515,
       "h": 400,
-      "opaque_px": 112058,
+      "opaque_px": 88301,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
     "shoes": {
-      "core": 19016,
-      "taken": 18999,
-      "refused": 238
+      "core": 51174,
+      "taken": 51174,
+      "refused": 0
     },
     "bottomwear": {
-      "core": 221806,
-      "taken": 221697,
-      "refused": 1905
+      "core": 226819,
+      "taken": 226819,
+      "refused": 0
     },
     "neck": {
       "core": 0,
@@ -66,14 +66,14 @@
       "refused": 0
     },
     "topwear": {
-      "core": 127770,
-      "taken": 127628,
-      "refused": 3103
+      "core": 162986,
+      "taken": 162986,
+      "refused": 0
     },
     "sleeves": {
-      "core": 94620,
-      "taken": 94339,
-      "refused": 4122
+      "core": 82875,
+      "taken": 82875,
+      "refused": 0
     }
   },
   "projectionPolicy": {
@@ -102,8 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 675,
-    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
+    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
-  "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted.",
-  "hiddenRepair": "hidden-repair/admission.json; built-in generated RGBA admitted only in the fixed original-hair-occluded mask"
+  "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

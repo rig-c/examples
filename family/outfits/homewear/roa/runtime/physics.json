@@ -18,7 +18,7 @@
     "physicsClock": "public physicsClockStep",
     "environment": "wind[y]=0, gravity[0,0]; applied after first/reset pose",
     "oracle": "official Spine4.3.13; exact all posed bone matrices and attachment vertices",
-    "screenshots": "omitted by --no-render; numerical geometry only",
+    "screenshots": "native oracle rendered on dark background; no browser execution claim",
     "source": "original common 61 bones + 12 head/hair attachments compared at every same-phase frame"
   },
   "cases": [

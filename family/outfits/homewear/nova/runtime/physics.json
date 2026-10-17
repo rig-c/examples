@@ -18,7 +18,7 @@
     "physicsClock": "public physicsClockStep",
     "environment": "wind[y]=0, gravity[0,0]; applied after first/reset pose",
     "oracle": "official Spine4.3.13; exact all posed bone matrices and attachment vertices",
-    "screenshots": "omitted by --no-render; numerical geometry only",
+    "screenshots": "native oracle rendered on dark background; no browser execution claim",
     "source": "original common 61 bones + 14 head/hair attachments compared at every same-phase frame"
   },
   "cases": [
@@ -56,7 +56,7 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.996015987343865,
+          "minEdgeRatio": 0.9960159873438655,
           "maxEdgeRatio": 1.0039841312989988
         }
       },
@@ -96,7 +96,7 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.996015987343865,
+          "minEdgeRatio": 0.9960159873438655,
           "maxEdgeRatio": 1.0039841312989988
         }
       },
@@ -136,7 +136,7 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.996015987343865,
+          "minEdgeRatio": 0.9960159873438655,
           "maxEdgeRatio": 1.0039841312989988
         }
       },
@@ -176,7 +176,7 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.996015987343865,
+          "minEdgeRatio": 0.9960159873438655,
           "maxEdgeRatio": 1.0039841312989988
         }
       },
@@ -216,7 +216,7 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.996015987343865,
+          "minEdgeRatio": 0.9960159873438655,
           "maxEdgeRatio": 1.0039841312989988
         }
       },
@@ -256,7 +256,7 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.996015987343865,
+          "minEdgeRatio": 0.9960159873438655,
           "maxEdgeRatio": 1.0039841312989988
         }
       },

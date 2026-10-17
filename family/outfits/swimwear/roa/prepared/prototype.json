@@ -16,9 +16,9 @@
       "name": "bottomwear",
       "x": 171,
       "y": 934,
-      "w": 385,
+      "w": 386,
       "h": 1138,
-      "opaque_px": 254535,
+      "opaque_px": 256697,
       "source": "full:seethrough-v3:bottomwear"
     },
     {
@@ -36,7 +36,7 @@
       "y": 451,
       "w": 669,
       "h": 1167,
-      "opaque_px": 355142,
+      "opaque_px": 355011,
       "source": "full:seethrough-v3:topwear"
     },
     {
@@ -45,20 +45,20 @@
       "y": 466,
       "w": 717,
       "h": 956,
-      "opaque_px": 172170,
+      "opaque_px": 160999,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
     "shoes": {
-      "core": 31822,
-      "taken": 31802,
-      "refused": 817
+      "core": 34962,
+      "taken": 34962,
+      "refused": 0
     },
     "bottomwear": {
-      "core": 225402,
-      "taken": 225378,
-      "refused": 281
+      "core": 237117,
+      "taken": 237117,
+      "refused": 0
     },
     "neck": {
       "core": 0,
@@ -66,14 +66,14 @@
       "refused": 0
     },
     "topwear": {
-      "core": 260872,
-      "taken": 260145,
-      "refused": 1661
+      "core": 291518,
+      "taken": 291517,
+      "refused": 1
     },
     "sleeves": {
-      "core": 154632,
-      "taken": 152984,
-      "refused": 4507
+      "core": 153349,
+      "taken": 153348,
+      "refused": 1
     }
   },
   "projectionPolicy": {
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 483,
-    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
+    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

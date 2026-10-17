@@ -36,29 +36,29 @@
       "y": 604,
       "w": 465,
       "h": 670,
-      "opaque_px": 114692,
+      "opaque_px": 114747,
       "source": "full:seethrough-v3:topwear"
     },
     {
       "name": "sleeves",
       "x": 145,
-      "y": 654,
+      "y": 656,
       "w": 502,
-      "h": 437,
-      "opaque_px": 101767,
+      "h": 431,
+      "opaque_px": 88652,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
     "shoes": {
-      "core": 22519,
-      "taken": 22510,
-      "refused": 859
+      "core": 24775,
+      "taken": 24775,
+      "refused": 0
     },
     "bottomwear": {
-      "core": 248226,
-      "taken": 248056,
-      "refused": 4698
+      "core": 261261,
+      "taken": 261261,
+      "refused": 0
     },
     "neck": {
       "core": 0,
@@ -66,14 +66,14 @@
       "refused": 0
     },
     "topwear": {
-      "core": 48472,
-      "taken": 44990,
-      "refused": 7033
+      "core": 72063,
+      "taken": 72063,
+      "refused": 0
     },
     "sleeves": {
-      "core": 82165,
-      "taken": 81878,
-      "refused": 4634
+      "core": 79850,
+      "taken": 79844,
+      "refused": 6
     }
   },
   "projectionPolicy": {
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 675,
-    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
+    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

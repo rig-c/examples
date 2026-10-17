@@ -17,7 +17,7 @@
     "physicsClock": "public physicsClockStep",
     "environment": "wind[y]=0, gravity[0,0]; applied after first/reset pose",
     "oracle": "official Spine4.3.13; exact all posed bone matrices and attachment vertices",
-    "screenshots": "omitted by --no-render; numerical geometry only",
+    "screenshots": "native oracle rendered on dark background; no browser execution claim",
     "source": "original common69 bones +15 head/hair attachments compared at every same-phase frame"
   },
   "cases": [
@@ -55,8 +55,8 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438664,
-          "maxEdgeRatio": 1.0039841312990008
+          "minEdgeRatio": 0.9960159873438602,
+          "maxEdgeRatio": 1.003984131299005
         }
       },
       "PASS": true
@@ -87,7 +87,7 @@
           "maxEdgeRatio": 1.0470145790885785
         },
         "topwear": {
-          "windOrDragOnlyMax": 3.1919429062835665,
+          "windOrDragOnlyMax": 1.6242862355170675,
           "foldingTriangleReadings": 0,
           "minEdgeRatio": 0.9022921983647803,
           "maxEdgeRatio": 1.1173961257638056
@@ -95,8 +95,8 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438664,
-          "maxEdgeRatio": 1.0039841312990008
+          "minEdgeRatio": 0.9960159873438602,
+          "maxEdgeRatio": 1.003984131299005
         }
       },
       "PASS": true
@@ -127,7 +127,7 @@
           "maxEdgeRatio": 1.0470145790885785
         },
         "topwear": {
-          "windOrDragOnlyMax": 1.453342645100647,
+          "windOrDragOnlyMax": 0.6996956595480693,
           "foldingTriangleReadings": 0,
           "minEdgeRatio": 0.9022921983647803,
           "maxEdgeRatio": 1.1173961257638056
@@ -135,8 +135,8 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438664,
-          "maxEdgeRatio": 1.0039841312990008
+          "minEdgeRatio": 0.9960159873438602,
+          "maxEdgeRatio": 1.003984131299005
         }
       },
       "PASS": true
@@ -175,8 +175,8 @@
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438664,
-          "maxEdgeRatio": 1.0039841312990008
+          "minEdgeRatio": 0.9960159873438602,
+          "maxEdgeRatio": 1.003984131299005
         }
       },
       "PASS": true
@@ -207,16 +207,16 @@
           "maxEdgeRatio": 1.0470145790885785
         },
         "topwear": {
-          "windOrDragOnlyMax": 24.078376117463577,
+          "windOrDragOnlyMax": 11.747875483105162,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.8481084620648086,
-          "maxEdgeRatio": 1.1740873470142323
+          "minEdgeRatio": 0.9022921983647803,
+          "maxEdgeRatio": 1.1173961257638056
         },
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438664,
-          "maxEdgeRatio": 1.0039841312990008
+          "minEdgeRatio": 0.9960159873438602,
+          "maxEdgeRatio": 1.003984131299005
         }
       },
       "PASS": true
@@ -247,16 +247,16 @@
           "maxEdgeRatio": 1.0470145790885785
         },
         "topwear": {
-          "windOrDragOnlyMax": 47.61014961943827,
+          "windOrDragOnlyMax": 23.427651035720768,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.7763438221847236,
-          "maxEdgeRatio": 1.3561242812131635
+          "minEdgeRatio": 0.8513244902511705,
+          "maxEdgeRatio": 1.1691957167862292
         },
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438664,
-          "maxEdgeRatio": 1.0039841312990008
+          "minEdgeRatio": 0.9960159873438602,
+          "maxEdgeRatio": 1.003984131299005
         }
       },
       "PASS": true
