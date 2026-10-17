@@ -136,8 +136,18 @@
           <option value="composed">로아 + 루나 · 어깨동무 2인</option>
         </select>
       </label>
-      <label class="scene-control"><span>나루 의상</span>
-        <select id="outfitSelect" aria-label="나루 의상">
+      <label class="scene-control"><span>의상 대상</span>
+        <select id="outfitTargetSelect" aria-label="의상 대상">
+          <option value="all" selected>전원 (현재 화면)</option>
+          <option value="roa">1번 · 로아 (Roa)</option>
+          <option value="luna">2번 · 루나 (Luna)</option>
+          <option value="jinni">3번 · 지니 (Jinni)</option>
+          <option value="naru">4번 · 나루 (Naru)</option>
+          <option value="nova">5번 · 노바 (Nova)</option>
+        </select>
+      </label>
+      <label class="scene-control"><span>의상</span>
+        <select id="outfitSelect" aria-label="의상">
           <option value="office">오피스</option>
           <option value="homewear">홈웨어</option>
         </select>
@@ -235,10 +245,13 @@
     import { outfitAssets, ownAssets } from '/viewer/outfits.mjs';
     import { createOutfitTransaction } from '/viewer/outfit-transaction.mjs';
 
+    const CHARACTER_LABELS = { roa: '로아', luna: '루나', jinni: '지니', naru: '나루', nova: '노바' };
     const stage = document.getElementById('stage');
     const stats = document.getElementById('stats');
     const charSelect = document.getElementById('charSelect');
+    const outfitTargetSelect = document.getElementById('outfitTargetSelect');
     const outfitSelect = document.getElementById('outfitSelect');
+    let outfitTarget = outfitTargetSelect.value || 'naru';
     const refCaption = document.getElementById('refCaption');
     const pauseBtn = document.getElementById('pauseBtn');
     const speedInput = document.getElementById('speed');
@@ -348,9 +361,24 @@
       gustBtn.classList.toggle('on', wind.breeze); gustBtn.setAttribute('aria-pressed', String(wind.breeze));
       repeatGustBtn.classList.toggle('on', wind.repeat); repeatGustBtn.setAttribute('aria-pressed', String(wind.repeat));
     }
+    function activeOutfitKey() {
+      const single = players.length === 1 ? players[0].key : (CHARACTER_LABELS[ui.character] ? ui.character : null);
+      if (single) return single;
+      if (outfitTarget === 'all') return 'all';
+      if (players.length > 0 && !players.some(p => p.key === outfitTarget)) return players[0].key;
+      return outfitTarget;
+    }
     function syncOutfitUi() {
-      outfitSelect.value = ui.outfits.naru;
-      outfitSelect.disabled = !players.some(p => p.key === 'naru');
+      const target = activeOutfitKey();
+      outfitTargetSelect.value = target;
+      outfitTargetSelect.disabled = Boolean(CHARACTER_LABELS[ui.character]) || players.length <= 1;
+      if (target === 'all') {
+        outfitSelect.value = players.length > 0 && players.every(p => ui.outfits[p.key] === 'homewear') ? 'homewear' : 'office';
+        outfitSelect.disabled = players.length === 0;
+      } else {
+        outfitSelect.value = ui.outfits[target] ?? 'office';
+        outfitSelect.disabled = !players.some(p => p.key === target);
+      }
     }
     if (ui.wind && windControls.restore) {
       try { windControls.restore(ui.wind); } catch { ui.wind = null; }
@@ -456,22 +484,28 @@
     }
 
     function updateReference(key, bust = Date.now()) {
-      const homewear = players.some(p => p.key === 'naru') && ui.outfits.naru === 'homewear';
-      if (key === 'naru') refImg.src = `${outfitAssets('naru', ui.outfits.naru).referenceUrl}?v=${bust}`;
-      refCaption.textContent = homewear ? (key === 'naru' ? '홈웨어 디자인 원화' : '오피스 원화 기준 · 나루 홈웨어는 이 비교 원화에 포함되지 않음') : '오피스 원화 기준';
+      const single = players.length === 1 ? players[0].key : (CHARACTER_LABELS[key] ? key : null);
+      if (single) {
+        const outfit = ui.outfits[single] ?? 'office';
+        refImg.src = `${outfitAssets(single, outfit).referenceUrl}?v=${bust}`;
+        refCaption.textContent = outfit === 'homewear' ? '홈웨어 디자인 원화' : '오피스 원화 기준';
+        return;
+      }
+      const homewear = players.some(p => ui.outfits[p.key] === 'homewear');
+      refCaption.textContent = homewear ? '오피스 원화 기준 · 홈웨어는 이 비교 원화에 포함되지 않음' : '오피스 원화 기준';
     }
 
     const outfitTransaction = createOutfitTransaction({
       current: request => request.sceneVersion === sceneVersion && players.includes(request.entry),
       async load(request) {
-        const assets = await loadRigAssets('naru', request.outfit, Date.now());
+        const { entry, key, outfit } = request;
+        const assets = await loadRigAssets(key, outfit, Date.now());
         try {
-          const { entry } = request;
-          if (!assets.stage || ['x', 'y', 'width', 'height'].some(key => assets.stage[key] !== entry.bounds[key])) throw new Error('나루 의상 stage 좌표가 현재 리그와 다릅니다');
-          return createRigEntry(['naru', entry.offsetX, 0, entry.offsetY, entry.zIndex], assets, document.createElement('div'));
+          if (!assets.stage || ['x', 'y', 'width', 'height'].some(k => assets.stage[k] !== entry.bounds[k])) throw new Error(`${CHARACTER_LABELS[key] ?? key} 의상 stage 좌표가 현재 리그와 다릅니다`);
+          return createRigEntry([key, entry.offsetX, 0, entry.offsetY, entry.zIndex], assets, document.createElement('div'));
         } catch (error) { assets.dispose(); throw error; }
       },
-      commit({ entry, outfit }, candidate) {
+      commit({ entry, key, outfit }, candidate) {
         // Read the live phase only when the candidate is ready. Public seek replays
         // physics; this transfers animation phase, not the old physics state.
         const track = entry.player.entry(0);
@@ -491,8 +525,8 @@
         owner.current = candidate.assetOwner.current;
         candidate.assetOwner.current = null;
         Object.assign(entry, candidate, { assetOwner: owner });
-        ui.outfits.naru = outfit;
-        stats.textContent = `${ui.character} · 나루 ${outfit === 'homewear' ? '홈웨어' : '오피스'} · physics ON`;
+        ui.outfits[key] = outfit;
+        stats.textContent = `${ui.character} · ${CHARACTER_LABELS[key] ?? key} ${outfit === 'homewear' ? '홈웨어' : '오피스'} · physics ON`;
         // The original scene-loader record still owns this stable entry and owner.
         for (const release of [() => old.player.dispose(), () => old.assets.dispose(), () => old.sub.remove()]) {
           try { release(); } catch (error) { console.error(error); }
@@ -501,7 +535,7 @@
         catch (error) { console.error(error); }
       },
       pending(active, request) {
-        if (active) { outfitSelect.value = request.outfit; outfitSelect.setAttribute('aria-busy', 'true'); }
+        if (active) { outfitTargetSelect.value = request.key; outfitSelect.value = request.outfit; outfitSelect.setAttribute('aria-busy', 'true'); }
         else { outfitSelect.setAttribute('aria-busy', 'false'); syncOutfitUi(); }
       },
       failed(error) {
@@ -510,12 +544,24 @@
       },
     });
 
-    function openOutfit(outfit) {
-      const entry = players.find(p => p.key === 'naru');
-      if (!entry || !['office', 'homewear'].includes(outfit)) { syncOutfitUi(); return Promise.resolve(false); }
+    async function openOutfit(outfit, key = activeOutfitKey()) {
+      if (key === 'all' && players.length > 1) {
+        outfitTarget = 'all';
+        if (!['office', 'homewear'].includes(outfit)) { syncOutfitUi(); return false; }
+        for (const k of players.map(p => p.key)) {
+          if (!(await openOutfit(outfit, k))) { outfitTarget = 'all'; syncOutfitUi(); return false; }
+        }
+        outfitTarget = 'all';
+        stats.textContent = `${ui.character} · 전원 ${outfit === 'homewear' ? '홈웨어' : '오피스'} · physics ON`;
+        syncOutfitUi(); saveState();
+        return true;
+      }
+      if (CHARACTER_LABELS[key]) outfitTarget = key;
+      const entry = players.find(p => p.key === key);
+      if (!entry || !['office', 'homewear'].includes(outfit)) { syncOutfitUi(); return false; }
       saveState();
-      if (outfit === ui.outfits.naru) { outfitTransaction.invalidate(); return Promise.resolve(true); }
-      return outfitTransaction.open({ outfit, entry, sceneVersion });
+      if (outfit === ui.outfits[key]) { outfitTransaction.invalidate(); syncOutfitUi(); return true; }
+      return outfitTransaction.open({ key, outfit, entry, sceneVersion });
     }
 
     const sceneLoader = createSceneLoader({
@@ -525,10 +571,10 @@
         return target;
       },
       async loadAssets([key], { bust, outfits }) {
-        const outfit = key === 'naru' ? outfits.naru : 'office';
+        const outfit = outfits[key] ?? 'office';
         try { return await loadRigAssets(key, outfit, bust); }
         catch (error) {
-          if (key !== 'naru' || outfit !== 'homewear') throw error;
+          if (outfit !== 'homewear') throw error;
           const assets = await loadRigAssets(key, 'office', bust);
           assetOwners.get(assets).fallbackError = error;
           return assets;
@@ -539,6 +585,7 @@
         players = [];
         container = null;
         box = null;
+        if (CHARACTER_LABELS[key]) outfitTarget = key;
         stats.textContent = `${key} 로딩 중…`;
         overlay.width = overlay.width;
         syncOutfitUi();
@@ -553,6 +600,7 @@
       publish({ key, bust }, target, entries) {
         players = entries;
         container = stage.appendChild(target);
+        if (CHARACTER_LABELS[key]) outfitTarget = key;
         if (key === 'all5') {
           // Cohesive 5-character family formation:
           // Roa (z=3) rests her left arm on Luna's (z=2, ox=435) right shoulder;
@@ -593,11 +641,12 @@
           stats.textContent = `${key} · anim: ${p.anim} · 비동기 랜덤 블링크 · physics ON`;
         }
 
-        const naru = players.find(p => p.key === 'naru');
-        if (naru) {
-          ui.outfits.naru = naru.outfit;
-          if (naru.assetOwner.fallbackError) stats.textContent += ' · 홈웨어 로드 실패: 오피스 유지';
+        let fellBack = false;
+        for (const p of players) {
+          ui.outfits[p.key] = p.outfit;
+          if (p.assetOwner.fallbackError) fellBack = true;
         }
+        if (fellBack) stats.textContent += ' · 홈웨어 로드 실패: 오피스 유지';
         syncEnvironment();
         updateReference(key, bust); syncOutfitUi();
         camera = ui.cameras[key] ? { ...ui.cameras[key] } : fitCamera(box);
@@ -743,13 +792,14 @@
     meshBtn.addEventListener('click', () => { ui.mesh = !ui.mesh; syncUi(); redrawOverlay(); saveState(); });
     meshOpacity.addEventListener('input', () => { ui.meshOpacity = Number(meshOpacity.value); redrawOverlay(); saveState(); });
     document.getElementById('resetBtn').addEventListener('click', () => {
-      ui = defaultViewState(); camera = null;
+      ui = defaultViewState(); camera = null; outfitTarget = 'naru';
       windControls.restore?.(null);
       if (!windControls.restore) { windControls.setBase(0); windControls.setBreeze(false); windControls.setRepeat(false); }
       syncUi(); saveState(); openCharacter(ui.character);
     });
     charSelect.addEventListener('change', () => { camera = null; ui.character = charSelect.value; saveState(); openCharacter(charSelect.value); });
-    outfitSelect.addEventListener('change', () => { openOutfit(outfitSelect.value); });
+    outfitTargetSelect.addEventListener('change', () => { outfitTarget = outfitTargetSelect.value; syncOutfitUi(); });
+    outfitSelect.addEventListener('change', () => { openOutfit(outfitSelect.value, outfitTargetSelect.value); });
     // Persist stable control settings on changes and when leaving; reload begins a fresh physics run.
     for (const element of [pauseBtn, speedInput, windInput, gravInput, gustBtn, pulseBtn, repeatGustBtn]) {
       element.addEventListener(element === speedInput || element === windInput || element === gravInput ? 'input' : 'click', saveState);

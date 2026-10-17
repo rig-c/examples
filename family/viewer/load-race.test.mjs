@@ -43,7 +43,7 @@ function harness() {
     return nodes.get(id);
   };
   const loadModel = ({ modelUrl }) => new Promise((resolve, reject) => {
-    const key = modelUrl.startsWith('/outfits/') ? 'naru' : modelUrl.split('/')[1];
+    const key = modelUrl.startsWith('/outfits/') ? modelUrl.split('/')[3] : modelUrl.split('/')[1];
     const assets = {
       key, animations: [{ name: 'idle' }],
       stage: { x: -400, y: 0, width: 800, height: 2284 },
@@ -340,3 +340,24 @@ test('paused zoom redraws the current pose after raster sync without advancing a
   }
   h.viewer.dispose();
 });
+
+test('all 5 characters switch between office and homewear in the family lineup', async () => {
+  const h = harness();
+  await family(h);
+  for (const key of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
+    const opened = h.viewer.openOutfit('homewear', key);
+    assert.match(h.requests.at(-1).modelUrl, new RegExp(`^/outfits/homewear/${key}/out/check/build/skeleton\\.model\\.json`));
+    h.requests.at(-1).resolve();
+    assert.equal(await opened, true);
+    assert.equal(h.viewer.state().ui.outfits[key], 'homewear');
+  }
+  for (const key of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
+    const opened = h.viewer.openOutfit('office', key);
+    assert.match(h.requests.at(-1).modelUrl, new RegExp(`^/${key}/out/check/build/skeleton\\.model\\.json`));
+    h.requests.at(-1).resolve();
+    assert.equal(await opened, true);
+    assert.equal(h.viewer.state().ui.outfits[key], 'office');
+  }
+  h.viewer.dispose();
+});
+

@@ -1,0 +1,392 @@
+{
+ "gate_spine_html_green": true,
+ "rigc_entry": {
+  "entry": "cli.ts",
+  "spine_core": "4.3.13"
+ },
+ "pack_mode": {
+  "page_edges": "free",
+  "pack_shape": "polygon"
+ },
+ "loop_max_diff": 0,
+ "loop_physics": [
+  {
+   "name": "hairback_r0_phys",
+   "bone": "hairback_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_r1_phys",
+   "bone": "hairback_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_r2_phys",
+   "bone": "hairback_r2",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_l0_phys",
+   "bone": "hairback_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_l1_phys",
+   "bone": "hairback_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_l2_phys",
+   "bone": "hairback_l2",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_r0_phys",
+   "bone": "bang_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_r1_phys",
+   "bone": "bang_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_c0_phys",
+   "bone": "bang_c0",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_c1_phys",
+   "bone": "bang_c1",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_l0_phys",
+   "bone": "bang_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_l1_phys",
+   "bone": "bang_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_r0_phys",
+   "bone": "skirt_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_r1_phys",
+   "bone": "skirt_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_r2_phys",
+   "bone": "skirt_r2",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_c0_phys",
+   "bone": "skirt_c0",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_c1_phys",
+   "bone": "skirt_c1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_c2_phys",
+   "bone": "skirt_c2",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_l0_phys",
+   "bone": "skirt_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_l1_phys",
+   "bone": "skirt_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_l2_phys",
+   "bone": "skirt_l2",
+   "in": "rig.json"
+  },
+  {
+   "name": "earring_phys",
+   "bone": "earring",
+   "in": "rig.json"
+  },
+  {
+   "name": "boob_r_phys",
+   "bone": "boob_r",
+   "in": "rig.json"
+  },
+  {
+   "name": "boob_l_phys",
+   "bone": "boob_l",
+   "in": "rig.json"
+  },
+  {
+   "name": "cardigan_hem_r_phys",
+   "bone": "cardigan_hem_r",
+   "in": "rig.json"
+  },
+  {
+   "name": "cardigan_hem_l_phys",
+   "bone": "cardigan_hem_l",
+   "in": "rig.json"
+  }
+ ],
+ "seam_mean": 0.162,
+ "seam_px_over_40": 19,
+ "seam_px_over_80": 0,
+ "seam_frame_scale": 1.049015,
+ "BREATH_VISIBLE": {
+  "status": "SKIP",
+  "reason": "no part comes from a See-through \"topwear\" layer, so there is no torso to see breathe"
+ },
+ "BLINK_NO_HOLE": {
+  "status": "PASS",
+  "eye_parts": [
+   "eyewhite_r",
+   "eyewhite_l"
+  ],
+  "closed": [
+   "group eyes scaley 0.12 from 2.12s to 2.204s"
+  ],
+  "idle_frames_closed": [
+   26
+  ],
+  "box_px": 8631,
+  "hole_px": 0,
+  "hole_bar": 0,
+  "patch_max": 13,
+  "patch_px_over_40": 0
+ },
+ "CHAIN_LAG": {
+  "status": "PASS",
+  "chains": [
+   "neck > head_ctl: period 3.333s, phase 0.080 0.120, amp 0.350 0.900",
+   "bang_r0_ctl > bang_r1_ctl: period 3.333s, phase 0.180 0.280, amp 0.600 1.300",
+   "bang_c0_ctl > bang_c1_ctl: period 3.333s, phase 0.180 0.280, amp 0.600 1.300",
+   "bang_l0_ctl > bang_l1_ctl: period 3.333s, phase 0.180 0.280, amp 0.600 1.300",
+   "sleeve_r0_ctl > sleeve_r1_ctl > sleeve_r2_ctl: period 3.333s, phase 0.220 0.300 0.380, amp 0.200 0.600 1.200",
+   "sleeve_l0_ctl > sleeve_l1_ctl > sleeve_l2_ctl: period 3.333s, phase 0.770 0.850 0.930, amp 0.200 0.600 1.200"
+  ],
+  "lags": [
+   "neck > head_ctl +0.040",
+   "head_ctl > hairback_r0_ctl +0.080",
+   "head_ctl > hairback_l0_ctl +0.120",
+   "head_ctl > bang_r0_ctl +0.060",
+   "bang_r0_ctl > bang_r1_ctl +0.100",
+   "head_ctl > bang_c0_ctl +0.060",
+   "bang_c0_ctl > bang_c1_ctl +0.100",
+   "head_ctl > bang_l0_ctl +0.060",
+   "bang_l0_ctl > bang_l1_ctl +0.100",
+   "sleeve_r0_ctl > sleeve_r1_ctl +0.080",
+   "sleeve_r1_ctl > sleeve_r2_ctl +0.080",
+   "sleeve_l0_ctl > sleeve_l1_ctl +0.080",
+   "sleeve_l1_ctl > sleeve_l2_ctl +0.080"
+  ],
+  "min_step": 0.04,
+  "step_floor": 0.001,
+  "other_period": [],
+  "unread": [],
+  "first_violation": null
+ },
+ "TIP_OVER_ROOT": {
+  "status": "SKIP",
+  "reason": "no part comes from a See-through \"handwear\" or \"bottomwear\" layer, so there is no hem or sleeve to swing"
+ },
+ "STILL_REGIONS_DARK": {
+  "status": "PASS",
+  "face": {
+   "parts": [
+    "face"
+   ],
+   "head_bone": "head",
+   "instrument": "geometry",
+   "still_slots": [
+    {
+     "slot": "face",
+     "max_rig_px": 6.476e-13,
+     "rms_rig_px": 2.127e-13
+    },
+    {
+     "slot": "nose",
+     "max_rig_px": 4.549e-13,
+     "rms_rig_px": 1.83e-13
+    },
+    {
+     "slot": "ear_r",
+     "max_rig_px": 4.414e-13,
+     "rms_rig_px": 1.8e-13
+    }
+   ],
+   "max_rig_px": 6.476e-13,
+   "at": null,
+   "rms_rig_px": 2.102e-13,
+   "tolerance_rig_px": 2.286e-11,
+   "crossing": [
+    {
+     "slot": "hair_front",
+     "depth_rig_px": 1.533,
+     "area_rig_px2": 119.318,
+     "frame": 18
+    }
+   ],
+   "driven_slots": []
+  },
+  "feet": {
+   "unmeasured": "no part comes from a See-through \"footwear\" layer"
+  }
+ },
+ "TEXTURE_STRETCH": {
+  "status": "PASS",
+  "meshes": 9,
+  "triangles": 1476,
+  "frames": 41,
+  "severity": 1.114,
+  "severity_ceiling": 1.926544,
+  "worst": {
+   "slot": "topwear",
+   "triangle": 37,
+   "vertices": [
+    31,
+    33,
+    32
+   ],
+   "edge": [
+    32,
+    31
+   ],
+   "frame": 10,
+   "ratio": 1.114
+  },
+  "max_ratio": 1.114,
+  "min_ratio": 0.945,
+  "per_mesh": [
+   {
+    "slot": "hair_back",
+    "triangles": 128,
+    "max_ratio": 1.048,
+    "max_at": "triangle 34 (vertices 23 90 24), edge 23-90, idle frame 26",
+    "min_ratio": 0.948,
+    "min_at": "triangle 123 (vertices 85 89 86), edge 89-86, idle frame 24",
+    "severity": 1.055
+   },
+   {
+    "slot": "neck",
+    "triangles": 25,
+    "max_ratio": 1.056,
+    "max_at": "triangle 20 (vertices 16 23 17), edge 17-16, idle frame 34",
+    "min_ratio": 0.945,
+    "min_at": "triangle 20 (vertices 16 23 17), edge 17-16, idle frame 14",
+    "severity": 1.058
+   },
+   {
+    "slot": "topwear",
+    "triangles": 525,
+    "max_ratio": 1.114,
+    "max_at": "triangle 37 (vertices 31 33 32), edge 32-31, idle frame 10",
+    "min_ratio": 0.96,
+    "min_at": "triangle 388 (vertices 226 227 256), edge 227-256, idle frame 12",
+    "severity": 1.114
+   },
+   {
+    "slot": "cardigan",
+    "triangles": 459,
+    "max_ratio": 1.113,
+    "max_at": "triangle 374 (vertices 293 295 294), edge 294-293, idle frame 10",
+    "min_ratio": 0.969,
+    "min_at": "triangle 31 (vertices 21 321 320), edge 321-320, idle frame 10",
+    "severity": 1.113
+   },
+   {
+    "slot": "sleeves",
+    "triangles": 201,
+    "max_ratio": 1.008,
+    "max_at": "triangle 48 (vertices 35 44 36), edge 44-36, idle frame 10",
+    "min_ratio": 1,
+    "min_at": "triangle 81 (vertices 69 140 143), edge 140-143, idle frame 2",
+    "severity": 1.008
+   },
+   {
+    "slot": "earring",
+    "triangles": 18,
+    "max_ratio": 1.008,
+    "max_at": "triangle 17 (vertices 11 13 12), edge 13-12, idle frame 10",
+    "min_ratio": 1,
+    "min_at": "triangle 2 (vertices 2 18 3), edge 18-3, idle frame 30",
+    "severity": 1.008
+   },
+   {
+    "slot": "earring__island2",
+    "triangles": 8,
+    "max_ratio": 1.008,
+    "max_at": "triangle 7 (vertices 8 6 7), edge 7-8, idle frame 10",
+    "min_ratio": 1,
+    "min_at": "triangle 2 (vertices 2 0 1), edge 0-1, idle frame 30",
+    "severity": 1.008
+   },
+   {
+    "slot": "hair_front__island2",
+    "triangles": 25,
+    "max_ratio": 1.008,
+    "max_at": "triangle 0 (vertices 0 3 4), edge 4-0, idle frame 10",
+    "min_ratio": 1,
+    "min_at": "triangle 23 (vertices 19 16 18), edge 18-19, idle frame 30",
+    "severity": 1.008
+   },
+   {
+    "slot": "hair_front",
+    "triangles": 87,
+    "max_ratio": 1.043,
+    "max_at": "triangle 76 (vertices 36 38 37), edge 37-36, idle frame 18",
+    "min_ratio": 0.963,
+    "min_at": "triangle 68 (vertices 77 44 43), edge 44-43, idle frame 20",
+    "severity": 1.043
+   }
+  ]
+ },
+ "ANIMATIONS_DO_NOT_FOLD": {
+  "status": "PASS",
+  "animations": [
+   "idle"
+  ],
+  "fps": 12,
+  "physics_left_out": 26,
+  "folding": [],
+  "folding_undeclared": 0,
+  "declared_not_folding": [],
+  "bar": 0
+ },
+ "RECOMPOSITE_HOLES": {
+  "status": "SKIP",
+  "reason": "parts.json has no \"recomposite\" block (a parts.json the reference wrote has none); re-run assemble, which writes it"
+ },
+ "SETUP_POSE_VS_SOURCE": {
+  "status": "REPORTED",
+  "painting_px": "800x2284",
+  "stage_px": "800x2284",
+  "render_px": "757x2284",
+  "render_scale": 1.049,
+  "mean_abs": 0.661,
+  "within_limit": 8,
+  "within_share": 0.9768,
+  "error_limit": 40,
+  "error_px": 1275,
+  "covered_alpha": 128,
+  "uncovered_error_px": 301,
+  "hole_count": 173,
+  "largest": {
+   "px": 13,
+   "box": "563,863 4x12"
+  }
+ },
+ "PASS": true
+}

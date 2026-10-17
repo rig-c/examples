@@ -2,15 +2,18 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { outfitAssets, ownAssets } from './outfits.mjs';
 
-test('registry preserves office paths and isolates only Naru homewear', () => {
+test('registry resolves office and homewear paths for all five Family characters', () => {
   for (const name of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
-    assert.equal(outfitAssets(name).modelUrl, `/${name}/out/check/build/skeleton.model.json`);
+    assert.deepEqual(outfitAssets(name), {
+      modelUrl: `/${name}/out/check/build/skeleton.model.json`,
+      referenceUrl: `/${name}/inputs/painting.png`,
+    });
+    assert.deepEqual(outfitAssets(name, 'homewear'), {
+      modelUrl: `/outfits/homewear/${name}/out/check/build/skeleton.model.json`,
+      referenceUrl: `/outfits/homewear/${name}/inputs/painting.png`,
+    });
   }
-  assert.deepEqual(outfitAssets('naru', 'homewear'), {
-    modelUrl: '/outfits/homewear/naru/out/check/build/skeleton.model.json',
-    referenceUrl: '/outfits/homewear/naru/inputs/painting.png',
-  });
-  for (const [name, outfit] of [['nova', 'homewear'], ['naru', '../'], ['../naru', 'office']]) assert.throws(() => outfitAssets(name, outfit));
+  for (const [name, outfit] of [['unknown', 'homewear'], ['naru', '../'], ['../naru', 'office']]) assert.throws(() => outfitAssets(name, outfit));
 });
 
 test('asset owner forwards final scene cleanup after a variant transfer exactly once', () => {
