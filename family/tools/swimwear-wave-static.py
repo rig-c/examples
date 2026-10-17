@@ -192,7 +192,6 @@ def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_unde
 
     clean_mesh_islands()
 
-    struct = np.ones((9, 9), dtype=bool)
     for idx in range(1, len(order) - 1):
         name = order[idx]
         if name == "shoes":
@@ -203,19 +202,20 @@ def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_unde
         uncovered = (pieces[name][:, :, 3] > 80) & (~upper_opaque)
         if not uncovered.any():
             continue
-        target_ul_px = topwear_underlap_px if name == "topwear" else (cardigan_underlap_px if name == "cardigan" else 4)
-        if target_ul_px > 4:
-            dist_uncov, nearest_idx = distance_transform_edt(~uncovered, return_indices=True)
+        target_ul_px = topwear_underlap_px if name == "topwear" else (cardigan_underlap_px if name == "cardigan" else 22)
+        dist_uncov, nearest_idx = distance_transform_edt(~uncovered, return_indices=True)
+        silhouette = binary_fill_holes(binary_closing(upper_opaque | uncovered, np.ones((25, 25), dtype=bool)))
+        outer_sil_dist = distance_transform_edt(silhouette)
+        near_px = min(22, target_ul_px)
+        near_ul = (dist_uncov <= near_px) & (outer_sil_dist >= 2) & upper_opaque & (pieces[name][:, :, 3] <= 8)
+        if target_ul_px > near_px:
             eroded = binary_erosion(uncovered, np.ones((11, 11), dtype=bool))
             rgb_arr = pieces[name][:, :, :3].astype(np.int16)
             luma = (rgb_arr[:, :, 0] + rgb_arr[:, :, 1] + rgb_arr[:, :, 2]) // 3
             bright_core = eroded & (luma > 38)
             sample_mask = bright_core if bright_core.any() else (eroded if eroded.any() else uncovered)
             _, color_idx = distance_transform_edt(~sample_mask, sampling=(3.0, 1.0), return_indices=True)
-            silhouette = binary_fill_holes(binary_closing(upper_opaque | uncovered, np.ones((25, 25), dtype=bool)))
-            outer_sil_dist = distance_transform_edt(silhouette)
-            near_ul = (dist_uncov <= 4) & upper_opaque & (pieces[name][:, :, 3] <= 8)
-            deep_ul = (dist_uncov <= target_ul_px) & (outer_sil_dist >= 14) & upper_opaque & (pieces[name][:, :, 3] <= 8)
+            deep_ul = (dist_uncov <= target_ul_px) & (outer_sil_dist >= 12) & upper_opaque & (pieces[name][:, :, 3] <= 8)
             underlap = near_ul | deep_ul
             if underlap.any():
                 full_rgb = pieces[name][color_idx[0], color_idx[1], :3].astype(np.float32)
@@ -224,11 +224,9 @@ def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_unde
                 pieces[name][underlap, :3] = np.clip(full_rgb[underlap], 0, 255).astype(np.uint8)
                 pieces[name][near_ul, :3] = pieces[name][nearest_idx[0][near_ul], nearest_idx[1][near_ul], :3]
                 pieces[name][underlap, 3] = 255
-        else:
-            _, nearest_idx = distance_transform_edt(~uncovered, return_indices=True)
-            underlap = binary_dilation(uncovered, struct) & upper_opaque & (pieces[name][:, :, 3] <= 8)
-            pieces[name][underlap, :3] = pieces[name][nearest_idx[0][underlap], nearest_idx[1][underlap], :3]
-            pieces[name][underlap, 3] = 255
+        elif near_ul.any():
+            pieces[name][near_ul, :3] = pieces[name][nearest_idx[0][near_ul], nearest_idx[1][near_ul], :3]
+            pieces[name][near_ul, 3] = 255
 
     clean_mesh_islands()
     return edge_treatment
@@ -386,7 +384,7 @@ def build_luna(home):
     hands_mask = polygon(hands_poly)
 
     open_pants = [
-        (165, 1020), (585, 1020), (585, 2050), (165, 2050),
+        (165, 1020), (600, 1020), (600, 2050), (165, 2050),
     ]
     pants_vis = polygon(open_pants) & (~hands_mask)
     pants = np.zeros((H, W, 4), dtype=np.uint8)
@@ -520,7 +518,7 @@ def build_jinni(home):
 
     inner = [
         (300, 540), (495, 540), (575, 680), (580, 780),
-        (535, 880), (545, 935), (335, 935), (335, 860), (315, 720),
+        (548, 880), (545, 935), (335, 935), (335, 860), (315, 720),
     ]
     inside = polygon(inner)
 
@@ -559,7 +557,7 @@ def build_jinni(home):
         "sleeves": sleeves,
         "hands": hands,
     }
-    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=585, band_to_row=1460)
+    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=585, band_to_row=1460, topwear_underlap_px=45, cardigan_underlap_px=34)
     cuts = {
         "openPants": open_pants,
         "cardiganInnerBoundary": inner,
@@ -639,10 +637,10 @@ def build_naru(home):
         & (~inside)
         & (~neck_visible_mask)
     )
-    skirt_poly = polygon([(185, 1035), (615, 1035), (625, 1365), (175, 1365)])
-    sleeve_r_raw = polygon([(155, 630), (305, 630), (305, 1075), (245, 1075), (155, 1000)]) & (~inside) & (~card_upper_poly)
-    sleeve_l_raw = polygon([(475, 630), (645, 630), (645, 1000), (555, 1075), (495, 1075)]) & (~inside) & (~card_upper_poly)
-    sleeves_raw = (sleeve_r_raw | sleeve_l_raw) & (~skirt_poly)
+    skirt_poly = polygon([(215, 1035), (575, 1035), (625, 1365), (175, 1365)])
+    sleeve_r_raw = polygon([(145, 630), (305, 630), (305, 1080), (145, 1080)]) & (~inside) & (~card_upper_poly)
+    sleeve_l_raw = polygon([(475, 630), (650, 630), (650, 1080), (495, 1080)]) & (~inside) & (~card_upper_poly)
+    sleeves_raw = sleeve_r_raw | sleeve_l_raw
     sleeves_mask = sleeves_raw & (~hands_full_mask)
     card_raw = (card_upper_poly | (skirt_poly & (~inside) & (~sleeves_raw))) & (~neck_visible_mask)
 
@@ -767,8 +765,8 @@ def build_nova(home):
     ])
 
     open_pants = [
-        (294, 965), (455, 965), (565, 1135), (565, 2035), (195, 2035),
-        (252, 1345), (266, 1185), (273, 1160), (278, 1120), (280, 1080), (284, 1040), (288, 1000),
+        (288, 960), (460, 960), (588, 1135), (588, 2035), (190, 2035),
+        (190, 1345), (250, 1345), (250, 1180), (273, 1160), (278, 1120), (280, 1080), (284, 1040), (288, 1000),
     ]
     pants_vis = polygon(open_pants) & (~hands_mask) & (~cardigan_r_poly)
     pants = np.zeros((H, W, 4), dtype=np.uint8)
@@ -783,12 +781,12 @@ def build_nova(home):
 
     inner = [
         (260, 552), (515, 552), (535, 760), (452, 875),
-        (452, 968), (294, 968), (298, 875), (245, 750),
+        (452, 968), (294, 968), (298, 875), (282, 750),
     ]
     inside = polygon(inner)
 
     sleeve_l_poly = polygon([
-        (200, 620), (298, 780), (294, 965), (288, 1000), (284, 1040),
+        (200, 620), (305, 620), (305, 880), (294, 965), (288, 1000), (284, 1040),
         (280, 1080), (278, 1120), (273, 1160), (266, 1185), (200, 1185),
     ]) & (~inside) & (~pants_vis)
     sleeve_r_poly = polygon([(505, 560), (700, 560), (700, 965), (515, 965)]) & (~inside)
@@ -825,7 +823,7 @@ def build_nova(home):
         "sleeves": sleeves,
         "hands": hands,
     }
-    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=580, band_to_row=1350)
+    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=580, band_to_row=1350, topwear_underlap_px=45, cardigan_underlap_px=34)
     cuts = {
         "openPants": open_pants,
         "cardiganInnerBoundary": inner,

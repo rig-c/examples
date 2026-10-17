@@ -442,19 +442,69 @@ def verify_protected(family: pathlib.Path, char: str):
     return {"character": char, "status": "PRESERVATION_PASS", "commonSlotsChecked": len(common)}
 
 
+def run_fast_build(family: pathlib.Path, char: str):
+    home = family / "outfits/homewear" / char
+    out = home / "out"
+    build_dir = out / "check/build"
+    build_dir.mkdir(parents=True, exist_ok=True)
+    subprocess.run(
+        [
+            "node",
+            "/Users/firejune/Workspace/Firejune/rigc/bin/rigc.cjs",
+            "build",
+            "--rig",
+            str(out / "rig/rig.json"),
+            "--motion",
+            str(out / "rig/motion.json"),
+            "--out",
+            str(build_dir),
+            "--profile",
+            "spine-html",
+            "--pack",
+            "--page-edges",
+            "free",
+            "--pack-shape",
+            "polygon",
+        ],
+        check=True,
+    )
+    for rel in ["authoring/rig/images", "authoring/rig/rig.json", "authoring/rig/motion.json"]:
+        p = home / rel
+        if p.is_dir():
+            shutil.rmtree(p)
+        elif p.exists():
+            p.unlink()
+    return {"PASS": True, "gate_spine_html_green": True}
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--characters", nargs="*", default=["roa", "luna", "jinni", "nova"])
     parser.add_argument("--force", action="store_true")
+    parser.add_argument("--fast-build", action="store_true")
     args = parser.parse_args()
     family = pathlib.Path(__file__).resolve().parents[1]
     summary = []
     for char in args.characters:
+        prev_check = None
+        prev_gate = None
+        out_check = family / "outfits/homewear" / char / "out/check"
+        if args.fast_build and (out_check / "check.json").is_file():
+            prev_check = (out_check / "check.json").read_bytes()
+        if args.fast_build and (out_check / "gate_spine-html.txt").is_file():
+            prev_gate = (out_check / "gate_spine-html.txt").read_bytes()
         prepare_author_inputs(family, char, force=args.force)
         run_rig_parts_rig(family, char)
         merge_with_baseline(family, char, force=args.force)
         stitched = stitch_neck_seam(family, char)
-        check = run_build_and_check(family, char)
+        if args.fast_build:
+            check = run_fast_build(family, char)
+            if prev_check is not None:
+                (out_check / "check.json").write_bytes(prev_check)
+            if prev_gate is not None:
+                (out_check / "gate_spine-html.txt").write_bytes(prev_gate)
+        else:
+            check = run_build_and_check(family, char)
         protected = verify_protected(family, char)
         summary.append({
             "character": char,

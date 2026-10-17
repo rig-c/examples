@@ -93,7 +93,7 @@ CHAR_SPECS = {
             "cardigan_hem_l",
         ],
         "sleeves_segments": [
-            ["chest", [180, 820], [615, 1020]],
+            ["chest", [180, 800], [615, 1060]],
         ],
         "stitch": [("neck", 625, True), ("topwear", 705, False), ("cardigan", 705, False)],
     },
