@@ -22,7 +22,7 @@ OFFICE_CLOTHING = {
     "handwear_r",
     "handwear_l",
 }
-NEW_NAMES = ["shoes", "bottomwear", "neck", "topwear", "cardigan", "sleeves", "hands"]
+NEW_NAMES = ["shoes", "bottomwear", "neck", "topwear", "sleeves"]
 
 CHAR_SPECS = {
     "roa": {
@@ -42,7 +42,7 @@ CHAR_SPECS = {
             ["chest", [120, 520], [120, 940]],
             ["chest", [520, 520], [720, 580]],
         ],
-        "stitch": [("neck", 448, True), ("topwear", 520, False), ("cardigan", 520, False)],
+        "stitch": [("neck", 448, True), ("topwear", 520, False)],
     },
     "luna": {
         "hem_r": {"at": [235, 1020], "tip": [220, 1245]},
@@ -60,42 +60,61 @@ CHAR_SPECS = {
         "sleeves_segments": [
             ["chest", [200, 650], [520, 1180]],
         ],
-        "stitch": [("neck", 575, True), ("topwear", 645, False), ("cardigan", 645, False)],
+        "stitch": [("neck", 575, True), ("topwear", 645, False)],
     },
     "jinni": {
-        "hem_r": {"at": [260, 1100], "tip": [235, 1560]},
-        "hem_l": {"at": [585, 1100], "tip": [615, 1560]},
+        "hem_r": {"at": [330, 940], "tip": [325, 1035]},
+        "hem_l": {"at": [550, 940], "tip": [560, 1035]},
         "neck_segments": [["chest", [428, 545], [428, 734]], ["head", [428, 500], [428, 410]]],
-        "topwear_segments": [["chest", [440, 552], [440, 866]], ["hip", [440, 866], [440, 1045]]],
+        "topwear_segments": [["chest", [440, 552], [440, 866]], ["hip", [440, 866], [440, 1035]]],
         "cardigan_segments": [
-            ["chest", [260, 620], [280, 880]],
-            ["chest", [540, 600], [560, 880]],
-            ["hip", [280, 880], [260, 1100]],
-            ["hip", [560, 880], [585, 1100]],
-            ["hip", [428, 1280], [428, 1500]],
+            ["chest", [330, 620], [330, 880]],
+            ["chest", [540, 620], [550, 880]],
+            ["hip", [330, 880], [330, 940]],
+            ["hip", [550, 880], [550, 940]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
         "sleeves_segments": [
             ["chest", [230, 640], [520, 1080]],
         ],
-        "stitch": [("neck", 555, True), ("topwear", 625, False), ("cardigan", 640, False)],
+        "stitch": [("neck", 555, True), ("topwear", 625, False)],
+    },
+    "naru": {
+        "hem_r": {"at": [243, 1080], "tip": [245, 1350]},
+        "hem_l": {"at": [532, 1080], "tip": [532, 1350]},
+        "neck_segments": [["chest", [380, 650], [380, 780]], ["head", [380, 575], [380, 510]]],
+        "topwear_segments": [["chest", [380, 630], [380, 910]], ["hip", [380, 910], [380, 1080]]],
+        "cardigan_segments": [
+            ["chest", [240, 640], [240, 950]],
+            ["chest", [535, 640], [535, 950]],
+            ["hip", [245, 940], [245, 1080]],
+            ["hip", [532, 940], [532, 1080]],
+            "cardigan_hem_r",
+            "cardigan_hem_l",
+        ],
+        "sleeves_segments": [
+            ["chest", [180, 820], [615, 1020]],
+        ],
+        "stitch": [("neck", 625, True), ("topwear", 705, False)],
     },
     "nova": {
-        "hem_r": {"at": [310, 1020], "tip": [300, 1250]},
+        "hem_r": {"at": [225, 1020], "tip": [220, 1350]},
         "hem_l": {"at": [540, 1020], "tip": [560, 1410]},
         "neck_segments": [["chest", [435, 550], [410, 780]], ["head", [435, 500], [435, 450]]],
         "topwear_segments": [["chest", [380, 555], [380, 900]], ["hip", [380, 900], [380, 975]]],
         "cardigan_segments": [
-            ["chest", [320, 560], [300, 690]],
+            ["chest", [250, 580], [235, 920]],
             ["chest", [520, 560], [530, 920]],
+            ["hip", [235, 920], [225, 1020]],
             ["hip", [530, 920], [540, 1020]],
+            "cardigan_hem_r",
             "cardigan_hem_l",
         ],
         "sleeves_segments": [
             ["chest", [220, 660], [640, 1150]],
         ],
-        "stitch": [("neck", 560, True), ("topwear", 625, False), ("cardigan", 625, False)],
+        "stitch": [("neck", 560, True), ("topwear", 625, False)],
     },
 }
 
@@ -162,27 +181,24 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
             "mix": 1,
         })
     top = json.loads(json.dumps(cfg["meshes"]["topwear"]))
-    top["segments"] = spec["topwear_segments"]
+    top["segments"] = [*spec["topwear_segments"], *spec["cardigan_segments"]]
     top["contour"]["tolerance"] = 1
     top["contour"]["margin"] = 3
+    bust_override_path = home / "bust-regions.json"
+    if bust_override_path.is_file():
+        bust_override = json.loads(bust_override_path.read_text())
+        for reg in top["contour"].get("regions", []):
+            if reg["name"] in bust_override:
+                ov = bust_override[reg["name"]]
+                reg["cx"] = round(float(ov["cx"]), 2)
+                reg["cy"] = round(float(ov["cy"]), 2)
+                reg["r"] = round(float(ov["r"]), 2)
+                reg["band"] = round(float(ov["band"]), 2)
     neck = json.loads(json.dumps(cfg["meshes"]["neck"]))
     neck["segments"] = spec["neck_segments"]
     cfg["meshes"] = {
         "neck": neck,
         "topwear": top,
-        "cardigan": {
-            "contour": {
-                "tolerance": 1,
-                "margin": 3,
-                "spacing": 40,
-                "maxEdge": 64,
-                "stray": 400,
-                "bridges": True,
-                "regions": json.loads(json.dumps(top["contour"].get("regions", []))),
-            },
-            "r": 12,
-            "segments": spec["cardigan_segments"],
-        },
         "sleeves": {
             "contour": {
                 "tolerance": 1,
@@ -196,10 +212,10 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
             "segments": spec["sleeves_segments"],
         },
     }
-    cfg["regions"] = {"shoes": "root", "bottomwear": "hip", "hands": "chest"}
+    cfg["regions"] = {"shoes": "root", "bottomwear": "hip"}
     cfg["note"] = (
         "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; "
-        "new cardigan hems have separate physics. Source lineage is in prepared/prototype.json."
+        "new cardigan hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
     )
     (author / "config.json").write_text(json.dumps(cfg, indent=2) + "\n")
 

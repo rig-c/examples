@@ -24,19 +24,9 @@
         "author:homewear-topwear"
       ],
       [
-        "cardigan",
-        "full",
-        "author:homewear-cardigan"
-      ],
-      [
         "sleeves",
         "full",
         "author:homewear-sleeves"
-      ],
-      [
-        "hands",
-        "full",
-        "author:homewear-hands"
       ]
     ]
   },
@@ -325,12 +315,12 @@
       "name": "cardigan_hem_r",
       "parent": "hip",
       "at": [
-        310,
+        225,
         1020
       ],
       "tip": [
-        300,
-        1250
+        220,
+        1350
       ]
     },
     {
@@ -434,51 +424,16 @@
             380,
             975
           ]
-        ]
-      ]
-    },
-    "cardigan": {
-      "contour": {
-        "tolerance": 1,
-        "margin": 3,
-        "spacing": 40,
-        "maxEdge": 64,
-        "stray": 400,
-        "bridges": true,
-        "regions": [
-          {
-            "name": "bust_r",
-            "shape": "circle",
-            "cx": 257,
-            "cy": 752,
-            "r": 15,
-            "bone": "boob_r",
-            "spacing": 14,
-            "band": 58
-          },
-          {
-            "name": "bust_l",
-            "shape": "circle",
-            "cx": 418,
-            "cy": 758,
-            "r": 21,
-            "bone": "boob_l",
-            "spacing": 14,
-            "band": 65
-          }
-        ]
-      },
-      "r": 12,
-      "segments": [
+        ],
         [
           "chest",
           [
-            320,
-            560
+            250,
+            580
           ],
           [
-            300,
-            690
+            235,
+            920
           ]
         ],
         [
@@ -495,6 +450,17 @@
         [
           "hip",
           [
+            235,
+            920
+          ],
+          [
+            225,
+            1020
+          ]
+        ],
+        [
+          "hip",
+          [
             530,
             920
           ],
@@ -503,6 +469,7 @@
             1020
           ]
         ],
+        "cardigan_hem_r",
         "cardigan_hem_l"
       ]
     },
@@ -533,8 +500,7 @@
   },
   "regions": {
     "shoes": "root",
-    "bottomwear": "hip",
-    "hands": "chest"
+    "bottomwear": "hip"
   },
   "motion": {
     "duration": 3.3333333333333335,
@@ -1049,5 +1015,5 @@
       }
     }
   ],
-  "note": "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; new cardigan hems have separate physics. Source lineage is in prepared/prototype.json."
+  "note": "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; new cardigan hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
 }

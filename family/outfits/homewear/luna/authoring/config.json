@@ -24,19 +24,9 @@
         "author:homewear-topwear"
       ],
       [
-        "cardigan",
-        "full",
-        "author:homewear-cardigan"
-      ],
-      [
         "sleeves",
         "full",
         "author:homewear-sleeves"
-      ],
-      [
-        "hands",
-        "full",
-        "author:homewear-hands"
       ]
     ]
   },
@@ -496,42 +486,7 @@
             368,
             1025
           ]
-        ]
-      ]
-    },
-    "cardigan": {
-      "contour": {
-        "tolerance": 1,
-        "margin": 3,
-        "spacing": 40,
-        "maxEdge": 64,
-        "stray": 400,
-        "bridges": true,
-        "regions": [
-          {
-            "name": "bust_r",
-            "shape": "circle",
-            "cx": 318,
-            "cy": 776,
-            "r": 23,
-            "bone": "boob_r",
-            "spacing": 14,
-            "band": 62
-          },
-          {
-            "name": "bust_l",
-            "shape": "circle",
-            "cx": 498,
-            "cy": 780,
-            "r": 21,
-            "bone": "boob_l",
-            "spacing": 14,
-            "band": 56
-          }
-        ]
-      },
-      "r": 12,
-      "segments": [
+        ],
         [
           "chest",
           [
@@ -607,8 +562,7 @@
   },
   "regions": {
     "shoes": "root",
-    "bottomwear": "hip",
-    "hands": "chest"
+    "bottomwear": "hip"
   },
   "motion": {
     "duration": 3.3333333333333335,
@@ -1286,5 +1240,5 @@
       }
     }
   ],
-  "note": "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; new cardigan hems have separate physics. Source lineage is in prepared/prototype.json."
+  "note": "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; new cardigan hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
 }

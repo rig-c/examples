@@ -1,120 +1,87 @@
 {
-  "spec": "family-homewear-static-prototype/1",
+  "spec": "family-homewear-static-prototype/2",
   "character": "roa",
   "status": "STATIC_REVIEW_ONLY",
   "parts": [
     {
       "name": "shoes",
-      "x": 200,
-      "y": 2080,
-      "w": 302,
-      "h": 172,
-      "opaque_px": 36067,
-      "source": "painting:source-slippers"
+      "x": 199,
+      "y": 2084,
+      "w": 306,
+      "h": 169,
+      "opaque_px": 29978,
+      "source": "full:seethrough-v3:shoes"
     },
     {
       "name": "bottomwear",
-      "x": 119,
-      "y": 902,
-      "w": 463,
-      "h": 1238,
-      "opaque_px": 287367,
-      "source": "full:legwear"
+      "x": 175,
+      "y": 912,
+      "w": 389,
+      "h": 1202,
+      "opaque_px": 261617,
+      "source": "full:seethrough-v3:bottomwear"
     },
     {
       "name": "neck",
-      "x": 246,
+      "x": 258,
       "y": 336,
-      "w": 129,
-      "h": 154,
-      "opaque_px": 13198,
-      "source": "painting:visible-neck+full:neck"
+      "w": 114,
+      "h": 169,
+      "opaque_px": 14087,
+      "source": "full:seethrough-v3:neck"
     },
     {
       "name": "topwear",
-      "x": 198,
-      "y": 448,
-      "w": 342,
-      "h": 540,
-      "opaque_px": 144893,
-      "source": "full:topwear"
-    },
-    {
-      "name": "cardigan",
-      "x": 115,
-      "y": 448,
-      "w": 494,
-      "h": 922,
-      "opaque_px": 156529,
-      "source": "full:topwear"
+      "x": 125,
+      "y": 483,
+      "w": 485,
+      "h": 834,
+      "opaque_px": 228116,
+      "source": "full:seethrough-v3:topwear"
     },
     {
       "name": "sleeves",
-      "x": 61,
-      "y": 493,
-      "w": 692,
-      "h": 490,
-      "opaque_px": 71044,
-      "source": "full:handwear"
-    },
-    {
-      "name": "hands",
-      "x": 60,
-      "y": 522,
-      "w": 629,
-      "h": 837,
-      "opaque_px": 65686,
-      "source": "full:handwear"
+      "x": 59,
+      "y": 482,
+      "w": 694,
+      "h": 879,
+      "opaque_px": 128052,
+      "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
-    "legwear": {
-      "core": 141859,
-      "taken": 141772,
-      "refused": 153
-    },
-    "footwear": {
-      "core": 23339,
-      "taken": 23313,
-      "refused": 94
+    "shoes": {
+      "core": 25688,
+      "taken": 25608,
+      "refused": 387
     },
     "bottomwear": {
-      "core": 440,
-      "taken": 439,
-      "refused": 1
-    },
-    "topwear": {
-      "core": 259777,
-      "taken": 258948,
-      "refused": 6430
-    },
-    "handwear-l": {
-      "core": 35137,
-      "taken": 33916,
-      "refused": 2061
+      "core": 223688,
+      "taken": 223609,
+      "refused": 1263
     },
     "neck": {
-      "core": 1,
+      "core": 0,
       "taken": 0,
-      "refused": 1
+      "refused": 0
     },
-    "handwear-r": {
-      "core": 56137,
-      "taken": 56118,
-      "refused": 184
+    "topwear": {
+      "core": 182276,
+      "taken": 181859,
+      "refused": 2890
     },
-    "objects": {
-      "core": 10559,
-      "taken": 9849,
-      "refused": 985
+    "sleeves": {
+      "core": 113026,
+      "taken": 110082,
+      "refused": 6067
     }
   },
   "projectionPolicy": {
-    "source": "Existing family/parts projection constants",
-    "coreAlpha": 250,
-    "kernel": 5,
-    "driftLimit": 90,
-    "sigma": 1
+    "source": "See-through v3 semantic layers + registered 4x upscaled visible source projection",
+    "coreAlpha": 200,
+    "kernel": 3,
+    "driftLimit": 75,
+    "sigma": 1.0
   },
   "geometry": {
     "inputSquare": [
@@ -130,333 +97,12 @@
       800,
       2284
     ],
-    "resample": "Pillow BICUBIC; no claim of byte parity with public OpenCV-equivalent helper"
+    "resample": "Pillow BICUBIC"
   },
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
-    "upperToRow": 500,
-    "sourceOuterBoundaryBandPx": 10,
-    "sourceBandRows": [
-      500,
-      1370
-    ]
+    "upperToRow": 483,
+    "method": "See-through v3 layer depth + local color/DoG detail error; zero manual polygons"
   },
-  "cuts": {
-    "openPants": [
-      [
-        264,
-        922
-      ],
-      [
-        370,
-        936
-      ],
-      [
-        488,
-        916
-      ],
-      [
-        505,
-        1000
-      ],
-      [
-        522,
-        1080
-      ],
-      [
-        538,
-        1160
-      ],
-      [
-        548,
-        1235
-      ],
-      [
-        240,
-        1235
-      ],
-      [
-        244,
-        1160
-      ],
-      [
-        250,
-        1080
-      ],
-      [
-        256,
-        1000
-      ]
-    ],
-    "cardiganInnerBoundary": [
-      [
-        254,
-        448
-      ],
-      [
-        372,
-        448
-      ],
-      [
-        402,
-        488
-      ],
-      [
-        434,
-        540
-      ],
-      [
-        464,
-        592
-      ],
-      [
-        482,
-        635
-      ],
-      [
-        484,
-        656
-      ],
-      [
-        468,
-        760
-      ],
-      [
-        476,
-        850
-      ],
-      [
-        488,
-        932
-      ],
-      [
-        370,
-        948
-      ],
-      [
-        262,
-        938
-      ],
-      [
-        268,
-        840
-      ],
-      [
-        272,
-        700
-      ],
-      [
-        262,
-        575
-      ],
-      [
-        250,
-        500
-      ]
-    ],
-    "rightHand": [
-      [
-        50,
-        955
-      ],
-      [
-        175,
-        955
-      ],
-      [
-        175,
-        1015
-      ],
-      [
-        156,
-        1080
-      ],
-      [
-        158,
-        1140
-      ],
-      [
-        180,
-        1180
-      ],
-      [
-        204,
-        1215
-      ],
-      [
-        204,
-        1365
-      ],
-      [
-        50,
-        1365
-      ]
-    ],
-    "leftHand": [
-      [
-        488,
-        642
-      ],
-      [
-        496,
-        608
-      ],
-      [
-        512,
-        576
-      ],
-      [
-        534,
-        545
-      ],
-      [
-        562,
-        530
-      ],
-      [
-        610,
-        522
-      ],
-      [
-        652,
-        522
-      ],
-      [
-        682,
-        540
-      ],
-      [
-        688,
-        576
-      ],
-      [
-        680,
-        608
-      ],
-      [
-        650,
-        618
-      ],
-      [
-        605,
-        612
-      ],
-      [
-        580,
-        604
-      ],
-      [
-        576,
-        625
-      ],
-      [
-        568,
-        660
-      ],
-      [
-        556,
-        692
-      ],
-      [
-        530,
-        706
-      ],
-      [
-        490,
-        708
-      ]
-    ],
-    "upperMug": [
-      [
-        404,
-        668
-      ],
-      [
-        424,
-        650
-      ],
-      [
-        465,
-        642
-      ],
-      [
-        504,
-        644
-      ],
-      [
-        512,
-        660
-      ],
-      [
-        508,
-        688
-      ],
-      [
-        530,
-        686
-      ],
-      [
-        536,
-        706
-      ],
-      [
-        522,
-        730
-      ],
-      [
-        504,
-        744
-      ],
-      [
-        504,
-        758
-      ],
-      [
-        485,
-        764
-      ],
-      [
-        436,
-        764
-      ],
-      [
-        424,
-        748
-      ]
-    ],
-    "sourceShoesFromRow": 2080,
-    "sourcePantsFullFromRow": 1215,
-    "sourcePantsToRow": 2090,
-    "sourceVisibleNeckPolygon": [
-      [
-        302,
-        370
-      ],
-      [
-        362,
-        405
-      ],
-      [
-        350,
-        444
-      ],
-      [
-        375,
-        476
-      ],
-      [
-        290,
-        476
-      ],
-      [
-        304,
-        438
-      ]
-    ]
-  },
-  "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted.",
-  "limitations": [
-    "This is an early flat source/occlusion review, not a mesh or runtime result.",
-    "Cut boundary fit and source projection omissions still require visual review; no hidden pixel was painted by a heuristic."
-  ]
+  "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }
