@@ -54,12 +54,12 @@ function drawBustSpheres(ctx, entries, project, options) {
     const rReg = regs.bust_r;
     const lReg = regs.bust_l;
     const dist = Math.hypot(lReg.cx - rReg.cx, lReg.cy - rReg.cy);
-    const overlap = (rReg.r + rReg.band + lReg.r + lReg.band) > (dist - 16);
+    const overlap = (rReg.r + lReg.r) > dist;
     const isTarget = options.activeBustChar === entry.key;
 
     for (const [side, reg, baseColor] of [
       ['bust_r', rReg, '#00e5ff'],
-      ['bust_l', lReg, '#ff4da6'],
+      ['bust_l', lReg, '#52ff88'],
     ]) {
       const wx = (reg.cx - 400) + poseDx + (entry.offsetX ?? 0);
       const wy = (2284 - reg.cy) + poseDy - (entry.offsetY ?? 0);

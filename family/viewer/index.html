@@ -89,7 +89,7 @@
     #bustEditorBar.show { display: flex; }
     #bustEditorBar .bust-group { display: flex; align-items: center; gap: 6px; padding-left: 10px; border-left: 1px solid #2a303c; }
     #bustEditorBar .bust-tag-r { color: #00e5ff; font-weight: 700; }
-    #bustEditorBar .bust-tag-l { color: #ff4da6; font-weight: 700; }
+    #bustEditorBar .bust-tag-l { color: #52ff88; font-weight: 700; }
     #bustEditorBar input[type="number"] { width: 52px; padding: 2px 4px; background: #1d222e; color: #eef2f9; border: 1px solid #363e4f; border-radius: 4px; font-size: 12px; }
     #bustApplyBtn { background: #1f6feb; border-color: #388bfd; color: #fff; font-weight: 600; }
     #bustApplyBtn:disabled { opacity: 0.6; cursor: wait; }
@@ -286,7 +286,7 @@
     import { createWindControls, BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, MAX_GUST_DURATION } from '/viewer/wind-controls.mjs';
     import { readViewState, writeViewState, defaultViewState } from '/viewer/view-state.mjs';
     import { fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame } from '/viewer/viewport.mjs';
-    import { drawOverlay } from '/viewer/debug-overlay.mjs';
+    import { drawOverlay } from '/viewer/debug-overlay.mjs?v=3';
     import { outfitAssets, ownAssets } from '/viewer/outfits.mjs';
     import { createOutfitTransaction } from '/viewer/outfit-transaction.mjs';
 
@@ -1030,35 +1030,35 @@
       if (typeof globalThis.fetch !== 'function') return;
       const targetChar = bustCharSelect.value || activeBustChar;
       const currentOutfit = activeBustOutfit(targetChar);
-      const targetOutfit = currentOutfit === 'office' ? 'swimwear' : currentOutfit;
       const regs = bustData[targetChar]?.outfits?.[currentOutfit] ?? activeBustRegions(targetChar);
       if (!regs) return;
       bustApplyBtn.disabled = true;
       bustApplyBtn.textContent = '리빌드 중…';
-      stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} (${OUTFIT_LABELS[targetOutfit] ?? targetOutfit}) 가슴 영역 리빌드 중…`;
+      stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 전 의상(오피스·홈웨어·수영복) 가슴 영역 리빌드 중…`;
       try {
         const res = await globalThis.fetch('/api/bust-regions', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ character: targetChar, outfit: targetOutfit, bust_r: regs.bust_r, bust_l: regs.bust_l }),
+          body: JSON.stringify({ character: targetChar, outfit: currentOutfit, bust_r: regs.bust_r, bust_l: regs.bust_l }),
         });
         const out = await res.json();
         if (!res.ok || !out.ok) throw new Error(out.error || `HTTP ${res.status}`);
         if (bustData[targetChar]?.outfits) {
-          bustData[targetChar].outfits[targetOutfit] = { bust_r: out.bust_r, bust_l: out.bust_l };
-          if (currentOutfit === 'office') bustData[targetChar].outfits.office = { bust_r: out.bust_r, bust_l: out.bust_l };
+          for (const o of ['office', 'homewear', 'swimwear']) {
+            bustData[targetChar].outfits[o] = { bust_r: { ...out.bust_r }, bust_l: { ...out.bust_l } };
+          }
         }
         syncBustEditorInputs();
         const entry = players.find(p => p.key === targetChar);
         if (entry) {
-          await outfitTransaction.open({ key: targetChar, outfit: targetOutfit, entry, sceneVersion });
+          await outfitTransaction.open({ key: targetChar, outfit: currentOutfit, entry, sceneVersion });
           setTimeout(() => {
             const refreshed = players.find(p => p.key === targetChar);
             refreshed?.player?.moved({ x: 14, y: -10 });
             setTimeout(() => refreshed?.player?.moved({ x: -14, y: 10 }), 90);
           }, 60);
         }
-        stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 가슴 영역 리빌드 완료! R(${out.bust_r.cx},${out.bust_r.cy},r=${out.bust_r.r},b=${out.bust_r.band}) · L(${out.bust_l.cx},${out.bust_l.cy},r=${out.bust_l.r},b=${out.bust_l.band})`;
+        stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 전 의상(오피스·홈웨어·수영복) 가슴 영역 리빌드 완료! R(${out.bust_r.cx},${out.bust_r.cy},r=${out.bust_r.r},b=${out.bust_r.band}) · L(${out.bust_l.cx},${out.bust_l.cy},r=${out.bust_l.r},b=${out.bust_l.band})`;
       } catch (err) {
         stats.textContent = `가슴 영역 리빌드 실패: ${err.message}`;
         console.error(err);

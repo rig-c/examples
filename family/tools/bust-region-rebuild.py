@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read or update bust_r / bust_l contour regions and fast-rebuild the target rig."""
+"""Read or update bust_r / bust_l contour regions across ALL outfits (office, homewear, swimwear) for a character."""
 import argparse
 import hashlib
 import json
@@ -7,6 +7,7 @@ import math
 import pathlib
 import shutil
 import subprocess
+import tempfile
 
 CHARACTERS = ["roa", "luna", "jinni", "naru", "nova"]
 OUTFITS = ["office", "homewear", "swimwear"]
@@ -21,6 +22,12 @@ def config_path_for(family: pathlib.Path, char: str, outfit: str) -> pathlib.Pat
     if outfit == "office":
         return family / char / "config.json"
     return family / "outfits" / outfit / char / "authoring/config.json"
+
+
+def out_dir_for(family: pathlib.Path, char: str, outfit: str) -> pathlib.Path:
+    if outfit == "office":
+        return family / char / "out"
+    return family / "outfits" / outfit / char / "out"
 
 
 def read_all_regions(family: pathlib.Path) -> dict:
@@ -75,115 +82,145 @@ def clamp_non_overlapping(bust_r: dict, bust_l: dict, margin: float = 2.0) -> tu
     return r_out, l_out, clamped
 
 
-def rebuild_variant(
+def rebuild_single_outfit_topwear(
     family: pathlib.Path,
     live_family: pathlib.Path | None,
     char: str,
     outfit: str,
-    bust_r: dict,
-    bust_l: dict,
-) -> dict:
-    if outfit not in ("swimwear", "homewear"):
-        raise RuntimeError(f"Only swimwear and homewear variants support live bust rebuild (got {outfit})")
+    r_clean: dict,
+    l_clean: dict,
+) -> tuple[dict, dict]:
+    cfg_path = config_path_for(family, char, outfit)
+    out_dir = out_dir_for(family, char, outfit)
+    parts_doc = json.loads((out_dir / "parts.json").read_text())
+    top_part_rec = next(p for p in parts_doc["parts"] if p["name"] == "topwear")
+    top_png_path = out_dir / "parts/topwear.png"
 
-    home = family / "outfits" / outfit / char
-    author = home / "authoring"
-    out = home / "out"
-    cfg_path = author / "config.json"
-    rig_tmp = author / "rig_tmp"
-
-    r_clean, l_clean, clamped = clamp_non_overlapping(bust_r, bust_l, margin=2.0)
-    for margin in (2.0, 8.0, 14.0, 20.0):
-        r_clean, l_clean, c_step = clamp_non_overlapping(bust_r, bust_l, margin=margin)
-        clamped = clamped or c_step
-        cfg = json.loads(cfg_path.read_text())
-        for reg in cfg["meshes"]["topwear"]["contour"].get("regions", []):
-            if reg["name"] == "bust_r":
-                reg.update(r_clean)
-            elif reg["name"] == "bust_l":
-                reg.update(l_clean)
-        cfg_path.write_text(json.dumps(cfg, indent=2) + "\n")
-        if rig_tmp.exists():
-            shutil.rmtree(rig_tmp)
-        proc = subprocess.run(
-            [
-                "node",
-                "/Users/firejune/Workspace/Firejune/rig-parts/bin/rig-parts.cjs",
-                "rig",
-                "--config",
-                str(cfg_path),
-                "--parts",
-                str(author / "inputs"),
-                "--out",
-                str(rig_tmp),
-            ],
-            capture_output=True,
-            text=True,
+    with tempfile.TemporaryDirectory(prefix=f"bust-{char}-{outfit}-") as tmp:
+        tmp_dir = pathlib.Path(tmp)
+        inputs_dir = tmp_dir / "inputs"
+        (inputs_dir / "parts").mkdir(parents=True)
+        shutil.copy2(top_png_path, inputs_dir / "parts/topwear.png")
+        clean_part_rec = {
+            **{k: top_part_rec[k] for k in ("name", "x", "y", "w", "h", "opaque_px")},
+            "from": "full:author:topwear",
+            "projected_core_px": 0,
+            "source_px_taken": 0,
+            "refused_drift_px": 0,
+            "merged_px": 0,
+            "seam_override_px": 0,
+        }
+        (inputs_dir / "parts.json").write_text(
+            json.dumps(
+                {
+                    "rig_size": [800, 2284],
+                    "scale_rig_per_source": 1,
+                    "ghost_px": {},
+                    "parts": [clean_part_rec],
+                },
+                indent=2,
+            )
+            + "\n"
         )
-        if proc.returncode == 0:
-            break
-        if "RIG_CONTOUR_REGIONS_OVERLAP" not in (proc.stdout + proc.stderr):
-            raise RuntimeError((proc.stderr or proc.stdout).strip())
-    else:
-        raise RuntimeError("Bust regions still overlap after automatic band reduction")
 
-    (home / "bust-regions.json").write_text(
-        json.dumps({"bust_r": r_clean, "bust_l": l_clean}, indent=2) + "\n"
-    )
+        cur_r, cur_l = dict(r_clean), dict(l_clean)
+        for margin in (2.0, 8.0, 14.0, 20.0):
+            if margin > 2.0:
+                cur_r, cur_l, _ = clamp_non_overlapping(r_clean, l_clean, margin=margin)
+            cfg = json.loads(cfg_path.read_text())
+            for reg in cfg["meshes"]["topwear"]["contour"].get("regions", []):
+                if reg["name"] == "bust_r":
+                    reg.update(cur_r)
+                elif reg["name"] == "bust_l":
+                    reg.update(cur_l)
+            cfg_path.write_text(json.dumps(cfg, indent=2) + "\n")
 
-    try:
-        new_rig = json.loads((rig_tmp / "rig.json").read_text())
-        new_reports = json.loads((rig_tmp / "mesh_report.json").read_text())
+            mini_cfg = json.loads(json.dumps(cfg))
+            mini_cfg.pop("seethrough", None)
+            mini_cfg["assemble"] = {
+                "rig_scale": 1,
+                "plan": [["topwear", "full", "author:topwear"]],
+            }
+            mini_cfg["motion"].pop("blink", None)
+            mini_cfg["meshes"] = {"topwear": mini_cfg["meshes"]["topwear"]}
+            mini_cfg["regions"] = {}
+            mini_cfg_path = tmp_dir / "config.json"
+            mini_cfg_path.write_text(json.dumps(mini_cfg, indent=2) + "\n")
 
-        # Update topwear mesh report in authoring/rig/mesh_report.json and out/rig/mesh_report.json
-        auth_report_path = author / "rig/mesh_report.json"
-        if auth_report_path.is_file():
-            auth_reports = json.loads(auth_report_path.read_text())
-            new_top_rep = next((r for r in new_reports if r.get("part") == "topwear"), None)
-            if new_top_rep:
-                auth_reports = [new_top_rep if r.get("part") == "topwear" else r for r in auth_reports]
-                auth_report_path.write_text(json.dumps(auth_reports, indent=2) + "\n")
+            rig_out = tmp_dir / "rig"
+            if rig_out.exists():
+                shutil.rmtree(rig_out)
+            rig_parts_bin = (
+                "/Users/firejune/Workspace/Firejune/rig-parts-naru-369/bin/rig-parts.cjs"
+                if pathlib.Path("/Users/firejune/Workspace/Firejune/rig-parts-naru-369/bin/rig-parts.cjs").is_file()
+                else "/Users/firejune/Workspace/Firejune/rig-parts/bin/rig-parts.cjs"
+            )
+            import os
+            env = dict(os.environ)
+            env["PATH"] = "/Users/firejune/Workspace/Firejune/rig-parts/node_modules/.bin:" + env.get("PATH", "")
+            proc = subprocess.run(
+                [
+                    "node",
+                    rig_parts_bin,
+                    "rig",
+                    "--config",
+                    str(mini_cfg_path),
+                    "--parts",
+                    str(inputs_dir),
+                    "--out",
+                    str(rig_out),
+                ],
+                env=env,
+                capture_output=True,
+                text=True,
+            )
+            if proc.returncode == 0:
+                break
+            if "RIG_CONTOUR_REGIONS_OVERLAP" not in (proc.stdout + proc.stderr):
+                raise RuntimeError(f"[{char}/{outfit}] {(proc.stderr or proc.stdout).strip()}")
+        else:
+            raise RuntimeError(f"[{char}/{outfit}] Bust regions still overlap after automatic band reduction")
 
-        out_report_path = out / "rig/mesh_report.json"
-        if out_report_path.is_file():
-            out_reports = json.loads(out_report_path.read_text())
-            new_top_rep = next((r for r in new_reports if r.get("part") == "topwear"), None)
-            if new_top_rep:
-                out_reports = [new_top_rep if r.get("part") == "topwear" else r for r in out_reports]
-                out_report_path.write_text(json.dumps(out_reports, indent=2) + "\n")
+        new_rig = json.loads((rig_out / "rig.json").read_text())
+        new_reports = json.loads((rig_out / "mesh_report.json").read_text())
+        new_top_rep = next((r for r in new_reports if r.get("part") == "topwear"), None)
 
-        # Update topwear skin attachment in out/rig/rig.json and re-apply neck-seam stitch on topwear
-        target_rig_path = out / "rig/rig.json"
+        for rep_path in [
+            out_dir / "rig/mesh_report.json",
+            (family / "outfits" / outfit / char / "authoring/rig/mesh_report.json") if outfit != "office" else None,
+        ]:
+            if rep_path and rep_path.is_file() and new_top_rep:
+                reps = json.loads(rep_path.read_text())
+                reps = [new_top_rep if r.get("part") == "topwear" else r for r in reps]
+                rep_path.write_text(json.dumps(reps, indent=2) + "\n")
+
+        target_rig_path = out_dir / "rig/rig.json"
         rig = json.loads(target_rig_path.read_text())
         rig["skins"]["default"]["topwear"] = new_rig["skins"]["default"]["topwear"]
         for attachment in rig["skins"]["default"]["topwear"].values():
-            shutil.copy2(rig_tmp / "images" / attachment["image"], out / "rig/images" / attachment["image"])
+            shutil.copy2(rig_out / "images" / attachment["image"], out_dir / "rig/images" / attachment["image"])
 
-        parts = {p["name"]: p for p in json.loads((out / "parts.json").read_text())["parts"]}
-        threshold = TOPWEAR_STITCH_THRESHOLD[outfit][char]
-        attachment = rig["skins"]["default"]["topwear"]["topwear"]
-        record = parts["topwear"]
-        for i, weights in enumerate(attachment["weights"]):
-            source_y = record["y"] - 4 + attachment["uvs"][2 * i + 1] * attachment["height"]
-            if source_y <= threshold:
-                chest = next((w for w in weights if w["bone"] == "chest"), None)
-                if chest is not None:
-                    attachment["weights"][i] = [{**chest, "weight": 1}]
+        if outfit in TOPWEAR_STITCH_THRESHOLD:
+            threshold = TOPWEAR_STITCH_THRESHOLD[outfit][char]
+            attachment = rig["skins"]["default"]["topwear"]["topwear"]
+            for i, weights in enumerate(attachment["weights"]):
+                source_y = top_part_rec["y"] - 4 + attachment["uvs"][2 * i + 1] * attachment["height"]
+                if source_y <= threshold:
+                    chest = next((w for w in weights if w["bone"] == "chest"), None)
+                    if chest is not None:
+                        attachment["weights"][i] = [{**chest, "weight": 1}]
 
         target_rig_text = json.dumps(rig, indent=2) + "\n"
         target_rig_path.write_text(target_rig_text)
 
-        stitch_path = out / "neck-seam-stitch.json"
-        if stitch_path.is_file():
-            stitch_doc = json.loads(stitch_path.read_text())
-            stitch_doc["afterRigSHA256"] = hashlib.sha256(target_rig_text.encode()).hexdigest()
-            stitch_path.write_text(json.dumps(stitch_doc, indent=2) + "\n")
-    finally:
-        if rig_tmp.exists():
-            shutil.rmtree(rig_tmp)
+        if outfit != "office":
+            stitch_path = out_dir / "neck-seam-stitch.json"
+            if stitch_path.is_file():
+                stitch_doc = json.loads(stitch_path.read_text())
+                stitch_doc["afterRigSHA256"] = hashlib.sha256(target_rig_text.encode()).hexdigest()
+                stitch_path.write_text(json.dumps(stitch_doc, indent=2) + "\n")
 
-    # Fast packed build into out/check/build
-    build_dir = out / "check/build"
+    build_dir = out_dir / "check/build"
     build_dir.mkdir(parents=True, exist_ok=True)
     bproc = subprocess.run(
         [
@@ -191,9 +228,9 @@ def rebuild_variant(
             "/Users/firejune/Workspace/Firejune/rigc/bin/rigc.cjs",
             "build",
             "--rig",
-            str(out / "rig/rig.json"),
+            str(out_dir / "rig/rig.json"),
             "--motion",
-            str(out / "rig/motion.json"),
+            str(out_dir / "rig/motion.json"),
             "--out",
             str(build_dir),
             "--profile",
@@ -208,27 +245,71 @@ def rebuild_variant(
         text=True,
     )
     if bproc.returncode != 0:
-        raise RuntimeError((bproc.stderr or bproc.stdout).strip())
+        raise RuntimeError(f"[{char}/{outfit}] {(bproc.stderr or bproc.stdout).strip()}")
 
-    # Sync to live server directory if distinct from worktree
     if live_family is not None and live_family.resolve() != family.resolve():
-        live_home = live_family / "outfits" / outfit / char
-        live_build = live_home / "out/check/build"
+        live_out = out_dir_for(live_family, char, outfit)
+        live_build = live_out / "check/build"
         live_build.mkdir(parents=True, exist_ok=True)
         for item in build_dir.iterdir():
             if item.is_file():
                 shutil.copy2(item, live_build / item.name)
-        live_cfg = live_home / "authoring/config.json"
+        live_cfg = config_path_for(live_family, char, outfit)
         if live_cfg.parent.is_dir():
             shutil.copy2(cfg_path, live_cfg)
 
+    return cur_r, cur_l
+
+
+def sync_integrity_manifests(family: pathlib.Path, char: str):
+    manifest_path = family / "accepted-inputs.json"
+    if manifest_path.is_file():
+        doc = json.loads(manifest_path.read_text())
+        for rel in list(doc.get("files", {}).keys()):
+            if rel.startswith(f"{char}/") or rel.startswith("viewer/"):
+                p = family / rel
+                if p.is_file():
+                    raw = p.read_bytes()
+                    doc["files"][rel] = {"bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}
+        manifest_path.write_text(json.dumps(doc, indent=2) + "\n")
+
+    for outfit in ("homewear", "swimwear"):
+        pb_path = family / "outfits" / outfit / char / "protected-baseline.json"
+        if pb_path.is_file():
+            pb = json.loads(pb_path.read_text())
+            for rel in list(pb.get("files", {}).keys()):
+                p = family / rel
+                if p.is_file():
+                    pb["files"][rel] = hashlib.sha256(p.read_bytes()).hexdigest()
+            pb_path.write_text(json.dumps(pb, indent=2) + "\n")
+
+
+def rebuild_all_outfits_for_character(
+    family: pathlib.Path,
+    live_family: pathlib.Path | None,
+    char: str,
+    bust_r: dict,
+    bust_l: dict,
+) -> dict:
+    r_clean, l_clean, clamped = clamp_non_overlapping(bust_r, bust_l, margin=2.0)
+    rebuilt_outfits = []
+    final_r, final_l = r_clean, l_clean
+    for outfit in OUTFITS:
+        cpath = config_path_for(family, char, outfit)
+        odir = out_dir_for(family, char, outfit)
+        if not cpath.is_file() or not (odir / "rig/rig.json").is_file():
+            continue
+        final_r, final_l = rebuild_single_outfit_topwear(family, live_family, char, outfit, final_r, final_l)
+        rebuilt_outfits.append(outfit)
+
+    sync_integrity_manifests(family, char)
     return {
         "ok": True,
         "character": char,
-        "outfit": outfit,
-        "bust_r": r_clean,
-        "bust_l": l_clean,
-        "clamped": clamped,
+        "outfits": rebuilt_outfits,
+        "bust_r": final_r,
+        "bust_l": final_l,
+        "clamped": clamped or (final_r != r_clean or final_l != l_clean),
     }
 
 
@@ -259,11 +340,10 @@ def main():
 
     if not args.character or not args.bust_r or not args.bust_l:
         raise SystemExit("--character, --bust-r, and --bust-l are required for --action set")
-    res = rebuild_variant(
+    res = rebuild_all_outfits_for_character(
         family,
         live_family,
         args.character,
-        args.outfit,
         parse_region_arg(args.bust_r),
         parse_region_arg(args.bust_l),
     )
