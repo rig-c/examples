@@ -431,7 +431,12 @@
       ]
     },
     "neck": {
-      "contour": {"tolerance": 2, "margin": 3, "spacing": 40, "maxEdge": 50},
+      "contour": {
+        "tolerance": 2,
+        "margin": 3,
+        "spacing": 40,
+        "maxEdge": 50
+      },
       "r": 5,
       "segments": [
         [
@@ -470,22 +475,22 @@
           {
             "name": "bust_r",
             "shape": "circle",
-            "cx": 312,
-            "cy": 775,
-            "r": 23,
+            "cx": 257,
+            "cy": 752,
+            "r": 15,
             "bone": "boob_r",
             "spacing": 14,
-            "band": 36
+            "band": 58
           },
           {
             "name": "bust_l",
             "shape": "circle",
-            "cx": 435,
-            "cy": 785,
-            "r": 23,
+            "cx": 418,
+            "cy": 758,
+            "r": 21,
             "bone": "boob_l",
             "spacing": 14,
-            "band": 36
+            "band": 65
           }
         ]
       },
