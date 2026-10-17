@@ -152,17 +152,19 @@
  },
  {
   "part": "cardigan",
-  "vertices": 131,
-  "triangles": 144,
-  "hull": 116,
+  "vertices": 242,
+  "triangles": 319,
+  "hull": 163,
   "bones": [
+   "boob_l",
+   "boob_r",
    "cardigan_hem_l",
    "cardigan_hem_r",
    "chest",
    "hip"
   ],
   "max_influences": 4,
-  "mean_influences": 2.35,
+  "mean_influences": 2.55,
   "art_coverage": 0.99999,
   "mode": "contour",
   "params": {
@@ -175,15 +177,23 @@
    "bridges": true
   },
   "contour": {
-   "boundaryVertices": 116,
-   "interiorVertices": 15,
+   "boundaryVertices": 163,
+   "interiorVertices": 79,
    "interiorBySource": [
     {
+     "source": "region \"bust_r\"",
+     "vertices": 30
+    },
+    {
+     "source": "region \"bust_l\"",
+     "vertices": 36
+    },
+    {
      "source": "background",
-     "vertices": 15
+     "vertices": 13
     }
    ],
-   "triangles": 144,
+   "triangles": 319,
    "tracedVertices": 3976,
    "artPixels": 76316,
    "coveredArtPixels": 76316,
@@ -194,11 +204,11 @@
    "enclosedTransparentArea": 7351,
    "filledHolePixels": 23,
    "smallestAngle": {
-    "triangle": 79,
+    "triangle": 131,
     "value": 2.478832
    },
    "largestEdgeRatio": {
-    "triangle": 79,
+    "triangle": 131,
     "value": 11.388183
    },
    "nonDelaunayEdges": 0,
@@ -231,16 +241,29 @@
       "area": 799,
       "pair": 1,
       "vertices": [
-       61,
+       83,
        0,
-       62,
-       115
+       84,
+       162
       ]
      }
     ]
    }
   },
-  "regions": []
+  "regions": [
+   {
+    "name": "bust_r",
+    "bone": "boob_r",
+    "reached": 62,
+    "whole": 2
+   },
+   {
+    "name": "bust_l",
+    "bone": "boob_l",
+    "reached": 67,
+    "whole": 0
+   }
+  ]
  },
  {
   "part": "sleeves",

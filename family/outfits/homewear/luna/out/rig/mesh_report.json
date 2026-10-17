@@ -274,17 +274,19 @@
   },
   {
     "part": "cardigan",
-    "vertices": 347,
-    "triangles": 419,
-    "hull": 273,
+    "vertices": 525,
+    "triangles": 750,
+    "hull": 298,
     "bones": [
+      "boob_l",
+      "boob_r",
       "cardigan_hem_l",
       "cardigan_hem_r",
       "chest",
       "hip"
     ],
     "max_influences": 4,
-    "mean_influences": 2.58,
+    "mean_influences": 2.75,
     "art_coverage": 1,
     "mode": "contour",
     "params": {
@@ -297,72 +299,93 @@
       "bridges": true
     },
     "contour": {
-      "boundaryVertices": 273,
-      "interiorVertices": 74,
+      "boundaryVertices": 298,
+      "interiorVertices": 227,
       "interiorBySource": [
         {
+          "source": "region \"bust_r\"",
+          "vertices": 112
+        },
+        {
+          "source": "region \"bust_l\"",
+          "vertices": 61
+        },
+        {
           "source": "background",
-          "vertices": 74
+          "vertices": 54
         }
       ],
-      "triangles": 419,
-      "tracedVertices": 3870,
-      "artPixels": 164124,
-      "coveredArtPixels": 164124,
+      "triangles": 750,
+      "tracedVertices": 3988,
+      "artPixels": 168939,
+      "coveredArtPixels": 168939,
       "coverage": 1,
       "overshoot": 4,
       "overshootBound": 5,
-      "meshArea": 176417.3671875,
-      "enclosedTransparentArea": 12293.3671875,
+      "meshArea": 181293.248046875,
+      "enclosedTransparentArea": 12354.248046875,
       "filledHolePixels": 4,
       "smallestAngle": {
-        "triangle": 67,
-        "value": 3.814075
+        "triangle": 84,
+        "value": 2.515036
       },
       "largestEdgeRatio": {
-        "triangle": 132,
-        "value": 13.829317
+        "triangle": 84,
+        "value": 22.699119
       },
       "nonDelaunayEdges": 0,
       "strayIslands": 0,
       "strayPixels": 0,
-      "grownPixels": 9926,
+      "grownPixels": 10155,
       "pinchFilledPixels": 0,
       "grownHolePixels": 0,
-      "outlineCut": 15,
+      "outlineCut": 16,
       "bridges": {
         "islands": [
-          110866,
-          53258
+          111268,
+          57671
         ],
         "units": [
           [
-            110866
+            111268
           ],
           [
-            53258
+            57671
           ]
         ],
         "joins": [
           {
             "unit": 1,
             "span": [
-              73.109507,
-              76.75561
+              71.370382,
+              82.980759
             ],
-            "area": 2300.3671875,
+            "area": 2095.748046875,
             "pair": 1,
             "vertices": [
-              17,
-              140,
-              18,
-              139
+              20,
+              164,
+              21,
+              163
             ]
           }
         ]
       }
     },
-    "regions": []
+    "regions": [
+      {
+        "name": "bust_r",
+        "bone": "boob_r",
+        "reached": 112,
+        "whole": 12
+      },
+      {
+        "name": "bust_l",
+        "bone": "boob_l",
+        "reached": 77,
+        "whole": 8
+      }
+    ]
   },
   {
     "part": "sleeves",

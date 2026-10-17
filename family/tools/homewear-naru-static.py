@@ -95,6 +95,11 @@ hands_poly=[(405,830),(446,818),(473,840),(489,861),(500,890),(505,918),(495,936
 hand_mask=polygon(hands_poly)
 hands=mapped["handwear-l"].copy();hands[~hand_mask,3]=0
 sleeves=mapped["handwear-l"].copy();sleeves[hand_mask,3]=0
+sleeves[binary_dilation(hand_mask,np.ones((11,11),bool))&inside,3]=0
+card_front_ext=polygon([(222,635),(568,635),(572,850),(515,855),(275,855),(218,850)])&(~inside)&(~neck_visible_mask)&(~hand_mask)
+take_card_ext=card_front_ext&(sleeves[:,:,3]>8)&(cardigan[:,:,3]<=8)
+cardigan[take_card_ext]=sleeves[take_card_ext]
+sleeves[card_front_ext,3]=0
 # Slippers and short exposed ankles are wholly visible in the source.
 # No empty model footwear layer is relabelled as successful extraction.
 shoes=source.copy();shoes[:2080,:,3]=0
@@ -157,9 +162,10 @@ for idx in range(1,len(order)-1):
         upper_opaque|=(pieces[upper_name][:,:,3]==255)
     uncovered=(pieces[name][:,:,3]>80)&(~upper_opaque)
     if not uncovered.any():continue
-    if name=="topwear":
+    target_ul_px=52 if name=="topwear" else (34 if name=="cardigan" else 4)
+    if target_ul_px>4:
         dist_uncov,nearest_idx=distance_transform_edt(~uncovered,return_indices=True)
-        eroded=binary_erosion(uncovered,np.ones((15,15),dtype=bool))
+        eroded=binary_erosion(uncovered,np.ones((11,11),dtype=bool))
         rgb_arr=pieces[name][:,:,:3].astype(np.int16)
         luma=(rgb_arr[:,:,0]+rgb_arr[:,:,1]+rgb_arr[:,:,2])//3
         bright_core=eroded&(luma>80)
@@ -168,7 +174,7 @@ for idx in range(1,len(order)-1):
         silhouette=binary_fill_holes(binary_closing(upper_opaque|uncovered,np.ones((25,25),dtype=bool)))
         outer_sil_dist=distance_transform_edt(silhouette)
         near_ul=(dist_uncov<=4)&upper_opaque&(pieces[name][:,:,3]<=8)
-        deep_ul=(dist_uncov<=52)&(outer_sil_dist>=14)&upper_opaque&(pieces[name][:,:,3]<=8)
+        deep_ul=(dist_uncov<=target_ul_px)&(outer_sil_dist>=14)&upper_opaque&(pieces[name][:,:,3]<=8)
         underlap=near_ul|deep_ul
         if underlap.any():
             full_rgb=pieces[name][color_idx[0],color_idx[1],:3].astype(np.float32)

@@ -130,7 +130,7 @@ def load_character_layers(home, wanted, hair_max_y):
     return source, white, mapped, projection
 
 
-def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_underlap_px=4):
+def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_underlap_px=4, cardigan_underlap_px=4):
     edge_treatment = {
         "upperGeneratedUnionAlphaErosionPx": 3,
         "upperToRow": upper_to_row,
@@ -203,9 +203,10 @@ def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_unde
         uncovered = (pieces[name][:, :, 3] > 80) & (~upper_opaque)
         if not uncovered.any():
             continue
-        if name == "topwear" and topwear_underlap_px > 4:
+        target_ul_px = topwear_underlap_px if name == "topwear" else (cardigan_underlap_px if name == "cardigan" else 4)
+        if target_ul_px > 4:
             dist_uncov, nearest_idx = distance_transform_edt(~uncovered, return_indices=True)
-            eroded = binary_erosion(uncovered, np.ones((15, 15), dtype=bool))
+            eroded = binary_erosion(uncovered, np.ones((11, 11), dtype=bool))
             rgb_arr = pieces[name][:, :, :3].astype(np.int16)
             luma = (rgb_arr[:, :, 0] + rgb_arr[:, :, 1] + rgb_arr[:, :, 2]) // 3
             bright_core = eroded & (luma > 38)
@@ -214,7 +215,7 @@ def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_unde
             silhouette = binary_fill_holes(binary_closing(upper_opaque | uncovered, np.ones((25, 25), dtype=bool)))
             outer_sil_dist = distance_transform_edt(silhouette)
             near_ul = (dist_uncov <= 4) & upper_opaque & (pieces[name][:, :, 3] <= 8)
-            deep_ul = (dist_uncov <= topwear_underlap_px) & (outer_sil_dist >= 14) & upper_opaque & (pieces[name][:, :, 3] <= 8)
+            deep_ul = (dist_uncov <= target_ul_px) & (outer_sil_dist >= 14) & upper_opaque & (pieces[name][:, :, 3] <= 8)
             underlap = near_ul | deep_ul
             if underlap.any():
                 full_rgb = pieces[name][color_idx[0], color_idx[1], :3].astype(np.float32)
@@ -259,11 +260,11 @@ def build_roa(home):
 
     r_hand_poly = [(60, 1080), (195, 1080), (205, 1385), (60, 1385)]
     l_hand_poly = [
-        (478, 665), (488, 635), (496, 608), (508, 582), (534, 554),
+        (476, 665), (486, 635), (496, 608), (508, 582), (534, 554),
         (555, 542), (600, 538), (642, 522), (670, 512), (710, 524),
         (710, 602), (660, 616), (608, 602), (582, 592), (576, 635),
-        (572, 680), (564, 706), (550, 708), (545, 722), (512, 724),
-        (484, 715), (482, 672),
+        (572, 680), (564, 706), (550, 712), (545, 724), (480, 724),
+        (476, 690),
     ]
     l_hand_raw = polygon(l_hand_poly)
     is_navy_swimsuit = (source[:, :, 2].astype(int) - source[:, :, 0].astype(int)) > 6
@@ -271,15 +272,16 @@ def build_roa(home):
         (np.arange(H)[:, None] > 645)
         & (np.arange(W)[None, :] >= 498)
         & (np.arange(W)[None, :] <= 558)
-        & ((source[:, :, 0].astype(int) - source[:, :, 2].astype(int)) < 14)
-        & (source[:, :, 0].astype(int) < 155)
+        & ((source[:, :, 0].astype(int) - source[:, :, 2].astype(int)) < 10)
+        & ((source[:, :, 0].astype(int) - source[:, :, 1].astype(int)) < 12)
+        & (source[:, :, 0].astype(int) < 140)
     )
     l_hand_mask = binary_closing(l_hand_raw & (~is_navy_swimsuit) & (~is_finger_robe_gap), np.ones((3, 3), dtype=bool))
     hands_mask = polygon(r_hand_poly) | l_hand_mask
 
     inner = [
         (218, 430), (382, 430), (416, 480), (450, 530), (474, 582),
-        (488, 625), (495, 685), (478, 725), (468, 765), (468, 805),
+        (512, 620), (524, 675), (508, 725), (468, 765), (468, 805),
         (482, 865), (502, 920), (522, 965), (382, 1105), (205, 960),
         (224, 900), (238, 835), (242, 775), (240, 710), (234, 635),
         (226, 550),
@@ -307,15 +309,16 @@ def build_roa(home):
     neck = blend_visible_neck(mapped["neck"], source, neck_visible, min_r=140, min_diff=45)
     neck[:410, :285, 3] = 0
 
+    hand_occ_dilated = binary_dilation(l_hand_mask, np.ones((5, 5), dtype=bool))
     camisole = np.zeros((H, W, 4), dtype=np.uint8)
-    cam_vis = inside & (~hands_mask) & (np.arange(H)[:, None] >= 440) & (source[:, :, 3] > 8)
+    cam_vis = inside & (~hand_occ_dilated) & (np.arange(H)[:, None] >= 440) & (source[:, :, 3] > 8)
     camisole[cam_vis] = source[cam_vis]
     for y in range(440, 458):
         fade = (y - 440) / 18.0
         mask_row = neck[y, 285:395, 3] > 200
         camisole[y, 285:395, 3][mask_row] = (camisole[y, 285:395, 3][mask_row].astype(np.float32) * fade).astype(np.uint8)
-    cam_interior = binary_erosion(cam_vis, np.ones((11, 11), dtype=bool))
-    fill_occluded_from_nearest(camisole, cam_interior if cam_interior.any() else cam_vis, inside & hands_mask & (source[:, :, 3] > 128))
+    cam_interior = binary_erosion(cam_vis, np.ones((11, 11), dtype=bool)) & (camisole[:, :, 2] > camisole[:, :, 0])
+    fill_occluded_from_nearest(camisole, cam_interior if cam_interior.any() else cam_vis, inside & hand_occ_dilated & (source[:, :, 3] > 128))
 
     sleeve_upper_l = polygon([(15, 450), (150, 450), (150, 915), (15, 915)])
     sleeve_upper_r = polygon([(532, 475), (730, 475), (730, 865), (602, 865), (586, 598), (545, 545)])
@@ -324,14 +327,14 @@ def build_roa(home):
 
     card_mask = (robe_left_tail | robe_right_tail | outer_robe_l | outer_robe_r) & (~sleeves_raw) & (~pants_vis)
     cardigan = np.zeros((H, W, 4), dtype=np.uint8)
-    card_vis = card_mask & (~hands_mask) & (np.arange(H)[:, None] >= 445) & (source[:, :, 3] > 8)
+    card_vis = card_mask & (~hand_occ_dilated) & (np.arange(H)[:, None] >= 445) & (source[:, :, 3] > 8)
     cardigan[card_vis] = source[card_vis]
-    card_occ = card_mask & hands_mask & (source[:, :, 3] > 128)
-    card_interior = binary_erosion(card_vis, np.ones((9, 9), dtype=bool)) & (cardigan[:, :, 0] > 55)
+    card_occ = card_mask & hand_occ_dilated & (source[:, :, 3] > 128)
+    card_interior = binary_erosion(card_vis, np.ones((9, 9), dtype=bool)) & (cardigan[:, :, 0] > 95)
     fill_occluded_from_nearest(cardigan, card_interior if card_interior.any() else card_vis, card_occ)
     if card_occ.any():
         for ch in range(3):
-            sm = gaussian_filter(cardigan[:, :, ch].astype(np.float32), sigma=3.5)
+            sm = gaussian_filter(cardigan[:, :, ch].astype(np.float32), sigma=4.0)
             cardigan[card_occ, ch] = np.clip(sm[card_occ], 0, 255).astype(np.uint8)
 
     sleeves = np.zeros((H, W, 4), dtype=np.uint8)
@@ -354,7 +357,7 @@ def build_roa(home):
         "sleeves": sleeves,
         "hands": hands,
     }
-    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=485, band_to_row=1615, topwear_underlap_px=52)
+    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=485, band_to_row=1615, topwear_underlap_px=52, cardigan_underlap_px=34)
     cuts = {
         "openPants": open_pants,
         "cardiganInnerBoundary": inner,
@@ -409,7 +412,15 @@ def build_luna(home):
     shoulder_zone = (np.arange(H)[:, None] < 640) & ((np.arange(W)[None, :] < 312) | (np.arange(W)[None, :] > 398))
     is_pink_hair = shoulder_zone & (source[:, :, 0].astype(int) > 130) & ((source[:, :, 0].astype(int) - source[:, :, 2].astype(int)) > 20)
 
-    card_poly = polygon([(275, 920), (495, 920), (500, 1035), (270, 1035)]) & (~inside) & (~hands_mask)
+    card_poly = (
+        polygon([
+            (232, 580), (482, 580), (522, 650), (538, 760), (528, 860),
+            (512, 950), (502, 1035), (266, 1035), (255, 950), (235, 860),
+            (218, 760), (222, 650),
+        ])
+        & (~inside)
+        & (~hands_mask)
+    )
     sleeve_l_poly = polygon([(165, 580), (315, 580), (335, 1135), (185, 1135)]) & (~inside) & (~card_poly)
     sleeve_r_poly = polygon([(445, 580), (575, 580), (555, 1135), (445, 1135)]) & (~inside) & (~card_poly)
     sleeves_mask = (sleeve_l_poly | sleeve_r_poly) & (~hands_mask)
@@ -425,8 +436,11 @@ def build_luna(home):
         camisole[y, 310:405, 3] = (camisole[y, 310:405, 3].astype(np.float32) * fade).astype(np.uint8)
 
     cardigan = np.zeros((H, W, 4), dtype=np.uint8)
-    card_vis = card_poly & (np.arange(H)[:, None] >= 920) & (source[:, :, 3] > 8)
+    card_vis = card_poly & (~is_pink_hair) & (np.arange(H)[:, None] >= 580) & (source[:, :, 3] > 8)
     cardigan[card_vis] = source[card_vis]
+    card_hair_occ = card_poly & is_pink_hair & (np.arange(H)[:, None] >= 590) & (source[:, :, 3] > 128)
+    card_interior = binary_erosion(card_vis, np.ones((5, 5), dtype=bool))
+    fill_occluded_from_nearest(cardigan, card_interior if card_interior.any() else card_vis, card_hair_occ)
 
     sleeves = np.zeros((H, W, 4), dtype=np.uint8)
     sl_vis = sleeves_mask & (~is_pink_hair) & (np.arange(H)[:, None] >= 580) & (source[:, :, 3] > 8)
@@ -448,7 +462,7 @@ def build_luna(home):
         "sleeves": sleeves,
         "hands": hands,
     }
-    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=600, band_to_row=1480, topwear_underlap_px=45)
+    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=600, band_to_row=1480, topwear_underlap_px=45, cardigan_underlap_px=34)
     cuts = {
         "openPants": open_pants,
         "cardiganInnerBoundary": inner,
@@ -616,21 +630,32 @@ def build_naru(home):
     ]
     inside = polygon(inner) & (~neck_visible_mask)
 
-    sleeve_r_poly = (polygon([(155, 630), (305, 630), (305, 1075), (245, 1075), (155, 1000)]) & (~inside)) | forearms_mask
-    sleeve_l_poly = (polygon([(475, 630), (645, 630), (645, 1000), (555, 1075), (495, 1075)]) & (~inside)) | forearms_mask
+    hands_full_mask = hands_mask | forearms_mask
+    card_upper_poly = (
+        polygon([
+            (215, 630), (578, 630), (582, 820), (570, 940), (562, 1040),
+            (235, 1040), (225, 940), (210, 820),
+        ])
+        & (~inside)
+        & (~neck_visible_mask)
+    )
     skirt_poly = polygon([(185, 1035), (615, 1035), (625, 1365), (175, 1365)])
-    sleeves_mask = (sleeve_r_poly | sleeve_l_poly) & (~skirt_poly) & (~hands_mask)
+    sleeve_r_raw = polygon([(155, 630), (305, 630), (305, 1075), (245, 1075), (155, 1000)]) & (~inside) & (~card_upper_poly)
+    sleeve_l_raw = polygon([(475, 630), (645, 630), (645, 1000), (555, 1075), (495, 1075)]) & (~inside) & (~card_upper_poly)
+    sleeves_raw = (sleeve_r_raw | sleeve_l_raw) & (~skirt_poly)
+    sleeves_mask = sleeves_raw & (~hands_full_mask)
+    card_raw = (card_upper_poly | (skirt_poly & (~inside) & (~sleeves_raw))) & (~neck_visible_mask)
 
     # Exclude dark brown hair strands above y=665 on outer shoulders
     is_brown_hair = (np.arange(H)[:, None] < 665) & (source[:, :, 0].astype(int) < 185) & (source[:, :, 2].astype(int) < 110)
 
-    arm_occ = binary_dilation(hands_mask | forearms_mask, np.ones((7, 7), dtype=bool))
+    arm_occ = binary_dilation(hands_full_mask, np.ones((7, 7), dtype=bool))
     camisole = np.zeros((H, W, 4), dtype=np.uint8)
     cam_vis = inside & (~arm_occ) & (~is_brown_hair) & (np.arange(H)[:, None] >= 620) & (source[:, :, 3] > 8)
     camisole[cam_vis] = source[cam_vis]
 
     # Vertically interpolate clean white/ivory frill swimsuit texture across occluded hands/forearms
-    occ_cam = inside & (hands_mask | forearms_mask | arm_occ) & (~cam_vis) & (source[:, :, 3] > 128)
+    occ_cam = inside & (hands_full_mask | arm_occ) & (~cam_vis) & (source[:, :, 3] > 128)
     is_clean_ivory = (
         cam_vis
         & (camisole[:, :, 0].astype(int) > 175)
@@ -662,20 +687,44 @@ def build_naru(home):
             sm = gaussian_filter(camisole[:, :, ch].astype(np.float32), sigma=2.5)
             camisole[occ_cam, ch] = np.clip(sm[occ_cam], 0, 255).astype(np.uint8)
 
-    card_mask = skirt_poly & (~sleeves_mask) & (~hands_mask) & (~neck_visible_mask)
     cardigan = np.zeros((H, W, 4), dtype=np.uint8)
-    card_vis = card_mask & (np.arange(H)[:, None] >= 1020) & (source[:, :, 3] > 8)
+    card_vis = card_raw & (~arm_occ) & (~is_brown_hair) & (np.arange(H)[:, None] >= 630) & (source[:, :, 3] > 8)
     cardigan[card_vis] = source[card_vis]
+    card_occ = card_raw & (arm_occ | is_brown_hair) & (~card_vis) & (np.arange(H)[:, None] >= 635) & (source[:, :, 3] > 128)
+    valid_card = binary_erosion(card_vis & (cardigan[:, :, 0] > 190) & (cardigan[:, :, 2] > 155), np.ones((5, 5), dtype=bool))
+    if not valid_card.any():
+        valid_card = card_vis
+    for x in range(205, 590):
+        occ_ys = np.nonzero(card_occ[:, x])[0]
+        if not len(occ_ys):
+            continue
+        y0, y1 = int(occ_ys.min()), int(occ_ys.max())
+        above_ys = np.nonzero(valid_card[:y0, x])[0]
+        below_ys = np.nonzero(valid_card[y1 + 1 :, x])[0] + (y1 + 1)
+        if len(above_ys) and len(below_ys):
+            ya = above_ys[-min(5, len(above_ys)) :]
+            yb = below_ys[: min(5, len(below_ys))]
+            top_rgb = cardigan[ya, x, :3].astype(np.float32).mean(axis=0)
+            bot_rgb = cardigan[yb, x, :3].astype(np.float32).mean(axis=0)
+            t = ((occ_ys - y0) / max(1.0, float(y1 - y0)))[:, None]
+            cardigan[occ_ys, x, :3] = np.clip((1.0 - t) * top_rgb + t * bot_rgb, 0, 255).astype(np.uint8)
+            cardigan[occ_ys, x, 3] = 255
+    rem_card = card_occ & (cardigan[:, :, 3] <= 8)
+    fill_occluded_from_nearest(cardigan, valid_card, rem_card)
+    if card_occ.any():
+        for ch in range(3):
+            sm = gaussian_filter(cardigan[:, :, ch].astype(np.float32), sigma=2.5)
+            cardigan[card_occ, ch] = np.clip(sm[card_occ], 0, 255).astype(np.uint8)
 
     sleeves = np.zeros((H, W, 4), dtype=np.uint8)
-    sl_vis = sleeves_mask & (~is_brown_hair) & (np.arange(H)[:, None] >= 630) & (source[:, :, 3] > 8)
+    sl_vis = sleeves_mask & (~arm_occ) & (~is_brown_hair) & (np.arange(H)[:, None] >= 630) & (source[:, :, 3] > 8)
     sleeves[sl_vis] = source[sl_vis]
-    sl_occ = ((sleeve_r_poly | sleeve_l_poly) & (~skirt_poly)) & (hands_mask | is_brown_hair) & (np.arange(H)[:, None] >= 635) & (source[:, :, 3] > 128)
-    sl_interior = binary_erosion(sl_vis, np.ones((7, 7), dtype=bool)) & (sleeves[:, :, 0] > 140)
+    sl_occ = sleeves_raw & (arm_occ | is_brown_hair) & (~sl_vis) & (np.arange(H)[:, None] >= 635) & (source[:, :, 3] > 128)
+    sl_interior = binary_erosion(sl_vis, np.ones((5, 5), dtype=bool)) & (sleeves[:, :, 0] > 180)
     fill_occluded_from_nearest(sleeves, sl_interior if sl_interior.any() else sl_vis, sl_occ)
 
     hands = np.zeros((H, W, 4), dtype=np.uint8)
-    hands_src = hands_mask & (source[:, :, 3] > 8)
+    hands_src = hands_full_mask & (source[:, :, 3] > 8)
     hands[hands_src] = source[hands_src]
 
     pieces = {
@@ -687,7 +736,7 @@ def build_naru(home):
         "sleeves": sleeves,
         "hands": hands,
     }
-    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=690, band_to_row=1370, topwear_underlap_px=52)
+    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=690, band_to_row=1370, topwear_underlap_px=52, cardigan_underlap_px=34)
     cuts = {
         "openPants": open_pants,
         "cardiganInnerBoundary": inner,

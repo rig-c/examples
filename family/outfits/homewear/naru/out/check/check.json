@@ -267,26 +267,26 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 6,
-  "triangles": 1587,
+  "triangles": 1762,
   "frames": 41,
-  "severity": 1.14,
+  "severity": 1.175,
   "severity_ceiling": 1.926544,
   "worst": {
    "slot": "cardigan",
-   "triangle": 104,
+   "triangle": 94,
    "vertices": [
-    74,
-    101,
-    100
+    58,
+    198,
+    59
    ],
    "edge": [
-    101,
-    100
+    58,
+    198
    ],
    "frame": 10,
-   "ratio": 1.14
+   "ratio": 1.175
   },
-  "max_ratio": 1.14,
+  "max_ratio": 1.175,
   "min_ratio": 0.946,
   "per_mesh": [
    {
@@ -318,12 +318,12 @@
    },
    {
     "slot": "cardigan",
-    "triangles": 144,
-    "max_ratio": 1.14,
-    "max_at": "triangle 104 (vertices 74 101 100), edge 101-100, idle frame 10",
+    "triangles": 319,
+    "max_ratio": 1.175,
+    "max_at": "triangle 94 (vertices 58 198 59), edge 58-198, idle frame 10",
     "min_ratio": 0.977,
-    "min_at": "triangle 73 (vertices 44 46 45), edge 46-45, idle frame 10",
-    "severity": 1.14
+    "min_at": "triangle 92 (vertices 54 56 55), edge 56-55, idle frame 10",
+    "severity": 1.175
    },
    {
     "slot": "sleeves",

@@ -92,7 +92,7 @@ def load_character_layers(home, wanted, hair_max_y):
     return source, white, mapped, projection
 
 
-def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_underlap_px=4):
+def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_underlap_px=4, cardigan_underlap_px=4):
     edge_treatment = {
         "upperGeneratedUnionAlphaErosionPx": 3,
         "upperToRow": upper_to_row,
@@ -159,9 +159,10 @@ def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_unde
         uncovered = (pieces[name][:, :, 3] > 80) & (~upper_opaque)
         if not uncovered.any():
             continue
-        if name == "topwear" and topwear_underlap_px > 4:
+        target_ul_px = topwear_underlap_px if name == "topwear" else (cardigan_underlap_px if name == "cardigan" else 4)
+        if target_ul_px > 4:
             dist_uncov, nearest_idx = distance_transform_edt(~uncovered, return_indices=True)
-            eroded = binary_erosion(uncovered, np.ones((15, 15), dtype=bool))
+            eroded = binary_erosion(uncovered, np.ones((11, 11), dtype=bool))
             rgb_arr = pieces[name][:, :, :3].astype(np.int16)
             luma = (rgb_arr[:, :, 0] + rgb_arr[:, :, 1] + rgb_arr[:, :, 2]) // 3
             bright_core = eroded & (luma > 38)
@@ -170,7 +171,7 @@ def apply_edge_treatment(pieces, source, upper_to_row, band_to_row, topwear_unde
             silhouette = binary_fill_holes(binary_closing(upper_opaque | uncovered, np.ones((25, 25), dtype=bool)))
             outer_sil_dist = distance_transform_edt(silhouette)
             near_ul = (dist_uncov <= 4) & upper_opaque & (pieces[name][:, :, 3] <= 8)
-            deep_ul = (dist_uncov <= topwear_underlap_px) & (outer_sil_dist >= 14) & upper_opaque & (pieces[name][:, :, 3] <= 8)
+            deep_ul = (dist_uncov <= target_ul_px) & (outer_sil_dist >= 14) & upper_opaque & (pieces[name][:, :, 3] <= 8)
             underlap = near_ul | deep_ul
             if underlap.any():
                 full_rgb = pieces[name][color_idx[0], color_idx[1], :3].astype(np.float32)
@@ -280,8 +281,8 @@ def build_roa(home):
     camisole[~inside, 3] = 0
     cardigan = top.copy()
     cardigan[inside, 3] = 0
-    # Cut raised left sleeve out of cardigan body so sleeves owns x>=530, y=495..648 cleanly
-    raised_sleeve_zone = polygon([(530, 490), (710, 490), (710, 650), (555, 640), (530, 555)])
+    # Cut raised left sleeve out of cardigan body so sleeves owns x>=530, y=495..680 cleanly
+    raised_sleeve_zone = polygon([(526, 490), (710, 490), (710, 680), (530, 680), (526, 555)])
     cardigan[raised_sleeve_zone, 3] = 0
 
     # Erase mug and left hand from camisole (topwear) and cardigan, inpainting with clean cloth pixels
@@ -303,14 +304,15 @@ def build_roa(home):
         camisole[cam_occ, :3] = np.clip(full_cam[cam_occ], 0, 255).astype(np.uint8)
         camisole[cam_occ, 3] = 255
 
-    card_body_zone = polygon([(465, 540), (532, 540), (536, 780), (465, 780)]) & (~inside) & (~raised_sleeve_zone)
+    card_body_zone = polygon([(465, 540), (528, 540), (532, 780), (465, 780)]) & (~inside) & (~raised_sleeve_zone)
+    cardigan[(~inside) & fg_occ, 3] = 0
     card_occ = card_body_zone & fg_occ & (source[:, :, 3] > 128)
     card_valid = (
         (~inside)
         & (~raised_sleeve_zone)
         & (~fg_occ)
         & (cardigan[:, :, 3] > 220)
-        & (cardigan[:, :, 0].astype(int) > 95)
+        & (cardigan[:, :, 0].astype(int) > 130)
         & ((cardigan[:, :, 0].astype(int) - cardigan[:, :, 2].astype(int)) < 25)
     )
     card_interior = binary_erosion(card_valid, np.ones((7, 7), dtype=bool))
@@ -318,7 +320,7 @@ def build_roa(home):
         _, near_card = distance_transform_edt(~card_interior, return_indices=True)
         full_card = cardigan[near_card[0], near_card[1], :3].astype(np.float32)
         for ch in range(3):
-            full_card[:, :, ch] = gaussian_filter(full_card[:, :, ch], sigma=3.5)
+            full_card[:, :, ch] = gaussian_filter(full_card[:, :, ch], sigma=4.5)
         cardigan[card_occ, :3] = np.clip(full_card[card_occ], 0, 255).astype(np.uint8)
         cardigan[card_occ, 3] = 255
 
@@ -336,7 +338,7 @@ def build_roa(home):
     sl_r[962:, :, 3] = 0
     sl_l = hw_l.copy()
     # Give raised sleeve zone from source/top to sl_l so the lower sleeve cuff is in sleeves, not cardigan
-    take_sleeve_src = raised_sleeve_zone & (~l_hand_mask) & (~mug_erase_mask) & (source[:, :, 3] > 8)
+    take_sleeve_src = raised_sleeve_zone & (~l_hand_mask) & (~mug_erase_mask) & (source[:, :, 3] > 8) & (np.arange(H)[:, None] <= 635)
     sl_l[take_sleeve_src] = source[take_sleeve_src]
     sl_l[l_hand_mask | mug_erase_mask, 3] = 0
     sleeves_c.alpha_composite(Image.fromarray(sl_r, "RGBA"))
@@ -366,7 +368,7 @@ def build_roa(home):
         "sleeves": sleeves,
         "hands": hands,
     }
-    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=500, band_to_row=1370, topwear_underlap_px=52)
+    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=500, band_to_row=1370, topwear_underlap_px=52, cardigan_underlap_px=34)
     cuts = {
         "openPants": open_pants,
         "cardiganInnerBoundary": inner,
@@ -464,7 +466,7 @@ def build_luna(home):
         "sleeves": sleeves,
         "hands": hands,
     }
-    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=610, band_to_row=1245, topwear_underlap_px=58)
+    edge_treatment = apply_edge_treatment(pieces, source, upper_to_row=610, band_to_row=1245, topwear_underlap_px=58, cardigan_underlap_px=34)
     cuts = {
         "openPants": open_pants,
         "cardiganInnerBoundary": inner,

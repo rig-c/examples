@@ -506,7 +506,29 @@
         "spacing": 40,
         "maxEdge": 64,
         "stray": 400,
-        "bridges": true
+        "bridges": true,
+        "regions": [
+          {
+            "name": "bust_r",
+            "shape": "circle",
+            "cx": 318,
+            "cy": 776,
+            "r": 23,
+            "bone": "boob_r",
+            "spacing": 14,
+            "band": 62
+          },
+          {
+            "name": "bust_l",
+            "shape": "circle",
+            "cx": 498,
+            "cy": 780,
+            "r": 21,
+            "bone": "boob_l",
+            "spacing": 14,
+            "band": 56
+          }
+        ]
       },
       "r": 12,
       "segments": [

@@ -283,7 +283,7 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 6,
-  "triangles": 1560,
+  "triangles": 1891,
   "frames": 41,
   "severity": 1.27,
   "severity_ceiling": 1.926544,
@@ -292,7 +292,7 @@
    "triangle": 15,
    "vertices": [
     9,
-    277,
+    414,
     10
    ],
    "edge": [
@@ -334,11 +334,11 @@
    },
    {
     "slot": "cardigan",
-    "triangles": 419,
+    "triangles": 750,
     "max_ratio": 1.27,
-    "max_at": "triangle 15 (vertices 9 277 10), edge 10-9, idle frame 10",
-    "min_ratio": 0.954,
-    "min_at": "triangle 96 (vertices 76 332 77), edge 77-76, idle frame 10",
+    "max_at": "triangle 15 (vertices 9 414 10), edge 10-9, idle frame 10",
+    "min_ratio": 0.968,
+    "min_at": "triangle 433 (vertices 307 357 356), edge 307-357, idle frame 11",
     "severity": 1.27
    },
    {
@@ -387,10 +387,10 @@
   "within_limit": 8,
   "within_share": 0.9835,
   "error_limit": 40,
-  "error_px": 510,
+  "error_px": 509,
   "covered_alpha": 128,
-  "uncovered_error_px": 101,
-  "hole_count": 64,
+  "uncovered_error_px": 100,
+  "hole_count": 63,
   "largest": {
    "px": 8,
    "box": "518,2124 8x5"

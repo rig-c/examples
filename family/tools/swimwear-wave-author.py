@@ -203,6 +203,7 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
                 "maxEdge": 64,
                 "stray": 400,
                 "bridges": True,
+                "regions": json.loads(json.dumps(top["contour"].get("regions", []))),
             },
             "r": 12,
             "segments": spec["cardigan_segments"],

@@ -137,7 +137,7 @@
   }
  ],
  "seam_mean": 0.141,
- "seam_px_over_40": 26,
+ "seam_px_over_40": 24,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.003232,
  "BREATH_VISIBLE": {
@@ -246,26 +246,26 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 7,
-  "triangles": 1769,
+  "triangles": 2036,
   "frames": 41,
-  "severity": 1.124,
+  "severity": 1.127,
   "severity_ceiling": 1.926544,
   "worst": {
    "slot": "cardigan",
-   "triangle": 184,
+   "triangle": 457,
    "vertices": [
-    154,
-    156,
-    155
+    352,
+    354,
+    353
    ],
    "edge": [
-    156,
-    155
+    353,
+    352
    ],
    "frame": 10,
-   "ratio": 1.124
+   "ratio": 1.127
   },
-  "max_ratio": 1.124,
+  "max_ratio": 1.127,
   "min_ratio": 0.951,
   "per_mesh": [
    {
@@ -297,12 +297,12 @@
    },
    {
     "slot": "cardigan",
-    "triangles": 438,
-    "max_ratio": 1.124,
-    "max_at": "triangle 184 (vertices 154 156 155), edge 156-155, idle frame 10",
-    "min_ratio": 0.96,
-    "min_at": "triangle 83 (vertices 55 384 56), edge 55-384, idle frame 10",
-    "severity": 1.124
+    "triangles": 705,
+    "max_ratio": 1.127,
+    "max_at": "triangle 457 (vertices 352 354 353), edge 353-352, idle frame 10",
+    "min_ratio": 0.965,
+    "min_at": "triangle 443 (vertices 340 447 341), edge 341-340, idle frame 10",
+    "severity": 1.127
    },
    {
     "slot": "sleeves",
@@ -359,7 +359,7 @@
   "within_limit": 8,
   "within_share": 0.9741,
   "error_limit": 40,
-  "error_px": 2052,
+  "error_px": 2048,
   "covered_alpha": 128,
   "uncovered_error_px": 564,
   "hole_count": 285,

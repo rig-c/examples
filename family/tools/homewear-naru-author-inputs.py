@@ -46,7 +46,8 @@ top = cfg["meshes"]["topwear"]
 neck = cfg["meshes"]["neck"]
 cfg["meshes"] = {"neck": neck, "topwear": top,
     "cardigan": {"contour": {"tolerance": 2, "margin": 2, "spacing": 40,
-        "maxEdge": 64, "stray": 400, "bridges": True}, "r": 12,
+        "maxEdge": 64, "stray": 400, "bridges": True,
+        "regions": json.loads(json.dumps(top["contour"].get("regions", [])))}, "r": 12,
         "segments": [["chest", [240, 640], [240, 950]],
                      ["chest", [535, 640], [535, 950]],
                      ["hip", [245, 940], [245, 1080]],

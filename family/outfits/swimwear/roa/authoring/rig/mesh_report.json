@@ -59,9 +59,9 @@
  },
  {
   "part": "topwear",
-  "vertices": 550,
-  "triangles": 950,
-  "hull": 148,
+  "vertices": 572,
+  "triangles": 986,
+  "hull": 156,
   "bones": [
    "boob_l",
    "boob_r",
@@ -82,8 +82,8 @@
    "bridges": true
   },
   "contour": {
-   "boundaryVertices": 148,
-   "interiorVertices": 402,
+   "boundaryVertices": 156,
+   "interiorVertices": 416,
    "interiorBySource": [
     {
      "source": "region \"bust_r\"",
@@ -91,22 +91,22 @@
     },
     {
      "source": "region \"bust_l\"",
-     "vertices": 114
+     "vertices": 128
     },
     {
      "source": "background",
      "vertices": 83
     }
    ],
-   "triangles": 950,
-   "tracedVertices": 2508,
-   "artPixels": 205103,
-   "coveredArtPixels": 205103,
+   "triangles": 986,
+   "tracedVertices": 2560,
+   "artPixels": 208375,
+   "coveredArtPixels": 208375,
    "coverage": 1,
    "overshoot": 4,
    "overshootBound": 5,
-   "meshArea": 211026,
-   "enclosedTransparentArea": 5923,
+   "meshArea": 214353,
+   "enclosedTransparentArea": 5978,
    "filledHolePixels": 0,
    "smallestAngle": {
     "triangle": 13,
@@ -119,17 +119,17 @@
    "nonDelaunayEdges": 0,
    "strayIslands": 0,
    "strayPixels": 0,
-   "grownPixels": 5928,
+   "grownPixels": 5984,
    "pinchFilledPixels": 0,
    "grownHolePixels": 0,
    "outlineCut": 8,
    "bridges": {
     "islands": [
-     205103
+     208375
     ],
     "units": [
      [
-      205103
+      208375
      ]
     ],
     "joins": []
@@ -145,24 +145,26 @@
    {
     "name": "bust_l",
     "bone": "boob_l",
-    "reached": 118,
+    "reached": 125,
     "whole": 11
    }
   ]
  },
  {
   "part": "cardigan",
-  "vertices": 412,
-  "triangles": 503,
-  "hull": 319,
+  "vertices": 568,
+  "triangles": 764,
+  "hull": 370,
   "bones": [
+   "boob_l",
+   "boob_r",
    "cardigan_hem_l",
    "cardigan_hem_r",
    "chest",
    "hip"
   ],
   "max_influences": 4,
-  "mean_influences": 2.17,
+  "mean_influences": 2.32,
   "art_coverage": 1,
   "mode": "contour",
   "params": {
@@ -175,23 +177,31 @@
    "bridges": true
   },
   "contour": {
-   "boundaryVertices": 319,
-   "interiorVertices": 93,
+   "boundaryVertices": 370,
+   "interiorVertices": 198,
    "interiorBySource": [
     {
+     "source": "region \"bust_r\"",
+     "vertices": 33
+    },
+    {
+     "source": "region \"bust_l\"",
+     "vertices": 69
+    },
+    {
      "source": "background",
-     "vertices": 93
+     "vertices": 96
     }
    ],
-   "triangles": 503,
-   "tracedVertices": 6326,
-   "artPixels": 233020,
-   "coveredArtPixels": 233020,
+   "triangles": 764,
+   "tracedVertices": 6566,
+   "artPixels": 260119,
+   "coveredArtPixels": 260119,
    "coverage": 1,
    "overshoot": 4,
    "overshootBound": 5,
-   "meshArea": 256442.3125,
-   "enclosedTransparentArea": 23422.3125,
+   "meshArea": 281386.5,
+   "enclosedTransparentArea": 21267.5,
    "filledHolePixels": 0,
    "smallestAngle": {
     "triangle": 4,
@@ -204,43 +214,24 @@
    "nonDelaunayEdges": 0,
    "strayIslands": 0,
    "strayPixels": 0,
-   "grownPixels": 16135,
+   "grownPixels": 16524,
    "pinchFilledPixels": 0,
    "grownHolePixels": 0,
-   "outlineCut": 37,
+   "outlineCut": 33,
    "bridges": {
     "islands": [
-     120442,
-     111060,
-     1518
+     142754,
+     117365
     ],
     "units": [
      [
-      120442
+      142754
      ],
      [
-      111060
-     ],
-     [
-      1518
+      117365
      ]
     ],
     "joins": [
-     {
-      "unit": 2,
-      "span": [
-       65.795137,
-       74.083126
-      ],
-      "area": 2626.3125,
-      "pair": 3,
-      "vertices": [
-       280,
-       300,
-       281,
-       299
-      ]
-     },
      {
       "unit": 1,
       "span": [
@@ -251,15 +242,28 @@
       "pair": 1,
       "vertices": [
        3,
-       182,
+       195,
        4,
-       181
+       194
       ]
      }
     ]
    }
   },
-  "regions": []
+  "regions": [
+   {
+    "name": "bust_r",
+    "bone": "boob_r",
+    "reached": 38,
+    "whole": 0
+   },
+   {
+    "name": "bust_l",
+    "bone": "boob_l",
+    "reached": 87,
+    "whole": 5
+   }
+  ]
  },
  {
   "part": "sleeves",

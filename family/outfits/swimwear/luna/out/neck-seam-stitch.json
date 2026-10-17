@@ -1,8 +1,8 @@
 {
   "spec": "family-swimwear-neck-seam/1",
   "character": "luna",
-  "beforeRigSHA256": "f62175bede894e38c5a8029b9bd05edf11489aa0a78cf49fc10dc002c2c00168",
-  "afterRigSHA256": "24a9a621145c9f5dc83e525cf53faf583ab6393b3d884e2bddad181263270740",
+  "beforeRigSHA256": "deff5e0762e17922e289c07b266dbff1f48128070e104a046b5fcde20df349ee",
+  "afterRigSHA256": "df9ab3fcd7460f81a9c1af43d4108a05ae1104260002b27712b39b01df40e2ce",
   "rows": [
     {
       "part": "neck",
@@ -722,7 +722,136 @@
       "part": "cardigan",
       "sourceYThreshold": 645,
       "side": "atOrAbove",
-      "changed": []
+      "changed": [
+        {
+          "vertex": 136,
+          "sourceY": 638.999868,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.90073
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.06427
+            },
+            {
+              "bone": "cardigan_hem_l",
+              "weight": 0.035
+            }
+          ]
+        },
+        {
+          "vertex": 137,
+          "sourceY": 633.9999,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.90665
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.06006
+            },
+            {
+              "bone": "cardigan_hem_l",
+              "weight": 0.03329
+            }
+          ]
+        },
+        {
+          "vertex": 138,
+          "sourceY": 633.000198,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.91073
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.05731
+            },
+            {
+              "bone": "cardigan_hem_l",
+              "weight": 0.03196
+            }
+          ]
+        },
+        {
+          "vertex": 139,
+          "sourceY": 627.000042,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.9149
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.05429
+            },
+            {
+              "bone": "cardigan_hem_l",
+              "weight": 0.03081
+            }
+          ]
+        },
+        {
+          "vertex": 140,
+          "sourceY": 620.000184,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.95649
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.04351
+            }
+          ]
+        },
+        {
+          "vertex": 141,
+          "sourceY": 618.999996,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.96212
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.03788
+            }
+          ]
+        },
+        {
+          "vertex": 142,
+          "sourceY": 617.000106,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.9646
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.0354
+            }
+          ]
+        },
+        {
+          "vertex": 143,
+          "sourceY": 617.000106,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.96858
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.03142
+            }
+          ]
+        }
+      ]
     }
   ],
   "scope": "Existing chest bind coordinates only. New neck lower edge and upper swimsuit/cover-up use the same chest affine transform. Original common bones/constraints/motion/attachments and every art pixel, UV and triangle remain unchanged.",
