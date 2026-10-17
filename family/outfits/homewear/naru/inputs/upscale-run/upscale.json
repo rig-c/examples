@@ -1,0 +1,37 @@
+{
+  "spec": "family-homewear-animesharp/1",
+  "sourceSHA256": "6460fff5e35a0163ef12cfe885c469dac244a1cdb4d7c1eae4e8d241e7295eeb",
+  "model": "4x-AnimeSharp.pth",
+  "modelSHA256": "e7a7de2dafd7331c1992862bbbcd9e9712a9f9f8e6303f0aaa59b4341d359bab",
+  "inputSize": [
+    538,
+    1536
+  ],
+  "upscaledSize": [
+    2152,
+    6144
+  ],
+  "registeredSize": [
+    800,
+    2284
+  ],
+  "tile": 512,
+  "overlap": 32,
+  "alphaRoute": "existing Jinni method: alpha repeated RGB, same AnimeSharp, output red channel",
+  "matting": "Installed RMBG-2.0 node, canonical instance cache, offline; no shared server changes",
+  "alphaStats": {
+    "transparent": 541447,
+    "opaque": 87789,
+    "positive": 284921,
+    "intermediate": 197132,
+    "bboxAbove128": [
+      94,
+      217,
+      437,
+      1521
+    ]
+  },
+  "retouch": false,
+  "torch": "2.8.0.dev20250613+cu128",
+  "seconds": 61.125
+}

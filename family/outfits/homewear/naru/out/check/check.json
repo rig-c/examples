@@ -1,0 +1,512 @@
+{
+ "gate_spine_html_green": true,
+ "rigc_entry": {
+  "entry": "cli.ts",
+  "spine_core": "4.3.13"
+ },
+ "pack_mode": {
+  "page_edges": "free",
+  "pack_shape": "polygon"
+ },
+ "loop_max_diff": 0,
+ "loop_physics": [
+  {
+   "name": "hairback_r0_phys",
+   "bone": "hairback_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_r1_phys",
+   "bone": "hairback_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_r2_phys",
+   "bone": "hairback_r2",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_l0_phys",
+   "bone": "hairback_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_l1_phys",
+   "bone": "hairback_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "hairback_l2_phys",
+   "bone": "hairback_l2",
+   "in": "rig.json"
+  },
+  {
+   "name": "hair_r0_phys",
+   "bone": "hair_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "hair_r1_phys",
+   "bone": "hair_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "hair_r2_phys",
+   "bone": "hair_r2",
+   "in": "rig.json"
+  },
+  {
+   "name": "hair_l0_phys",
+   "bone": "hair_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "hair_l1_phys",
+   "bone": "hair_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "hair_l2_phys",
+   "bone": "hair_l2",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_r0_phys",
+   "bone": "bang_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_r1_phys",
+   "bone": "bang_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_c0_phys",
+   "bone": "bang_c0",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_c1_phys",
+   "bone": "bang_c1",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_l0_phys",
+   "bone": "bang_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "bang_l1_phys",
+   "bone": "bang_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_r0_phys",
+   "bone": "skirt_r0",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_r1_phys",
+   "bone": "skirt_r1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_r2_phys",
+   "bone": "skirt_r2",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_c0_phys",
+   "bone": "skirt_c0",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_c1_phys",
+   "bone": "skirt_c1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_c2_phys",
+   "bone": "skirt_c2",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_l0_phys",
+   "bone": "skirt_l0",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_l1_phys",
+   "bone": "skirt_l1",
+   "in": "rig.json"
+  },
+  {
+   "name": "skirt_l2_phys",
+   "bone": "skirt_l2",
+   "in": "rig.json"
+  },
+  {
+   "name": "boob_r_phys",
+   "bone": "boob_r",
+   "in": "rig.json"
+  },
+  {
+   "name": "boob_l_phys",
+   "bone": "boob_l",
+   "in": "rig.json"
+  },
+  {
+   "name": "cardigan_hem_r_phys",
+   "bone": "cardigan_hem_r",
+   "in": "rig.json"
+  },
+  {
+   "name": "cardigan_hem_l_phys",
+   "bone": "cardigan_hem_l",
+   "in": "rig.json"
+  }
+ ],
+ "seam_mean": 0.142,
+ "seam_px_over_40": 30,
+ "seam_px_over_80": 1,
+ "seam_frame_scale": 1.072421,
+ "seam_pairs": [
+  {
+   "parts": [
+    "topwear",
+    "cardigan"
+   ],
+   "px_over_40": 18,
+   "px_over_80": 0,
+   "frame_box": [
+    331,
+    911,
+    675,
+    1203
+   ],
+   "rig_box": [
+    225,
+    1086,
+    547,
+    1359
+   ],
+   "picture": "seam/01_topwear_cardigan.png"
+  },
+  {
+   "parts": [
+    "bottomwear",
+    "topwear"
+   ],
+   "px_over_40": 5,
+   "px_over_80": 1,
+   "frame_box": [
+    671,
+    1156,
+    674,
+    1191
+   ],
+   "rig_box": [
+    542,
+    1315,
+    546,
+    1348
+   ],
+   "picture": "seam/02_bottomwear_topwear.png"
+  },
+  {
+   "parts": [
+    "iris_r",
+    "lash_r"
+   ],
+   "px_over_40": 3,
+   "px_over_80": 0,
+   "frame_box": [
+    453,
+    296,
+    454,
+    299
+   ],
+   "rig_box": [
+    339,
+    513,
+    341,
+    516
+   ],
+   "picture": "seam/03_iris_r_lash_r.png"
+  },
+  {
+   "parts": [
+    "cardigan",
+    "sleeves"
+   ],
+   "px_over_40": 2,
+   "px_over_80": 0,
+   "frame_box": [
+    712,
+    866,
+    713,
+    866
+   ],
+   "rig_box": [
+    581,
+    1044,
+    582,
+    1045
+   ],
+   "picture": "seam/04_cardigan_sleeves.png"
+  },
+  {
+   "parts": [
+    "neck",
+    "topwear"
+   ],
+   "px_over_40": 1,
+   "px_over_80": 0,
+   "frame_box": [
+    422,
+    444,
+    422,
+    444
+   ],
+   "rig_box": [
+    310,
+    651,
+    311,
+    652
+   ],
+   "picture": "seam/05_neck_topwear.png"
+  },
+  {
+   "parts": [
+    "eyewhite_l",
+    "iris_l"
+   ],
+   "px_over_40": 1,
+   "px_over_80": 0,
+   "frame_box": [
+    520,
+    291,
+    520,
+    291
+   ],
+   "rig_box": [
+    401,
+    508,
+    402,
+    509
+   ],
+   "picture": "seam/06_eyewhite_l_iris_l.png"
+  }
+ ],
+ "BREATH_VISIBLE": {
+  "status": "SKIP",
+  "reason": "no part comes from a See-through \"topwear\" layer, so there is no torso to see breathe"
+ },
+ "BLINK_NO_HOLE": {
+  "status": "PASS",
+  "eye_parts": [
+   "eyewhite_r",
+   "eyewhite_l"
+  ],
+  "closed": [
+   "group eyes scaley 0.12 from 1.52s to 1.604s"
+  ],
+  "idle_frames_closed": [
+   19
+  ],
+  "box_px": 8601,
+  "hole_px": 0,
+  "hole_bar": 0,
+  "patch_max": 9,
+  "patch_px_over_40": 0
+ },
+ "CHAIN_LAG": {
+  "status": "PASS",
+  "chains": [
+   "neck > head_ctl: period 3.333s, phase 0.080 0.120, amp 0.350 0.850",
+   "bang_r0_ctl > bang_r1_ctl: period 3.333s, phase 0.180 0.280, amp 0.500 1.100",
+   "bang_c0_ctl > bang_c1_ctl: period 3.333s, phase 0.180 0.280, amp 0.450 1.000",
+   "bang_l0_ctl > bang_l1_ctl: period 3.333s, phase 0.180 0.280, amp 0.500 1.100",
+   "skirt_c0_ctl > skirt_c1_ctl > skirt_c2_ctl: period 3.333s, phase 0.340 0.410 0.480, amp 0.120 0.280 0.500"
+  ],
+  "lags": [
+   "neck > head_ctl +0.040",
+   "head_ctl > hairback_r0_ctl +0.080",
+   "head_ctl > hairback_l0_ctl +0.120",
+   "head_ctl > hair_r0_ctl +0.090",
+   "head_ctl > hair_l0_ctl +0.130",
+   "head_ctl > bang_r0_ctl +0.060",
+   "bang_r0_ctl > bang_r1_ctl +0.100",
+   "head_ctl > bang_c0_ctl +0.060",
+   "bang_c0_ctl > bang_c1_ctl +0.100",
+   "head_ctl > bang_l0_ctl +0.060",
+   "bang_l0_ctl > bang_l1_ctl +0.100",
+   "skirt_c0_ctl > skirt_c1_ctl +0.070",
+   "skirt_c1_ctl > skirt_c2_ctl +0.070"
+  ],
+  "min_step": 0.04,
+  "step_floor": 0.001,
+  "other_period": [],
+  "unread": [],
+  "first_violation": null
+ },
+ "TIP_OVER_ROOT": {
+  "status": "SKIP",
+  "reason": "no part comes from a See-through \"handwear\" or \"bottomwear\" layer, so there is no hem or sleeve to swing"
+ },
+ "STILL_REGIONS_DARK": {
+  "status": "PASS",
+  "face": {
+   "parts": [
+    "face"
+   ],
+   "head_bone": "head",
+   "instrument": "geometry",
+   "still_slots": [
+    {
+     "slot": "face",
+     "max_rig_px": 4.556e-13,
+     "rms_rig_px": 1.78e-13
+    },
+    {
+     "slot": "nose",
+     "max_rig_px": 4.548e-13,
+     "rms_rig_px": 1.854e-13
+    }
+   ],
+   "max_rig_px": 4.556e-13,
+   "at": null,
+   "rms_rig_px": 1.781e-13,
+   "tolerance_rig_px": 2.286e-11,
+   "crossing": [
+    {
+     "slot": "hair_front",
+     "depth_rig_px": 1.305,
+     "area_rig_px2": 103.08,
+     "frame": 0
+    }
+   ],
+   "driven_slots": []
+  },
+  "feet": {
+   "unmeasured": "no part comes from a See-through \"footwear\" layer"
+  }
+ },
+ "TEXTURE_STRETCH": {
+  "status": "PASS",
+  "meshes": 6,
+  "triangles": 1080,
+  "frames": 41,
+  "severity": 1.12,
+  "severity_ceiling": 1.926544,
+  "worst": {
+   "slot": "topwear",
+   "triangle": 290,
+   "vertices": [
+    142,
+    205,
+    143
+   ],
+   "edge": [
+    205,
+    143
+   ],
+   "frame": 11,
+   "ratio": 1.12
+  },
+  "max_ratio": 1.12,
+  "min_ratio": 0.946,
+  "per_mesh": [
+   {
+    "slot": "hair_back",
+    "triangles": 99,
+    "max_ratio": 1.103,
+    "max_at": "triangle 37 (vertices 29 31 30), edge 31-30, idle frame 24",
+    "min_ratio": 0.946,
+    "min_at": "triangle 37 (vertices 29 31 30), edge 31-30, idle frame 2",
+    "severity": 1.103
+   },
+   {
+    "slot": "neck",
+    "triangles": 25,
+    "max_ratio": 1.046,
+    "max_at": "triangle 16 (vertices 13 15 14), edge 14-13, idle frame 34",
+    "min_ratio": 0.955,
+    "min_at": "triangle 16 (vertices 13 15 14), edge 14-13, idle frame 14",
+    "severity": 1.047
+   },
+   {
+    "slot": "topwear",
+    "triangles": 465,
+    "max_ratio": 1.12,
+    "max_at": "triangle 290 (vertices 142 205 143), edge 205-143, idle frame 11",
+    "min_ratio": 0.948,
+    "min_at": "triangle 132 (vertices 66 94 93), edge 93-66, idle frame 12",
+    "severity": 1.12
+   },
+   {
+    "slot": "cardigan",
+    "triangles": 118,
+    "max_ratio": 1.084,
+    "max_at": "triangle 85 (vertices 61 88 87), edge 88-87, idle frame 10",
+    "min_ratio": 0.988,
+    "min_at": "triangle 80 (vertices 59 89 60), edge 59-89, idle frame 10",
+    "severity": 1.084
+   },
+   {
+    "slot": "sleeves",
+    "triangles": 229,
+    "max_ratio": 1.008,
+    "max_at": "triangle 181 (vertices 125 130 131), edge 130-131, idle frame 10",
+    "min_ratio": 1,
+    "min_at": "triangle 50 (vertices 27 73 72), edge 73-72, idle frame 3",
+    "severity": 1.008
+   },
+   {
+    "slot": "hair_front",
+    "triangles": 144,
+    "max_ratio": 1.031,
+    "max_at": "triangle 132 (vertices 101 103 102), edge 102-101, idle frame 1",
+    "min_ratio": 0.957,
+    "min_at": "triangle 132 (vertices 101 103 102), edge 102-101, idle frame 24",
+    "severity": 1.045
+   }
+  ]
+ },
+ "ANIMATIONS_DO_NOT_FOLD": {
+  "status": "PASS",
+  "animations": [
+   "idle"
+  ],
+  "fps": 12,
+  "physics_left_out": 31,
+  "folding": [],
+  "folding_undeclared": 0,
+  "declared_not_folding": [],
+  "bar": 0
+ },
+ "RECOMPOSITE_HOLES": {
+  "status": "SKIP",
+  "reason": "parts.json has no \"recomposite\" block (a parts.json the reference wrote has none); re-run assemble, which writes it"
+ },
+ "SETUP_POSE_VS_SOURCE": {
+  "status": "REPORTED",
+  "painting_px": "800x2284",
+  "stage_px": "800x2284",
+  "render_px": "1036x2284",
+  "render_scale": 1.0724,
+  "mean_abs": 0.789,
+  "within_limit": 8,
+  "within_share": 0.9695,
+  "error_limit": 40,
+  "error_px": 1340,
+  "covered_alpha": 128,
+  "uncovered_error_px": 208,
+  "hole_count": 120,
+  "largest": {
+   "px": 11,
+   "box": "502,612 5x10"
+  }
+ },
+ "PASS": true
+}

@@ -7,6 +7,8 @@ import { createWindControls, BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, 
 import { readViewState, writeViewState, defaultViewState } from './view-state.mjs';
 import { fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame } from './viewport.mjs';
 import { drawOverlay } from './debug-overlay.mjs';
+import { outfitAssets, ownAssets } from './outfits.mjs';
+import { createOutfitTransaction } from './outfit-transaction.mjs';
 
 class Element {
   constructor() {
@@ -17,14 +19,17 @@ class Element {
     this.listeners = {};
     this.classList = { add() {}, remove() {}, toggle() {}, contains() { return false; } };
   }
-  appendChild(child) { this.children.push(child); child.parent = this; return child; }
+  appendChild(child) { child.remove(); this.children.push(child); child.parent = this; return child; }
   remove() {
     if (this.parent) this.parent.children = this.parent.children.filter(child => child !== this);
     this.parent = null;
   }
   getContext() { return null; }
   setAttribute() {}
-  addEventListener(name, listener) { this.listeners[name] = listener; }
+  addEventListener(name, listener) {
+    const previous = this.listeners[name];
+    this.listeners[name] = event => { previous?.(event); listener(event); };
+  }
 }
 
 function harness() {
@@ -38,26 +43,39 @@ function harness() {
     return nodes.get(id);
   };
   const loadModel = ({ modelUrl }) => new Promise((resolve, reject) => {
-    const key = modelUrl.split('/')[1];
+    const key = modelUrl.startsWith('/outfits/') ? modelUrl.split('/')[3] : modelUrl.split('/')[1];
     const assets = {
       key, animations: [{ name: 'idle' }],
-      stage: { x: -400, y: 0, width: 800 + requests.length, height: 2284 },
+      stage: { x: -400, y: 0, width: 800, height: 2284 },
       disposed: 0,
       dispose() { this.disposed++; events.push(`${key}:assets`); },
     };
-    requests.push({ key, assets, resolve: () => resolve(assets), reject });
+    requests.push({ key, modelUrl, assets, resolve: () => resolve(assets), reject });
   });
   class Player {
     constructor(sub, assets) {
       this.assets = assets;
       this.disposed = 0;
       this.fit = 0;
-      this.renderer = { syncPixelRatio: () => this.fit++ };
+      this.sub = sub;
+      this.frames = [];
+      this.renderer = { syncPixelRatio: () => {
+        this.fit++;
+        this.syncParent = sub.parent;
+        this.syncStyle = sub.parent?.style.cssText;
+        if (this.assets.rejectSync) throw new Error('pixel ratio sync failed');
+      } };
       created.push(this);
     }
-    play() { if (this.assets.rejectPlayer) throw new Error('player initialization failed'); }
-    frame() {}
-    environment() {}
+    play(name, options = {}) { if (this.assets.rejectPlayer) throw new Error('player initialization failed'); this.animation = name; this.loop = options.loop ?? true; this.phase = 0; }
+    frame(dt) {
+      this.frames.push({ dt, fit: this.fit, parent: this.sub.parent, style: this.sub.parent?.style.cssText });
+      if (this.assets.rejectAttachedFrame && this.sub.parent?.id === 'rig-root') throw new Error('attached frame failed');
+      this.phase += dt;
+    }
+    entry() { return { animation: this.animation, loop: this.loop, animationTime: this.phase }; }
+    seek(time) { if (this.assets.rejectSeek) throw new Error('seek failed'); this.phase = time; }
+    environment(value) { this.env = value; }
     bounds() { return this.assets.stage; }
     dispose() { this.disposed++; events.push(`${this.assets.key}:player`); }
   }
@@ -67,17 +85,17 @@ function harness() {
   // and automatic initial navigation. The lifecycle implementation is imported.
   source = source.replace(/^\s*import .*;$/gm, '');
   source = source.replace(/\n    openCharacter\((?:'all5'|ui\.character)\)(?:\.catch\(err => \{[\s\S]*?\n    \}\))?;/, '');
-  source += '\nglobalThis.viewer = { openCharacter, state: () => ({ players, container, box, stats: stats.textContent, ref: refImg.src }), dispose: () => { if (typeof sceneLoader !== "undefined") sceneLoader.dispose(); } };';
+  source += '\nglobalThis.viewer = { openCharacter, openOutfit, updateViewport, state: () => ({ players, container, box, camera, ui, stats: stats.textContent, ref: refImg.src, caption: refCaption.textContent }), dispose: () => { outfitTransaction.invalidate(); sceneLoader.dispose(); } };';
   const context = {
     loadModel, RigPlayer: Player, createSceneLoader, createWindControls,
     BASE_WIND_LIMIT, MAX_GUST_PEAK, MIN_GUST_DURATION, MAX_GUST_DURATION,
-    readViewState, writeViewState, defaultViewState, fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame, drawOverlay,
+    readViewState, writeViewState, defaultViewState, fitCamera, cameraScale, worldToPanel, zoomAt, referenceFrame, drawOverlay, outfitAssets, ownAssets, createOutfitTransaction,
     document: { getElementById: node, createElement: () => new Element(), querySelectorAll: () => [] },
     requestAnimationFrame() {}, performance: { now: () => 0 },
     setTimeout, console: { error: error => errors.push(error) },
   };
   runInNewContext(source, context, { filename: 'family/viewer/index.html' });
-  return { viewer: context.viewer, requests, created, events, errors, stage: node('stage') };
+  return { viewer: context.viewer, requests, created, events, errors, stage: node('stage'), node };
 }
 
 const flush = () => new Promise(resolve => setImmediate(resolve));
@@ -196,3 +214,150 @@ test('player initialization failure releases player and model without publishing
   assert.equal(h.errors.length, 1);
   h.viewer.dispose();
 });
+
+async function family(h) {
+  const opened = h.viewer.openCharacter('all5');
+  for (const request of h.requests) request.resolve();
+  await opened;
+  return h.viewer.state();
+}
+
+test('outfit transaction replaces only Naru, keeps live camera/controls and forwards scene cleanup', async () => {
+  const h = harness(), before = await family(h);
+  h.node('pauseBtn').listeners.click();
+  h.node('speed').value = '1.8'; h.node('speed').listeners.input();
+  h.node('bonesBtn').listeners.click(); h.node('meshBtn').listeners.click();
+  h.node('wind').value = '24'; h.node('wind').listeners.input();
+  h.node('gravity').value = '1.2'; h.node('gravity').listeners.input();
+  before.camera.zoom = 3.2;
+  h.viewer.updateViewport();
+  const previousSyncs = before.players.map(p => p.player.fit);
+  const displayStyle = before.container.style.cssText;
+  const entry = before.players[3], original = entry.player;
+  original.phase = 1.25;
+  const opening = h.viewer.openOutfit('homewear');
+  assert.equal(h.viewer.state().container, before.container); assert.equal(original.disposed, 0);
+  original.phase = 2.75;
+  h.requests[5].resolve(); assert.equal(await opening, true);
+  const after = h.viewer.state();
+  assert.equal(after.players[3], entry); assert.notEqual(entry.player, original); assert.equal(entry.player.phase, 2.75);
+  assert.equal(after.camera, before.camera); assert.equal(after.box, before.box); assert.equal(after.container, before.container);
+  assert.equal(entry.player.fit, 1); assert.equal(entry.player.syncParent, after.container); assert.equal(entry.player.syncStyle, displayStyle);
+  assert.deepEqual(entry.player.frames.at(-1), { dt: 0, fit: 1, parent: after.container, style: displayStyle });
+  assert.equal(after.ui.paused, true); assert.equal(after.ui.speed, 1.8); assert.equal(after.ui.bones, true); assert.equal(after.ui.mesh, true);
+  assert.equal(after.ui.outfits.naru, 'homewear'); assert.match(after.caption, /오피스 원화 기준/);
+  assert.deepEqual(Array.from(entry.player.env.wind), [24, 0]); assert.deepEqual(Array.from(entry.player.env.gravity), [0, 1.2]);
+  assert.equal(h.created.length, 6); assert.equal(original.disposed, 1); assert.equal(h.requests[3].assets.disposed, 1);
+  for (const i of [0, 1, 2, 4]) { assert.equal(after.players[i], before.players[i]); assert.equal(after.players[i].player.disposed, 0); assert.equal(after.players[i].player.fit, previousSyncs[i]); }
+  assert.equal(after.container.children.length, 5);
+  h.viewer.dispose();
+  for (const player of h.created) assert.equal(player.disposed, 1);
+  for (const request of h.requests) assert.equal(request.assets.disposed, 1);
+});
+
+test('missing homewear and invalid stage or seek retain office and roll back the selector', async () => {
+  const h = harness(), before = await family(h), original = before.players[3].player;
+  let opening = h.viewer.openOutfit('homewear'); h.requests[5].reject(Error('404')); assert.equal(await opening, false);
+  assert.equal(h.viewer.state().players[3].player, original); assert.equal(h.node('outfitSelect').value, 'office');
+  opening = h.viewer.openOutfit('homewear'); h.requests[6].assets.stage.width = 801; h.requests[6].resolve(); assert.equal(await opening, false);
+  assert.equal(h.requests[6].assets.disposed, 1);
+  opening = h.viewer.openOutfit('homewear'); h.requests[7].assets.rejectSeek = true; h.requests[7].resolve(); assert.equal(await opening, false);
+  assert.equal(h.viewer.state().players[3].player, original); assert.equal(h.viewer.state().ui.outfits.naru, 'office');
+  assert.equal(original.disposed, 0); assert.equal(h.requests[7].assets.disposed, 1);
+  h.viewer.dispose();
+});
+
+test('attached renderer sync or first displayed frame failure rolls back before ownership transfer', async () => {
+  for (const field of ['rejectSync', 'rejectAttachedFrame']) {
+    const h = harness(), before = await family(h), original = before.players[3].player, originalAssets = h.requests[3].assets;
+    const opening = h.viewer.openOutfit('homewear');
+    h.requests[5].assets[field] = true; h.requests[5].resolve(); assert.equal(await opening, false);
+    assert.equal(h.viewer.state().players[3].player, original); assert.equal(original.disposed, 0); assert.equal(originalAssets.disposed, 0);
+    assert.equal(h.created[5].disposed, 1); assert.equal(h.requests[5].assets.disposed, 1);
+    assert.equal(h.created[5].sub.parent, null); assert.equal(before.container.children.length, 5);
+    assert.equal(h.node('outfitSelect').value, 'office'); assert.equal(h.viewer.state().ui.outfits.naru, 'office');
+    h.viewer.dispose(); assert.equal(original.disposed, 1); assert.equal(originalAssets.disposed, 1);
+  }
+});
+
+test('returning to current office cancels pending homewear, and scene navigation invalidates candidates', async () => {
+  const h = harness(), before = await family(h), original = before.players[3].player;
+  const homewear = h.viewer.openOutfit('homewear'); await h.viewer.openOutfit('office');
+  h.requests[5].resolve(); assert.equal(await homewear, false);
+  assert.equal(h.viewer.state().players[3].player, original); assert.equal(h.requests[5].assets.disposed, 1);
+  const late = h.viewer.openOutfit('homewear'), scene = h.viewer.openCharacter('nova');
+  h.requests[7].resolve(); await scene; const current = h.viewer.state();
+  h.requests[6].resolve(); assert.equal(await late, false);
+  assert.equal(h.viewer.state().container, current.container); assert.deepEqual(keys(h.viewer.state()), ['nova']);
+  assert.equal(h.requests[6].assets.disposed, 1); assert.equal(h.viewer.state().ui.outfits.naru, 'office');
+  h.viewer.dispose();
+});
+
+test('persisted homewear failing on scene reload falls back to the unchanged office URL', async () => {
+  const h = harness(); h.viewer.state().ui.outfits.naru = 'homewear';
+  const opening = h.viewer.openCharacter('naru');
+  assert.match(h.requests[0].modelUrl, /^\/outfits\/homewear\/naru\//);
+  h.requests[0].reject(Error('404')); await flush();
+  assert.match(h.requests[1].modelUrl, /^\/naru\/out\/check\/build\/skeleton\.model\.json/);
+  h.requests[1].resolve(); await opening;
+  assert.equal(h.viewer.state().ui.outfits.naru, 'office'); assert.match(h.viewer.state().stats, /오피스 유지/);
+  assert.equal(h.node('outfitSelect').value, 'office'); h.viewer.dispose();
+});
+
+test('homewear-office-homewear cycles preserve cleanup ownership and individual reference', async () => {
+  const h = harness(); h.node('charSelect').value = 'naru'; h.viewer.state().ui.character = 'naru';
+  const opened = h.viewer.openCharacter('naru'); h.requests[0].resolve(); await opened;
+  const stable = h.viewer.state().players[0];
+  for (const outfit of ['homewear', 'office', 'homewear']) {
+    const opened = h.viewer.openOutfit(outfit); h.requests.at(-1).resolve(); assert.equal(await opened, true);
+    assert.equal(h.viewer.state().players[0], stable); assert.equal(h.viewer.state().ui.outfits.naru, outfit);
+    assert.match(h.viewer.state().ref, outfit === 'homewear' ? /^\/outfits\/homewear\/naru\/inputs\/painting.png/ : /^\/naru\/inputs\/painting.png/);
+  }
+  h.viewer.dispose();
+  for (const player of h.created) assert.equal(player.disposed, 1);
+  for (const request of h.requests) assert.equal(request.assets.disposed, 1);
+});
+
+test('paused zoom redraws the current pose after raster sync without advancing any player clock', async () => {
+  const h = harness(), before = await family(h);
+  h.node('pauseBtn').listeners.click();
+  const phases = before.players.map(p => p.player.phase);
+  const frameCounts = before.players.map(p => p.player.frames.length);
+  const syncCounts = before.players.map(p => p.player.fit);
+  before.camera.zoom = 3.2;
+  const settings = JSON.stringify(before.ui);
+  h.viewer.updateViewport();
+  const after = h.viewer.state();
+  assert.equal(after.camera, before.camera); assert.equal(after.camera.zoom, 3.2); assert.equal(after.ui.paused, true);
+  assert.equal(JSON.stringify(after.ui), settings);
+  for (const [i, entry] of after.players.entries()) {
+    assert.equal(entry.player.phase, phases[i]);
+    assert.equal(entry.player.fit, syncCounts[i] + 1);
+    assert.equal(entry.player.frames.length, frameCounts[i] + 1);
+    assert.equal(entry.player.frames.at(-1).dt, 0);
+    assert.equal(entry.player.frames.at(-1).fit, syncCounts[i] + 1);
+    assert.equal(entry.player.frames.at(-1).parent, after.container);
+  }
+  h.viewer.dispose();
+});
+
+test('all 5 characters switch between office and homewear in the family lineup', async () => {
+  const h = harness();
+  await family(h);
+  for (const key of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
+    const opened = h.viewer.openOutfit('homewear', key);
+    assert.match(h.requests.at(-1).modelUrl, new RegExp(`^/outfits/homewear/${key}/out/check/build/skeleton\\.model\\.json`));
+    h.requests.at(-1).resolve();
+    assert.equal(await opened, true);
+    assert.equal(h.viewer.state().ui.outfits[key], 'homewear');
+  }
+  for (const key of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
+    const opened = h.viewer.openOutfit('office', key);
+    assert.match(h.requests.at(-1).modelUrl, new RegExp(`^/${key}/out/check/build/skeleton\\.model\\.json`));
+    h.requests.at(-1).resolve();
+    assert.equal(await opened, true);
+    assert.equal(h.viewer.state().ui.outfits[key], 'office');
+  }
+  h.viewer.dispose();
+});
+

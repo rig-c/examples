@@ -1,0 +1,26 @@
+{
+  "spec": "family-homewear-closure-controls/1",
+  "rows": [
+    {
+      "name": "identical closure accepted",
+      "PASS": true
+    },
+    {
+      "name": "changed model bytes refused",
+      "PASS": true
+    },
+    {
+      "name": "changed decoded pixels refused",
+      "PASS": true
+    },
+    {
+      "name": "extra serving file refused",
+      "PASS": true
+    },
+    {
+      "name": "missing serving file refused",
+      "PASS": true
+    }
+  ],
+  "PASS": true
+}

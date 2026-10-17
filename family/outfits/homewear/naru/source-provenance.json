@@ -1,0 +1,38 @@
+{
+  "spec": "family-homewear-source/1",
+  "source": "inputs/source-group.jpeg",
+  "sourceSHA256": "46d622aa598432ede53c946e9f8a8f9089e4ce7513ea834a8e63fe8e8892e24f",
+  "sourceSize": [
+    2752,
+    1536
+  ],
+  "sourceChannels": "RGB",
+  "selectedCharacter": "naru",
+  "selection": "Fourth character, left to right, from the user-selected homewear sheet.",
+  "sourceCrop": [
+    1679,
+    0,
+    2217,
+    1536
+  ],
+  "registrationCanvas": [
+    800,
+    2284
+  ],
+  "draftOperation": {
+    "resize": [
+      4092,
+      2284
+    ],
+    "method": "Pillow LANCZOS",
+    "crop": [
+      2496,
+      0,
+      3296,
+      2284
+    ]
+  },
+  "registrationStatus": "DRAFT_NOT_MEASURED",
+  "sourcePixels": "Copied original JPEG. Cropping/resizing only; no retouching or invented hidden artwork.",
+  "protectedBaseline": "protected-baseline.json"
+}

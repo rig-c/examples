@@ -1,0 +1,386 @@
+{
+  "rig_size": [
+    800,
+    2284
+  ],
+  "scale_rig_per_source": 1,
+  "ghost_px": {},
+  "parts": [
+    {
+      "name": "hair_back",
+      "from": "head:back hair",
+      "x": 140,
+      "y": 152,
+      "w": 385,
+      "h": 353,
+      "opaque_px": 62284,
+      "visible_px": 46350,
+      "occluded_px": 15934,
+      "projected_core_px": 35883,
+      "source_px_taken": 35883,
+      "visible_not_projected_px": 10467,
+      "refused_drift_px": 2,
+      "merged_px": 0,
+      "seam_override_px": 34,
+      "fringe_pushed_back": [
+        {
+          "part": "topwear",
+          "px": 9
+        },
+        {
+          "part": "neck",
+          "px": 2
+        }
+      ]
+    },
+    {
+      "name": "shoes",
+      "x": 200,
+      "y": 2080,
+      "w": 302,
+      "h": 172,
+      "opaque_px": 36067,
+      "from": "full:author:homewear-shoes",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "bottomwear",
+      "x": 136,
+      "y": 912,
+      "w": 428,
+      "h": 1228,
+      "opaque_px": 282762,
+      "from": "full:author:homewear-bottomwear",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "neck",
+      "x": 258,
+      "y": 336,
+      "w": 114,
+      "h": 153,
+      "opaque_px": 11991,
+      "from": "full:author:homewear-neck",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "topwear",
+      "x": 246,
+      "y": 448,
+      "w": 246,
+      "h": 498,
+      "opaque_px": 102499,
+      "from": "full:author:homewear-topwear",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "cardigan",
+      "x": 125,
+      "y": 448,
+      "w": 484,
+      "h": 922,
+      "opaque_px": 135831,
+      "from": "full:author:homewear-cardigan",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "sleeves",
+      "x": 61,
+      "y": 493,
+      "w": 692,
+      "h": 473,
+      "opaque_px": 70049,
+      "from": "full:author:homewear-sleeves",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "hands",
+      "x": 60,
+      "y": 545,
+      "w": 613,
+      "h": 814,
+      "opaque_px": 61750,
+      "from": "full:author:homewear-hands",
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "ear_l",
+      "from": "head:ears-l",
+      "x": 394,
+      "y": 335,
+      "w": 40,
+      "h": 53,
+      "opaque_px": 896,
+      "visible_px": 40,
+      "occluded_px": 856,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "visible_not_projected_px": 40,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "earring",
+      "from": "head:earwear",
+      "x": 254,
+      "y": 328,
+      "w": 41,
+      "h": 64,
+      "opaque_px": 1129,
+      "visible_px": 828,
+      "occluded_px": 301,
+      "projected_core_px": 3,
+      "source_px_taken": 3,
+      "visible_not_projected_px": 825,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "hair_back",
+          "px": 161
+        },
+        {
+          "part": "neck",
+          "px": 10
+        }
+      ]
+    },
+    {
+      "name": "face",
+      "from": "head:face",
+      "x": 277,
+      "y": 189,
+      "w": 176,
+      "h": 233,
+      "opaque_px": 30875,
+      "visible_px": 20843,
+      "occluded_px": 10032,
+      "projected_core_px": 17277,
+      "source_px_taken": 17223,
+      "visible_not_projected_px": 3620,
+      "refused_drift_px": 322,
+      "merged_px": 0,
+      "seam_override_px": 30,
+      "fringe_pushed_back": [
+        {
+          "part": "earring",
+          "px": 25
+        },
+        {
+          "part": "hair_back",
+          "px": 12
+        },
+        {
+          "part": "neck",
+          "px": 11
+        }
+      ]
+    },
+    {
+      "name": "nose",
+      "from": "head:nose",
+      "x": 368,
+      "y": 321,
+      "w": 25,
+      "h": 39,
+      "opaque_px": 687,
+      "visible_px": 687,
+      "occluded_px": 0,
+      "projected_core_px": 138,
+      "source_px_taken": 138,
+      "visible_not_projected_px": 549,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "mouth",
+      "from": "head:mouth",
+      "x": 326,
+      "y": 352,
+      "w": 66,
+      "h": 40,
+      "opaque_px": 1566,
+      "visible_px": 1566,
+      "occluded_px": 0,
+      "projected_core_px": 795,
+      "source_px_taken": 795,
+      "visible_not_projected_px": 771,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "lash_r",
+      "from": "head:eyelash-r",
+      "x": 304,
+      "y": 287,
+      "w": 56,
+      "h": 26,
+      "opaque_px": 729,
+      "visible_px": 729,
+      "occluded_px": 0,
+      "projected_core_px": 25,
+      "source_px_taken": 25,
+      "visible_not_projected_px": 704,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 58
+        }
+      ]
+    },
+    {
+      "name": "lash_l",
+      "from": "head:eyelash-l",
+      "x": 394,
+      "y": 315,
+      "w": 42,
+      "h": 21,
+      "opaque_px": 459,
+      "visible_px": 459,
+      "occluded_px": 0,
+      "projected_core_px": 6,
+      "source_px_taken": 6,
+      "visible_not_projected_px": 453,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 31
+        }
+      ]
+    },
+    {
+      "name": "brow_r",
+      "from": "full:eyebrow-r",
+      "x": 305,
+      "y": 261,
+      "w": 75,
+      "h": 25,
+      "opaque_px": 595,
+      "visible_px": 0,
+      "occluded_px": 595,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "visible_not_projected_px": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 34
+        }
+      ]
+    },
+    {
+      "name": "brow_l",
+      "from": "head:eyebrow",
+      "x": 403,
+      "y": 294,
+      "w": 42,
+      "h": 23,
+      "opaque_px": 281,
+      "visible_px": 174,
+      "occluded_px": 107,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "visible_not_projected_px": 174,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 13,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 6
+        }
+      ]
+    },
+    {
+      "name": "ear_r",
+      "from": "head:ears-r",
+      "x": 246,
+      "y": 271,
+      "w": 39,
+      "h": 73,
+      "opaque_px": 1961,
+      "visible_px": 1944,
+      "occluded_px": 17,
+      "projected_core_px": 1067,
+      "source_px_taken": 1063,
+      "visible_not_projected_px": 881,
+      "refused_drift_px": 11,
+      "merged_px": 0,
+      "seam_override_px": 18,
+      "fringe_pushed_back": [
+        {
+          "part": "earring",
+          "px": 5
+        },
+        {
+          "part": "hair_back",
+          "px": 2
+        }
+      ]
+    },
+    {
+      "name": "hair_front",
+      "from": "head:front hair",
+      "x": 262,
+      "y": 167,
+      "w": 214,
+      "h": 162,
+      "opaque_px": 17947,
+      "visible_px": 17947,
+      "occluded_px": 0,
+      "projected_core_px": 12444,
+      "source_px_taken": 12444,
+      "visible_not_projected_px": 5503,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0,
+      "fringe_pushed_back": [
+        {
+          "part": "face",
+          "px": 85
+        }
+      ]
+    }
+  ]
+}

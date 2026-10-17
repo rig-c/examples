@@ -1,0 +1,104 @@
+{
+  "spec": "family-homewear-validation-runs/1",
+  "runs": [
+    {
+      "jobId": "20261016T182205Z-0b8df449897842c9be1d26c7b38752d6",
+      "scope": "Initial compiler/check; later moving neck join corrected",
+      "status": "passed",
+      "exitCode": 0,
+      "actualInputBundleSHA256": "0e5181d9ef8fa7b0398271bfcda802509d6a24bb1233c176334e1fd50ff26d48",
+      "sealedManifestSHA256": "3955871cc1e2b83186c29393f1c42b22470674f3378228f9e24ebc74b878ee8c",
+      "resultSHA256": "c70afdaf4f8a8983380e0702efcf7d4a6281c88a3a875869905875a4b2639b99",
+      "receiptIndependentlyMatched": true,
+      "cpuAffinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rssLimitBytes": 4294967296,
+      "peakTreeRssBytes": 859992064,
+      "allGuardCommandsPass": true
+    },
+    {
+      "jobId": "20261016T182445Z-ebc737eb1ee643aea91d9b02264cf3d0",
+      "scope": "Initial physics proof; appearance seam not accepted",
+      "status": "passed",
+      "exitCode": 0,
+      "actualInputBundleSHA256": "544f9bee681432ff101dee16d4534a149e4c97e811e95652e78bc188f77295a8",
+      "sealedManifestSHA256": "4388717dbce5e09072ff1a6ab4ae7a94da7cbc793e7a617775b181fb34ecc5ac",
+      "resultSHA256": "ea8d4df15c788d8f744019ab8ca5142d3c172a020fd04bf6fa309ec2b006a936",
+      "receiptIndependentlyMatched": true,
+      "cpuAffinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rssLimitBytes": 4294967296,
+      "peakTreeRssBytes": 702242816,
+      "allGuardCommandsPass": true
+    },
+    {
+      "jobId": "20261016T183620Z-a2ae204d0d6d455192e6aa796514548c",
+      "scope": "Corrected generated-hidden repair + shared weights, official build/check +rendered physics",
+      "status": "passed",
+      "exitCode": 0,
+      "actualInputBundleSHA256": "af3e71517b355e93545c6f92445c2398e009fea8c46fda4279b769bb5d061ce7",
+      "sealedManifestSHA256": "46adebd6f097b1b6a7a69b8bb8360b716aa3d4255d3b18930f302cb200bfdb16",
+      "resultSHA256": "cd088d34e8e4658c61e0a4b347a0555f474f9f51d470c59297f3fe571b3d53c0",
+      "receiptIndependentlyMatched": true,
+      "cpuAffinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rssLimitBytes": 4294967296,
+      "peakTreeRssBytes": 891244544,
+      "allGuardCommandsPass": true
+    },
+    {
+      "jobId": "20261016T184026Z-9df8ed5a281e44d99cb1dcbc2896c76d",
+      "scope": "Partial reproduction before opaque metadata and serving identity corrections; superseded",
+      "status": "passed",
+      "exitCode": 0,
+      "actualInputBundleSHA256": "8774e1ea18b5d6e8bb35b2514ecdf16c68ab499ceaf14ac0a921e716e0b90b7d",
+      "sealedManifestSHA256": "772fbeed092009c68fd1e87bface147de5fb0bd19752d02866f959a0d7dd1701",
+      "resultSHA256": "56d8e984a2cff8aee0827afa1ddd9557c6018fc2fd7512f48325329797a2aa62",
+      "receiptIndependentlyMatched": true,
+      "cpuAffinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rssLimitBytes": 4294967296,
+      "peakTreeRssBytes": 904851456,
+      "allGuardCommandsPass": true
+    },
+    {
+      "jobId": "20261016T184358Z-78ff0d350864418a86de51386d7cbcdd",
+      "scope": "Final corrected metadata/serving identity/completion-mode reproduction",
+      "status": "passed",
+      "exitCode": 0,
+      "actualInputBundleSHA256": "dff3ecd8c52bbd389ae2216a4e3c71ab1156706242268c2e7a50fb03cbe46fcc",
+      "sealedManifestSHA256": "f0b9b82f5558cff3dce45856d41baa442b64352260d52760177eef088e678ea8",
+      "resultSHA256": "0719f5dba16cc178f59dc62c35b5859fad12e12f9dd8b380e79117a5c98b5440",
+      "receiptIndependentlyMatched": true,
+      "cpuAffinity": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rssLimitBytes": 4294967296,
+      "peakTreeRssBytes": 845033472,
+      "allGuardCommandsPass": true
+    }
+  ],
+  "status": "LOCAL_PROTOTYPE_VERIFIED",
+  "finalServingModelSHA256": "dfbe220fdb2ead0d78cb389bde05eb43405c1652911aa127aef4fcee6d43c061",
+  "coverage": "Official consumer rig/check +fixedstep physics +actual final browser proof; existingoffice CI excludes outfits.",
+  "rawLogs": "Retained in sealed local execution evidence, outside repository."
+}

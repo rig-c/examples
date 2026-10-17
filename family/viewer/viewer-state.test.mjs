@@ -33,6 +33,27 @@ test('camera shares actual displayed world scale across unequal panes and cursor
   }
 });
 
+test('outfit choice persists independently of scene across all five characters and old v2 records keep controls', () => {
+  const read = value => readViewState({ getItem: () => JSON.stringify(value) });
+  const state = {
+    ...defaultViewState(),
+    character: 'nova',
+    paused: true,
+    speed: 1.7,
+    outfits: { roa: 'homewear', luna: 'office', jinni: 'homewear', naru: 'homewear', nova: 'homewear' },
+    cameras: { naru: { zoom: 3, x: 10, y: 1500 } },
+  };
+  assert.deepEqual(read(state), state);
+  const { outfits, ...old } = state;
+  assert.deepEqual(read(old).outfits, defaultViewState().outfits);
+  assert.equal(read(old).speed, 1.7);
+  assert.equal(read(old).paused, true);
+  for (const value of ['../', null, 4]) {
+    assert.equal(read({ ...state, outfits: { ...state.outfits, naru: value, roa: value } }).outfits.naru, 'office');
+    assert.equal(read({ ...state, outfits: { ...state.outfits, naru: value, roa: value } }).outfits.roa, 'office');
+  }
+});
+
 test('comparison registers half-resolution composite, individual and original 96px source margin', () => {
   const box={x:-400,y:0,width:800,height:2284};
   assert.deepEqual(referenceFrame('roa',box),box);

@@ -1,0 +1,119 @@
+{
+  "spec": "family-homewear-authoring-plan/1",
+  "status": "LOCAL_PROTOTYPE_VERIFIED",
+  "canvas": {
+    "width": 800,
+    "height": 2284,
+    "skeletonStage": {
+      "x": -400,
+      "y": 0,
+      "width": 800,
+      "height": 2284
+    }
+  },
+  "commonRig": "naru/out/rig/rig.json",
+  "commonMotion": "naru/out/rig/motion.json",
+  "commonContract": "Preserve the existing bone entries/index order, constraints, stops and motion; any new hem bones/physics append without changing common entries.",
+  "preserveAttachments": "Approved face, eye, brow, mouth, ear and hair attachments/images, including accepted rearhair completion.",
+  "newSourceParts": [
+    {
+      "name": "topwear",
+      "source": "Source-backed camisole from the new topwear layer; contour and chest influence regions authored on the new silhouette.",
+      "binding": "Existing chest/hip and unchanged boob_r/boob_l anchors; accepted coefficients remain unchanged."
+    },
+    {
+      "name": "cardigan",
+      "source": "Actual new knitted cardigan; separate source pixels/silhouette from camisole where the extracted layer permits.",
+      "binding": "Chest/hip base; optional new small hem chains only after actual garment anchors are measured. Do not repurpose the old skirt chains."
+    },
+    {
+      "name": "hands",
+      "source": "New source clasped hands, separated from cardigan sleeves and the topwear base.",
+      "binding": "Chest foreground, outside bust influence. Refuse duplicated hand stamping or an unfilled base if hands move away."
+    },
+    {
+      "name": "neck",
+      "source": "New source-backed exposed neck/chest skin; never carry old white shirt collar into the lower neckline.",
+      "binding": "Measured new boundary joined to unchanged accepted head/face. Existing neck attachment may be replaced explicitly."
+    },
+    {
+      "name": "bottomwear",
+      "source": "New pyjama trousers, not the old pencil-skirt geometry.",
+      "binding": "Hip-centred first. Narrow cuffs receive no inferred old-skirt physics."
+    },
+    {
+      "name": "shoes",
+      "source": "New slippers with their source soles; exclude ground reflection verified in slipper-alpha-contact.",
+      "binding": "Existing root/hip rest-space frame; retain exact visible pose."
+    },
+    {
+      "name": "sleeves",
+      "source": "Sleeve portion of real full:handwear-l split at the actual clasped-hand wrist boundary",
+      "binding": "Existing chest only; no bust/hem influence"
+    }
+  ],
+  "holes": "Use real See-through hidden pixels if valid. Any necessary generated hidden repair must use the image-generation tool and retain its provenance; never invent hidden pixels with an alpha/paint heuristic.",
+  "reference": "Registered original clothing pixels plus the approved head/face, independently assembled as the intended source reference; a flattened candidate is not a source-fidelity oracle.",
+  "validation": [
+    "Public layer/parts readers for real manifests",
+    "Named official rigc build and parts check; no gate bypass",
+    "Common rig/image preservation check",
+    "Actual rest/idle/wind/moved-release visual and mesh-fold evidence, with any remaining limitation stated separately"
+  ],
+  "actualDecomposition": {
+    "rawLayers": 24,
+    "postprocessLayers": 25,
+    "usableClothingTags": [
+      "topwear",
+      "legwear",
+      "handwear-l",
+      "neck"
+    ],
+    "sparseNoiseTags": [
+      "bottomwear",
+      "footwear",
+      "neckwear",
+      "tail",
+      "wings",
+      "objects",
+      "handwear-r"
+    ],
+    "generatedHeadHairAdopted": false
+  },
+  "actualSlots": [
+    "shoes",
+    "bottomwear",
+    "neck",
+    "topwear",
+    "cardigan",
+    "sleeves",
+    "hands"
+  ],
+  "cardiganHems": {
+    "origins": [
+      [
+        243,
+        1080
+      ],
+      [
+        532,
+        1080
+      ]
+    ],
+    "tips": [
+      [
+        245,
+        1350
+      ],
+      [
+        532,
+        1350
+      ]
+    ],
+    "bones": [
+      "cardigan_hem_r",
+      "cardigan_hem_l"
+    ],
+    "physics": "Separate appended constraints; common29 constraints remain exact, including unused old skirt constraints"
+  }
+}

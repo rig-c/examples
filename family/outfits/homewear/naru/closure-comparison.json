@@ -1,0 +1,57 @@
+{
+  "spec": "family-homewear-serving-identity/1",
+  "compiler": {
+    "PASS": true,
+    "files": [
+      {
+        "path": "skeleton.atlas",
+        "kind": "exact-bytes",
+        "PASS": true
+      },
+      {
+        "path": "skeleton.json",
+        "kind": "exact-bytes",
+        "PASS": true
+      },
+      {
+        "path": "skeleton.model.json",
+        "kind": "exact-bytes",
+        "PASS": true
+      },
+      {
+        "path": "skeleton.png",
+        "kind": "decoded-RGBA",
+        "width": 1283,
+        "height": 2038,
+        "PASS": true
+      }
+    ]
+  },
+  "check": {
+    "PASS": true,
+    "files": [
+      {
+        "path": "skeleton.atlas",
+        "kind": "exact-bytes",
+        "PASS": true
+      },
+      {
+        "path": "skeleton.json",
+        "kind": "exact-bytes",
+        "PASS": true
+      },
+      {
+        "path": "skeleton.model.json",
+        "kind": "exact-bytes",
+        "PASS": true
+      },
+      {
+        "path": "skeleton.png",
+        "kind": "decoded-RGBA",
+        "width": 1283,
+        "height": 2038,
+        "PASS": true
+      }
+    ]
+  }
+}

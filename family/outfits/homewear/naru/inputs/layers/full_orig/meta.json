@@ -1,0 +1,24 @@
+{
+  "spec": "family-homewear-seethrough/1",
+  "sourceSHA256": "8d6e03e28b406a87f502d01698d758297e815b147473cef3d860fc93318dcdc8",
+  "installedNodeSHA256": "6c7874e0d6c526e67620c4d6a98f8586a516c3b38e9683372e3ae3bbe467b169",
+  "seed": 42,
+  "resolution": 1024,
+  "steps": 30,
+  "quant": "none",
+  "groupOffloadRequested": true,
+  "groupOffloadActive": false,
+  "lama": false,
+  "downloads": false,
+  "initialBF16": true,
+  "finalModelDtype": "bfloat16",
+  "behavior": "Installed model/tag version unchanged, including its internal head pass when selected by the installed node.",
+  "rawLayerCount": 24,
+  "postprocessLayerCount": 25,
+  "canvas": [
+    1024,
+    1024
+  ],
+  "export": "Original node postprocess arrays and equivalent SavePSD wrapper metadata, fresh consumer directory; no shared output directory mutation.",
+  "seconds": 173.7039999999106
+}
