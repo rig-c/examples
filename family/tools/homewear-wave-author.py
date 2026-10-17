@@ -26,15 +26,15 @@ NEW_NAMES = ["shoes", "bottomwear", "neck", "topwear", "sleeves"]
 
 CHAR_SPECS = {
     "roa": {
-        "hem_r": {"at": [205, 960], "tip": [200, 1340]},
-        "hem_l": {"at": [545, 960], "tip": [565, 1340]},
+        "hem_r": {"at": [205, 960], "tip": [195, 1340]},
+        "hem_l": {"at": [555, 960], "tip": [590, 1340]},
         "neck_segments": [["chest", [365, 430], [365, 657]], ["head", [365, 394], [365, 344]]],
         "topwear_segments": [["chest", [360, 448], [360, 843]], ["hip", [360, 843], [360, 946]]],
         "cardigan_segments": [
             ["chest", [220, 480], [220, 840]],
             ["chest", [500, 480], [520, 840]],
             ["hip", [210, 840], [205, 960]],
-            ["hip", [525, 840], [545, 960]],
+            ["hip", [525, 840], [555, 960]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
@@ -42,7 +42,7 @@ CHAR_SPECS = {
             ["chest", [120, 520], [120, 940]],
             ["chest", [520, 520], [720, 580]],
         ],
-        "stitch": [("neck", 448, True), ("topwear", 520, False)],
+        "stitch": [("neck", 440, True), ("topwear", 485, False)],
     },
     "luna": {
         "hem_r": {"at": [235, 1020], "tip": [220, 1245]},
@@ -173,10 +173,10 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
             "bone": f"cardigan_hem_{side}",
             "rotate": 1,
             "inertia": 0.15,
-            "strength": 240,
+            "strength": 360,
             "damping": 0.92,
             "mass": 1,
-            "wind": 0.15,
+            "wind": 0.11,
             "gravity": 0.06,
             "mix": 1,
         })

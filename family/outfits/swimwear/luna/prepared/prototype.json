@@ -23,29 +23,29 @@
     },
     {
       "name": "neck",
-      "x": 309,
+      "x": 272,
       "y": 468,
-      "w": 99,
-      "h": 133,
-      "opaque_px": 11841,
+      "w": 171,
+      "h": 174,
+      "opaque_px": 17534,
       "source": "full:seethrough-v3:neck"
     },
     {
       "name": "topwear",
       "x": 195,
-      "y": 610,
+      "y": 570,
       "w": 330,
-      "h": 475,
-      "opaque_px": 118921,
+      "h": 515,
+      "opaque_px": 125107,
       "source": "full:seethrough-v3:topwear"
     },
     {
       "name": "sleeves",
       "x": 165,
-      "y": 607,
+      "y": 604,
       "w": 382,
-      "h": 884,
-      "opaque_px": 164178,
+      "h": 887,
+      "opaque_px": 164673,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
@@ -66,13 +66,13 @@
       "refused": 0
     },
     "topwear": {
-      "core": 79870,
-      "taken": 79866,
-      "refused": 32
+      "core": 79924,
+      "taken": 79915,
+      "refused": 39
     },
     "sleeves": {
-      "core": 149620,
-      "taken": 147874,
+      "core": 149648,
+      "taken": 147902,
       "refused": 5392
     }
   },
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 615,
-    "method": "See-through v3 layer depth + local color/DoG detail error; zero manual polygons"
+    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

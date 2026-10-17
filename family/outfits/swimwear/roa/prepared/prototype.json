@@ -23,29 +23,29 @@
     },
     {
       "name": "neck",
-      "x": 255,
+      "x": 219,
       "y": 343,
-      "w": 115,
-      "h": 158,
-      "opaque_px": 12643,
+      "w": 178,
+      "h": 181,
+      "opaque_px": 17846,
       "source": "full:seethrough-v3:neck"
     },
     {
       "name": "topwear",
       "x": 22,
-      "y": 481,
+      "y": 451,
       "w": 669,
-      "h": 1137,
-      "opaque_px": 350385,
+      "h": 1167,
+      "opaque_px": 355142,
       "source": "full:seethrough-v3:topwear"
     },
     {
       "name": "sleeves",
       "x": 24,
-      "y": 476,
+      "y": 466,
       "w": 717,
-      "h": 946,
-      "opaque_px": 171351,
+      "h": 956,
+      "opaque_px": 172170,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
@@ -71,9 +71,9 @@
       "refused": 1661
     },
     "sleeves": {
-      "core": 154591,
-      "taken": 152944,
-      "refused": 4506
+      "core": 154632,
+      "taken": 152984,
+      "refused": 4507
     }
   },
   "projectionPolicy": {
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 483,
-    "method": "See-through v3 layer depth + local color/DoG detail error; zero manual polygons"
+    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

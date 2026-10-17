@@ -23,11 +23,11 @@
     },
     {
       "name": "neck",
-      "x": 310,
+      "x": 279,
       "y": 453,
-      "w": 109,
-      "h": 143,
-      "opaque_px": 10658,
+      "w": 168,
+      "h": 180,
+      "opaque_px": 16604,
       "source": "full:seethrough-v3:neck"
     },
     {
@@ -36,7 +36,7 @@
       "y": 549,
       "w": 356,
       "h": 440,
-      "opaque_px": 107477,
+      "opaque_px": 107955,
       "source": "full:seethrough-v3:topwear"
     },
     {
@@ -66,9 +66,9 @@
       "refused": 0
     },
     "topwear": {
-      "core": 83667,
-      "taken": 83561,
-      "refused": 3381
+      "core": 84469,
+      "taken": 84225,
+      "refused": 3920
     },
     "sleeves": {
       "core": 64897,
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 549,
-    "method": "See-through v3 layer depth + local color/DoG detail error; zero manual polygons"
+    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

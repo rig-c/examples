@@ -23,20 +23,20 @@
     },
     {
       "name": "neck",
-      "x": 309,
+      "x": 280,
       "y": 457,
-      "w": 110,
-      "h": 150,
-      "opaque_px": 11112,
+      "w": 169,
+      "h": 183,
+      "opaque_px": 17185,
       "source": "full:seethrough-v3:neck"
     },
     {
       "name": "topwear",
       "x": 147,
-      "y": 553,
+      "y": 554,
       "w": 527,
-      "h": 1056,
-      "opaque_px": 141212,
+      "h": 1055,
+      "opaque_px": 141288,
       "source": "full:seethrough-v3:topwear"
     },
     {
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 549,
-    "method": "See-through v3 layer depth + local color/DoG detail error; zero manual polygons"
+    "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

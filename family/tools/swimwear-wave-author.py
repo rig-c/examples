@@ -42,7 +42,7 @@ CHAR_SPECS = {
             ["chest", [120, 520], [120, 940]],
             ["chest", [520, 520], [720, 580]],
         ],
-        "stitch": [("neck", 448, True), ("topwear", 520, False)],
+        "stitch": [("neck", 440, True), ("topwear", 485, False)],
     },
     "luna": {
         "hem_r": {"at": [260, 940], "tip": [250, 1030]},
@@ -165,10 +165,10 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
             "bone": f"cardigan_hem_{side}",
             "rotate": 1,
             "inertia": 0.15,
-            "strength": 240,
+            "strength": 360,
             "damping": 0.92,
             "mass": 1,
-            "wind": 0.15,
+            "wind": 0.11,
             "gravity": 0.06,
             "mix": 1,
         })

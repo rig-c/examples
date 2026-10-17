@@ -231,13 +231,21 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
     take_bot_src = bot_wins & (source[:, :, 3] > 128) & (err_bot <= 35.0) & (~fg_occluder)
     bottom[take_bot_src] = source[take_bot_src]
 
-    # Resolve topwear vs visible neck skin above shoulder/collar
-    col_neck = color_error_smooth(neck, white, sigma_patch=4.0)
-    col_top = color_error_smooth(top, white, sigma_patch=4.0)
-    neck_box_y = baseline_neck["y"] + int(baseline_neck["h"] * 0.85)
-    ov_tn = (top[:, :, 3] > 16) & (neck[:, :, 3] > 180) & (np.arange(H)[:, None] <= neck_box_y)
-    neck_wins = binary_closing(ov_tn & (col_neck + 12.0 < col_top) & (col_top > 25.0), np.ones((5, 5), bool))
-    top[neck_wins, 3] = 0
+    # Resolve topwear vs visible neck skin: remove ONLY hidden dark back-of-neck collars behind bare neck skin (e.g. ho/luna)
+    col_neck = color_error_smooth(neck, white, sigma_patch=3.0)
+    col_top = color_error_smooth(top, white, sigma_patch=3.0)
+    ov_tn = (top[:, :, 3] > 16) & (neck[:, :, 3] > 180)
+    neck_lum = np.mean(neck[:, :, :3].astype(np.float32), axis=2)
+    top_lum = np.mean(top[:, :, :3].astype(np.float32), axis=2)
+    white_lum = np.mean(white[:, :, :3].astype(np.float32), axis=2)
+    back_collar = ov_tn & (col_neck + 30.0 < col_top) & (col_top > 60.0) & (neck_lum - top_lum > 45.0)
+    if back_collar.any():
+        bc_ys = np.nonzero(back_collar)[0]
+        y_min_bc, y_max_bc = int(bc_ys.min()), int(bc_ys.max()) + 6
+        band_bc = ov_tn & (np.arange(H)[:, None] >= y_min_bc) & (np.arange(H)[:, None] <= y_max_bc) & (neck_lum - top_lum > 35.0)
+        vis_dark_collar = (white_lum < neck_lum - 30.0) & (col_top + 15.0 < col_neck)
+        back_collar = binary_dilation(binary_closing(back_collar | band_bc, np.ones((7, 7), bool)), np.ones((7, 7), bool)) & ov_tn & (~vis_dark_collar)
+        top[back_collar, 3] = 0
 
     pieces = {
         "shoes": shoes,
@@ -247,17 +255,22 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
         "sleeves": sleeves,
     }
 
-    # Erode 3px upper generated union fringe above shoulder where See-through hair was removed
+    # Erode 3px outer shoulder fringe above collar (away from the neck seam so neck-topwear overlap is never clipped)
     upper_to_row = baseline_neck["y"] + int(baseline_neck["h"] * 0.72)
-    for name in ["topwear", "sleeves"]:
-        pieces[name][:upper_to_row][hair_st[:upper_to_row], 3] = 0
     union = np.maximum.reduce([a[:, :, 3] for a in pieces.values()])
     outer_distance = distance_transform_edt(union > 8)
+    dist_from_neck = distance_transform_edt(~(neck[:, :, 3] > 80))
     for name in ["topwear", "sleeves"]:
         a = pieces[name][:, :, 3]
-        a[:upper_to_row][outer_distance[:upper_to_row] <= 3] = 0
+        a[:upper_to_row][(outer_distance[:upper_to_row] <= 3) & (dist_from_neck[:upper_to_row] > 12)] = 0
 
     # Project crisp 4x upscaled visible source pixels onto each visible foreground layer
+    nw_mask = (mapped["neckwear"][:, :, 3] > 80) if "neckwear" in mapped else np.zeros((H, W), dtype=bool)
+    fg_head_only = np.zeros((H, W), dtype=bool)
+    for htag in ["front hair", "face", "ears-l", "ears-r", "earwear", "eyewear"]:
+        if htag in mapped:
+            fg_head_only |= (mapped[htag][:, :, 3] > 32)
+
     vis_owner = np.full((H, W), -1, dtype=np.int16)
     for idx, name in enumerate(ORDER):
         vis_owner[pieces[name][:, :, 3] > 80] = idx
@@ -265,7 +278,8 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
     for idx, name in enumerate(ORDER):
         arr = pieces[name]
         drift = np.max(np.abs(arr[:, :, :3].astype(np.int16) - white[:, :, :3].astype(np.int16)), axis=2)
-        core = binary_erosion((vis_owner == idx) & (arr[:, :, 3] >= 200) & (source[:, :, 3] > 128) & (~hair_st), np.ones((3, 3), bool))
+        allow_proj = (~hair_st) | ((nw_mask & (~fg_head_only)) if name == "topwear" else False)
+        core = binary_erosion((vis_owner == idx) & (arr[:, :, 3] >= 200) & (source[:, :, 3] > 128) & allow_proj, np.ones((3, 3), bool))
         accepted = binary_closing(core & (drift <= 75), np.ones((5, 5), bool)) & core
         weight = gaussian_filter(accepted.astype(np.float32), sigma=1.0) * (arr[:, :, 3] > 0)
         arr[:, :, :3] = np.clip(
@@ -279,7 +293,7 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
             "refused": int((core & (drift > 75)).sum()),
         }
 
-    # Clean stray islands and add interior-sampled EDT underlap for neck under topwear/sleeves
+    # Clean stray islands, extend neck 45px under topwear/sleeves, and harmonize skin tone across the neck-topwear transition
     four_conn = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], dtype=bool)
 
     def clean_mesh_islands():
@@ -296,30 +310,87 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
                     arr[small[comp], 3] = 0
 
     clean_mesh_islands()
-    for idx in [2]:  # neck under topwear/sleeves
-        name = ORDER[idx]
-        upper_opaque = np.zeros((H, W), dtype=bool)
-        for upper_name in ORDER[idx + 1 :]:
-            upper_opaque |= (pieces[upper_name][:, :, 3] == 255)
-        uncovered = (pieces[name][:, :, 3] > 180) & (~upper_opaque)
-        if not uncovered.any():
-            continue
-        interior = binary_erosion(uncovered, np.ones((7, 7), dtype=bool))
-        sample_mask = interior if interior.any() else uncovered
-        dist_uncov, _ = distance_transform_edt(~uncovered, return_indices=True)
-        _, nearest_idx = distance_transform_edt(~sample_mask, return_indices=True)
-        silhouette = binary_fill_holes(binary_closing(upper_opaque | uncovered, np.ones((25, 25), dtype=bool)))
+    upper_opaque = (pieces["topwear"][:, :, 3] > 180) | (pieces["sleeves"][:, :, 3] > 180)
+    uncov_neck = pieces["neck"][:, :, 3] > 200
+    if uncov_neck.any():
+        interior_neck = binary_erosion(uncov_neck, np.ones((7, 7), dtype=bool))
+        sample_neck = interior_neck if interior_neck.any() else uncov_neck
+        dist_neck, _ = distance_transform_edt(~uncov_neck, return_indices=True)
+        _, near_neck = distance_transform_edt(~sample_neck, return_indices=True)
+        silhouette = binary_fill_holes(binary_closing(upper_opaque | uncov_neck, np.ones((25, 25), dtype=bool)))
         outer_sil_dist = distance_transform_edt(silhouette)
-        near_ul = (dist_uncov <= 22) & (outer_sil_dist >= 6) & upper_opaque & (pieces[name][:, :, 3] <= 8)
+        near_ul = (dist_neck <= 45) & (outer_sil_dist >= 6) & upper_opaque & (pieces["neck"][:, :, 3] <= 200)
         if near_ul.any():
-            pieces[name][near_ul, :3] = pieces[name][nearest_idx[0][near_ul], nearest_idx[1][near_ul], :3]
-            pieces[name][near_ul, 3] = 255
+            pieces["neck"][near_ul, :3] = pieces["neck"][near_neck[0][near_ul], near_neck[1][near_ul], :3]
+            pieces["neck"][near_ul, 3] = 255
+        semi_neck = (pieces["neck"][:, :, 3] > 8) & (pieces["neck"][:, :, 3] < 255) & upper_opaque & (outer_sil_dist >= 6)
+        if semi_neck.any():
+            pieces["neck"][semi_neck, :3] = pieces["neck"][near_neck[0][semi_neck], near_neck[1][semi_neck], :3]
+            pieces["neck"][semi_neck, 3] = 255
+
+    # Harmonize low-frequency skin tone and feather the upper skin edge of topwear over solid neck
+    neck_solid = binary_erosion(pieces["neck"][:, :, 3] == 255, np.ones((5, 5), dtype=bool))
+    above_top_on_neck = neck_solid & (pieces["topwear"][:, :, 3] <= 16)
+    if above_top_on_neck.any():
+        dist_into_top = distance_transform_edt(~above_top_on_neck)
+        dist_into_neck = distance_transform_edt(above_top_on_neck)
+        diff_tn = np.max(np.abs(pieces["topwear"][:, :, :3].astype(np.int16) - pieces["neck"][:, :, :3].astype(np.int16)), axis=2)
+        top_f = pieces["topwear"][:, :, :3].astype(np.float32)
+        top_hp = np.max(np.abs(top_f - gaussian_filter(top_f, sigma=(2.5, 2.5, 0.0))), axis=2)
+        clean_top_skin = (
+            neck_solid
+            & (pieces["topwear"][:, :, 3] > 220)
+            & (dist_into_top >= 10)
+            & (dist_into_top <= 28)
+            & (diff_tn <= 65)
+            & (top_hp <= 16.0)
+            & (~nw_mask)
+        )
+        if clean_top_skin.any():
+            _, near_top_skin = distance_transform_edt(~clean_top_skin, return_indices=True)
+            dist_to_clean_skin = distance_transform_edt(~clean_top_skin)
+            top_skin_rim = (
+                neck_solid
+                & (pieces["topwear"][:, :, 3] > 0)
+                & (dist_into_top < 10)
+                & (diff_tn <= 75)
+                & (top_hp <= 18.0)
+                & (dist_to_clean_skin <= 16)
+                & (~nw_mask)
+            )
+            if top_skin_rim.any():
+                pieces["topwear"][top_skin_rim, :3] = pieces["topwear"][
+                    near_top_skin[0][top_skin_rim], near_top_skin[1][top_skin_rim], :3
+                ]
+            target_top_rgb = pieces["topwear"][near_top_skin[0], near_top_skin[1], :3].astype(np.float32)
+            delta_rgb = target_top_rgb - pieces["neck"][:, :, :3].astype(np.float32)
+            delta_smooth = gaussian_filter(delta_rgb, sigma=(10.0, 10.0, 0.0))
+            horiz_reach = np.clip(1.0 - (dist_to_clean_skin - 12.0) / 45.0, 0.0, 1.0)
+            up_fade = np.clip(1.0 - dist_into_neck / 45.0, 0.0, 1.0)
+            w_harm = (up_fade * horiz_reach) * (pieces["neck"][:, :, 3] > 0)
+            pieces["neck"][:, :, :3] = np.clip(
+                pieces["neck"][:, :, :3].astype(np.float32) + w_harm[:, :, None] * delta_smooth,
+                0,
+                255,
+            ).astype(np.uint8)
+            skin_feather_zone = (
+                neck_solid
+                & (pieces["topwear"][:, :, 3] > 0)
+                & (dist_into_top <= 4)
+                & (dist_to_clean_skin <= 16)
+                & (~nw_mask)
+            )
+            ramp = np.clip((dist_into_top + 1.0) / 5.0, 0.25, 1.0)
+            pieces["topwear"][skin_feather_zone, 3] = (
+                pieces["topwear"][skin_feather_zone, 3].astype(np.float32) * ramp[skin_feather_zone]
+            ).astype(np.uint8)
+
     clean_mesh_islands()
 
     edge_treatment = {
         "upperGeneratedUnionAlphaErosionPx": 3,
         "upperToRow": int(upper_to_row),
-        "method": "See-through v3 layer depth + local color/DoG detail error; zero manual polygons",
+        "method": "See-through v3 layer depth + low-frequency neck-topwear skin harmonization; zero manual polygons",
     }
     return pieces, common_parts, white, projection, edge_treatment
 
