@@ -1,0 +1,304 @@
+{
+  "spec": "family-swimwear-static-prototype/1",
+  "character": "roa",
+  "status": "STATIC_REVIEW_ONLY",
+  "parts": [
+    {
+      "name": "shoes",
+      "x": 224,
+      "y": 2000,
+      "w": 256,
+      "h": 258,
+      "opaque_px": 44817,
+      "source": "painting:source-sandals"
+    },
+    {
+      "name": "bottomwear",
+      "x": 195,
+      "y": 950,
+      "w": 362,
+      "h": 1085,
+      "opaque_px": 235735,
+      "source": "full:legwear"
+    },
+    {
+      "name": "neck",
+      "x": 258,
+      "y": 336,
+      "w": 114,
+      "h": 153,
+      "opaque_px": 11999,
+      "source": "painting:visible-neck+full:neck"
+    },
+    {
+      "name": "topwear",
+      "x": 198,
+      "y": 440,
+      "w": 335,
+      "h": 666,
+      "opaque_px": 160221,
+      "source": "full:topwear"
+    },
+    {
+      "name": "cardigan",
+      "x": 23,
+      "y": 448,
+      "w": 669,
+      "h": 1168,
+      "opaque_px": 178131,
+      "source": "full:topwear"
+    },
+    {
+      "name": "sleeves",
+      "x": 24,
+      "y": 485,
+      "w": 689,
+      "h": 599,
+      "opaque_px": 78490,
+      "source": "full:handwear"
+    },
+    {
+      "name": "hands",
+      "x": 60,
+      "y": 540,
+      "w": 679,
+      "h": 846,
+      "opaque_px": 67094,
+      "source": "full:handwear"
+    }
+  ],
+  "projection": {
+    "legwear": {
+      "core": 138245,
+      "taken": 136303,
+      "refused": 6397
+    },
+    "footwear": {
+      "core": 20799,
+      "taken": 16618,
+      "refused": 6968
+    },
+    "bottomwear": {
+      "core": 440,
+      "taken": 431,
+      "refused": 20
+    },
+    "topwear": {
+      "core": 259777,
+      "taken": 189245,
+      "refused": 78972
+    },
+    "handwear-l": {
+      "core": 33740,
+      "taken": 31899,
+      "refused": 4575
+    },
+    "neck": {
+      "core": 0,
+      "taken": 0,
+      "refused": 0
+    },
+    "handwear-r": {
+      "core": 56137,
+      "taken": 54118,
+      "refused": 4140
+    },
+    "objects": {
+      "core": 10559,
+      "taken": 7980,
+      "refused": 3731
+    }
+  },
+  "projectionPolicy": {
+    "source": "Existing family/parts projection constants",
+    "coreAlpha": 250,
+    "kernel": 5,
+    "driftLimit": 90,
+    "sigma": 1
+  },
+  "geometry": {
+    "inputSquare": [
+      2284,
+      2284
+    ],
+    "padLeft": 742,
+    "runSquare": [
+      1024,
+      1024
+    ],
+    "output": [
+      800,
+      2284
+    ],
+    "resample": "Pillow BICUBIC; no claim of byte parity with public OpenCV-equivalent helper"
+  },
+  "edgeTreatment": {
+    "upperGeneratedUnionAlphaErosionPx": 3,
+    "upperToRow": 485,
+    "sourceOuterBoundaryBandPx": 10,
+    "sourceBandRows": [
+      485,
+      1615
+    ]
+  },
+  "cuts": {
+    "openPants": [
+      [
+        195,
+        950
+      ],
+      [
+        382,
+        1095
+      ],
+      [
+        535,
+        950
+      ],
+      [
+        555,
+        1460
+      ],
+      [
+        495,
+        2035
+      ],
+      [
+        235,
+        2035
+      ],
+      [
+        195,
+        1300
+      ]
+    ],
+    "cardiganInnerBoundary": [
+      [
+        215,
+        430
+      ],
+      [
+        405,
+        430
+      ],
+      [
+        455,
+        515
+      ],
+      [
+        490,
+        650
+      ],
+      [
+        485,
+        760
+      ],
+      [
+        505,
+        860
+      ],
+      [
+        528,
+        955
+      ],
+      [
+        382,
+        1105
+      ],
+      [
+        200,
+        955
+      ],
+      [
+        230,
+        840
+      ],
+      [
+        236,
+        720
+      ],
+      [
+        225,
+        570
+      ]
+    ],
+    "rightHand": [
+      [
+        60,
+        1080
+      ],
+      [
+        195,
+        1080
+      ],
+      [
+        205,
+        1385
+      ],
+      [
+        60,
+        1385
+      ]
+    ],
+    "leftHand": [
+      [
+        470,
+        540
+      ],
+      [
+        730,
+        540
+      ],
+      [
+        730,
+        610
+      ],
+      [
+        560,
+        620
+      ],
+      [
+        548,
+        725
+      ],
+      [
+        470,
+        725
+      ]
+    ],
+    "sourceShoesFromRow": 2000,
+    "sourcePantsFullFromRow": 1100,
+    "sourcePantsToRow": 2035,
+    "sourceVisibleNeckPolygon": [
+      [
+        302,
+        370
+      ],
+      [
+        362,
+        405
+      ],
+      [
+        350,
+        444
+      ],
+      [
+        375,
+        476
+      ],
+      [
+        290,
+        476
+      ],
+      [
+        304,
+        438
+      ]
+    ]
+  },
+  "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted.",
+  "limitations": [
+    "This is an early flat source/occlusion review, not a mesh or runtime result.",
+    "Cut boundary fit and source projection omissions still require visual review; no hidden pixel was painted by a heuristic."
+  ]
+}

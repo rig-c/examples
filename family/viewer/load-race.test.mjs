@@ -341,15 +341,17 @@ test('paused zoom redraws the current pose after raster sync without advancing a
   h.viewer.dispose();
 });
 
-test('all 5 characters switch between office and homewear in the family lineup', async () => {
+test('all 5 characters switch between office, homewear, and swimwear in the family lineup', async () => {
   const h = harness();
   await family(h);
-  for (const key of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
-    const opened = h.viewer.openOutfit('homewear', key);
-    assert.match(h.requests.at(-1).modelUrl, new RegExp(`^/outfits/homewear/${key}/out/check/build/skeleton\\.model\\.json`));
-    h.requests.at(-1).resolve();
-    assert.equal(await opened, true);
-    assert.equal(h.viewer.state().ui.outfits[key], 'homewear');
+  for (const variant of ['homewear', 'swimwear']) {
+    for (const key of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
+      const opened = h.viewer.openOutfit(variant, key);
+      assert.match(h.requests.at(-1).modelUrl, new RegExp(`^/outfits/${variant}/${key}/out/check/build/skeleton\\.model\\.json`));
+      h.requests.at(-1).resolve();
+      assert.equal(await opened, true);
+      assert.equal(h.viewer.state().ui.outfits[key], variant);
+    }
   }
   for (const key of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
     const opened = h.viewer.openOutfit('office', key);

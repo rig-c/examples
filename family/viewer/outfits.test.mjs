@@ -2,16 +2,18 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { outfitAssets, ownAssets } from './outfits.mjs';
 
-test('registry resolves office and homewear paths for all five Family characters', () => {
+test('registry resolves office, homewear, and swimwear paths for all five Family characters', () => {
   for (const name of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
     assert.deepEqual(outfitAssets(name), {
       modelUrl: `/${name}/out/check/build/skeleton.model.json`,
       referenceUrl: `/${name}/inputs/painting.png`,
     });
-    assert.deepEqual(outfitAssets(name, 'homewear'), {
-      modelUrl: `/outfits/homewear/${name}/out/check/build/skeleton.model.json`,
-      referenceUrl: `/outfits/homewear/${name}/inputs/painting.png`,
-    });
+    for (const variant of ['homewear', 'swimwear']) {
+      assert.deepEqual(outfitAssets(name, variant), {
+        modelUrl: `/outfits/${variant}/${name}/out/check/build/skeleton.model.json`,
+        referenceUrl: `/outfits/${variant}/${name}/inputs/painting.png`,
+      });
+    }
   }
   for (const [name, outfit] of [['unknown', 'homewear'], ['naru', '../'], ['../naru', 'office']]) assert.throws(() => outfitAssets(name, outfit));
 });

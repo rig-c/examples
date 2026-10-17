@@ -150,6 +150,7 @@
         <select id="outfitSelect" aria-label="의상">
           <option value="office">오피스</option>
           <option value="homewear">홈웨어</option>
+          <option value="swimwear">수영복</option>
         </select>
       </label>
       <div id="stats" role="status">로딩 중…</div>
@@ -368,12 +369,14 @@
       if (players.length > 0 && !players.some(p => p.key === outfitTarget)) return players[0].key;
       return outfitTarget;
     }
+    const OUTFIT_LABELS = { office: '오피스', homewear: '홈웨어', swimwear: '수영복' };
     function syncOutfitUi() {
       const target = activeOutfitKey();
       outfitTargetSelect.value = target;
       outfitTargetSelect.disabled = Boolean(CHARACTER_LABELS[ui.character]) || players.length <= 1;
       if (target === 'all') {
-        outfitSelect.value = players.length > 0 && players.every(p => ui.outfits[p.key] === 'homewear') ? 'homewear' : 'office';
+        const first = players[0] ? (ui.outfits[players[0].key] ?? 'office') : 'office';
+        outfitSelect.value = players.length > 0 && players.every(p => (ui.outfits[p.key] ?? 'office') === first) ? first : 'office';
         outfitSelect.disabled = players.length === 0;
       } else {
         outfitSelect.value = ui.outfits[target] ?? 'office';
@@ -488,11 +491,11 @@
       if (single) {
         const outfit = ui.outfits[single] ?? 'office';
         refImg.src = `${outfitAssets(single, outfit).referenceUrl}?v=${bust}`;
-        refCaption.textContent = outfit === 'homewear' ? '홈웨어 디자인 원화' : '오피스 원화 기준';
+        refCaption.textContent = outfit === 'homewear' ? '홈웨어 디자인 원화' : outfit === 'swimwear' ? '수영복 디자인 원화' : '오피스 원화 기준';
         return;
       }
-      const homewear = players.some(p => ui.outfits[p.key] === 'homewear');
-      refCaption.textContent = homewear ? '오피스 원화 기준 · 홈웨어는 이 비교 원화에 포함되지 않음' : '오피스 원화 기준';
+      const nonOffice = players.some(p => (ui.outfits[p.key] ?? 'office') !== 'office');
+      refCaption.textContent = nonOffice ? '오피스 원화 기준 · 홈웨어/수영복은 이 비교 원화에 포함되지 않음' : '오피스 원화 기준';
     }
 
     const outfitTransaction = createOutfitTransaction({
@@ -526,7 +529,7 @@
         candidate.assetOwner.current = null;
         Object.assign(entry, candidate, { assetOwner: owner });
         ui.outfits[key] = outfit;
-        stats.textContent = `${ui.character} · ${CHARACTER_LABELS[key] ?? key} ${outfit === 'homewear' ? '홈웨어' : '오피스'} · physics ON`;
+        stats.textContent = `${ui.character} · ${CHARACTER_LABELS[key] ?? key} ${OUTFIT_LABELS[outfit] ?? outfit} · physics ON`;
         // The original scene-loader record still owns this stable entry and owner.
         for (const release of [() => old.player.dispose(), () => old.assets.dispose(), () => old.sub.remove()]) {
           try { release(); } catch (error) { console.error(error); }
@@ -547,18 +550,18 @@
     async function openOutfit(outfit, key = activeOutfitKey()) {
       if (key === 'all' && players.length > 1) {
         outfitTarget = 'all';
-        if (!['office', 'homewear'].includes(outfit)) { syncOutfitUi(); return false; }
+        if (!['office', 'homewear', 'swimwear'].includes(outfit)) { syncOutfitUi(); return false; }
         for (const k of players.map(p => p.key)) {
           if (!(await openOutfit(outfit, k))) { outfitTarget = 'all'; syncOutfitUi(); return false; }
         }
         outfitTarget = 'all';
-        stats.textContent = `${ui.character} · 전원 ${outfit === 'homewear' ? '홈웨어' : '오피스'} · physics ON`;
+        stats.textContent = `${ui.character} · 전원 ${OUTFIT_LABELS[outfit] ?? outfit} · physics ON`;
         syncOutfitUi(); saveState();
         return true;
       }
       if (CHARACTER_LABELS[key]) outfitTarget = key;
       const entry = players.find(p => p.key === key);
-      if (!entry || !['office', 'homewear'].includes(outfit)) { syncOutfitUi(); return false; }
+      if (!entry || !['office', 'homewear', 'swimwear'].includes(outfit)) { syncOutfitUi(); return false; }
       saveState();
       if (outfit === ui.outfits[key]) { outfitTransaction.invalidate(); syncOutfitUi(); return true; }
       return outfitTransaction.open({ key, outfit, entry, sceneVersion });
@@ -574,7 +577,7 @@
         const outfit = outfits[key] ?? 'office';
         try { return await loadRigAssets(key, outfit, bust); }
         catch (error) {
-          if (outfit !== 'homewear') throw error;
+          if (outfit === 'office') throw error;
           const assets = await loadRigAssets(key, 'office', bust);
           assetOwners.get(assets).fallbackError = error;
           return assets;
