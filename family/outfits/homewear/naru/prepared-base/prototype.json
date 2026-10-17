@@ -4,56 +4,56 @@
   "parts": [
     {
       "name": "shoes",
-      "x": 0,
+      "x": 265,
       "y": 2080,
-      "w": 800,
-      "h": 204,
-      "opaque_px": 31916,
+      "w": 222,
+      "h": 183,
+      "opaque_px": 31911,
       "source": "painting:source-slippers"
     },
     {
       "name": "bottomwear",
-      "x": 0,
+      "x": 215,
       "y": 1112,
-      "w": 800,
+      "w": 368,
       "h": 1028,
-      "opaque_px": 291660,
+      "opaque_px": 291617,
       "source": "full:legwear"
     },
     {
       "name": "neck",
-      "x": 307,
+      "x": 303,
       "y": 552,
-      "w": 139,
-      "h": 106,
-      "opaque_px": 10180,
+      "w": 141,
+      "h": 110,
+      "opaque_px": 10935,
       "source": "painting:visible-neck+full:neck"
     },
     {
       "name": "topwear",
-      "x": 225,
-      "y": 630,
-      "w": 323,
-      "h": 770,
-      "opaque_px": 130409,
+      "x": 191,
+      "y": 626,
+      "w": 403,
+      "h": 774,
+      "opaque_px": 185203,
       "source": "full:topwear"
     },
     {
       "name": "cardigan",
-      "x": 166,
+      "x": 176,
       "y": 612,
-      "w": 459,
+      "w": 440,
       "h": 788,
-      "opaque_px": 72249,
+      "opaque_px": 76407,
       "source": "full:topwear"
     },
     {
       "name": "sleeves",
-      "x": 130,
-      "y": 652,
-      "w": 530,
-      "h": 408,
-      "opaque_px": 99154,
+      "x": 139,
+      "y": 653,
+      "w": 513,
+      "h": 400,
+      "opaque_px": 100559,
       "source": "full:handwear-l"
     },
     {
@@ -157,27 +157,31 @@
     ],
     "cardiganInnerBoundary": [
       [
-        295,
+        304,
         630
       ],
       [
-        505,
+        494,
         630
       ],
       [
-        516,
-        740
+        500,
+        715
       ],
       [
-        526,
+        512,
+        755
+      ],
+      [
+        524,
         835
       ],
       [
-        526,
+        524,
         900
       ],
       [
-        530,
+        528,
         1030
       ],
       [
@@ -201,12 +205,16 @@
         900
       ],
       [
-        267,
+        268,
         800
       ],
       [
-        284,
-        700
+        286,
+        740
+      ],
+      [
+        298,
+        705
       ]
     ],
     "hands": [

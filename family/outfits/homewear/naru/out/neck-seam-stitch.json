@@ -1,7 +1,7 @@
 {
   "spec": "family-homewear-neck-seam/1",
-  "beforeRigSHA256": "d8fbf1cf7c0b615aea43d43be1fe56fee803e4050a302b9fb67f1700a070ed92",
-  "afterRigSHA256": "aff41e4005c7683bd3de767013a647cb1419a90b3f9f129ebfdbbdb93125f6fc",
+  "beforeRigSHA256": "d977830774cc7193b2dac5f682125b0e5de772269fc4885238b4174f44034cd4",
+  "afterRigSHA256": "5991360bea152bd79bbfa1c0948ddbe97e86bd76a686f6f957714c834815b45e",
   "rows": [
     {
       "part": "neck",
@@ -10,7 +10,7 @@
       "changed": [
         {
           "vertex": 5,
-          "sourceY": 638.000036,
+          "sourceY": 638.000016,
           "before": [
             {
               "bone": "chest",
@@ -24,105 +24,133 @@
         },
         {
           "vertex": 6,
-          "sourceY": 650.000018,
+          "sourceY": 646.999994,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.74492
+              "weight": 0.71275
             },
             {
               "bone": "head",
-              "weight": 0.25508
+              "weight": 0.28725
             }
           ]
         },
         {
           "vertex": 7,
-          "sourceY": 659.999984,
+          "sourceY": 653.000058,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.76245
+              "weight": 0.72068
             },
             {
               "bone": "head",
-              "weight": 0.23755
+              "weight": 0.27932
             }
           ]
         },
         {
           "vertex": 8,
-          "sourceY": 659.999984,
+          "sourceY": 664.000018,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.96234
+              "weight": 0.75712
             },
             {
               "bone": "head",
-              "weight": 0.03766
+              "weight": 0.24288
             }
           ]
         },
         {
           "vertex": 9,
-          "sourceY": 659.999984,
+          "sourceY": 664.000018,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.89129
+              "weight": 0.96035
             },
             {
               "bone": "head",
-              "weight": 0.10871
+              "weight": 0.03965
             }
           ]
         },
         {
           "vertex": 10,
-          "sourceY": 659.999984,
+          "sourceY": 664.000018,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.7053
+              "weight": 0.89208
             },
             {
               "bone": "head",
-              "weight": 0.2947
+              "weight": 0.10792
             }
           ]
         },
         {
           "vertex": 11,
-          "sourceY": 634.000004,
+          "sourceY": 664.000018,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.60181
+              "weight": 0.70337
             },
             {
               "bone": "head",
-              "weight": 0.39819
+              "weight": 0.29663
             }
           ]
         },
         {
           "vertex": 12,
-          "sourceY": 628.999964,
+          "sourceY": 641.99998,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.60284
+              "weight": 0.62115
             },
             {
               "bone": "head",
-              "weight": 0.39716
+              "weight": 0.37885
             }
           ]
         },
         {
           "vertex": 13,
-          "sourceY": 628.999964,
+          "sourceY": 629.99997,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.57817
+            },
+            {
+              "bone": "head",
+              "weight": 0.42183
+            }
+          ]
+        },
+        {
+          "vertex": 15,
+          "sourceY": 629.99997,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.62371
+            },
+            {
+              "bone": "head",
+              "weight": 0.37629
+            }
+          ]
+        },
+        {
+          "vertex": 16,
+          "sourceY": 629.000038,
           "before": [
             {
               "bone": "chest",
@@ -135,30 +163,30 @@
           ]
         },
         {
-          "vertex": 22,
-          "sourceY": 627.999956,
+          "vertex": 25,
+          "sourceY": 627.999988,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.82011
+              "weight": 0.82169
             },
             {
               "bone": "head",
-              "weight": 0.17989
+              "weight": 0.17831
             }
           ]
         },
         {
-          "vertex": 23,
-          "sourceY": 627.999956,
+          "vertex": 26,
+          "sourceY": 627.999988,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.65381
+              "weight": 0.66922
             },
             {
               "bone": "head",
-              "weight": 0.34619
+              "weight": 0.33078
             }
           ]
         }
@@ -171,35 +199,189 @@
       "changed": [
         {
           "vertex": 0,
-          "sourceY": 628.000238,
+          "sourceY": 624.000356,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.90545
+              "weight": 0.96776
             },
             {
               "bone": "hip",
-              "weight": 0.09455
+              "weight": 0.03224
             }
           ]
         },
         {
           "vertex": 1,
-          "sourceY": 628.000238,
+          "sourceY": 624.000356,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.93534
+              "weight": 0.93371
             },
             {
               "bone": "hip",
-              "weight": 0.06466
+              "weight": 0.06629
             }
           ]
         },
         {
           "vertex": 2,
-          "sourceY": 631.000206,
+          "sourceY": 628.000286,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.92072
+            },
+            {
+              "bone": "hip",
+              "weight": 0.07928
+            }
+          ]
+        },
+        {
+          "vertex": 3,
+          "sourceY": 628.000286,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.85163
+            },
+            {
+              "bone": "hip",
+              "weight": 0.14837
+            }
+          ]
+        },
+        {
+          "vertex": 4,
+          "sourceY": 644.000006,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.83287
+            },
+            {
+              "bone": "hip",
+              "weight": 0.16713
+            }
+          ]
+        },
+        {
+          "vertex": 5,
+          "sourceY": 654.000222,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.77214
+            },
+            {
+              "bone": "hip",
+              "weight": 0.22786
+            }
+          ]
+        },
+        {
+          "vertex": 6,
+          "sourceY": 666.000012,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.73761
+            },
+            {
+              "bone": "hip",
+              "weight": 0.26239
+            }
+          ]
+        },
+        {
+          "vertex": 109,
+          "sourceY": 695.999878,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.76149
+            },
+            {
+              "bone": "hip",
+              "weight": 0.23851
+            }
+          ]
+        },
+        {
+          "vertex": 110,
+          "sourceY": 664.999834,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.79757
+            },
+            {
+              "bone": "hip",
+              "weight": 0.20243
+            }
+          ]
+        },
+        {
+          "vertex": 111,
+          "sourceY": 651.999866,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.85336
+            },
+            {
+              "bone": "hip",
+              "weight": 0.14664
+            }
+          ]
+        },
+        {
+          "vertex": 112,
+          "sourceY": 646.000362,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.8986
+            },
+            {
+              "bone": "hip",
+              "weight": 0.1014
+            }
+          ]
+        },
+        {
+          "vertex": 113,
+          "sourceY": 632.000216,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.90806
+            },
+            {
+              "bone": "hip",
+              "weight": 0.09194
+            }
+          ]
+        },
+        {
+          "vertex": 114,
+          "sourceY": 625.99993,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.93314
+            },
+            {
+              "bone": "hip",
+              "weight": 0.06686
+            }
+          ]
+        },
+        {
+          "vertex": 115,
+          "sourceY": 631.000038,
           "before": [
             {
               "bone": "chest",
@@ -212,8 +394,8 @@
           ]
         },
         {
-          "vertex": 3,
-          "sourceY": 634.999904,
+          "vertex": 116,
+          "sourceY": 634.999968,
           "before": [
             {
               "bone": "chest",
@@ -226,8 +408,8 @@
           ]
         },
         {
-          "vertex": 4,
-          "sourceY": 637.000142,
+          "vertex": 117,
+          "sourceY": 637.000324,
           "before": [
             {
               "bone": "chest",
@@ -240,8 +422,8 @@
           ]
         },
         {
-          "vertex": 5,
-          "sourceY": 655.99968,
+          "vertex": 118,
+          "sourceY": 655.9997960000001,
           "before": [
             {
               "bone": "chest",
@@ -254,8 +436,8 @@
           ]
         },
         {
-          "vertex": 7,
-          "sourceY": 655.99968,
+          "vertex": 120,
+          "sourceY": 655.9997960000001,
           "before": [
             {
               "bone": "chest",
@@ -268,8 +450,8 @@
           ]
         },
         {
-          "vertex": 8,
-          "sourceY": 642.000348,
+          "vertex": 121,
+          "sourceY": 641.99965,
           "before": [
             {
               "bone": "chest",
@@ -282,128 +464,86 @@
           ]
         },
         {
-          "vertex": 9,
-          "sourceY": 628.000238,
+          "vertex": 469,
+          "sourceY": 658.000152,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.96739
+              "weight": 0.8698
             },
             {
               "bone": "hip",
-              "weight": 0.03261
+              "weight": 0.1302
             }
           ]
         },
         {
-          "vertex": 10,
-          "sourceY": 628.999968,
+          "vertex": 470,
+          "sourceY": 694.000304,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.90651
+              "weight": 0.85929
             },
             {
               "bone": "hip",
-              "weight": 0.09349
+              "weight": 0.14071
             }
           ]
         },
         {
-          "vertex": 11,
-          "sourceY": 629.999698,
+          "vertex": 471,
+          "sourceY": 694.000304,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.83601
+              "weight": 0.93176
             },
             {
               "bone": "hip",
-              "weight": 0.16399
+              "weight": 0.06824
             }
           ]
         },
         {
-          "vertex": 12,
-          "sourceY": 680.24994,
+          "vertex": 474,
+          "sourceY": 694.000304,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.78177
+              "weight": 0.91246
             },
             {
               "bone": "hip",
-              "weight": 0.21823
+              "weight": 0.08754
             }
           ]
         },
         {
-          "vertex": 58,
-          "sourceY": 684.668202,
+          "vertex": 475,
+          "sourceY": 694.000304,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.84772
+              "weight": 0.83885
             },
             {
               "bone": "hip",
-              "weight": 0.15228
+              "weight": 0.16115
             }
           ]
         },
         {
-          "vertex": 206,
-          "sourceY": 661.9996160000001,
+          "vertex": 476,
+          "sourceY": 694.000304,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.87038
+              "weight": 0.77064
             },
             {
               "bone": "hip",
-              "weight": 0.12962
-            }
-          ]
-        },
-        {
-          "vertex": 207,
-          "sourceY": 698.00001,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.92575
-            },
-            {
-              "bone": "hip",
-              "weight": 0.07425
-            }
-          ]
-        },
-        {
-          "vertex": 210,
-          "sourceY": 698.00001,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.91387
-            },
-            {
-              "bone": "hip",
-              "weight": 0.08613
-            }
-          ]
-        },
-        {
-          "vertex": 211,
-          "sourceY": 698.00001,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.83896
-            },
-            {
-              "bone": "hip",
-              "weight": 0.16104
+              "weight": 0.22936
             }
           ]
         }
@@ -438,7 +578,7 @@
         },
         {
           "vertex": 1,
-          "sourceY": 610.000348,
+          "sourceY": 611.000124,
           "before": [
             {
               "bone": "chest",
@@ -446,15 +586,15 @@
             },
             {
               "bone": "hip",
-              "weight": 0.09135
+              "weight": 0.09142
             },
             {
               "bone": "cardigan_hem_l",
-              "weight": 0.04795
+              "weight": 0.04792
             },
             {
               "bone": "cardigan_hem_r",
-              "weight": 0.04324
+              "weight": 0.0432
             }
           ]
         },
@@ -527,21 +667,39 @@
           ]
         },
         {
-          "vertex": 52,
-          "sourceY": 632.000196,
+          "vertex": 57,
+          "sourceY": 674.500228,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.93641
+              "weight": 0.96787
             },
             {
               "bone": "hip",
-              "weight": 0.06359
+              "weight": 0.03213
             }
           ]
         },
         {
-          "vertex": 53,
+          "vertex": 59,
+          "sourceY": 632.000196,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.89743
+            },
+            {
+              "bone": "hip",
+              "weight": 0.06847
+            },
+            {
+              "bone": "cardigan_hem_l",
+              "weight": 0.0341
+            }
+          ]
+        },
+        {
+          "vertex": 60,
           "sourceY": 632.000196,
           "before": [
             {
@@ -563,7 +721,7 @@
           ]
         },
         {
-          "vertex": 54,
+          "vertex": 61,
           "sourceY": 619.9997,
           "before": [
             {
@@ -585,58 +743,76 @@
           ]
         },
         {
-          "vertex": 55,
-          "sourceY": 633.999748,
+          "vertex": 62,
+          "sourceY": 629.999848,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.95582
+              "weight": 0.90619
             },
             {
               "bone": "hip",
-              "weight": 0.04418
+              "weight": 0.06267
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.03114
             }
           ]
         },
         {
-          "vertex": 56,
-          "sourceY": 688.668232,
+          "vertex": 63,
+          "sourceY": 632.000196,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.95241
+              "weight": 0.94521
             },
             {
               "bone": "hip",
-              "weight": 0.04759
+              "weight": 0.05479
             }
           ]
         },
         {
-          "vertex": 98,
-          "sourceY": 629.000072,
+          "vertex": 64,
+          "sourceY": 636.999872,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.96171
+              "weight": 0.94546
             },
             {
               "bone": "hip",
-              "weight": 0.03829
+              "weight": 0.05454
             }
           ]
         },
         {
-          "vertex": 99,
-          "sourceY": 629.000072,
+          "vertex": 65,
+          "sourceY": 671.999992,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.95844
+              "weight": 0.9365
             },
             {
               "bone": "hip",
-              "weight": 0.04156
+              "weight": 0.0635
+            }
+          ]
+        },
+        {
+          "vertex": 115,
+          "sourceY": 625.999948,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.94697
+            },
+            {
+              "bone": "hip",
+              "weight": 0.05303
             }
           ]
         }

@@ -14,14 +14,18 @@ import shutil
 os.environ.update(OMP_NUM_THREADS="4",OPENBLAS_NUM_THREADS="4",MKL_NUM_THREADS="4")
 import numpy as np
 from PIL import Image,ImageDraw
-from scipy.ndimage import binary_closing,binary_erosion,gaussian_filter,label,distance_transform_edt
+from scipy.ndimage import binary_closing,binary_dilation,binary_erosion,binary_fill_holes,gaussian_filter,label,distance_transform_edt
 
 family=pathlib.Path(__file__).resolve().parents[1]
 home=family/"outfits/homewear/naru"
 raw=home/"inputs/layers/full_orig"
-parser=argparse.ArgumentParser();parser.add_argument("--candidate",default="prepared-base");args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument("--candidate",default="prepared-base");parser.add_argument("--force",action="store_true");args=parser.parse_args()
 out=home/args.candidate
-if out.exists():raise RuntimeError("HOMEWEAR_STATIC_FRESH_OUTPUT_REQUIRED")
+if out.exists():
+    if args.force:
+        shutil.rmtree(out)
+    else:
+        raise RuntimeError("HOMEWEAR_STATIC_FRESH_OUTPUT_REQUIRED")
 out.mkdir();(out/"parts").mkdir()
 W,H=800,2284
 source=np.array(Image.open(home/"inputs/upscale-run/registered-upscaled.png").convert("RGBA"))
@@ -81,7 +85,7 @@ neck_visible_mask=polygon(neck_visible)
 top[neck_visible_mask,3]=0
 # Separate torso cardigan pixels from camisole + exposed chest. These masks
 # change ownership only; their retained pixels are the real projected layer.
-inner=[(295,630),(505,630),(516,740),(526,835),(526,900),(530,1030),(529,1135),(550,1400),(222,1400),(262,1030),(273,900),(267,800),(284,700)]
+inner=[(304,630),(494,630),(500,715),(512,755),(524,835),(524,900),(528,1030),(529,1135),(550,1400),(222,1400),(262,1030),(273,900),(268,800),(286,740),(298,705)]
 inside=polygon(inner)
 camisole=top.copy();camisole[~inside,3]=0
 cardigan=top.copy();cardigan[inside,3]=0
@@ -128,6 +132,57 @@ for i,name in enumerate(cloth_names):
     pieces[name][source_band,3]=0
     chosen=source_band&(nearest_owner==i)
     pieces[name][chosen]=source[chosen]
+
+order=["shoes","bottomwear","neck","topwear","cardigan","sleeves","hands"]
+four_conn=np.array([[0,1,0],[1,1,1],[0,1,0]],dtype=bool)
+def clean_mesh_islands():
+    for name in order:
+        arr=pieces[name]
+        arr[arr[:,:,3]<=8,3]=0
+        comp,n_comp=label(arr[:,:,3]>8,four_conn)
+        if n_comp>1:
+            counts=np.bincount(comp.ravel());counts[0]=0
+            min_sz=500 if name in ["neck","topwear","cardigan","sleeves"] else 200
+            small=(counts<min_sz)&(counts>0)
+            small_mask=small[comp]
+            if small_mask.any():arr[small_mask,3]=0
+
+clean_mesh_islands()
+struct=np.ones((9,9),dtype=bool)
+for idx in range(1,len(order)-1):
+    name=order[idx]
+    if name=="shoes":continue
+    upper_opaque=np.zeros((H,W),dtype=bool)
+    for upper_name in order[idx+1:]:
+        upper_opaque|=(pieces[upper_name][:,:,3]==255)
+    uncovered=(pieces[name][:,:,3]>80)&(~upper_opaque)
+    if not uncovered.any():continue
+    if name=="topwear":
+        dist_uncov,nearest_idx=distance_transform_edt(~uncovered,return_indices=True)
+        eroded=binary_erosion(uncovered,np.ones((15,15),dtype=bool))
+        rgb_arr=pieces[name][:,:,:3].astype(np.int16)
+        luma=(rgb_arr[:,:,0]+rgb_arr[:,:,1]+rgb_arr[:,:,2])//3
+        bright_core=eroded&(luma>80)
+        sample_mask=bright_core if bright_core.any() else (eroded if eroded.any() else uncovered)
+        _,color_idx=distance_transform_edt(~sample_mask,sampling=(3.0,1.0),return_indices=True)
+        silhouette=binary_fill_holes(binary_closing(upper_opaque|uncovered,np.ones((25,25),dtype=bool)))
+        outer_sil_dist=distance_transform_edt(silhouette)
+        near_ul=(dist_uncov<=4)&upper_opaque&(pieces[name][:,:,3]<=8)
+        deep_ul=(dist_uncov<=52)&(outer_sil_dist>=14)&upper_opaque&(pieces[name][:,:,3]<=8)
+        underlap=near_ul|deep_ul
+        if underlap.any():
+            full_rgb=pieces[name][color_idx[0],color_idx[1],:3].astype(np.float32)
+            for ch in range(3):
+                full_rgb[:,:,ch]=gaussian_filter(full_rgb[:,:,ch],sigma=6.0)
+            pieces[name][underlap,:3]=np.clip(full_rgb[underlap],0,255).astype(np.uint8)
+            pieces[name][near_ul,:3]=pieces[name][nearest_idx[0][near_ul],nearest_idx[1][near_ul],:3]
+            pieces[name][underlap,3]=255
+    else:
+        _,nearest_idx=distance_transform_edt(~uncovered,return_indices=True)
+        underlap=binary_dilation(uncovered,struct)&upper_opaque&(pieces[name][:,:,3]<=8)
+        pieces[name][underlap,:3]=pieces[name][nearest_idx[0][underlap],nearest_idx[1][underlap],:3]
+        pieces[name][underlap,3]=255
+clean_mesh_islands()
 part_records=[]
 for name,array in pieces.items():
     ys,xs=np.nonzero(array[:,:,3]>0)
