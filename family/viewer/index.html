@@ -81,7 +81,18 @@
     #refImg { position: absolute; max-width: none; max-height: none; pointer-events: none; }
     #ref-pane .cap { position: absolute; left: 10px; top: 10px; z-index: 2; font-size: 12px;
       color: #d5d9e0; padding: 4px 8px; background: #181b22bb; pointer-events: none; }
-    #overlay { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 9; pointer-events: none; }
+    #overlay, #refOverlay { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 9; pointer-events: none; }
+    #bustEditorBar {
+      display: none; align-items: center; flex-wrap: wrap; gap: 8px 14px; margin-top: 8px;
+      padding: 8px 12px; border-radius: 8px; background: #141821; border: 1px solid #2e3646; font-size: 12px;
+    }
+    #bustEditorBar.show { display: flex; }
+    #bustEditorBar .bust-group { display: flex; align-items: center; gap: 6px; padding-left: 10px; border-left: 1px solid #2a303c; }
+    #bustEditorBar .bust-tag-r { color: #00e5ff; font-weight: 700; }
+    #bustEditorBar .bust-tag-l { color: #ff4da6; font-weight: 700; }
+    #bustEditorBar input[type="number"] { width: 52px; padding: 2px 4px; background: #1d222e; color: #eef2f9; border: 1px solid #363e4f; border-radius: 4px; font-size: 12px; }
+    #bustApplyBtn { background: #1f6feb; border-color: #388bfd; color: #fff; font-weight: 600; }
+    #bustApplyBtn:disabled { opacity: 0.6; cursor: wait; }
     @media (max-width: 1100px) {
       header { padding: 10px; }
       .masthead { gap: 10px; flex-wrap: wrap; }
@@ -194,6 +205,7 @@
         <div class="panel-controls diagnostic-controls">
           <button id="bonesBtn" aria-pressed="false">뼈</button>
           <button id="meshBtn" aria-pressed="false">메시</button>
+          <button id="bustBtn" aria-pressed="false" title="가슴 물리 구(bust_r / bust_l) 위치와 반지름을 마우스로 직접 찝어서 편집합니다">가슴 영역</button>
           <label>메시 농도 <input id="meshOpacity" type="range" min="0" max="1" step="0.05" value="0.55" /></label>
         </div>
       </section>
@@ -223,16 +235,48 @@
         </div>
       </section>
     </div>
+
+    <div id="bustEditorBar" role="region" aria-label="가슴 영역 편집기">
+      <label>대상
+        <select id="bustCharSelect">
+          <option value="roa">로아 (Roa)</option>
+          <option value="luna">루나 (Luna)</option>
+          <option value="jinni" selected>지니 (Jinni)</option>
+          <option value="naru">나루 (Naru)</option>
+          <option value="nova">노바 (Nova)</option>
+        </select>
+      </label>
+      <div class="bust-group">
+        <span class="bust-tag-r">● 우(R)</span>
+        <label>X <input id="bustRX" type="number" step="1" value="384" /></label>
+        <label>Y <input id="bustRY" type="number" step="1" value="724" /></label>
+        <label>R <input id="bustRR" type="number" min="6" max="120" step="1" value="24" /></label>
+        <label>Band <input id="bustRB" type="number" min="4" max="120" step="1" value="38" /></label>
+      </div>
+      <div class="bust-group">
+        <span class="bust-tag-l">● 좌(L)</span>
+        <label>X <input id="bustLX" type="number" step="1" value="514" /></label>
+        <label>Y <input id="bustLY" type="number" step="1" value="720" /></label>
+        <label>R <input id="bustLR" type="number" min="6" max="120" step="1" value="25" /></label>
+        <label>Band <input id="bustLB" type="number" min="4" max="120" step="1" value="39" /></label>
+      </div>
+      <div class="bust-group">
+        <button id="bustSymBtn" title="우측(R)의 Y 높이·반지름(R)·밴드(Band)를 좌측(L)에 똑같이 맞춥니다">Y·크기 대칭</button>
+        <button id="bustApplyBtn" title="현재 가슴 영역 좌표를 저장하고 즉시 리그를 재빌드해 화면에 반영합니다">적용 · 리빌드</button>
+        <button id="bustCopyBtn" title="현재 캐릭터의 가슴 영역 JSON을 클립보드에 복사합니다">JSON 복사</button>
+      </div>
+    </div>
   </header>
 
   <div id="viewport">
     <div id="stage" class="bg-dark">
       <canvas id="overlay" aria-label="현재 포즈의 뼈와 메시 오버레이"></canvas>
-      <div class="hud-tip">드래그: 이동 + 물리 관성 · 마우스 휠: 줌 인/아웃</div>
+      <div class="hud-tip">드래그: 이동 + 물리 관성 (가슴 영역 ON 시: 원 중심=위치 이동, 실선 우측점=코어 R, 점선 상단점=Band 조절)</div>
     </div>
     <div id="ref-pane" class="show bg-dark">
       <div id="refCaption" class="cap">원본 일러스트 (painting.png)</div>
       <img id="refImg" src="/docs_family_5chars_recomposite.png" alt="원본" />
+      <canvas id="refOverlay" aria-label="원화 비교 가슴 영역 오버레이"></canvas>
     </div>
   </div>
 
@@ -276,8 +320,23 @@
     gustPeakInput.max = String(MAX_GUST_PEAK);
     gustDurationInput.min = String(MIN_GUST_DURATION); gustDurationInput.max = String(MAX_GUST_DURATION);
     const overlay = document.getElementById('overlay');
+    const refOverlay = document.getElementById('refOverlay');
     const bonesBtn = document.getElementById('bonesBtn');
     const meshBtn = document.getElementById('meshBtn');
+    const bustBtn = document.getElementById('bustBtn');
+    const bustEditorBar = document.getElementById('bustEditorBar');
+    const bustCharSelect = document.getElementById('bustCharSelect');
+    const bustRX = document.getElementById('bustRX');
+    const bustRY = document.getElementById('bustRY');
+    const bustRR = document.getElementById('bustRR');
+    const bustRB = document.getElementById('bustRB');
+    const bustLX = document.getElementById('bustLX');
+    const bustLY = document.getElementById('bustLY');
+    const bustLR = document.getElementById('bustLR');
+    const bustLB = document.getElementById('bustLB');
+    const bustSymBtn = document.getElementById('bustSymBtn');
+    const bustApplyBtn = document.getElementById('bustApplyBtn');
+    const bustCopyBtn = document.getElementById('bustCopyBtn');
     const meshOpacity = document.getElementById('meshOpacity');
     let storage;
     try { storage = globalThis.localStorage; } catch { storage = null; }
@@ -292,6 +351,50 @@
     let scale = 1;
     let paused = ui.paused;
     let speed = ui.speed;
+    let bustEdit = false;
+    let activeBustChar = 'jinni';
+    function makeCharBust(chest, r, l) {
+      const clone = () => ({ bust_r: { ...r }, bust_l: { ...l } });
+      return { chest, outfits: { office: clone(), homewear: clone(), swimwear: clone() } };
+    }
+    let bustData = {
+      roa: makeCharBust([360, 657], { cx: 296, cy: 650, r: 26, band: 42 }, { cx: 438, cy: 650, r: 28, band: 44 }),
+      luna: makeCharBust([368, 790], { cx: 308, cy: 785, r: 22, band: 36 }, { cx: 436, cy: 785, r: 22, band: 36 }),
+      jinni: makeCharBust([440, 734], { cx: 384, cy: 724, r: 24, band: 38 }, { cx: 514, cy: 720, r: 25, band: 39 }),
+      naru: makeCharBust([380, 780], { cx: 312, cy: 785, r: 24, band: 38 }, { cx: 448, cy: 785, r: 24, band: 38 }),
+      nova: makeCharBust([410, 780], { cx: 312, cy: 775, r: 23, band: 36 }, { cx: 435, cy: 785, r: 23, band: 36 }),
+    };
+    function activeBustOutfit(charKey = activeBustChar) {
+      const entry = players.find(p => p.key === charKey);
+      return entry?.outfit ?? ui.outfits[charKey] ?? 'swimwear';
+    }
+    function activeBustRegions(charKey = activeBustChar) {
+      const ch = bustData[charKey];
+      if (!ch) return null;
+      const outfit = activeBustOutfit(charKey);
+      if (!ch.outfits[outfit]) ch.outfits[outfit] = { bust_r: { ...ch.outfits.office.bust_r }, bust_l: { ...ch.outfits.office.bust_l } };
+      return ch.outfits[outfit];
+    }
+    function syncBustEditorInputs() {
+      if (CHARACTER_LABELS[ui.character]) activeBustChar = ui.character;
+      else if (outfitTarget !== 'all' && CHARACTER_LABELS[outfitTarget]) activeBustChar = outfitTarget;
+      bustCharSelect.value = activeBustChar;
+      const regs = activeBustRegions(activeBustChar);
+      if (!regs) return;
+      bustRX.value = String(Math.round(regs.bust_r.cx));
+      bustRY.value = String(Math.round(regs.bust_r.cy));
+      bustRR.value = String(Math.round(regs.bust_r.r));
+      bustRB.value = String(Math.round(regs.bust_r.band));
+      bustLX.value = String(Math.round(regs.bust_l.cx));
+      bustLY.value = String(Math.round(regs.bust_l.cy));
+      bustLR.value = String(Math.round(regs.bust_l.r));
+      bustLB.value = String(Math.round(regs.bust_l.band));
+    }
+    if (typeof globalThis.fetch === 'function') {
+      globalThis.fetch('/api/bust-regions').then(r => r.ok ? r.json() : null).then(data => {
+        if (data && data.jinni) { bustData = data; syncBustEditorInputs(); redrawOverlay(); }
+      }).catch(() => {});
+    }
     const windControls = createWindControls();
 
     function syncEnvironment() {
@@ -336,7 +439,14 @@
     }
     function redrawOverlay() {
       if (!camera || !box || !container) return;
-      drawOverlay(overlay, players, (x,y) => worldToPanel(x,y,camera,scale,panelSize(stage)), ui, globalThis.devicePixelRatio || 1);
+      const dpr = globalThis.devicePixelRatio || 1;
+      const overlayOpts = { ...ui, bustEdit, bustData, activeBustChar, staticPose: false };
+      drawOverlay(overlay, players, (x,y) => worldToPanel(x,y,camera,scale,panelSize(stage)), overlayOpts, dpr);
+      if (refOverlay) {
+        drawOverlay(refOverlay, ui.comparison ? players : [], (x,y) => worldToPanel(x,y,camera,scale,panelSize(refPane)), {
+          bones: false, mesh: false, meshOpacity: ui.meshOpacity, bustEdit: ui.comparison && bustEdit, bustData, activeBustChar, staticPose: true,
+        }, dpr);
+      }
     }
     function fitStage(mult = 1, focusTop = false) {
       if (!box || !container) return;
@@ -352,9 +462,10 @@
       pauseBtn.classList.toggle('on', paused); pauseBtn.textContent = paused ? '재생' : '일시정지';
       stage.className = `bg-${ui.background}`; refPane.className = `${ui.comparison ? 'show ' : ''}bg-${ui.background}`;
       for (const btn of document.querySelectorAll('[data-bg]')) btn.classList.toggle('on', btn.dataset.bg === ui.background);
-      for (const [btn, on] of [[refBtn, ui.comparison], [bonesBtn, ui.bones], [meshBtn, ui.mesh]]) {
+      for (const [btn, on] of [[refBtn, ui.comparison], [bonesBtn, ui.bones], [meshBtn, ui.mesh], [bustBtn, bustEdit]]) {
         btn.classList.toggle('on', on); btn.setAttribute('aria-pressed', String(on));
       }
+      bustEditorBar.classList.toggle('show', bustEdit);
       meshOpacity.value = String(ui.meshOpacity);
       const wind = windControls.read();
       gustPeakInput.value = String(wind.gustPeak); gustDurationInput.value = String(wind.gustDuration);
@@ -693,6 +804,53 @@
       });
     });
 
+    function hitBustHandle(pane, clientX, clientY) {
+      if (!bustEdit || !camera || !(scale > 0)) return null;
+      const rect = pane.getBoundingClientRect?.();
+      if (!rect) return null;
+      const mx = clientX - rect.left, my = clientY - rect.top;
+      const size = panelSize(pane);
+      const staticPose = pane === refPane;
+      for (const entry of players) {
+        const chData = bustData[entry.key];
+        if (!chData) continue;
+        const outfit = entry.outfit ?? 'office';
+        const regs = chData.outfits?.[outfit] ?? chData.outfits?.swimwear ?? chData.outfits?.office;
+        if (!regs || !regs.bust_r || !regs.bust_l) continue;
+        let poseDx = 0, poseDy = 0;
+        if (!staticPose && entry.player?.bone && Array.isArray(chData.chest)) {
+          try {
+            const chest = entry.player.bone('chest');
+            if (chest && chest.active) {
+              poseDx = chest.x - (chData.chest[0] - 400);
+              poseDy = chest.y - (2284 - chData.chest[1]);
+            }
+          } catch {}
+        }
+        for (const side of ['bust_r', 'bust_l']) {
+          const reg = regs[side];
+          const wx = (reg.cx - 400) + poseDx + (entry.offsetX ?? 0);
+          const wy = (2284 - reg.cy) + poseDy - (entry.offsetY ?? 0);
+          const center = worldToPanel(wx, wy, camera, scale, size);
+          const pxR = Math.max(2, reg.r * scale);
+          const pxBand = Math.max(pxR + 2, (reg.r + reg.band) * scale);
+          const distRHandle = Math.hypot(mx - (center.x + pxR), my - center.y);
+          const distBandHandle = Math.hypot(mx - center.x, my - (center.y - pxBand));
+          const distCenter = Math.hypot(mx - center.x, my - center.y);
+          if (distRHandle <= 10 || Math.abs(distCenter - pxR) <= 6) {
+            return { mode: 'r', key: entry.key, reg, center, startX: clientX, startY: clientY, startReg: { ...reg } };
+          }
+          if (distBandHandle <= 10 || Math.abs(distCenter - pxBand) <= 6) {
+            return { mode: 'band', key: entry.key, reg, center, startX: clientX, startY: clientY, startReg: { ...reg } };
+          }
+          if (distCenter <= Math.max(12, pxR)) {
+            return { mode: 'move', key: entry.key, reg, center, startX: clientX, startY: clientY, startReg: { ...reg } };
+          }
+        }
+      }
+      return null;
+    }
+
     // Both comparison surfaces share a world-space camera and cursor-anchored zoom.
     for (const pane of [stage, refPane]) {
       pane.addEventListener('wheel', e => {
@@ -704,10 +862,42 @@
         updateViewport(); saveState();
       }, { passive: false });
       let held = null;
-      pane.addEventListener('pointerdown', e => { held = { x:e.clientX, y:e.clientY }; pane.setPointerCapture(e.pointerId); });
-      pane.addEventListener('pointerup', () => { held = null; saveState(); });
-      pane.addEventListener('pointercancel', () => { held = null; });
+      let bustDrag = null;
+      pane.addEventListener('pointerdown', e => {
+        const hit = hitBustHandle(pane, e.clientX, e.clientY);
+        if (hit) {
+          bustDrag = hit;
+          activeBustChar = hit.key;
+          bustCharSelect.value = hit.key;
+          syncBustEditorInputs();
+          redrawOverlay();
+          pane.setPointerCapture?.(e.pointerId);
+          return;
+        }
+        held = { x:e.clientX, y:e.clientY };
+        pane.setPointerCapture?.(e.pointerId);
+      });
+      pane.addEventListener('pointerup', () => { bustDrag = null; held = null; saveState(); });
+      pane.addEventListener('pointercancel', () => { bustDrag = null; held = null; });
       pane.addEventListener('pointermove', e => {
+        if (bustDrag && scale > 0) {
+          const rect = pane.getBoundingClientRect?.();
+          const mx = rect ? e.clientX - rect.left : 0;
+          const my = rect ? e.clientY - rect.top : 0;
+          if (bustDrag.mode === 'move') {
+            bustDrag.reg.cx = Math.round(bustDrag.startReg.cx + (e.clientX - bustDrag.startX) / scale);
+            bustDrag.reg.cy = Math.round(bustDrag.startReg.cy + (e.clientY - bustDrag.startY) / scale);
+          } else if (bustDrag.mode === 'r') {
+            const dWorld = Math.hypot(mx - bustDrag.center.x, my - bustDrag.center.y) / scale;
+            bustDrag.reg.r = Math.max(6, Math.min(120, Math.round(dWorld)));
+          } else if (bustDrag.mode === 'band') {
+            const dWorld = Math.hypot(mx - bustDrag.center.x, my - bustDrag.center.y) / scale;
+            bustDrag.reg.band = Math.max(4, Math.min(120, Math.round(dWorld - bustDrag.reg.r)));
+          }
+          syncBustEditorInputs();
+          redrawOverlay();
+          return;
+        }
         if (!held || !camera || !container) return;
         const dx = e.clientX-held.x, dy = e.clientY-held.y;
         held = { x:e.clientX, y:e.clientY };
@@ -793,6 +983,99 @@
     });
     bonesBtn.addEventListener('click', () => { ui.bones = !ui.bones; syncUi(); redrawOverlay(); saveState(); });
     meshBtn.addEventListener('click', () => { ui.mesh = !ui.mesh; syncUi(); redrawOverlay(); saveState(); });
+    bustBtn.addEventListener('click', () => {
+      bustEdit = !bustEdit;
+      syncBustEditorInputs();
+      syncUi();
+      redrawOverlay();
+    });
+    bustCharSelect.addEventListener('change', () => {
+      activeBustChar = bustCharSelect.value;
+      const regs = activeBustRegions(activeBustChar);
+      if (regs) {
+        bustRX.value = String(Math.round(regs.bust_r.cx));
+        bustRY.value = String(Math.round(regs.bust_r.cy));
+        bustRR.value = String(Math.round(regs.bust_r.r));
+        bustRB.value = String(Math.round(regs.bust_r.band));
+        bustLX.value = String(Math.round(regs.bust_l.cx));
+        bustLY.value = String(Math.round(regs.bust_l.cy));
+        bustLR.value = String(Math.round(regs.bust_l.r));
+        bustLB.value = String(Math.round(regs.bust_l.band));
+      }
+      redrawOverlay();
+    });
+    for (const [el, side, field] of [
+      [bustRX, 'bust_r', 'cx'], [bustRY, 'bust_r', 'cy'], [bustRR, 'bust_r', 'r'], [bustRB, 'bust_r', 'band'],
+      [bustLX, 'bust_l', 'cx'], [bustLY, 'bust_l', 'cy'], [bustLR, 'bust_l', 'r'], [bustLB, 'bust_l', 'band'],
+    ]) {
+      el.addEventListener('input', () => {
+        const v = Number(el.value);
+        const regs = activeBustRegions(activeBustChar);
+        if (regs && Number.isFinite(v)) {
+          regs[side][field] = Math.round(v);
+          redrawOverlay();
+        }
+      });
+    }
+    bustSymBtn.addEventListener('click', () => {
+      const regs = activeBustRegions(activeBustChar);
+      if (!regs) return;
+      regs.bust_l.cy = regs.bust_r.cy;
+      regs.bust_l.r = regs.bust_r.r;
+      regs.bust_l.band = regs.bust_r.band;
+      syncBustEditorInputs();
+      redrawOverlay();
+    });
+    bustApplyBtn.addEventListener('click', async () => {
+      if (typeof globalThis.fetch !== 'function') return;
+      const targetChar = bustCharSelect.value || activeBustChar;
+      const currentOutfit = activeBustOutfit(targetChar);
+      const targetOutfit = currentOutfit === 'office' ? 'swimwear' : currentOutfit;
+      const regs = bustData[targetChar]?.outfits?.[currentOutfit] ?? activeBustRegions(targetChar);
+      if (!regs) return;
+      bustApplyBtn.disabled = true;
+      bustApplyBtn.textContent = '리빌드 중…';
+      stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} (${OUTFIT_LABELS[targetOutfit] ?? targetOutfit}) 가슴 영역 리빌드 중…`;
+      try {
+        const res = await globalThis.fetch('/api/bust-regions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ character: targetChar, outfit: targetOutfit, bust_r: regs.bust_r, bust_l: regs.bust_l }),
+        });
+        const out = await res.json();
+        if (!res.ok || !out.ok) throw new Error(out.error || `HTTP ${res.status}`);
+        if (bustData[targetChar]?.outfits) {
+          bustData[targetChar].outfits[targetOutfit] = { bust_r: out.bust_r, bust_l: out.bust_l };
+          if (currentOutfit === 'office') bustData[targetChar].outfits.office = { bust_r: out.bust_r, bust_l: out.bust_l };
+        }
+        syncBustEditorInputs();
+        const entry = players.find(p => p.key === targetChar);
+        if (entry) {
+          await outfitTransaction.open({ key: targetChar, outfit: targetOutfit, entry, sceneVersion });
+          setTimeout(() => {
+            const refreshed = players.find(p => p.key === targetChar);
+            refreshed?.player?.moved({ x: 14, y: -10 });
+            setTimeout(() => refreshed?.player?.moved({ x: -14, y: 10 }), 90);
+          }, 60);
+        }
+        stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 가슴 영역 리빌드 완료! R(${out.bust_r.cx},${out.bust_r.cy},r=${out.bust_r.r},b=${out.bust_r.band}) · L(${out.bust_l.cx},${out.bust_l.cy},r=${out.bust_l.r},b=${out.bust_l.band})`;
+      } catch (err) {
+        stats.textContent = `가슴 영역 리빌드 실패: ${err.message}`;
+        console.error(err);
+      } finally {
+        bustApplyBtn.disabled = false;
+        bustApplyBtn.textContent = '적용 · 리빌드';
+        redrawOverlay();
+      }
+    });
+    bustCopyBtn.addEventListener('click', () => {
+      const targetChar = bustCharSelect.value || activeBustChar;
+      const regs = activeBustRegions(targetChar);
+      if (!regs) return;
+      const text = JSON.stringify({ character: targetChar, outfit: activeBustOutfit(targetChar), bust_r: regs.bust_r, bust_l: regs.bust_l }, null, 2);
+      globalThis.navigator?.clipboard?.writeText(text);
+      stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 가슴 영역 JSON 복사됨: ${text.replace(/\s+/g, ' ')}`;
+    });
     meshOpacity.addEventListener('input', () => { ui.meshOpacity = Number(meshOpacity.value); redrawOverlay(); saveState(); });
     document.getElementById('resetBtn').addEventListener('click', () => {
       ui = defaultViewState(); camera = null; outfitTarget = 'naru';
@@ -800,8 +1083,8 @@
       if (!windControls.restore) { windControls.setBase(0); windControls.setBreeze(false); windControls.setRepeat(false); }
       syncUi(); saveState(); openCharacter(ui.character);
     });
-    charSelect.addEventListener('change', () => { camera = null; ui.character = charSelect.value; saveState(); openCharacter(charSelect.value); });
-    outfitTargetSelect.addEventListener('change', () => { outfitTarget = outfitTargetSelect.value; syncOutfitUi(); });
+    charSelect.addEventListener('change', () => { camera = null; ui.character = charSelect.value; syncBustEditorInputs(); saveState(); openCharacter(charSelect.value); });
+    outfitTargetSelect.addEventListener('change', () => { outfitTarget = outfitTargetSelect.value; syncOutfitUi(); syncBustEditorInputs(); redrawOverlay(); });
     outfitSelect.addEventListener('change', () => { openOutfit(outfitSelect.value, outfitTargetSelect.value); });
     // Persist stable control settings on changes and when leaving; reload begins a fresh physics run.
     for (const element of [pauseBtn, speedInput, windInput, gravInput, gustBtn, pulseBtn, repeatGustBtn]) {
