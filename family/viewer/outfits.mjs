@@ -1,10 +1,10 @@
 export const OUTFIT_CHARACTERS = ['roa', 'luna', 'jinni', 'naru', 'nova'];
-export const OUTFITS = ['office', 'homewear'];
+export const OUTFITS = ['office', 'homewear', 'swimwear'];
 export const NARU_OUTFITS = OUTFITS;
 export function outfitAssets(character, outfit = 'office') {
   if (!OUTFIT_CHARACTERS.includes(character)) throw new Error(`Unknown character: ${character}`);
   if (!OUTFITS.includes(outfit)) throw new Error(`Unsupported outfit: ${character}/${outfit}`);
-  const root = outfit === 'homewear' ? `/outfits/homewear/${character}` : `/${character}`;
+  const root = outfit === 'office' ? `/${character}` : `/outfits/${outfit}/${character}`;
   return { modelUrl: `${root}/out/check/build/skeleton.model.json`, referenceUrl: `${root}/inputs/painting.png` };
 }
 

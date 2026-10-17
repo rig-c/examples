@@ -1,0 +1,339 @@
+{
+  "spec": "family-swimwear-live-physics/1",
+  "character": "luna",
+  "contract": {
+    "fps": 60,
+    "frames": 721,
+    "seconds": 12,
+    "scenarios": [
+      "calm",
+      "wind4",
+      "gust",
+      "drag",
+      "burst48",
+      "burst96"
+    ],
+    "windAdapter": "actual family/viewer/wind-controls.mjs; base4, breeze and burst48/96 with base0, duration2.4s, positive singlepulse",
+    "drag": "public physicsTranslate(+18,-10) at2s, (-18,+10) at2.1s; viewer90ms return sampled at60Hz nextframe; no world position teleport",
+    "physicsClock": "public physicsClockStep",
+    "environment": "wind[y]=0, gravity[0,0]; applied after first/reset pose",
+    "oracle": "official Spine4.3.13; exact all posed bone matrices and attachment vertices",
+    "screenshots": "omitted by --no-render; numerical geometry only",
+    "source": "original common 77 bones + 14 head/hair attachments compared at every same-phase frame"
+  },
+  "cases": [
+    {
+      "scenario": "calm",
+      "nativeCoreMaxDelta": 0,
+      "commonBoneMaxDelta": 0,
+      "commonAttachmentMaxDelta": 0,
+      "bustBoneMaxDelta": 0,
+      "response": {
+        "shoes": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "bottomwear": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "neck": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9558597640554602,
+          "maxEdgeRatio": 1.0194808692805464
+        },
+        "topwear": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9515193727860779,
+          "maxEdgeRatio": 1.0485306300014585
+        },
+        "cardigan": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9847384347865152,
+          "maxEdgeRatio": 1.0155256325202846
+        },
+        "sleeves": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9960159873438655,
+          "maxEdgeRatio": 1.0039841312989986
+        },
+        "hands": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        }
+      },
+      "PASS": true
+    },
+    {
+      "scenario": "wind4",
+      "nativeCoreMaxDelta": 0,
+      "commonBoneMaxDelta": 0,
+      "commonAttachmentMaxDelta": 0,
+      "bustBoneMaxDelta": 0,
+      "response": {
+        "shoes": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "bottomwear": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "neck": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9558597640554602,
+          "maxEdgeRatio": 1.0194808692805464
+        },
+        "topwear": {
+          "windOrDragOnlyMax": 0.05627029805702222,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9514270265609606,
+          "maxEdgeRatio": 1.0484518989672422
+        },
+        "cardigan": {
+          "windOrDragOnlyMax": 0.3112376504916347,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9859996747477928,
+          "maxEdgeRatio": 1.0167287728626013
+        },
+        "sleeves": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9960159873438655,
+          "maxEdgeRatio": 1.0039841312989986
+        },
+        "hands": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        }
+      },
+      "PASS": true
+    },
+    {
+      "scenario": "gust",
+      "nativeCoreMaxDelta": 0,
+      "commonBoneMaxDelta": 0,
+      "commonAttachmentMaxDelta": 0,
+      "bustBoneMaxDelta": 0,
+      "response": {
+        "shoes": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "bottomwear": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "neck": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9558597640554602,
+          "maxEdgeRatio": 1.0194808692805464
+        },
+        "topwear": {
+          "windOrDragOnlyMax": 0.02618229834016006,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9514671222581833,
+          "maxEdgeRatio": 1.0485851892971403
+        },
+        "cardigan": {
+          "windOrDragOnlyMax": 0.1417497712038982,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9842447620895554,
+          "maxEdgeRatio": 1.015938739164491
+        },
+        "sleeves": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9960159873438655,
+          "maxEdgeRatio": 1.0039841312989986
+        },
+        "hands": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        }
+      },
+      "PASS": true
+    },
+    {
+      "scenario": "drag",
+      "nativeCoreMaxDelta": 0,
+      "commonBoneMaxDelta": 0,
+      "commonAttachmentMaxDelta": 0,
+      "bustBoneMaxDelta": 0,
+      "response": {
+        "shoes": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "bottomwear": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "neck": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9558597640554602,
+          "maxEdgeRatio": 1.0194808692805464
+        },
+        "topwear": {
+          "windOrDragOnlyMax": 6.734597063311402,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.7972123582480408,
+          "maxEdgeRatio": 1.1811983550998177
+        },
+        "cardigan": {
+          "windOrDragOnlyMax": 2.727014011421942,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.971592591535703,
+          "maxEdgeRatio": 1.0158532298842229
+        },
+        "sleeves": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9960159873438655,
+          "maxEdgeRatio": 1.0039841312989986
+        },
+        "hands": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        }
+      },
+      "PASS": true
+    },
+    {
+      "scenario": "burst48",
+      "nativeCoreMaxDelta": 0,
+      "commonBoneMaxDelta": 0,
+      "commonAttachmentMaxDelta": 0,
+      "bustBoneMaxDelta": 0,
+      "response": {
+        "shoes": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "bottomwear": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "neck": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9558597640554602,
+          "maxEdgeRatio": 1.0194808692805464
+        },
+        "topwear": {
+          "windOrDragOnlyMax": 0.44358667459615475,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9515172076474369,
+          "maxEdgeRatio": 1.0485306299929291
+        },
+        "cardigan": {
+          "windOrDragOnlyMax": 2.35067221315331,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9846229409659022,
+          "maxEdgeRatio": 1.0281039292343088
+        },
+        "sleeves": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9960159873438655,
+          "maxEdgeRatio": 1.0039841312989986
+        },
+        "hands": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        }
+      },
+      "PASS": true
+    },
+    {
+      "scenario": "burst96",
+      "nativeCoreMaxDelta": 0,
+      "commonBoneMaxDelta": 0,
+      "commonAttachmentMaxDelta": 0,
+      "bustBoneMaxDelta": 0,
+      "response": {
+        "shoes": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "bottomwear": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        },
+        "neck": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9558597640554602,
+          "maxEdgeRatio": 1.0194808692805464
+        },
+        "topwear": {
+          "windOrDragOnlyMax": 0.8871733491923095,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9515150430400878,
+          "maxEdgeRatio": 1.0485306299929291
+        },
+        "cardigan": {
+          "windOrDragOnlyMax": 4.6824399757736215,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9725709997551212,
+          "maxEdgeRatio": 1.041815794847888
+        },
+        "sleeves": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": 0.9960159873438655,
+          "maxEdgeRatio": 1.0039841312989986
+        },
+        "hands": {
+          "windOrDragOnlyMax": 0,
+          "foldingTriangleReadings": 0,
+          "minEdgeRatio": null,
+          "maxEdgeRatio": 0
+        }
+      },
+      "PASS": true
+    }
+  ],
+  "PASS": true
+}

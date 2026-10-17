@@ -17,6 +17,7 @@ function option(name: string, fallback: string) {
   return at < 0 ? fallback : (args[at + 1] ?? fallback);
 }
 const charsArg = option('characters', 'roa,luna,jinni,nova').split(',').filter(Boolean);
+const outfitArg = option('outfit', 'homewear');
 const doRender = !args.includes('--no-render');
 const json = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 
@@ -87,7 +88,7 @@ function area(v: number[], a: number, b: number, c: number) {
 const fps = 60, frames = 721, selected = new Set([0, 60, 72, 120, 126, 150, 200, 360, 720]);
 
 function probeCharacter(char: string) {
-  const home = join(family, 'outfits/homewear', char);
+  const home = join(family, 'outfits', outfitArg, char);
   const out = join(home, 'runtime');
   const candidateDirectory = join(home, 'out/check/build');
   const baselineDirectory = join(family, char, 'out/check/build');
@@ -200,7 +201,7 @@ function probeCharacter(char: string) {
     console.log(JSON.stringify({ character: char, ...(cases[cases.length - 1] as object) }));
   }
   const report = {
-    spec: 'family-homewear-live-physics/1',
+    spec: `family-${outfitArg}-live-physics/1`,
     character: char,
     contract: {
       fps,
