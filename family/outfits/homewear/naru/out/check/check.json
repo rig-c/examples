@@ -267,26 +267,26 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 5,
-  "triangles": 1395,
+  "triangles": 1349,
   "frames": 41,
-  "severity": 1.103,
+  "severity": 1.197,
   "severity_ceiling": 1.926544,
   "worst": {
-   "slot": "hair_back",
-   "triangle": 37,
+   "slot": "topwear",
+   "triangle": 54,
    "vertices": [
-    29,
-    31,
-    30
+    41,
+    322,
+    330
    ],
    "edge": [
-    31,
-    30
+    322,
+    330
    ],
-   "frame": 24,
-   "ratio": 1.103
+   "frame": 10,
+   "ratio": 1.197
   },
-  "max_ratio": 1.103,
+  "max_ratio": 1.197,
   "min_ratio": 0.946,
   "per_mesh": [
    {
@@ -309,20 +309,20 @@
    },
    {
     "slot": "topwear",
-    "triangles": 675,
-    "max_ratio": 1.021,
-    "max_at": "triangle 490 (vertices 281 286 282), edge 281-286, idle frame 2",
-    "min_ratio": 0.988,
-    "min_at": "triangle 490 (vertices 281 286 282), edge 281-286, idle frame 20",
-    "severity": 1.021
+    "triangles": 617,
+    "max_ratio": 1.197,
+    "max_at": "triangle 54 (vertices 41 322 330), edge 322-330, idle frame 10",
+    "min_ratio": 0.967,
+    "min_at": "triangle 267 (vertices 191 218 217), edge 191-218, idle frame 12",
+    "severity": 1.197
    },
    {
     "slot": "sleeves",
-    "triangles": 447,
+    "triangles": 459,
     "max_ratio": 1.008,
-    "max_at": "triangle 258 (vertices 213 216 215), edge 213-216, idle frame 10",
+    "max_at": "triangle 239 (vertices 192 194 193), edge 194-193, idle frame 10",
     "min_ratio": 1,
-    "min_at": "triangle 259 (vertices 213 217 216), edge 217-216, idle frame 3",
+    "min_at": "triangle 253 (vertices 204 206 205), edge 205-204, idle frame 3",
     "severity": 1.008
    },
    {
@@ -358,11 +358,11 @@
   "stage_px": "800x2284",
   "render_px": "734x2284",
   "render_scale": 1.084,
-  "mean_abs": 0.734,
+  "mean_abs": 0.728,
   "within_limit": 8,
-  "within_share": 0.9715,
+  "within_share": 0.9717,
   "error_limit": 40,
-  "error_px": 928,
+  "error_px": 896,
   "covered_alpha": 128,
   "uncovered_error_px": 122,
   "hole_count": 78,

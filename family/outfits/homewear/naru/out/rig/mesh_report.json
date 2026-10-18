@@ -195,18 +195,19 @@
   },
   {
     "part": "topwear",
-    "vertices": 431,
-    "triangles": 675,
-    "hull": 185,
+    "vertices": 403,
+    "triangles": 617,
+    "hull": 187,
     "bones": [
       "boob_l",
       "boob_r",
       "cardigan_hem_l",
       "cardigan_hem_r",
-      "chest"
+      "chest",
+      "hip"
     ],
     "max_influences": 4,
-    "mean_influences": 1.94,
+    "mean_influences": 2.35,
     "art_coverage": 1,
     "mode": "contour",
     "params": {
@@ -219,31 +220,31 @@
       "bridges": true
     },
     "contour": {
-      "boundaryVertices": 185,
-      "interiorVertices": 246,
+      "boundaryVertices": 187,
+      "interiorVertices": 216,
       "interiorBySource": [
         {
           "source": "region \"bust_r\"",
-          "vertices": 62
+          "vertices": 44
         },
         {
           "source": "region \"bust_l\"",
-          "vertices": 64
+          "vertices": 45
         },
         {
           "source": "background",
-          "vertices": 120
+          "vertices": 127
         }
       ],
-      "triangles": 675,
-      "tracedVertices": 2956,
-      "artPixels": 223461,
-      "coveredArtPixels": 223461,
+      "triangles": 617,
+      "tracedVertices": 2960,
+      "artPixels": 222923,
+      "coveredArtPixels": 222923,
       "coverage": 1,
       "overshoot": 4,
       "overshootBound": 5,
-      "meshArea": 231198,
-      "enclosedTransparentArea": 7737,
+      "meshArea": 230702,
+      "enclosedTransparentArea": 7779,
       "filledHolePixels": 0,
       "smallestAngle": {
         "triangle": 246,
@@ -256,17 +257,17 @@
       "nonDelaunayEdges": 0,
       "strayIslands": 0,
       "strayPixels": 0,
-      "grownPixels": 7572,
+      "grownPixels": 7584,
       "pinchFilledPixels": 0,
       "grownHolePixels": 0,
       "outlineCut": 5,
       "bridges": {
         "islands": [
-          223461
+          222923
         ],
         "units": [
           [
-            223461
+            222923
           ]
         ],
         "joins": []
@@ -276,22 +277,22 @@
       {
         "name": "bust_r",
         "bone": "boob_r",
-        "reached": 49,
-        "whole": 9
+        "reached": 32,
+        "whole": 4
       },
       {
         "name": "bust_l",
         "bone": "boob_l",
-        "reached": 51,
-        "whole": 10
+        "reached": 33,
+        "whole": 4
       }
     ]
   },
   {
     "part": "sleeves",
-    "vertices": 387,
-    "triangles": 447,
-    "hull": 325,
+    "vertices": 381,
+    "triangles": 459,
+    "hull": 301,
     "bones": [
       "chest"
     ],
@@ -309,46 +310,46 @@
       "bridges": true
     },
     "contour": {
-      "boundaryVertices": 325,
-      "interiorVertices": 62,
+      "boundaryVertices": 301,
+      "interiorVertices": 80,
       "interiorBySource": [
         {
           "source": "background",
-          "vertices": 62
+          "vertices": 80
         }
       ],
-      "triangles": 447,
-      "tracedVertices": 3040,
-      "artPixels": 93406,
-      "coveredArtPixels": 93406,
+      "triangles": 459,
+      "tracedVertices": 2944,
+      "artPixels": 111564,
+      "coveredArtPixels": 111564,
       "coverage": 1,
       "overshoot": 4,
       "overshootBound": 5,
-      "meshArea": 100718,
-      "enclosedTransparentArea": 7312,
-      "filledHolePixels": 155,
+      "meshArea": 118633,
+      "enclosedTransparentArea": 7069,
+      "filledHolePixels": 84,
       "smallestAngle": {
-        "triangle": 61,
-        "value": 3.044323
+        "triangle": 220,
+        "value": 3.221959
       },
       "largestEdgeRatio": {
-        "triangle": 61,
-        "value": 16.601205
+        "triangle": 192,
+        "value": 16.286497
       },
       "nonDelaunayEdges": 0,
       "strayIslands": 0,
       "strayPixels": 0,
-      "grownPixels": 7110,
+      "grownPixels": 6906,
       "pinchFilledPixels": 0,
       "grownHolePixels": 0,
       "outlineCut": 0,
       "bridges": {
         "islands": [
-          93406
+          111564
         ],
         "units": [
           [
-            93406
+            111564
           ]
         ],
         "joins": []

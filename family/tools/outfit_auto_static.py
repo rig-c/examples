@@ -83,7 +83,7 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
         raise RuntimeError(f"{outfit.upper()}_STATIC_FULL_FRAME_REQUIRED")
 
     cfg = json.loads((family / char / "config.json").read_text())
-    hip_y = next(b["at"][1] for b in cfg["bones"] if b.get("name") == "hip")
+    hip_x, hip_y = next(b["at"] for b in cfg["bones"] if b.get("name") == "hip")
     boob_y = max(b["at"][1] for b in cfg["bones"] if b.get("name") in ("boob_r", "boob_l"))
 
     baseline_parts = json.loads((family / char / "out/parts.json").read_text())["parts"]
@@ -168,17 +168,11 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
             )
             hair_st |= h_band
 
-    # 1. Sleeves (handwear-l + handwear-r + objects) with visible-surface priority and body-hallucination trimming
-    top_idx = layer_idx_map.get("topwear", 999)
-    err_body = detail_and_color_error(body_ref, white, sigma_patch=6.0)
-    col_body = color_error_smooth(body_ref, white, sigma_patch=2.0)
+    # 1. Sleeves (handwear-l + handwear-r + objects): preserve foreground arms 100% intact; only clear occluded back-arm stems
+    col_body = color_error_smooth(body_ref, white, sigma_patch=2.5)
     if np.any(raw_bot[:, :, 3] > 180):
-        err_bot_ref = detail_and_color_error(raw_bot, white, sigma_patch=6.0)
-        col_bot_ref = color_error_smooth(raw_bot, white, sigma_patch=2.0)
-        bot_solid = raw_bot[:, :, 3] > 180
-        err_body = np.where(bot_solid, np.minimum(err_body, err_bot_ref), err_body)
-        col_body = np.where(bot_solid, np.minimum(col_body, col_bot_ref), col_body)
-    # Use solid body interior (alpha >= 245 eroded by 7x7) so trimming handwear never creates semi-transparent alpha valleys on shared outer outlines
+        col_bot_ref = color_error_smooth(raw_bot, white, sigma_patch=2.5)
+        col_body = np.where(raw_bot[:, :, 3] > 180, np.minimum(col_body, col_bot_ref), col_body)
     body_solid_interior = binary_erosion(body_ref[:, :, 3] >= 245, np.ones((7, 7), dtype=bool))
     sleeves = np.zeros((H, W, 4), dtype=np.uint8)
     for t in layer_order:
@@ -192,67 +186,56 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
             if obj_holes.any():
                 arr[obj_holes] = source[obj_holes]
         if t in ("handwear-l", "handwear-r"):
-            err_hw = detail_and_color_error(arr, white, sigma_patch=6.0)
-            col_hw = color_error_smooth(arr, white, sigma_patch=2.0)
+            arr_for_err = np.where(arr[:, :, 3:4] > 80, arr, white)
+            col_hw = color_error_smooth(arr_for_err, white, sigma_patch=2.5)
             # Remove semi-transparent ghost stains over solid bare legs/body where body matches source much better
             ghost_stain = body_solid_interior & (arr[:, :, 3] < 140) & (col_hw > col_body + 25.0)
             arr[ghost_stain, 3] = 0
 
-            # Identify high-confidence foreground hand/arm seeds inside body_solid_interior
-            is_skin_hw = (arr[:, :, 0].astype(np.int16) - arr[:, :, 2].astype(np.int16) > 15) & (arr[:, :, 0] > 140)
-            bot_matches_white = (raw_bot[:, :, 3] > 180) & (color_error_smooth(raw_bot, white, sigma_patch=2.0) < 25.0) & (~is_skin_hw)
-            fg_seed = body_solid_interior & (arr[:, :, 3] > 80) & (~bot_matches_white) & (
-                ((err_hw + 5.0 < err_body) & (err_body > 16.0))
-                | ((col_hw + 12.0 < col_body) & (col_body > 28.0))
+            is_skin_hw = (
+                (arr[:, :, 0].astype(np.int16) - arr[:, :, 2].astype(np.int16) > 12)
+                & (arr[:, :, 0] > 120)
+                & (arr[:, :, 3] > 40)
             )
-            fg_seed = binary_closing(binary_opening(fg_seed, np.ones((5, 5), bool)), np.ones((15, 15), bool))
-            comp, n_c = label(fg_seed)
-            keep_fg = np.zeros((H, W), dtype=bool)
-            if n_c > 0:
-                cnts = np.bincount(comp.ravel())
-                cnts[0] = 0
-                valid = cnts >= 600
-                valid[0] = False
-                keep_fg = valid[comp]
-            # Bridge skin-on-skin hand/wrist spans (e.g. nova hand resting on bare waist) using exact connected skin components
-            skin_match = (arr[:, :, 3] > 80) & is_skin_hw & (col_hw < 24.0) & (~bot_matches_white)
-            if keep_fg.any() and skin_match.any():
-                sk_comp, n_sk = label(skin_match, np.ones((3, 3), dtype=bool))
-                if n_sk > 0:
-                    sk_touches_fg = np.bincount(sk_comp[keep_fg].ravel(), minlength=n_sk + 1) > 0
-                    sk_touches_fg[0] = False
-                    keep_fg = keep_fg | sk_touches_fg[sk_comp]
-            keep_fg = binary_dilation(keep_fg, np.ones((5, 5), bool)) & (~bot_matches_white) & (is_skin_hw | (col_hw <= 22.0))
-            has_fg_hand = np.count_nonzero(keep_fg & is_skin_hw) >= 150
-
-            # Remove inpainted body hallucinations where body_ref clearly matches visible source and handwear does not
-            body_wins_clearly = (
-                body_solid_interior
-                & (~keep_fg)
-                & (arr[:, :, 3] > 0)
-                & (
-                    ((err_body + 6.0 < err_hw) & (err_hw > 18.0) & (col_hw > 22.0))
-                    | ((col_body + 12.0 < col_hw) & (col_hw > 28.0))
-                )
-            )
-            body_wins_clearly = binary_closing(
-                binary_opening(body_wins_clearly, np.ones((5, 5), bool)),
-                np.ones((11, 11), bool),
-            ) & body_solid_interior & (~keep_fg)
-            arr[body_wins_clearly, 3] = 0
-            if layer_idx_map[t] < top_idx:
-                clear_behind = body_solid_interior & (~keep_fg) & ((col_hw > 20.0) | (not has_fg_hand))
-                arr[clear_behind, 3] = 0
-                thick_ext = binary_erosion((arr[:, :, 3] > 80) & (body_ref[:, :, 3] < 80), np.ones((15, 15), dtype=bool))
-                rem_comp, n_rem = label(arr[:, :, 3] > 8, np.ones((3, 3), dtype=bool))
-                if n_rem > 0:
-                    fg_cnts = np.bincount(rem_comp[keep_fg].ravel(), minlength=n_rem + 1)
-                    fg_cnts[0] = 0
-                    thick_cnts = np.bincount(rem_comp[thick_ext].ravel(), minlength=n_rem + 1)
-                    thick_cnts[0] = 0
-                    keep_rem = (fg_cnts > 0) if (has_fg_hand and np.any(fg_cnts > 0)) else (thick_cnts >= 300)
-                    keep_rem[0] = False
-                    arr[~keep_rem[rem_comp], 3] = 0
+            # Classify left arm stem (x < hip_x - 45) and right arm stem (x >= hip_x + 45) as foreground vs occluded back-arm
+            for is_left in (True, False):
+                stem_mask = (np.arange(W)[None, :] < hip_x - 45) if is_left else (np.arange(W)[None, :] >= hip_x + 45)
+                half_mask = (np.arange(W)[None, :] < hip_x) if is_left else (np.arange(W)[None, :] >= hip_x)
+                ov_s = stem_mask & body_solid_interior & (arr[:, :, 3] > 80)
+                hw_s = int((ov_s & (col_hw + 6.0 < col_body) & (col_body > 18.0)).sum())
+                bd_s = int((ov_s & (col_body + 6.0 < col_hw) & (col_hw > 18.0)).sum())
+                is_back_arm = (bd_s > 8000) and (bd_s > hw_s * 5)
+                if is_back_arm:
+                    # Protect genuine skin hand reaching across hip_x from the foreground arm on the other side
+                    err_px = np.abs(arr_for_err[:, :, :3].astype(np.float32) - white[:, :, :3].astype(np.float32)).mean(axis=2)
+                    skin_bridged = binary_closing(is_skin_hw & (err_px < 48.0), np.ones((15, 15), dtype=bool))
+                    other_side_skin = (~half_mask) & skin_bridged
+                    fg_hand = np.zeros((H, W), dtype=bool)
+                    if other_side_skin.any():
+                        sk_c, n_sk = label(skin_bridged)
+                        if n_sk > 0:
+                            touch = np.bincount(sk_c[other_side_skin].ravel(), minlength=n_sk + 1) > 0
+                            touch[0] = False
+                            fg_hand = binary_dilation(touch[sk_c], np.ones((11, 11), dtype=bool))
+                    back_clear = half_mask & (~fg_hand) & (
+                        body_solid_interior | ((body_ref[:, :, 3] > 80) & (col_body + 4.0 < col_hw))
+                    )
+                    arr[back_clear, 3] = 0
+                    comp, n_c = label((arr[:, :, 3] > 16) & half_mask)
+                    for cid in range(1, n_c + 1):
+                        cm = comp == cid
+                        ext_px = int((cm & (~(body_ref[:, :, 3] > 80)) & (arr[:, :, 3] > 120)).sum())
+                        if not (cm & fg_hand).any() and ext_px < 1200:
+                            arr[cm, 3] = 0
+                else:
+                    # On foreground arms, only remove large non-skin body-color hallucinations where handwear strongly disagrees with white
+                    bad_blob = half_mask & body_solid_interior & (~is_skin_hw) & (col_hw > 28.0) & (col_body < 12.0)
+                    bad_blob = (
+                        binary_closing(binary_opening(bad_blob, np.ones((9, 9), bool)), np.ones((15, 15), bool))
+                        & body_solid_interior
+                        & (~is_skin_hw)
+                    )
+                    arr[bad_blob, 3] = 0
 
         # Merge into sleeves: where both existing sleeves and new sub-layer are opaque, keep foreground RGB without dropping alpha!
         both_opaque = (sleeves[:, :, 3] > 40) & (arr[:, :, 3] > 40)
@@ -337,139 +320,67 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
 
     # 5. Topwear vs Bottomwear bridge resolution
     top = raw_top.copy()
-    top_for_err = np.where(top[:, :, 3:4] > 180, top, white)
-    bot_for_err = np.where(bottom[:, :, 3:4] > 180, bottom, white)
-    err_top = detail_and_color_error(top_for_err, white, sigma_patch=8.0)
-    err_bot = detail_and_color_error(bot_for_err, white, sigma_patch=8.0)
     waist_y = min(hip_y, boob_y + 150)
-    overlap_tb = (top[:, :, 3] > 32) & (bottom[:, :, 3] > 180) & (np.arange(H)[:, None] >= waist_y)
-    unocc_tb = overlap_tb & (~fg_occluder)
-    bot_layer_above_top = layer_idx_map.get("bottomwear", -1) > layer_idx_map.get("topwear", -1)
-    if outfit == "homewear" and bot_layer_above_top:
-        bot_wins = unocc_tb & (err_bot <= err_top + 6.0)
-    else:
-        bot_wins = unocc_tb & (err_bot + 3.0 < err_top) & (err_top > 11.0)
-    bot_wins = binary_fill_holes(binary_closing(binary_opening(bot_wins, np.ones((9, 9), bool)), np.ones((25, 25), bool))) & unocc_tb
-    for y in range(waist_y, H):
-        if np.count_nonzero(bot_wins[y]) >= 15:
-            bot_wins[y] |= (overlap_tb[y] & fg_occluder[y])
-        xs = np.nonzero(bot_wins[y])[0]
-        if len(xs) >= 20:
-            span = slice(int(xs.min()), int(xs.max()) + 1)
-            bot_wins[y, span] |= overlap_tb[y, span]
-
-    # When topwear is in front of bottomwear (not bot_layer_above_top, e.g. swimwear/nova),
-    # never place the topwear/bottomwear cut inside the cast-shadow zone immediately below foreground hands (sleeves);
-    # bridging across finger gaps with (75, 65) places a smooth seam inside the uniform bright skin below the hand shadow.
-    if not (outfit == "homewear" and bot_layer_above_top):
-        hand_on_waist = (sleeves[:, :, 3] > 80) & (np.arange(H)[:, None] >= waist_y - 40) & (np.arange(H)[:, None] <= waist_y + 120)
-        if hand_on_waist.any():
-            hand_shadow_guard = binary_dilation(hand_on_waist, np.ones((75, 65), dtype=bool)) & (raw_top[:, :, 3] > 180)
-            bot_wins[hand_shadow_guard] = False
-
-    # Refine column-wise seam between topwear and bottomwear:
-    # - Case 1 (y_bw - y_bot <= 18 or bot_layer_above_top): bottomwear has no deep inpainted underlap above the seam (e.g. nova).
-    #   Extend bot_wins 6px upward across the bicubic edge and mark column for 15px underlap_tb.
-    # - Case 2 (y_bw - y_bot > 18 and not bot_layer_above_top): bottomwear already has a deep inpainted underlap behind topwear (e.g. swimwear/naru).
-    #   Retreat bot_wins 6px downward so topwear keeps its full hem outline, and preserve bottomwear's inpainted underlap.
-    needs_underlap_col = np.zeros(W, dtype=bool)
-    for x in range(W):
-        bw_ys = np.nonzero(bot_wins[waist_y:, x])[0]
-        bot_ys = np.nonzero(bottom[waist_y:, x, 3] > 180)[0]
-        if len(bw_ys) and len(bot_ys):
-            y_bw = int(bw_ys.min()) + waist_y
-            y_bot = int(bot_ys.min()) + waist_y
-            if (y_bw - y_bot <= 18) or (outfit == "homewear" and bot_layer_above_top):
-                y_up = max(waist_y, min(y_bw, y_bot) - 6 if (y_bw - y_bot <= 8) else y_bw - 2)
-                bot_wins[y_up:y_bw, x] = top[y_up:y_bw, x, 3] > 0
-                needs_underlap_col[x] = True
-            else:
-                y_dn = min(H, y_bw + 6)
-                bot_wins[y_bw:y_dn, x] = False
-
-    # If the majority of bot_wins columns are Case 1 (e.g. nova), propagate horizontally across full overlap_tb (respecting hand_shadow_guard)
-    if np.count_nonzero(needs_underlap_col) >= 40:
-        guard_mask = hand_shadow_guard if (not (outfit == "homewear" and bot_layer_above_top) and hand_on_waist.any()) else np.zeros((H, W), dtype=bool)
+    center_bridge_zone = raw_top[waist_y + 45 : waist_y + 160, hip_x - 45 : hip_x + 45, 3] > 80
+    has_center_bridge = np.mean(center_bridge_zone) > 0.25
+    bot_wins = np.zeros((H, W), dtype=bool)
+    if has_center_bridge:
+        top_for_err = np.where(top[:, :, 3:4] > 180, top, white)
+        bot_for_err = np.where(bottom[:, :, 3:4] > 180, bottom, white)
+        err_top = detail_and_color_error(top_for_err, white, sigma_patch=8.0)
+        err_bot = detail_and_color_error(bot_for_err, white, sigma_patch=8.0)
+        overlap_tb = (top[:, :, 3] > 32) & (bottom[:, :, 3] > 180) & (np.arange(H)[:, None] >= waist_y)
+        unocc_tb = overlap_tb & (~fg_occluder)
+        bot_layer_above_top = layer_idx_map.get("bottomwear", -1) > layer_idx_map.get("topwear", -1)
+        if outfit == "homewear" and bot_layer_above_top:
+            bot_wins = unocc_tb & (err_bot <= err_top + 6.0)
+        else:
+            bot_wins = unocc_tb & (err_bot + 3.0 < err_top) & (err_top > 11.0)
+        bot_wins = binary_fill_holes(binary_closing(binary_opening(bot_wins, np.ones((9, 9), bool)), np.ones((25, 25), bool))) & unocc_tb
+        if (overlap_tb & fg_occluder).any() and unocc_tb.any():
+            _, near_tb = distance_transform_edt(~unocc_tb, return_indices=True)
+            occ_tb = overlap_tb & fg_occluder
+            bot_wins[occ_tb] = bot_wins[near_tb[0][occ_tb], near_tb[1][occ_tb]]
         for y in range(waist_y, H):
-            if np.count_nonzero(bot_wins[y] & needs_underlap_col) >= 35:
-                bot_wins[y] |= (overlap_tb[y] & (~guard_mask[y]))
-                needs_underlap_col[overlap_tb[y]] = True
-        for x in np.nonzero(needs_underlap_col)[0]:
+            xs = np.nonzero(bot_wins[y])[0]
+            if len(xs) >= 20:
+                x0, x1 = int(xs.min()), int(xs.max())
+                if np.all(bottom[y, x0 : x1 + 1, 3] > 180):
+                    bot_wins[y, x0 : x1 + 1] |= overlap_tb[y, x0 : x1 + 1]
+        for x in range(W):
             bw_ys = np.nonzero(bot_wins[waist_y:, x])[0]
             bot_ys = np.nonzero(bottom[waist_y:, x, 3] > 180)[0]
             if len(bw_ys) and len(bot_ys):
                 y_bw = int(bw_ys.min()) + waist_y
                 y_bot = int(bot_ys.min()) + waist_y
                 if y_bw - y_bot <= 8:
-                    y_up = max(waist_y, min(y_bw, y_bot) - 6)
-                    bot_wins[y_up:y_bw, x] = (top[y_up:y_bw, x, 3] > 0) & (~guard_mask[y_up:y_bw, x])
+                    y_up = max(waist_y, y_bot - 4)
+                    bot_wins[y_up:y_bw, x] = top[y_up:y_bw, x, 3] > 0
+                else:
+                    y_dn = min(H, y_bw + 4)
+                    bot_wins[y_bw:y_dn, x] = False
 
-    top[bot_wins, 3] = 0
-    # Also remove 1-3px thin outer fringe spikes of topwear left along the leg boundary below waist_y (e.g. ho/jinni)
-    top_lower_core = binary_erosion(top[waist_y:, :, 3] > 80, np.ones((3, 5), dtype=bool))
-    top_lower_keep = binary_dilation(top_lower_core, np.ones((5, 7), dtype=bool))
-    top[waist_y:][~top_lower_keep, 3] = 0
-
-    # In columns where bottomwear already has an inpainted underlap behind topwear (~needs_underlap_col, e.g. swimwear/naru),
-    # solidify topwear's semi-transparent lower hem edge over bottomwear so the hem outline moves cleanly with topwear
-    inpainted_bot_overlap = (
-        (np.arange(H)[:, None] >= waist_y)
-        & (~needs_underlap_col[None, :])
-        & (bottom[:, :, 3] > 180)
-        & (~(sleeves[:, :, 3] > 80))
-    )
-    hem_solidify = inpainted_bot_overlap & (top[:, :, 3] >= 20) & (top[:, :, 3] < 255) & (source[:, :, 3] > 200)
-    if hem_solidify.any():
-        top[hem_solidify, :3] = source[hem_solidify, :3]
-        top[hem_solidify, 3] = 255
-    hem_faint = inpainted_bot_overlap & (top[:, :, 3] > 0) & (top[:, :, 3] < 20)
-    if hem_faint.any():
-        top[hem_faint, 3] = 0
-
-    # Trim bare legwear bleed under sheer robes where topwear genuinely wins (leaving 5px underlap around bot_wins)
-    top_wins_over_leg = overlap_tb & (~binary_dilation(bot_wins, np.ones((11, 11), dtype=bool))) & (bot[:, :, 3] <= 32)
-    bottom[top_wins_over_leg, 3] = 0
-
-    take_bot_src = bot_wins & (source[:, :, 3] > 128) & (err_bot <= 35.0) & (~fg_occluder)
-    bottom[take_bot_src] = source[take_bot_src]
-    # Where bot_wins is occluded by fg_occluder and bottom alpha is <255 (bicubic top edge), fill from nearest solid bottom pixel
-    bot_occ_edge = bot_wins & fg_occluder & (bottom[:, :, 3] < 255)
-    if bot_occ_edge.any() and np.any(bottom[:, :, 3] >= 220):
-        _, near_b = distance_transform_edt(~(bottom[:, :, 3] >= 220), return_indices=True)
-        bottom[bot_occ_edge, :3] = bottom[near_b[0][bot_occ_edge], near_b[1][bot_occ_edge], :3]
-        bottom[bot_occ_edge, 3] = 255
-
-    # Ensure 15px (>10px peak chest breathing rise) seamless underlap of bottomwear beneath topwear's lower edge
-    # ONLY in columns where bottomwear lacked an existing inpainted underlap (needs_underlap_col)
-    underlap_tb = np.zeros((H, W), dtype=bool)
-    bot_exposed_below = ((bottom[:, :, 3] >= 250) | bot_wins) & (top[:, :, 3] < 180) & (np.arange(H)[:, None] >= waist_y) & needs_underlap_col[None, :]
-    if bot_exposed_below.any():
-        underlap_tb = (
-            binary_dilation(bot_exposed_below, np.ones((31, 31), dtype=bool))
-            & (~bot_exposed_below)
-            & (raw_top[:, :, 3] >= 180)
-            & (source[:, :, 3] > 200)
-            & (np.arange(H)[:, None] >= waist_y)
-            & needs_underlap_col[None, :]
+        top[bot_wins, 3] = 0
+        top_lower_core = binary_erosion(top[waist_y:, :, 3] > 80, np.ones((3, 5), dtype=bool))
+        top_lower_keep = binary_dilation(top_lower_core, np.ones((5, 7), dtype=bool))
+        top[waist_y:][~top_lower_keep, 3] = 0
+        top_wins_over_leg = (
+            (top[:, :, 3] > 80)
+            & (np.arange(H)[:, None] >= waist_y - 20)
+            & (~binary_dilation(bot_wins, np.ones((11, 11), dtype=bool)))
+            & (bot[:, :, 3] <= 32)
         )
-        underlap_clean_src = underlap_tb & (~fg_occluder)
-        bottom[underlap_clean_src] = source[underlap_clean_src]
-        underlap_occ = underlap_tb & fg_occluder
-        if underlap_occ.any():
-            bottom[underlap_occ, :3] = raw_top[underlap_occ, :3]
-            bottom[underlap_occ, 3] = 255
-        # Also solidify any remaining semi-transparent bicubic top edge of bottomwear in needs_underlap_col
-        semi_bot_edge = (
-            (np.arange(H)[:, None] >= waist_y)
-            & needs_underlap_col[None, :]
-            & (bottom[:, :, 3] > 0)
+        bottom[top_wins_over_leg, 3] = 0
+        # Solidify semi-transparent edges inside bot_wins and extend 12px underlap beneath adjacent opaque topwear
+        bot_underlap_zone = (
+            binary_dilation(bot_wins, np.ones((25, 25), dtype=bool))
+            & (bot_wins | (top[:, :, 3] > 80))
             & (bottom[:, :, 3] < 250)
-            & (raw_top[:, :, 3] >= 180)
         )
-        if semi_bot_edge.any():
-            bottom[semi_bot_edge & (~fg_occluder)] = source[semi_bot_edge & (~fg_occluder)]
-            bottom[semi_bot_edge & fg_occluder, :3] = raw_top[semi_bot_edge & fg_occluder, :3]
-            bottom[semi_bot_edge & fg_occluder, 3] = 255
+        if bot_underlap_zone.any() and np.any(bottom[:, :, 3] >= 220):
+            _, near_bot = distance_transform_edt(~(bottom[:, :, 3] >= 220), return_indices=True)
+            bottom[bot_underlap_zone, :3] = bottom[near_bot[0][bot_underlap_zone], near_bot[1][bot_underlap_zone], :3]
+            bottom[bot_underlap_zone, 3] = 255
 
     # Resolve topwear vs visible neck skin: remove ONLY hidden dark back-of-neck collars behind bare neck skin (e.g. ho/luna)
     col_neck = color_error_smooth(neck, white, sigma_patch=3.0)
@@ -512,7 +423,6 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
             fg_head_only |= (mapped[htag][:, :, 3] > 32)
 
     union_post = np.maximum.reduce([a[:, :, 3] for a in pieces.values()])
-    # Only erode the outer silhouette of the clothing union — NEVER erode internal boundaries between clothing parts!
     outer_sil_core = binary_erosion((union_post >= 180) & (source[:, :, 3] > 128), np.ones((3, 3), dtype=bool))
 
     vis_owner = np.full((H, W), -1, dtype=np.int16)
@@ -520,36 +430,30 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
         vis_owner[pieces[name][:, :, 3] > 80] = idx
 
     below_hair_band = np.arange(H)[:, None] >= low_hair_limit_y
-    sleeves_halo = binary_dilation(pieces["sleeves"][:, :, 3] > 8, np.ones((7, 7), dtype=bool))
-    top_hem_halo_for_bot = (
-        binary_dilation(pieces["topwear"][:, :, 3] > 0, np.ones((7, 7), dtype=bool))
-        & (~needs_underlap_col[None, :])
-        & (np.arange(H)[:, None] >= waist_y)
-    )
+    sleeves_occlude_proj_mask = binary_dilation(pieces["sleeves"][:, :, 3] > 8, np.ones((7, 7), dtype=bool))
     projection = {}
     for idx, name in enumerate(ORDER):
         arr = pieces[name]
         drift = np.max(np.abs(arr[:, :, :3].astype(np.int16) - white[:, :, :3].astype(np.int16)), axis=2)
         allow_proj = (~hair_st) | ((nw_mask & (~fg_head_only)) if name == "topwear" else False)
-        sleeves_edge_mismatch = (sleeves_halo & (drift > 24)) if name != "sleeves" else np.zeros((H, W), dtype=bool)
-        if name == "bottomwear":
-            sleeves_edge_mismatch = sleeves_edge_mismatch | top_hem_halo_for_bot
-        allow_proj = allow_proj & (~sleeves_edge_mismatch)
+        if name != "sleeves":
+            sleeves_occlude_proj = sleeves_occlude_proj_mask
+            allow_proj = allow_proj & (~sleeves_occlude_proj)
+        else:
+            sleeves_occlude_proj = np.zeros((H, W), dtype=bool)
 
-        # Alpha of parts below and above this part
+        # Alpha of parts below and above this part (excluding sleeves, which is a foreground overlay rather than a body seam)
         below_alpha = np.zeros((H, W), dtype=np.uint8)
         for b_idx in range(idx):
             below_alpha = np.maximum(below_alpha, pieces[ORDER[b_idx]][:, :, 3])
         above_alpha = np.zeros((H, W), dtype=np.uint8)
         for a_idx in range(idx + 1, len(ORDER)):
+            if ORDER[a_idx] == "sleeves":
+                continue
             above_alpha = np.maximum(above_alpha, pieces[ORDER[a_idx]][:, :, 3])
 
-        # 1) Topmost visible region of this part: include full alpha>0 over internal seams (where below_alpha > 160)
         is_top_interior = (vis_owner == idx) & (arr[:, :, 3] >= 180) & outer_sil_core & allow_proj
         is_internal_upper_edge = (above_alpha <= 80) & (arr[:, :, 3] > 0) & (below_alpha > 160) & outer_sil_core & allow_proj
-        # 2) Underlap region: NEVER stamp opaque foreground occluders (e.g. sleeves/fingers) onto underlying topwear/bottomwear!
-        # Only project under semi-transparent shared seams where the underlying layer already matches source (drift <= 28),
-        # or on neck under topwear, or on bottomwear's 4px bot_wins underlap.
         dist_into_above = distance_transform_edt(above_alpha > 80)
         if name == "neck":
             is_internal_lower_seam = (
@@ -560,18 +464,14 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
                 & allow_proj
                 & ((above_alpha < 245) | (drift <= 65))
             )
-        elif name == "bottomwear":
-            is_internal_lower_seam = underlap_tb & outer_sil_core & (~fg_occluder) & (~sleeves_edge_mismatch)
         else:
             is_internal_lower_seam = (
                 (arr[:, :, 3] > 0)
                 & (above_alpha > 0)
-                & (
-                    ((above_alpha < 240) & (dist_into_above <= 2) & (drift <= 28))
-                    | ((dist_into_above <= 8) & (drift <= 18))
-                )
+                & (dist_into_above <= 6)
                 & outer_sil_core
                 & allow_proj
+                & ((drift <= 45) | ((name == "bottomwear") & (dist_into_above <= 3)))
             )
 
         core = is_top_interior | is_internal_upper_edge | is_internal_lower_seam
@@ -582,8 +482,7 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
             | is_internal_lower_seam
         )
         weight = gaussian_filter(accepted.astype(np.float32), sigma=0.8) * (arr[:, :, 3] > 0)
-        weight[sleeves_edge_mismatch] = 0.0
-        # Snap weight to 1.0 right on internal seam edges so alpha-compositing upper over lower is mathematically exact
+        weight[sleeves_occlude_proj] = 0.0
         exact_seam = (is_internal_upper_edge | is_internal_lower_seam) & accepted
         weight[exact_seam] = 1.0
         arr[:, :, :3] = np.clip(
@@ -597,24 +496,6 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
             "taken": int(accepted.sum()),
             "refused": int((core & (~accepted)).sum()),
         }
-
-    # In Case 2 columns (~needs_underlap_col, e.g. swimwear/naru), extrapolate projected vertical skirt pleats
-    # from 5..9px below topwear's hem upward into the 16px underlap on bottomwear so vertical pleats continue seamlessly during chest rise
-    bot_arr = pieces["bottomwear"]
-    top_arr = pieces["topwear"]
-    for x in range(W):
-        if needs_underlap_col[x]:
-            continue
-        t_ys = np.nonzero((top_arr[waist_y : waist_y + 180, x, 3] > 180) & (bot_arr[waist_y : waist_y + 180, x, 3] > 180))[0]
-        if len(t_ys) >= 5:
-            y_hem = int(t_ys.max()) + waist_y
-            if y_hem + 10 < H and np.all(bot_arr[y_hem : y_hem + 10, x, 3] > 200) and np.all(top_arr[y_hem + 2 : y_hem + 8, x, 3] == 0):
-                sample_rgb = np.mean(bot_arr[y_hem + 5 : y_hem + 9, x, :3].astype(np.float32), axis=0)
-                y0_ul = max(waist_y, y_hem - 16)
-                y1_ul = min(H, y_hem + 5)
-                for y_u in range(y0_ul, y1_ul):
-                    if bot_arr[y_u, x, 3] > 180:
-                        bot_arr[y_u, x, :3] = np.round(sample_rgb).astype(np.uint8)
 
     # Clean stray islands, seal narrow margin-3 contour bays, extend neck 45px under topwear/sleeves, and harmonize skin tone
     four_conn = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], dtype=bool)

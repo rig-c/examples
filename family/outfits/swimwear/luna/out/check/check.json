@@ -171,7 +171,7 @@
    "in": "rig.json"
   }
  ],
- "seam_mean": 0.141,
+ "seam_mean": 0.14,
  "seam_px_over_40": 0,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.076242,
@@ -283,26 +283,26 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 5,
-  "triangles": 1517,
+  "triangles": 1543,
   "frames": 41,
-  "severity": 1.125,
+  "severity": 1.224,
   "severity_ceiling": 1.926544,
   "worst": {
-   "slot": "hair_front",
-   "triangle": 162,
+   "slot": "topwear",
+   "triangle": 142,
    "vertices": [
-    155,
-    92,
-    91
+    107,
+    109,
+    108
    ],
    "edge": [
-    92,
-    91
+    109,
+    108
    ],
-   "frame": 24,
-   "ratio": 0.889
+   "frame": 10,
+   "ratio": 1.224
   },
-  "max_ratio": 1.073,
+  "max_ratio": 1.224,
   "min_ratio": 0.889,
   "per_mesh": [
    {
@@ -326,19 +326,19 @@
    {
     "slot": "topwear",
     "triangles": 684,
-    "max_ratio": 1.008,
-    "max_at": "triangle 590 (vertices 353 356 357), edge 356-357, idle frame 10",
-    "min_ratio": 0.994,
-    "min_at": "triangle 53 (vertices 37 39 38), edge 38-37, idle frame 1",
-    "severity": 1.008
+    "max_ratio": 1.224,
+    "max_at": "triangle 142 (vertices 107 109 108), edge 109-108, idle frame 10",
+    "min_ratio": 0.944,
+    "min_at": "triangle 78 (vertices 54 56 55), edge 56-55, idle frame 10",
+    "severity": 1.224
    },
    {
     "slot": "sleeves",
-    "triangles": 544,
+    "triangles": 570,
     "max_ratio": 1.008,
-    "max_at": "triangle 178 (vertices 133 135 134), edge 134-133, idle frame 10",
+    "max_at": "triangle 203 (vertices 161 163 162), edge 162-161, idle frame 10",
     "min_ratio": 1,
-    "min_at": "triangle 408 (vertices 310 329 311), edge 311-310, idle frame 1",
+    "min_at": "triangle 271 (vertices 212 403 213), edge 213-212, idle frame 1",
     "severity": 1.008
    },
    {

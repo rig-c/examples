@@ -127,7 +127,7 @@
   }
  ],
  "seam_mean": 0.161,
- "seam_px_over_40": 1,
+ "seam_px_over_40": 11,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.052669,
  "BREATH_VISIBLE": {
@@ -227,26 +227,26 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 5,
-  "triangles": 1483,
+  "triangles": 1452,
   "frames": 41,
-  "severity": 1.092,
+  "severity": 1.118,
   "severity_ceiling": 1.926544,
   "worst": {
-   "slot": "hair_back",
-   "triangle": 197,
+   "slot": "topwear",
+   "triangle": 262,
    "vertices": [
-    91,
-    93,
-    92
+    232,
+    234,
+    233
    ],
    "edge": [
-    91,
-    93
+    233,
+    232
    ],
-   "frame": 24,
-   "ratio": 1.092
+   "frame": 10,
+   "ratio": 1.118
   },
-  "max_ratio": 1.092,
+  "max_ratio": 1.118,
   "min_ratio": 0.918,
   "per_mesh": [
    {
@@ -269,21 +269,21 @@
    },
    {
     "slot": "topwear",
-    "triangles": 648,
-    "max_ratio": 1.013,
-    "max_at": "triangle 114 (vertices 89 92 91), edge 92-91, idle frame 7",
-    "min_ratio": 0.992,
-    "min_at": "triangle 617 (vertices 463 469 464), edge 463-469, idle frame 1",
-    "severity": 1.013
+    "triangles": 610,
+    "max_ratio": 1.118,
+    "max_at": "triangle 262 (vertices 232 234 233), edge 233-232, idle frame 10",
+    "min_ratio": 0.948,
+    "min_at": "triangle 533 (vertices 397 406 398), edge 406-398, idle frame 11",
+    "severity": 1.118
    },
    {
     "slot": "sleeves",
-    "triangles": 347,
-    "max_ratio": 1.008,
-    "max_at": "triangle 334 (vertices 277 281 282), edge 281-282, idle frame 10",
-    "min_ratio": 1,
-    "min_at": "triangle 257 (vertices 220 235 221), edge 221-220, idle frame 1",
-    "severity": 1.008
+    "triangles": 354,
+    "max_ratio": 1.069,
+    "max_at": "triangle 250 (vertices 216 247 243), edge 247-243, idle frame 10",
+    "min_ratio": 0.987,
+    "min_at": "triangle 323 (vertices 266 274 267), edge 266-274, idle frame 10",
+    "severity": 1.069
    },
    {
     "slot": "hair_front",
@@ -318,17 +318,17 @@
   "stage_px": "800x2284",
   "render_px": "758x2284",
   "render_scale": 1.0527,
-  "mean_abs": 0.469,
+  "mean_abs": 0.461,
   "within_limit": 8,
-  "within_share": 0.9854,
+  "within_share": 0.9857,
   "error_limit": 40,
-  "error_px": 686,
+  "error_px": 388,
   "covered_alpha": 128,
-  "uncovered_error_px": 182,
+  "uncovered_error_px": 180,
   "hole_count": 84,
   "largest": {
-   "px": 26,
-   "box": "206,1353 2x26"
+   "px": 12,
+   "box": "207,1327 2x12"
   }
  },
  "PASS": true
