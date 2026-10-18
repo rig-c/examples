@@ -313,7 +313,7 @@
     },
     {
       "name": "cardigan_hem_r",
-      "parent": "hip",
+      "parent": "chest",
       "at": [
         335,
         880
@@ -325,7 +325,7 @@
     },
     {
       "name": "cardigan_hem_l",
-      "parent": "hip",
+      "parent": "chest",
       "at": [
         495,
         880
@@ -382,22 +382,22 @@
           {
             "name": "bust_r",
             "shape": "circle",
-            "cx": 257,
-            "cy": 752,
-            "r": 15,
+            "cx": 268.0,
+            "cy": 715.0,
+            "r": 15.0,
             "bone": "boob_r",
             "spacing": 14,
-            "band": 58
+            "band": 45.0
           },
           {
             "name": "bust_l",
             "shape": "circle",
-            "cx": 418,
-            "cy": 758,
-            "r": 21,
+            "cx": 418.0,
+            "cy": 720.0,
+            "r": 18.0,
             "bone": "boob_l",
             "spacing": 14,
-            "band": 65
+            "band": 45.0
           }
         ]
       },
@@ -415,7 +415,7 @@
           ]
         ],
         [
-          "hip",
+          "chest",
           [
             380,
             890
@@ -433,7 +433,7 @@
           ],
           [
             335,
-            880
+            955
           ]
         ],
         [
@@ -444,11 +444,9 @@
           ],
           [
             495,
-            880
+            955
           ]
-        ],
-        "cardigan_hem_r",
-        "cardigan_hem_l"
+        ]
       ]
     },
     "sleeves": {

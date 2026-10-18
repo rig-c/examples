@@ -29,12 +29,12 @@ CHAR_SPECS = {
         "hem_r": {"at": [205, 960], "tip": [195, 1340]},
         "hem_l": {"at": [555, 960], "tip": [590, 1340]},
         "neck_segments": [["chest", [365, 430], [365, 657]], ["head", [365, 394], [365, 344]]],
-        "topwear_segments": [["chest", [360, 448], [360, 843]], ["hip", [360, 843], [360, 946]]],
+        "topwear_segments": [["chest", [360, 448], [360, 843]], ["chest", [360, 843], [360, 946]]],
         "cardigan_segments": [
             ["chest", [220, 480], [220, 840]],
             ["chest", [500, 480], [520, 840]],
-            ["hip", [210, 840], [205, 960]],
-            ["hip", [525, 840], [555, 960]],
+            ["chest", [210, 840], [205, 960]],
+            ["chest", [525, 840], [555, 960]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
@@ -48,12 +48,12 @@ CHAR_SPECS = {
         "hem_r": {"at": [235, 1020], "tip": [220, 1245]},
         "hem_l": {"at": [500, 1020], "tip": [515, 1245]},
         "neck_segments": [["chest", [370, 565], [368, 790]], ["head", [370, 535], [370, 480]]],
-        "topwear_segments": [["chest", [368, 575], [368, 940]], ["hip", [368, 940], [368, 1025]]],
+        "topwear_segments": [["chest", [368, 575], [368, 940]], ["chest", [368, 940], [368, 1025]]],
         "cardigan_segments": [
             ["chest", [250, 600], [240, 940]],
             ["chest", [485, 600], [495, 940]],
-            ["hip", [240, 940], [235, 1020]],
-            ["hip", [495, 940], [500, 1020]],
+            ["chest", [240, 940], [235, 1020]],
+            ["chest", [495, 940], [500, 1020]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
@@ -66,12 +66,12 @@ CHAR_SPECS = {
         "hem_r": {"at": [330, 940], "tip": [325, 1035]},
         "hem_l": {"at": [550, 940], "tip": [560, 1035]},
         "neck_segments": [["chest", [428, 545], [428, 734]], ["head", [428, 500], [428, 410]]],
-        "topwear_segments": [["chest", [440, 552], [440, 866]], ["hip", [440, 866], [440, 1035]]],
+        "topwear_segments": [["chest", [440, 552], [440, 866]], ["chest", [440, 866], [440, 1035]]],
         "cardigan_segments": [
             ["chest", [330, 620], [330, 880]],
             ["chest", [540, 620], [550, 880]],
-            ["hip", [330, 880], [330, 940]],
-            ["hip", [550, 880], [550, 940]],
+            ["chest", [330, 880], [330, 940]],
+            ["chest", [550, 880], [550, 940]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
@@ -83,13 +83,17 @@ CHAR_SPECS = {
     "naru": {
         "hem_r": {"at": [243, 1080], "tip": [245, 1350]},
         "hem_l": {"at": [532, 1080], "tip": [532, 1350]},
+        "bust_regions": {
+            "bust_r": {"cx": 325, "cy": 735, "r": 16, "band": 38},
+            "bust_l": {"cx": 445, "cy": 735, "r": 16, "band": 38},
+        },
         "neck_segments": [["chest", [380, 650], [380, 780]], ["head", [380, 575], [380, 510]]],
-        "topwear_segments": [["chest", [380, 630], [380, 910]], ["hip", [380, 910], [380, 1080]]],
+        "topwear_segments": [["chest", [380, 630], [380, 910]], ["chest", [380, 910], [380, 1080]]],
         "cardigan_segments": [
             ["chest", [240, 640], [240, 950]],
             ["chest", [535, 640], [535, 950]],
-            ["hip", [245, 940], [245, 1080]],
-            ["hip", [532, 940], [532, 1080]],
+            ["chest", [245, 940], [245, 1080]],
+            ["chest", [532, 940], [532, 1080]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
@@ -99,15 +103,24 @@ CHAR_SPECS = {
         "stitch": [("neck", 625, True), ("topwear", 705, False)],
     },
     "nova": {
-        "hem_r": {"at": [225, 1020], "tip": [220, 1350]},
-        "hem_l": {"at": [540, 1020], "tip": [560, 1410]},
+        "hem_r": {"at": [225, 1040], "tip": [220, 1350]},
+        "hem_l": {"at": [545, 1040], "tip": [560, 1410]},
+        "bust_regions": {
+            "bust_r": {"cx": 268, "cy": 715, "r": 15, "band": 45},
+            "bust_l": {"cx": 418, "cy": 720, "r": 18, "band": 45},
+        },
         "neck_segments": [["chest", [435, 550], [410, 780]], ["head", [435, 500], [435, 450]]],
-        "topwear_segments": [["chest", [380, 555], [380, 900]], ["hip", [380, 900], [380, 975]]],
+        "topwear_segments": [
+            ["chest", [380, 555], [380, 900]],
+            ["chest", [380, 900], [380, 975]],
+            ["chest", [310, 780], [310, 975]],
+            ["chest", [445, 780], [445, 975]],
+        ],
         "cardigan_segments": [
             ["chest", [250, 580], [235, 920]],
             ["chest", [520, 560], [530, 920]],
-            ["hip", [235, 920], [225, 1020]],
-            ["hip", [530, 920], [540, 1020]],
+            ["chest", [235, 920], [225, 1040]],
+            ["chest", [530, 920], [545, 1040]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
@@ -163,8 +176,8 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
     baseline_rig = json.loads((family / char / "out/rig/rig.json").read_text())
     cfg["constraints"] = json.loads(json.dumps(baseline_rig["constraints"]))
     cfg["bones"] += [
-        {"name": "cardigan_hem_r", "parent": "hip", **spec["hem_r"]},
-        {"name": "cardigan_hem_l", "parent": "hip", **spec["hem_l"]},
+        {"name": "cardigan_hem_r", "parent": "chest", **spec["hem_r"]},
+        {"name": "cardigan_hem_l", "parent": "chest", **spec["hem_l"]},
     ]
     for side in ["r", "l"]:
         cfg["constraints"].append({
@@ -184,9 +197,11 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
     top["segments"] = [*spec["topwear_segments"], *spec["cardigan_segments"]]
     top["contour"]["tolerance"] = 1
     top["contour"]["margin"] = 3
+    bust_override = spec.get("bust_regions")
     bust_override_path = home / "bust-regions.json"
     if bust_override_path.is_file():
         bust_override = json.loads(bust_override_path.read_text())
+    if bust_override:
         for reg in top["contour"].get("regions", []):
             if reg["name"] in bust_override:
                 ov = bust_override[reg["name"]]

@@ -246,27 +246,27 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 6,
-  "triangles": 2298,
+  "triangles": 2259,
   "frames": 41,
-  "severity": 1.187,
+  "severity": 1.071,
   "severity_ceiling": 1.926544,
   "worst": {
-   "slot": "topwear",
-   "triangle": 379,
+   "slot": "hair_front",
+   "triangle": 78,
    "vertices": [
-    296,
-    298,
-    297
+    56,
+    54,
+    82
    ],
    "edge": [
-    298,
-    297
+    56,
+    54
    ],
-   "frame": 10,
-   "ratio": 0.843
+   "frame": 19,
+   "ratio": 1.071
   },
-  "max_ratio": 1.125,
-  "min_ratio": 0.843,
+  "max_ratio": 1.071,
+  "min_ratio": 0.951,
   "per_mesh": [
    {
     "slot": "hair_back",
@@ -288,20 +288,20 @@
    },
    {
     "slot": "topwear",
-    "triangles": 1437,
-    "max_ratio": 1.125,
-    "max_at": "triangle 1243 (vertices 804 815 805), edge 804-815, idle frame 10",
-    "min_ratio": 0.843,
-    "min_at": "triangle 379 (vertices 296 298 297), edge 298-297, idle frame 10",
-    "severity": 1.187
+    "triangles": 1400,
+    "max_ratio": 1.011,
+    "max_at": "triangle 179 (vertices 132 134 133), edge 134-133, idle frame 7",
+    "min_ratio": 0.99,
+    "min_at": "triangle 1173 (vertices 728 734 729), edge 728-734, idle frame 2",
+    "severity": 1.011
    },
    {
     "slot": "sleeves",
-    "triangles": 617,
+    "triangles": 615,
     "max_ratio": 1.008,
-    "max_at": "triangle 467 (vertices 387 388 389), edge 388-389, idle frame 10",
+    "max_at": "triangle 459 (vertices 377 379 380), edge 379-380, idle frame 10",
     "min_ratio": 1,
-    "min_at": "triangle 117 (vertices 94 96 95), edge 95-94, idle frame 1",
+    "min_at": "triangle 101 (vertices 80 82 81), edge 81-80, idle frame 1",
     "severity": 1.008
    },
    {
@@ -344,16 +344,16 @@
   "status": "REPORTED",
   "painting_px": "800x2284",
   "stage_px": "800x2284",
-  "render_px": "894x2284",
+  "render_px": "893x2284",
   "render_scale": 1.0004,
-  "mean_abs": 0.752,
+  "mean_abs": 0.748,
   "within_limit": 8,
-  "within_share": 0.9696,
+  "within_share": 0.97,
   "error_limit": 40,
-  "error_px": 1643,
+  "error_px": 1623,
   "covered_alpha": 128,
-  "uncovered_error_px": 630,
-  "hole_count": 280,
+  "uncovered_error_px": 627,
+  "hole_count": 276,
   "largest": {
    "px": 19,
    "box": "503,410 18x12"

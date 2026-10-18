@@ -1,8 +1,8 @@
 {
   "spec": "family-swimwear-neck-seam/1",
   "character": "roa",
-  "beforeRigSHA256": "d4d9dc86c348f8b9cdccab021254d5094e14fc9e2c143bbe358f84d8cb813037",
-  "afterRigSHA256": "f089c2a86b09256033da2367e1fbfe069c08b5c10a7f3e6b589c2d816571c33a",
+  "beforeRigSHA256": "753ecab6a7a4ce8546136e914915d77268df4c9f2c1a2c6351a07ed010a0ce20",
+  "afterRigSHA256": "8d83d05c5926c5bc1e80e9a146d95926da2edc912e6ae1790b7a9d933020bc08",
   "rows": [
     {
       "part": "neck",
@@ -267,148 +267,7 @@
       "part": "topwear",
       "sourceYThreshold": 485,
       "side": "atOrAbove",
-      "changed": [
-        {
-          "vertex": 0,
-          "sourceY": 447.999925,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.96669
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03331
-            }
-          ]
-        },
-        {
-          "vertex": 19,
-          "sourceY": 472.000475,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.96413
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03587
-            }
-          ]
-        },
-        {
-          "vertex": 20,
-          "sourceY": 468.999525,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.9692
-            },
-            {
-              "bone": "hip",
-              "weight": 0.0308
-            }
-          ]
-        },
-        {
-          "vertex": 437,
-          "sourceY": 479.999875,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.96223
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03777
-            }
-          ]
-        },
-        {
-          "vertex": 450,
-          "sourceY": 453.999475,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.9671
-            },
-            {
-              "bone": "hip",
-              "weight": 0.0329
-            }
-          ]
-        },
-        {
-          "vertex": 451,
-          "sourceY": 451.999625,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.96665
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03335
-            }
-          ]
-        },
-        {
-          "vertex": 452,
-          "sourceY": 450.9997,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.96494
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03506
-            }
-          ]
-        },
-        {
-          "vertex": 453,
-          "sourceY": 451.999625,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.96054
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03946
-            }
-          ]
-        },
-        {
-          "vertex": 454,
-          "sourceY": 449.999775,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.95526
-            },
-            {
-              "bone": "hip",
-              "weight": 0.04474
-            }
-          ]
-        },
-        {
-          "vertex": 778,
-          "sourceY": 482.99965,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.96222
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03778
-            }
-          ]
-        }
-      ]
+      "changed": []
     }
   ],
   "scope": "Existing chest bind coordinates only. New neck lower edge and upper swimsuit/cover-up use the same chest affine transform. Original common bones/constraints/motion/attachments and every art pixel, UV and triangle remain unchanged.",

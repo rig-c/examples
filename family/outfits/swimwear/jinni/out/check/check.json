@@ -141,7 +141,7 @@
    "in": "rig.json"
   }
  ],
- "seam_mean": 0.139,
+ "seam_mean": 0.138,
  "seam_px_over_40": 11,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.056351,
@@ -248,26 +248,26 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 8,
-  "triangles": 1414,
+  "triangles": 1395,
   "frames": 41,
-  "severity": 1.457,
+  "severity": 1.055,
   "severity_ceiling": 1.926544,
   "worst": {
-   "slot": "topwear",
-   "triangle": 210,
+   "slot": "hair_back",
+   "triangle": 123,
    "vertices": [
-    162,
-    443,
-    163
+    85,
+    89,
+    86
    ],
    "edge": [
-    163,
-    162
+    89,
+    86
    ],
-   "frame": 10,
-   "ratio": 1.457
+   "frame": 24,
+   "ratio": 0.948
   },
-  "max_ratio": 1.457,
+  "max_ratio": 1.048,
   "min_ratio": 0.948,
   "per_mesh": [
    {
@@ -290,20 +290,20 @@
    },
    {
     "slot": "topwear",
-    "triangles": 755,
-    "max_ratio": 1.457,
-    "max_at": "triangle 210 (vertices 162 443 163), edge 163-162, idle frame 10",
-    "min_ratio": 0.951,
-    "min_at": "triangle 298 (vertices 201 374 202), edge 202-201, idle frame 10",
-    "severity": 1.457
+    "triangles": 743,
+    "max_ratio": 1.009,
+    "max_at": "triangle 45 (vertices 38 40 39), edge 39-38, idle frame 11",
+    "min_ratio": 0.992,
+    "min_at": "triangle 81 (vertices 62 425 63), edge 63-62, idle frame 2",
+    "severity": 1.009
    },
    {
     "slot": "sleeves",
-    "triangles": 358,
+    "triangles": 351,
     "max_ratio": 1.008,
-    "max_at": "triangle 285 (vertices 240 295 242), edge 295-242, idle frame 10",
+    "max_at": "triangle 276 (vertices 231 287 233), edge 287-233, idle frame 10",
     "min_ratio": 1,
-    "min_at": "triangle 2 (vertices 0 281 282), edge 281-282, idle frame 2",
+    "min_at": "triangle 3 (vertices 0 272 273), edge 272-273, idle frame 2",
     "severity": 1.008
    },
    {
@@ -366,11 +366,11 @@
   "stage_px": "800x2284",
   "render_px": "773x2284",
   "render_scale": 1.0564,
-  "mean_abs": 0.478,
+  "mean_abs": 0.479,
   "within_limit": 8,
   "within_share": 0.9852,
   "error_limit": 40,
-  "error_px": 1339,
+  "error_px": 1327,
   "covered_alpha": 128,
   "uncovered_error_px": 16,
   "hole_count": 15,

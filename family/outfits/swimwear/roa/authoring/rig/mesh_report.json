@@ -59,19 +59,18 @@
  },
  {
   "part": "topwear",
-  "vertices": 947,
-  "triangles": 1437,
-  "hull": 455,
+  "vertices": 907,
+  "triangles": 1400,
+  "hull": 412,
   "bones": [
    "boob_l",
    "boob_r",
    "cardigan_hem_l",
    "cardigan_hem_r",
-   "chest",
-   "hip"
+   "chest"
   ],
   "max_influences": 4,
-  "mean_influences": 2.5,
+  "mean_influences": 1.94,
   "art_coverage": 1,
   "mode": "contour",
   "params": {
@@ -84,12 +83,12 @@
    "bridges": true
   },
   "contour": {
-   "boundaryVertices": 455,
-   "interiorVertices": 492,
+   "boundaryVertices": 412,
+   "interiorVertices": 495,
    "interiorBySource": [
     {
      "source": "region \"bust_r\"",
-     "vertices": 205
+     "vertices": 206
     },
     {
      "source": "region \"bust_l\"",
@@ -97,41 +96,41 @@
     },
     {
      "source": "background",
-     "vertices": 169
+     "vertices": 171
     }
    ],
-   "triangles": 1437,
-   "tracedVertices": 5386,
-   "artPixels": 355011,
-   "coveredArtPixels": 355011,
+   "triangles": 1400,
+   "tracedVertices": 5416,
+   "artPixels": 356027,
+   "coveredArtPixels": 356027,
    "coverage": 1,
    "overshoot": 4,
    "overshootBound": 5,
-   "meshArea": 368424.5,
-   "enclosedTransparentArea": 13413.5,
-   "filledHolePixels": 102,
+   "meshArea": 369396.5,
+   "enclosedTransparentArea": 13369.5,
+   "filledHolePixels": 103,
    "smallestAngle": {
-    "triangle": 324,
-    "value": 2.234351
+    "triangle": 321,
+    "value": 2.392712
    },
    "largestEdgeRatio": {
-    "triangle": 324,
-    "value": 19.68248
+    "triangle": 321,
+    "value": 22.400893
    },
    "nonDelaunayEdges": 0,
    "strayIslands": 0,
    "strayPixels": 0,
-   "grownPixels": 13207,
+   "grownPixels": 13313,
    "pinchFilledPixels": 0,
    "grownHolePixels": 0,
-   "outlineCut": 5,
+   "outlineCut": 7,
    "bridges": {
     "islands": [
-     355011
+     356027
     ],
     "units": [
      [
-      355011
+      356027
      ]
     ],
     "joins": []
@@ -141,7 +140,7 @@
    {
     "name": "bust_r",
     "bone": "boob_r",
-    "reached": 184,
+    "reached": 185,
     "whole": 10
    },
    {
@@ -154,9 +153,9 @@
  },
  {
   "part": "sleeves",
-  "vertices": 501,
-  "triangles": 617,
-  "hull": 383,
+  "vertices": 495,
+  "triangles": 615,
+  "hull": 373,
   "bones": [
    "chest"
   ],
@@ -174,66 +173,66 @@
    "bridges": true
   },
   "contour": {
-   "boundaryVertices": 383,
-   "interiorVertices": 118,
+   "boundaryVertices": 373,
+   "interiorVertices": 122,
    "interiorBySource": [
     {
      "source": "background",
-     "vertices": 118
+     "vertices": 122
     }
    ],
-   "triangles": 617,
-   "tracedVertices": 4088,
-   "artPixels": 160999,
-   "coveredArtPixels": 160999,
+   "triangles": 615,
+   "tracedVertices": 4094,
+   "artPixels": 164248,
+   "coveredArtPixels": 164248,
    "coverage": 1,
    "overshoot": 4,
    "overshootBound": 5,
-   "meshArea": 173246.5,
-   "enclosedTransparentArea": 12247.5,
-   "filledHolePixels": 88,
+   "meshArea": 177033.5,
+   "enclosedTransparentArea": 12785.5,
+   "filledHolePixels": 72,
    "smallestAngle": {
-    "triangle": 21,
-    "value": 0.807135
+    "triangle": 8,
+    "value": 0.804754
    },
    "largestEdgeRatio": {
-    "triangle": 21,
-    "value": 61.112374
+    "triangle": 8,
+    "value": 58.241356
    },
    "nonDelaunayEdges": 0,
    "strayIslands": 0,
    "strayPixels": 0,
-   "grownPixels": 9822,
+   "grownPixels": 9901,
    "pinchFilledPixels": 0,
    "grownHolePixels": 0,
-   "outlineCut": 4,
+   "outlineCut": 3,
    "bridges": {
     "islands": [
-     93394,
-     67605
+     95618,
+     68630
     ],
     "units": [
      [
-      93394
+      95618
      ],
      [
-      67605
+      68630
      ]
     ],
     "joins": [
      {
       "unit": 1,
       "span": [
-       257.093368,
-       260.049995
+       244.632377,
+       247.88102
       ],
-      "area": 2325,
+      "area": 2801,
       "pair": 1,
       "vertices": [
-       16,
-       190,
-       17,
-       189
+       6,
+       172,
+       7,
+       171
       ]
      }
     ]

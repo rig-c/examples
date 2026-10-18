@@ -18,7 +18,7 @@
     "physicsClock": "public physicsClockStep",
     "environment": "wind[y]=0, gravity[0,0]; applied after first/reset pose",
     "oracle": "official Spine4.3.13; exact all posed bone matrices and attachment vertices",
-    "screenshots": "native oracle rendered on dark background; no browser execution claim",
+    "screenshots": "omitted by --no-render; numerical geometry only",
     "source": "original common 69 bones + 15 head/hair attachments compared at every same-phase frame"
   },
   "cases": [
@@ -50,14 +50,14 @@
         "topwear": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.8985040954355525,
-          "maxEdgeRatio": 1.101566966473849
+          "minEdgeRatio": 0.9922484961834349,
+          "maxEdgeRatio": 1.0168091357066464
         },
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438651,
-          "maxEdgeRatio": 1.0039841312989988
+          "minEdgeRatio": 0.9960159873438644,
+          "maxEdgeRatio": 1.0039841312990014
         }
       },
       "PASS": true
@@ -88,16 +88,16 @@
           "maxEdgeRatio": 1.0184979973188724
         },
         "topwear": {
-          "windOrDragOnlyMax": 1.6547558736148809,
+          "windOrDragOnlyMax": 0.8988560623989639,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.898502993598838,
-          "maxEdgeRatio": 1.101597466652579
+          "minEdgeRatio": 0.9914540322084607,
+          "maxEdgeRatio": 1.016678480218331
         },
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438651,
-          "maxEdgeRatio": 1.0039841312989988
+          "minEdgeRatio": 0.9960159873438644,
+          "maxEdgeRatio": 1.0039841312990014
         }
       },
       "PASS": true
@@ -128,16 +128,16 @@
           "maxEdgeRatio": 1.0184979973188724
         },
         "topwear": {
-          "windOrDragOnlyMax": 0.7122164792579216,
+          "windOrDragOnlyMax": 0.38693492265437185,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.8985037288227945,
-          "maxEdgeRatio": 1.101575682860105
+          "minEdgeRatio": 0.9922210918685934,
+          "maxEdgeRatio": 1.0167968287676676
         },
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438651,
-          "maxEdgeRatio": 1.0039841312989988
+          "minEdgeRatio": 0.9960159873438644,
+          "maxEdgeRatio": 1.0039841312990014
         }
       },
       "PASS": true
@@ -168,16 +168,16 @@
           "maxEdgeRatio": 1.0184979973188724
         },
         "topwear": {
-          "windOrDragOnlyMax": 7.236470235544789,
+          "windOrDragOnlyMax": 7.2364702355447905,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.8707897401041378,
-          "maxEdgeRatio": 1.101566966473849
+          "minEdgeRatio": 0.7133502725879729,
+          "maxEdgeRatio": 1.370509917299448
         },
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438651,
-          "maxEdgeRatio": 1.0039841312989988
+          "minEdgeRatio": 0.9960159873438644,
+          "maxEdgeRatio": 1.0039841312990014
         }
       },
       "PASS": true
@@ -208,16 +208,16 @@
           "maxEdgeRatio": 1.0184979973188724
         },
         "topwear": {
-          "windOrDragOnlyMax": 12.054263888840232,
+          "windOrDragOnlyMax": 6.545010847413637,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.8985040954260571,
-          "maxEdgeRatio": 1.1017126616664754
+          "minEdgeRatio": 0.9686701923763243,
+          "maxEdgeRatio": 1.0609895825536118
         },
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438651,
-          "maxEdgeRatio": 1.0039841312989988
+          "minEdgeRatio": 0.9960159873438644,
+          "maxEdgeRatio": 1.0039841312990014
         }
       },
       "PASS": true
@@ -248,16 +248,16 @@
           "maxEdgeRatio": 1.0184979973188724
         },
         "topwear": {
-          "windOrDragOnlyMax": 24.22341934884887,
+          "windOrDragOnlyMax": 13.151777394950782,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.8985040953971247,
-          "maxEdgeRatio": 1.1016128179590263
+          "minEdgeRatio": 0.9367843407675617,
+          "maxEdgeRatio": 1.12345600029778
         },
         "sleeves": {
           "windOrDragOnlyMax": 0,
           "foldingTriangleReadings": 0,
-          "minEdgeRatio": 0.9960159873438651,
-          "maxEdgeRatio": 1.0039841312989988
+          "minEdgeRatio": 0.9960159873438644,
+          "maxEdgeRatio": 1.0039841312990014
         }
       },
       "PASS": true

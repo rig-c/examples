@@ -15,10 +15,10 @@
     {
       "name": "bottomwear",
       "x": 171,
-      "y": 960,
+      "y": 944,
       "w": 420,
-      "h": 1215,
-      "opaque_px": 282135,
+      "h": 1231,
+      "opaque_px": 299037,
       "source": "full:seethrough-v3:bottomwear"
     },
     {
@@ -27,52 +27,52 @@
       "y": 457,
       "w": 166,
       "h": 176,
-      "opaque_px": 17278,
+      "opaque_px": 17280,
       "source": "full:seethrough-v3:neck"
     },
     {
       "name": "topwear",
-      "x": 169,
+      "x": 170,
       "y": 538,
-      "w": 474,
-      "h": 906,
-      "opaque_px": 240819,
+      "w": 472,
+      "h": 904,
+      "opaque_px": 210174,
       "source": "full:seethrough-v3:topwear"
     },
     {
       "name": "sleeves",
-      "x": 169,
+      "x": 336,
       "y": 580,
-      "w": 548,
-      "h": 775,
-      "opaque_px": 86553,
+      "w": 381,
+      "h": 541,
+      "opaque_px": 79772,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
     "shoes": {
-      "core": 24316,
-      "taken": 24316,
+      "core": 23781,
+      "taken": 23781,
       "refused": 0
     },
     "bottomwear": {
-      "core": 230239,
-      "taken": 230239,
+      "core": 267854,
+      "taken": 267854,
       "refused": 0
     },
     "neck": {
-      "core": 0,
-      "taken": 0,
-      "refused": 0
+      "core": 482,
+      "taken": 477,
+      "refused": 5
     },
     "topwear": {
-      "core": 192663,
-      "taken": 192663,
-      "refused": 0
+      "core": 155823,
+      "taken": 155814,
+      "refused": 9
     },
     "sleeves": {
-      "core": 83008,
-      "taken": 83008,
+      "core": 77535,
+      "taken": 77535,
       "refused": 0
     }
   },
