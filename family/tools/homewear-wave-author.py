@@ -83,10 +83,6 @@ CHAR_SPECS = {
     "naru": {
         "hem_r": {"at": [243, 1080], "tip": [245, 1350]},
         "hem_l": {"at": [532, 1080], "tip": [532, 1350]},
-        "bust_regions": {
-            "bust_r": {"cx": 325, "cy": 725, "r": 15, "band": 28},
-            "bust_l": {"cx": 445, "cy": 725, "r": 15, "band": 28},
-        },
         "neck_segments": [["chest", [380, 650], [380, 780]], ["head", [380, 575], [380, 510]]],
         "topwear_segments": [
             ["chest", [380, 630], [380, 885]],
@@ -109,10 +105,6 @@ CHAR_SPECS = {
     "nova": {
         "hem_r": {"at": [215, 1020], "tip": [195, 1350]},
         "hem_l": {"at": [555, 1020], "tip": [580, 1410]},
-        "bust_regions": {
-            "bust_r": {"cx": 268, "cy": 710, "r": 15, "band": 40},
-            "bust_l": {"cx": 418, "cy": 715, "r": 18, "band": 40},
-        },
         "neck_segments": [["chest", [435, 550], [410, 780]], ["head", [435, 500], [435, 450]]],
         "topwear_segments": [
             ["chest", [380, 555], [380, 760]],

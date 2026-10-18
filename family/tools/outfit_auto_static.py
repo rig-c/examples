@@ -175,6 +175,7 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
         col_body = np.where(raw_bot[:, :, 3] > 180, np.minimum(col_body, col_bot_ref), col_body)
     body_solid_interior = binary_erosion(body_ref[:, :, 3] >= 245, np.ones((7, 7), dtype=bool))
     sleeves = np.zeros((H, W, 4), dtype=np.uint8)
+    back_arm_mask = np.zeros((H, W), dtype=bool)
     for t in layer_order:
         if t not in ("handwear-l", "handwear-r", "objects") or t not in mapped:
             continue
@@ -194,7 +195,9 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
 
             is_skin_hw = (
                 (arr[:, :, 0].astype(np.int16) - arr[:, :, 2].astype(np.int16) > 12)
+                & (arr[:, :, 0].astype(np.int16) - arr[:, :, 1].astype(np.int16) < 80)
                 & (arr[:, :, 0] > 120)
+                & (arr[:, :, 1] > 85)
                 & (arr[:, :, 3] > 40)
             )
             # Classify left arm stem (x < hip_x - 45) and right arm stem (x >= hip_x + 45) as foreground vs occluded back-arm
@@ -204,11 +207,12 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
                 ov_s = stem_mask & body_solid_interior & (arr[:, :, 3] > 80)
                 hw_s = int((ov_s & (col_hw + 6.0 < col_body) & (col_body > 18.0)).sum())
                 bd_s = int((ov_s & (col_body + 6.0 < col_hw) & (col_hw > 18.0)).sum())
-                is_back_arm = (bd_s > 8000) and (bd_s > hw_s * 5)
+                is_back_arm = (bd_s > 4500) and (bd_s > hw_s * 5)
                 if is_back_arm:
                     # Protect genuine skin hand reaching across hip_x from the foreground arm on the other side
                     err_px = np.abs(arr_for_err[:, :, :3].astype(np.float32) - white[:, :, :3].astype(np.float32)).mean(axis=2)
                     skin_bridged = binary_closing(is_skin_hw & (err_px < 48.0), np.ones((15, 15), dtype=bool))
+                    skin_bridged[: int(boob_y), :] = False
                     other_side_skin = (~half_mask) & skin_bridged
                     fg_hand = np.zeros((H, W), dtype=bool)
                     if other_side_skin.any():
@@ -217,6 +221,7 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
                             touch = np.bincount(sk_c[other_side_skin].ravel(), minlength=n_sk + 1) > 0
                             touch[0] = False
                             fg_hand = binary_dilation(touch[sk_c], np.ones((11, 11), dtype=bool))
+                    back_arm_mask |= half_mask & (~fg_hand)
                     back_clear = half_mask & (~fg_hand) & (
                         body_solid_interior | ((body_ref[:, :, 3] > 80) & (col_body + 4.0 < col_hw))
                     )
@@ -227,15 +232,6 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
                         ext_px = int((cm & (~(body_ref[:, :, 3] > 80)) & (arr[:, :, 3] > 120)).sum())
                         if not (cm & fg_hand).any() and ext_px < 1200:
                             arr[cm, 3] = 0
-                else:
-                    # On foreground arms, only remove large non-skin body-color hallucinations where handwear strongly disagrees with white
-                    bad_blob = half_mask & body_solid_interior & (~is_skin_hw) & (col_hw > 28.0) & (col_body < 12.0)
-                    bad_blob = (
-                        binary_closing(binary_opening(bad_blob, np.ones((9, 9), bool)), np.ones((15, 15), bool))
-                        & body_solid_interior
-                        & (~is_skin_hw)
-                    )
-                    arr[bad_blob, 3] = 0
 
         # Merge into sleeves: where both existing sleeves and new sub-layer are opaque, keep foreground RGB without dropping alpha!
         both_opaque = (sleeves[:, :, 3] > 40) & (arr[:, :, 3] > 40)
@@ -397,6 +393,185 @@ def build_auto_parts(family: pathlib.Path, outfit: str, char: str):
         vis_dark_collar = (white_lum < neck_lum - 30.0) & (col_top + 15.0 < col_neck)
         back_collar = binary_dilation(binary_closing(back_collar | band_bc, np.ones((7, 7), bool)), np.ones((7, 7), bool)) & ov_tn & (~vis_dark_collar)
         top[back_collar, 3] = 0
+
+    # 6. Complete sleeves (bare shoulders, shoulder caps, inner navy sleeves, held warm objects) and subtract sleeves from topwear
+    yy8, xx8 = np.ogrid[-8:9, -8:9]
+    disk8 = (xx8 * xx8 + yy8 * yy8) <= 64
+    yy10, xx10 = np.ogrid[-10:11, -10:11]
+    disk10 = (xx10 * xx10 + yy10 * yy10) <= 100
+
+    # Remove isolated small (<5000px) upper-shoulder remnants in sleeves before shoulder growth or topwear subtraction
+    sl_comp0, n_sl0 = label(sleeves[:, :, 3] > 8)
+    for cid in range(1, n_sl0 + 1):
+        cm = sl_comp0 == cid
+        if 0 < int(cm.sum()) < 5000:
+            c_ys = np.nonzero(cm)[0]
+            if len(c_ys) and int(c_ys.max()) < int(boob_y) + 40:
+                sleeves[cm, 3] = 0
+
+    neck_xs = np.nonzero(neck[:, :, 3] > 180)[1]
+    nx_min = int(neck_xs.min()) if len(neck_xs) else hip_x - 45
+    nx_max = int(neck_xs.max()) if len(neck_xs) else hip_x + 45
+    is_skin_top_any = (
+        (top[:, :, 3] > 80)
+        & (top[:, :, 0].astype(np.int16) - top[:, :, 2].astype(np.int16) > 18)
+        & (top[:, :, 0].astype(np.int16) - top[:, :, 1].astype(np.int16) < 80)
+        & (top[:, :, 0] > 130)
+        & (top[:, :, 1] > 85)
+    )
+    is_skin_top = (
+        is_skin_top_any
+        & ((np.arange(W)[None, :] < nx_min - 5) | (np.arange(W)[None, :] > nx_max + 5))
+        & (np.arange(H)[:, None] < boob_y + 40)
+    )
+    is_skin_slv = (
+        (sleeves[:, :, 3] > 80)
+        & (sleeves[:, :, 0].astype(np.int16) - sleeves[:, :, 2].astype(np.int16) > 18)
+        & (sleeves[:, :, 0].astype(np.int16) - sleeves[:, :, 1].astype(np.int16) < 80)
+        & (sleeves[:, :, 0] > 130)
+        & (sleeves[:, :, 1] > 85)
+        & (np.arange(H)[:, None] < boob_y + 80)
+    )
+    if is_skin_top.any() and is_skin_slv.any():
+        sk_comp, n_sk = label(is_skin_top | binary_dilation(is_skin_slv, np.ones((7, 7), dtype=bool)))
+        for cid in range(1, n_sk + 1):
+            cm = sk_comp == cid
+            if (cm & is_skin_slv).any() and (cm & is_skin_top).any():
+                add_sh = (
+                    binary_dilation(cm & is_skin_top, np.ones((5, 5), dtype=bool))
+                    & (top[:, :, 3] > 0)
+                    & ((np.arange(W)[None, :] < nx_min) | (np.arange(W)[None, :] > nx_max))
+                )
+                sleeves[add_sh] = top[add_sh]
+
+    for is_left in (True, False):
+        hm = (np.arange(W)[None, :] < hip_x) if is_left else (np.arange(W)[None, :] >= hip_x)
+        slv_upper = hm & (sleeves[:, :, 3] > 180) & (np.arange(H)[:, None] < boob_y + 120)
+        if np.count_nonzero(slv_upper) > 3000:
+            ys_u, _ = np.nonzero(slv_upper)
+            y_top_slv = int(ys_u.min())
+            band_cap = hm & (sleeves[:, :, 3] > 180) & (np.arange(H)[:, None] >= y_top_slv) & (np.arange(H)[:, None] <= y_top_slv + 35)
+            if band_cap.any():
+                xs_b = np.nonzero(band_cap)[1]
+                seam_x = int(xs_b.max()) if is_left else int(xs_b.min())
+                lat_cap = (
+                    hm
+                    & (top[:, :, 3] > 0)
+                    & (sleeves[:, :, 3] < 200)
+                    & (~is_skin_top_any)
+                    & (np.arange(H)[:, None] >= max(0, y_top_slv - 90))
+                    & (np.arange(H)[:, None] <= y_top_slv + 40)
+                    & ((np.arange(W)[None, :] <= min(seam_x + 10, nx_min - 8)) if is_left else (np.arange(W)[None, :] >= max(seam_x - 10, nx_max + 8)))
+                )
+                if lat_cap.any():
+                    sleeves[lat_cap] = top[lat_cap]
+        navy_slv = (
+            hm
+            & (top[:, :, 3] > 80)
+            & (top[:, :, 2].astype(np.int16) - top[:, :, 0].astype(np.int16) >= 2)
+            & ((np.arange(W)[None, :] < nx_min - 25) | (np.arange(W)[None, :] > nx_max + 25))
+            & binary_dilation(sleeves[:, :, 3] > 180, np.ones((25, 25), dtype=bool))
+        )
+        if np.count_nonzero(navy_slv) > 500:
+            navy_slv = binary_dilation(binary_closing(navy_slv, np.ones((7, 7), dtype=bool)), np.ones((3, 3), dtype=bool)) & (top[:, :, 3] > 0)
+            sleeves[navy_slv] = np.where(sleeves[navy_slv, 3:4] > 180, sleeves[navy_slv], top[navy_slv])
+
+    is_warm_obj = (
+        (top[:, :, 3] > 180)
+        & (top[:, :, 0] > 110)
+        & (top[:, :, 1] > 90)
+        & (top[:, :, 0].astype(np.int16) - top[:, :, 2].astype(np.int16) > 22)
+        & (top[:, :, 0].astype(np.int16) - top[:, :, 1].astype(np.int16) < 60)
+        & (np.arange(H)[:, None] >= boob_y - 20)
+        & (np.arange(H)[:, None] <= hip_y - 60)
+        & (np.arange(W)[None, :] >= hip_x + 35)
+    )
+    inner_shirt_box = top[int(boob_y - 40) : int(boob_y + 80), int(hip_x - 40) : int(hip_x + 20)]
+    if is_warm_obj.any() and inner_shirt_box[:, :, :3].mean() < 90.0:
+        mug_mask = (
+            binary_dilation(binary_fill_holes(binary_closing(is_warm_obj, np.ones((7, 7), dtype=bool))), np.ones((7, 7), dtype=bool))
+            & (top[:, :, 3] > 0)
+        )
+        touches_hand = (mug_mask & binary_dilation(sleeves[:, :, 3] > 180, np.ones((15, 15), dtype=bool))).any()
+        if np.count_nonzero(mug_mask) > 1500 and touches_hand:
+            mug_arr = np.zeros_like(top)
+            mug_arr[mug_mask] = top[mug_mask]
+            mug_c = Image.fromarray(mug_arr, "RGBA")
+            mug_c.alpha_composite(Image.fromarray(sleeves, "RGBA"))
+            sleeves = np.array(mug_c)
+            shirt_ref = (top[:, :, 3] > 200) & (~mug_mask) & (top[:, :, 0].astype(np.int16) - top[:, :, 2].astype(np.int16) <= 15)
+            if shirt_ref.any():
+                _, near_sh = distance_transform_edt(~shirt_ref, return_indices=True)
+                top[mug_mask, :3] = top[near_sh[0][mug_mask], near_sh[1][mug_mask], :3]
+
+    fg_slv_alpha = np.where(back_arm_mask, 0, sleeves[:, :, 3])
+    slv_dil = binary_dilation(fg_slv_alpha > 24, disk8)
+    chest_band = (top[:, :, 3] > 180) & (~slv_dil) & (np.arange(H)[:, None] >= boob_y - 60) & (np.arange(H)[:, None] <= boob_y + 40)
+    xs_ch = np.nonzero(chest_band)[1]
+    tx_min = int(np.percentile(xs_ch, 2)) if len(xs_ch) else hip_x - 95
+    tx_max = int(np.percentile(xs_ch, 98)) if len(xs_ch) else hip_x + 95
+
+    torso_cand = binary_opening((top[:, :, 3] > 80) & (~slv_dil), np.ones((5, 5), dtype=bool))
+    comp_t, n_t = label(torso_cand)
+    big_t = [cid for cid in range(1, n_t + 1) if np.count_nonzero(comp_t == cid) >= 800]
+    if len(big_t) >= 2:
+        slv_vert_closed = binary_closing(fg_slv_alpha > 160, np.ones((75, 25), dtype=bool))
+        lat_cuff = (
+            ((np.arange(W)[None, :] < tx_min - 2) | (np.arange(W)[None, :] > tx_max + 2))
+            & (np.arange(H)[:, None] < hip_y - 20)
+            & slv_vert_closed
+            & (top[:, :, 3] > 80)
+            & (sleeves[:, :, 3] < 200)
+        )
+        if lat_cuff.any():
+            lat_cuff_dil = binary_dilation(lat_cuff, np.ones((5, 5), dtype=bool)) & (top[:, :, 3] > 0) & (sleeves[:, :, 3] < 200)
+            sleeves[lat_cuff_dil] = top[lat_cuff_dil]
+            fg_slv_alpha = np.where(back_arm_mask, 0, sleeves[:, :, 3])
+            slv_dil = binary_dilation(fg_slv_alpha > 24, disk8)
+            torso_cand = binary_opening((top[:, :, 3] > 80) & (~slv_dil), np.ones((5, 5), dtype=bool))
+
+        # Preserve torso clothing inside the central trunk [tx_min+6, tx_max-6] when crossing hands split topwear vertically
+        central_trunk = (
+            (np.arange(W)[None, :] >= tx_min + 6)
+            & (np.arange(W)[None, :] <= tx_max - 6)
+            & (top[:, :, 3] > 180)
+            & ((~is_skin_top_any) | (np.count_nonzero(comp_t == big_t[1]) >= 2500))
+        )
+        in_hand_band = central_trunk & (fg_slv_alpha > 180) & (np.arange(H)[:, None] >= boob_y + 10)
+        if in_hand_band.any():
+            dress_ref = central_trunk & (~(fg_slv_alpha > 80)) & (top[:, :, 3] > 220)
+            if dress_ref.any():
+                _, near_dr = distance_transform_edt(~dress_ref, return_indices=True)
+                top[in_hand_band, :3] = top[near_dr[0][in_hand_band], near_dr[1][in_hand_band], :3]
+        torso_cand |= central_trunk
+        comp_t, n_t = label(torso_cand)
+
+    torso_core = np.zeros((H, W), dtype=bool)
+    if n_t > 0:
+        cnts = np.bincount(comp_t.ravel())
+        cnts[0] = 0
+        keep_c = cnts >= 2500
+        keep_c[0] = False
+        torso_core = keep_c[comp_t]
+
+    yy12, xx12 = np.ogrid[-12:13, -12:13]
+    disk12 = (xx12 * xx12 + yy12 * yy12) <= 144
+    valid_uncov_top = (
+        (binary_dilation(torso_core, disk12) & (top[:, :, 3] > 0) & (~(fg_slv_alpha > 80)))
+        | (torso_core & (top[:, :, 3] > 0))
+    )
+    combined_sil_inner = binary_erosion((fg_slv_alpha > 180) | valid_uncov_top, np.ones((5, 5), dtype=bool))
+    underlap_top = binary_dilation(valid_uncov_top, disk10) & (fg_slv_alpha > 80) & combined_sil_inner & (top[:, :, 3] > 80)
+    keep_top = binary_fill_holes(valid_uncov_top | underlap_top) & (top[:, :, 3] > 0)
+    underlap_filled = keep_top & (~valid_uncov_top)
+    if underlap_filled.any():
+        core_fabric = valid_uncov_top & (top[:, :, 3] >= 220) & (~is_skin_top_any)
+        if core_fabric.any():
+            _, near_fab = distance_transform_edt(~core_fabric, return_indices=True)
+            skin_under = underlap_filled & is_skin_top_any
+            if skin_under.any():
+                top[skin_under, :3] = top[near_fab[0][skin_under], near_fab[1][skin_under], :3]
+    top[~keep_top, 3] = 0
 
     pieces = {
         "shoes": shoes,

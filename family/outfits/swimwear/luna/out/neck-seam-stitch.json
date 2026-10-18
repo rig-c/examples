@@ -1,8 +1,8 @@
 {
   "spec": "family-swimwear-neck-seam/1",
   "character": "luna",
-  "beforeRigSHA256": "42dc225f4b5fd7ca8947131aa08e3a7bbf0b38ae8b48c2e7a03d27e94b627e5e",
-  "afterRigSHA256": "ed42b5d21d0310f2b690ac353bc572a4275ca8998eaad19a727082e02ce00f66",
+  "beforeRigSHA256": "775fbd534d440eff9045d9bcb3933deb1c54aad3938c6f71af5317f747c7326c",
+  "afterRigSHA256": "a95cc281626131edcd3707db707086d537275d3b1a6a4741c76ee770a81f300b",
   "rows": [
     {
       "part": "neck",
@@ -264,174 +264,56 @@
           "before": [
             {
               "bone": "chest",
-              "weight": 0.93134
+              "weight": 0.92953
             },
             {
               "bone": "cardigan_hem_l",
-              "weight": 0.03444
+              "weight": 0.03532
             },
             {
               "bone": "hip",
-              "weight": 0.03422
+              "weight": 0.03515
             }
           ]
         },
         {
-          "vertex": 143,
-          "sourceY": 638.99981,
+          "vertex": 7,
+          "sourceY": 593.999751,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.9189
+              "weight": 0.93301
             },
             {
-              "bone": "cardigan_hem_r",
-              "weight": 0.04491
+              "bone": "cardigan_hem_l",
+              "weight": 0.03363
             },
             {
               "bone": "hip",
-              "weight": 0.03619
+              "weight": 0.03336
             }
           ]
         },
         {
-          "vertex": 144,
-          "sourceY": 637.000267,
+          "vertex": 8,
+          "sourceY": 596.999904,
           "before": [
             {
               "bone": "chest",
-              "weight": 0.91581
+              "weight": 0.93426
             },
             {
-              "bone": "cardigan_hem_r",
-              "weight": 0.04663
+              "bone": "cardigan_hem_l",
+              "weight": 0.03304
             },
             {
               "bone": "hip",
-              "weight": 0.03756
+              "weight": 0.0327
             }
           ]
         },
         {
-          "vertex": 145,
-          "sourceY": 632.000012,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.91791
-            },
-            {
-              "bone": "cardigan_hem_r",
-              "weight": 0.04535
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03674
-            }
-          ]
-        },
-        {
-          "vertex": 146,
-          "sourceY": 629.99991,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.92253
-            },
-            {
-              "bone": "cardigan_hem_r",
-              "weight": 0.0427
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03477
-            }
-          ]
-        },
-        {
-          "vertex": 147,
-          "sourceY": 625.000214,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.92444
-            },
-            {
-              "bone": "cardigan_hem_r",
-              "weight": 0.04154
-            },
-            {
-              "bone": "hip",
-              "weight": 0.03402
-            }
-          ]
-        },
-        {
-          "vertex": 148,
-          "sourceY": 622.000061,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.93098
-            },
-            {
-              "bone": "cardigan_hem_r",
-              "weight": 0.03782
-            },
-            {
-              "bone": "hip",
-              "weight": 0.0312
-            }
-          ]
-        },
-        {
-          "vertex": 149,
-          "sourceY": 618.999908,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.932
-            },
-            {
-              "bone": "cardigan_hem_r",
-              "weight": 0.0372
-            },
-            {
-              "bone": "hip",
-              "weight": 0.0308
-            }
-          ]
-        },
-        {
-          "vertex": 150,
-          "sourceY": 613.000161,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.96587
-            },
-            {
-              "bone": "cardigan_hem_r",
-              "weight": 0.03413
-            }
-          ]
-        },
-        {
-          "vertex": 151,
-          "sourceY": 612.00011,
-          "before": [
-            {
-              "bone": "chest",
-              "weight": 0.968
-            },
-            {
-              "bone": "cardigan_hem_r",
-              "weight": 0.032
-            }
-          ]
-        },
-        {
-          "vertex": 166,
+          "vertex": 98,
           "sourceY": 579.000104,
           "before": [
             {
@@ -449,7 +331,7 @@
           ]
         },
         {
-          "vertex": 167,
+          "vertex": 99,
           "sourceY": 580.000155,
           "before": [
             {
@@ -463,6 +345,50 @@
             {
               "bone": "cardigan_hem_r",
               "weight": 0.03108
+            }
+          ]
+        },
+        {
+          "vertex": 251,
+          "sourceY": 637.999759,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.88914
+            },
+            {
+              "bone": "hip",
+              "weight": 0.03975
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.03966
+            },
+            {
+              "bone": "cardigan_hem_l",
+              "weight": 0.03145
+            }
+          ]
+        },
+        {
+          "vertex": 254,
+          "sourceY": 637.999759,
+          "before": [
+            {
+              "bone": "chest",
+              "weight": 0.88313
+            },
+            {
+              "bone": "hip",
+              "weight": 0.04174
+            },
+            {
+              "bone": "cardigan_hem_l",
+              "weight": 0.0414
+            },
+            {
+              "bone": "cardigan_hem_r",
+              "weight": 0.03373
             }
           ]
         }
