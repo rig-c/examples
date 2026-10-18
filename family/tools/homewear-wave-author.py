@@ -83,6 +83,10 @@ CHAR_SPECS = {
     "naru": {
         "hem_r": {"at": [243, 1080], "tip": [245, 1350]},
         "hem_l": {"at": [532, 1080], "tip": [532, 1350]},
+        "bust_regions": {
+            "bust_r": {"cx": 325, "cy": 725, "r": 15, "band": 28},
+            "bust_l": {"cx": 445, "cy": 725, "r": 15, "band": 28},
+        },
         "neck_segments": [["chest", [380, 650], [380, 780]], ["head", [380, 575], [380, 510]]],
         "topwear_segments": [
             ["chest", [380, 630], [380, 885]],
@@ -105,6 +109,10 @@ CHAR_SPECS = {
     "nova": {
         "hem_r": {"at": [215, 1020], "tip": [195, 1350]},
         "hem_l": {"at": [555, 1020], "tip": [580, 1410]},
+        "bust_regions": {
+            "bust_r": {"cx": 268, "cy": 710, "r": 15, "band": 40},
+            "bust_l": {"cx": 418, "cy": 715, "r": 18, "band": 40},
+        },
         "neck_segments": [["chest", [435, 550], [410, 780]], ["head", [435, 500], [435, 450]]],
         "topwear_segments": [
             ["chest", [380, 555], [380, 760]],
@@ -226,6 +234,8 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
             "segments": spec["sleeves_segments"],
         },
     }
+    if any(r["name"] == "handwear_l" for r in records):
+        cfg["meshes"]["handwear_l"] = json.loads(json.dumps(cfg["meshes"]["sleeves"]))
     cfg["regions"] = {"shoes": "root", "bottomwear": "hip"}
     cfg["note"] = (
         "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; "
@@ -264,6 +274,7 @@ def merge_with_baseline(family: pathlib.Path, char: str, force: bool):
 
     rig = json.loads((baseline / "rig/rig.json").read_text())
     new = json.loads((authored / "rig.json").read_text())
+    new_names = [p["name"] for p in json.loads((home / "authoring/inputs/parts.json").read_text())["parts"]]
     common_slots = [s["name"] for s in rig["slots"] if s["name"] not in OFFICE_CLOTHING]
     used = {"root", "hip", "chest", "chest_ctl", "neck", "head", "head_ctl", "boob_r", "boob_l"}
     old_bones = {b["name"]: b for b in rig["bones"]}
@@ -284,25 +295,25 @@ def merge_with_baseline(family: pathlib.Path, char: str, force: bool):
 
     old_slots = {s["name"]: s for s in rig["slots"]}
     new_slots = {s["name"]: s for s in new["slots"]}
-    slot_order = ["hair_back", *NEW_NAMES, *[n for n in common_slots if n != "hair_back"]]
-    rig["slots"] = [new_slots[n] if n in NEW_NAMES else old_slots[n] for n in slot_order]
+    slot_order = ["hair_back", *new_names, *[n for n in common_slots if n != "hair_back"]]
+    rig["slots"] = [new_slots[n] if n in new_names else old_slots[n] for n in slot_order]
     rig["skins"]["default"] = {
-        n: new["skins"]["default"][n] if n in NEW_NAMES else rig["skins"]["default"][n]
+        n: new["skins"]["default"][n] if n in new_names else rig["skins"]["default"][n]
         for n in slot_order
     }
 
     (out / "rig/images").mkdir(parents=True)
     (out / "parts").mkdir()
     for n in slot_order:
-        source_dir = authored if n in NEW_NAMES else baseline / "rig"
+        source_dir = authored if n in new_names else baseline / "rig"
         for attachment in rig["skins"]["default"][n].values():
             shutil.copy2(source_dir / "images" / attachment["image"], out / "rig/images" / attachment["image"])
 
     old_parts_list = json.loads((baseline / "parts.json").read_text())["parts"]
     common_part_names = [p["name"] for p in old_parts_list if p["name"] not in OFFICE_CLOTHING]
-    part_order = ["hair_back", *NEW_NAMES, *[n for n in common_part_names if n != "hair_back"]]
+    part_order = ["hair_back", *new_names, *[n for n in common_part_names if n != "hair_back"]]
     for n in part_order:
-        source_parts = home / "authoring/inputs" if n in NEW_NAMES else baseline
+        source_parts = home / "authoring/inputs" if n in new_names else baseline
         shutil.copy2(source_parts / "parts" / (n + ".png"), out / "parts" / (n + ".png"))
 
     old_parts = {p["name"]: p for p in old_parts_list}
@@ -311,7 +322,7 @@ def merge_with_baseline(family: pathlib.Path, char: str, force: bool):
         "rig_size": [800, 2284],
         "scale_rig_per_source": 1,
         "ghost_px": {},
-        "parts": [new_parts[n] if n in NEW_NAMES else old_parts[n] for n in part_order],
+        "parts": [new_parts[n] if n in new_names else old_parts[n] for n in part_order],
     }
     old_reports = json.loads((baseline / "rig/mesh_report.json").read_text())
     new_reports = json.loads((authored / "mesh_report.json").read_text())
@@ -329,7 +340,7 @@ def merge_with_baseline(family: pathlib.Path, char: str, force: bool):
                 "character": char,
                 "commonBonePrefix": len(old_bones),
                 "commonSlots": common_slots,
-                "newClothingSlots": NEW_NAMES,
+                "newClothingSlots": new_names,
                 "appendedBones": [b["name"] for b in extra],
                 "motion": "Exact accepted motion bytes",
                 "commonPhysics": "Exact accepted constraint prefix",

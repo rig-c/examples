@@ -15,10 +15,10 @@
     {
       "name": "bottomwear",
       "x": 196,
-      "y": 1004,
+      "y": 996,
       "w": 390,
-      "h": 1058,
-      "opaque_px": 256862,
+      "h": 1066,
+      "opaque_px": 257264,
       "source": "full:seethrough-v3:bottomwear"
     },
     {
@@ -27,53 +27,53 @@
       "y": 454,
       "w": 167,
       "h": 177,
-      "opaque_px": 15766,
+      "opaque_px": 15774,
       "source": "full:seethrough-v3:neck"
     },
     {
       "name": "topwear",
       "x": 247,
       "y": 551,
-      "w": 315,
+      "w": 339,
       "h": 501,
-      "opaque_px": 106822,
+      "opaque_px": 112657,
       "source": "full:seethrough-v3:topwear"
     },
     {
       "name": "sleeves",
       "x": 212,
-      "y": 560,
+      "y": 577,
       "w": 489,
-      "h": 766,
-      "opaque_px": 60552,
+      "h": 749,
+      "opaque_px": 59665,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
   "projection": {
     "shoes": {
-      "core": 35915,
-      "taken": 35915,
+      "core": 35912,
+      "taken": 35912,
       "refused": 0
     },
     "bottomwear": {
-      "core": 238730,
-      "taken": 238730,
+      "core": 238283,
+      "taken": 238283,
       "refused": 0
     },
     "neck": {
-      "core": 565,
-      "taken": 561,
+      "core": 552,
+      "taken": 548,
       "refused": 4
     },
     "topwear": {
-      "core": 79852,
-      "taken": 79815,
-      "refused": 37
+      "core": 79972,
+      "taken": 79926,
+      "refused": 46
     },
     "sleeves": {
-      "core": 54639,
-      "taken": 54635,
-      "refused": 4
+      "core": 53966,
+      "taken": 53966,
+      "refused": 0
     }
   },
   "projectionPolicy": {
@@ -102,7 +102,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 576,
-    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; zero manual polygons"
+    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; targeted per-character artifact cleanup"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

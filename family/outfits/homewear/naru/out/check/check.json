@@ -166,7 +166,7 @@
    "in": "rig.json"
   }
  ],
- "seam_mean": 0.173,
+ "seam_mean": 0.171,
  "seam_px_over_40": 0,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.083965,
@@ -267,27 +267,27 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 5,
-  "triangles": 1226,
+  "triangles": 1349,
   "frames": 41,
-  "severity": 1.187,
+  "severity": 1.197,
   "severity_ceiling": 1.926544,
   "worst": {
    "slot": "topwear",
-   "triangle": 226,
+   "triangle": 54,
    "vertices": [
-    160,
-    269,
-    268
+    41,
+    322,
+    330
    ],
    "edge": [
-    269,
-    268
+    322,
+    330
    ],
    "frame": 10,
-   "ratio": 1.187
+   "ratio": 1.197
   },
-  "max_ratio": 1.187,
-  "min_ratio": 0.942,
+  "max_ratio": 1.197,
+  "min_ratio": 0.946,
   "per_mesh": [
    {
     "slot": "hair_back",
@@ -309,20 +309,20 @@
    },
    {
     "slot": "topwear",
-    "triangles": 466,
-    "max_ratio": 1.187,
-    "max_at": "triangle 226 (vertices 160 269 268), edge 269-268, idle frame 10",
-    "min_ratio": 0.942,
-    "min_at": "triangle 189 (vertices 132 306 133), edge 133-132, idle frame 10",
-    "severity": 1.187
+    "triangles": 617,
+    "max_ratio": 1.197,
+    "max_at": "triangle 54 (vertices 41 322 330), edge 322-330, idle frame 10",
+    "min_ratio": 0.967,
+    "min_at": "triangle 267 (vertices 191 218 217), edge 191-218, idle frame 12",
+    "severity": 1.197
    },
    {
     "slot": "sleeves",
-    "triangles": 487,
+    "triangles": 459,
     "max_ratio": 1.008,
-    "max_at": "triangle 379 (vertices 298 306 307), edge 306-307, idle frame 10",
+    "max_at": "triangle 239 (vertices 192 194 193), edge 194-193, idle frame 10",
     "min_ratio": 1,
-    "min_at": "triangle 134 (vertices 110 112 111), edge 111-110, idle frame 3",
+    "min_at": "triangle 253 (vertices 204 206 205), edge 205-204, idle frame 3",
     "severity": 1.008
    },
    {
@@ -358,14 +358,14 @@
   "stage_px": "800x2284",
   "render_px": "734x2284",
   "render_scale": 1.084,
-  "mean_abs": 0.741,
+  "mean_abs": 0.728,
   "within_limit": 8,
-  "within_share": 0.9711,
+  "within_share": 0.9717,
   "error_limit": 40,
-  "error_px": 904,
+  "error_px": 896,
   "covered_alpha": 128,
-  "uncovered_error_px": 114,
-  "hole_count": 75,
+  "uncovered_error_px": 122,
+  "hole_count": 78,
   "largest": {
    "px": 6,
    "box": "547,611 3x6"

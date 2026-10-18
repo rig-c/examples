@@ -65,7 +65,7 @@ const server = http.createServer(async (req, res) => {
           const result = await runPython([
             '--action', 'set',
             '--character', String(character),
-            '--outfit', String(outfit === 'office' ? 'swimwear' : outfit),
+            '--outfit', String(outfit),
             '--bust-r', rArg,
             '--bust-l', lArg,
           ]);

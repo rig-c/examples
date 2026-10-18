@@ -31,21 +31,30 @@
       "source": "full:seethrough-v3:neck"
     },
     {
+      "name": "handwear_l",
+      "x": 444,
+      "y": 600,
+      "w": 103,
+      "h": 316,
+      "opaque_px": 26536,
+      "source": "full:seethrough-v3:handwear_l"
+    },
+    {
       "name": "topwear",
-      "x": 247,
+      "x": 196,
       "y": 570,
-      "w": 222,
+      "w": 326,
       "h": 551,
-      "opaque_px": 96301,
+      "opaque_px": 133946,
       "source": "full:seethrough-v3:topwear"
     },
     {
       "name": "sleeves",
       "x": 165,
-      "y": 596,
+      "y": 604,
       "w": 382,
-      "h": 895,
-      "opaque_px": 177348,
+      "h": 887,
+      "opaque_px": 139761,
       "source": "full:seethrough-v3:sleeves"
     }
   ],
@@ -56,8 +65,8 @@
       "refused": 0
     },
     "bottomwear": {
-      "core": 146549,
-      "taken": 146549,
+      "core": 146625,
+      "taken": 146625,
       "refused": 0
     },
     "neck": {
@@ -66,13 +75,18 @@
       "refused": 8
     },
     "topwear": {
-      "core": 81458,
-      "taken": 81450,
+      "core": 93985,
+      "taken": 93977,
       "refused": 8
     },
     "sleeves": {
-      "core": 172547,
-      "taken": 172547,
+      "core": 161013,
+      "taken": 161013,
+      "refused": 0
+    },
+    "handwear_l": {
+      "core": 0,
+      "taken": 0,
       "refused": 0
     }
   },
@@ -102,7 +116,7 @@
   "edgeTreatment": {
     "upperGeneratedUnionAlphaErosionPx": 3,
     "upperToRow": 615,
-    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; zero manual polygons"
+    "method": "See-through v3 layer depth + seamless internal boundary projection + low-frequency neck-topwear skin harmonization; targeted per-character artifact cleanup"
   },
   "commonHead": "Existing accepted parts copied in the same canvas; generated head/hair are never adopted."
 }

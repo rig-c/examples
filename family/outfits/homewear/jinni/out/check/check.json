@@ -248,26 +248,26 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 8,
-  "triangles": 1371,
+  "triangles": 1462,
   "frames": 41,
-  "severity": 1.1,
+  "severity": 1.244,
   "severity_ceiling": 1.926544,
   "worst": {
    "slot": "topwear",
-   "triangle": 136,
+   "triangle": 207,
    "vertices": [
-    101,
-    374,
-    367
+    155,
+    157,
+    156
    ],
    "edge": [
-    374,
-    367
+    156,
+    155
    ],
    "frame": 10,
-   "ratio": 1.1
+   "ratio": 1.244
   },
-  "max_ratio": 1.1,
+  "max_ratio": 1.244,
   "min_ratio": 0.948,
   "per_mesh": [
    {
@@ -290,20 +290,20 @@
    },
    {
     "slot": "topwear",
-    "triangles": 676,
-    "max_ratio": 1.1,
-    "max_at": "triangle 136 (vertices 101 374 367), edge 374-367, idle frame 10",
+    "triangles": 786,
+    "max_ratio": 1.244,
+    "max_at": "triangle 207 (vertices 155 157 156), edge 156-155, idle frame 10",
     "min_ratio": 0.963,
-    "min_at": "triangle 139 (vertices 102 152 153), edge 152-153, idle frame 10",
-    "severity": 1.1
+    "min_at": "triangle 175 (vertices 135 206 207), edge 206-207, idle frame 10",
+    "severity": 1.244
    },
    {
     "slot": "sleeves",
-    "triangles": 396,
+    "triangles": 377,
     "max_ratio": 1.008,
-    "max_at": "triangle 267 (vertices 225 320 226), edge 226-225, idle frame 10",
+    "max_at": "triangle 260 (vertices 217 219 218), edge 218-217, idle frame 10",
     "min_ratio": 1,
-    "min_at": "triangle 6 (vertices 6 277 7), edge 7-6, idle frame 2",
+    "min_at": "triangle 267 (vertices 223 301 224), edge 224-223, idle frame 2",
     "severity": 1.008
    },
    {
@@ -366,17 +366,17 @@
   "stage_px": "800x2284",
   "render_px": "758x2284",
   "render_scale": 1.049,
-  "mean_abs": 0.631,
+  "mean_abs": 0.625,
   "within_limit": 8,
-  "within_share": 0.978,
+  "within_share": 0.9783,
   "error_limit": 40,
-  "error_px": 900,
+  "error_px": 831,
   "covered_alpha": 128,
-  "uncovered_error_px": 75,
-  "hole_count": 45,
+  "uncovered_error_px": 48,
+  "hole_count": 35,
   "largest": {
-   "px": 7,
-   "box": "237,669 2x7"
+   "px": 4,
+   "box": "602,1034 2x4"
   }
  },
  "PASS": true

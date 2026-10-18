@@ -136,7 +136,7 @@
    "in": "rig.json"
   }
  ],
- "seam_mean": 0.139,
+ "seam_mean": 0.14,
  "seam_px_over_40": 2,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.002756,
@@ -246,26 +246,26 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 6,
-  "triangles": 1745,
+  "triangles": 1907,
   "frames": 41,
-  "severity": 1.155,
+  "severity": 1.109,
   "severity_ceiling": 1.926544,
   "worst": {
    "slot": "topwear",
-   "triangle": 822,
+   "triangle": 101,
    "vertices": [
-    547,
-    556,
-    548
+    75,
+    649,
+    659
    ],
    "edge": [
-    547,
-    556
+    649,
+    659
    ],
    "frame": 10,
-   "ratio": 1.155
+   "ratio": 1.109
   },
-  "max_ratio": 1.155,
+  "max_ratio": 1.109,
   "min_ratio": 0.951,
   "per_mesh": [
    {
@@ -279,29 +279,29 @@
    },
    {
     "slot": "neck",
-    "triangles": 40,
-    "max_ratio": 1.027,
-    "max_at": "triangle 28 (vertices 21 28 22), edge 22-21, idle frame 34",
-    "min_ratio": 0.974,
-    "min_at": "triangle 28 (vertices 21 28 22), edge 22-21, idle frame 14",
-    "severity": 1.027
+    "triangles": 57,
+    "max_ratio": 1.049,
+    "max_at": "triangle 41 (vertices 32 34 33), edge 33-32, idle frame 34",
+    "min_ratio": 0.952,
+    "min_at": "triangle 41 (vertices 32 34 33), edge 33-32, idle frame 14",
+    "severity": 1.051
    },
    {
     "slot": "topwear",
-    "triangles": 863,
-    "max_ratio": 1.155,
-    "max_at": "triangle 822 (vertices 547 556 548), edge 547-556, idle frame 10",
-    "min_ratio": 0.965,
-    "min_at": "triangle 48 (vertices 40 500 42), edge 40-500, idle frame 11",
-    "severity": 1.155
+    "triangles": 1096,
+    "max_ratio": 1.109,
+    "max_at": "triangle 101 (vertices 75 649 659), edge 649-659, idle frame 10",
+    "min_ratio": 0.976,
+    "min_at": "triangle 94 (vertices 72 639 73), edge 72-639, idle frame 10",
+    "severity": 1.109
    },
    {
     "slot": "sleeves",
-    "triangles": 636,
+    "triangles": 548,
     "max_ratio": 1.008,
-    "max_at": "triangle 502 (vertices 411 414 415), edge 414-415, idle frame 10",
+    "max_at": "triangle 425 (vertices 341 352 342), edge 352-342, idle frame 10",
     "min_ratio": 1,
-    "min_at": "triangle 265 (vertices 222 435 223), edge 223-222, idle frame 1",
+    "min_at": "triangle 3 (vertices 3 5 4), edge 5-4, idle frame 1",
     "severity": 1.008
    },
    {
@@ -346,17 +346,17 @@
   "stage_px": "800x2284",
   "render_px": "871x2284",
   "render_scale": 1.0028,
-  "mean_abs": 0.718,
+  "mean_abs": 0.733,
   "within_limit": 8,
-  "within_share": 0.9742,
+  "within_share": 0.9734,
   "error_limit": 40,
-  "error_px": 1358,
+  "error_px": 1276,
   "covered_alpha": 128,
-  "uncovered_error_px": 414,
-  "hole_count": 200,
+  "uncovered_error_px": 327,
+  "hole_count": 158,
   "largest": {
-   "px": 21,
-   "box": "384,459 18x7"
+   "px": 17,
+   "box": "512,437 12x6"
   }
  },
  "PASS": true
