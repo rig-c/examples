@@ -1,6 +1,6 @@
 /**
  * Reproducibility gate (Issue #27):
- * Rebuild every accepted rig (5 characters × 3 outfits = 15 rigs) from its
+ * Rebuild every accepted rig (5 characters × 4 outfits = 20 rigs) from its
  * committed config.json + declared repairs ("x-repairs"), compile via rigc,
  * and diff both the authoring rig and the compiled model per character,
  * outfit, and part.
@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 
 const defaultFamily = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const CHARACTERS = ['roa', 'luna', 'jinni', 'naru', 'nova'];
-export const OUTFITS = ['office', 'homewear', 'swimwear'];
+export const OUTFITS = ['office', 'homewear', 'swimwear', 'uniform'];
 
 const sha = value => createHash('sha256').update(value).digest('hex');
 const json = path => JSON.parse(readFileSync(path, 'utf8'));

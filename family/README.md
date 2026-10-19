@@ -24,11 +24,11 @@
 
 ### 현재 승인된 입력과 재검증
 
-현재 뷰어가 읽는 정본은 5명 캐릭터(`roa`, `luna`, `jinni`, `naru`, `nova`) × 3종 의상(`office`, `homewear`, `swimwear` — 총 **15개 리그, 294개 파츠 행**)의 `out/rig/`·`out/parts/`·`out/parts.json`과 `out/check/build/`다.
+현재 뷰어가 읽는 정본은 5명 캐릭터(`roa`, `luna`, `jinni`, `naru`, `nova`) × 4종 의상(`office`, `homewear`, `swimwear`, `uniform` — 총 **20개 리그, 396개 파츠 행**)의 `out/rig/`·`out/parts/`·`out/parts.json`과 `out/check/build/`다.
 - [`accepted-inputs.json`](./accepted-inputs.json)은 오피스 5인의 최종 입력, provenance, 저장된 serving 산출물과 viewer의 정확한 파일 목록·SHA256을 고정한다.
-- 15개 리그 각각의 정본 리깅 설정(`family/<char>/config.json` 및 `family/outfits/<outfit>/<char>/authoring/config.json`)은 `"x-repairs": { "file": "declared-repairs.json", "sha256": "..." }` 필드를 통해 사후 메쉬/바인딩/섬 클리핑 수리 레시피(`declared-repairs.json`)를 해시로 고정한다.
+- 20개 리그 각각의 정본 리깅 설정(`family/<char>/config.json` 및 `family/outfits/<outfit>/<char>/authoring/config.json`)은 `"x-repairs": { "file": "declared-repairs.json", "sha256": "..." }` 필드를 통해 사후 메쉬/바인딩/섬 클리핑 수리 레시피(`declared-repairs.json`)를 해시로 고정한다.
 
-저장된 정본 입력과 `config.json` + `declared-repairs.json`으로부터 **새 출력 폴더**로 15개 리그 재현성 검증 및 공식 build/check를 다시 실행하는 명령은 다음과 같다. CI([`.github/workflows/family-demo.yml`](../.github/workflows/family-demo.yml))는 아래 명령을 GitHub runner에서 실행하고 raw 로그와 실제 버전·SKIP를 보존한다.
+저장된 정본 입력과 `config.json` + `declared-repairs.json`으로부터 **새 출력 폴더**로 20개 리그 재현성 검증 및 공식 build/check를 다시 실행하는 명령은 다음과 같다. CI([`.github/workflows/family-demo.yml`](../.github/workflows/family-demo.yml))는 아래 명령을 GitHub runner에서 실행하고 raw 로그와 실제 버전·SKIP를 보존한다.
 
 ```bash
 # 저장소 루트. Bun과 native Node가 PATH에 필요합니다.
@@ -38,26 +38,26 @@ bun family/tools/verify-accepted.mjs --out /absolute/path/to/new-family-evidence
 ```
 
 고정 도구는 parts 1.25.0 / rig-c 2.57.0 / 공식 Spine 4.3.13이다.
-1. **`verify-reproducibility.mjs` (5×3 `config.json` → `skeleton.model.json` 재현성 게이트)**: 15개 리그 전체를 정본 `config.json`에서 `rig-parts rig`로 새로 생성한 뒤 `declared-repairs.json`의 선언된 수리를 적용하고 공식 `rigc build`로 컴파일하여, 저장된 `out/rig/rig.json`, `out/rig/mesh_report.json`(294개 파츠 `v/t`), `out/check/build/skeleton.model.json`과 일치하는지 검증한다. 선언되지 않은 수리 파일, 해시 불일치, 비결정적 출력은 즉시 거부한다.
-2. **`verify-accepted.mjs` (통합 인수 및 `rig-parts check` 게이트)**: 위 5×3 재현성 게이트를 실행한 뒤 오피스 5인의 최종 rig를 직렬로 공식 `rigc build`와 전체 `rig-parts check`에 넣고, 새 Spine·model·atlas 바이트 및 PNG 디코딩 픽셀을 현재 serving 파일과 비교한다. parts/rig PNG의 4px 패딩 내부 픽셀, 메타데이터 크기와 mesh report 정점·삼각형 수도 대조한다.
+1. **`verify-reproducibility.mjs` (5×4 `config.json` → `skeleton.model.json` 재현성 게이트)**: 20개 리그 전체를 정본 `config.json`에서 `rig-parts rig`로 새로 생성한 뒤 `declared-repairs.json`의 선언된 수리를 적용하고 공식 `rigc build`로 컴파일하여, 저장된 `out/rig/rig.json`, `out/rig/mesh_report.json`(396개 파츠 `v/t`), `out/check/build/skeleton.model.json`과 일치하는지 검증한다. 선언되지 않은 수리 파일, 해시 불일치, 비결정적 출력은 즉시 거부한다.
+2. **`verify-accepted.mjs` (통합 인수 및 `rig-parts check` 게이트)**: 위 5×4 재현성 게이트를 실행한 뒤 오피스 5인의 최종 rig를 직렬로 공식 `rigc build`와 전체 `rig-parts check`에 넣고, 새 Spine·model·atlas 바이트 및 PNG 디코딩 픽셀을 현재 serving 파일과 비교한다. parts/rig PNG의 4px 패딩 내부 픽셀, 메타데이터 크기와 mesh report 정점·삼각형 수도 대조한다.
 
 Spine/model에 남은 원래 상대 이미지 경로도 바이트 계약에 포함한다. 예를 들어 Luna의 `final`, Nova의 `pants-repair-rig` 폴더명은 새 evidence 폴더 안에 그대로 재현한다. 허용 형식은 `../../<단일 영숫자·밑줄·하이픈 폴더명>/images/`뿐이며 절대 경로·추가 중첩·상위 경로 탈출·출력 예약 이름은 거부한다. 경로 차이를 없애려고 저장된 리그를 고치거나 비교 필드를 제외하지 않는다.
 
-`node family/tools/verify-accepted.mjs --check-inputs`는 해시·목록·메타데이터와 15개 리그의 `x-repairs` 선언(`declared-repairs.json` SHA256 및 파츠별 `v/t` 표)을 읽는 빠른 점검이다. 공식 compiler gate를 실행하지 않고 새 리그나 검증 PASS를 발행하지 않는다. manifest를 자동 갱신하는 옵션은 없으며, 새로운 저작 결과의 채택은 별도 검토 대상이다.
+`node family/tools/verify-accepted.mjs --check-inputs`는 해시·목록·메타데이터와 20개 리그의 `x-repairs` 선언(`declared-repairs.json` SHA256 및 파츠별 `v/t` 표)을 읽는 빠른 점검이다. 공식 compiler gate를 실행하지 않고 새 리그나 검증 PASS를 발행하지 않는다. manifest를 자동 갱신하는 옵션은 없으며, 새로운 저작 결과의 채택은 별도 검토 대상이다.
 
 이 경로는 **최종 승인된 authoring 입력(`config.json` + `declared-repairs.json`)으로부터의 결정론적 재빌드**다. 원본 생성부터 모든 과거 단계를 다시 수행하는 end-to-end replay가 아니다. 각 단계의 아래 문서는 당시 고정 입력과 거부 조건을 기록하며, 후속 수리로 이미지·parts 기록이 달라진 경우 그 이전 커밋의 정확한 preimage가 필요하다.
 
 | 최종 단계 | 기록 | 보존한 경계 |
 | --- | --- | --- |
 | Luna 숨은 치마 | [저작 수리](./LUNA_HIDDEN_QUALITY.md) | 원래 alpha와 mask 바깥 픽셀 보존; 새 RGB는 복구된 원본이 아님 |
-| Roa/Luna/Nova 가슴 영역 및 5×3 바스트 캘리브레이션 | [authoring stage](./MESH_REGION_REPAIR.md), [`bust-region-rebuild.py`](./tools/bust-region-rebuild.py) | `bust_r`/`bust_l` 폴리곤/원형 리전 정밀 보정, 오피스 Roa/Luna 손 영역 `boob_l` 웨이트 분리(손 지글 제거), Naru 가디건과 몸통 topwear 분리 |
-| Luna 오른팔 상·하박 분리 (3종 의상 공통) | `declared-repairs.json` (`luna`, `outfits/*/luna`) | 몸통 뒤 상박(`handwear_l`)과 몸통 앞 하박(`handwear_r`/`sleeves`) 분리, 팔꿈치 절단선 정점 `arms_hold0` 100% 고정으로 호흡 시 절단면 벌어짐 제거 |
+| Roa/Luna/Nova 가슴 영역 및 5×4 바스트 캘리브레이션 | [authoring stage](./MESH_REGION_REPAIR.md), [`bust-region-rebuild.py`](./tools/bust-region-rebuild.py) | `bust_r`/`bust_l` 폴리곤/원형 리전 정밀 보정, 오피스 Roa/Luna 손 영역 `boob_l` 웨이트 분리(손 지글 제거), Naru 가디건과 몸통 topwear 분리 |
+| Luna 오른팔 상·하박 분리 (`office`/`homewear`/`swimwear`) | `declared-repairs.json` (`luna`, `outfits/*/luna`) | 몸통 뒤 상박(`handwear_l`)과 몸통 앞 하박(`handwear_r`/`sleeves`) 분리, 팔꿈치 절단선 정점 `arms_hold0` 100% 고정으로 호흡 시 절단면 벌어짐 제거 |
 | Nova 바지 끝 및 수영복 오른손 구멍 수리 | [cuff stage](./MESH_REGION_REPAIR.md#nova-narrow-cuff-physics-correction), `outfits/swimwear/nova` | 오피스 네 cuff physics 제거 및 원본 topology 유지; 수영복 오른손 그림자 아래 `topwear` 구멍 메움 |
 | Jinni 귀 뒤 가닥 | [바인딩·깊이](./jinni/BEHIND_EAR_STRAND.md) | 원화 curl 보존, 해당 섬만 head에 고정 |
-| Naru 뒷머리·몸 경계 및 홈웨어/수영복 | [뒷머리](./naru/BACKHAIR_REGENERATION.md), [몸 경계](./naru/repairs/BODY_EDGE_RESTORATION.md), [홈웨어](./outfits/homewear/naru/README.md) | 생성 머리와 원본 기반 경계 교정을 분리; 5인 전원 `homewear`/`swimwear` 의상 변형 수록 |
-| Roa 어깨 및 홈웨어/수영복 머리·오른팔 복원 | [원본 천 복원](./roa/SHOULDER_REPAIR.md), `outfits/*/roa` | 오피스 어깨 원본 픽셀 복원; 홈웨어/수영복에서 승인된 오피스 헤드/헤어 정본 및 오른팔 외곽선 복원 |
+| Naru 뒷머리·몸 경계 및 홈웨어/수영복/교복 | [뒷머리](./naru/BACKHAIR_REGENERATION.md), [몸 경계](./naru/repairs/BODY_EDGE_RESTORATION.md), [홈웨어](./outfits/homewear/naru/README.md) | 생성 머리와 원본 기반 경계 교정을 분리; 5인 전원 `homewear`/`swimwear`/`uniform` 의상 변형 수록 |
+| Roa 어깨 및 홈웨어/수영복/교복 머리·오른팔 복원 | [원본 천 복원](./roa/SHOULDER_REPAIR.md), `outfits/*/roa` | 오피스 어깨 원본 픽셀 복원; 의상 변형에서 승인된 오피스 헤드/헤어 정본 보존 및 교복 치마(`bottomwear`)/다리(`legwear`) 분리 리깅 |
 
-현재 저장된 오피스 5인 및 홈웨어·수영복 10개 의상 변형의 `check.json`은 모두 PASS이고 loop 차이는 0이다. Roa의 `BLINK_NO_HOLE`은 eyewhite 입력 부재로 SKIP이며 다른 네 캐릭터에는 해당 SKIP가 없다. 일반 animation-fold 검사는 Roa/Luna/Jinni/Naru/Nova 각각 23/30/24/29/21개 physics 제약을 제외한다. 별도의 48/96 gust native/core 측정과 실제 뷰어 인수는 각 최종 단계 기록을 따른다. Naru ±200 stress에서 보이는 tip fold, 다른 기존 hair stress 왜곡, Nova contour fit debt와 `RECOMPOSITE_HOLES`·`SETUP_POSE_VS_SOURCE`의 REPORTED 수치는 남은 관찰이다. check의 초록 결과를 임의 힘·원화 일치·모든 숨은 표면의 보장으로 확대하지 않는다.
+현재 저장된 오피스 5인 및 홈웨어·수영복·교복 15개 의상 변형의 `check.json`은 모두 PASS이고 loop 차이는 0이다. Roa의 `BLINK_NO_HOLE`은 eyewhite 입력 부재로 SKIP이며 다른 네 캐릭터에는 해당 SKIP가 없다. 일반 animation-fold 검사는 Roa/Luna/Jinni/Naru/Nova 각각 23/30/24/29/21개(오피스 기준) physics 제약을 제외한다. 별도의 48/96 gust native/core 측정과 실제 뷰어 인수는 각 최종 단계 기록을 따른다. Naru ±200 stress에서 보이는 tip fold, 다른 기존 hair stress 왜곡, Nova contour fit debt와 `RECOMPOSITE_HOLES`·`SETUP_POSE_VS_SOURCE`의 REPORTED 수치는 남은 관찰이다. check의 초록 결과를 임의 힘·원화 일치·모든 숨은 표면의 보장으로 확대하지 않는다.
 
 ---
 
@@ -65,7 +65,7 @@ Spine/model에 남은 원래 상대 이미지 경로도 바이트 계약에 포�
 
 ```text
 family/
-├── README.md                                 # 본 문서 (See-through 해상도 한계 극복 워크플로, 5×3 재현성 게이트 및 데모 안내)
+├── README.md                                 # 본 문서 (See-through 해상도 한계 극복 워크플로, 5×4 재현성 게이트 및 데모 안내)
 ├── FEEDBACK.md                               # @rig-c/parts · @rig-c/core · @rig-c/play 기술 피드백 문서
 ├── accepted-inputs.json                      # 승인된 입력/산출물 SHA256 매니페스트
 ├── group_1024x571_rgba.png                   # 원본 5인 와이드 투명 배경 일러스트 (1024×571 RGBA)
@@ -73,7 +73,7 @@ family/
 ├── group_2048x1142_animesharp_rgba.png       # 2x AnimeSharp 다운샘플 비교본 (2048×1142 RGBA)
 ├── group_4096x2284_animesharp_rgba.png       # 최종 4x-AnimeSharp 업스케일 그룹 원화 (4096×2284 RGBA)
 ├── tools/
-│   ├── verify-reproducibility.mjs            # 5캐릭터×3의상(15개 리그) config.json + declared-repairs.json → skeleton.model.json 재현성 게이트
+│   ├── verify-reproducibility.mjs            # 5캐릭터×4의상(20개 리그) config.json + declared-repairs.json → skeleton.model.json 재현성 게이트
 │   ├── verify-accepted.mjs                   # 승인된 입력 해시 대조 및 공식 rigc build / rig-parts check 통합 검증기
 │   └── bust-region-rebuild.py                # 뷰어 가슴 리전(bust_r/bust_l) 편집 시 실시간 재빌드 스크립트
 ├── scripts/
@@ -83,11 +83,12 @@ family/
 │   ├── upgrade_naru_4x.py                    # #4 Naru 4x 레이어 정제 & config 생성 스크립트
 │   └── upgrade_nova_4x.py                    # #5 Nova 4x 레이어 정제 & config 생성 스크립트
 ├── viewer/
-│   ├── index.html                            # @rig-c/play 기반 인터랙티브 Spine WebGL + 5인×3의상 물리 데모 & 가슴 리전 편집기
+│   ├── index.html                            # @rig-c/play 기반 인터랙티브 Spine WebGL + 5인×4의상 물리 데모 & 가슴 리전 편집기
 │   └── server.mjs                            # 로컬 확인 및 리전 리빌드 API 서버 (기본 포트: 4568)
 ├── outfits/
 │   ├── homewear/roa|luna|jinni|naru|nova/    # 5인 홈웨어 의상 변형 (authoring/config.json, declared-repairs.json, out/check/build/)
-│   └── swimwear/roa|luna|jinni|naru|nova/    # 5인 수영복 의상 변형 (authoring/config.json, declared-repairs.json, out/check/build/)
+│   ├── swimwear/roa|luna|jinni|naru|nova/    # 5인 수영복 의상 변형 (authoring/config.json, declared-repairs.json, out/check/build/)
+│   └── uniform/roa|luna|jinni|naru|nova/     # 5인 교복 의상 변형 (authoring/config.json, declared-repairs.json, out/check/build/)
 └── roa/ luna/ jinni/ naru/ nova/             # 5인 기본 오피스 룩 (각 800×2284, 전원 check PASS 완료)
     ├── config.json                           # 정본 리깅 설정 (x-repairs로 declared-repairs.json 해시 바인딩)
     ├── declared-repairs.json                 # 선언된 메쉬/바인딩/섬 클리핑 수리 레시피 및 파츠별 v/t 표
@@ -265,7 +266,7 @@ python3 scripts/upgrade_jinni_4x.py
 
 ## 6. 라이브 뷰어 및 5인 밀착 합체 데모 (`viewer/`)
 
-로컬 웹 서버를 띄워 브라우저에서 실시간 Spine WebGL 렌더링, 3종 의상(`office` / `homewear` / `swimwear`) 전환, 가슴 영역(`bust_r`, `bust_l`) 인터랙티브 편집, 바람(`wind`), 마우스 드래그 물리 관성, **5인 전원 밀착 합체**를 바로 테스트할 수 있습니다.
+로컬 웹 서버를 띄워 브라우저에서 실시간 Spine WebGL 렌더링, 4종 의상(`office` / `homewear` / `swimwear` / `uniform`) 전환, 가슴 영역(`bust_r`, `bust_l`) 인터랙티브 편집, 바람(`wind`), 마우스 드래그 물리 관성, **5인 전원 밀착 합체**를 바로 테스트할 수 있습니다.
 
 ```bash
 node family/viewer/server.mjs
@@ -279,8 +280,8 @@ node family/viewer/server.mjs
   - **`합성 · 원본 크롭 간격 (5인 분리 나열)`**: 원본 4x 크롭 간격(`0, 800, 1592, 2400, 3200`) 비교 모드
   - **비동기 독립 랜덤 눈 깜빡임**: `@rig-c/play`의 `adjust(pose)` 훅을 활용해 `idle` 루프에 구워진 주기적 블링크 대신 캐릭터별 독립 비주기 랜덤 타이머(`2.0~5.8s` 간격, 20% 확률 더블 블링크)와 호흡 위상 오프셋을 적용
   - `1번 · 로아 (Roa)` / `2번 · 루나 (Luna)` / `3번 · 지니 (Jinni)` / `4번 · 나루 (Naru)` / `5번 · 노바 (Nova)` 개별 검수 모드
-- **3종 의상 전환 (`오피스` / `홈웨어` / `수영복`)**:
-  - 상단 의상 버튼으로 5인 전원 또는 현재 선택된 캐릭터의 의상을 `office`(기본 정본), `homewear`([`outfits/homewear/`](./outfits/homewear/naru/README.md)), `swimwear`(`outfits/swimwear/`)로 즉시 전환하며, 동일한 헤드·헤어·아이들 모션 위에서 의상별 메쉬와 물리를 비교할 수 있습니다.
+- **4종 의상 전환 (`오피스` / `홈웨어` / `수영복` / `교복`)**:
+  - 상단 의상 버튼으로 5인 전원 또는 현재 선택된 캐릭터의 의상을 `office`(기본 정본), `homewear`([`outfits/homewear/`](./outfits/homewear/naru/README.md)), `swimwear`(`outfits/swimwear/`), `uniform`(`outfits/uniform/`)으로 즉시 전환하며, 동일한 헤드·헤어·아이들 모션 위에서 의상별 메쉬와 물리를 비교할 수 있습니다.
 - **가슴 영역(`bust_r`, `bust_l`) 오버레이 및 실시간 리빌드**:
   - 개별 캐릭터 모드에서 `가슴 영역` 토글을 켜면 현재 의상의 `topwear` `bust_r`/`bust_l` 리전(중심·코어 반경·감쇠 밴드)이 캔버스 위에 표시됩니다. 핸들을 드래그해 조정한 뒤 리빌드를 실행하면 서버가 [`tools/bust-region-rebuild.py`](./tools/bust-region-rebuild.py)를 통해 `config.json`·`declared-repairs.json`·`skeleton.model.json`을 갱신하고 뷰어에 즉시 반영합니다.
 - **실시간 물리 제어**:

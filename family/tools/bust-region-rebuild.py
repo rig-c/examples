@@ -10,11 +10,12 @@ import subprocess
 import tempfile
 
 CHARACTERS = ["roa", "luna", "jinni", "naru", "nova"]
-OUTFITS = ["office", "homewear", "swimwear"]
+OUTFITS = ["office", "homewear", "swimwear", "uniform"]
 
 TOPWEAR_STITCH_THRESHOLD = {
     "homewear": {"roa": 520, "luna": 645, "jinni": 625, "naru": 705, "nova": 625},
     "swimwear": {"roa": 520, "luna": 645, "jinni": 625, "naru": 705, "nova": 625},
+    "uniform": {"roa": 485, "luna": 645, "jinni": 625, "naru": 705, "nova": 625},
 }
 
 
@@ -505,7 +506,7 @@ def sync_integrity_manifests(family: pathlib.Path, char: str):
                     doc["files"][rel] = {"bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}
         manifest_path.write_text(json.dumps(doc, indent=2) + "\n")
 
-    for outfit in ("homewear", "swimwear"):
+    for outfit in ("homewear", "swimwear", "uniform"):
         pb_path = family / "outfits" / outfit / char / "protected-baseline.json"
         if pb_path.is_file():
             pb = json.loads(pb_path.read_text())

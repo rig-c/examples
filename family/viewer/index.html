@@ -162,6 +162,7 @@
           <option value="office">오피스</option>
           <option value="homewear">홈웨어</option>
           <option value="swimwear">수영복</option>
+          <option value="uniform">교복</option>
         </select>
       </label>
       <div id="stats" role="status">로딩 중…</div>
@@ -355,7 +356,7 @@
     let activeBustChar = 'jinni';
     function makeCharBust(chest, r, l) {
       const clone = () => ({ bust_r: { ...r }, bust_l: { ...l } });
-      return { chest, outfits: { office: clone(), homewear: clone(), swimwear: clone() } };
+      return { chest, outfits: { office: clone(), homewear: clone(), swimwear: clone(), uniform: clone() } };
     }
     let bustData = {
       roa: makeCharBust([360, 657], { cx: 296, cy: 650, r: 26, band: 42 }, { cx: 438, cy: 650, r: 28, band: 44 }),
@@ -480,7 +481,7 @@
       if (players.length > 0 && !players.some(p => p.key === outfitTarget)) return players[0].key;
       return outfitTarget;
     }
-    const OUTFIT_LABELS = { office: '오피스', homewear: '홈웨어', swimwear: '수영복' };
+    const OUTFIT_LABELS = { office: '오피스', homewear: '홈웨어', swimwear: '수영복', uniform: '교복' };
     function syncOutfitUi() {
       const target = activeOutfitKey();
       outfitTargetSelect.value = target;
@@ -606,11 +607,11 @@
       if (single) {
         const outfit = ui.outfits[single] ?? 'office';
         refImg.src = `${outfitAssets(single, outfit).referenceUrl}?v=${bust}`;
-        refCaption.textContent = outfit === 'homewear' ? '홈웨어 디자인 원화' : outfit === 'swimwear' ? '수영복 디자인 원화' : '오피스 원화 기준';
+        refCaption.textContent = outfit === 'homewear' ? '홈웨어 디자인 원화' : outfit === 'swimwear' ? '수영복 디자인 원화' : outfit === 'uniform' ? '교복 디자인 원화' : '오피스 원화 기준';
         return;
       }
       const nonOffice = players.some(p => (ui.outfits[p.key] ?? 'office') !== 'office');
-      refCaption.textContent = nonOffice ? '오피스 원화 기준 · 홈웨어/수영복은 이 비교 원화에 포함되지 않음' : '오피스 원화 기준';
+      refCaption.textContent = nonOffice ? '오피스 원화 기준 · 홈웨어/수영복/교복은 이 비교 원화에 포함되지 않음' : '오피스 원화 기준';
     }
 
     const outfitTransaction = createOutfitTransaction({
@@ -665,7 +666,7 @@
     async function openOutfit(outfit, key = activeOutfitKey()) {
       if (key === 'all' && players.length > 1) {
         outfitTarget = 'all';
-        if (!['office', 'homewear', 'swimwear'].includes(outfit)) { syncOutfitUi(); return false; }
+        if (!['office', 'homewear', 'swimwear', 'uniform'].includes(outfit)) { syncOutfitUi(); return false; }
         for (const k of players.map(p => p.key)) {
           if (!(await openOutfit(outfit, k))) { outfitTarget = 'all'; syncOutfitUi(); return false; }
         }
@@ -676,7 +677,7 @@
       }
       if (CHARACTER_LABELS[key]) outfitTarget = key;
       const entry = players.find(p => p.key === key);
-      if (!entry || !['office', 'homewear', 'swimwear'].includes(outfit)) { syncOutfitUi(); return false; }
+      if (!entry || !['office', 'homewear', 'swimwear', 'uniform'].includes(outfit)) { syncOutfitUi(); return false; }
       saveState();
       if (outfit === ui.outfits[key]) { outfitTransaction.invalidate(); syncOutfitUi(); return true; }
       return outfitTransaction.open({ key, outfit, entry, sceneVersion });
@@ -1038,7 +1039,7 @@
       if (!regs) return;
       bustApplyBtn.disabled = true;
       bustApplyBtn.textContent = '리빌드 중…';
-      stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 전 의상(오피스·홈웨어·수영복) 가슴 영역 리빌드 중…`;
+      stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 전 의상(오피스·홈웨어·수영복·교복) 가슴 영역 리빌드 중…`;
       try {
         const res = await globalThis.fetch('/api/bust-regions', {
           method: 'POST',
@@ -1048,7 +1049,7 @@
         const out = await res.json();
         if (!res.ok || !out.ok) throw new Error(out.error || `HTTP ${res.status}`);
         if (bustData[targetChar]?.outfits) {
-          for (const o of ['office', 'homewear', 'swimwear']) {
+          for (const o of ['office', 'homewear', 'swimwear', 'uniform']) {
             bustData[targetChar].outfits[o] = { bust_r: { ...out.bust_r }, bust_l: { ...out.bust_l } };
           }
         }
@@ -1062,7 +1063,7 @@
             setTimeout(() => refreshed?.player?.moved({ x: -14, y: 10 }), 90);
           }, 60);
         }
-        stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 전 의상(오피스·홈웨어·수영복) 가슴 영역 리빌드 완료! R(${out.bust_r.cx},${out.bust_r.cy},r=${out.bust_r.r},b=${out.bust_r.band}) · L(${out.bust_l.cx},${out.bust_l.cy},r=${out.bust_l.r},b=${out.bust_l.band})`;
+        stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 전 의상(오피스·홈웨어·수영복·교복) 가슴 영역 리빌드 완료! R(${out.bust_r.cx},${out.bust_r.cy},r=${out.bust_r.r},b=${out.bust_r.band}) · L(${out.bust_l.cx},${out.bust_l.cy},r=${out.bust_l.r},b=${out.bust_l.band})`;
       } catch (err) {
         stats.textContent = `가슴 영역 리빌드 실패: ${err.message}`;
         console.error(err);

@@ -1,0 +1,53 @@
+{
+  "prompt_id": "678ffe48-49b4-4ec4-8b00-c627695f0c4f",
+  "image": "/Users/firejune/Workspace/Firejune/parts-examples-naru-homewear/family/outfits/uniform/naru/inputs/seethrough-input/st_input_full.png",
+  "elapsed_s": 167,
+  "vram_free_before_gb": {
+    "cuda:0": 14.59,
+    "cuda:1": 10.8
+  },
+  "vram_free_low_gb": {
+    "cuda:0": 4.58,
+    "cuda:1": 10.8
+  },
+  "prefix": "uniform_naru_bb3d0fca",
+  "seed": 42,
+  "resolution": 1024,
+  "steps": 30,
+  "quant": "none",
+  "offload": true,
+  "lama": false,
+  "layer_count": 26,
+  "layer_names": [
+    "neckwear",
+    "tail",
+    "wings",
+    "objects",
+    "handwear-l",
+    "back hair",
+    "footwear",
+    "legwear",
+    "eyebrow-l",
+    "bottomwear",
+    "neck",
+    "topwear",
+    "eyebrow-r",
+    "handwear-r",
+    "ears-r",
+    "ears-l",
+    "face",
+    "nose",
+    "mouth",
+    "eyewhite-r",
+    "eyewhite-l",
+    "eyelash-l",
+    "eyelash-r",
+    "irides-r",
+    "irides-l",
+    "front hair"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ]
+}

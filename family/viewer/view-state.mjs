@@ -14,7 +14,7 @@ export function readViewState(storage) {
     if (saved?.version !== 2) return result;
     if (CHARACTERS.includes(saved.character)) result.character = saved.character;
     for (const key of OUTFIT_CHARACTERS) {
-      if (['office', 'homewear', 'swimwear'].includes(saved.outfits?.[key])) result.outfits[key] = saved.outfits[key];
+      if (['office', 'homewear', 'swimwear', 'uniform'].includes(saved.outfits?.[key])) result.outfits[key] = saved.outfits[key];
     }
     if (['dark', 'white', 'grey', 'magenta'].includes(saved.background)) result.background = saved.background;
     for (const key of ['comparison', 'paused', 'bones', 'mesh']) if (typeof saved[key] === 'boolean') result[key] = saved[key];

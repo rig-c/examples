@@ -40,7 +40,7 @@ test('outfit choice persists independently of scene across all five characters a
     character: 'nova',
     paused: true,
     speed: 1.7,
-    outfits: { roa: 'homewear', luna: 'swimwear', jinni: 'homewear', naru: 'swimwear', nova: 'homewear' },
+    outfits: { roa: 'homewear', luna: 'swimwear', jinni: 'uniform', naru: 'swimwear', nova: 'homewear' },
     cameras: { naru: { zoom: 3, x: 10, y: 1500 } },
   };
   assert.deepEqual(read(state), state);

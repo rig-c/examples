@@ -1,5 +1,5 @@
 export const OUTFIT_CHARACTERS = ['roa', 'luna', 'jinni', 'naru', 'nova'];
-export const OUTFITS = ['office', 'homewear', 'swimwear'];
+export const OUTFITS = ['office', 'homewear', 'swimwear', 'uniform'];
 export const NARU_OUTFITS = OUTFITS;
 export function outfitAssets(character, outfit = 'office') {
   if (!OUTFIT_CHARACTERS.includes(character)) throw new Error(`Unknown character: ${character}`);

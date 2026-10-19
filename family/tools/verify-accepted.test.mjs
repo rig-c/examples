@@ -63,8 +63,8 @@ test('frozen accepted input has a positive control and rejects drift or incohere
   }
 });
 
-test('reproducibility gate checks all 5 characters × 3 outfits, goes red without declared repairs, and catches mesh mutants by character/outfit/part name', () => {
-  // Bar 1 & Bar 2 (green with declared repairs across all 5 characters × 3 outfits)
+test('reproducibility gate checks all 5 characters × 4 outfits, goes red without declared repairs, and catches mesh mutants by character/outfit/part name', () => {
+  // Bar 1 & Bar 2 (green with declared repairs across all 5 characters × 4 outfits)
   const green = verifyDeclaredReproducibility(family);
   const seenRigs = new Set(green.rows.map(r => `${r.character}/${r.outfit}`));
   assert.equal(seenRigs.size, CHARACTERS.length * OUTFITS.length);

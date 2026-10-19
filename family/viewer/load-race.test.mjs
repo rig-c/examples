@@ -341,10 +341,10 @@ test('paused zoom redraws the current pose after raster sync without advancing a
   h.viewer.dispose();
 });
 
-test('all 5 characters switch between office, homewear, and swimwear in the family lineup', async () => {
+test('all 5 characters switch between office, homewear, swimwear, and uniform in the family lineup', async () => {
   const h = harness();
   await family(h);
-  for (const variant of ['homewear', 'swimwear']) {
+  for (const variant of ['homewear', 'swimwear', 'uniform']) {
     for (const key of ['roa', 'luna', 'jinni', 'naru', 'nova']) {
       const opened = h.viewer.openOutfit(variant, key);
       assert.match(h.requests.at(-1).modelUrl, new RegExp(`^/outfits/${variant}/${key}/out/check/build/skeleton\\.model\\.json`));

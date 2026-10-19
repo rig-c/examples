@@ -1,0 +1,53 @@
+{
+  "prompt_id": "0cd2350b-8a47-4cb6-a39c-18c3cd17c008",
+  "image": "/Users/firejune/Workspace/Firejune/parts-examples-naru-homewear/family/outfits/uniform/nova/inputs/seethrough-input/st_input_full.png",
+  "elapsed_s": 167.1,
+  "vram_free_before_gb": {
+    "cuda:0": 14.59,
+    "cuda:1": 10.8
+  },
+  "vram_free_low_gb": {
+    "cuda:0": 4.96,
+    "cuda:1": 10.8
+  },
+  "prefix": "uniform_nova_f2e27815",
+  "seed": 42,
+  "resolution": 1024,
+  "steps": 30,
+  "quant": "none",
+  "offload": true,
+  "lama": false,
+  "layer_count": 26,
+  "layer_names": [
+    "neckwear",
+    "tail",
+    "wings",
+    "handwear-l",
+    "back hair",
+    "handwear-r",
+    "objects",
+    "legwear",
+    "footwear",
+    "bottomwear",
+    "neck",
+    "eyebrow-l",
+    "topwear",
+    "eyewhite-r",
+    "eyewhite-l",
+    "ears-r",
+    "eyebrow-r",
+    "face",
+    "nose",
+    "mouth",
+    "eyelash-r",
+    "irides-r",
+    "irides-l",
+    "eyelash-l",
+    "ears-l",
+    "front hair"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ]
+}
