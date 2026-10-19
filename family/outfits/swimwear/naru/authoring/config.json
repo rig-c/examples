@@ -535,10 +535,10 @@
       {
         "bone": "chest",
         "prop": "translatey",
-        "amp": 5.0,
+        "amp": 5,
         "period": 3.3333333333333335,
         "phase": 0,
-        "base": 5.0
+        "base": 5
       },
       {
         "bone": "chest",
@@ -620,7 +620,7 @@
         "chain": "bang_c",
         "amps": [
           0.45,
-          1.0
+          1
         ],
         "period": 3.3333333333333335,
         "phase": 0.18,
@@ -1086,7 +1086,7 @@
         -60,
         0
       ],
-      "inward": -1.0,
+      "inward": -1,
       "outward": 3.5,
       "lower": {
         "inward": -1.5,
@@ -1100,7 +1100,7 @@
         60,
         0
       ],
-      "inward": -1.0,
+      "inward": -1,
       "outward": 3.5,
       "lower": {
         "inward": -1.5,
@@ -1115,10 +1115,10 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1129,10 +1129,10 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1143,10 +1143,10 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1157,12 +1157,16 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     }
   ],
-  "note": "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; new cover-up/pareo hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
+  "note": "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; new cover-up/pareo hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json.",
+  "x-repairs": {
+    "file": "declared-repairs.json",
+    "sha256": "29e5ef3f4eacb9cd50215416ba3616a65ff0623396f996bf4d5a6fc82aeceabf"
+  }
 }

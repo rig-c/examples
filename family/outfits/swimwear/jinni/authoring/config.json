@@ -998,10 +998,10 @@
         -240
       ],
       "inward": -1.5,
-      "outward": 8.0,
+      "outward": 8,
       "lower": {
-        "inward": -2.0,
-        "outward": 10.0
+        "inward": -2,
+        "outward": 10
       }
     },
     {
@@ -1011,11 +1011,11 @@
         -40,
         -240
       ],
-      "inward": -5.0,
-      "outward": 5.0,
+      "inward": -5,
+      "outward": 5,
       "lower": {
-        "inward": -6.0,
-        "outward": 6.0
+        "inward": -6,
+        "outward": 6
       }
     },
     {
@@ -1026,10 +1026,10 @@
         -240
       ],
       "inward": -1.5,
-      "outward": 8.0,
+      "outward": 8,
       "lower": {
-        "inward": -2.0,
-        "outward": 10.0
+        "inward": -2,
+        "outward": 10
       }
     },
     {
@@ -1040,10 +1040,10 @@
         120
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1054,12 +1054,16 @@
         120
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     }
   ],
-  "note": "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; new cover-up/pareo hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
+  "note": "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; new cover-up/pareo hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json.",
+  "x-repairs": {
+    "file": "declared-repairs.json",
+    "sha256": "470cec7911c7694f21315f7312325b56539db4d8ed3c3c3c9e8ca315423b0a6b"
+  }
 }

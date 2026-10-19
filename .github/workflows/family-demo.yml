@@ -49,9 +49,12 @@ jobs:
         run: node --test family/tools/verify-accepted.test.mjs family/viewer/*.test.mjs 2>&1 | tee evidence/regressions.log
       - name: Install exact public compiler and official oracle
         run: bun install --cwd family/tools/outline-field-islands --frozen-lockfile 2>&1 | tee evidence/install.log
-      - name: Fresh gated build and full parts check for all five accepted rigs
+      - name: Rebuild all 5 characters × 3 outfits from config + declared repairs, diff compiled models, and run full parts check
         run: |
+          set -o pipefail
           bun family/tools/verify-accepted.mjs --out "$RUNNER_TEMP/family-accepted" 2>&1 | tee evidence/fresh-build.log
+          cp "$RUNNER_TEMP/family-accepted/reproducibility/reproducibility.txt" evidence/reproducibility.txt
+          cp "$RUNNER_TEMP/family-accepted/reproducibility/reproducibility.json" evidence/reproducibility.json
       - name: Preserve source, verdicts, skips and raw public gate output
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
