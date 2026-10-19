@@ -4,5 +4,5 @@ The local family viewer can replace Luna's office model with this homewear model
 
 ## Validation Summary
 
-- `rig-parts check --page-edges free --pack-shape polygon`: `PASS=True` (`gate_spine_html_green=True`, `seam_mean=0.154`, `seam_px_over_40=9`)
+- `rig-parts check --page-edges free --pack-shape polygon`: `PASS=True` (`gate_spine_html_green=True`, `seam_mean=0.152`, `seam_px_over_40=1`)
 - `runtime/physics.json` (`official Spine4.3.13; exact all posed bone matrices and attachment vertices`, 6 scenarios x 721 frames @ 60 Hz): `PASS=True` (`commonBoneMaxDelta=0`, `commonAttachmentMaxDelta=0`, `bustBoneMaxDelta=0`, `foldingTriangleReadings=0`)

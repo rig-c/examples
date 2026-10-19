@@ -382,22 +382,22 @@
           {
             "name": "bust_r",
             "shape": "circle",
-            "cx": 229,
-            "cy": 753,
-            "r": 15,
+            "cx": 256,
+            "cy": 749,
+            "r": 19,
             "bone": "boob_r",
             "spacing": 14,
-            "band": 68
+            "band": 60
           },
           {
             "name": "bust_l",
             "shape": "circle",
-            "cx": 417,
-            "cy": 765,
-            "r": 16,
+            "cx": 424,
+            "cy": 761,
+            "r": 18,
             "bone": "boob_l",
             "spacing": 14,
-            "band": 85
+            "band": 66
           }
         ]
       },
@@ -1073,6 +1073,6 @@
   "note": "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; new cardigan hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json.",
   "x-repairs": {
     "file": "declared-repairs.json",
-    "sha256": "1c5810335b029adabac4e2b14517947a445c4753e39b2389b6fd6cb2bcf9ba08"
+    "sha256": "970d28800bd12d8d7563781838880bcba95dd3511e9f5e113b55856c52450d90"
   }
 }

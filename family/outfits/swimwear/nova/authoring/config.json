@@ -382,22 +382,22 @@
           {
             "name": "bust_r",
             "shape": "circle",
-            "cx": 268,
-            "cy": 710,
-            "r": 15,
+            "cx": 256,
+            "cy": 749,
+            "r": 19,
             "bone": "boob_r",
             "spacing": 14,
-            "band": 40
+            "band": 60
           },
           {
             "name": "bust_l",
             "shape": "circle",
-            "cx": 418,
-            "cy": 715,
+            "cx": 424,
+            "cy": 761,
             "r": 18,
             "bone": "boob_l",
             "spacing": 14,
-            "band": 40
+            "band": 66
           }
         ]
       },
@@ -1071,6 +1071,6 @@
   "note": "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; new cover-up/pareo hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json.",
   "x-repairs": {
     "file": "declared-repairs.json",
-    "sha256": "4446da0437f6ed43e9347b446afccf92e23d148d7adfe61c4eb6e34d1754c171"
+    "sha256": "e6cc3fd25dc3ae2bc0fd61faa2f8ec940a8bba79e2332ffe62d259c13381ec98"
   }
 }

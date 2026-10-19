@@ -4,5 +4,5 @@ The local family viewer can replace Jinni's office model with this homewear mode
 
 ## Validation Summary
 
-- `rig-parts check --page-edges free --pack-shape polygon`: `PASS=True` (`gate_spine_html_green=True`, `seam_mean=0.162`, `seam_px_over_40=19`)
+- `rig-parts check --page-edges free --pack-shape polygon`: `PASS=True` (`gate_spine_html_green=True`, `seam_mean=0.157`, `seam_px_over_40=12`)
 - `runtime/physics.json` (`official Spine4.3.13; exact all posed bone matrices and attachment vertices`, 6 scenarios x 721 frames @ 60 Hz): `PASS=True` (`commonBoneMaxDelta=0`, `commonAttachmentMaxDelta=0`, `bustBoneMaxDelta=0`, `foldingTriangleReadings=0`)

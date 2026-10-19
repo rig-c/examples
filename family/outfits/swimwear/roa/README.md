@@ -4,5 +4,5 @@ The local family viewer can replace Roa's office model with this swimwear model 
 
 ## Validation Summary
 
-- `rig-parts check --page-edges free --pack-shape polygon`: `PASS=True` (`gate_spine_html_green=True`, `seam_mean=0.149`, `seam_px_over_40=36`)
+- `rig-parts check --page-edges free --pack-shape polygon`: `PASS=True` (`gate_spine_html_green=True`, `seam_mean=0.149`, `seam_px_over_40=24`)
 - `runtime/physics.json` (`official Spine4.3.13`, 6 scenarios x 721 frames @ 60 Hz): `PASS=True` (`commonBoneMaxDelta=0`, `commonAttachmentMaxDelta=0`, `bustBoneMaxDelta=0`, `foldingTriangleReadings=0`)

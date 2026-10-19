@@ -197,6 +197,11 @@ def rebuild_single_outfit_topwear(
         new_rig = json.loads((rig_out / "rig.json").read_text())
         new_reports = json.loads((rig_out / "mesh_report.json").read_text())
         new_rep_by_part = {r.get("part"): r for r in new_reports if r.get("part") in target_parts}
+        raw_slots_by_part = {
+            pname: {pname: json.loads(json.dumps(new_rig["skins"]["default"][pname]))}
+            for pname in target_parts
+            if pname in new_rig.get("skins", {}).get("default", {})
+        }
 
         for rep_path in [
             out_dir / "rig/mesh_report.json",
@@ -401,6 +406,78 @@ def rebuild_single_outfit_topwear(
         )
         if bproc.returncode != 0:
             raise RuntimeError(f"[{char}/{outfit}] {(bproc.stderr or bproc.stdout).strip()}")
+
+    decl_path = cfg_path.parent / "declared-repairs.json"
+    if decl_path.is_file():
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as rf:
+            json.dump(raw_slots_by_part, rf)
+            raw_slots_file = rf.name
+        try:
+            node_sync = subprocess.run(
+                [
+                    "node",
+                    "-e",
+                    """
+const fs = require("fs");
+const crypto = require("crypto");
+const [declPath, cfgPath, outDir, rawSlotsPath, outfit] = process.argv.slice(1);
+const sha = v => crypto.createHash("sha256").update(v).digest("hex");
+const decl = JSON.parse(fs.readFileSync(declPath, "utf8"));
+const rawSlotsByPart = JSON.parse(fs.readFileSync(rawSlotsPath, "utf8"));
+const dRig = JSON.parse(fs.readFileSync(`${outDir}/rig/rig.json`, "utf8"));
+const dRep = JSON.parse(fs.readFileSync(`${outDir}/rig/mesh_report.json`, "utf8"));
+const dMod = JSON.parse(fs.readFileSync(`${outDir}/check/build/skeleton.model.json`, "utf8"));
+if (outfit !== "office" && decl.baseline && fs.existsSync(`${outDir}/neck-seam-stitch.json`)) {
+  decl.baseline.stitchSHA256 = sha(fs.readFileSync(`${outDir}/neck-seam-stitch.json`));
+}
+for (const [pname, rawSlots] of Object.entries(rawSlotsByPart)) {
+  const repSlots = { [pname]: dRig.skins.default[pname] };
+  const modSlots = { [pname]: dMod.skins[0].attachments[pname] };
+  const repRow = dRep.find(r => r.part === pname) ?? null;
+  const att = Object.values(repSlots[pname])[0];
+  const v = (att.uvs?.length ?? 0) / 2;
+  const t = (att.triangles?.length ?? 0) / 3;
+  if (decl.modelDigests && decl.modelDigests[pname]) {
+    decl.modelDigests[pname] = {
+      ...decl.modelDigests[pname],
+      vertices: v,
+      triangles: t,
+      rigSHA256: sha(JSON.stringify(repSlots)),
+      reportSHA256: sha(JSON.stringify(repRow)),
+      modelSHA256: sha(JSON.stringify(modSlots)),
+    };
+  }
+  const rawSha = sha(JSON.stringify(rawSlots));
+  const repSha = sha(JSON.stringify(repSlots));
+  if ((decl.parts && decl.parts[pname]) || rawSha !== repSha) {
+    decl.parts = decl.parts || {};
+    decl.parts[pname] = {
+      regenerated: { vertices: v, triangles: t, sha256: rawSha },
+      repaired: { vertices: v, triangles: t, sha256: repSha, slots: repSlots, meshReport: repRow },
+    };
+  }
+}
+const declText = JSON.stringify(decl, null, 2) + "\\n";
+fs.writeFileSync(declPath, declText);
+const cfg = JSON.parse(fs.readFileSync(cfgPath, "utf8"));
+if (cfg["x-repairs"]) {
+  cfg["x-repairs"].sha256 = sha(Buffer.from(declText));
+  fs.writeFileSync(cfgPath, JSON.stringify(cfg, null, 2) + "\\n");
+}
+""",
+                    str(decl_path),
+                    str(cfg_path),
+                    str(out_dir),
+                    raw_slots_file,
+                    outfit,
+                ],
+                capture_output=True,
+                text=True,
+            )
+            if node_sync.returncode != 0:
+                raise RuntimeError(f"[{char}/{outfit}] declared-repairs sync failed: {node_sync.stderr}")
+        finally:
+            pathlib.Path(raw_slots_file).unlink(missing_ok=True)
 
     if live_family is not None and live_family.resolve() != family.resolve():
         live_out = out_dir_for(live_family, char, outfit)
