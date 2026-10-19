@@ -24,19 +24,9 @@
         "author:swimwear-topwear"
       ],
       [
-        "cardigan",
-        "full",
-        "author:swimwear-cardigan"
-      ],
-      [
         "sleeves",
         "full",
         "author:swimwear-sleeves"
-      ],
-      [
-        "hands",
-        "full",
-        "author:swimwear-hands"
       ]
     ]
   },
@@ -325,24 +315,24 @@
       "name": "cardigan_hem_r",
       "parent": "hip",
       "at": [
-        310,
-        980
+        335,
+        880
       ],
       "tip": [
-        280,
-        1180
+        330,
+        965
       ]
     },
     {
       "name": "cardigan_hem_l",
       "parent": "hip",
       "at": [
-        520,
-        980
+        495,
+        880
       ],
       "tip": [
-        550,
-        1135
+        505,
+        965
       ]
     }
   ],
@@ -392,22 +382,22 @@
           {
             "name": "bust_r",
             "shape": "circle",
-            "cx": 257,
-            "cy": 752,
-            "r": 15,
+            "cx": 268.0,
+            "cy": 710.0,
+            "r": 15.0,
             "bone": "boob_r",
             "spacing": 14,
-            "band": 58
+            "band": 40.0
           },
           {
             "name": "bust_l",
             "shape": "circle",
-            "cx": 418,
-            "cy": 758,
-            "r": 21,
+            "cx": 418.0,
+            "cy": 715.0,
+            "r": 18.0,
             "bone": "boob_l",
             "spacing": 14,
-            "band": 65
+            "band": 40.0
           }
         ]
       },
@@ -421,56 +411,86 @@
           ],
           [
             380,
-            900
+            760
           ]
         ],
         [
           "hip",
           [
             380,
-            900
+            885
           ],
           [
             380,
-            968
+            965
           ]
-        ]
-      ]
-    },
-    "cardigan": {
-      "contour": {
-        "tolerance": 1,
-        "margin": 3,
-        "spacing": 40,
-        "maxEdge": 64,
-        "stray": 400,
-        "bridges": true
-      },
-      "r": 12,
-      "segments": [
+        ],
+        [
+          "hip",
+          [
+            310,
+            885
+          ],
+          [
+            310,
+            965
+          ]
+        ],
+        [
+          "hip",
+          [
+            445,
+            885
+          ],
+          [
+            445,
+            965
+          ]
+        ],
         [
           "chest",
           [
-            510,
-            560
+            335,
+            580
           ],
           [
-            520,
-            880
+            335,
+            760
+          ]
+        ],
+        [
+          "chest",
+          [
+            495,
+            580
+          ],
+          [
+            495,
+            760
           ]
         ],
         [
           "hip",
           [
-            520,
-            880
+            335,
+            885
           ],
           [
-            520,
-            980
+            335,
+            965
           ]
         ],
-        "cardigan_hem_l"
+        [
+          "hip",
+          [
+            495,
+            885
+          ],
+          [
+            495,
+            965
+          ]
+        ]
       ]
     },
     "sleeves": {
@@ -487,12 +507,45 @@
         [
           "chest",
           [
-            220,
-            660
+            510,
+            580
           ],
           [
-            640,
-            1150
+            555,
+            650
+          ]
+        ],
+        [
+          "hip",
+          [
+            645,
+            900
+          ],
+          [
+            355,
+            965
+          ]
+        ],
+        [
+          "hip",
+          [
+            355,
+            920
+          ],
+          [
+            450,
+            1010
+          ]
+        ],
+        [
+          "hip",
+          [
+            280,
+            910
+          ],
+          [
+            230,
+            1300
           ]
         ]
       ]
@@ -500,8 +553,7 @@
   },
   "regions": {
     "shoes": "root",
-    "bottomwear": "hip",
-    "hands": "chest"
+    "bottomwear": "hip"
   },
   "motion": {
     "duration": 3.3333333333333335,
@@ -923,10 +975,10 @@
       "bone": "cardigan_hem_r",
       "rotate": 1,
       "inertia": 0.15,
-      "strength": 240,
+      "strength": 360,
       "damping": 0.92,
       "mass": 1,
-      "wind": 0.15,
+      "wind": 0.11,
       "gravity": 0.06,
       "mix": 1
     },
@@ -936,10 +988,10 @@
       "bone": "cardigan_hem_l",
       "rotate": 1,
       "inertia": 0.15,
-      "strength": 240,
+      "strength": 360,
       "damping": 0.92,
       "mass": 1,
-      "wind": 0.15,
+      "wind": 0.11,
       "gravity": 0.06,
       "mix": 1
     }
@@ -1016,5 +1068,5 @@
       }
     }
   ],
-  "note": "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; new cover-up/pareo hems have separate physics. Source lineage is in prepared/prototype.json."
+  "note": "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; new cover-up/pareo hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
 }

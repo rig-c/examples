@@ -41,6 +41,11 @@
         "neck"
       ],
       [
+        "handwear_l",
+        "full",
+        "author:handwear-l"
+      ],
+      [
         "topwear",
         "full",
         "topwear"
@@ -548,7 +553,9 @@
         "margin": 4,
         "spacing": 53,
         "maxEdge": 53,
-        "budget": 130
+        "budget": 130,
+        "stray": 200,
+        "bridges": true
       },
       "r": 12,
       "segments": [
@@ -567,22 +574,22 @@
           {
             "name": "bust_r",
             "shape": "circle",
-            "cx": 318,
-            "cy": 776,
-            "r": 23,
+            "cx": 319,
+            "cy": 769,
+            "r": 19,
             "bone": "boob_r",
             "spacing": 14,
-            "band": 62
+            "band": 60
           },
           {
             "name": "bust_l",
             "shape": "circle",
-            "cx": 498,
-            "cy": 780,
-            "r": 21,
+            "cx": 477,
+            "cy": 768,
+            "r": 22,
             "bone": "boob_l",
             "spacing": 14,
-            "band": 56
+            "band": 52
           }
         ]
       },
@@ -655,6 +662,21 @@
         "skirt_r",
         "skirt_c",
         "skirt_l"
+      ]
+    },
+    "handwear_l": {
+      "contour": {
+        "tolerance": 4,
+        "margin": 4,
+        "spacing": 53,
+        "maxEdge": 53,
+        "budget": 45,
+        "stray": 200,
+        "bridges": true
+      },
+      "r": 12,
+      "segments": [
+        "arms_hold"
       ]
     }
   },

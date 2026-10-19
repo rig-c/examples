@@ -162,16 +162,38 @@
   }
  ],
  "seam_mean": 0.133,
- "seam_px_over_40": 0,
+ "seam_px_over_40": 3,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.078987,
- "seam_pairs": [],
+ "seam_pairs": [
+  {
+   "parts": [
+    "handwear_l",
+    "handwear_r"
+   ],
+   "px_over_40": 3,
+   "px_over_80": 0,
+   "frame_box": [
+    558,
+    741,
+    560,
+    741
+   ],
+   "rig_box": [
+    558,
+    899,
+    561,
+    900
+   ],
+   "picture": "seam/01_handwear_l_handwear_r.png"
+  }
+ ],
  "BREATH_VISIBLE": {
   "status": "PASS",
   "torso_parts": [
    "topwear"
   ],
-  "torso_heat_mean": 14.833,
+  "torso_heat_mean": 14.962,
   "torso_floor": 3.809,
   "feet_parts": [
    "shoes"
@@ -245,9 +267,9 @@
    },
    {
     "part": "handwear_r",
-    "root_rig_px": 3.083,
-    "tip_rig_px": 7.443,
-    "ratio": 2.414
+    "root_rig_px": 3.146,
+    "tip_rig_px": 7.442,
+    "ratio": 2.366
    }
   ],
   "ratio_floor": 1.4725
@@ -312,28 +334,28 @@
  },
  "TEXTURE_STRETCH": {
   "status": "PASS",
-  "meshes": 6,
-  "triangles": 1765,
+  "meshes": 7,
+  "triangles": 1774,
   "frames": 41,
-  "severity": 1.242,
+  "severity": 1.27,
   "severity_ceiling": 1.926544,
   "worst": {
    "slot": "topwear",
-   "triangle": 287,
+   "triangle": 273,
    "vertices": [
-    143,
-    161,
-    144
+    137,
+    176,
+    138
    ],
    "edge": [
-    143,
-    161
+    176,
+    138
    ],
    "frame": 10,
-   "ratio": 0.805
+   "ratio": 0.788
   },
   "max_ratio": 1.197,
-  "min_ratio": 0.805,
+  "min_ratio": 0.788,
   "per_mesh": [
    {
     "slot": "hair_back",
@@ -363,22 +385,31 @@
     "severity": 1.015
    },
    {
+    "slot": "handwear_l",
+    "triangles": 30,
+    "max_ratio": 1.033,
+    "max_at": "triangle 14 (vertices 8 26 9), edge 9-8, idle frame 23",
+    "min_ratio": 0.966,
+    "min_at": "triangle 14 (vertices 8 26 9), edge 9-8, idle frame 3",
+    "severity": 1.035
+   },
+   {
     "slot": "topwear",
-    "triangles": 731,
+    "triangles": 735,
     "max_ratio": 1.197,
-    "max_at": "triangle 679 (vertices 380 389 390), edge 389-390, idle frame 10",
-    "min_ratio": 0.805,
-    "min_at": "triangle 287 (vertices 143 161 144), edge 143-161, idle frame 10",
-    "severity": 1.242
+    "max_at": "triangle 683 (vertices 383 392 393), edge 392-393, idle frame 10",
+    "min_ratio": 0.788,
+    "min_at": "triangle 273 (vertices 137 176 138), edge 176-138, idle frame 10",
+    "severity": 1.27
    },
    {
     "slot": "handwear_r",
-    "triangles": 159,
-    "max_ratio": 1.027,
-    "max_at": "triangle 111 (vertices 69 71 70), edge 70-69, idle frame 23",
-    "min_ratio": 0.978,
-    "min_at": "triangle 111 (vertices 69 71 70), edge 70-69, idle frame 4",
-    "severity": 1.027
+    "triangles": 134,
+    "max_ratio": 1.039,
+    "max_at": "triangle 53 (vertices 31 33 32), edge 33-32, idle frame 3",
+    "min_ratio": 0.962,
+    "min_at": "triangle 53 (vertices 31 33 32), edge 33-32, idle frame 23",
+    "severity": 1.04
    },
    {
     "slot": "hair_front",
@@ -432,10 +463,10 @@
       "turn": 90,
       "reading": 1,
       "worst": {
-       "triangle": 32,
+       "triangle": 33,
        "edge": [
-        19,
-        18
+        20,
+        19
        ],
        "ratio": 1
       }
@@ -447,7 +478,7 @@
        "triangle": 0,
        "edge": [
         0,
-        98
+        85
        ],
        "ratio": 1
       }
@@ -456,10 +487,10 @@
       "turn": 180,
       "reading": 1,
       "worst": {
-       "triangle": 38,
+       "triangle": 40,
        "edge": [
-        22,
-        21
+        23,
+        22
        ],
        "ratio": 1
       }
@@ -481,6 +512,25 @@
     "legwear 265 px",
     "shoes 264 px"
    ]
+  }
+ },
+ "SETUP_POSE_VS_SOURCE": {
+  "status": "REPORTED",
+  "painting_px": "800x2284",
+  "stage_px": "800x2284",
+  "render_px": "780x2284",
+  "render_scale": 1.079,
+  "mean_abs": 1.158,
+  "within_limit": 8,
+  "within_share": 0.9708,
+  "error_limit": 40,
+  "error_px": 14476,
+  "covered_alpha": 128,
+  "uncovered_error_px": 4272,
+  "hole_count": 535,
+  "largest": {
+   "px": 207,
+   "box": "558,761 5x190"
   }
  },
  "PASS": true

@@ -22,19 +22,19 @@ OFFICE_CLOTHING = {
     "handwear_r",
     "handwear_l",
 }
-NEW_NAMES = ["shoes", "bottomwear", "neck", "topwear", "cardigan", "sleeves", "hands"]
+NEW_NAMES = ["shoes", "bottomwear", "neck", "topwear", "sleeves"]
 
 CHAR_SPECS = {
     "roa": {
-        "hem_r": {"at": [180, 960], "tip": [150, 1550]},
-        "hem_l": {"at": [555, 960], "tip": [600, 1550]},
+        "hem_r": {"at": [165, 1100], "tip": [155, 1480]},
+        "hem_l": {"at": [575, 1100], "tip": [595, 1480]},
         "neck_segments": [["chest", [365, 430], [365, 657]], ["head", [365, 394], [365, 344]]],
         "topwear_segments": [["chest", [360, 448], [360, 843]], ["hip", [360, 843], [360, 1080]]],
         "cardigan_segments": [
             ["chest", [210, 480], [200, 840]],
             ["chest", [510, 480], [530, 840]],
-            ["hip", [200, 840], [180, 960]],
-            ["hip", [530, 840], [555, 960]],
+            ["hip", [200, 840], [165, 1100]],
+            ["hip", [530, 840], [575, 1100]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
@@ -42,7 +42,7 @@ CHAR_SPECS = {
             ["chest", [120, 520], [120, 940]],
             ["chest", [520, 520], [720, 580]],
         ],
-        "stitch": [("neck", 448, True), ("topwear", 520, False), ("cardigan", 520, False)],
+        "stitch": [("neck", 440, True), ("topwear", 485, False)],
     },
     "luna": {
         "hem_r": {"at": [260, 940], "tip": [250, 1030]},
@@ -58,59 +58,77 @@ CHAR_SPECS = {
         "sleeves_segments": [
             ["chest", [200, 650], [520, 1180]],
         ],
-        "stitch": [("neck", 575, True), ("topwear", 645, False), ("cardigan", 645, False)],
+        "stitch": [("neck", 575, True), ("topwear", 645, False)],
     },
     "jinni": {
-        "hem_r": {"at": [260, 1180], "tip": [235, 1440]},
-        "hem_l": {"at": [595, 1180], "tip": [620, 1400]},
+        "hem_r": {"at": [335, 860], "tip": [335, 940]},
+        "hem_l": {"at": [535, 860], "tip": [540, 940]},
         "neck_segments": [["chest", [428, 545], [428, 734]], ["head", [428, 500], [428, 410]]],
-        "topwear_segments": [["chest", [440, 552], [440, 866]], ["hip", [440, 866], [440, 1020]]],
+        "topwear_segments": [["chest", [440, 552], [440, 866]], ["hip", [440, 866], [440, 935]]],
         "cardigan_segments": [
-            ["chest", [280, 580], [280, 880]],
-            ["chest", [540, 580], [550, 880]],
-            ["hip", [280, 880], [260, 1180]],
-            ["hip", [550, 880], [595, 1180]],
-            ["hip", [420, 1020], [410, 1380]],
+            ["chest", [335, 620], [335, 860]],
+            ["chest", [535, 620], [535, 860]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
         "sleeves_segments": [
             ["chest", [230, 640], [520, 1080]],
         ],
-        "stitch": [("neck", 555, True), ("topwear", 625, False), ("cardigan", 640, False)],
+        "stitch": [("neck", 555, True), ("topwear", 625, False)],
     },
     "naru": {
-        "hem_r": {"at": [243, 1040], "tip": [210, 1350]},
-        "hem_l": {"at": [532, 1040], "tip": [575, 1350]},
+        "hem_r": {"at": [255, 1020], "tip": [210, 1200]},
+        "hem_l": {"at": [525, 1020], "tip": [565, 1200]},
+        "bust_regions": {
+            "bust_r": {"cx": 325, "cy": 725, "r": 15, "band": 28},
+            "bust_l": {"cx": 445, "cy": 725, "r": 15, "band": 28},
+        },
         "neck_segments": [["chest", [380, 650], [380, 780]], ["head", [380, 575], [380, 510]]],
-        "topwear_segments": [["chest", [380, 630], [380, 910]], ["hip", [380, 910], [380, 1040]]],
+        "topwear_segments": [
+            ["chest", [380, 630], [380, 855]],
+            ["hip", [275, 925], [495, 925]],
+            ["hip", [380, 925], [380, 1020]],
+        ],
         "cardigan_segments": [
-            ["chest", [240, 640], [240, 940]],
-            ["chest", [535, 640], [535, 940]],
-            ["hip", [243, 940], [243, 1040]],
-            ["hip", [532, 940], [532, 1040]],
+            ["chest", [265, 640], [255, 855]],
+            ["chest", [515, 640], [525, 855]],
+            ["hip", [255, 925], [255, 1020]],
+            ["hip", [525, 925], [525, 1020]],
             "cardigan_hem_r",
             "cardigan_hem_l",
         ],
         "sleeves_segments": [
-            ["chest", [180, 820], [615, 1020]],
+            ["chest", [180, 800], [615, 1060]],
         ],
-        "stitch": [("neck", 625, True), ("topwear", 705, False), ("cardigan", 705, False)],
+        "stitch": [("neck", 625, True), ("topwear", 705, False)],
     },
     "nova": {
-        "hem_r": {"at": [310, 980], "tip": [280, 1180]},
-        "hem_l": {"at": [520, 980], "tip": [550, 1135]},
+        "hem_r": {"at": [335, 880], "tip": [330, 965]},
+        "hem_l": {"at": [495, 880], "tip": [505, 965]},
+        "bust_regions": {
+            "bust_r": {"cx": 268, "cy": 710, "r": 15, "band": 40},
+            "bust_l": {"cx": 418, "cy": 715, "r": 18, "band": 40},
+        },
         "neck_segments": [["chest", [435, 550], [410, 780]], ["head", [435, 500], [435, 450]]],
-        "topwear_segments": [["chest", [380, 555], [380, 900]], ["hip", [380, 900], [380, 968]]],
+        "topwear_segments": [
+            ["chest", [380, 555], [380, 760]],
+            ["hip", [380, 885], [380, 965]],
+            ["hip", [310, 885], [310, 965]],
+            ["hip", [445, 885], [445, 965]],
+        ],
         "cardigan_segments": [
-            ["chest", [510, 560], [520, 880]],
-            ["hip", [520, 880], [520, 980]],
-            "cardigan_hem_l",
+            ["chest", [335, 580], [335, 760]],
+            ["chest", [495, 580], [495, 760]],
+            ["hip", [335, 885], [335, 965]],
+            ["hip", [495, 885], [495, 965]],
         ],
         "sleeves_segments": [
-            ["chest", [220, 660], [640, 1150]],
+            ["chest", [510, 580], [555, 650]],
+            ["hip", [645, 900], [355, 965]],
+            ["hip", [355, 920], [450, 1010]],
+            ["hip", [280, 910], [230, 1300]],
         ],
-        "stitch": [("neck", 560, True), ("topwear", 625, False), ("cardigan", 625, False)],
+        "stitch": [("neck", 560, True), ("topwear", 625, False)],
     },
 }
 
@@ -169,20 +187,22 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
             "bone": f"cardigan_hem_{side}",
             "rotate": 1,
             "inertia": 0.15,
-            "strength": 240,
+            "strength": 360,
             "damping": 0.92,
             "mass": 1,
-            "wind": 0.15,
+            "wind": 0.11,
             "gravity": 0.06,
             "mix": 1,
         })
     top = json.loads(json.dumps(cfg["meshes"]["topwear"]))
-    top["segments"] = spec["topwear_segments"]
+    top["segments"] = [*spec["topwear_segments"], *spec["cardigan_segments"]]
     top["contour"]["tolerance"] = 1
     top["contour"]["margin"] = 3
+    bust_override = spec.get("bust_regions")
     bust_override_path = home / "bust-regions.json"
     if bust_override_path.is_file():
         bust_override = json.loads(bust_override_path.read_text())
+    if bust_override:
         for reg in top["contour"].get("regions", []):
             if reg["name"] in bust_override:
                 ov = bust_override[reg["name"]]
@@ -195,18 +215,6 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
     cfg["meshes"] = {
         "neck": neck,
         "topwear": top,
-        "cardigan": {
-            "contour": {
-                "tolerance": 1,
-                "margin": 3,
-                "spacing": 40,
-                "maxEdge": 64,
-                "stray": 400,
-                "bridges": True,
-            },
-            "r": 12,
-            "segments": spec["cardigan_segments"],
-        },
         "sleeves": {
             "contour": {
                 "tolerance": 1,
@@ -220,10 +228,12 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
             "segments": spec["sleeves_segments"],
         },
     }
-    cfg["regions"] = {"shoes": "root", "bottomwear": "hip", "hands": "chest"}
+    if any(r["name"] == "handwear_l" for r in records):
+        cfg["meshes"]["handwear_l"] = json.loads(json.dumps(cfg["meshes"]["sleeves"]))
+    cfg["regions"] = {"shoes": "root", "bottomwear": "hip"}
     cfg["note"] = (
         "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; "
-        "new cover-up/pareo hems have separate physics. Source lineage is in prepared/prototype.json."
+        "new cover-up/pareo hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
     )
     (author / "config.json").write_text(json.dumps(cfg, indent=2) + "\n")
 
@@ -258,6 +268,7 @@ def merge_with_baseline(family: pathlib.Path, char: str, force: bool):
 
     rig = json.loads((baseline / "rig/rig.json").read_text())
     new = json.loads((authored / "rig.json").read_text())
+    new_names = [p["name"] for p in json.loads((home / "authoring/inputs/parts.json").read_text())["parts"]]
     common_slots = [s["name"] for s in rig["slots"] if s["name"] not in OFFICE_CLOTHING]
     used = {"root", "hip", "chest", "chest_ctl", "neck", "head", "head_ctl", "boob_r", "boob_l"}
     old_bones = {b["name"]: b for b in rig["bones"]}
@@ -278,25 +289,25 @@ def merge_with_baseline(family: pathlib.Path, char: str, force: bool):
 
     old_slots = {s["name"]: s for s in rig["slots"]}
     new_slots = {s["name"]: s for s in new["slots"]}
-    slot_order = ["hair_back", *NEW_NAMES, *[n for n in common_slots if n != "hair_back"]]
-    rig["slots"] = [new_slots[n] if n in NEW_NAMES else old_slots[n] for n in slot_order]
+    slot_order = ["hair_back", *new_names, *[n for n in common_slots if n != "hair_back"]]
+    rig["slots"] = [new_slots[n] if n in new_names else old_slots[n] for n in slot_order]
     rig["skins"]["default"] = {
-        n: new["skins"]["default"][n] if n in NEW_NAMES else rig["skins"]["default"][n]
+        n: new["skins"]["default"][n] if n in new_names else rig["skins"]["default"][n]
         for n in slot_order
     }
 
     (out / "rig/images").mkdir(parents=True)
     (out / "parts").mkdir()
     for n in slot_order:
-        source_dir = authored if n in NEW_NAMES else baseline / "rig"
+        source_dir = authored if n in new_names else baseline / "rig"
         for attachment in rig["skins"]["default"][n].values():
             shutil.copy2(source_dir / "images" / attachment["image"], out / "rig/images" / attachment["image"])
 
     old_parts_list = json.loads((baseline / "parts.json").read_text())["parts"]
     common_part_names = [p["name"] for p in old_parts_list if p["name"] not in OFFICE_CLOTHING]
-    part_order = ["hair_back", *NEW_NAMES, *[n for n in common_part_names if n != "hair_back"]]
+    part_order = ["hair_back", *new_names, *[n for n in common_part_names if n != "hair_back"]]
     for n in part_order:
-        source_parts = home / "authoring/inputs" if n in NEW_NAMES else baseline
+        source_parts = home / "authoring/inputs" if n in new_names else baseline
         shutil.copy2(source_parts / "parts" / (n + ".png"), out / "parts" / (n + ".png"))
 
     old_parts = {p["name"]: p for p in old_parts_list}
@@ -305,7 +316,7 @@ def merge_with_baseline(family: pathlib.Path, char: str, force: bool):
         "rig_size": [800, 2284],
         "scale_rig_per_source": 1,
         "ghost_px": {},
-        "parts": [new_parts[n] if n in NEW_NAMES else old_parts[n] for n in part_order],
+        "parts": [new_parts[n] if n in new_names else old_parts[n] for n in part_order],
     }
     old_reports = json.loads((baseline / "rig/mesh_report.json").read_text())
     new_reports = json.loads((authored / "mesh_report.json").read_text())
@@ -323,7 +334,7 @@ def merge_with_baseline(family: pathlib.Path, char: str, force: bool):
                 "character": char,
                 "commonBonePrefix": len(old_bones),
                 "commonSlots": common_slots,
-                "newClothingSlots": NEW_NAMES,
+                "newClothingSlots": new_names,
                 "appendedBones": [b["name"] for b in extra],
                 "motion": "Exact accepted motion bytes",
                 "commonPhysics": "Exact accepted constraint prefix",

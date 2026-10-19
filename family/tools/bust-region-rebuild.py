@@ -96,27 +96,36 @@ def rebuild_single_outfit_topwear(
     top_part_rec = next(p for p in parts_doc["parts"] if p["name"] == "topwear")
     top_png_path = out_dir / "parts/topwear.png"
 
+    cfg_init = json.loads(cfg_path.read_text())
+    has_cardigan = "cardigan" in cfg_init.get("meshes", {}) and any(
+        p["name"] == "cardigan" for p in parts_doc["parts"]
+    )
+    target_parts = ["topwear", "cardigan"] if has_cardigan else ["topwear"]
+
     with tempfile.TemporaryDirectory(prefix=f"bust-{char}-{outfit}-") as tmp:
         tmp_dir = pathlib.Path(tmp)
         inputs_dir = tmp_dir / "inputs"
         (inputs_dir / "parts").mkdir(parents=True)
-        shutil.copy2(top_png_path, inputs_dir / "parts/topwear.png")
-        clean_part_rec = {
-            **{k: top_part_rec[k] for k in ("name", "x", "y", "w", "h", "opaque_px")},
-            "from": "full:author:topwear",
-            "projected_core_px": 0,
-            "source_px_taken": 0,
-            "refused_drift_px": 0,
-            "merged_px": 0,
-            "seam_override_px": 0,
-        }
+        clean_part_recs = []
+        for pname in target_parts:
+            prec = next(p for p in parts_doc["parts"] if p["name"] == pname)
+            shutil.copy2(out_dir / f"parts/{pname}.png", inputs_dir / f"parts/{pname}.png")
+            clean_part_recs.append({
+                **{k: prec[k] for k in ("name", "x", "y", "w", "h", "opaque_px")},
+                "from": f"full:author:{pname}",
+                "projected_core_px": 0,
+                "source_px_taken": 0,
+                "refused_drift_px": 0,
+                "merged_px": 0,
+                "seam_override_px": 0,
+            })
         (inputs_dir / "parts.json").write_text(
             json.dumps(
                 {
                     "rig_size": [800, 2284],
                     "scale_rig_per_source": 1,
                     "ghost_px": {},
-                    "parts": [clean_part_rec],
+                    "parts": clean_part_recs,
                 },
                 indent=2,
             )
@@ -133,16 +142,20 @@ def rebuild_single_outfit_topwear(
                     reg.update(cur_r)
                 elif reg["name"] == "bust_l":
                     reg.update(cur_l)
+            if has_cardigan:
+                cfg["meshes"]["cardigan"]["contour"]["regions"] = json.loads(
+                    json.dumps(cfg["meshes"]["topwear"]["contour"].get("regions", []))
+                )
             cfg_path.write_text(json.dumps(cfg, indent=2) + "\n")
 
             mini_cfg = json.loads(json.dumps(cfg))
             mini_cfg.pop("seethrough", None)
             mini_cfg["assemble"] = {
                 "rig_scale": 1,
-                "plan": [["topwear", "full", "author:topwear"]],
+                "plan": [[pname, "full", f"author:{pname}"] for pname in target_parts],
             }
             mini_cfg["motion"].pop("blink", None)
-            mini_cfg["meshes"] = {"topwear": mini_cfg["meshes"]["topwear"]}
+            mini_cfg["meshes"] = {pname: mini_cfg["meshes"][pname] for pname in target_parts}
             mini_cfg["regions"] = {}
             mini_cfg_path = tmp_dir / "config.json"
             mini_cfg_path.write_text(json.dumps(mini_cfg, indent=2) + "\n")
@@ -183,32 +196,128 @@ def rebuild_single_outfit_topwear(
 
         new_rig = json.loads((rig_out / "rig.json").read_text())
         new_reports = json.loads((rig_out / "mesh_report.json").read_text())
-        new_top_rep = next((r for r in new_reports if r.get("part") == "topwear"), None)
+        new_rep_by_part = {r.get("part"): r for r in new_reports if r.get("part") in target_parts}
 
         for rep_path in [
             out_dir / "rig/mesh_report.json",
             (family / "outfits" / outfit / char / "authoring/rig/mesh_report.json") if outfit != "office" else None,
         ]:
-            if rep_path and rep_path.is_file() and new_top_rep:
+            if rep_path and rep_path.is_file() and new_rep_by_part:
                 reps = json.loads(rep_path.read_text())
-                reps = [new_top_rep if r.get("part") == "topwear" else r for r in reps]
+                reps = [new_rep_by_part.get(r.get("part"), r) for r in reps]
                 rep_path.write_text(json.dumps(reps, indent=2) + "\n")
 
         target_rig_path = out_dir / "rig/rig.json"
         rig = json.loads(target_rig_path.read_text())
-        rig["skins"]["default"]["topwear"] = new_rig["skins"]["default"]["topwear"]
-        for attachment in rig["skins"]["default"]["topwear"].values():
-            shutil.copy2(rig_out / "images" / attachment["image"], out_dir / "rig/images" / attachment["image"])
+        for pname in target_parts:
+            rig["skins"]["default"][pname] = new_rig["skins"]["default"][pname]
+            for attachment in rig["skins"]["default"][pname].values():
+                dst_img = out_dir / "rig/images" / attachment["image"]
+                if not (outfit == "office" and dst_img.is_file()):
+                    shutil.copy2(rig_out / "images" / attachment["image"], dst_img)
 
         if outfit in TOPWEAR_STITCH_THRESHOLD:
             threshold = TOPWEAR_STITCH_THRESHOLD[outfit][char]
-            attachment = rig["skins"]["default"]["topwear"]["topwear"]
-            for i, weights in enumerate(attachment["weights"]):
-                source_y = top_part_rec["y"] - 4 + attachment["uvs"][2 * i + 1] * attachment["height"]
-                if source_y <= threshold:
-                    chest = next((w for w in weights if w["bone"] == "chest"), None)
-                    if chest is not None:
-                        attachment["weights"][i] = [{**chest, "weight": 1}]
+            for pname in target_parts:
+                prec = next(p for p in parts_doc["parts"] if p["name"] == pname)
+                attachment = rig["skins"]["default"][pname][pname]
+                for i, weights in enumerate(attachment["weights"]):
+                    source_y = prec["y"] - 4 + attachment["uvs"][2 * i + 1] * attachment["height"]
+                    if source_y <= threshold:
+                        chest = next((w for w in weights if w["bone"] == "chest"), None)
+                        if chest is not None:
+                            attachment["weights"][i] = [{**chest, "weight": 1}]
+        elif outfit == "office" and char in ("roa", "luna"):
+            def _transfer_boob(vw: list, bname: str, dx: float, dy: float, keep_ratio: float = 0.0) -> list:
+                boob_item = next((it for it in vw if it["bone"] == bname), None)
+                if not boob_item or boob_item["weight"] <= 0:
+                    return vw
+                old_w = boob_item["weight"]
+                new_w = round(old_w * keep_ratio, 5)
+                delta_w = old_w - new_w
+                cx_loc = round(boob_item["x"] + dx, 5)
+                cy_loc = round(boob_item["y"] + dy, 5)
+                new_vw = []
+                chest_found = False
+                for it in vw:
+                    if it["bone"] == bname:
+                        if new_w > 1e-4:
+                            new_vw.append({**it, "weight": new_w})
+                    elif it["bone"] == "chest":
+                        new_vw.append({**it, "weight": round(it["weight"] + delta_w, 5)})
+                        chest_found = True
+                    else:
+                        new_vw.append(dict(it))
+                if not chest_found and delta_w > 1e-4:
+                    new_vw.append({"bone": "chest", "x": cx_loc, "y": cy_loc, "weight": round(delta_w, 5)})
+                s = sum(it["weight"] for it in new_vw)
+                if s > 0:
+                    new_vw[0]["weight"] = round(new_vw[0]["weight"] + (1.0 - s), 5)
+                return new_vw
+
+            prec = next(p for p in parts_doc["parts"] if p["name"] == "topwear")
+            ox_p, oy_p = prec["x"] - 4, prec["y"] - 4
+            att = rig["skins"]["default"]["topwear"]["topwear"]
+            w_px, h_px = att["width"], att["height"]
+            uvs = att["uvs"]
+            weights = att["weights"]
+            tris = att["triangles"]
+
+            if char == "roa":
+                for vi in range(len(weights)):
+                    sx = ox_p + uvs[2 * vi] * w_px
+                    conn_x = [sx]
+                    for ti in range(0, len(tris), 3):
+                        t = (tris[ti], tris[ti + 1], tris[ti + 2])
+                        if vi in t:
+                            for tv in t:
+                                conn_x.append(ox_p + uvs[2 * tv] * w_px)
+                    max_tx = max(conn_x)
+                    min_tx = min(conn_x)
+                    if sx <= 228 or min_tx <= 220:
+                        weights[vi] = _transfer_boob(weights[vi], "boob_r", -64, 7, 0.0)
+                    elif sx <= 238:
+                        weights[vi] = _transfer_boob(weights[vi], "boob_r", -64, 7, 0.55)
+                    if sx >= 471 or max_tx > 480:
+                        weights[vi] = _transfer_boob(weights[vi], "boob_l", 78, 7, 0.0)
+                    elif sx >= 455:
+                        weights[vi] = _transfer_boob(weights[vi], "boob_l", 78, 7, 0.55)
+            elif char == "luna":
+                from PIL import Image
+                import numpy as np
+                hw_rec = next(p for p in parts_doc["parts"] if p["name"] == "handwear_r")
+                hw_im = np.array(Image.open(out_dir / "parts/handwear_r.png").convert("RGBA"))
+                c_hw = np.zeros((2284, 800), dtype=bool)
+                c_hw[hw_rec["y"]:hw_rec["y"] + hw_rec["h"], hw_rec["x"]:hw_rec["x"] + hw_rec["w"]] = hw_im[:, :, 3] > 16
+
+                def _in_hw(v_idx: int) -> bool:
+                    vx = int(round(ox_p + uvs[2 * v_idx] * w_px))
+                    vy = int(round(oy_p + uvs[2 * v_idx + 1] * h_px))
+                    return bool(c_hw[vy, vx]) if (0 <= vy < 2284 and 0 <= vx < 800) else False
+
+                for vi in range(len(weights)):
+                    sx = ox_p + uvs[2 * vi] * w_px
+                    sy = oy_p + uvs[2 * vi + 1] * h_px
+                    if sy <= 645:
+                        chest = next((w for w in weights[vi] if w["bone"] == "chest"), None)
+                        if chest is not None:
+                            weights[vi] = [{**chest, "weight": 1}]
+                        continue
+                    if _in_hw(vi) or sx <= 255:
+                        weights[vi] = _transfer_boob(weights[vi], "boob_r", -53, 5, 0.0)
+                    if _in_hw(vi) and sy >= 895:
+                        weights[vi] = _transfer_boob(weights[vi], "boob_l", 62, 5, 0.0)
+
+            rep_path = out_dir / "rig/mesh_report.json"
+            if rep_path.is_file():
+                reps = json.loads(rep_path.read_text())
+                for r in reps:
+                    if r.get("part") == "topwear" and "regions" in r:
+                        for reg in r["regions"]:
+                            bname = reg["bone"]
+                            reg["reached"] = sum(1 for vw in weights if any(it["bone"] == bname and it["weight"] > 1e-4 for it in vw))
+                            reg["whole"] = sum(1 for vw in weights if any(it["bone"] == bname and it["weight"] >= 0.9999 for it in vw))
+                rep_path.write_text(json.dumps(reps, indent=2) + "\n")
 
         target_rig_text = json.dumps(rig, indent=2) + "\n"
         target_rig_path.write_text(target_rig_text)
@@ -222,30 +331,76 @@ def rebuild_single_outfit_topwear(
 
     build_dir = out_dir / "check/build"
     build_dir.mkdir(parents=True, exist_ok=True)
-    bproc = subprocess.run(
-        [
-            "node",
-            "/Users/firejune/Workspace/Firejune/rigc/bin/rigc.cjs",
-            "build",
-            "--rig",
-            str(out_dir / "rig/rig.json"),
-            "--motion",
-            str(out_dir / "rig/motion.json"),
-            "--out",
-            str(build_dir),
-            "--profile",
-            "spine-html",
-            "--pack",
-            "--page-edges",
-            "free",
-            "--pack-shape",
-            "polygon",
-        ],
-        capture_output=True,
-        text=True,
-    )
-    if bproc.returncode != 0:
-        raise RuntimeError(f"[{char}/{outfit}] {(bproc.stderr or bproc.stdout).strip()}")
+    if outfit == "office":
+        hist_dir_name = "rig"
+        sk_path = build_dir / "skeleton.json"
+        if sk_path.is_file():
+            try:
+                img_path = json.loads(sk_path.read_text()).get("skeleton", {}).get("images", "../../rig/images/")
+                parts_sp = [s for s in img_path.split("/") if s and s != ".."]
+                if parts_sp:
+                    hist_dir_name = parts_sp[0]
+            except Exception:
+                pass
+        with tempfile.TemporaryDirectory(prefix=f"office-build-{char}-") as btmp:
+            btmp_path = pathlib.Path(btmp)
+            brig_dir = btmp_path / hist_dir_name
+            shutil.copytree(out_dir / "rig", brig_dir)
+            bout_dir = btmp_path / "compiler/build"
+            bproc = subprocess.run(
+                [
+                    "node",
+                    "/Users/firejune/Workspace/Firejune/rigc/bin/rigc.cjs",
+                    "build",
+                    "--rig",
+                    str(brig_dir / "rig.json"),
+                    "--motion",
+                    str(brig_dir / "motion.json"),
+                    "--images",
+                    str(brig_dir / "images"),
+                    "--out",
+                    str(bout_dir),
+                    "--profile",
+                    "rig-play",
+                    "--pack",
+                    "--page-edges",
+                    "free",
+                    "--pack-shape",
+                    "polygon",
+                ],
+                capture_output=True,
+                text=True,
+            )
+            if bproc.returncode != 0:
+                raise RuntimeError(f"[{char}/{outfit}] {(bproc.stderr or bproc.stdout).strip()}")
+            for fname in ("skeleton.json", "skeleton.model.json"):
+                if (bout_dir / fname).is_file():
+                    shutil.copy2(bout_dir / fname, build_dir / fname)
+    else:
+        bproc = subprocess.run(
+            [
+                "node",
+                "/Users/firejune/Workspace/Firejune/rigc/bin/rigc.cjs",
+                "build",
+                "--rig",
+                str(out_dir / "rig/rig.json"),
+                "--motion",
+                str(out_dir / "rig/motion.json"),
+                "--out",
+                str(build_dir),
+                "--profile",
+                "spine-html",
+                "--pack",
+                "--page-edges",
+                "free",
+                "--pack-shape",
+                "polygon",
+            ],
+            capture_output=True,
+            text=True,
+        )
+        if bproc.returncode != 0:
+            raise RuntimeError(f"[{char}/{outfit}] {(bproc.stderr or bproc.stdout).strip()}")
 
     if live_family is not None and live_family.resolve() != family.resolve():
         live_out = out_dir_for(live_family, char, outfit)
@@ -290,6 +445,7 @@ def rebuild_all_outfits_for_character(
     char: str,
     bust_r: dict,
     bust_l: dict,
+    target_outfit: str = "swimwear",
 ) -> dict:
     r_clean, l_clean, clamped = clamp_non_overlapping(bust_r, bust_l, margin=2.0)
     rebuilt_outfits = []
@@ -346,6 +502,7 @@ def main():
         args.character,
         parse_region_arg(args.bust_r),
         parse_region_arg(args.bust_l),
+        target_outfit=args.outfit,
     )
     print(json.dumps(res))
 

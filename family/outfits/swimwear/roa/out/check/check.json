@@ -137,7 +137,7 @@
   }
  ],
  "seam_mean": 0.149,
- "seam_px_over_40": 36,
+ "seam_px_over_40": 24,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.000385,
  "BREATH_VISIBLE": {
@@ -245,27 +245,27 @@
  },
  "TEXTURE_STRETCH": {
   "status": "PASS",
-  "meshes": 7,
-  "triangles": 1577,
+  "meshes": 6,
+  "triangles": 2280,
   "frames": 41,
-  "severity": 1.106,
+  "severity": 1.134,
   "severity_ceiling": 1.926544,
   "worst": {
-   "slot": "cardigan",
-   "triangle": 93,
+   "slot": "topwear",
+   "triangle": 1209,
    "vertices": [
-    78,
-    385,
-    386
+    765,
+    776,
+    766
    ],
    "edge": [
-    385,
-    386
+    765,
+    776
    ],
    "frame": 10,
-   "ratio": 1.106
+   "ratio": 1.134
   },
-  "max_ratio": 1.106,
+  "max_ratio": 1.134,
   "min_ratio": 0.951,
   "per_mesh": [
    {
@@ -279,38 +279,29 @@
    },
    {
     "slot": "neck",
-    "triangles": 25,
-    "max_ratio": 1.03,
-    "max_at": "triangle 17 (vertices 12 14 13), edge 14-13, idle frame 34",
-    "min_ratio": 0.971,
-    "min_at": "triangle 17 (vertices 12 14 13), edge 12-14, idle frame 14",
-    "severity": 1.03
+    "triangles": 53,
+    "max_ratio": 1.049,
+    "max_at": "triangle 40 (vertices 32 34 33), edge 33-32, idle frame 34",
+    "min_ratio": 0.952,
+    "min_at": "triangle 40 (vertices 32 34 33), edge 33-32, idle frame 14",
+    "severity": 1.051
    },
    {
     "slot": "topwear",
-    "triangles": 631,
-    "max_ratio": 1.077,
-    "max_at": "triangle 559 (vertices 324 331 325), edge 324-331, idle frame 10",
-    "min_ratio": 0.963,
-    "min_at": "triangle 28 (vertices 17 262 18), edge 17-262, idle frame 12",
-    "severity": 1.077
-   },
-   {
-    "slot": "cardigan",
-    "triangles": 507,
-    "max_ratio": 1.106,
-    "max_at": "triangle 93 (vertices 78 385 386), edge 385-386, idle frame 10",
-    "min_ratio": 0.971,
-    "min_at": "triangle 66 (vertices 56 382 76), edge 56-382, idle frame 10",
-    "severity": 1.106
+    "triangles": 1404,
+    "max_ratio": 1.134,
+    "max_at": "triangle 1209 (vertices 765 776 766), edge 765-776, idle frame 10",
+    "min_ratio": 0.956,
+    "min_at": "triangle 371 (vertices 281 285 282), edge 282-281, idle frame 10",
+    "severity": 1.134
    },
    {
     "slot": "sleeves",
-    "triangles": 208,
+    "triangles": 617,
     "max_ratio": 1.008,
-    "max_at": "triangle 179 (vertices 138 139 140), edge 139-140, idle frame 10",
+    "max_at": "triangle 333 (vertices 265 406 266), edge 406-266, idle frame 10",
     "min_ratio": 1,
-    "min_at": "triangle 24 (vertices 8 128 130), edge 128-130, idle frame 1",
+    "min_at": "triangle 103 (vertices 81 484 82), edge 82-81, idle frame 1",
     "severity": 1.008
    },
    {
@@ -353,19 +344,19 @@
   "status": "REPORTED",
   "painting_px": "800x2284",
   "stage_px": "800x2284",
-  "render_px": "892x2284",
+  "render_px": "893x2284",
   "render_scale": 1.0004,
-  "mean_abs": 0.877,
+  "mean_abs": 0.763,
   "within_limit": 8,
-  "within_share": 0.9638,
+  "within_share": 0.9688,
   "error_limit": 40,
-  "error_px": 2977,
+  "error_px": 1490,
   "covered_alpha": 128,
-  "uncovered_error_px": 1183,
-  "hole_count": 443,
+  "uncovered_error_px": 491,
+  "hole_count": 212,
   "largest": {
-   "px": 165,
-   "box": "228,618 8x165"
+   "px": 19,
+   "box": "503,410 18x12"
   }
  },
  "PASS": true
