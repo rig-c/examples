@@ -13,7 +13,7 @@
     ]
   },
   "assemble": {
-    "rig_scale": 1.0,
+    "rig_scale": 1,
     "plan": [
       [
         "hair_back",
@@ -702,10 +702,10 @@
       {
         "bone": "chest",
         "prop": "translatey",
-        "amp": 5.0,
+        "amp": 5,
         "period": 3.3333333333333335,
         "phase": 0,
-        "base": 5.0
+        "base": 5
       },
       {
         "bone": "chest",
@@ -787,7 +787,7 @@
         "chain": "bang_c",
         "amps": [
           0.45,
-          1.0
+          1
         ],
         "period": 3.3333333333333335,
         "phase": 0.18,
@@ -886,7 +886,7 @@
       "bone": "hairback_r0",
       "rotate": 1,
       "inertia": 0.45,
-      "strength": 220.0,
+      "strength": 220,
       "damping": 0.9,
       "mass": 1,
       "wind": 0.88,
@@ -899,7 +899,7 @@
       "bone": "hairback_r1",
       "rotate": 1,
       "inertia": 0.55,
-      "strength": 170.0,
+      "strength": 170,
       "damping": 0.88,
       "mass": 1,
       "wind": 1.65,
@@ -912,7 +912,7 @@
       "bone": "hairback_r2",
       "rotate": 1,
       "inertia": 0.65,
-      "strength": 130.0,
+      "strength": 130,
       "damping": 0.86,
       "mass": 1,
       "wind": 2.53,
@@ -925,7 +925,7 @@
       "bone": "hairback_l0",
       "rotate": 1,
       "inertia": 0.45,
-      "strength": 220.0,
+      "strength": 220,
       "damping": 0.9,
       "mass": 1,
       "wind": 0.88,
@@ -938,7 +938,7 @@
       "bone": "hairback_l1",
       "rotate": 1,
       "inertia": 0.55,
-      "strength": 170.0,
+      "strength": 170,
       "damping": 0.88,
       "mass": 1,
       "wind": 1.65,
@@ -951,7 +951,7 @@
       "bone": "hairback_l2",
       "rotate": 1,
       "inertia": 0.65,
-      "strength": 130.0,
+      "strength": 130,
       "damping": 0.86,
       "mass": 1,
       "wind": 2.53,
@@ -964,7 +964,7 @@
       "bone": "hair_r0",
       "rotate": 1,
       "inertia": 0.45,
-      "strength": 220.0,
+      "strength": 220,
       "damping": 0.9,
       "mass": 1,
       "wind": 0.88,
@@ -977,7 +977,7 @@
       "bone": "hair_r1",
       "rotate": 1,
       "inertia": 0.55,
-      "strength": 170.0,
+      "strength": 170,
       "damping": 0.88,
       "mass": 1,
       "wind": 1.65,
@@ -990,7 +990,7 @@
       "bone": "hair_r2",
       "rotate": 1,
       "inertia": 0.65,
-      "strength": 130.0,
+      "strength": 130,
       "damping": 0.86,
       "mass": 1,
       "wind": 2.53,
@@ -1003,7 +1003,7 @@
       "bone": "hair_l0",
       "rotate": 1,
       "inertia": 0.45,
-      "strength": 220.0,
+      "strength": 220,
       "damping": 0.9,
       "mass": 1,
       "wind": 0.88,
@@ -1016,7 +1016,7 @@
       "bone": "hair_l1",
       "rotate": 1,
       "inertia": 0.55,
-      "strength": 170.0,
+      "strength": 170,
       "damping": 0.88,
       "mass": 1,
       "wind": 1.65,
@@ -1029,7 +1029,7 @@
       "bone": "hair_l2",
       "rotate": 1,
       "inertia": 0.65,
-      "strength": 130.0,
+      "strength": 130,
       "damping": 0.86,
       "mass": 1,
       "wind": 2.53,
@@ -1042,7 +1042,7 @@
       "bone": "bang_r0",
       "rotate": 1,
       "inertia": 0.25,
-      "strength": 240.0,
+      "strength": 240,
       "damping": 0.9,
       "mass": 1,
       "wind": 0.625,
@@ -1055,7 +1055,7 @@
       "bone": "bang_r1",
       "rotate": 1,
       "inertia": 0.35,
-      "strength": 180.0,
+      "strength": 180,
       "damping": 0.88,
       "mass": 1,
       "wind": 1.375,
@@ -1068,7 +1068,7 @@
       "bone": "bang_c0",
       "rotate": 1,
       "inertia": 0.25,
-      "strength": 240.0,
+      "strength": 240,
       "damping": 0.9,
       "mass": 1,
       "wind": 0.625,
@@ -1081,7 +1081,7 @@
       "bone": "bang_c1",
       "rotate": 1,
       "inertia": 0.35,
-      "strength": 180.0,
+      "strength": 180,
       "damping": 0.88,
       "mass": 1,
       "wind": 1.375,
@@ -1094,7 +1094,7 @@
       "bone": "bang_l0",
       "rotate": 1,
       "inertia": 0.25,
-      "strength": 240.0,
+      "strength": 240,
       "damping": 0.9,
       "mass": 1,
       "wind": 0.625,
@@ -1107,7 +1107,7 @@
       "bone": "bang_l1",
       "rotate": 1,
       "inertia": 0.35,
-      "strength": 180.0,
+      "strength": 180,
       "damping": 0.88,
       "mass": 1,
       "wind": 1.375,
@@ -1120,7 +1120,7 @@
       "bone": "hem_r0",
       "rotate": 1,
       "inertia": 0.3,
-      "strength": 240.0,
+      "strength": 240,
       "damping": 0.9,
       "mass": 1,
       "wind": 0.15,
@@ -1133,7 +1133,7 @@
       "bone": "hem_r1",
       "rotate": 1,
       "inertia": 0.4,
-      "strength": 190.0,
+      "strength": 190,
       "damping": 0.88,
       "mass": 1,
       "wind": 0.3,
@@ -1146,7 +1146,7 @@
       "bone": "hem_l0",
       "rotate": 1,
       "inertia": 0.3,
-      "strength": 240.0,
+      "strength": 240,
       "damping": 0.9,
       "mass": 1,
       "wind": 0.15,
@@ -1159,7 +1159,7 @@
       "bone": "hem_l1",
       "rotate": 1,
       "inertia": 0.4,
-      "strength": 190.0,
+      "strength": 190,
       "damping": 0.88,
       "mass": 1,
       "wind": 0.3,
@@ -1171,28 +1171,28 @@
       "name": "boob_r_phys",
       "bone": "boob_r",
       "x": 0.25,
-      "y": 1.0,
+      "y": 1,
       "inertia": 0.405,
-      "strength": 480.0,
+      "strength": 480,
       "damping": 0.85,
       "mass": 0.85,
       "wind": 0.15,
       "gravity": 0.08,
-      "mix": 1.0
+      "mix": 1
     },
     {
       "type": "physics",
       "name": "boob_l_phys",
       "bone": "boob_l",
       "x": 0.27,
-      "y": 1.0,
+      "y": 1,
       "inertia": 0.4185,
-      "strength": 470.0,
+      "strength": 470,
       "damping": 0.85,
       "mass": 0.87,
       "wind": 0.16,
       "gravity": 0.08,
-      "mix": 1.0
+      "mix": 1
     },
     {
       "type": "physics",
@@ -1281,7 +1281,7 @@
         -60,
         0
       ],
-      "inward": -1.0,
+      "inward": -1,
       "outward": 3.5,
       "lower": {
         "inward": -1.5,
@@ -1295,7 +1295,7 @@
         60,
         0
       ],
-      "inward": -1.0,
+      "inward": -1,
       "outward": 3.5,
       "lower": {
         "inward": -1.5,
@@ -1310,10 +1310,10 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1324,10 +1324,10 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1338,10 +1338,10 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1352,11 +1352,15 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     }
-  ]
+  ],
+  "x-repairs": {
+    "file": "declared-repairs.json",
+    "sha256": "fea3500e7e0e9bc6d2c0cc2db809f4cf9258dbdd5c585a4dace916cfbe27b2b4"
+  }
 }

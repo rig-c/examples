@@ -6,6 +6,8 @@ import { dirname, join, relative, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
+import { rebuildAndVerifyAll, verifyDeclaredReproducibility } from './verify-reproducibility.mjs';
+
 const family = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const characters = ['roa', 'luna', 'jinni', 'naru', 'nova'];
 const sha = value => createHash('sha256').update(value).digest('hex');
@@ -76,8 +78,13 @@ export function checkInputs(root = family, manifest = json(join(root, 'accepted-
       savedSkips: Object.entries(saved).filter(([, value]) => value?.status === 'SKIP').map(([key, value]) => ({ key, reason: value.reason })),
       savedPhysicsExcluded: saved.ANIMATIONS_DO_NOT_FOLD.physics_left_out };
   });
-  return { scope: 'Input inventory and metadata coherence only; no compiler validation, new artifacts, or live-physics acceptance.',
-    files: paths.length, manifestSHA256: sha(readFileSync(join(root, 'accepted-inputs.json'))), summaries };
+  let declaredReproducibility = null;
+  if (existsSync(join(root, 'roa/config.json'))) {
+    const repro = verifyDeclaredReproducibility(root);
+    declaredReproducibility = { partsChecked: repro.rows.length, allEqual: repro.rows.every(r => r.equal) };
+  }
+  return { scope: 'Input inventory, declared repair hashes, and metadata coherence.',
+    files: paths.length, manifestSHA256: sha(readFileSync(join(root, 'accepted-inputs.json'))), declaredReproducibility, summaries };
 }
 
 function equalPixels(readPlate, beforePath, afterPath) {
@@ -108,6 +115,8 @@ async function main() {
   const { readPlate } = await import(pathToFileURL(require.resolve('rig-c/plate')).href);
   mkdirSync(out, { recursive: true });
   writeFileSync(join(out, 'inputs.json'), JSON.stringify(inventory, null, 2));
+  const reproOut = join(out, 'reproducibility');
+  const reproducibility = rebuildAndVerifyAll({ root: family, out: reproOut });
   const results = [];
   for (const name of characters) {
     const base = join(family, name, 'out'), target = join(out, name);
@@ -115,9 +124,10 @@ async function main() {
     const row = { character: name, PASS: false };
     results.push(row);
     try {
-      // The stored source-directory spelling is part of Spine/model byte identity.
-      const rigDirectory = join(target, historicalRigName(json(join(base, 'check/build/skeleton.json')).skeleton.images));
-      cpSync(join(base, 'rig'), rigDirectory, { recursive: true });
+      // Use the freshly rebuilt rig from config + declared repairs rather than copying out/rig directly.
+      const histName = historicalRigName(json(join(base, 'check/build/skeleton.json')).skeleton.images);
+      const rigDirectory = join(target, histName);
+      cpSync(join(reproOut, 'office', name, histName), rigDirectory, { recursive: true });
       // Compare each unpadded saved part to its actual padded authoring image.
       for (const part of json(join(base, 'parts.json')).parts) {
         const raw = readPlate(join(base, 'parts', `${part.name}.png`));
@@ -156,11 +166,11 @@ async function main() {
       row.error = String(error);
       console.error(row.error);
     }
-    writeFileSync(join(out, 'results.json'), JSON.stringify({ versions, results, livePhysics: 'Not run; ordinary animation fold check excludes physics. See retained per-stage measurements.' }, null, 2));
+    writeFileSync(join(out, 'results.json'), JSON.stringify({ versions, reproducibility: { partsChecked: reproducibility.rows.length }, results, livePhysics: 'Not run; ordinary animation fold check excludes physics. See retained per-stage measurements.' }, null, 2));
   }
   checkInputs(); // A build is never allowed to rewrite the frozen inputs.
   if (results.some(row => !row.PASS)) fail(`ACCEPTED_VERIFICATION_FAILED ${results.filter(r => !r.PASS).map(r => r.character).join(',')} see ${out}/results.json`);
-  console.log(JSON.stringify({ PASS: true, versions, characters: results.map(r => r.character), evidence: out, livePhysics: 'Not run by this command.' }, null, 2));
+  console.log(JSON.stringify({ PASS: true, versions, characters: results.map(r => r.character), reproducibilityParts: reproducibility.rows.length, evidence: out, livePhysics: 'Not run by this command.' }, null, 2));
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

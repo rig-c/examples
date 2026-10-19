@@ -974,7 +974,7 @@
         -20,
         0
       ],
-      "inward": -1.0,
+      "inward": -1,
       "outward": 3.5,
       "lower": {
         "inward": -1.5,
@@ -988,7 +988,7 @@
         20,
         0
       ],
-      "inward": -1.0,
+      "inward": -1,
       "outward": 3.5,
       "lower": {
         "inward": -1.5,
@@ -1003,10 +1003,10 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1017,12 +1017,16 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     }
   ],
-  "note": "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; new cardigan hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
+  "note": "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; new cardigan hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json.",
+  "x-repairs": {
+    "file": "declared-repairs.json",
+    "sha256": "fa38a4279b66ad7dd708e322c526ef2ffec3746ef0bb07da0b3f5b9979a4d392"
+  }
 }

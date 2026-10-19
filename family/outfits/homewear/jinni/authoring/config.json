@@ -1020,10 +1020,10 @@
         -240
       ],
       "inward": -1.5,
-      "outward": 8.0,
+      "outward": 8,
       "lower": {
-        "inward": -2.0,
-        "outward": 10.0
+        "inward": -2,
+        "outward": 10
       }
     },
     {
@@ -1033,11 +1033,11 @@
         -40,
         -240
       ],
-      "inward": -5.0,
-      "outward": 5.0,
+      "inward": -5,
+      "outward": 5,
       "lower": {
-        "inward": -6.0,
-        "outward": 6.0
+        "inward": -6,
+        "outward": 6
       }
     },
     {
@@ -1048,10 +1048,10 @@
         -240
       ],
       "inward": -1.5,
-      "outward": 8.0,
+      "outward": 8,
       "lower": {
-        "inward": -2.0,
-        "outward": 10.0
+        "inward": -2,
+        "outward": 10
       }
     },
     {
@@ -1062,10 +1062,10 @@
         120
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1076,12 +1076,16 @@
         120
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     }
   ],
-  "note": "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; new cardigan hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
+  "note": "Consumer authored homewear: common bone/motion/physics definitions are preserved in final assembly; new cardigan hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json.",
+  "x-repairs": {
+    "file": "declared-repairs.json",
+    "sha256": "0a69302a8d1feb9010d12862c6b3597d5505a7df4c173db58e512ef599a0c8ee"
+  }
 }

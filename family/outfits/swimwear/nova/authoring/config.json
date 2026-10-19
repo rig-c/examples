@@ -382,22 +382,22 @@
           {
             "name": "bust_r",
             "shape": "circle",
-            "cx": 268.0,
-            "cy": 710.0,
-            "r": 15.0,
+            "cx": 268,
+            "cy": 710,
+            "r": 15,
             "bone": "boob_r",
             "spacing": 14,
-            "band": 40.0
+            "band": 40
           },
           {
             "name": "bust_l",
             "shape": "circle",
-            "cx": 418.0,
-            "cy": 715.0,
-            "r": 18.0,
+            "cx": 418,
+            "cy": 715,
+            "r": 18,
             "bone": "boob_l",
             "spacing": 14,
-            "band": 40.0
+            "band": 40
           }
         ]
       },
@@ -561,10 +561,10 @@
       {
         "bone": "chest",
         "prop": "translatey",
-        "amp": 5.0,
+        "amp": 5,
         "period": 3.3333333333333335,
         "phase": 0,
-        "base": 5.0
+        "base": 5
       },
       {
         "bone": "chest",
@@ -635,7 +635,7 @@
         "chain": "bang_c",
         "amps": [
           0.45,
-          1.0
+          1
         ],
         "period": 3.3333333333333335,
         "phase": 0.18,
@@ -1004,7 +1004,7 @@
         -40,
         0
       ],
-      "inward": -1.0,
+      "inward": -1,
       "outward": 3.5,
       "lower": {
         "inward": -1.5,
@@ -1018,7 +1018,7 @@
         40,
         0
       ],
-      "inward": -1.0,
+      "inward": -1,
       "outward": 3.5,
       "lower": {
         "inward": -1.5,
@@ -1033,10 +1033,10 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1047,10 +1047,10 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     },
     {
@@ -1061,12 +1061,16 @@
         0
       ],
       "inward": -1.5,
-      "outward": 7.0,
+      "outward": 7,
       "lower": {
-        "inward": -2.0,
-        "outward": 9.0
+        "inward": -2,
+        "outward": 9
       }
     }
   ],
-  "note": "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; new cover-up/pareo hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json."
+  "note": "Consumer authored swimwear: common bone/motion/physics definitions are preserved in final assembly; new cover-up/pareo hems have separate physics on unified topwear. Source lineage is in prepared/prototype.json.",
+  "x-repairs": {
+    "file": "declared-repairs.json",
+    "sha256": "4446da0437f6ed43e9347b446afccf92e23d148d7adfe61c4eb6e34d1754c171"
+  }
 }
