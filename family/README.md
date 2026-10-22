@@ -33,9 +33,15 @@
 ```bash
 # 저장소 루트. Bun과 native Node가 PATH에 필요합니다.
 bun install --cwd family/tools/outline-field-islands --frozen-lockfile
-node family/tools/verify-reproducibility.mjs --out /absolute/path/to/new-repro-evidence
+bun family/tools/verify-reproducibility.mjs --out /absolute/path/to/new-repro-evidence
 bun family/tools/verify-accepted.mjs --out /absolute/path/to/new-family-evidence
 ```
+
+The [accepted office material profile](./MATERIAL_RESPONSE.md) is a declared,
+hash-bound stage around the existing repairs. Only the five office rigs receive
+it; the fifteen other outfits retain their prior common-part physics. The
+serving models now represent the owner-accepted candidate from issue #32.
+Reproduction compares against those accepted outputs, not the earlier profile.
 
 고정 도구는 parts 1.25.0 / rig-c 2.57.0 / 공식 Spine 4.3.13이다.
 1. **`verify-reproducibility.mjs` (5×4 `config.json` → `skeleton.model.json` 재현성 게이트)**: 20개 리그 전체를 정본 `config.json`에서 `rig-parts rig`로 새로 생성한 뒤 `declared-repairs.json`의 선언된 수리를 적용하고 공식 `rigc build`로 컴파일하여, 저장된 `out/rig/rig.json`, `out/rig/mesh_report.json`(396개 파츠 `v/t`), `out/check/build/skeleton.model.json`과 일치하는지 검증한다. 선언되지 않은 수리 파일, 해시 불일치, 비결정적 출력은 즉시 거부한다.

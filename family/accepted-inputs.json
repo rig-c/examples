@@ -1,7 +1,7 @@
 {
   "spec": "family-accepted-inputs/1",
-  "baseline": "Accepted family authoring at 1ecd0d69342b04846ec4f59a0ca02b86f8e0a83f; wind viewer from main PR #4 integrated before this inventory. Naru outfit viewer adopted separately; original five-character office authoring and serving hashes retained.",
-  "scope": "Final authoring rigs, motion, PNGs, part records, provenance, saved serving artifacts and viewer. Excludes unadopted configs, upgrade scripts and material experiments. No automatic manifest regeneration is provided.",
+  "baseline": "Accepted family authoring at 1ecd0d69342b04846ec4f59a0ca02b86f8e0a83f; wind viewer from main PR #4 integrated before this inventory. Naru outfit viewer adopted separately; original five-character office authoring and serving hashes retained. Office material profile accepted in issue #32 on 2026-10-22; declared stage retains prior mesh/topwear/cuff corrections and other outfit profiles.",
+  "scope": "Final authoring rigs, motion, PNGs, part records, provenance, saved serving artifacts and viewer. Office material profiles and config hashes are recorded in material-profile provenance; config x-repairs binds the stage. No automatic manifest regeneration is provided.",
   "characters": [
     "roa",
     "luna",
@@ -23,20 +23,20 @@
       "sha256": "b12b1fd8ab91fa1c30ce481048e73ceca11ba26c52ab6958ee0a57696197d0ee"
     },
     "jinni/out/check/build/skeleton.json": {
-      "bytes": 449897,
-      "sha256": "efda0fe9c43e9174c03be4b7d5caa44ccc675e9d219a089e0df8cc607b8cef1f"
+      "bytes": 450368,
+      "sha256": "f3b881954d094881101c83d0ec306e05cda7b455a17c91bf4e8f4938ed040b1c"
     },
     "jinni/out/check/build/skeleton.model.json": {
-      "bytes": 714911,
-      "sha256": "5194c4e5ca89f6d37ff1a70181722c5423256cc4e63fa94bfd2b68138a83a6c5"
+      "bytes": 715025,
+      "sha256": "5475c1a67bddd25f679ade558afbfce5c4762c295fd78d3acf21d8b1274390eb"
     },
     "jinni/out/check/build/skeleton.png": {
       "bytes": 1622970,
       "sha256": "8477f1f4af52e2a0e16b0bc2795fbc86974f5bd728d00d645a07bcc48395c3e2"
     },
     "jinni/out/check/check.json": {
-      "bytes": 11221,
-      "sha256": "6351d448f132398ebdf6c7f05d11ca76469614fab09b3c57f32d98fed6c0a2ec"
+      "bytes": 11614,
+      "sha256": "460a93efe9bcd95590fe5bee9c5b54320a974089d34be59249ef2cb02494569a"
     },
     "jinni/out/parts.json": {
       "bytes": 14006,
@@ -234,6 +234,10 @@
       "bytes": 180953,
       "sha256": "33081e03936cfb184d4c3018b9d187c9db759b896416876e0ced7a6b0d9f51b5"
     },
+    "jinni/out/rig/material-profile.provenance.json": {
+      "bytes": 637,
+      "sha256": "9a81f81f0f1a458781ba78802d6013cb0fea4a592c86315a0167fd88d5bfe2b3"
+    },
     "jinni/out/rig/mesh_report.json": {
       "bytes": 11810,
       "sha256": "3e74f3e22de0fd60d7bd64280e436c010be18e418a23b6defdd30819071cedea"
@@ -243,8 +247,8 @@
       "sha256": "c6750d217e9917ac8db36ff258545abf2efdc5704352ad825d6c3ee7a5aa54a9"
     },
     "jinni/out/rig/rig.json": {
-      "bytes": 475220,
-      "sha256": "75d1b01d9be34489a8f7fbcda3b25b18fd3fef3666fe8bee915f59bd70308a18"
+      "bytes": 475397,
+      "sha256": "c825acb85995b1a7202b4363da9ea777ba1ddc5e6adef187e8b4467f941a4414"
     },
     "jinni/out/rig/rig.json.provenance.json": {
       "bytes": 706,
@@ -263,20 +267,20 @@
       "sha256": "51daed38aab7bc94b1be652fb5256c8caa6d5ece265f9ff1473d799e0d1056c5"
     },
     "luna/out/check/build/skeleton.json": {
-      "bytes": 691026,
-      "sha256": "7881b4a09443bec2bef6d7dc87769c7fbd25ab3e995a067f7f77158de853f3f4"
+      "bytes": 691433,
+      "sha256": "936cd5099357cfce72fb57dcff8dba6a88f962e0ee3f3567bf65ace93bff41dd"
     },
     "luna/out/check/build/skeleton.model.json": {
-      "bytes": 1096267,
-      "sha256": "d34cca6c31b275136033842129d807a06d9f59434560ee098a2ef93dbf9e0c1d"
+      "bytes": 1096368,
+      "sha256": "a1043b7b663439f53d1f6af980be855905c39e0fd822eceb76143015d5d57d1d"
     },
     "luna/out/check/build/skeleton.png": {
       "bytes": 1558716,
       "sha256": "429373a34a9392c073ad1836f618d1076525e39fdf8011d40269aa3a40ea6182"
     },
     "luna/out/check/check.json": {
-      "bytes": 10476,
-      "sha256": "5ea17027e9f0f383d25d0feb9bc5308d37f1abeb9d717eaf3f49f1a295972d06"
+      "bytes": 10477,
+      "sha256": "af2b1da8a5198e6bab29791795659ae993a4eee30ddd90824e02672a94d064f7"
     },
     "luna/out/parts.json": {
       "bytes": 12965,
@@ -450,6 +454,10 @@
       "bytes": 323658,
       "sha256": "2766fe22ab34d689c3878e8ae7dc1c4f148cfd424a1fa30ad1993bbc8bad0320"
     },
+    "luna/out/rig/material-profile.provenance.json": {
+      "bytes": 637,
+      "sha256": "c576e73248b93c3b7638c5bb5a0a9ae101c509bf9d29dbf9b3a23401b50c2eb9"
+    },
     "luna/out/rig/mesh-repair.provenance.json": {
       "bytes": 1094,
       "sha256": "e841c150d989e9bdd41f313fb39aa446b026c4ef2f6c43581466f365602d648a"
@@ -463,8 +471,8 @@
       "sha256": "5f666102147aca87addb588295078c982b6b4f6d397fc986981330b23bb5f3d9"
     },
     "luna/out/rig/rig.json": {
-      "bytes": 769594,
-      "sha256": "365045f64f307f1a546614c681d0c2be3fd864acef4982ad7cad1c2fc7e1eaec"
+      "bytes": 769777,
+      "sha256": "337c1fdc4cbf9c6f6a30195f03a5eaf5f716998d6d7bf49f0c256ebd833997dc"
     },
     "luna/out/rig/rig.json.provenance.json": {
       "bytes": 25516,
@@ -483,20 +491,20 @@
       "sha256": "812b3b2297f48262dd6a60120d73c6dec8ce26882e2744f756b5be1178f7ef9b"
     },
     "naru/out/check/build/skeleton.json": {
-      "bytes": 533542,
-      "sha256": "0bcc4f9d902b8a979441481a541eaf62a342a2d1ea02b73a252c4add26bb05b6"
+      "bytes": 533941,
+      "sha256": "271bf63e4bd87edf9ed29e9f7d5ced0bf25b385a7dbd1835ef45dd3190c04978"
     },
     "naru/out/check/build/skeleton.model.json": {
-      "bytes": 848840,
-      "sha256": "4af93fec8381b20be5d831096ac1fab06bcec7e0a5f6c89de0fbd772425cad8b"
+      "bytes": 848933,
+      "sha256": "7ae9cf3378b882f24a19ce5c44638d4adc0b61e9aa27b4a425c3a445482f8813"
     },
     "naru/out/check/build/skeleton.png": {
       "bytes": 1254129,
       "sha256": "671c9fb591e68279a37adc1ab2ea3f093a116804942d5955b6e0c37191755f14"
     },
     "naru/out/check/check.json": {
-      "bytes": 7909,
-      "sha256": "9b03a54bac38094b61a383ea0340c1379866ef06530c99a11f7e139652ceed7a"
+      "bytes": 8055,
+      "sha256": "4b7515f1ab48bb35a2cd36b0baff4bc0a55d530714f85c16980c5f02bb52e859"
     },
     "naru/out/parts.json": {
       "bytes": 12319,
@@ -670,6 +678,10 @@
       "bytes": 250887,
       "sha256": "98a18ca2dd07e7a76a819d4eaa24a0232cf8c7b433b200bb3c9d24d9a4d39fb0"
     },
+    "naru/out/rig/material-profile.provenance.json": {
+      "bytes": 637,
+      "sha256": "f0e3197bc9bf763e269896e20937cc1bce220f3acf29d2fa9c5ae6cc45afeed3"
+    },
     "naru/out/rig/mesh_report.json": {
       "bytes": 6314,
       "sha256": "422f8a424e2472691b371b3eea626f3f4cf52f7196b01f71f3e9e151bd28cf77"
@@ -683,8 +695,8 @@
       "sha256": "4e127d90162ae69753791cbc425c5241b9a6bd81e329258e1c083554f272e8e8"
     },
     "naru/out/rig/rig.json": {
-      "bytes": 603903,
-      "sha256": "317400f27cbd2b8a3ed4c7da022be376810f51ddd57b78a6a00eaa1fb1d84435"
+      "bytes": 604072,
+      "sha256": "b0697776fa92c112f81bc3d6555ec0c382b67625ffdd54839eb6775d8109cf11"
     },
     "naru/out/rig/rig.json.provenance.json": {
       "bytes": 60443,
@@ -703,20 +715,20 @@
       "sha256": "b2290bca49f745e6146b9763fc9dd25e341951a80f20748f785f31a290107940"
     },
     "nova/out/check/build/skeleton.json": {
-      "bytes": 644349,
-      "sha256": "ba4490176fc948c45cc6b300873474d133aca8fc40908e8f556932831b0f9b48"
+      "bytes": 644688,
+      "sha256": "6f2a5c741cd2db7790fc585760df0fc5e9770f27c37df7e59bcc5df2920cd860"
     },
     "nova/out/check/build/skeleton.model.json": {
-      "bytes": 1033412,
-      "sha256": "c190dc78493d6fbc4af724c3d812a7e3cb4d101b140dfe7f2806d2d146018ffa"
+      "bytes": 1033496,
+      "sha256": "0846163f16e7270caeb2005d4f63c4dff1627f4cbab7200e6e363f39ad877b41"
     },
     "nova/out/check/build/skeleton.png": {
       "bytes": 1194393,
       "sha256": "134523763d7fead761d9a80195c23ddc0ebc6286878fdd0204db9a445d00ef0e"
     },
     "nova/out/check/check.json": {
-      "bytes": 7138,
-      "sha256": "22f86ac8fe5767dbaa3a763db9cb82b2297ca222d3c26908c6f77abf5999b913"
+      "bytes": 7550,
+      "sha256": "e8570b086bc7aaaf0e070c2f22943398a9bdf2737b1f2f8717a482dbec3124d0"
     },
     "nova/out/parts.json": {
       "bytes": 11541,
@@ -870,6 +882,10 @@
       "bytes": 350551,
       "sha256": "b73fe1936a21296ebd3a54108acc44790a7c0f380059aea293884d12c6e00ee1"
     },
+    "nova/out/rig/material-profile.provenance.json": {
+      "bytes": 637,
+      "sha256": "a830027ce3bb6f2306c4e397bc6a5ba31e7fac7eefce5b100d7e7fc17a52db3e"
+    },
     "nova/out/rig/mesh-repair.provenance.json": {
       "bytes": 1591,
       "sha256": "8deecd7b21ab9b784f44b2d4e91f2f98c4a145089885b0a4a3f62a75ea440a8c"
@@ -891,8 +907,8 @@
       "sha256": "d502544a942c402d592d869daeeb717215c25f20a3ffff12bb993d740a66ba63"
     },
     "nova/out/rig/rig.json": {
-      "bytes": 768122,
-      "sha256": "eb30aca5dad15b8a2e40699aeebf5a5ca88d33e6bf798fcb6a861da21f953660"
+      "bytes": 768262,
+      "sha256": "f7405afd8b9943c7e5ecbe2e278d47f8a08bb356fbc9a5f7135e149bdb0383f3"
     },
     "nova/out/rig/rig.json.provenance.json": {
       "bytes": 62609,
@@ -911,20 +927,20 @@
       "sha256": "fc4cb05f341664e05a181847f6714321ee6ea3826f7a4f9cf3c85fc669014461"
     },
     "roa/out/check/build/skeleton.json": {
-      "bytes": 623095,
-      "sha256": "75b0c7aa2ee49a856cec8511efd46b61e406c501165badf62c8f80400c1ddbea"
+      "bytes": 623412,
+      "sha256": "be888884043311d976152070ae63e6dd4063b0cf8d3322f953be106b24b41c92"
     },
     "roa/out/check/build/skeleton.model.json": {
-      "bytes": 990722,
-      "sha256": "b266efb8b849a562ee6533353c05e2ea9829a2334d70ff9267244b61685fa4a4"
+      "bytes": 990791,
+      "sha256": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632"
     },
     "roa/out/check/build/skeleton.png": {
       "bytes": 1422720,
       "sha256": "84cbd1b50458090896ad1cc55537df3565e3c1296b47996572efc77a9d8eb6e0"
     },
     "roa/out/check/check.json": {
-      "bytes": 10455,
-      "sha256": "559323d919ded228e3f920b061671cf9d46937f81b6b1b4e03d74108549b9f9c"
+      "bytes": 10442,
+      "sha256": "81f0279466fdd23ed5597a18c00cb7852c76b3b487aac5b594b5b793edffbfc3"
     },
     "roa/out/parts.json": {
       "bytes": 10876,
@@ -1066,6 +1082,10 @@
       "bytes": 282067,
       "sha256": "4ce0f6b42d75512bd098c766053fb929e00c0227d0be1719d8f09672723afd80"
     },
+    "roa/out/rig/material-profile.provenance.json": {
+      "bytes": 637,
+      "sha256": "3a6ceebc418c06a4879db79276ac4a0cade5c8d74f657caed550192599cf79f0"
+    },
     "roa/out/rig/mesh-repair.provenance.json": {
       "bytes": 1094,
       "sha256": "8f3deb002f941bf056c5085a39a4b76a1ece37d5b313904145df02babbca6778"
@@ -1083,8 +1103,8 @@
       "sha256": "b34df479a102bd2299f701b77c8343969575a650a947b45a51f61d2d8f72fd57"
     },
     "roa/out/rig/rig.json": {
-      "bytes": 718243,
-      "sha256": "904ab90fc64b622dab38ed891cdd72ca27fe38471c432dbec29bf3ce5a31b5f2"
+      "bytes": 718344,
+      "sha256": "d08a589cfc90b78896ae044697a4bfb83b6fa42d677b0e5528d5c95f68b01d10"
     },
     "roa/out/rig/rig.json.provenance.json": {
       "bytes": 65408,

@@ -12,6 +12,8 @@ import { dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
+import { materialProfileRig, validateMaterialProfile } from './material-profile.mjs';
+
 const defaultFamily = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const CHARACTERS = ['roa', 'luna', 'jinni', 'naru', 'nova'];
 export const OUTFITS = ['office', 'homewear', 'swimwear', 'uniform'];
@@ -107,6 +109,13 @@ export function loadAndVerifyDeclaredRepairs(root, character, outfit) {
       fail(`REPRODUCIBILITY_CONSTRAINT_SOURCE_HASH_MISMATCH ${character}/${outfit}`);
     }
   }
+  if (declared.materialProfile) {
+    validateMaterialProfile(declared.materialProfile, character, outfit);
+    for (const row of declared.materialProfile.constraints) {
+      const matches = cfg.constraints.filter(c => c.type === 'physics' && c.name === row.name && c.bone === row.bone);
+      if (matches.length !== 1 || Object.entries(row.after).some(([field, value]) => matches[0][field] !== value)) fail(`REPRODUCIBILITY_PROFILE_CONFIG_DRIFT ${character}/${row.name}`);
+    }
+  }
   return { cfg, declared, repairPath };
 }
 
@@ -118,10 +127,15 @@ export function applyDeclaredRepairsToRig({
   declared,
   ignoreRepairs = false,
 }) {
-  const rig = structuredClone(rawRig);
+  let rig = structuredClone(rawRig);
   let report = structuredClone(rawReport);
   if (ignoreRepairs || !declared) {
     return { rig, report };
+  }
+
+  if (declared.materialProfile) {
+    validateMaterialProfile(declared.materialProfile, character, outfit);
+    rig = materialProfileRig(rig, declared.materialProfile, 'raw', 'reverse');
   }
 
   for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
@@ -197,7 +211,16 @@ export function applyDeclaredRepairsToRig({
     report = declared.reportPartOrder.map(p => byPart[p]).filter(Boolean);
   }
 
-  return { rig, report };
+  const baselineRig = structuredClone(rig);
+  if (declared.materialProfile) rig = materialProfileRig(rig, declared.materialProfile, 'repaired', 'forward');
+  return { rig, report, baselineRig };
+}
+
+/** Outfit profiles were not retuned by #32; preserve their declared office preimage. */
+export function officeBaselineForOutfits(root, character) {
+  const rig = json(join(root, character, 'out/rig/rig.json'));
+  const { declared } = loadAndVerifyDeclaredRepairs(root, character, 'office');
+  return declared.materialProfile ? materialProfileRig(rig, declared.materialProfile, 'repaired', 'reverse') : rig;
 }
 
 export function mergeOutfitWithOfficeBaseline({
@@ -313,11 +336,19 @@ export function formatReproducibilityTable(rows) {
  */
 export function verifyDeclaredReproducibility(root = defaultFamily, { ignoreRepairs = false } = {}) {
   const allRows = [];
+  const provenanceFaults = [];
   for (const outfit of OUTFITS) {
     for (const character of CHARACTERS) {
       const { outDir } = rigPaths(root, character, outfit);
       const { declared } = loadAndVerifyDeclaredRepairs(root, character, outfit);
       const deliveredRig = json(join(outDir, 'rig/rig.json'));
+      if (declared.materialProfile) {
+        materialProfileRig(deliveredRig, declared.materialProfile, 'repaired', 'reverse');
+        const provenancePath = join(outDir, 'rig/material-profile.provenance.json');
+        if (!existsSync(provenancePath)) fail(`REPRODUCIBILITY_PROFILE_PROVENANCE_MISSING ${character}`);
+        const provenance = json(provenancePath);
+        if (provenance.spec !== 'family-material-profile-provenance/1' || provenance.profileSHA256 !== sha(JSON.stringify(declared.materialProfile)) || provenance.configSHA256 !== sha(readFileSync(rigPaths(root, character, outfit).configPath)) || provenance.authoringSHA256 !== sha(readFileSync(join(outDir, 'rig/rig.json'))) || provenance.compiledModelSHA256 !== sha(readFileSync(join(outDir, 'check/build/skeleton.model.json')))) provenanceFaults.push(`REPRODUCIBILITY_PROFILE_PROVENANCE_DRIFT ${character}`);
+      }
       const deliveredReport = json(join(outDir, 'rig/mesh_report.json'));
       const deliveredModel = json(join(outDir, 'check/build/skeleton.model.json'));
       const partsList = json(join(outDir, 'parts.json')).parts;
@@ -372,6 +403,7 @@ export function verifyDeclaredReproducibility(root = defaultFamily, { ignoreRepa
       .join(', ');
     fail(`REPRODUCIBILITY_MISMATCH ${summary}\n${table}`);
   }
+  if (provenanceFaults.length) fail(provenanceFaults.join("; "));
   return { rows: allRows, table };
 }
 
@@ -430,7 +462,7 @@ export function rebuildAndVerifyAll({
 
       if (outfit !== 'office') {
         const officeData = rebuiltOfficeByChar[character] ?? {
-          rig: json(join(root, character, 'out/rig/rig.json')),
+          rig: officeBaselineForOutfits(root, character),
           report: json(join(root, character, 'out/rig/mesh_report.json')),
           imagesDir: join(root, character, 'out/rig/images'),
         };
@@ -446,7 +478,7 @@ export function rebuildAndVerifyAll({
         baseRawReport = merged.report;
       }
 
-      const { rig: finalRig, report: finalReport } = applyDeclaredRepairsToRig({
+      const { rig: finalRig, report: finalReport, baselineRig } = applyDeclaredRepairsToRig({
         character,
         outfit,
         rawRig: baseRawRig,
@@ -485,7 +517,7 @@ export function rebuildAndVerifyAll({
 
       if (outfit === 'office') {
         rebuiltOfficeByChar[character] = {
-          rig: finalRig,
+          rig: baselineRig ?? finalRig,
           report: finalReport,
           imagesDir: join(compileRigDir, 'images'),
           compileRigDir,
@@ -526,6 +558,8 @@ export function rebuildAndVerifyAll({
         deliveredModel,
         rebuiltModel,
       });
+
+      if (!ignoreRepairs && declared.materialProfile && !readFileSync(join(outDir, 'rig/rig.json')).equals(readFileSync(join(compileRigDir, 'rig.json')))) fail(`REPRODUCIBILITY_AUTHORING_BYTES_CHANGED ${character}/${outfit}`);
 
       // Also verify full compiled model and skeleton.json byte equality when all parts are equal
       if (!ignoreRepairs && rows.every(r => r.equal)) {

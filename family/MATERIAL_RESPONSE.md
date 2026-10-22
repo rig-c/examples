@@ -1,10 +1,6 @@
-# Material-response candidate (issue #32)
+# Accepted office material response (issue #32)
 
-This is an unaccepted authoring candidate against main `c239b09` for
-[issue #32](https://github.com/rig-c/parts-examples/issues/32). No build,
-checker run, render, or visual acceptance is claimed for this reconciliation.
-Saved serving assets and accepted repair declarations are unchanged.
-Historical measurements from the earlier candidate do not describe this input.
+The [owner accepted the paired comparison](https://github.com/rig-c/parts-examples/issues/32#issuecomment-6333270882) on 2026-10-22 after HQ reviewed the real-speed clips and contact sheets. The accepted comparison uses main `c239b09` as its before arm. This integration reproduces the accepted candidate outputs, not the old serving physics.
 
 ## Reconciled scope
 
@@ -19,7 +15,7 @@ skirt. The issue's phrase “second character” is not used to select a differe
 character. The other four lower-clothing profiles remain unchanged.
 
 The five configs preserve current main's assembly plans, meshes, regions,
-bones, motion, stops, every other constraint field, and `x-repairs` references.
+bones, motion, stops, every other constraint field, and the prior declared repairs. The `x-repairs` hashes now also bind the accepted material stage.
 All accepted bust physics and topwear authoring settings remain unchanged.
 Nova's accepted removal of cuff physics remains in its declared repair; this
 candidate does not restore those constraints to the delivered rig.
@@ -79,26 +75,35 @@ not comparable and exits 2 even when its component checks pass. It is not used
 for this same-topology candidate. `--equal-force-only` remains optional,
 Jinni-only and diagnostic; it cannot replace actual-profile evidence.
 
-## Required gates and current boundary
+## Declared reproduction and serving
 
-First reproduce the unchanged accepted baseline with the ordinary declared
-repair and accepted-output gates. Build the candidate with the ordinary public
-compiler and full parts check, preserving all accepted attachment repairs and
-Nova's cuff removal. Run matched baseline/baseline controls and baseline/candidate
-measurements for all five characters; preserve raw commands, package versions,
-input hashes, native parity, all check verdicts and every SKIP.
+Each office `declared-repairs.json` contains a `materialProfile` record: named
+physics targets, the five old/new values, and complete raw/repaired rig hashes
+for both arms. `config.json` binds the declaration with its existing `x-repairs`
+SHA256. The stage verifies the accepted raw rig, reverses only those five values
+to the previous repair preimage, applies every existing declared repair with
+its original hashes, then applies and verifies the accepted profile. Nova's
+full constraint-array check and removal of four cuff constraints remain intact.
+An extra target, different coefficient, changed topwear, or other rig drift is
+refused; there is no threshold or guard bypass.
 
-The current accepted-output equality gate is deliberately not a candidate
-acceptance gate: retuned compiled physics differs from stored accepted bytes.
-Nova additionally declares its entire repaired constraint array, so passing a
-retuned raw rig directly to its existing repair function is expected to refuse
-constraint drift. Do not weaken those guards or rewrite accepted manifests to
-make this unaccepted candidate green. A private evaluation may first reproduce
-the accepted repaired rig and then apply only the declared candidate profile,
-with exact raw-config constraint-delta proof and unchanged motion/mesh/image
-hashes, before the normal compiler/check. This is candidate evaluation, not a
-claim that the changed configs reproduce currently accepted output.
+The three other outfits per character retain their previous office baseline
+profile when merging common parts. The office-only acceptance does not retune
+those fifteen outfits. Complete model and Spine equality remains required for
+all twenty rigs; profiled office authoring bytes are checked too.
 
-HQ must review matched real-speed before/after captures first; the owner then
-decides acceptance. Updating accepted repair declarations, serving output,
-reproducibility expectations or release state is outside this preparation.
+`out/rig/material-profile.provenance.json` records the profile, config,
+authoring and compiled-model hashes and acceptance reference. Office serving
+models, Spine files and check reports are the sealed accepted candidate's
+outputs. The accepted-input manifest pins the refreshed artifacts; the ordinary
+full reproduction and public compiler/check must reproduce them. Historical
+repair provenance remains historical, with this later material stage explicit.
+
+The accepted comparison's native/core parity, topwear and bust deltas and
+candidate fold readings were zero for all five characters. Each before arm
+also passed its unchanged-pair control. The comparison retained 31 planted
+refusals, 5,850 original frames and 40 paired real-speed videos. These figures
+refer to that frozen comparison, not to rerendering during integration.
+Ordinary build/check still excludes live physics from its animation fold test;
+Roa's missing eyewhite input remains an explicit blink SKIP. No new stress-force
+or superseded polygon evaluation is claimed.
