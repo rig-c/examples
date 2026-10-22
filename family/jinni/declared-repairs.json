@@ -3836,5 +3836,399 @@
     "topwear",
     "handwear_r",
     "hair_front"
-  ]
+  ],
+  "materialProfile": {
+    "spec": "family-material-profile/1",
+    "character": "jinni",
+    "outfit": "office",
+    "acceptance": "https://github.com/rig-c/parts-examples/issues/32#issuecomment-6333270882",
+    "constraints": [
+      {
+        "name": "hairback_r0_phys",
+        "bone": "hairback_r0",
+        "before": {
+          "mass": 1,
+          "strength": 220,
+          "damping": 0.9,
+          "inertia": 0.45,
+          "wind": 0.4
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 242,
+          "damping": 0.84,
+          "inertia": 0.3825,
+          "wind": 0.56
+        }
+      },
+      {
+        "name": "hairback_r1_phys",
+        "bone": "hairback_r1",
+        "before": {
+          "mass": 1,
+          "strength": 170,
+          "damping": 0.88,
+          "inertia": 0.55,
+          "wind": 0.8
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 187,
+          "damping": 0.82,
+          "inertia": 0.4675,
+          "wind": 1.12
+        }
+      },
+      {
+        "name": "hairback_r2_phys",
+        "bone": "hairback_r2",
+        "before": {
+          "mass": 1,
+          "strength": 130,
+          "damping": 0.86,
+          "inertia": 0.65,
+          "wind": 1.2
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 143,
+          "damping": 0.8,
+          "inertia": 0.5525,
+          "wind": 1.68
+        }
+      },
+      {
+        "name": "hairback_l0_phys",
+        "bone": "hairback_l0",
+        "before": {
+          "mass": 1,
+          "strength": 220,
+          "damping": 0.9,
+          "inertia": 0.45,
+          "wind": 0.4
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 242,
+          "damping": 0.84,
+          "inertia": 0.3825,
+          "wind": 0.56
+        }
+      },
+      {
+        "name": "hairback_l1_phys",
+        "bone": "hairback_l1",
+        "before": {
+          "mass": 1,
+          "strength": 170,
+          "damping": 0.88,
+          "inertia": 0.55,
+          "wind": 0.8
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 187,
+          "damping": 0.82,
+          "inertia": 0.4675,
+          "wind": 1.12
+        }
+      },
+      {
+        "name": "hairback_l2_phys",
+        "bone": "hairback_l2",
+        "before": {
+          "mass": 1,
+          "strength": 130,
+          "damping": 0.86,
+          "inertia": 0.65,
+          "wind": 1.2
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 143,
+          "damping": 0.8,
+          "inertia": 0.5525,
+          "wind": 1.68
+        }
+      },
+      {
+        "name": "bang_r0_phys",
+        "bone": "bang_r0",
+        "before": {
+          "mass": 1,
+          "strength": 240,
+          "damping": 0.9,
+          "inertia": 0.25,
+          "wind": 1.125
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 264,
+          "damping": 0.84,
+          "inertia": 0.2125,
+          "wind": 1.575
+        }
+      },
+      {
+        "name": "bang_r1_phys",
+        "bone": "bang_r1",
+        "before": {
+          "mass": 1,
+          "strength": 180,
+          "damping": 0.88,
+          "inertia": 0.35,
+          "wind": 2.475
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 198,
+          "damping": 0.82,
+          "inertia": 0.2975,
+          "wind": 3.465
+        }
+      },
+      {
+        "name": "bang_c0_phys",
+        "bone": "bang_c0",
+        "before": {
+          "mass": 1,
+          "strength": 240,
+          "damping": 0.9,
+          "inertia": 0.25,
+          "wind": 1.125
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 264,
+          "damping": 0.84,
+          "inertia": 0.2125,
+          "wind": 1.575
+        }
+      },
+      {
+        "name": "bang_c1_phys",
+        "bone": "bang_c1",
+        "before": {
+          "mass": 1,
+          "strength": 180,
+          "damping": 0.88,
+          "inertia": 0.35,
+          "wind": 2.475
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 198,
+          "damping": 0.82,
+          "inertia": 0.2975,
+          "wind": 3.465
+        }
+      },
+      {
+        "name": "bang_l0_phys",
+        "bone": "bang_l0",
+        "before": {
+          "mass": 1,
+          "strength": 240,
+          "damping": 0.9,
+          "inertia": 0.25,
+          "wind": 1.125
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 264,
+          "damping": 0.84,
+          "inertia": 0.2125,
+          "wind": 1.575
+        }
+      },
+      {
+        "name": "bang_l1_phys",
+        "bone": "bang_l1",
+        "before": {
+          "mass": 1,
+          "strength": 180,
+          "damping": 0.88,
+          "inertia": 0.35,
+          "wind": 2.475
+        },
+        "after": {
+          "mass": 0.45,
+          "strength": 198,
+          "damping": 0.82,
+          "inertia": 0.2975,
+          "wind": 3.465
+        }
+      },
+      {
+        "name": "skirt_r0_phys",
+        "bone": "skirt_r0",
+        "before": {
+          "mass": 1,
+          "strength": 240,
+          "damping": 0.9,
+          "inertia": 0.35,
+          "wind": 0.35
+        },
+        "after": {
+          "mass": 0.7,
+          "strength": 180,
+          "damping": 0.92,
+          "inertia": 0.42,
+          "wind": 0.875
+        }
+      },
+      {
+        "name": "skirt_r1_phys",
+        "bone": "skirt_r1",
+        "before": {
+          "mass": 1,
+          "strength": 190,
+          "damping": 0.88,
+          "inertia": 0.45,
+          "wind": 0.65
+        },
+        "after": {
+          "mass": 0.7,
+          "strength": 142.5,
+          "damping": 0.9,
+          "inertia": 0.54,
+          "wind": 1.625
+        }
+      },
+      {
+        "name": "skirt_r2_phys",
+        "bone": "skirt_r2",
+        "before": {
+          "mass": 1,
+          "strength": 145,
+          "damping": 0.86,
+          "inertia": 0.55,
+          "wind": 1
+        },
+        "after": {
+          "mass": 0.7,
+          "strength": 108.75,
+          "damping": 0.88,
+          "inertia": 0.66,
+          "wind": 2.5
+        }
+      },
+      {
+        "name": "skirt_c0_phys",
+        "bone": "skirt_c0",
+        "before": {
+          "mass": 1,
+          "strength": 240,
+          "damping": 0.9,
+          "inertia": 0.35,
+          "wind": 0.35
+        },
+        "after": {
+          "mass": 0.7,
+          "strength": 180,
+          "damping": 0.92,
+          "inertia": 0.42,
+          "wind": 0.875
+        }
+      },
+      {
+        "name": "skirt_c1_phys",
+        "bone": "skirt_c1",
+        "before": {
+          "mass": 1,
+          "strength": 190,
+          "damping": 0.88,
+          "inertia": 0.45,
+          "wind": 0.65
+        },
+        "after": {
+          "mass": 0.7,
+          "strength": 142.5,
+          "damping": 0.9,
+          "inertia": 0.54,
+          "wind": 1.625
+        }
+      },
+      {
+        "name": "skirt_c2_phys",
+        "bone": "skirt_c2",
+        "before": {
+          "mass": 1,
+          "strength": 145,
+          "damping": 0.86,
+          "inertia": 0.55,
+          "wind": 1
+        },
+        "after": {
+          "mass": 0.7,
+          "strength": 108.75,
+          "damping": 0.88,
+          "inertia": 0.66,
+          "wind": 2.5
+        }
+      },
+      {
+        "name": "skirt_l0_phys",
+        "bone": "skirt_l0",
+        "before": {
+          "mass": 1,
+          "strength": 240,
+          "damping": 0.9,
+          "inertia": 0.35,
+          "wind": 0.35
+        },
+        "after": {
+          "mass": 0.7,
+          "strength": 180,
+          "damping": 0.92,
+          "inertia": 0.42,
+          "wind": 0.875
+        }
+      },
+      {
+        "name": "skirt_l1_phys",
+        "bone": "skirt_l1",
+        "before": {
+          "mass": 1,
+          "strength": 190,
+          "damping": 0.88,
+          "inertia": 0.45,
+          "wind": 0.65
+        },
+        "after": {
+          "mass": 0.7,
+          "strength": 142.5,
+          "damping": 0.9,
+          "inertia": 0.54,
+          "wind": 1.625
+        }
+      },
+      {
+        "name": "skirt_l2_phys",
+        "bone": "skirt_l2",
+        "before": {
+          "mass": 1,
+          "strength": 145,
+          "damping": 0.86,
+          "inertia": 0.55,
+          "wind": 1
+        },
+        "after": {
+          "mass": 0.7,
+          "strength": 108.75,
+          "damping": 0.88,
+          "inertia": 0.66,
+          "wind": 2.5
+        }
+      }
+    ],
+    "raw": {
+      "before": "0a30efc950f1be719ae02f777d9b4e4d36fcd2387089dfe6626a7ecc0150ef2a",
+      "after": "0c3c09b814c0d3e64c3d6343c9b44a32f146ee8ed2857611c0ff44a3b16dcf5b"
+    },
+    "repaired": {
+      "before": "b9ef2e4f7d46bbce0102033f2a46b9dcfffaa6c72b22f0f2006ad61fc7c73f76",
+      "after": "2f7078f9fd97dd6161a82e4c709bf42e333c9f013d2b268f16aefa6d2833a85c"
+    }
+  }
 }

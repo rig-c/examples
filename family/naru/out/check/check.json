@@ -156,39 +156,17 @@
    "in": "rig.json"
   }
  ],
- "seam_mean": 0.134,
- "seam_px_over_40": 4,
+ "seam_mean": 0.136,
+ "seam_px_over_40": 0,
  "seam_px_over_80": 0,
  "seam_frame_scale": 1.08452,
- "seam_pairs": [
-  {
-   "parts": [
-    "iris_r",
-    "lash_r"
-   ],
-   "px_over_40": 4,
-   "px_over_80": 0,
-   "frame_box": [
-    286,
-    298,
-    287,
-    302
-   ],
-   "rig_box": [
-    339,
-    512,
-    341,
-    517
-   ],
-   "picture": "seam/01_iris_r_lash_r.png"
-  }
- ],
+ "seam_pairs": [],
  "BREATH_VISIBLE": {
   "status": "PASS",
   "torso_parts": [
    "topwear"
   ],
-  "torso_heat_mean": 17.939,
+  "torso_heat_mean": 18.296,
   "torso_floor": 3.809,
   "feet_parts": [
    "shoes"
@@ -211,7 +189,7 @@
   "box_px": 8804,
   "hole_px": 0,
   "hole_bar": 0,
-  "patch_max": 12,
+  "patch_max": 17,
   "patch_px_over_40": 0
  },
  "CHAIN_LAG": {
@@ -284,7 +262,7 @@
    "crossing": [
     {
      "slot": "hair_front",
-     "depth_rig_px": 1.305,
+     "depth_rig_px": 1.416,
      "area_rig_px2": 103.08,
      "frame": 0
     }
@@ -313,36 +291,36 @@
  "TEXTURE_STRETCH": {
   "status": "PASS",
   "meshes": 5,
-  "triangles": 1157,
+  "triangles": 1266,
   "frames": 41,
-  "severity": 1.112,
+  "severity": 1.107,
   "severity_ceiling": 1.926544,
   "worst": {
-   "slot": "topwear",
-   "triangle": 384,
+   "slot": "hair_back",
+   "triangle": 37,
    "vertices": [
-    196,
-    258,
-    197
+    29,
+    31,
+    30
    ],
    "edge": [
-    258,
-    197
+    31,
+    30
    ],
-   "frame": 11,
-   "ratio": 1.112
+   "frame": 24,
+   "ratio": 1.107
   },
-  "max_ratio": 1.112,
-  "min_ratio": 0.946,
+  "max_ratio": 1.107,
+  "min_ratio": 0.939,
   "per_mesh": [
    {
     "slot": "hair_back",
     "triangles": 99,
-    "max_ratio": 1.103,
+    "max_ratio": 1.107,
     "max_at": "triangle 37 (vertices 29 31 30), edge 31-30, idle frame 24",
-    "min_ratio": 0.946,
-    "min_at": "triangle 37 (vertices 29 31 30), edge 31-30, idle frame 2",
-    "severity": 1.103
+    "min_ratio": 0.95,
+    "min_at": "triangle 37 (vertices 29 31 30), edge 31-30, idle frame 1",
+    "severity": 1.107
    },
    {
     "slot": "bottomwear",
@@ -364,21 +342,21 @@
    },
    {
     "slot": "topwear",
-    "triangles": 551,
-    "max_ratio": 1.112,
-    "max_at": "triangle 384 (vertices 196 258 197), edge 258-197, idle frame 11",
-    "min_ratio": 0.948,
-    "min_at": "triangle 428 (vertices 213 226 214), edge 226-214, idle frame 12",
-    "severity": 1.112
+    "triangles": 660,
+    "max_ratio": 1.103,
+    "max_at": "triangle 194 (vertices 100 211 101), edge 100-211, idle frame 11",
+    "min_ratio": 0.939,
+    "min_at": "triangle 437 (vertices 221 269 268), edge 221-269, idle frame 11",
+    "severity": 1.103
    },
    {
     "slot": "hair_front",
     "triangles": 144,
     "max_ratio": 1.031,
     "max_at": "triangle 132 (vertices 101 103 102), edge 102-101, idle frame 1",
-    "min_ratio": 0.957,
-    "min_at": "triangle 132 (vertices 101 103 102), edge 102-101, idle frame 24",
-    "severity": 1.045
+    "min_ratio": 0.955,
+    "min_at": "triangle 132 (vertices 101 103 102), edge 102-101, idle frame 23",
+    "severity": 1.047
    }
   ]
  },
@@ -405,6 +383,25 @@
    "borders": [
     "hair_back 83 px"
    ]
+  }
+ },
+ "SETUP_POSE_VS_SOURCE": {
+  "status": "REPORTED",
+  "painting_px": "800x2284",
+  "stage_px": "800x2284",
+  "render_px": "695x2284",
+  "render_scale": 1.0845,
+  "mean_abs": 1.206,
+  "within_limit": 8,
+  "within_share": 0.976,
+  "error_limit": 40,
+  "error_px": 15403,
+  "covered_alpha": 128,
+  "uncovered_error_px": 4726,
+  "hole_count": 579,
+  "largest": {
+   "px": 266,
+   "box": "227,566 29x60"
   }
  },
  "PASS": true

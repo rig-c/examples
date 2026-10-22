@@ -49,7 +49,7 @@ jobs:
         run: node --test family/tools/verify-accepted.test.mjs family/viewer/*.test.mjs 2>&1 | tee evidence/regressions.log
       - name: Install exact public compiler and official oracle
         run: bun install --cwd family/tools/outline-field-islands --frozen-lockfile 2>&1 | tee evidence/install.log
-      - name: Rebuild all 5 characters × 3 outfits from config + declared repairs, diff compiled models, and run full parts check
+      - name: Rebuild all 5 characters × 4 outfits from config + declared repairs, diff compiled models, and run full parts check
         run: |
           set -o pipefail
           bun family/tools/verify-accepted.mjs --out "$RUNNER_TEMP/family-accepted" 2>&1 | tee evidence/fresh-build.log
