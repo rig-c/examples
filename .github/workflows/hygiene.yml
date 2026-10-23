@@ -1,0 +1,23 @@
+# Hygiene: runs on every pull request, including the ones the Family demo
+# workflow's path filter skips, so a docs-only change still has a check to
+# merge on. It is also a real gate: a local home path committed to this public
+# tree is refused by name (2026-10-23: fourteen meta.json files carried one).
+name: Hygiene
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: No local home paths in tracked files
+        run: |
+          set -eu
+          if git grep -n -E '(^|[^A-Za-z0-9_])/(Users|home)/[A-Za-z0-9._-]+/' -- . ':!.github/workflows/hygiene.yml' ; then
+            echo "::error::a local home path is committed; replace it with a repository-relative path or an argument"
+            exit 1
+          fi
+          echo "no local home paths"
