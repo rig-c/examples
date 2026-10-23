@@ -1,0 +1,37 @@
+{
+  "spec": "rigc-frames/1",
+  "pinned": {
+    "by": "--viewport-from",
+    "outside": []
+  },
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "viewport": {
+    "x": -575.1001332056925,
+    "y": -22.832002283065037,
+    "width": 1038.3634465496543,
+    "height": 1353.8478314199037,
+    "scale": 0.7090900304454161,
+    "pixelWidth": 736,
+    "pixelHeight": 960
+  },
+  "sets": [
+    {
+      "dir": "dance@30fps",
+      "animation": "dance",
+      "fps": 30,
+      "sampled": 391,
+      "written": 391,
+      "stride": 1,
+      "duration": 13,
+      "physics": {
+        "stepped": 11,
+        "fps": 30
+      }
+    }
+  ]
+}

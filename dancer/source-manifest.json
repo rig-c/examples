@@ -669,12 +669,13 @@
     },
     {
       "path": "config.json",
-      "bytes": 46041,
-      "sha256": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
+      "bytes": 46181,
+      "sha256": "405c444ea4b25e38df2a38b6227d6a8e0a68c38b99a8d89519ef3dbe685596bb",
       "sourceSHA256": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
       "origin": "accepted dance-skirt v3/v5, 2026-10-22",
       "role": "active keeper config",
-      "contentIdentical": true
+      "contentIdentical": false,
+      "normalization": "Only x-repairs metadata pins the declared record; producer values unchanged."
     },
     {
       "path": "config-base.json",
@@ -1293,7 +1294,7 @@
       "bytes": 9285,
       "sha256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
       "sourceSHA256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
-      "origin": "the accepted dance\u2019s map, 2026-10-22",
+      "origin": "the accepted dance’s map, 2026-10-22",
       "role": "accepted body/alternate map",
       "contentIdentical": true
     },
@@ -1313,6 +1314,87 @@
       "sourceSHA256": "67beb056983b32a5af4e402a1ebcb8257d1ded8f4cfd372a223b6eeeb0c166ab",
       "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
       "role": "accepted v3 base idle, pose, set and turn motion; not a dance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/sequence.json",
+      "bytes": 1174746,
+      "sha256": "8713172431674a57caa8d7c3f452a05bf46ec8079ca368bb4cd9df7952c2edfd",
+      "sourceSHA256": "8713172431674a57caa8d7c3f452a05bf46ec8079ca368bb4cd9df7952c2edfd",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "accepted source sequence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/bun.lock",
+      "bytes": 1870,
+      "sha256": "06c5576d4acb9c9a265bce6eb4316ff2e220709e4945f3eb17031bba7c60f360",
+      "sourceSHA256": "06c5576d4acb9c9a265bce6eb4316ff2e220709e4945f3eb17031bba7c60f360",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/package.json",
+      "bytes": 250,
+      "sha256": "07cc68a5cb0919e864178109b6b709136e0af94aaecf5f123fab92199ef6d104",
+      "sourceSHA256": "07cc68a5cb0919e864178109b6b709136e0af94aaecf5f123fab92199ef6d104",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/viewport.json",
+      "bytes": 635,
+      "sha256": "8a0f07c4304419d64125314d773b3b0f62bacdd0229a40cc0cbdffa57545a13c",
+      "sourceSHA256": "8a0f07c4304419d64125314d773b3b0f62bacdd0229a40cc0cbdffa57545a13c",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": true
+    },
+    {
+      "path": "build-accepted-dance.sh",
+      "bytes": 237,
+      "sha256": "68ba9b9b41da8fdc1618f9b346e4c81375912c14f475ba70a256f31b8109c022",
+      "sourceSHA256": "68ba9b9b41da8fdc1618f9b346e4c81375912c14f475ba70a256f31b8109c022",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": false
+    },
+    {
+      "path": "declared-repairs.json",
+      "bytes": 1160549,
+      "sha256": "55b8d0bf36120048309de1df6e08b8c22c7ccc09cdabf5edd6ce3e151452cbf7",
+      "sourceSHA256": "55b8d0bf36120048309de1df6e08b8c22c7ccc09cdabf5edd6ce3e151452cbf7",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": false
+    },
+    {
+      "path": "tools/apply-accepted-dance.py",
+      "bytes": 6244,
+      "sha256": "89accceae9aa04647b17d2feeba3a425b06d62bd5ae9e24347affb3f3811ecae",
+      "sourceSHA256": "89accceae9aa04647b17d2feeba3a425b06d62bd5ae9e24347affb3f3811ecae",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": false
+    },
+    {
+      "path": "tools/reproduce-accepted-dance.py",
+      "bytes": 5147,
+      "sha256": "53471aa6d0904b6efec0bc0f5495551b5a8eea809b33e2419d60633eca046cdd",
+      "sourceSHA256": "53471aa6d0904b6efec0bc0f5495551b5a8eea809b33e2419d60633eca046cdd",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": false
+    },
+    {
+      "path": "accepted-dance/reproduction-evidence.json",
+      "bytes": 11085,
+      "sha256": "cab44bb565b16ac530d86c4aa1b48a5e8d807e1a164dd918e86f42e234986808",
+      "sourceSHA256": "cab44bb565b16ac530d86c4aa1b48a5e8d807e1a164dd918e86f42e234986808",
+      "origin": "Corpus-only Nova replay, 2026-10-24; owner-accepted trial PR52 generation",
+      "role": "Actual command, hash, gate and full-geometry reproduction evidence",
       "contentIdentical": true
     }
   ]

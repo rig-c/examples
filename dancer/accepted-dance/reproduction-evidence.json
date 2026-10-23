@@ -1,0 +1,263 @@
+{
+  "spec": "dancer-accepted-reproduction-evidence/1",
+  "date": "2026-10-24",
+  "command": "sh build-accepted-dance.sh",
+  "job": "20261023T175705Z-2de101ff62de45aea21b27349e75199e",
+  "exitCode": 0,
+  "processQuiescent": true,
+  "source": "Only the frozen dancer directory plus registry packages resolved by its own frozen lock. No trial checkout, historical directory, reference video, detector or private API read by the replay.",
+  "commands": [
+    {
+      "label": "install",
+      "command": [
+        "bun",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "cwd": "work/runtime"
+    },
+    {
+      "label": "retarget",
+      "command": [
+        "bun",
+        "--bun",
+        "run",
+        "work/runtime/node_modules/.bin/rig-pose",
+        "retarget",
+        "--rig",
+        "work/corpus/dancer/accepted",
+        "--map",
+        "work/corpus/dancer/map.json",
+        "--sequence",
+        "work/corpus/dancer/accepted/sequence.json",
+        "--out",
+        "hand/r3/work/retarget/motion.json",
+        "--animation",
+        "zero-two-r3",
+        "--profile",
+        "spine",
+        "--build",
+        "hand/r3/work/retarget/build",
+        "--camera",
+        "hand/r3/work/retarget/camera.json",
+        "--report",
+        "hand/r3/work/retarget/report.json",
+        "--flip",
+        "90",
+        "--short",
+        "0.35",
+        "--bends",
+        "clamp",
+        "--leg-scale",
+        "0.8,1.05",
+        "--plant-feet",
+        "--stance",
+        "0.04",
+        "--carry-idle",
+        "--raised-by-head"
+      ],
+      "cwd": "."
+    },
+    {
+      "label": "before-geometry",
+      "command": [
+        "bun",
+        "--bun",
+        "run",
+        "work/runtime/node_modules/.bin/rigc",
+        "render",
+        "--candidate",
+        "hand/r3/work/retarget/build",
+        "--animation",
+        "zero-two-r3",
+        "--fps",
+        "30",
+        "--geometry",
+        "--folds",
+        "--viewport-from",
+        "hand/r3/viewport.json",
+        "--out",
+        "hand/r3/work/before-render"
+      ],
+      "cwd": "."
+    },
+    {
+      "label": "apply-declared",
+      "command": [
+        "python3",
+        "work/corpus/dancer/tools/apply-accepted-dance.py"
+      ],
+      "cwd": "."
+    },
+    {
+      "label": "final-build",
+      "command": [
+        "bun",
+        "--bun",
+        "run",
+        "work/runtime/node_modules/.bin/rigc",
+        "build",
+        "--rig",
+        "hand/r3/rig.json",
+        "--motion",
+        "hand/r3/motion.json",
+        "--out",
+        "hand/r3/work/build",
+        "--profile",
+        "spine"
+      ],
+      "cwd": "."
+    },
+    {
+      "label": "final-geometry",
+      "command": [
+        "bun",
+        "--bun",
+        "run",
+        "work/runtime/node_modules/.bin/rigc",
+        "render",
+        "--candidate",
+        "hand/r3/work/build",
+        "--animation",
+        "zero-two-r3-hand",
+        "--fps",
+        "30",
+        "--geometry",
+        "--folds",
+        "--pass-through",
+        "bottomwear:thigh_r,bottomwear:thigh_l,bottomwear:shins",
+        "--viewport-from",
+        "hand/r3/viewport.json",
+        "--out",
+        "hand/r3/work/final-render"
+      ],
+      "cwd": "."
+    }
+  ],
+  "hashes": {
+    "compiledModelSHA256": "2a21d03affaadac4a314b7dd0345b0b2b842292a24ff3ce49b4de2b460fb12d1",
+    "finalRigSHA256": "c4bb9011b1f1e561065957f08050d7b9b225d2b2bd984dc5be22cb4659bc0054",
+    "finalMotionSHA256": "cb10fa1fe8e9fade2f05be9c503aa4cea03482734cee082d45ec46072fb1951b",
+    "finalGeometrySHA256": "e701f3a709c83aadcde9db46c0ef3ad532ff38d77c3d8fbd45270e0149308c5c"
+  },
+  "hashMatches": {
+    "compiledModelSHA256": true,
+    "finalRigSHA256": true,
+    "finalMotionSHA256": true,
+    "finalGeometrySHA256": true
+  },
+  "geometryComparison": {
+    "frames": 391,
+    "fps": 30,
+    "referenceGeometrySHA256": "e701f3a709c83aadcde9db46c0ef3ad532ff38d77c3d8fbd45270e0149308c5c",
+    "rebuiltGeometrySHA256": "e701f3a709c83aadcde9db46c0ef3ad532ff38d77c3d8fbd45270e0149308c5c",
+    "fullGeometryByteIdentical": true,
+    "boneSamplesCompared": 37536,
+    "attachmentVertexSamplesCompared": 592651,
+    "maxBoneWorldPositionResidualUnits": 0.0,
+    "maxBoneLinearMatrixResidual": 0.0,
+    "maxAttachmentVertexResidualUnits": 0.0,
+    "referenceWasNotABuildInput": true
+  },
+  "gate": {
+    "profile": "spine",
+    "measuredPass": 23,
+    "failed": 0,
+    "skipped": 13,
+    "excluded": 14,
+    "rawLines": [
+      "  PASS  A07_ATLAS_TEXT_SHAPE",
+      "  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS",
+      "  PASS  A52_WEIGHTED_VERTICES_SHARE_ONE_BONE_ORDER",
+      "  PASS  A00_ROUNDTRIP_PARSE",
+      "  PASS  A16_SKELETON_VERSION_4_3",
+      "  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS",
+      "  PASS  A02_NO_BONE_TRANSFORM_KEY",
+      "  PASS  A05_CURVE_ARRAY_LENGTH",
+      "  PASS  A03_REGION_WIDTH_HEIGHT_FINITE",
+      "  PASS  A04_MESH_TRIANGLES_AND_ENCODING",
+      "  PASS  A20_MESH_WEIGHTS_COHERENT",
+      "  PASS  A22_MESH_UVS_IN_UNIT_RANGE",
+      "  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE",
+      "  PASS  A37_SLIDER_CONSTRAINT_EFFECTIVE",
+      "  PASS  A47_IK_CONSTRAINT_NOT_MUTED_THROUGHOUT",
+      "  PASS  A48_TRANSFORM_CONSTRAINT_NOT_MUTED_THROUGHOUT",
+      "  PASS  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET",
+      "  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC",
+      "  PASS  A10_NO_NAN_AFTER_STEPPING",
+      "  PASS  A17_ATLAS_PAGE_FILES_EXIST",
+      "  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG",
+      "  PASS  A51_BONES_LIE_ALONG_THEIR_DECLARED_AXIS",
+      "  PASS  A18_DETERMINISTIC_EMIT",
+      "  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline",
+      "  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline",
+      "  SKIP  A34_CONSTRAINT_TIMELINE_TARGETS: no animation carries a constraint timeline",
+      "  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline",
+      "  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path",
+      "  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint",
+      "  SKIP  A42_DRIVEN_CONSTRAINTS_UPDATE_AFTER_THEIR_DRIVER: no animation applied by one of the 2 slider constraints keys a property of a constraint, so no slider here drives a constraint",
+      "  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired",
+      "  SKIP  A43_TWO_COLOR_TINT_LOADS_AND_POSES_AS_WRITTEN: no slot declares a \"dark\" colour and no animation keys an \"rgba2\" or \"rgb2\" timeline, so there is no two-colour tint to read back",
+      "  SKIP  A45_SEPARABLE_COLOR_TIMELINES_OWN_THEIR_CHANNELS_AND_POSE_AS_WRITTEN: no animation keys an \"rgb\" or \"alpha\" timeline, so there is no separable slot colour to read back",
+      "  SKIP  A44_LINKED_MESH_STATES_NO_GEOMETRY_OF_ITS_OWN: no attachment in this skeleton takes its geometry from another one",
+      "  SKIP  A46_SEQUENCE_ATTACHMENTS_SHOW_THE_FRAME_THE_FILE_STATES: no attachment carries a \"sequence\" block and no animation keys a \"sequence\" timeline, so there is no numbered series to read back",
+      "  SKIP  A50_STAGE_BOX_IS_THE_STAGE: nothing asks for a stage box: no rigc-compiled/3 model document beside this skeleton states one (stage.box, from the rig spec's skeleton.stageBox) — a rig that does not ask, or an export, carries no stage in its Spine files to measure",
+      "  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile \"spine\"",
+      "  PROF  A13_MESH_BUDGET: renderer rule, not in profile \"spine\"",
+      "  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile \"spine\"",
+      "  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile \"spine\"",
+      "  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile \"spine\"",
+      "  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile \"spine\"",
+      "  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile \"spine\"",
+      "  PROF  A49_PACKED_FOOTPRINTS_DO_NOT_OVERLAP: renderer rule, not in profile \"spine\"",
+      "  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile \"spine\"",
+      "  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile \"spine\"",
+      "  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile \"spine\"",
+      "  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile \"spine\"",
+      "  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile \"spine\"",
+      "  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile \"spine\"",
+      "  ..    50 assertions: 23 measured (23 passed, 0 failed), 13 skipped, 14 not in profile \"spine\"",
+      "  ..    pages=54 regions=54 bones=96 slots=38 animations=32 version=4.3.13 regionAttachments=42 meshAttachments=17 physicsConstraints=11 physicsTimelineKeys=0 sliderConstraints=2 sliderSharedTargets=0 rig=dancer_painting profile=spine"
+    ]
+  },
+  "retargetLAND": {
+    "rows": 20,
+    "allWithinTolerance": true,
+    "scope": "Before intentional right-foot hand target; not after-hand original-pose LAND"
+  },
+  "guard": {
+    "rssLimitBytes": 6442450944,
+    "descendantProcessLimit": 4,
+    "internalThreadLimit": 4,
+    "peakSampledRssBytes": 723185664,
+    "peakSampledDescendantProcesses": 4,
+    "resourceStop": null
+  },
+  "runtime": {
+    "bun": "1.4.2",
+    "node": "v24.21.0",
+    "python3": "Python 3.12.3"
+  },
+  "sourceHashes": {
+    "accepted/motion.json": "67beb056983b32a5af4e402a1ebcb8257d1ded8f4cfd372a223b6eeeb0c166ab",
+    "accepted/rig.json": "490fd2116a5c7b5c1188be010d6091b68c35c2d837475cd8540f631367da08d6",
+    "config-base.json": "f249133220a8a782f64cd3502b275b60ee57296ef3b722068637553646dea6af",
+    "config.json": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
+    "map.json": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
+    "selected-art.json": "1b3c1fcf27da6571bdabc5ee8a8e1b8111140698fc2f0c756c430fcdf116503b"
+  },
+  "skips": [
+    "Config-only parts build not repeated; its known seam refusal remains separately documented.",
+    "No new browser/video encode, detector comparison or owner eye acceptance. Same compiled and full-geometry bytes as accepted result.",
+    "No full suite; this change adds corpus data and a targeted standalone replay."
+  ],
+  "ownerAcceptance": "Original trial PR52 video accepted on2026-10-24; replay does not create a new aesthetic or physics acceptance.",
+  "postRunMetadataOnly": {
+    "configField": "x-repairs",
+    "recordFile": "declared-repairs.json",
+    "recordSHA256": "55b8d0bf36120048309de1df6e08b8c22c7ccc09cdabf5edd6ce3e151452cbf7",
+    "originalProducerConfigSHA256": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
+    "hashMode": "json-indent2-lf-without-x-repairs",
+    "replayChange": "Only baseline/record metadata validation added after the successful replay. Rendering, retarget and apply commands and producer values are unchanged; no second build or render."
+  }
+}
