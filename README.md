@@ -1,12 +1,29 @@
-# parts-examples
+# rig-c/examples
 
-The heavy inputs of the public example characters of
-[`@rig-c/parts`](https://github.com/rig-c/parts) (the `rig-parts` command): for each character, the
-painting, the two images See-through was fed, and the two See-through layer
-sets that came back. rig-parts tracks the light half of each example — the
-character config, the proposal, the reference implementation's outputs and
-small contact sheets — under `examples/<key>/`, and fetches this repository
-into its gitignored `examples/<key>/inputs/`.
+The examples of the rig-c toolchain ([`@rig-c/core`](https://github.com/rig-c/core),
+[`@rig-c/parts`](https://github.com/rig-c/parts), [`@rig-c/play`](https://github.com/rig-c/play)),
+in two halves:
+
+- **The corpus** — the inputs the toolchain's gates fetch by a pinned commit:
+  `demo`, `wind`, `scarf`, `reference-demo`, `reference-sample`,
+  `three-quarter` and `family`. Their paths are frozen. `@rig-c/parts`'
+  `scripts/fetch-examples.sh` copies files from a commit it pins, and
+  `@rig-c/play`'s fixture pins a commit too, so a change to a corpus
+  directory reaches a consumer only when that consumer moves its pin.
+- **The trials** — what was tried with the toolchain to answer "does this
+  work?", kept whether it passed or failed, under `trials/` (see
+  [Trials](#trials)).
+
+This repository was `rig-c/parts-examples` until 2026-10-23. Links and
+records that still name `rig-c/parts-examples` refer to it; GitHub
+redirects them.
+
+For each standalone character, the corpus holds the painting, the two images
+See-through was fed, and the two See-through layer sets that came back.
+rig-parts tracks the light half of each example — the character config, the
+proposal, the reference implementation's outputs and small contact sheets —
+under `examples/<key>/`, and fetches this repository into its gitignored
+`examples/<key>/inputs/`.
 
 The standalone input examples listed under “Layout” were generated for
 publication. Their paintings are generated images of original characters,
@@ -38,6 +55,15 @@ is new generated artwork, distinct from the source-backed edge repairs.
 The study records rejected fixes, measured motion conditions and remaining
 limits, including where alpha was inferred or new artwork generated. The
 [Family guide](family/README.md) includes the local interactive viewer.
+
+## Trials
+
+A trial is one directory `trials/<yyyy-mm-dd>-<slug>/` whose README states the
+question, the inputs and their licence, the exact commands and tool pins, the
+measurement, a PASS, FAIL or PARTIAL verdict, the alternatives rejected and the
+limits. [trials/README.md](trials/README.md) is the convention and
+[trials/TEMPLATE.md](trials/TEMPLATE.md) the skeleton. A trial never edits a
+corpus directory.
 
 ## Layout
 
@@ -287,6 +313,13 @@ first six `reference-sample` seeds ran with a shorter negative, which
 
 The generated images and JSON in this repository are released under the MIT
 licence ([LICENSE](LICENSE)).
+
+The generation records and checkpoint credits in this section concern the
+standalone corpus examples only; Family's source is described in
+[family/README.md](family/README.md), and each trial's README states where its
+inputs came from and under what licence. A trial commits only files that may be
+released under [LICENSE](LICENSE); anything that may not stays out, and the
+trial's README says what was withheld.
 
 Each checkpoint's own terms are its publisher's.
 
