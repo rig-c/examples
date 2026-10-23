@@ -1,13 +1,13 @@
 [
   {
     "path": ".gitignore",
-    "bytes": 36,
-    "sha256": "9dc99f0003e5f6a43126d87359b1a8b4b3a62ca5466568bfe8864bc18ca7a2e8"
+    "bytes": 45,
+    "sha256": "cbca7c37fb3843d162d635a024a01159470b35c97c93e02ccbf6a57257adf663"
   },
   {
     "path": "README.md",
-    "bytes": 5429,
-    "sha256": "ec56db0de757758575fb061cc17dfe27c4deafccbd54ffb958bfc848a1434997"
+    "bytes": 6441,
+    "sha256": "5a921133b16994d5d8c5f0ad96ceb4610f99f153a652f5748fc6d1cc1857851d"
   },
   {
     "path": "acceptance.json",
@@ -16,8 +16,8 @@
   },
   {
     "path": "apply_r3_hand.py",
-    "bytes": 5862,
-    "sha256": "78bc70e239b8801ddf12840595738d72d56488cc2d1dccdbcfb80db8cd37bd4d"
+    "bytes": 5901,
+    "sha256": "649187e59931ce10844c2dd82be9e9c928f327c97eca8da4ec3a5f5d8de290f2"
   },
   {
     "path": "bootstrap_analysis.py",
@@ -26,8 +26,8 @@
   },
   {
     "path": "changes.json",
-    "bytes": 19125,
-    "sha256": "bae04b39cd5a7bdf7512e72fc6e1ee0bf925082e3bf8ddeb4fd39932c87d2f9c"
+    "bytes": 19128,
+    "sha256": "04de7070e81ec1e83f5480c3c01ad92426eb32a84591c0d2160c258f1e3a8f2d"
   },
   {
     "path": "contact-sheet.jpg",
@@ -38,6 +38,11 @@
     "path": "contact-sheet.py",
     "bytes": 895,
     "sha256": "f6d175966f702c90b8796808015d56a1c88b93c0b5b065dc046dc17c47d61260"
+  },
+  {
+    "path": "dedup-proof.json",
+    "bytes": 1638,
+    "sha256": "84bebba438deab9d181740969774b79c0670b6ad3a80860eb90d0f1047fc6cfb"
   },
   {
     "path": "geometry-summary.json",
@@ -86,8 +91,8 @@
   },
   {
     "path": "reproduce.sh",
-    "bytes": 1565,
-    "sha256": "e5dc29dc4f92291ea1d863a326319e61fe54d514ec2eec91b6b9e934a22e9434"
+    "bytes": 1590,
+    "sha256": "6f1b97d49dd30d9b42b0c42f4dbe9c66892dda1b4266d18a36ece6da33e14948"
   },
   {
     "path": "requirements.txt",
@@ -100,9 +105,9 @@
     "sha256": "8af5cbef8f47dc358a25666d589a64c623b9b3a9817743a94ce1eae22ae169e8"
   },
   {
-    "path": "rig.json",
-    "bytes": 1489495,
-    "sha256": "c4bb9011b1f1e561065957f08050d7b9b225d2b2bd984dc5be22cb4659bc0054"
+    "path": "rig-reference.json",
+    "bytes": 1550,
+    "sha256": "684c46841c9b2b78523126d739728f1f3d7f92e1056d6d68d4edae99ea76c870"
   },
   {
     "path": "seams-after.json",
@@ -116,23 +121,18 @@
   },
   {
     "path": "source-chain.json",
-    "bytes": 1448,
-    "sha256": "f0249b9679382bd0464f9c164aacffc385ab6dad91b01d0b21a5e307717110c7"
+    "bytes": 1708,
+    "sha256": "09bdab9d493e16569d7561368fe322d22fabc903eec69d2898a410bb72fc1dc0"
   },
   {
-    "path": "source-corrections.json",
-    "bytes": 1187656,
-    "sha256": "2e41a041a3d9f28bc805245b3526e74cc8b14fb6253e26bc6ab8680ac37cfa9e"
+    "path": "source-corrections-reference.json",
+    "bytes": 317,
+    "sha256": "e79f75ec7369ecaef3a9dec9fc5ec0ec739c07990acbcedd91435d6f3c5466f4"
   },
   {
     "path": "uv-pin.json",
     "bytes": 282,
     "sha256": "a70bde86e7219584e89a38e67ed536a97f3eecdf547e937374689a0d6e414725"
-  },
-  {
-    "path": "v5-rig.json",
-    "bytes": 1048569,
-    "sha256": "4ce9b871475cdc9c6e8c076e72276155e100253c55355436196b0936a1f14a3e"
   },
   {
     "path": "video-receipt.json",

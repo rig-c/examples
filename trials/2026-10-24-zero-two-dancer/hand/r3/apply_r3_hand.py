@@ -1,8 +1,11 @@
 """Apply named accepted hand corrections to the fresh phase1 motion, never the old full motion."""
 import argparse,copy,json,math,bisect,statistics,hashlib
 from pathlib import Path
+import sys
+sys.path.insert(0,str(Path('hand').resolve()))
+from rig_refs import load_rig,load_corrections,materialize_rig
 p=argparse.ArgumentParser();p.add_argument('--rig',default='work/corpus/dancer/accepted/rig.json');p.add_argument('--motion',default='hand/r3/work/retarget/motion.json');p.add_argument('--geometry',default='hand/r3/work/before-render/zero-two-r3@30fps/geometry.json');a=p.parse_args()
-source=json.loads(Path('hand/r3/source-corrections.json').read_text());originalRig=json.loads(Path(a.rig).read_text());rig=copy.deepcopy(originalRig);motion=json.loads(Path(a.motion).read_text());original=copy.deepcopy(motion['animations']['zero-two-r3']);animation=copy.deepcopy(original)
+source=load_corrections();originalRig=json.loads(Path(a.rig).read_text());rig=copy.deepcopy(originalRig);motion=json.loads(Path(a.motion).read_text());original=copy.deepcopy(motion['animations']['zero-two-r3']);animation=copy.deepcopy(original)
 assert rig['bones']==source['sourceBones'] and rig['constraints']==source['sourcePhysicsConstraints'] and rig['slots']==source['sourceSlots']
 assert rig['skins']['default']['bottomwear']==source['sourceBottomwear']
 assert sum(c['type']=='physics' for c in rig['constraints'])==11
@@ -42,7 +45,7 @@ for t in original['tracks']:
 assert rig['bones']==originalRig['bones'] and rig['constraints']==originalRig['constraints'] and rig['slots']==originalRig['slots'] and rig['skins']['default']['bottomwear']==originalRig['skins']['default']['bottomwear']
 actualMeshes=sum(at.get('type')=='mesh' for sl in rig['skins']['default'].values() for at in sl.values());assert actualMeshes==source['sourceMeshInventory']==17
 rig['invariants']['meshSlots']=actualMeshes # exact authored inventory, not a geometry/fidelity tolerance
-assert rig==json.loads(Path('hand/r3/v5-rig.json').read_text()), 'All original v5 rig fields must match before portable path normalization'
+assert rig==load_rig('historical'), 'All original v5 rig fields must match before portable path normalization'
 rig['images']='../../work/corpus/dancer/accepted/images'
 del motion['animations']['zero-two-r3'];motion['animations']['zero-two-r3-hand']=animation
-out=Path('hand/r3');out.mkdir(exist_ok=True);(out/'rig.json').write_text(json.dumps(rig,indent=2)+'\n');(out/'motion.json').write_text(json.dumps(motion,indent=2)+'\n');(out/'changes.json').write_text(json.dumps({'source':'source-corrections.json','alignment':'seconds unchanged, source30fps/current24fps, no pose retiming','attachmentTrackCount':len(source['attachmentTracks']),'namedAttachmentCount':len(source['attachments']),'footRule':rule,'floorDerivedFromCurrentGeometry':floor,'foot':foot,'preservedFreshBoneTracks':preserved,'physicsCount':11,'skirtBonesConstraintsSlotsAndAttachmentUnchanged':True,'meshInventoryBefore':originalRig['invariants']['meshSlots'],'meshInventoryAfter':actualMeshes,'retargetLAND':'R3 20/20 before hand; not an after-hand claim'},indent=2)+'\n');print('HAND_APPLIED',len(source['attachmentTracks']),'source attachment tracks;',len(foot),'fresh right-shin foot samples; 11 physics; other joint tracks preserved',flush=True)
+out=Path('hand/r3');out.mkdir(exist_ok=True);assert rig==load_rig('final');materialize_rig();(out/'motion.json').write_text(json.dumps(motion,indent=2)+'\n');(out/'changes.json').write_text(json.dumps({'source':'../source-corrections.json','alignment':'seconds unchanged, source30fps/current24fps, no pose retiming','attachmentTrackCount':len(source['attachmentTracks']),'namedAttachmentCount':len(source['attachments']),'footRule':rule,'floorDerivedFromCurrentGeometry':floor,'foot':foot,'preservedFreshBoneTracks':preserved,'physicsCount':11,'skirtBonesConstraintsSlotsAndAttachmentUnchanged':True,'meshInventoryBefore':originalRig['invariants']['meshSlots'],'meshInventoryAfter':actualMeshes,'retargetLAND':'R3 20/20 before hand; not an after-hand claim'},indent=2)+'\n');print('HAND_APPLIED',len(source['attachmentTracks']),'source attachment tracks;',len(foot),'fresh right-shin foot samples; 11 physics; other joint tracks preserved',flush=True)

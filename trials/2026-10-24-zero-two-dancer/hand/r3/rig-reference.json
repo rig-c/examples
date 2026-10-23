@@ -1,0 +1,49 @@
+{
+  "spec": "examples-derived-input-reference/1",
+  "kind": "derived-rig-reference",
+  "canonical": {
+    "path": "../rig.json",
+    "sha256": "7273fd99a7bc841a64e7d6dbc7ba2ca38b8dca548116fe687eff92ef24d14d9d"
+  },
+  "publicBaseRig": {
+    "repositoryPath": "dancer/accepted/rig.json",
+    "ref": "06f994995a2adcae915c75edd8038586e0e3e781",
+    "sha256": "490fd2116a5c7b5c1188be010d6091b68c35c2d837475cd8540f631367da08d6"
+  },
+  "adapters": {
+    "final": {
+      "kind": "generated-output-not-committed",
+      "materializedPath": "hand/r3/rig.json",
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/images",
+          "value": "../../work/corpus/dancer/accepted/images"
+        }
+      ],
+      "serialization": {
+        "indent": 2,
+        "ensureAscii": true,
+        "trailingNewline": true
+      },
+      "expectedSHA256": "c4bb9011b1f1e561065957f08050d7b9b225d2b2bd984dc5be22cb4659bc0054"
+    },
+    "historical": {
+      "kind": "hash-only-equivalence-reference-no-file",
+      "patch": [
+        {
+          "op": "replace",
+          "path": "/images",
+          "value": "images"
+        }
+      ],
+      "serialization": {
+        "indent": 1,
+        "ensureAscii": true,
+        "trailingNewline": true
+      },
+      "expectedSHA256": "4ce9b871475cdc9c6e8c076e72276155e100253c55355436196b0936a1f14a3e"
+    }
+  },
+  "scope": "The seven accepted attachment corrections are in the sole canonical hand/rig.json. Adapters change only the portable images field and JSON whitespace; they do not change geometry."
+}

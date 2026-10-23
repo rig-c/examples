@@ -41,6 +41,8 @@ parts config. Workflow was adapted from the public Toca trial at
 
 ## Commands and pins
 
+The hand payloads are stored once: `hand/rig.json` and `hand/source-corrections.json`. `hand/r3/rig-reference.json` declares portable image-path and serialization adapters; `hand/r3/source-corrections-reference.json` is a hash reference to the shared correction payload. The reproducer materialises its derived rig before building; removed snapshots are not required files. Exact reconstructed input hashes and unchanged motion proof are in `hand/r3/dedup-proof.json`. No geometry, animation or runtime result changed during deduplication.
+
 **Accepted final:** `sh hand/r3/reproduce.sh` from this trial root under the pooled 6 GiB/four-worker guard. See `hand/r3/pins.json`. It uses the exact source map and recorded `--flip 90 --short 0.35 --bends clamp --leg-scale 0.8,1.05 --plant-feet --stance 0.04 --carry-idle --raised-by-head --profile spine`, then the declared posthoc steps. Earlier commands below reproduce the fresh comparison, not the selected final.
 
 | Tool/input | Pin |

@@ -1,6 +1,7 @@
 #!/bin/sh
 # From trial root, under Nova pooled 6GiB/four-worker guard; no inference.
 set -eu
+python3 hand/rig_refs.py
 python3 fetch-inputs.py
 mkdir -p work/runtime
 cp package.json bun.lock work/runtime/

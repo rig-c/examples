@@ -11,17 +11,23 @@
   },
   "publicRigSHA256": "490fd2116a5c7b5c1188be010d6091b68c35c2d837475cd8540f631367da08d6",
   "sourceCorrections": {
-    "file": "source-corrections.json",
-    "sha256": "2e41a041a3d9f28bc805245b3526e74cc8b14fb6253e26bc6ab8680ac37cfa9e"
+    "kind": "existing-file-hash-reference",
+    "reference": "source-corrections-reference.json",
+    "target": "../source-corrections.json",
+    "targetSHA256": "2e41a041a3d9f28bc805245b3526e74cc8b14fb6253e26bc6ab8680ac37cfa9e"
   },
   "historicalRigSnapshot": {
-    "file": "v5-rig.json",
-    "sha256": "4ce9b871475cdc9c6e8c076e72276155e100253c55355436196b0936a1f14a3e",
-    "role": "Full equivalence assertion snapshot, not a separately built config"
+    "kind": "hash-only-equivalence-reference-no-file",
+    "reference": "rig-reference.json",
+    "adapter": "historical",
+    "expectedSHA256": "4ce9b871475cdc9c6e8c076e72276155e100253c55355436196b0936a1f14a3e"
   },
   "finalRig": {
-    "file": "rig.json",
-    "sha256": "c4bb9011b1f1e561065957f08050d7b9b225d2b2bd984dc5be22cb4659bc0054"
+    "kind": "generated-output-not-committed",
+    "reference": "rig-reference.json",
+    "adapter": "final",
+    "materializedPath": "rig.json",
+    "expectedSHA256": "c4bb9011b1f1e561065957f08050d7b9b225d2b2bd984dc5be22cb4659bc0054"
   },
   "finalMotion": {
     "file": "motion.json",
