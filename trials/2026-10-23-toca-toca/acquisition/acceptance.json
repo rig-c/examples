@@ -1,0 +1,24 @@
+{
+  "phase": "frozen before first fresh inference",
+  "videoSize": [
+    1080,
+    1920
+  ],
+  "fps": 30,
+  "fpsTolerance": 1e-06,
+  "frames": 492,
+  "emptyFrames": 0,
+  "bodyJoints": 18,
+  "wholebodyPoints": 133,
+  "minScore": 0.3,
+  "minimumEligibleBodyJoints": 5,
+  "personRule": "largest body-17 vertical extent among candidates meeting minimumEligibleBodyJoints at minScore",
+  "timestampRule": "round(frameIndex / fps, 5)",
+  "maxTimestampErrorSeconds": 1e-05,
+  "precheckFrameIndexes": [
+    0,
+    246,
+    491
+  ],
+  "scope": "Acquisition identity and structure only; not a dance/foot-plant verdict."
+}

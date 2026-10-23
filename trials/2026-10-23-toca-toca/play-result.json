@@ -1,0 +1,56 @@
+{
+  "tool": "@rig-c/play",
+  "version": "1.16.0",
+  "browser": "Chrome, actual user browser through CUA",
+  "compiledModelSHA256": "0d4de3e2d76aef275091c75d5286acf34b8ce7c71ab3964d1b24ce8810a88ffb",
+  "observedAdvancingTimesSeconds": [
+    0.2167,
+    12.5833
+  ],
+  "pausedTimeSeconds": 12.7333,
+  "captures": [
+    {
+      "frame": 0,
+      "timeSeconds": 0.0,
+      "screenshotSHA256": "74dc24ce3b32f9b1630e59b641ea0fb49b4da335233d3eaa75f93cb4302a32c0"
+    },
+    {
+      "frame": 246,
+      "timeSeconds": 8.2,
+      "screenshotSHA256": "600ea13408f29f32e708eef392a2d832c75305a4393c2c160048e7ac393c7527"
+    },
+    {
+      "frame": 491,
+      "timeSeconds": 16.366666666666667,
+      "screenshotSHA256": "0fa702e733bbe5d5f2c71a7eb507555633bcdec3623f1be889a94b14d31622b3"
+    },
+    {
+      "frame": 37,
+      "timeSeconds": 1.2333333333333334,
+      "screenshotSHA256": "3ab93ba7fab68a004e4d7c3c41c8f949f030b56bc782329c7973de4cf7df9d2e"
+    },
+    {
+      "frame": 278,
+      "timeSeconds": 9.266666666666667,
+      "screenshotSHA256": "f63f91c8f5ae4f00c761fdf4dcb7470241dbebc2dacc957a3da3c34b807a4256"
+    },
+    {
+      "frame": 480,
+      "timeSeconds": 16.0,
+      "screenshotSHA256": "f70836f34e95b88b1fe37439ced7e867e9c5a338441d3d4d20d59065beb82421"
+    }
+  ],
+  "contactSheet": "contact-sheet.jpg",
+  "contactSheetBytes": 106765,
+  "contactSheetSHA256": "6269e2d42c41e8a8b8e4006bdc4b68d84dc74f053ec6482a3164a9e44812f282",
+  "consoleWarningsErrors": [],
+  "optionalHTTP404": [
+    "favicon.ico",
+    "build/sets.json"
+  ],
+  "cleanup": {
+    "ownTabClosed": true,
+    "ownServerExited": true
+  },
+  "scope": "Playback and six inspected poses only; no performance, aesthetic, reference-fidelity or full physics acceptance."
+}
