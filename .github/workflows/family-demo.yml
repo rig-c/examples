@@ -1,10 +1,12 @@
 name: Family demo
 
+# Runs on every pull request so the required check always reports: a change
+# outside family/ (a trial, a README) takes the short path and passes without
+# the rebuild, a change inside family/ or to this file takes the long one. A
+# path filter here would leave a docs-only pull request with no check at all
+# (2026-10-23: #35 sat blocked that way).
 on:
   pull_request:
-    paths:
-      - 'family/**'
-      - '.github/workflows/family-demo.yml'
   workflow_dispatch:
 
 permissions:
@@ -24,13 +26,31 @@ jobs:
         with:
           ref: ${{ env.SOURCE_SHA }}
           persist-credentials: false
+          fetch-depth: 0
+      - name: Does this change touch family/ or this workflow?
+        id: scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -eu
+          if [ -z "${BASE_SHA:-}" ]; then echo "rebuild=true" >> "$GITHUB_OUTPUT"; echo "dispatch: rebuild"; exit 0; fi
+          changed=$(git diff --name-only "$BASE_SHA" "$SOURCE_SHA")
+          printf '%s\n' "$changed" | sed 's/^/  changed: /'
+          if printf '%s\n' "$changed" | grep -qE '^(family/|\.github/workflows/family-demo\.yml$)'; then
+            echo "rebuild=true" >> "$GITHUB_OUTPUT"; echo "family/ or this workflow changed: rebuild"
+          else
+            echo "rebuild=false" >> "$GITHUB_OUTPUT"; echo "nothing under family/ changed: the demo is not rebuilt, and this check passes on that reading"
+          fi
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: steps.scope.outputs.rebuild == 'true'
         with:
           node-version: '22.16.0'
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        if: steps.scope.outputs.rebuild == 'true'
         with:
           bun-version: '1.4.2'
       - name: Record source and frozen input identity
+        if: steps.scope.outputs.rebuild == 'true'
         run: |
           mkdir -p evidence
           python3 - <<'PY'
@@ -46,17 +66,20 @@ jobs:
           bun --version | tee evidence/bun-version.txt
           node family/tools/verify-accepted.mjs --check-inputs | tee evidence/input-inventory.json
       - name: Input refusal controls and viewer lifecycle, state and wind regressions
+        if: steps.scope.outputs.rebuild == 'true'
         run: node --test family/tools/verify-accepted.test.mjs family/viewer/*.test.mjs 2>&1 | tee evidence/regressions.log
       - name: Install exact public compiler and official oracle
+        if: steps.scope.outputs.rebuild == 'true'
         run: bun install --cwd family/tools/outline-field-islands --frozen-lockfile 2>&1 | tee evidence/install.log
       - name: Rebuild all 5 characters × 4 outfits from config + declared repairs, diff compiled models, and run full parts check
+        if: steps.scope.outputs.rebuild == 'true'
         run: |
           set -o pipefail
           bun family/tools/verify-accepted.mjs --out "$RUNNER_TEMP/family-accepted" 2>&1 | tee evidence/fresh-build.log
           cp "$RUNNER_TEMP/family-accepted/reproducibility/reproducibility.txt" evidence/reproducibility.txt
           cp "$RUNNER_TEMP/family-accepted/reproducibility/reproducibility.json" evidence/reproducibility.json
       - name: Preserve source, verdicts, skips and raw public gate output
-        if: always()
+        if: always() && steps.scope.outputs.rebuild == 'true'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: family-demo-${{ env.SOURCE_SHA }}
