@@ -1,0 +1,65 @@
+{
+  "kind": "CLI rendered animation, not an actual Play screen recording",
+  "sourceCompiledSHA256": "cc8205444b76ae2c312d4a15f41bd44b56b1c3f7d0f56dd4e3fa28268e921577",
+  "sourceFrameManifest": "fold-diagnostic/hashes.json",
+  "frameCount": 492,
+  "fps": 30,
+  "sourcePoser": "rig-c 2.67.2 core; 11 physics constraints stepped at 30 fps",
+  "versions": {
+    "ffmpeg": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+    "ffprobe": "ffprobe version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2007-2024 the FFmpeg developers"
+  },
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-framerate",
+    "30",
+    "-start_number",
+    "0",
+    "-i",
+    "work/fold-diagnostic/toca-toca@30fps/f%04d.png",
+    "-frames:v",
+    "492",
+    "-an",
+    "-vf",
+    "pad=ceil(iw/2)*2:ceil(ih/2)*2,setsar=1",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-threads",
+    "4",
+    "work/recording/toca-toca-dancer-core-render.mp4"
+  ],
+  "video": "work/recording/toca-toca-dancer-core-render.mp4",
+  "bytes": 734636,
+  "sha256": "ab4154c3292d5b36ac0c85512599109be191331ba51be9a0b1812b93f5bf4206",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 186,
+        "height": 256,
+        "sample_aspect_ratio": "1:1",
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "30/1",
+        "avg_frame_rate": "30/1",
+        "nb_read_frames": "492"
+      }
+    ],
+    "format": {
+      "duration": "16.400000"
+    }
+  },
+  "noAcquisitionCleanRetargetBuildOrRenderRepeated": true
+}

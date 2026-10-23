@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Toca Toca — accepted dancer rig</title>
+<style>
+body{font:14px system-ui;margin:16px;background:#eef0f4;color:#18202e}h1{font-size:20px;margin:0 0 8px}button{padding:8px;margin:3px}#stage{position:relative;width:450px;height:500px;background:#fff;overflow:hidden;border:1px solid #bbb}pre{white-space:pre-wrap;max-width:680px;font-size:11px}#status{font-variant-numeric:tabular-nums}
+</style>
+<h1>Toca Toca / accepted dancer rig</h1>
+<p>Machine trial — owner hand pass pending. Public rig only; reference video withheld.</p>
+<div id="controls"><button id="play">Play from start</button><button id="pause">Pause</button>
+<button data-frame="0">Frame 0</button><button data-frame="246">Frame 246 / midpoint</button><button data-frame="491">Frame 491 / end</button><button data-frame="37">Right support / 37</button><button data-frame="278">Left support / 278</button><button data-frame="480">Right support / 480</button></div>
+<p id="status">Loading…</p><div id="stage"></div><div id="fold-controls" style="position:absolute;left:500px;top:200px"><button data-frame="0">folded triangles 2, frame 0</button><br><button data-frame="1">folded triangles 2, frame 1</button><br><button data-frame="2">folded triangles 2, frame 2</button><br></div><pre id="generation"></pre>
+<script type="module">
+import { loadModel, RigPlayer } from './player.js';
+const status=document.querySelector('#status');
+const digest='cc8205444b76ae2c312d4a15f41bd44b56b1c3f7d0f56dd4e3fa28268e921577';
+try {
+  const url='./build/skeleton.model.json';
+  const bytes=await (await fetch(url)).arrayBuffer();
+  const actual=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),x=>x.toString(16).padStart(2,'0')).join('');
+  if(actual!==digest)throw new Error('Compiled generation hash mismatch: '+actual);
+  document.querySelector('#generation').textContent='@rig-c/play 1.16.0 · compiled SHA-256 '+actual;
+  const assets=await loadModel({modelUrl:url});
+  const stage=document.querySelector('#stage');
+  const root=stage.appendChild(document.createElement('div'));
+  const player=new RigPlayer(root,assets);
+  player.play('toca-toca',{loop:false});
+  player.pause();player.frame(0);
+  // Fixed display framing across the six requested stills, not a motion metric.
+  const boxes=[0,246,491,37,278,480].map(frame=>{player.seek(frame/30);player.frame(0);return player.bounds();});
+  const x=Math.min(...boxes.map(b=>b.x)),y=Math.min(...boxes.map(b=>b.y));
+  const box={x,y,width:Math.max(...boxes.map(b=>b.x+b.width))-x,height:Math.max(...boxes.map(b=>b.y+b.height))-y};
+  player.seek(0);player.frame(0);
+  const scale=Math.min(stage.clientWidth/box.width,stage.clientHeight/box.height)*0.85;
+  root.style.cssText=`position:absolute;transform-origin:0 0;transform:scale(${scale});left:${(stage.clientWidth-box.width*scale)/2-box.x*scale}px;top:${(stage.clientHeight-box.height*scale)/2+(box.y+box.height)*scale}px`;
+  player.renderer.syncPixelRatio();
+  let playing=false;
+  const show=()=>{status.textContent=`${playing?'Playing':'Paused'} · animation ${player.current} · time ${player.time.toFixed(5)} s · frame ${Math.round(player.time*30)} / 491`;};
+  document.querySelector('#play').onclick=()=>{player.play('toca-toca',{loop:false});player.resume();playing=true;show();};
+  document.querySelector('#pause').onclick=()=>{player.pause();playing=false;show();};
+  document.querySelectorAll('[data-frame]').forEach(button=>button.onclick=()=>{player.pause();playing=false;player.seek(Number(button.dataset.frame)/30);player.frame(0);show();});
+  let last=performance.now(),handle;
+  function tick(now){player.frame((now-last)/1000);last=now;show();handle=requestAnimationFrame(tick);}
+  handle=requestAnimationFrame(tick);show();
+  addEventListener('pagehide',()=>{cancelAnimationFrame(handle);player.dispose();assets.dispose();},{once:true});
+}catch(error){status.textContent='REFUSED: '+error.message;throw error;}
+</script></html>

@@ -1,0 +1,156 @@
+  RIGC   rig-c 2.67.2 (cli.ts — @esotericsoftware/spine-core 4.3.13 present) gates and poses this run
+  CLEAN  rig-pose-clean/1: legs 5, rest 7, no loop; 2 spike(s) replaced (frame 25 r_elbow, frame 369 r_knee), frames 0, 1, 490, 491 untested (a clip end cuts the 5-frame window); jitter (mean |second difference| of y) 8.80 → 6.14 px/f²; 10 HOLD(s) over 5 joint(s) in 4 region(s), frames 0–488, 71 joint span(s) not held, 0 seam(s) (per joint: --report's cleaned.holds, cleaned.unheld, cleaned.seams; --verbose)
+  CAMERA none in the sequence: --plant-feet reads the picture as a fixed camera, so a zoom or a pan in the video moves the floor with it and the floor may step with the picture (tools/scan.py reads the camera, rig-c/pose#63)
+  SCALE  0.59002 rig units per picture px (rig 200.75 / pose median 340.24); the median is 0.934 of its 95th percentile 364.21 — under 1, the median frame foreshortens mid_hip → mid_shoulder and the factor is 1.070× the one at its longest
+  SCALE  bands, rig ÷ picture at its 95th percentile – median: leg 0.85943–0.96182 (outside), hip 0.66359–0.75982 (outside); scale.factor 0.59002 (within: rig ÷ factor inside the picture's lengths ± 1 px)
+  SCALE  outside both bands: scale.factor 0.59002 sizes the figure as neither its legs nor its hips do — "translate" "scale" mid_hip → mid_shoulder is proportioned unlike the rig; a pair on the legs or hips reads inside a band
+  SCALE  hip travel (mid_hip → bone "hip"), range: pose x 261.07px = 0.433 legs = 1.879 hips, y 252.97px = 0.419 legs = 1.821 hips; rig x 162.15 = 0.313 legs = 1.759 hips, y 118.59 = 0.229 legs = 1.286 hips
+  SCALE-PAIR WARN mid_hip → mid_shoulder (rig hip → sleeve_r0+sleeve_l0): picture length 226.89–381.90px on 492/492 good frames; variation (max-min)/max 40.588190% > 13.043478% (inverse-length gain > 1.15); see README "The map: rig-pose-map/1", translate.scale rule for choosing corresponding points; advisory only, scale unchanged
+  TURN   line "hip" (r_hip → l_hip) frames 464–491 (t=15.467–16.367s): 0.933s reversed (pointing more than 90° from r_hip → l_hip's own way), picture length down to 0.17 of its median, ≥ 0.15s — the body or head turned, a pose the rig cannot draw
+  TURN   line "eye" (r_eye → l_eye) frames 26–32 (t=0.867–1.067s): 0.233s picture length down to 0.26 of its median, under 0.5, ≥ 0.15s — the body or head turned, a pose the rig cannot draw
+  TURN   line "eye" (r_eye → l_eye) frames 53–59 (t=1.767–1.967s): 0.233s picture length down to 0.23 of its median, under 0.5, ≥ 0.15s — the body or head turned, a pose the rig cannot draw
+  SWITCH none — no set within 25° of the pose for 0.25s
+  SWITCH-MIN set "K2_hands_low_front": 1 run(s) shorter than --switch-min 0.25s not shown: frame 381 (1 frame, 0.033s); nearest on 1 run(s), the longest frame 381 (1 frame, 0.033s)
+  FRAMES set "K0_hands_behind_back" window 0–18: frames 0–18 outside the tolerance (up to 39.8° > 25°) — a window restricts a set, it never forces one
+  FRAMES set "K0_hands_behind_back" window 61–80: frames 61–80 outside the tolerance (up to 178.5° > 25°) — a window restricts a set, it never forces one
+  PELVIS: from hip line (no track), swing 118.47° (bone "hip", chain "pelvis"; every frame from r_hip → l_hip)
+  PIVOT  bone "hip"'s origin is 0.32 units (0.003 hip widths) from its thigh roots' midpoint (leg_r0 + leg_l0): dx -0.30, dy -0.10, at setup — the pivot every hip turn swings the legs about
+  FEET   planted: leg length (median hip → ankle) r 547.2px, l 545.5px; 21 support span(s), 6 change(s) of support, 12 jump(s), 5 step(s)
+  FEET   segment chain "leg_r" bone "leg_r0" (r_hip → r_knee): picture length ÷ straight length (310.5px, the one --leg-scale scales against) min 0.5435 · median 0.9513 · max 1.0431 — the scale --leg-scale asks before its clamp, read with or without it
+  FEET   segment chain "leg_r" bone "leg_r1" (r_knee → r_ankle): picture length ÷ straight length (279.2px, the one --leg-scale scales against) min 0.1004 · median 0.8606 · max 1.0875 — the scale --leg-scale asks before its clamp, read with or without it
+  FEET   segment chain "leg_l" bone "leg_l0" (l_hip → l_knee): picture length ÷ straight length (320.1px, the one --leg-scale scales against) min 0.6863 · median 0.9248 · max 1.0506 — the scale --leg-scale asks before its clamp, read with or without it
+  FEET   segment chain "leg_l" bone "leg_l1" (l_knee → l_ankle): picture length ÷ straight length (282.7px, the one --leg-scale scales against) min 0.6299 · median 0.8634 · max 1.1034 — the scale --leg-scale asks before its clamp, read with or without it
+  FEET   supports: r 0–75, r 82–88, r 96–101, r 110–116, l 125–133, l 138–148, r 149–163, l 164–175, l 180–188, l 196–223, l 253–303, r 312–321, l 322–335, r 336–346, l 347–360, r 379–387, r 398, r 408–427, l 428–448, r 454–462, r 470–491
+  FEET   jumps (both ankles and mid_hip > 0.05 leg lengths above their rolling floor, ≥ 2 frames): 76–81, 89–95, 102–109, 117–123, 134–137, 176–179, 189–195, 224–250, 306–311, 361–378, 388–397, 399–407
+  FEET   support read from the lower ankle (a foot ≥ 0.02 leg lengths higher than the other does not take support, rig-c/pose#113): 3 frame(s) read differently from before — frames 252 r → none (the only foot free to take support was the higher one), frames 304–305 r → none (the only foot free to take support was the higher one)
+  FEET   tracked (the lower foot supports on the floor, following its scaled ankle track until still, rig-c/pose#119): l 252, l 304–305
+  FEET   steps (the supporting ankle > 0.03 leg lengths a frame; re-planted after 2 frames < 0.01): l 304–313 → the pose's travel, re-planted at 314; r 322–326 → l supports, re-planted at 327; l 336–339 → r supports, re-planted at 340; l 449–455 → the pose's travel, re-planted at 456; r 463–469 → the pose's travel, re-planted at 470
+  FEET   floor: world y 18.66 (the median of the 21 support span(s)' planted heights); each span's supporting ankle moved onto it, the hip and everything above with it — shift per span in units (leg lengths: the rig's at setup, thigh origin → ankle, r 513.1, l 524.6 units): r 0–75 −142.31 (−0.2773), r 82–88 −118.04 (−0.2300), r 96–101 −109.16 (−0.2127), r 110–116 −108.94 (−0.2123), l 125–133 −69.15 (−0.1318), l 138–148 −42.28 (−0.0806), r 149–163 −53.86 (−0.1050), l 164–175 −48.62 (−0.0927), l 180–188 −28.58 (−0.0545), l 196–223 −32.25 (−0.0615), l 253–303 +0.42 (+0.0008), r 312–321 +9.65 (+0.0188), l 322–335 +21.14 (+0.0403), r 336–346 +6.93 (+0.0135), l 347–360 +16.53 (+0.0315), r 379–387 +3.60 (+0.0070), r 398 +0.00 (+0.0000), r 408–427 +3.24 (+0.0063), l 428–448 +16.28 (+0.0310), r 454–462 +14.68 (+0.0286), r 470–491 +49.12 (+0.0957); range −142.31 … +49.12 units = 0.3689 leg lengths
+  FEET   blend held on the floor: supporting foot r frames 83–84 (t=2.767–2.800s) — the hip blends between two derivations there, so its leg is stretched by k 0.9846–0.9863 within [0.9174, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot r frames 97–98 (t=3.233–3.267s) — the hip blends between two derivations there, so its leg is stretched by k 0.9840–0.9873 within [0.9153, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot r frames 111–112 (t=3.700–3.733s) — the hip blends between two derivations there, so its leg is stretched by k 0.9836–0.9863 within [0.9026, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot l frames 126–127 (t=4.200–4.233s) — the hip blends between two derivations there, so its leg is stretched by k 0.9835–0.9846 within [0.8292, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot l frames 139–140 (t=4.633–4.667s) — the hip blends between two derivations there, so its leg is stretched by k 0.9871–0.9881 within [0.9051, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot r frames 149–151 (t=4.967–5.033s) — the hip blends between two derivations there, so its leg is stretched by k 1.0041–1.0170 within [0.92, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot l frames 164–166 (t=5.467–5.533s) — the hip blends between two derivations there, so its leg is stretched by k 0.9923–0.9963 within [0.9001, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot l frames 181–182 (t=6.033–6.067s) — the hip blends between two derivations there, so its leg is stretched by k 0.9895–0.9916 within [0.8193, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot l frames 197–198 (t=6.567–6.600s) — the hip blends between two derivations there, so its leg is stretched by k 0.9834–0.9838 within [0.8935, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot r frames 313–314 (t=10.433–10.467s) — the hip blends between two derivations there, so its leg is stretched by k 0.9925–0.9930 within [0.9115, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot l frames 322–324 (t=10.733–10.800s) — the hip blends between two derivations there, so its leg is stretched by k 0.9835–0.9936 within [0.92, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot r frames 336–338 (t=11.200–11.267s) — the hip blends between two derivations there, so its leg is stretched by k 1.0054–1.0208 within [0.9102, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot l frames 347–349 (t=11.567–11.633s) — the hip blends between two derivations there, so its leg is stretched by k 0.9861–0.9913 within [0.8757, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot r frames 380–381 (t=12.667–12.700s) — the hip blends between two derivations there, so its leg is stretched by k 0.9826–0.9839 within [0.9113, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot r frames 409–410 (t=13.633–13.667s) — the hip blends between two derivations there, so its leg is stretched by k 0.9782–0.9782 within [0.8462, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot l frames 428–430 (t=14.267–14.333s) — the hip blends between two derivations there, so its leg is stretched by k 0.9813–0.9946 within [0.8664, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot r frames 454–456 (t=15.133–15.200s) — the hip blends between two derivations there, so its leg is stretched by k 0.9962–1.0024 within [0.8818, 1.08] to keep the ankle on the floor
+  FEET   blend held on the floor: supporting foot r frames 470–472 (t=15.667–15.733s) — the hip blends between two derivations there, so its leg is stretched by k 0.9493–0.9751 within [0.92, 1.08] to keep the ankle on the floor
+  FEET   bound from the leg's own range: on a frame where the picture folds the supporting leg below 0.92 of its straight length (hip → ankle, its 95th percentile), the lower bound is that fold — lowest r 0.8462, l 0.8193; the upper stays 1.08
+  NOD    bone "head" (chain "head", r_eye → l_eye): translate y -1.421 … +1.421 units over 492 frame(s); window ±15 frame(s) (0.5 s) running median, detrended, cut at the clip's ends; clamp ±1.421 units (2% of the neck's setup length) acted on 394 frame(s), so the clamped nod is coupled in phase into bone "head"'s rotate (+1.6°/unit) and the face pitch (+2.8°/unit) on every frame
+  FACE   nose against r_eye + l_eye, r_ear + l_ear: read yaw −24.8° … +71.1° (95.9°), pitch −14.0° … +28.3° (42.4°); mapped yaw → bone "yaw_dial" [-15, 15]° (knee [-12, 12]°): −15.0° … +15.0° (scale 0.606/0.211, r=1.000), pitch → bone "pitch_dial" [-10, 15]° (knee [-8, 12]°): −10.0° … +15.0° (scale 0.712/0.529, r=1.000)
+  BODY   r_shoulder + l_shoulder, r_hip + l_hip (standing shoulder 196.5px, hip 114.1px): read yaw −31.3° … +88.9° (120.2°), opening (frames 0–47) −12.1° … +11.4° (max |yaw| 12.1°); ≥ 45° on 30 frame(s): frames 462–491 (+45.9° … +88.9°)
+  IDLE   animation "idle" (3.333s, 32 track(s)) against "toca-toca": 25 dropped (not carried; --carry-idle loops them in), 7 kept out
+  IDLE-DROPPED bone "chest_ctl" translatey: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "bun_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "bang_r0_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "bang_r1_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "bang_c0_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "bang_c1_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "bang_l0_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "bang_l1_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_r0_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_r1_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_r2_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_c0_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_c1_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_c2_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_l0_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_l1_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_l2_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED group "eyes" (eye_r, eye_l) scaley: 6 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED group "brows" (brow_r, brow_l) translatey: 6 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_rm0_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_rm1_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_rm2_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_lm0_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_lm1_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-DROPPED bone "skirt_lm2_ctl" rotate: 9 key(s) over the idle's 3.333s; "toca-toca" does not key it — not carried (no --carry-idle)
+  IDLE-KEPT-OUT bone "chest_ctl" scalex: moves mapped bone(s) "chest", "head", "sleeve_r0", "sleeve_r1", "sleeve_l0", "sleeve_l1" below it; the retarget's keys assume it at setup, so the idle's track is not carried
+  IDLE-KEPT-OUT bone "head_ctl" rotate: moves mapped bone(s) "head" below it; the retarget's keys assume it at setup, so the idle's track is not carried
+  IDLE-KEPT-OUT bone "neck" rotate: moves mapped bone(s) "head" below it; the retarget's keys assume it at setup, so the idle's track is not carried
+  IDLE-KEPT-OUT bone "sleeve_r0" rotate: "toca-toca"'s own bone "sleeve_r0" rotate keys it, so the idle's track is not carried
+  IDLE-KEPT-OUT bone "sleeve_r1" rotate: "toca-toca"'s own bone "sleeve_r1" rotate keys it, so the idle's track is not carried
+  IDLE-KEPT-OUT bone "sleeve_l0" rotate: "toca-toca"'s own bone "sleeve_l0" rotate keys it, so the idle's track is not carried
+  IDLE-KEPT-OUT bone "sleeve_l1" rotate: "toca-toca"'s own bone "sleeve_l1" rotate keys it, so the idle's track is not carried
+  GATE   rigc build --profile spine: green — 50 assertions: 23 measured (23 passed, 0 failed), 13 skipped, 14 not in profile "spine"
+  LAND   bone "hip" aim — worst |reached − asked| 0.000807° at frame 481 (t=16.033s); the tolerance is 0.01°
+  LAND   bone "chest" aim — worst |reached − asked| 0.000962° at frame 463 (t=15.433s); the tolerance is 0.01°
+  LAND   bone "head" aim — worst |reached − asked| 0.00134° at frame 324 (t=10.800s); the tolerance is 0.01°
+  LAND   bone "sleeve_r0" aim — worst |reached − asked| 0.00131° at frame 181 (t=6.033s); the tolerance is 0.01°
+  LAND   bone "sleeve_r1" aim — worst |reached − asked| 0.00188° at frame 463 (t=15.433s); the tolerance is 0.01°
+  LAND   bone "sleeve_l0" aim — worst |reached − asked| 0.00131° at frame 70 (t=2.333s); the tolerance is 0.01°
+  LAND   bone "sleeve_l1" aim — worst |reached − asked| 0.00176° at frame 322 (t=10.733s); the tolerance is 0.01°
+  LAND   bone "leg_r0" aim — worst |reached − asked| 0.000967° at frame 5 (t=0.167s); the tolerance is 0.01°
+  LAND   bone "leg_r1" aim — worst |reached − asked| 0.00137° at frame 431 (t=14.367s); the tolerance is 0.01°
+  LAND   bone "leg_l0" aim — worst |reached − asked| 0.000976° at frame 218 (t=7.267s); the tolerance is 0.01°
+  LAND   bone "leg_l1" aim — worst |reached − asked| 0.00130° at frame 297 (t=9.900s); the tolerance is 0.01°
+  LAND   bone "yaw_dial" aim — worst |reached − asked| 0.0000528° at frame 157 (t=5.233s); the tolerance is 0.01°
+  LAND   bone "pitch_dial" aim — worst |reached − asked| 0.0000674° at frame 341 (t=11.367s); the tolerance is 0.01°
+  LAND   bone "leg_r0" scale — worst |reached − asked| 4.91e-7 of its setup length at frame 454 (t=15.133s); the tolerance is 0.0001 of its setup length
+  LAND   bone "leg_r1" scale — worst |reached − asked| 8.09e-7 of its setup length at frame 83 (t=2.767s); the tolerance is 0.0001 of its setup length
+  LAND   bone "leg_l0" scale — worst |reached − asked| 4.81e-7 of its setup length at frame 324 (t=10.800s); the tolerance is 0.0001 of its setup length
+  LAND   bone "leg_l1" scale — worst |reached − asked| 6.94e-7 of its setup length at frame 324 (t=10.800s); the tolerance is 0.0001 of its setup length
+  LAND   bone "hip" origin — worst |reached − asked| 0.000713 units at frame 408 (t=13.600s); the tolerance is 0.01 units
+  LAND   bone "leg_r1:tip" ankle — worst |reached − asked| 0.0105 units at frame 431 (t=14.367s); the tolerance is 0.062 units
+  LAND   bone "leg_l1:tip" ankle — worst |reached − asked| 0.00934 units at frame 297 (t=9.900s); the tolerance is 0.0623 units
+  JITTER bone "hip" (chain "pelvis", r_hip → l_hip): mean |Δ²| of the keyed local rotation as posed 1.4502°/f² against the pair's angle 1.4502°/f² (1.00×), over 490 frame triple(s); a reading
+  JITTER bone "chest" (chain "trunk", mid_hip → mid_shoulder): mean |Δ²| of the keyed local rotation as posed 1.5128°/f² against the pair's angle against "hip"'s pair 1.5127°/f² (1.00×), over 490 frame triple(s); a reading
+  JITTER bone "head" (chain "head", r_eye → l_eye): mean |Δ²| of the keyed local rotation as posed 1.7513°/f² against the pair's angle against "chest"'s pair 1.4771°/f² (1.19×), over 490 frame triple(s); a reading
+  JITTER bone "sleeve_r0" (chain "arm_r", r_shoulder → r_elbow): mean |Δ²| of the keyed local rotation as posed 2.4585°/f² against the pair's angle against "chest"'s pair 2.4585°/f² (1.00×), over 490 frame triple(s); a reading
+  JITTER bone "sleeve_r1" (chain "arm_r", r_elbow → r_wrist): mean |Δ²| of the keyed local rotation as posed 5.2867°/f² against the pair's angle against "sleeve_r0"'s pair 5.2867°/f² (1.00×), over 490 frame triple(s); a reading
+  JITTER bone "sleeve_l0" (chain "arm_l", l_shoulder → l_elbow): mean |Δ²| of the keyed local rotation as posed 1.9386°/f² against the pair's angle against "chest"'s pair 1.9386°/f² (1.00×), over 490 frame triple(s); a reading
+  JITTER bone "sleeve_l1" (chain "arm_l", l_elbow → l_wrist): mean |Δ²| of the keyed local rotation as posed 5.9217°/f² against the pair's angle against "sleeve_l0"'s pair 5.9217°/f² (1.00×), over 490 frame triple(s); a reading
+  JITTER bone "leg_r0" (chain "leg_r", r_hip → r_knee): mean |Δ²| of the keyed local rotation as posed 1.5764°/f² against the pair's angle against "hip"'s pair 1.5763°/f² (1.00×), over 490 frame triple(s); a reading
+  JITTER bone "leg_r1" (chain "leg_r", r_knee → r_ankle): mean |Δ²| of the keyed local rotation as posed 1.6854°/f² against the pair's angle against "leg_r0"'s pair 1.6848°/f² (1.00×), over 490 frame triple(s); a reading
+  JITTER bone "leg_l0" (chain "leg_l", l_hip → l_knee): mean |Δ²| of the keyed local rotation as posed 1.6258°/f² against the pair's angle against "hip"'s pair 1.6258°/f² (1.00×), over 490 frame triple(s); a reading
+  JITTER bone "leg_l1" (chain "leg_l", l_knee → l_ankle): mean |Δ²| of the keyed local rotation as posed 1.4600°/f² against the pair's angle against "leg_l0"'s pair 1.4607°/f² (1.00×), over 490 frame triple(s); a reading
+  POSTURE hip tilt range (chain "pelvis", r_hip → l_hip, Spine degrees): reference 118.5° (−15.3° … +103.2°), rig 118.5° (−15.3° … +103.2°) — rig/reference 1.000
+  POSTURE sway, x-range of mid_hip − mid_shoulder: reference 113.3 units = picture px × scale (0.939 shoulder widths), rig 132.1 units (1.097 shoulder widths; mid_hip = "hip", mid_shoulder = "sleeve_r0+sleeve_l0") — rig/reference 1.165 in units, 1.168 in shoulder widths
+  POSTURE bounce r 0–75 (detrended y sd, rig/reference): hip 0.208 (2.7/13.1u, r=0.120), neck 0.295 (3.8/12.8u, r=0.273), eyes − neck 1.209 (4.9/4.0u, r=0.970)
+  POSTURE bounce r 82–88 (detrended y sd, rig/reference): hip 0.260 (3.5/13.5u, r=0.331), neck 0.246 (3.5/14.4u, r=0.275), eyes − neck 0.865 (1.2/1.4u, r=0.983)
+  POSTURE bounce r 96–101 (detrended y sd, rig/reference): hip 0.298 (3.2/10.8u, r=0.483), neck 0.250 (3.2/12.7u, r=0.501), eyes − neck 0.851 (1.3/1.5u, r=0.988)
+  POSTURE bounce r 110–116 (detrended y sd, rig/reference): hip 0.224 (3.3/14.7u, r=0.521), neck 0.216 (3.3/15.1u, r=0.441), eyes − neck 0.574 (1.3/2.3u, r=0.926)
+  POSTURE bounce l 125–133 (detrended y sd, rig/reference): hip 0.146 (3.8/26.0u, r=0.318), neck 0.168 (3.7/22.1u, r=0.253), eyes − neck 0.669 (1.8/2.6u, r=0.941)
+  POSTURE bounce l 138–148 (detrended y sd, rig/reference): hip 0.134 (2.4/17.8u, r=-0.408), neck 0.169 (3.0/17.5u, r=-0.575), eyes − neck 0.920 (1.3/1.5u, r=0.885)
+  POSTURE bounce r 149–163 (detrended y sd, rig/reference): hip 0.324 (5.6/17.3u, r=0.551), neck 0.430 (7.3/17.1u, r=0.431), eyes − neck 0.970 (1.3/1.3u, r=0.796)
+  POSTURE bounce l 164–175 (detrended y sd, rig/reference): hip 0.267 (3.2/11.9u, r=-0.985), neck 0.422 (4.6/10.9u, r=-0.867), eyes − neck 1.035 (2.1/2.0u, r=0.894)
+  POSTURE bounce l 180–188 (detrended y sd, rig/reference): hip 0.297 (5.0/16.8u, r=0.636), neck 0.422 (6.1/14.5u, r=0.644), eyes − neck 1.137 (2.2/1.9u, r=0.920)
+  POSTURE bounce l 196–223 (detrended y sd, rig/reference): hip 0.648 (11.0/16.9u, r=0.592), neck 0.646 (12.2/19.0u, r=0.717), eyes − neck 1.165 (2.8/2.4u, r=0.763)
+  POSTURE bounce l 253–303 (detrended y sd, rig/reference): hip 1.088 (17.9/16.5u, r=0.422), neck 0.773 (18.5/23.9u, r=0.322), eyes − neck 0.690 (1.4/2.1u, r=0.729)
+  POSTURE bounce r 312–321 (detrended y sd, rig/reference): hip 0.524 (5.0/9.5u, r=0.744), neck 0.410 (5.2/12.6u, r=0.278), eyes − neck 0.750 (1.1/1.4u, r=0.841)
+  POSTURE bounce l 322–335 (detrended y sd, rig/reference): hip 0.149 (2.1/14.2u, r=0.070), neck 0.117 (2.3/19.8u, r=0.165), eyes − neck 0.712 (0.8/1.1u, r=0.852)
+  POSTURE bounce r 336–346 (detrended y sd, rig/reference): hip 0.319 (4.3/13.4u, r=0.920), neck 0.256 (5.1/20.0u, r=0.912), eyes − neck 0.957 (0.9/1.0u, r=0.732)
+  POSTURE bounce l 347–360 (detrended y sd, rig/reference): hip 0.193 (3.5/18.1u, r=0.516), neck 0.171 (3.7/21.7u, r=0.447), eyes − neck 0.568 (1.0/1.8u, r=0.976)
+  POSTURE bounce r 379–387 (detrended y sd, rig/reference): hip 0.174 (4.1/23.5u, r=0.455), neck 0.155 (4.5/28.8u, r=0.286), eyes − neck 0.750 (2.9/3.9u, r=0.958)
+  POSTURE bounce r 398–398 (detrended y sd, rig/reference): hip n/a (0.0/0.0u, r=none), neck n/a (0.0/0.0u, r=none), eyes − neck n/a (0.0/0.0u, r=none)
+  POSTURE bounce r 408–427 (detrended y sd, rig/reference): hip 0.096 (2.8/28.6u, r=-0.051), neck 0.086 (2.7/31.9u, r=-0.106), eyes − neck 0.820 (2.9/3.6u, r=0.921)
+  POSTURE bounce l 428–448 (detrended y sd, rig/reference): hip 0.277 (2.9/10.5u, r=0.414), neck 0.272 (3.2/11.6u, r=0.508), eyes − neck 0.716 (0.8/1.1u, r=0.742)
+  POSTURE bounce r 454–462 (detrended y sd, rig/reference): hip 0.301 (5.7/18.9u, r=0.854), neck 0.276 (5.7/20.6u, r=0.757), eyes − neck 0.653 (1.7/2.6u, r=0.884)
+  POSTURE bounce r 470–491 (detrended y sd, rig/reference): hip 5.695 (13.4/2.4u, r=0.627), neck 8.382 (23.0/2.7u, r=-0.130), eyes − neck 1.157 (1.9/1.7u, r=0.506)
+  FEET   the posed build, outside jumps: the lowest ankle's vertical range 57.17 units = 0.1105 leg lengths (rig leg r 512.8, l 522.2 units) over 379 frames
+  FEET   the supporting ankle over each support span: worst vertical range 0.01 units = 0.0000 leg lengths (l 253–303), worst horizontal drift 0.02 units = 0.0000 leg lengths (r 0–75)
+  SHEAR  bone "leg_r0": art sheared up to 0.00° (frame 483); world x axis 0.949 … 1.021, y axis 1.000 … 1.000 of setup — a scaled bone, or one under it; a reading
+  SHEAR  bone "leg_r1": art sheared up to 0.28° (frame 149); world x axis 0.949 … 1.021, y axis 0.999 … 1.000 of setup — a scaled bone, or one under it; a reading; it inherits "normal" from scaled "leg_r0" — "inherit": "noScale" on bone "leg_r1" in the rig spec unshears its art and still turns it with "leg_r0" ("onlyTranslation" also stops the turn)
+  SHEAR  bone "leg_l0": art sheared up to 0.00° (frame 397); world x axis 0.981 … 1.000, y axis 1.000 … 1.000 of setup — a scaled bone, or one under it; a reading
+  SHEAR  bone "leg_l1": art sheared up to 0.48° (frame 348); world x axis 0.981 … 1.000, y axis 0.998 … 1.000 of setup — a scaled bone, or one under it; a reading; it inherits "normal" from scaled "leg_l0" — "inherit": "noScale" on bone "leg_l1" in the rig spec unshears its art and still turns it with "leg_l0" ("onlyTranslation" also stops the turn)
+  SHEAR  bone "foot_r": art sheared up to 0.33° (frame 149); world x axis 0.999 … 1.001, y axis 0.949 … 1.021 of setup — a scaled bone, or one under it; a reading; it inherits "normal" from scaled "leg_r1" — "inherit": "noScale" on bone "foot_r" in the rig spec unshears its art and still turns it with "leg_r1" ("onlyTranslation" also stops the turn)
+  SHEAR  bone "foot_l": art sheared up to 0.44° (frame 181); world x axis 0.998 … 1.000, y axis 0.981 … 1.000 of setup — a scaled bone, or one under it; a reading; it inherits "normal" from scaled "leg_l1" — "inherit": "noScale" on bone "foot_l" in the rig spec unshears its art and still turns it with "leg_l1" ("onlyTranslation" also stops the turn)
+  SHEAR  bone "skirt_r_touch": art sheared up to 0.00° (frame 483); world x axis 0.949 … 1.021, y axis 1.000 … 1.000 of setup — a scaled bone, or one under it; a reading
+  SHEAR  bone "skirt_l_touch": art sheared up to 0.00° (frame 397); world x axis 0.981 … 1.000, y axis 1.000 … 1.000 of setup — a scaled bone, or one under it; a reading
+  FOLD   mesh "shins" (slot "shins") folds on 333 frame(s) at 30 fps: t=0.000–4.433, 4.533–4.600, 4.667–6.233, 8.933–9.200, 9.933, 10.367–12.033, 12.100–12.300, 12.667–13.533, 13.667–13.867, 14.100–14.500, 15.200–15.233, 15.367–16.367
+  FOLD   mesh "bottomwear" (slot "bottomwear") folds on 7 frame(s) at 30 fps: t=16.033–16.233
+  UNCOVERED mesh "shins" (slot "shins"; chains leg_r, leg_l) folds with no switch covering it on 333 frame(s): t=0.000–4.433, 4.533–4.600, 4.667–6.233, 8.933–9.200, 9.933, 10.367–12.033, 12.100–12.300, 12.667–13.533, 13.667–13.867, 14.100–14.500, 15.200–15.233, 15.367–16.367
+  UNCOVERED mesh "bottomwear" (slot "bottomwear"; chains pelvis) folds with no switch covering it on 7 frame(s): t=16.033–16.233
+  SEAM   no neighbour pair declared — a rig spec carries none and no --parts was named; seams: []
+  RECORD retarget.json written beside the build (reference: withheld/orig.webm)
+  wrote work/report.json — the run's report (rig-pose-report/1)
+  wrote work/motion.json — animations: idle, pose_arms_up, pose_hands_behind_head, pose_hand_on_hip, pose_arms_crossed, pose_legs_apart, pose_hip_tilt_pos, pose_hip_tilt_neg, sweep_elbow_r_pos, sweep_elbow_r_neg, sweep_knee_r_pos, sweep_knee_r_neg, sweep_shoulder_r_out, sweep_shoulder_r_in, sweep_hip_tilt_pos, sweep_hip_tilt_neg, sweep_thigh_r_out, sweep_thigh_r_in, sway, set_K1, range_K1, set_K2, range_K2, set_K3, range_K3, set_K4, range_K4, set_K0, range_K0, turn, tilt, toca-toca

@@ -1,0 +1,63 @@
+{
+  "stage": "frozen before clean or retarget measurement",
+  "poseVersion": "1.0.1",
+  "poseSourceRef": "6187ed7af25184d10782bf29a8f123061f5496a8",
+  "ANGLE_TOLERANCE_degrees": 0.01,
+  "ORIGIN_TOLERANCE_worldUnits": 0.01,
+  "SCALE_TOLERANCE": 0.0001,
+  "FOOT_TOLERANCE_formula": "0.01 + 0.0001 * setup distance from hip origin to ankle point (world units), per verify.ts",
+  "supportSpanDriftBound": "At a constant plant anchor, pairwise displacement is at most twice the existing foot landing tolerance; report horizontal and vertical span ranges and do not count absent spans as pass.",
+  "PLANT_SWITCH_legLengths": 0.02,
+  "PLANT_SWITCH_SECONDS": 0.1,
+  "PLANT_BLEND_frames": 3,
+  "STEP_SPEED_legLengthsPerFrame": 0.03,
+  "STILL_SPEED_legLengthsPerFrame": 0.01,
+  "STILL_FRAMES": 2,
+  "JUMP_RISE_legLengths": 0.05,
+  "JUMP_FRAMES": 2,
+  "FLOOR_PERCENTILE": 0.95,
+  "FLOOR_SECONDS_eachSide": 1,
+  "scalePairAdvisoryVariation": 0.13043478260869565,
+  "clean": {
+    "legs": 5,
+    "rest": 7,
+    "loop": false,
+    "hold": "default on"
+  },
+  "retarget": {
+    "plantFeet": true,
+    "flip": "off",
+    "short": "off",
+    "legScale": "off",
+    "stance": "off",
+    "reduce": "off",
+    "carryIdle": false,
+    "profile": "spine"
+  },
+  "mapChoice": "source-map.json is the exact corpus map. Trial map changes only leg_r and leg_l bend from absent/default rest to free, under the documented frontal 2D policy frozen in map-diff.json. Hinge direction remains unverified; all numerical bars unchanged.",
+  "precheck": {
+    "frames": "first 30 consecutive acquisition frames, unchanged coordinates/times; clean this subset independently",
+    "required": [
+      "clean exits 0",
+      "named map/rig points and chains resolve",
+      "retarget gate and LAND pass"
+    ],
+    "onRefusal": "Record any subsequent refusal without inventing constraints, caps or ranges."
+  },
+  "machineAcceptance": [
+    "rig-c gate green through official development runtime",
+    "all owned LAND checks within pinned tolerances",
+    "nonempty measured support spans and recorded actual planted-ankle drift; SKIP is not pass"
+  ],
+  "limits": [
+    "No camera track or camera assumption is fabricated. Fixed-camera interpretation is recorded if emitted.",
+    "No stance tolerance, leg-scale clamp, hand contact, rotation range, alternate drawing, or replacement rig is guessed.",
+    "Machine-green alone gives overall PARTIAL while owner hand acceptance is pending."
+  ],
+  "profileReason": "spine is the documented accepted-v3 core control profile; validity gate includes official round trip. Renderer/archetype exclusions remain explicit, not treated as pass.",
+  "acquisitionReuse": {
+    "frames": 492,
+    "sha256": "fe3327cb0f8772f51d3b656889e60fe7a613156391f9dbcff5f40e3141fb9ff1",
+    "freshInference": false
+  }
+}

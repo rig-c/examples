@@ -1,0 +1,37 @@
+{
+  "tool": "rig-c 2.67.2",
+  "source": "src/folds.ts",
+  "sourceSHA256": "ea316ea745ee5348afae978f3161682cb2339ba26d62c6fc7bdb05f1c081922a",
+  "poseReportFoldFields": [
+    "slot",
+    "attachment",
+    "times",
+    "domain"
+  ],
+  "foldFileSpec": "rigc-folds/1",
+  "foldedFrameFields": [
+    "index",
+    "time",
+    "triangles",
+    "box",
+    "area",
+    "share"
+  ],
+  "meshFields": [
+    "slot",
+    "attachment",
+    "triangleCount",
+    "area",
+    "setup",
+    "frames",
+    "worst",
+    "folded"
+  ],
+  "areaDefinition": "Summed unsigned SETUP-pose areas of the folded triangles; not posed penetration depth.",
+  "boxDefinition": "World bounding box of posed folded triangle vertices; not depth.",
+  "worstDefinition": "Most folded triangles; earliest frame on a tie. Not a depth ranking.",
+  "depthField": null,
+  "rankedFrames": "Resolved via folded triangle count, not depth; see fold-selection.json.",
+  "additionalCaptures": "Completed after HQ selected the existing count definition. No depth proxy used.",
+  "rawAvailability": "A narrow pinned core render retained fold-diagnostic/folds.json; the earlier pose report remains unchanged."
+}

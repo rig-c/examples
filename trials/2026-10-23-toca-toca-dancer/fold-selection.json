@@ -1,0 +1,56 @@
+{
+  "ranking": "Descending length of meshes[shins].frames[].triangles; ascending frame index on ties",
+  "definitionSource": "rig-c 2.67.2 src/folds.ts MeshFolds.worst / foldsOf",
+  "notDepth": true,
+  "selectionFrozenBeforeCapture": true,
+  "fps": 30,
+  "foldedFrames": 333,
+  "distinctCounts": [
+    1,
+    2
+  ],
+  "selected": [
+    {
+      "rank": 1,
+      "frame": 0,
+      "timeSeconds": 0,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/0/triangles",
+      "label": "folded triangles 2, frame 0"
+    },
+    {
+      "rank": 2,
+      "frame": 1,
+      "timeSeconds": 0.03333333333333333,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/1/triangles",
+      "label": "folded triangles 2, frame 1"
+    },
+    {
+      "rank": 3,
+      "frame": 2,
+      "timeSeconds": 0.06666666666666667,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/2/triangles",
+      "label": "folded triangles 2, frame 2"
+    }
+  ],
+  "command": "bun --bun run work/runtime/node_modules/.bin/rigc render --candidate work/build --animation toca-toca --fps 30 --folds --out work/fold-diagnostic",
+  "exitCode": 0,
+  "compiledModelSHA256Before": "cc8205444b76ae2c312d4a15f41bd44b56b1c3f7d0f56dd4e3fa28268e921577",
+  "compiledModelSHA256After": "cc8205444b76ae2c312d4a15f41bd44b56b1c3f7d0f56dd4e3fa28268e921577",
+  "rawFoldsSHA256": "4bf36ea14c90e92ab4d44d0770d1964fe89ec5d9871eea3e59b629d12bdbbc3d",
+  "noAcquisitionCleanRetargetOrBuild": true
+}
