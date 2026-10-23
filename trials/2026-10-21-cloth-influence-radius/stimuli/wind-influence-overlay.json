@@ -1,0 +1,11 @@
+{
+ "base": "rig-c/parts examples/wind/config.json at 3aec368",
+ "added": {
+  "cloth.bottomwear.influence": { "across": true, "max": 6, "shape": "smooth" },
+  "cloth.back hair.influence": { "across": true, "max": 6, "shape": "smooth" },
+  "cloth.front hair.influence": { "across": true, "max": 6, "shape": "smooth" }
+ },
+ "changed": {
+  "generation.control.skeleton": "made absolute to the checkout's examples/wind/pose.json in the run; the base file's value is \"pose.json\""
+ }
+}
