@@ -1,0 +1,15 @@
+{
+  "pipelineExitCode": 0,
+  "postRunHashExpectationExitCode": 125,
+  "rawRigHashIdentical": true,
+  "cleanedPoseHashIdentical": true,
+  "reportEqualExceptInputPaths": true,
+  "compiledModelSHA256": "0d4de3e2d76aef275091c75d5286acf34b8ce7c71ab3964d1b24ce8810a88ffb",
+  "originalModelSHA256": "c83e352dd05a59358f3d72554b7596d9496d7e4b7641c7ada2a70fa8d620d11e",
+  "modelDifferences": [
+    "28 relative image-page paths, reflecting build directory depth",
+    "spine.sha256, reflecting skeleton.images metadata path"
+  ],
+  "spinePayloadEqualExceptImagesMetadataPath": true,
+  "newFullRunRequired": false
+}
