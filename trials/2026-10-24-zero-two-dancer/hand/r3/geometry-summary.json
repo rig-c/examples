@@ -1,0 +1,30 @@
+{
+  "method": "Existing geometry only; same391 times,30fps physics and exact viewport. World bone x-axis wrapped-angle delta; skirt max world-coordinate vertex delta. Not detector comparison.",
+  "frames": 391,
+  "skirtSwing": {
+    "min": -124.92514589594819,
+    "max": -58.04000042815619,
+    "spanDeg": 66.885145467792
+  },
+  "maxWorldBoneAngleDifferenceFromHistoricalDeg": {
+    "hip": 0,
+    "chest": 0,
+    "head": 0,
+    "sleeve_r0": 2.842170943040401e-14,
+    "sleeve_r1": 0,
+    "sleeve_l0": 0,
+    "sleeve_l1": 2.842170943040401e-14,
+    "leg_r0": 0,
+    "leg_r1": 0.001022893118971524,
+    "leg_l0": 0,
+    "leg_l1": 0
+  },
+  "maxSkirtVertexCoordinateDifferenceWorldUnits": 3.410605131648481e-13,
+  "maxResidualToNewHandFootGoalWorldUnits": {
+    "frame": 343,
+    "error": 0.00020067541288534303
+  },
+  "standardSeam": "NOT MEASURED without declared neighbour pairs",
+  "detectorBasedRigPoseCompare": "NOT MEASURED: no same-detector render keypoints",
+  "ownerAccepted": false
+}

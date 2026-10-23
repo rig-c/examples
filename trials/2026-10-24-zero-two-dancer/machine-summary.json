@@ -1,0 +1,36 @@
+{
+  "frames": 313,
+  "fps": 24,
+  "gate": "50 assertions: 23 measured (23 passed, 0 failed), 13 skipped, 14 not in profile \"spine\"",
+  "LANDtotal": 20,
+  "LANDpassed": 20,
+  "supportSpans": 9,
+  "singletonSpans": 1,
+  "maxVertical": 0.004978493402717277,
+  "maxHorizontal": 0.01771523784086071,
+  "pairwiseLandingDerivedBounds": {
+    "r": 0.12394978205982254,
+    "l": 0.1245486434225457
+  },
+  "lowestAnkle": {
+    "range": 62.09586586621458,
+    "legs": 0.11972965391659782,
+    "frames": 301
+  },
+  "folds": [
+    {
+      "slot": "shins",
+      "frames": 217
+    }
+  ],
+  "seams": "NOT MEASURED: no declared neighbour pairs; no --parts",
+  "scalePairWarning": true,
+  "precheck": {
+    "frames": 30,
+    "exitCode": 0,
+    "LANDtotal": 16,
+    "gate": "50 assertions: 23 measured (23 passed, 0 failed), 13 skipped, 14 not in profile \"spine\""
+  },
+  "ownerHandRows": 0,
+  "rawReusedSHA256": "997fb8433f1c403ad4c9405dd3c0bad07af83938276dcbcdd33ededd8e8193b1"
+}

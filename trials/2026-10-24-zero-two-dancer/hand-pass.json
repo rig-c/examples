@@ -1,0 +1,39 @@
+{
+  "ownerAccepted": true,
+  "ownerAcceptedDate": "2026-10-24",
+  "acceptedVideoSHA256": "ff27321a4bb4950d2d7a0e06ba29090f58cbac44bd2230ae8d3cacd3a09b6649",
+  "finalCompiledModelSHA256": "2a21d03affaadac4a314b7dd0345b0b2b842292a24ff3ce49b4de2b460fb12d1",
+  "sourceSequenceSHA256": "8713172431674a57caa8d7c3f452a05bf46ec8079ca368bb4cd9df7952c2edfd",
+  "inputFrames": 313,
+  "inputFPS": 24,
+  "renderFrames": 391,
+  "renderFPS": 30,
+  "finalResult": "hand/r3/",
+  "freshPhase1": "comparison baseline retained unchanged",
+  "previousHand": "comparison outputs retained; superseded as final",
+  "gate": {
+    "profile": "spine",
+    "pass": 23,
+    "skip": 13,
+    "excluded": 14
+  },
+  "posthocFootGoalMaxErrorWorldUnits": 0.00020067541288534303,
+  "allRigSeam": "NOT MEASURED; declared neighbour pairs absent",
+  "existingFourPairSeamMaxPx": 0.22,
+  "shoeOverlapAfterPx": 0,
+  "skirtSwingDeg": 66.885145467792,
+  "shinsFoldFrames": 269,
+  "ownActiveJobs": [],
+  "skips": [
+    "Final R3 generation actual Play UI not run; earlier Play evidence is for fresh generations. Owner accepted exact CLI video.",
+    "Original-pose LAND after posthoc foot change not rerun; retarget LAND20/20 precedes hand goal.",
+    "rig-pose compare detector-based per-unit figures not measured; same-detector render keypoints absent, cloth tracks/windows absent."
+  ],
+  "publicContactSheet": {
+    "file": "hand/r3/contact-sheet.jpg",
+    "bytes": 98689,
+    "sha256": "e306ba054c37d6bfc07a768ca34dda5fb460567094d2c329e10adaaa00226727",
+    "captionLayout": "16px left/right margins per cell, short frame/time labels, explicit width assertion; existing rig frame pixels only",
+    "ownerOriginalSheetUnchanged": true
+  }
+}

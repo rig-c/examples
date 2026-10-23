@@ -1,0 +1,154 @@
+{
+  "origin": "Accepted dance hand baseline, 2026-10-22; historical saved figures, not a fresh baseline render",
+  "sourceSHA256": {
+    "changes.json": "d7949e6c1275ae666b5e0aeee861e43201901967999bfe35e6265dcef23c8a63",
+    "verification.json": "dacca40d3383018ac5ec3445fbeef95c59da3aef21d1cdd270158ade77e20cd4",
+    "shoe-overlap.json": "4dd4607c04cad92f0e83f1383f0674053c7ccc151fea2bb355dbb8201045b7e8",
+    "seams/measurements.json": "9a2a64f4d0df79490cf53f46ff69b7a00edfb43b7b4fd407065c1e18530935c3",
+    "build.log": "a1c3e2ab343d5bd74210899f23d334c98ebb2443ddc56a924c5fa903741280a0"
+  },
+  "historical": {
+    "headHands": {
+      "r": {
+        "source": {
+          "image": "K1_forearm_r.png",
+          "x": 71.535516,
+          "y": 7.106254,
+          "rotation": -30.366278
+        },
+        "pixelHandAnglePivot": [
+          103,
+          6
+        ],
+        "maxCorrectionDegreesInImage": 35,
+        "wristWarp": "monotone polar sector -190/-125/20/90 deg, mirrored for left",
+        "hidden": false,
+        "ownSetDrawingWinsOverBaseHandScale": true
+      },
+      "l": {
+        "source": {
+          "image": "K1_forearm_l.png",
+          "x": 69.248559,
+          "y": 1.88412,
+          "rotation": -141.858038
+        },
+        "pixelHandAnglePivot": [
+          20,
+          6
+        ],
+        "maxCorrectionDegreesInImage": -35,
+        "wristWarp": "monotone polar sector -190/-125/20/90 deg, mirrored for left",
+        "hidden": false,
+        "ownSetDrawingWinsOverBaseHandScale": true
+      }
+    },
+    "skirtSwing": {
+      "min": -124.92514589594819,
+      "max": -58.04000042815619,
+      "spanDeg": 66.885145467792
+    },
+    "physicsCount": 11,
+    "seamWorst": {
+      "knee_r": {
+        "frame": 0,
+        "time": 0,
+        "joint": "knee_r",
+        "upper": "thigh_r",
+        "lower": "shin_r",
+        "max_visible_gap_px": 0,
+        "min_terminal_to_other_alpha_px": 0.08,
+        "line": null
+      },
+      "knee_l": {
+        "frame": 94,
+        "time": 3.1333333333333333,
+        "joint": "knee_l",
+        "upper": "thigh_l",
+        "lower": "shin_l",
+        "max_visible_gap_px": 0.22,
+        "min_terminal_to_other_alpha_px": 0.15,
+        "line": [
+          [
+            453.5480268886795,
+            605.5272250268805
+          ],
+          [
+            453.5480268886795,
+            605.5272250268805
+          ]
+        ]
+      },
+      "ankle_r": {
+        "frame": 0,
+        "time": 0,
+        "joint": "ankle_r",
+        "upper": "shin_r",
+        "lower": "shoe_r",
+        "max_visible_gap_px": 0,
+        "min_terminal_to_other_alpha_px": 0.13,
+        "line": null
+      },
+      "ankle_l": {
+        "frame": 0,
+        "time": 0,
+        "joint": "ankle_l",
+        "upper": "shin_l",
+        "lower": "shoe_l",
+        "max_visible_gap_px": 0,
+        "min_terminal_to_other_alpha_px": 0.14,
+        "line": null
+      }
+    },
+    "shoeOverlapMax": {
+      "before": {
+        "frame": 348,
+        "time": 11.6,
+        "shoeOverlapPixels": 811
+      },
+      "after": {
+        "frame": 337,
+        "time": 11.233333333333333,
+        "shoeOverlapPixels": 0
+      }
+    },
+    "topwearTrack": {
+      "slot": "topwear",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": "K0_topwear"
+        },
+        {
+          "t": 0.979165,
+          "v": "K4_topwear"
+        },
+        {
+          "t": 2.1875,
+          "v": "K0_topwear"
+        },
+        {
+          "t": 3.9375,
+          "v": "K1_topwear"
+        },
+        {
+          "t": 7.4375,
+          "v": "K2_topwear"
+        },
+        {
+          "t": 11.229165,
+          "v": "K3_topwear"
+        }
+      ]
+    }
+  },
+  "headAngleAvailability": {
+    "actualAnatomicalOrWristBendAngle": "NOT MEASURED in saved source or current reader",
+    "sourcePlacementRotationsNotWristBend": {
+      "r": -30.366278,
+      "l": -141.858038
+    },
+    "maxCorrectionDegreesInImageIsWarpParameterNotMeasuredBend": true
+  },
+  "currentSource": "measurements.json before/after; seams-before.json and seams-after.json worst; gate-lines.txt"
+}

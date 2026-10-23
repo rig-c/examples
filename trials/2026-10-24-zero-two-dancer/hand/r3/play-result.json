@@ -1,0 +1,46 @@
+{
+  "tool": "@rig-c/play",
+  "version": "1.16.0",
+  "generation": "Owner-accepted R3 final; distinct from root phase1 and previous hand Play results",
+  "animation": "zero-two-r3-hand",
+  "compiledModelSHA256": "2a21d03affaadac4a314b7dd0345b0b2b842292a24ff3ce49b4de2b460fb12d1",
+  "browser": "Chrome actual UI through CUA",
+  "observedAdvancingTimesSeconds": [
+    0.1502,
+    2.7501
+  ],
+  "pausedTimeSeconds": 2.7992,
+  "captureFrameRate": 30,
+  "captures": [
+    {
+      "file": "head-frame170.png",
+      "frame": 170,
+      "timeSeconds": 5.666666666666667,
+      "sha256": "5834e45ee476aef4770e2c20210bdeee2e1e5f6d17e741b53f6f6dc01e4c76c3",
+      "storage": "Private run artifact; public rig only"
+    },
+    {
+      "file": "end-frame390.png",
+      "frame": 390,
+      "timeSeconds": 13.0,
+      "sha256": "49e80d537f0d5a5297e3648145e3a83d028f101ef0fe35a387a83593466666ba",
+      "storage": "Private run artifact; public rig only"
+    }
+  ],
+  "consoleWarningsErrors": [],
+  "optionalHTTP404": [
+    "favicon.ico",
+    "optional build/sets.json"
+  ],
+  "requiredModelAndImageAssetsLoaded": true,
+  "cleanup": {
+    "ownTabClosed": true,
+    "ownServerExited": true
+  },
+  "buildRenderRepeated": false,
+  "modelHashBeforeAfterIdentical": true,
+  "ownerAccepted": true,
+  "ownerAcceptedDate": "2026-10-24",
+  "acceptedVideoSHA256": "ff27321a4bb4950d2d7a0e06ba29090f58cbac44bd2230ae8d3cacd3a09b6649",
+  "scope": "Actual final-generation load, time advance, pause, head and ending UI captures. No detector comparison/full physics or performance claim."
+}

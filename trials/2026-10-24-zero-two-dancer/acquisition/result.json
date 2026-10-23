@@ -1,0 +1,65 @@
+{
+  "stage": "fresh full acquisition",
+  "PASS": true,
+  "decodedFrames": 313,
+  "inferredFrames": 313,
+  "fps": 24.0,
+  "originalSize": [
+    2160,
+    3840
+  ],
+  "size": [
+    1080,
+    1920
+  ],
+  "emptyFrames": 0,
+  "providers": {
+    "det": [
+      "CPUExecutionProvider"
+    ],
+    "pose": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "sourceVideoSHA256": "ef5b5a6578a68358e6a1510ae2bb8361ec7eb56a439dc5302385b233097e889c",
+  "decodeCommand": [
+    "ffmpeg",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-c:v",
+    "libdav1d",
+    "-threads",
+    "4",
+    "-i",
+    "withheld/orig.webm",
+    "-map",
+    "0:v:0",
+    "-an",
+    "-fps_mode",
+    "passthrough",
+    "-pix_fmt",
+    "bgr24",
+    "-f",
+    "rawvideo",
+    "pipe:1"
+  ],
+  "decodeExitCode": 0,
+  "decoderVersion": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+  "limits": "Detection/structure only; no semantic dance, hand-pass or planted-foot verdict.",
+  "precheckFrames": [
+    0,
+    156,
+    312
+  ],
+  "precheckExitCode": 0,
+  "fullExitCode": 0,
+  "rawPoseSHA256": "997fb8433f1c403ad4c9405dd3c0bad07af83938276dcbcdd33ededd8e8193b1",
+  "withheldWholebodySHA256": "b26cf8de76f696bb216cd0281d8c4694fe8678e899450d425cc6cb68312d03fe",
+  "firstDirectOpenCVAttempt": {
+    "exitCode": 1,
+    "decodedFrames": 0,
+    "fullNotRun": true,
+    "reason": "Bundled OpenCV AV1 decoder failed pixel format; explicit libdav1d software decode remedy recorded."
+  }
+}

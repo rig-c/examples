@@ -1,0 +1,51 @@
+{
+  "ranking": "Descending frames[].triangles.length; ascending index on ties",
+  "selectedBeforeCapture": true,
+  "selected": [
+    {
+      "rank": 1,
+      "frame": 0,
+      "timeSeconds": 0,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/0/triangles",
+      "label": "folded triangles 2, frame 0"
+    },
+    {
+      "rank": 2,
+      "frame": 1,
+      "timeSeconds": 0.041666666666666664,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/1/triangles",
+      "label": "folded triangles 2, frame 1"
+    },
+    {
+      "rank": 3,
+      "frame": 2,
+      "timeSeconds": 0.08333333333333333,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/2/triangles",
+      "label": "folded triangles 2, frame 2"
+    }
+  ],
+  "foldedFrames": 217,
+  "distinctCounts": [
+    2
+  ],
+  "notDepth": true,
+  "rawFoldsSHA256": "50248feaa539aed3901c6f1d546b1e9aa966c9c374ef68f4cacc3dac3a013fc0",
+  "compiledSHA256": "21999456afd779a7c67e2c12a6de95ff4234f037981db8a0a0c2ee5a4d1f24cd",
+  "command": "sh fold-diagnostic.sh",
+  "fps": 24
+}

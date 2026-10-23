@@ -1,0 +1,35 @@
+{
+  "acceptedSource": {
+    "file": "inputs/sequence.json",
+    "sha256": "8713172431674a57caa8d7c3f452a05bf46ec8079ca368bb4cd9df7952c2edfd",
+    "ownerChoice": "Continue accepted dance pose source; retain fresh acquisition as a separate comparison baseline"
+  },
+  "sourceMap": {
+    "file": "inputs/map.json",
+    "sha256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
+    "sameAsPublicMap": true
+  },
+  "publicRigSHA256": "490fd2116a5c7b5c1188be010d6091b68c35c2d837475cd8540f631367da08d6",
+  "sourceCorrections": {
+    "file": "source-corrections.json",
+    "sha256": "2e41a041a3d9f28bc805245b3526e74cc8b14fb6253e26bc6ab8680ac37cfa9e"
+  },
+  "historicalRigSnapshot": {
+    "file": "v5-rig.json",
+    "sha256": "4ce9b871475cdc9c6e8c076e72276155e100253c55355436196b0936a1f14a3e",
+    "role": "Full equivalence assertion snapshot, not a separately built config"
+  },
+  "finalRig": {
+    "file": "rig.json",
+    "sha256": "c4bb9011b1f1e561065957f08050d7b9b225d2b2bd984dc5be22cb4659bc0054"
+  },
+  "finalMotion": {
+    "file": "motion.json",
+    "sha256": "cb10fa1fe8e9fade2f05be9c503aa4cea03482734cee082d45ec46072fb1951b"
+  },
+  "freshComparisonRawSHA256": "997fb8433f1c403ad4c9405dd3c0bad07af83938276dcbcdd33ededd8e8193b1",
+  "finalCompiledModelSHA256": "2a21d03affaadac4a314b7dd0345b0b2b842292a24ff3ce49b4de2b460fb12d1",
+  "gate": "23PASS/13SKIP/14excluded spine; no tolerance changes",
+  "inputFPS": 24,
+  "renderFPS": 30
+}

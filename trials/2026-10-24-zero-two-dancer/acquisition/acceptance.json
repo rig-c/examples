@@ -1,0 +1,27 @@
+{
+  "phase": "frozen before fresh inference",
+  "videoSize": [
+    2160,
+    3840
+  ],
+  "processingSize": [
+    1080,
+    1920
+  ],
+  "fps": 24,
+  "fpsTolerance": 1e-06,
+  "frames": 313,
+  "emptyFrames": 0,
+  "bodyJoints": 18,
+  "wholebodyPoints": 133,
+  "minScore": 0.3,
+  "personRule": "argmax of mean confidence over the first 17 body keypoints, as in first extract.py",
+  "timestampRule": "round(frameIndex / fps, 5)",
+  "maxTimestampErrorSeconds": 1e-05,
+  "precheckFrameIndexes": [
+    0,
+    156,
+    312
+  ],
+  "scope": "Source identity, frame count and structure only; not semantic tracking, dance fidelity or foot-plant acceptance."
+}

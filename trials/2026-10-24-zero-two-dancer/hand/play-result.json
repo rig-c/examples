@@ -1,0 +1,35 @@
+{
+  "tool": "@rig-c/play",
+  "version": "1.16.0",
+  "generation": "hand final; distinct from root phase1 play-result.json",
+  "compiledModelSHA256": "4be26d3a7ac50fbc9959cb2a73e619854923644d0337bdc968ea7cb91bbdbe13",
+  "actualBrowser": "Chrome via CUA",
+  "animation": "zero-two-hand",
+  "observedAdvancingTimesSeconds": [
+    0.15,
+    3.7
+  ],
+  "pausedTimeSeconds": 3.7499,
+  "captures": [
+    {
+      "file": "head-frame136.jpg",
+      "frame": 136,
+      "timeSeconds": 5.666666666666667,
+      "sha256": "7593f27cb90b4e1ff74421d6199c21f7b4969d22747a76e6821ae8fd414b727e"
+    },
+    {
+      "file": "end-frame312.jpg",
+      "frame": 312,
+      "timeSeconds": 13.0,
+      "sha256": "298e2bc87989890e5271f458518458fa565b9df15a2ba224e6d281565de7b300"
+    }
+  ],
+  "initialRefusal": "Missing staged corpus image URL on first load. Mounted existing public corpus at compiled relative URL, reloaded identical model hash.",
+  "consoleEvidence": "One initial image-load error retained in tab log; no additional warning/error entries after asset-path remedy, replay, pause and captures.",
+  "cleanup": {
+    "ownTabClosed": true,
+    "ownServerExited": true
+  },
+  "ownerAccepted": false,
+  "scope": "Actual final-generation load, time advance, pause, head/hand and ending captures. Not a new render/gate or aesthetic/physics acceptance."
+}
