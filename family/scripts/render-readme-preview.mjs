@@ -5,6 +5,13 @@
  * /tmp/family-preview-tools/node_modules/.bin/playwright install chromium
  * PLAYWRIGHT_MODULE=/tmp/family-preview-tools/node_modules/playwright/index.mjs \
  *   node family/scripts/render-readme-preview.mjs --evidence /tmp/family-preview-frames
+ * --outfit <name> renders the same lineup, idle and frame set from the viewer's
+ * build of that outfit (default office: the accepted README preview, unchanged).
+ * --mp4 <path> encodes the frames with ffmpeg instead of the WebP (H.264,
+ * yuv420p, 24 fps, over --background, default #ffffff — an mp4 has no alpha);
+ * pass --out as well to also write the WebP. --cut-layers additionally captures
+ * frame 0 split by slot (each character's clothing alone, everything else
+ * alone, and everything else without the hair) for render-outfit-switch.mjs's cut-frame comparison.
  * Keep heavy runs under the maintainer's normal render admission controls.
  */
 import http from 'node:http';
@@ -13,18 +20,34 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
+import { OUTFITS, outfitAssets } from '../viewer/outfits.mjs';
 
 const family = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 function option(name, fallback) { const i = args.indexOf(name); return i < 0 ? fallback : args[i + 1]; }
 const evidence = path.resolve(option('--evidence', '/tmp/family-preview-frames'));
-const output = path.resolve(option('--out', path.join(family, 'docs/family-preview.webp')));
+const mp4 = option('--mp4', null) === null ? null : path.resolve(option('--mp4'));
+const output = mp4 !== null && option('--out', null) === null ? null : path.resolve(option('--out', path.join(family, 'docs/family-preview.webp')));
+const outfit = option('--outfit', 'office');
+if (!OUTFITS.includes(outfit)) throw new Error(`outfit must be one of ${OUTFITS.join(', ')}; got ${outfit}`);
+const background = option('--background', '#ffffff');
+if (!/^#[0-9a-f]{6}$/i.test(background)) throw new Error('background must be #rrggbb');
+const mp4Fps = 24, crf = Number(option('--crf', '23'));
+if (!Number.isInteger(crf) || crf < 0 || crf > 51) throw new Error('crf must be an integer 0..51');
+const cutLayers = args.includes('--cut-layers');
+// The slots an outfit swaps; everything else (head, hair, face, glasses, neck) is shared.
+const clothingSlots = ['topwear', 'bottomwear', 'legwear', 'shoes', 'sleeves', 'handwear_l', 'handwear_r', 'neckwear'];
+// Hair is shared art driven by physics an outfit may tune differently, so it is split out too.
+const hairSlots = ['hair_back', 'hair_front', 'hair_front__island2'];
 const frames = 100, width = 1200, height = 1040, duration = 10 / 3;
 const outputFrames = 67, outputWidth = Number(option('--width', '960'));
 const quality = Number(option('--quality', '80'));
 if (![800,960,1200].includes(outputWidth) || !Number.isFinite(quality) || quality < 1 || quality > 100) throw new Error('width must be 800, 960 or 1200; quality must be 1..100');
 const outputHeight = Math.round(height * outputWidth / width);
 const lineup = [['roa', 0, 0, 3], ['luna', 435, .06, 2], ['jinni', 995, .45, 4], ['naru', 1540, .85, 3], ['nova', 1915, 1.25, 2]];
+const modelRoot = outfit === 'office' ? "'/'+key" : `'/outfits/${outfit}/'+key`;
+const modelPath = key => outfitAssets(key, outfit).modelUrl.slice(1);
+for (const [key] of lineup) if (modelPath(key) !== (outfit === 'office' ? key : `outfits/${outfit}/${key}`) + '/out/check/build/skeleton.model.json') throw new Error(`viewer outfit path for ${key} changed`);
 const moduleName = process.env.PLAYWRIGHT_MODULE;
 const { chromium } = await import(moduleName ? pathToFileURL(path.resolve(moduleName)).href : 'playwright');
 async function run(command, argv) {
@@ -34,12 +57,12 @@ async function run(command, argv) {
   });
 }
 await fs.mkdir(evidence, { recursive: true });
-await fs.mkdir(path.dirname(output), { recursive: true });
+for (const target of [output, mp4]) if (target !== null) await fs.mkdir(path.dirname(target), { recursive: true });
 const sha = async filename => createHash('sha256').update(await fs.readFile(filename)).digest('hex');
 const sources={};
-for(const relative of ['accepted-inputs.json','viewer/assets/player.js',...lineup.map(([key])=>`${key}/out/check/build/skeleton.model.json`)]) sources[relative]=await sha(path.join(family,relative));
+for(const relative of ['accepted-inputs.json','viewer/assets/player.js',...lineup.map(([key])=>modelPath(key))]) sources[relative]=await sha(path.join(family,relative));
 for(const [key] of lineup) {
-  const relative=`${key}/out/check/build/skeleton.model.json`;
+  const relative=modelPath(key);
   const model=JSON.parse(await fs.readFile(path.join(family,relative),'utf8'));
   for(const page of model.pages ?? []) {
     const image=path.resolve(family,path.dirname(relative),page.name);
@@ -70,7 +93,7 @@ function closed(index) {
 for (const [index, [key, offset, offsetPhase, z]] of settings.lineup.entries()) {
   const root = document.querySelector('#scene').appendChild(document.createElement('div'));
   root.style.cssText = 'position:absolute;left:'+offset+'px;top:0;z-index:'+z;
-  const assets = await loadModel({ modelUrl: '/'+key+'/out/check/build/skeleton.model.json' });
+  const assets = await loadModel({ modelUrl: ${modelRoot}+'/out/check/build/skeleton.model.json' });
   const player = new RigPlayer(root, assets, { adjust(pose) {
     if (!pose.names.includes('eye_r') || !pose.names.includes('eye_l')) return;
     const c = closed(index);
@@ -94,7 +117,8 @@ globalThis.capture = {
   stats(){ return entries.map(({key,player})=>({key,time:player.time,bounds:player.bounds(),meshBackend:player.renderer.meshBackend,meshBackendActive:player.renderer.meshBackendActive})); },
   dispose(){ for(const {player,assets} of entries){player.dispose();assets.dispose();} }
 };
-globalThis.ready=true;
+${cutLayers ? `globalThis.capture.only=(key,slots,invert)=>{for(const e of entries){if(slots===null){e.player.slots=null;continue;}const s=new Set(slots);e.player.slots=key===null||e.key===key?(n=>s.has(n)!==invert):(()=>false);}draw();};
+` : ''}globalThis.ready=true;
 </script>`;
 const browserArgs=['--renderer-process-limit=2','--num-raster-threads=2'];
 const captureRecipe={htmlSha256:createHash('sha256').update(html).digest('hex'),viewport:{width,height},deviceScaleFactor:1,browserArgs};
@@ -131,6 +155,20 @@ try {
   await page.waitForFunction(()=>globalThis.ready, null, {timeout:120000});
   for(let i=0;i<=frames;i++) {
     await page.screenshot({path:path.join(evidence,`frame-${String(i).padStart(3,'0')}.png`),omitBackground:true});
+    if(i===0 && cutLayers) {
+      for(const [key] of lineup) {
+        await page.evaluate(([key,slots])=>globalThis.capture.only(key,slots,false),[key,clothingSlots]);
+        await page.screenshot({path:path.join(evidence,`cut-clothing-${key}.png`),omitBackground:true});
+      }
+      await page.evaluate(slots=>globalThis.capture.only(null,slots,true),clothingSlots);
+      await page.screenshot({path:path.join(evidence,'cut-shared.png'),omitBackground:true});
+      await page.evaluate(slots=>globalThis.capture.only(null,slots,true),[...clothingSlots,...hairSlots]);
+      await page.screenshot({path:path.join(evidence,'cut-shared-without-hair.png'),omitBackground:true});
+      await page.evaluate(()=>globalThis.capture.only(null,null,false));
+      const again=path.join(evidence,'cut-restored.png');
+      await page.screenshot({path:again,omitBackground:true});
+      if(await sha(again)!==await sha(path.join(evidence,'frame-000.png'))) throw new Error('Restoring every slot after the cut layers did not redraw frame 0');
+    }
     if(i<frames) await page.evaluate(()=>globalThis.capture.next());
     if(i%20===0) console.log(`captured ${i}/${frames}`);
   }
@@ -146,6 +184,21 @@ try {
   await new Promise(resolve=>server.close(resolve));
 }
 }
+if(mp4!==null) {
+  const mp4Frames=Math.round(duration*mp4Fps);
+  const mp4Indices=Array.from({length:mp4Frames},(_,i)=>Math.round(i*frames/mp4Frames));
+  await run(process.env.PYTHON ?? 'python3',['-c', `from PIL import Image
+from pathlib import Path
+p=Path(${JSON.stringify(evidence)})
+for i,n in enumerate(${JSON.stringify(mp4Indices)}):
+ f=Image.open(p/f'frame-{n:03}.png').convert('RGBA').resize((${outputWidth},${outputHeight}),Image.Resampling.LANCZOS)
+ b=Image.new('RGBA',f.size,${JSON.stringify(background)})
+ Image.alpha_composite(b,f).convert('RGB').save(p/f'mp4-{i:03}.png')`]);
+  await run('ffmpeg',['-y','-loglevel','error','-framerate',String(mp4Fps),'-i',path.join(evidence,'mp4-%03d.png'),'-c:v','libx264','-preset','slow','-crf',String(crf),'-pix_fmt','yuv420p','-threads','1','-movflags','+faststart',mp4]);
+  await fs.writeFile(path.join(evidence,'mp4.json'),JSON.stringify({outfit,mp4:path.basename(mp4),fps:mp4Fps,frames:mp4Frames,sourceFrameIndices:mp4Indices,width:outputWidth,height:outputHeight,background,crf,bytes:(await fs.stat(mp4)).size,sha256:await sha(mp4)},null,2)+'\n');
+  console.log(JSON.stringify({mp4,evidence,outfit,bytes:(await fs.stat(mp4)).size}));
+}
+if(output!==null) {
 const indices=Array.from({length:outputFrames},(_,i)=>Math.round(i*frames/outputFrames));
 await run(process.env.PYTHON ?? 'python3',['-c', `from PIL import Image
 from pathlib import Path
@@ -156,6 +209,7 @@ const encode=['-min_size','-loop','0','-lossy','-q',String(quality),'-m','4'];
 for(let i=0;i<outputFrames;i++) encode.push('-d',String(Math.round((i+1)*duration*1000/outputFrames)-Math.round(i*duration*1000/outputFrames)),path.join(evidence,`encoded-${String(i).padStart(3,'0')}.png`));
 encode.push('-o',output);
 await run('img2webp',encode);
-const metadata={schema:'family-readme-preview/1',...settings,width:outputWidth,height:outputHeight,frames:outputFrames,capture:{width,height,frames},sourceFrameIndices:indices,frameDurationsMs:Array.from({length:outputFrames},(_,i)=>Math.round((i+1)*duration*1000/outputFrames)-Math.round(i*duration*1000/outputFrames)),loop:0,renderer:'accepted viewer DOM/per-part WebGL',background:'transparent; browser compositor alpha, no chromakey',warmupCycles:6,physicsStepSeconds:1/60,environment:{wind:[4,0],gravity:[0,0],profile:'constant gentle breeze'},blink:'viewer smooth curve, deterministic staggered schedule',quality,captureRecipeSha256:captureRecipe.htmlSha256,browser:receipt.browser,sources,bytes:(await fs.stat(output)).size,sha256:await sha(output)};
+const metadata={schema:'family-readme-preview/1',...(outfit==='office'?{}:{outfit}),...settings,width:outputWidth,height:outputHeight,frames:outputFrames,capture:{width,height,frames},sourceFrameIndices:indices,frameDurationsMs:Array.from({length:outputFrames},(_,i)=>Math.round((i+1)*duration*1000/outputFrames)-Math.round(i*duration*1000/outputFrames)),loop:0,renderer:'accepted viewer DOM/per-part WebGL',background:'transparent; browser compositor alpha, no chromakey',warmupCycles:6,physicsStepSeconds:1/60,environment:{wind:[4,0],gravity:[0,0],profile:'constant gentle breeze'},blink:'viewer smooth curve, deterministic staggered schedule',quality,captureRecipeSha256:captureRecipe.htmlSha256,browser:receipt.browser,sources,bytes:(await fs.stat(output)).size,sha256:await sha(output)};
 await fs.writeFile(output.replace(/\.webp$/,'.json'),JSON.stringify(metadata,null,2)+'\n');
 console.log(JSON.stringify({output,evidence,bytes:metadata.bytes,sha256:metadata.sha256}));
+}
