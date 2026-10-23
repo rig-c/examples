@@ -1,0 +1,618 @@
+{
+ "definitions": "measure.py -> measure.json. Reads kp/<mode>_<seed>.json (keypoints.py output on the 1664x2432 painting) and the painting.\nUnits: painting px. Definitions (the brief names the bars, not the formulas, so these are this squad's):\n  shoulder_ratio = min(dL, dR) / max(dL, dR), dX = |X_shoulder.x - nose.x|  (left-right symmetry about the face's midline; bar >= 0.95)\n  eye_dy         = |l_eye.y - r_eye.y|                                          (bar <= 3 px)\n  eye_dy_face    = |mean y of face landmarks 42-47 - mean y of 36-41| (wholebody 65-70 vs 59-64): the same instrument's six-point eye\n                   outlines, averaged, as a finer second reading of the same bar (body-eye y comes in ~5 px steps here, see REPORT)\n  ear_ratio      = the same symmetry for the ears (a head-yaw proxy; no bar, reported only)\n  head_frac      = (chin.y - hair_top.y) / H; chin = wholebody face landmark 8 (index 31); hair_top = first row, over the columns\n                   between the ears, whose pixel differs from the background (median of the top-left 32x32 patch) by > 40 summed RGB\n                   (brief: head >= 1/3 of the frame)\n  ctrl_err       = pose set only: distance from each control point x2 to the measured joint (control is at the 832x1216 latent).",
+ "bars": {
+  "shoulder_ratio_min": 0.95,
+  "eye_dy_max_px": 3,
+  "head_frac_min": 0.3333333333333333
+ },
+ "candidates": {
+  "free/1": {
+   "people_detected": 2,
+   "shoulder_ratio": 0.925,
+   "eye_dy_px": 10.4,
+   "eye_dy_face_px": 10.4,
+   "ear_ratio": 0.965,
+   "head_frac": 0.368,
+   "hair_top_y": 57,
+   "chin": [
+    847.7,
+    952.4,
+    0.84
+   ],
+   "scores": {
+    "nose": 0.823,
+    "l_eye": 0.982,
+    "r_eye": 0.969,
+    "l_ear": 0.808,
+    "r_ear": 0.805,
+    "l_shoulder": 0.685,
+    "r_shoulder": 0.69
+   },
+   "bg_rgb": [
+    232,
+    225,
+    221
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true
+  },
+  "free/2": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.971,
+   "eye_dy_px": 10.6,
+   "eye_dy_face_px": 6.2,
+   "ear_ratio": 0.893,
+   "head_frac": 0.546,
+   "hair_top_y": 100,
+   "chin": [
+    870.1,
+    1429.0,
+    0.748
+   ],
+   "scores": {
+    "nose": 0.848,
+    "l_eye": 0.96,
+    "r_eye": 0.99,
+    "l_ear": 0.734,
+    "r_ear": 0.779,
+    "l_shoulder": 0.662,
+    "r_shoulder": 0.655
+   },
+   "bg_rgb": [
+    231,
+    225,
+    221
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true
+  },
+  "free/3": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.968,
+   "eye_dy_px": 0.0,
+   "eye_dy_face_px": 2.7,
+   "ear_ratio": 0.98,
+   "head_frac": 0.336,
+   "hair_top_y": 58,
+   "chin": [
+    842.2,
+    876.0,
+    0.883
+   ],
+   "scores": {
+    "nose": 0.893,
+    "l_eye": 0.985,
+    "r_eye": 0.991,
+    "l_ear": 0.832,
+    "r_ear": 0.844,
+    "l_shoulder": 0.719,
+    "r_shoulder": 0.699
+   },
+   "bg_rgb": [
+    234,
+    226,
+    223
+   ],
+   "front_pass": true,
+   "front_pass_face_eyes": true,
+   "head_pass": true
+  },
+  "free/4": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.747,
+   "eye_dy_px": 26.6,
+   "eye_dy_face_px": 26.7,
+   "ear_ratio": 0.954,
+   "head_frac": 0.419,
+   "hair_top_y": 131,
+   "chin": [
+    830.6,
+    1149.9,
+    0.829
+   ],
+   "scores": {
+    "nose": 0.805,
+    "l_eye": 0.948,
+    "r_eye": 0.933,
+    "l_ear": 0.767,
+    "r_ear": 0.786,
+    "l_shoulder": 0.639,
+    "r_shoulder": 0.676
+   },
+   "bg_rgb": [
+    234,
+    228,
+    224
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true
+  },
+  "free/5": {
+   "people_detected": 2,
+   "shoulder_ratio": 0.978,
+   "eye_dy_px": 5.5,
+   "eye_dy_face_px": 2.7,
+   "ear_ratio": 0.941,
+   "head_frac": 0.302,
+   "hair_top_y": 0,
+   "chin": [
+    840.5,
+    734.6,
+    0.88
+   ],
+   "scores": {
+    "nose": 0.882,
+    "l_eye": 0.951,
+    "r_eye": 0.953,
+    "l_ear": 0.86,
+    "r_ear": 0.925,
+    "l_shoulder": 0.763,
+    "r_shoulder": 0.758
+   },
+   "bg_rgb": [
+    235,
+    229,
+    224
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": true,
+   "head_pass": false
+  },
+  "free/6": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.906,
+   "eye_dy_px": 28.8,
+   "eye_dy_face_px": 28.1,
+   "ear_ratio": 1.0,
+   "head_frac": 0.377,
+   "hair_top_y": 134,
+   "chin": [
+    835.8,
+    1051.9,
+    0.873
+   ],
+   "scores": {
+    "nose": 0.862,
+    "l_eye": 0.969,
+    "r_eye": 0.957,
+    "l_ear": 0.835,
+    "r_ear": 0.866,
+    "l_shoulder": 0.679,
+    "r_shoulder": 0.668
+   },
+   "bg_rgb": [
+    238,
+    232,
+    228
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true
+  },
+  "free/7": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.988,
+   "eye_dy_px": 5.3,
+   "eye_dy_face_px": 2.7,
+   "ear_ratio": 0.967,
+   "head_frac": 0.411,
+   "hair_top_y": 0,
+   "chin": [
+    853.3,
+    998.6,
+    0.879
+   ],
+   "scores": {
+    "nose": 0.847,
+    "l_eye": 0.962,
+    "r_eye": 0.929,
+    "l_ear": 0.847,
+    "r_ear": 0.872,
+    "l_shoulder": 0.688,
+    "r_shoulder": 0.68
+   },
+   "bg_rgb": [
+    237,
+    231,
+    226
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": true,
+   "head_pass": true
+  },
+  "free/8": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.979,
+   "eye_dy_px": 0.0,
+   "eye_dy_face_px": 2.2,
+   "ear_ratio": 1.0,
+   "head_frac": 0.445,
+   "hair_top_y": 136,
+   "chin": [
+    839.6,
+    1217.5,
+    0.793
+   ],
+   "scores": {
+    "nose": 0.867,
+    "l_eye": 0.951,
+    "r_eye": 0.978,
+    "l_ear": 0.823,
+    "r_ear": 0.783,
+    "l_shoulder": 0.584,
+    "r_shoulder": 0.607
+   },
+   "bg_rgb": [
+    234,
+    226,
+    223
+   ],
+   "front_pass": true,
+   "front_pass_face_eyes": true,
+   "head_pass": true
+  },
+  "pose/1": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.92,
+   "eye_dy_px": 4.9,
+   "eye_dy_face_px": 2.4,
+   "ear_ratio": 0.939,
+   "head_frac": 0.367,
+   "hair_top_y": 302,
+   "chin": [
+    837.7,
+    1194.6,
+    0.827
+   ],
+   "scores": {
+    "nose": 0.862,
+    "l_eye": 0.968,
+    "r_eye": 0.948,
+    "l_ear": 0.862,
+    "r_ear": 0.851,
+    "l_shoulder": 0.692,
+    "r_shoulder": 0.692
+   },
+   "bg_rgb": [
+    220,
+    212,
+    208
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true,
+   "ctrl_err_px": {
+    "nose": 28.0,
+    "neck": 62.6,
+    "r_eye": 27.7,
+    "l_eye": 47.5,
+    "r_ear": 14.1,
+    "l_ear": 14.8,
+    "r_shoulder": 38.1,
+    "l_shoulder": 40.3,
+    "r_elbow": 61.2,
+    "l_elbow": 85.4,
+    "r_wrist": 200.3,
+    "l_wrist": 118.7
+   }
+  },
+  "pose/2": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.987,
+   "eye_dy_px": 8.8,
+   "eye_dy_face_px": 7.3,
+   "ear_ratio": 0.956,
+   "head_frac": 0.365,
+   "hair_top_y": 357,
+   "chin": [
+    846.9,
+    1244.5,
+    0.832
+   ],
+   "scores": {
+    "nose": 0.811,
+    "l_eye": 0.96,
+    "r_eye": 0.941,
+    "l_ear": 0.848,
+    "r_ear": 0.742,
+    "l_shoulder": 0.691,
+    "r_shoulder": 0.695
+   },
+   "bg_rgb": [
+    232,
+    224,
+    219
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true,
+   "ctrl_err_px": {
+    "nose": 103.9,
+    "neck": 54.2,
+    "r_eye": 109.0,
+    "l_eye": 103.9,
+    "r_ear": 86.0,
+    "l_ear": 53.8,
+    "r_shoulder": 53.8,
+    "l_shoulder": 53.5,
+    "r_elbow": 48.8,
+    "l_elbow": 13.0,
+    "r_wrist": 38.9,
+    "l_wrist": 75.8
+   }
+  },
+  "pose/3": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.945,
+   "eye_dy_px": 0.0,
+   "eye_dy_face_px": 0.8,
+   "ear_ratio": 1.0,
+   "head_frac": 0.36,
+   "hair_top_y": 301,
+   "chin": [
+    835.7,
+    1177.6,
+    0.846
+   ],
+   "scores": {
+    "nose": 0.842,
+    "l_eye": 0.949,
+    "r_eye": 0.943,
+    "l_ear": 0.816,
+    "r_ear": 0.8,
+    "l_shoulder": 0.677,
+    "r_shoulder": 0.687
+   },
+   "bg_rgb": [
+    236,
+    230,
+    219
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true,
+   "ctrl_err_px": {
+    "nose": 10.7,
+    "neck": 47.5,
+    "r_eye": 34.1,
+    "l_eye": 32.0,
+    "r_ear": 13.2,
+    "l_ear": 16.8,
+    "r_shoulder": 65.6,
+    "l_shoulder": 49.6,
+    "r_elbow": 75.4,
+    "l_elbow": 75.3,
+    "r_wrist": 58.1,
+    "l_wrist": 34.3
+   }
+  },
+  "pose/4": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.923,
+   "eye_dy_px": 0.0,
+   "eye_dy_face_px": 1.4,
+   "ear_ratio": 0.941,
+   "head_frac": 0.348,
+   "hair_top_y": 296,
+   "chin": [
+    833.7,
+    1141.4,
+    0.817
+   ],
+   "scores": {
+    "nose": 0.829,
+    "l_eye": 0.977,
+    "r_eye": 1.015,
+    "l_ear": 0.885,
+    "r_ear": 0.794,
+    "l_shoulder": 0.65,
+    "r_shoulder": 0.647
+   },
+   "bg_rgb": [
+    220,
+    215,
+    205
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true,
+   "ctrl_err_px": {
+    "nose": 11.7,
+    "neck": 33.6,
+    "r_eye": 25.9,
+    "l_eye": 29.1,
+    "r_ear": 28.0,
+    "l_ear": 16.1,
+    "r_shoulder": 85.6,
+    "l_shoulder": 71.8,
+    "r_elbow": 30.3,
+    "l_elbow": 19.3,
+    "r_wrist": 92.0,
+    "l_wrist": 109.6
+   }
+  },
+  "pose/5": {
+   "people_detected": 1,
+   "shoulder_ratio": 1.0,
+   "eye_dy_px": 0.0,
+   "eye_dy_face_px": 2.0,
+   "ear_ratio": 0.983,
+   "head_frac": 0.29,
+   "hair_top_y": 546,
+   "chin": [
+    830.5,
+    1252.2,
+    0.864
+   ],
+   "scores": {
+    "nose": 0.861,
+    "l_eye": 0.987,
+    "r_eye": 0.97,
+    "l_ear": 0.964,
+    "r_ear": 0.917,
+    "l_shoulder": 0.717,
+    "r_shoulder": 0.693
+   },
+   "bg_rgb": [
+    234,
+    228,
+    223
+   ],
+   "front_pass": true,
+   "front_pass_face_eyes": true,
+   "head_pass": false,
+   "ctrl_err_px": {
+    "nose": 108.3,
+    "neck": 68.4,
+    "r_eye": 132.3,
+    "l_eye": 132.3,
+    "r_ear": 142.6,
+    "l_ear": 142.3,
+    "r_shoulder": 49.9,
+    "l_shoulder": 58.8,
+    "r_elbow": 10.1,
+    "l_elbow": 36.3,
+    "r_wrist": 93.7,
+    "l_wrist": 120.8
+   }
+  },
+  "pose/6": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.959,
+   "eye_dy_px": 4.5,
+   "eye_dy_face_px": 0.8,
+   "ear_ratio": 0.877,
+   "head_frac": 0.336,
+   "hair_top_y": 335,
+   "chin": [
+    833.8,
+    1152.4,
+    0.834
+   ],
+   "scores": {
+    "nose": 0.846,
+    "l_eye": 0.978,
+    "r_eye": 1.0,
+    "l_ear": 0.884,
+    "r_ear": 0.834,
+    "l_shoulder": 0.657,
+    "r_shoulder": 0.664
+   },
+   "bg_rgb": [
+    234,
+    229,
+    222
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": true,
+   "head_pass": true,
+   "ctrl_err_px": {
+    "nose": 14.7,
+    "neck": 33.4,
+    "r_eye": 26.2,
+    "l_eye": 20.3,
+    "r_ear": 40.2,
+    "l_ear": 20.3,
+    "r_shoulder": 75.8,
+    "l_shoulder": 76.1,
+    "r_elbow": 95.9,
+    "l_elbow": 42.5,
+    "r_wrist": 71.9,
+    "l_wrist": 90.5
+   }
+  },
+  "pose/7": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.974,
+   "eye_dy_px": 8.9,
+   "eye_dy_face_px": 5.2,
+   "ear_ratio": 0.969,
+   "head_frac": 0.345,
+   "hair_top_y": 307,
+   "chin": [
+    837.6,
+    1147.2,
+    0.829
+   ],
+   "scores": {
+    "nose": 0.904,
+    "l_eye": 0.98,
+    "r_eye": 0.983,
+    "l_ear": 0.895,
+    "r_ear": 0.821,
+    "l_shoulder": 0.701,
+    "r_shoulder": 0.687
+   },
+   "bg_rgb": [
+    237,
+    232,
+    224
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true,
+   "ctrl_err_px": {
+    "nose": 5.7,
+    "neck": 16.9,
+    "r_eye": 22.4,
+    "l_eye": 24.1,
+    "r_ear": 25.8,
+    "l_ear": 20.9,
+    "r_shoulder": 87.1,
+    "l_shoulder": 82.2,
+    "r_elbow": 21.5,
+    "l_elbow": 43.2,
+    "r_wrist": 86.3,
+    "l_wrist": 146.1
+   }
+  },
+  "pose/8": {
+   "people_detected": 1,
+   "shoulder_ratio": 0.985,
+   "eye_dy_px": 10.6,
+   "eye_dy_face_px": 14.1,
+   "ear_ratio": 1.0,
+   "head_frac": 0.37,
+   "hair_top_y": 282,
+   "chin": [
+    845.5,
+    1181.3,
+    0.83
+   ],
+   "scores": {
+    "nose": 0.818,
+    "l_eye": 0.987,
+    "r_eye": 0.968,
+    "l_ear": 0.794,
+    "r_ear": 0.75,
+    "l_shoulder": 0.706,
+    "r_shoulder": 0.723
+   },
+   "bg_rgb": [
+    228,
+    221,
+    215
+   ],
+   "front_pass": false,
+   "front_pass_face_eyes": false,
+   "head_pass": true,
+   "ctrl_err_px": {
+    "nose": 20.1,
+    "neck": 52.0,
+    "r_eye": 43.6,
+    "l_eye": 52.5,
+    "r_ear": 7.3,
+    "l_ear": 0.8,
+    "r_shoulder": 40.4,
+    "l_shoulder": 57.6,
+    "r_elbow": 117.3,
+    "l_elbow": 86.9,
+    "r_wrist": 210.1,
+    "l_wrist": 150.2
+   }
+  }
+ }
+}
