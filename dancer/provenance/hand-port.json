@@ -1,0 +1,26 @@
+{
+  "acceptedDate": "2026-10-22",
+  "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+  "activeConfig": "config.json",
+  "historicalInput": "config-base.json",
+  "acceptedRig": "accepted/rig.json",
+  "physicsCount": 11,
+  "sourceVsConfigBoundary": "port_config.py writes the keeper config and its source ledger. The accepted v3 rig is the saved replace_shins.py transplant, preserving the existing skirt and constraints and replacing two shin regions with a weighted shared-shins mesh. Config-only output is a separate artifact.",
+  "handPort": [
+    "Five skirt physics constraints added and three removed: 9 to 11; exact fields in port-diff.json.",
+    "Accepted rig keeps the old skirt generator/constraints and uses the replacement weighted shared-shins mesh.",
+    "Weighted-shins replacement ledger is separate from any dance motion hand pass.",
+    "K0-K4 image pieces and accepted-map values are preserved; no old dance motion or reference video is included."
+  ],
+  "historicalConfigBuild": "parts 1.57.0 keeper config attempt failed CHECK_SEAM_WITHIN_BAR; source base build passed 11/12 with STRESS_OFF_CHAIN SKIP. Both are distinct from acceptance of the saved hand-built rig.",
+  "producerSnapshots": {
+    "port_config.py": {
+      "sha256": "cc08eadeb58fe6a2829b51cef6e4f160c4d19e3a9077e59cc3a3b412fe55361a",
+      "role": "historical source script, inspected only; external dependencies were not followed or executed"
+    },
+    "replace_shins.py": {
+      "sha256": "c315ec99a560d0261543e8b805c2948b73240eacd1840a2cac00b56a34e0a952",
+      "role": "historical source script, inspected only; external dependencies were not followed or executed"
+    }
+  }
+}

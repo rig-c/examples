@@ -1,0 +1,1031 @@
+{
+ "spec": "rigc-motion/1",
+ "animations": {
+  "pose_arms_up": {
+   "duration": 1,
+   "tracks": [
+    {
+     "bone": "sleeve_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -160
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -160
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_l0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        160
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        160
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_r1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -10
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_l1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        10
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "pose_hands_behind_head": {
+   "duration": 1,
+   "tracks": [
+    {
+     "bone": "sleeve_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -97.5
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -97.5
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_r1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -133
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -133
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_l0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        100.4
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        100.4
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_l1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        128.5
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        128.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "pose_hand_on_hip": {
+   "duration": 1,
+   "tracks": [
+    {
+     "bone": "sleeve_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -22.5
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -22.5
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_r1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        90
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        90
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "pose_arms_crossed": {
+   "duration": 1,
+   "tracks": [
+    {
+     "bone": "sleeve_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        12.5
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        12.5
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_r1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        117
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        117
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_l0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -9.6
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -9.6
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "sleeve_l1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -121.5
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -121.5
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "pose_legs_apart": {
+   "duration": 1,
+   "tracks": [
+    {
+     "bone": "leg_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -25
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -25
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "leg_l0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        25
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        25
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "pose_hip_tilt_pos": {
+   "duration": 1,
+   "tracks": [
+    {
+     "bone": "hip",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        10
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "chest",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -10
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "leg_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -10
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "leg_l0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -10
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "pose_hip_tilt_neg": {
+   "duration": 1,
+   "tracks": [
+    {
+     "bone": "hip",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        -10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        -10
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "chest",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        10
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "leg_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        10
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "leg_l0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        10
+       ]
+      },
+      {
+       "t": 1,
+       "v": [
+        10
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_elbow_r_pos": {
+   "duration": 15,
+   "tracks": [
+    {
+     "bone": "sleeve_r1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 15,
+       "v": [
+        150
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_elbow_r_neg": {
+   "duration": 15,
+   "tracks": [
+    {
+     "bone": "sleeve_r1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 15,
+       "v": [
+        -150
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_knee_r_pos": {
+   "duration": 9,
+   "tracks": [
+    {
+     "bone": "leg_r1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 9,
+       "v": [
+        90
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_knee_r_neg": {
+   "duration": 9,
+   "tracks": [
+    {
+     "bone": "leg_r1",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 9,
+       "v": [
+        -90
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_shoulder_r_out": {
+   "duration": 18,
+   "tracks": [
+    {
+     "bone": "sleeve_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 18,
+       "v": [
+        -180
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_shoulder_r_in": {
+   "duration": 6,
+   "tracks": [
+    {
+     "bone": "sleeve_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 6,
+       "v": [
+        60
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_hip_tilt_pos": {
+   "duration": 3,
+   "tracks": [
+    {
+     "bone": "hip",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 3,
+       "v": [
+        30
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "chest",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 3,
+       "v": [
+        -30
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "leg_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 3,
+       "v": [
+        -30
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "leg_l0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 3,
+       "v": [
+        -30
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_hip_tilt_neg": {
+   "duration": 3,
+   "tracks": [
+    {
+     "bone": "hip",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 3,
+       "v": [
+        -30
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "chest",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 3,
+       "v": [
+        30
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "leg_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 3,
+       "v": [
+        30
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "leg_l0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 3,
+       "v": [
+        30
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_thigh_r_out": {
+   "duration": 6,
+   "tracks": [
+    {
+     "bone": "leg_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 6,
+       "v": [
+        -60
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sweep_thigh_r_in": {
+   "duration": 3,
+   "tracks": [
+    {
+     "bone": "leg_r0",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 3,
+       "v": [
+        30
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "sway": {
+   "duration": 4,
+   "tracks": [
+    {
+     "bone": "hip",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0.0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 0.25,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 0.5,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 0.75,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 1.0,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 1.25,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 1.5,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 1.75,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 2.0,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 2.25,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 2.5,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 2.75,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 3.0,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 3.25,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 3.5,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 3.75,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 4.0,
+       "v": [
+        0
+       ]
+      }
+     ]
+    },
+    {
+     "bone": "chest",
+     "property": "rotate",
+     "keys": [
+      {
+       "t": 0.0,
+       "v": [
+        0
+       ]
+      },
+      {
+       "t": 0.25,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 0.5,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 0.75,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 1.0,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 1.25,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 1.5,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 1.75,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 2.0,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 2.25,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 2.5,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 2.75,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 3.0,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 3.25,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 3.5,
+       "v": [
+        -8
+       ]
+      },
+      {
+       "t": 3.75,
+       "v": [
+        8
+       ]
+      },
+      {
+       "t": 4.0,
+       "v": [
+        0
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

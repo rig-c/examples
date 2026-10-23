@@ -1,0 +1,31 @@
+{
+ "spec": "spine-parts-requirements/1",
+ "fps": 12,
+ "requirements": [],
+ "may_fold": [
+  {
+   "slot": "shins",
+   "animation": "sweep_knee_r_pos",
+   "why": "the lattice bridges the two shin islands with one cell of triangles over no art (the knee row, world x -1..9); every vertex has weight 1 on its own shin bone, so when the shins move apart the bridge folds. It draws nothing: the part's pixels there are transparent"
+  },
+  {
+   "slot": "shins",
+   "animation": "sweep_knee_r_neg",
+   "why": "the lattice bridges the two shin islands with one cell of triangles over no art (the knee row, world x -1..9); every vertex has weight 1 on its own shin bone, so when the shins move apart the bridge folds. It draws nothing: the part's pixels there are transparent"
+  },
+  {
+   "slot": "shins",
+   "animation": "sweep_hip_tilt_pos",
+   "why": "the lattice bridges the two shin islands with one cell of triangles over no art (the knee row, world x -1..9); every vertex has weight 1 on its own shin bone, so when the shins move apart the bridge folds. It draws nothing: the part's pixels there are transparent"
+  },
+  {
+   "slot": "shins",
+   "animation": "sweep_thigh_r_in",
+   "why": "the lattice bridges the two shin islands with one cell of triangles over no art (the knee row, world x -1..9); every vertex has weight 1 on its own shin bone, so when the shins move apart the bridge folds. It draws nothing: the part's pixels there are transparent"
+  }
+ ],
+ "not_swinging": [
+  "sleevefront_l"
+ ],
+ "not_swinging_note": "sleevefront_l is the strip of the handwear-l layer that lies over the chest (half the badge), cut off the upper arm and left on chest on purpose"
+}

@@ -1,0 +1,84 @@
+{
+  "replacedSlots": [
+    "shin_r",
+    "shin_l"
+  ],
+  "addedSlot": {
+    "name": "shins",
+    "bone": "leg_r1",
+    "attachment": "shins"
+  },
+  "attachmentVertices": 288,
+  "triangles": 448,
+  "weightBoneNamesAndCounts": {
+    "leg_r1": 144,
+    "leg_l1": 144
+  },
+  "setupFrameMaxAbsDifferences": {
+    "leg_r1": {
+      "a": 0.0,
+      "b": 0.0,
+      "c": 0.0,
+      "d": 0.0,
+      "worldX": 0.0,
+      "worldY": 0.0
+    },
+    "leg_l1": {
+      "a": 0.0,
+      "b": 0.0,
+      "c": 0.0,
+      "d": 0.0,
+      "worldX": 0.0,
+      "worldY": 0.0
+    }
+  },
+  "unchangedRawSubtreeHashes": {
+    "spec": "2c12fc7fd20932f1e8408f737b058fbd267505a681cb72f306171186b5a4a8ca",
+    "name": "b1d4ffa56f5a2ef99185121ac2d0178cfaf6f65e51937d888bc71c73ec18ecd3",
+    "images": "f35467d0872646a6c0c6388a2305875fde70a3723b9c6144306e53f08fb98086",
+    "skeleton": "fc70b5016be49187a49c9f9509beb5c3cb4924994001775138ea8978963d7e1c",
+    "bones": "4827f3ef50a4c34622156862e51f491aa531560a68fb6b29947f5efc982c091e",
+    "constraints": "826587df092044e80fd1e178b3df8dbcbe91bacbd41c883ba5d19670cffcc9c7",
+    "invariants": "f4e8b0d2aba1d0a0477f55cad82f446423d8d1d8386f6f352f3a5ac0ec996354",
+    "skin/default/hair_back": "fcb1f08eb1b739c73f8f8cd84f7910e0b7b82e98f9e82770d37e1e94509b72cb",
+    "skin/default/thigh_r": "a60ce1e899df487c101225f20200ef2ba58faa54eb5ea46c4664fd9e728f4a36",
+    "skin/default/thigh_l": "3bba2552eafb4325277e3d59b7f2366e4b9784d26bf9dd748973e3b01fc1c183",
+    "skin/default/shoe_l": "8b9c8af5e8dd7d4c993cc649cb8dda18a76aa22f25d4734f56092a40f875c6d9",
+    "skin/default/shoe_r": "b5446a0e8d5ff7cfd73db51bb142830a4d3acd74dd9cc4907daee5db1866eea9",
+    "skin/default/neck": "f2e38b77511c2b8ef52a56b3b945d265edf53852fb05e3806fbfb5bc54658361",
+    "skin/default/bottomwear": "80d389562ecd75b0fa5c148635843b0c279edd6579afb28726f9c61882818f6a",
+    "skin/default/topwear": "7b3faab5c13cb2cb010e33d7c27caeecb47415e204a9b227c932b218c1753266",
+    "skin/default/sleevefront_l": "6358bce2ead16d3d2c2c61d672843ad56ac5bbe9e928b75c50f825a718f051cc",
+    "skin/default/forearm_r": "4e6ce9cfea4379c03022f09bacebec94ecaa413a85cba430a78c3e79dbd91de0",
+    "skin/default/upperarm_r": "fc97569a93533f8cf11e6a6213ec8c3cecef71752549395c40b5d10bca1ce2f6",
+    "skin/default/forearm_l": "8a6c4295f050fd13b315c709c48f4ab52f5666fe2dcf58d12176ef7d8427dd7e",
+    "skin/default/upperarm_l": "5dd36a1bc72085bc8d71bf8d61d9ea24b2af4a59112cbf11fc87d1b6dc772119",
+    "skin/default/ear_l": "c67888d2186d2d70bca6e1351dbb7391c3c3bb96db73219d1a65a1eb831ceb6d",
+    "skin/default/ear_r": "da8a4a0c002b5a13391d5d9d7b98586a8e92f56bfb2cb8c637f6e1f348fd1f6b",
+    "skin/default/face": "3f3a3a0ff68faec32633a4693c8438b8f60e6ec869e06a43e8fc7ee7c711bc0a",
+    "skin/default/mouth": "f0e6461c6a31ac53565bba71582023d165069f2358fb39ceb3cb73590c6a9f9a",
+    "skin/default/brow_r": "99af8c4c520454d87ebc73d7240aa96ab2e865e64d7ca0df6c693489658d05dc",
+    "skin/default/brow_l": "33d4d9e64119b230c8b03afc3b17145af6a18cf9a86d8a9efa33799dca0961d8",
+    "skin/default/eyewhite_r": "bdddb6b9e7488f3e7ba5bdacaa173ea63d90dd55b23c7c17ac808e5621810fe3",
+    "skin/default/eyewhite_l": "9b224cfb2ce5cf5e90d9f39d04998dd39d9bb7801a9ba0215a9b2256ad9a5525",
+    "skin/default/iris_r": "f7b332bd640a0f73bc8be1ad1d9635a8c8d95837eb6b5241b11282a67305d192",
+    "skin/default/iris_l": "098cb1b4274fda5048e2abe76b533b836651c58d887cdab2352416cd1bd193aa",
+    "skin/default/lash_r": "55c445efa7f21e9df6dbfed0f53c96acca3afa79f8afa3ace10145e74c727eaa",
+    "skin/default/hairpin": "6b2b4da18e49e550c4f4f43bd60d9e001e361a1e0e27f664e9f09ca239737533",
+    "skin/default/lash_l": "1538ca9644a6bf4dc81d2cd21bc26a293c4c8875df0ceb55c0f2f877609e58d9",
+    "skin/default/hair_front": "891a693af876abcd2adf82a754b897063f3c0355a3c8e01c3934da5c02d9ff0e",
+    "skin/default/upperarm_r_under": "f5257bd788baf93fded12173fd47c9d937b05f7582f3eb6d8e1412f066523654",
+    "skin/default/forearm_r_back": "1f43f7aaad8b4c669ee65f547f747b761a065ac1054eceaea0b20fcdc0b11081",
+    "skin/default/upperarm_l_under": "f8f568e1a643e3a2b4426066e06e5463caeddea950d0ca43e3ea77fe1a942ad5",
+    "skin/default/forearm_l_back": "e272f7dbb626bde51e51194f9f0d0eccd90571854177af1d08e9d5d0955955b7",
+    "skin/default/forearm_l_under": "ae3ee7071ec9eba96fb8874596cef4be01eb7350d022e6f846ccf00ccb793511",
+    "skin/default/upperarm_r_back": "f20f6907f032d83effbbd0e3fdf98eecfa32a8e1b10443e2edc2808dc4e57d6b",
+    "skin/default/forearm_r_under": "93e7ddd89418bca136b1bdd1d4e7f2ed376862bc76b5645a24f21258153b56ba",
+    "skin/default/forearm_l_mid": "59f00ff92e3361ee827acf97407095dd1bfd4c5fd77b45b0678f3b9b7810404a",
+    "skin/default/upperarm_l_mid": "fe42b3fd375e754478f5303529dc2d34983641b8c673fddaa9113e9c704ade3f",
+    "skin/default/nose": "a4e7cc48150f436144bb98b809ea23e38f0131374a80934e442c555c57bcf91b"
+  },
+  "oldRigSha256": "6b5a12cb34d3897798d391b87cbc0b9b21343bbceea36e833b44a231d59b1049",
+  "newRigSha256": "490fd2116a5c7b5c1188be010d6091b68c35c2d837475cd8540f631367da08d6",
+  "shinsPageSha256": "f61e4fa37f0fa495c198f008c99d746f08d3014ae8ed29db853f073054c05a25"
+}

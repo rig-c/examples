@@ -1,0 +1,32 @@
+{
+ "seed": 74101,
+ "elapsed_s": 21.3,
+ "latent": [
+  832,
+  1216
+ ],
+ "size": [
+  1664,
+  2432
+ ],
+ "key": "dancer",
+ "checkpoint": "novaAnimeXL_ilV80.safetensors",
+ "loras": [],
+ "sampler": {
+  "steps": 30,
+  "cfg": 5.5,
+  "sampler": "euler_ancestral",
+  "scheduler": "normal"
+ },
+ "control": {
+  "skeleton": "pose_a.json",
+  "strength": 0.9,
+  "end_percent": 0.8,
+  "model": "controlnet-openpose-sdxl-1.0.safetensors"
+ },
+ "pose_from": "generation.pose",
+ "dropped": [],
+ "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, young adult woman, black hair, (high bun:1.2), hair scrunchie, short side bangs, bright brown eyes, cheerful expression, (cropped windbreaker jacket ending above the waist:1.3), white and black color block jacket, high collar, zipper, fitted long sleeves, (black pleated mini skirt:1.1), white crew socks, black sneakers, fully clothed, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, straight posture, (arms spread away from body:1.3), (a-pose:1.2), hands open, gap between arms and torso, legs slightly apart, smile, closed mouth, feet visible, shoes, anime illustration, detailed, soft shading, vibrant colors, (white background:1.3), simple background, plain background",
+ "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, hat, clouds, sky, grey background, gradient background, scenery, outdoors, from behind, back view, vignette, dark background, flat color, monochrome, lineart, open mouth, teeth, tongue, closed eyes, half-closed eyes, wind, floating hair, white hair, blonde hair, twin tails, jacket, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, from behind, sitting, kneeling, lying, crossed arms, hands in pockets, hands behind back, holding, contact shadow, cast shadow, floor, ground, multiple views, reference sheet, wind, floating hair, arms touching body, hands on hips, long jacket, jacket covering skirt, text, logo, number",
+ "prompt_id": "a8cbc2ef-0302-4529-91ba-cc4b2b808ec0"
+}

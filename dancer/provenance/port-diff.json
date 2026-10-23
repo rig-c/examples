@@ -1,0 +1,1569 @@
+{
+  "physicsAdded": {
+    "skirt_rm1_phys": {
+      "type": "physics",
+      "name": "skirt_rm1_phys",
+      "bone": "skirt_rm1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 460,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    "skirt_rm2_phys": {
+      "type": "physics",
+      "name": "skirt_rm2_phys",
+      "bone": "skirt_rm2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 460,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    "skirt_lm1_phys": {
+      "type": "physics",
+      "name": "skirt_lm1_phys",
+      "bone": "skirt_lm1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 480,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    "skirt_lm2_phys": {
+      "type": "physics",
+      "name": "skirt_lm2_phys",
+      "bone": "skirt_lm2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 480,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    "skirt_swing_phys": {
+      "type": "physics",
+      "name": "skirt_swing_phys",
+      "bone": "skirt_swing",
+      "rotate": 1,
+      "inertia": 0.6,
+      "strength": 100,
+      "damping": 0.975,
+      "mass": 1,
+      "mix": 0.75
+    }
+  },
+  "physicsRemoved": {
+    "skirt_c0_phys": {
+      "type": "physics",
+      "name": "skirt_c0_phys",
+      "bone": "skirt_c0",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 250,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1
+    },
+    "skirt_l0_phys": {
+      "type": "physics",
+      "name": "skirt_l0_phys",
+      "bone": "skirt_l0",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 250,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1
+    },
+    "skirt_r0_phys": {
+      "type": "physics",
+      "name": "skirt_r0_phys",
+      "bone": "skirt_r0",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 250,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1
+    }
+  },
+  "physicsChanged": {
+    "skirt_l2_phys": {
+      "v2": {
+        "type": "physics",
+        "name": "skirt_l2_phys",
+        "bone": "skirt_l2",
+        "rotate": 1,
+        "inertia": 0.15,
+        "strength": 180,
+        "damping": 0.93,
+        "mass": 1,
+        "mix": 1
+      },
+      "old": {
+        "type": "physics",
+        "name": "skirt_l2_phys",
+        "bone": "skirt_l2",
+        "rotate": 1,
+        "inertia": 0.3,
+        "strength": 340,
+        "damping": 0.95,
+        "mass": 1,
+        "mix": 0.75
+      }
+    },
+    "skirt_l1_phys": {
+      "v2": {
+        "type": "physics",
+        "name": "skirt_l1_phys",
+        "bone": "skirt_l1",
+        "rotate": 1,
+        "inertia": 0.15,
+        "strength": 215,
+        "damping": 0.93,
+        "mass": 1,
+        "mix": 1
+      },
+      "old": {
+        "type": "physics",
+        "name": "skirt_l1_phys",
+        "bone": "skirt_l1",
+        "rotate": 1,
+        "inertia": 0.3,
+        "strength": 340,
+        "damping": 0.95,
+        "mass": 1,
+        "mix": 0.75
+      }
+    },
+    "skirt_c1_phys": {
+      "v2": {
+        "type": "physics",
+        "name": "skirt_c1_phys",
+        "bone": "skirt_c1",
+        "rotate": 1,
+        "inertia": 0.15,
+        "strength": 215,
+        "damping": 0.93,
+        "mass": 1,
+        "mix": 1
+      },
+      "old": {
+        "type": "physics",
+        "name": "skirt_c1_phys",
+        "bone": "skirt_c1",
+        "rotate": 1,
+        "inertia": 0.3,
+        "strength": 360,
+        "damping": 0.95,
+        "mass": 1,
+        "mix": 0.75
+      }
+    },
+    "skirt_r1_phys": {
+      "v2": {
+        "type": "physics",
+        "name": "skirt_r1_phys",
+        "bone": "skirt_r1",
+        "rotate": 1,
+        "inertia": 0.15,
+        "strength": 215,
+        "damping": 0.93,
+        "mass": 1,
+        "mix": 1
+      },
+      "old": {
+        "type": "physics",
+        "name": "skirt_r1_phys",
+        "bone": "skirt_r1",
+        "rotate": 1,
+        "inertia": 0.3,
+        "strength": 320,
+        "damping": 0.95,
+        "mass": 1,
+        "mix": 0.75
+      }
+    },
+    "skirt_c2_phys": {
+      "v2": {
+        "type": "physics",
+        "name": "skirt_c2_phys",
+        "bone": "skirt_c2",
+        "rotate": 1,
+        "inertia": 0.15,
+        "strength": 180,
+        "damping": 0.93,
+        "mass": 1,
+        "mix": 1
+      },
+      "old": {
+        "type": "physics",
+        "name": "skirt_c2_phys",
+        "bone": "skirt_c2",
+        "rotate": 1,
+        "inertia": 0.3,
+        "strength": 360,
+        "damping": 0.95,
+        "mass": 1,
+        "mix": 0.75
+      }
+    },
+    "skirt_r2_phys": {
+      "v2": {
+        "type": "physics",
+        "name": "skirt_r2_phys",
+        "bone": "skirt_r2",
+        "rotate": 1,
+        "inertia": 0.15,
+        "strength": 180,
+        "damping": 0.93,
+        "mass": 1,
+        "mix": 1
+      },
+      "old": {
+        "type": "physics",
+        "name": "skirt_r2_phys",
+        "bone": "skirt_r2",
+        "rotate": 1,
+        "inertia": 0.3,
+        "strength": 320,
+        "damping": 0.95,
+        "mass": 1,
+        "mix": 0.75
+      }
+    }
+  },
+  "oldSkirtBones": [
+    {
+      "name": "skirt_swing",
+      "parent": "hip",
+      "length": 57.7,
+      "rotation": -90,
+      "x": 0,
+      "y": 53
+    },
+    {
+      "name": "skirt_r_stop",
+      "parent": "hip",
+      "length": 58.187,
+      "rotation": -102.584453,
+      "x": -47,
+      "y": 53
+    },
+    {
+      "name": "skirt_r0_ctl",
+      "parent": "hip",
+      "length": 58.187,
+      "rotation": -108.019769,
+      "x": -47,
+      "y": 53
+    },
+    {
+      "name": "skirt_r0",
+      "parent": "skirt_r0_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r0_rel",
+      "parent": "skirt_r_stop",
+      "length": 58.187,
+      "rotation": -5.435317,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r0_d",
+      "parent": "skirt_r_stop",
+      "length": 58.187,
+      "rotation": -5.435317,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r1_ctl",
+      "parent": "skirt_r0_d",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 58.187,
+      "y": 0
+    },
+    {
+      "name": "skirt_r1",
+      "parent": "skirt_r1_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r1_d",
+      "parent": "skirt_r1_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r2_ctl",
+      "parent": "skirt_r1_d",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 58.187,
+      "y": 0
+    },
+    {
+      "name": "skirt_r2",
+      "parent": "skirt_r2_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r2_d",
+      "parent": "skirt_r2_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm0_ctl",
+      "parent": "hip",
+      "length": 56.074,
+      "rotation": -99.322338,
+      "x": -23.5,
+      "y": 53
+    },
+    {
+      "name": "skirt_rm0",
+      "parent": "skirt_rm0_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm0_d",
+      "parent": "skirt_rm0_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm1_ctl",
+      "parent": "skirt_rm0_d",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 56.074,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm1",
+      "parent": "skirt_rm1_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm1_d",
+      "parent": "skirt_rm1_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm2_ctl",
+      "parent": "skirt_rm1_d",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 56.074,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm2",
+      "parent": "skirt_rm2_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm2_d",
+      "parent": "skirt_rm2_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c0_ctl",
+      "parent": "hip",
+      "length": 55.334,
+      "rotation": -90.172577,
+      "x": 0,
+      "y": 53
+    },
+    {
+      "name": "skirt_c0",
+      "parent": "skirt_c0_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c0_d",
+      "parent": "skirt_c0_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c1_ctl",
+      "parent": "skirt_c0_d",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 55.334,
+      "y": 0
+    },
+    {
+      "name": "skirt_c1",
+      "parent": "skirt_c1_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c1_d",
+      "parent": "skirt_c1_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c2_ctl",
+      "parent": "skirt_c1_d",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 55.334,
+      "y": 0
+    },
+    {
+      "name": "skirt_c2",
+      "parent": "skirt_c2_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c2_d",
+      "parent": "skirt_c2_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm0_ctl",
+      "parent": "hip",
+      "length": 56.021,
+      "rotation": -81.014081,
+      "x": 23.5,
+      "y": 53
+    },
+    {
+      "name": "skirt_lm0",
+      "parent": "skirt_lm0_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm0_d",
+      "parent": "skirt_lm0_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm1_ctl",
+      "parent": "skirt_lm0_d",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 56.021,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm1",
+      "parent": "skirt_lm1_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm1_d",
+      "parent": "skirt_lm1_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm2_ctl",
+      "parent": "skirt_lm1_d",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 56.021,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm2",
+      "parent": "skirt_lm2_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm2_d",
+      "parent": "skirt_lm2_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l_stop",
+      "parent": "hip",
+      "length": 58.085,
+      "rotation": -77.415547,
+      "x": 47,
+      "y": 53
+    },
+    {
+      "name": "skirt_l0_ctl",
+      "parent": "hip",
+      "length": 58.085,
+      "rotation": -72.292908,
+      "x": 47,
+      "y": 53
+    },
+    {
+      "name": "skirt_l0",
+      "parent": "skirt_l0_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l0_rel",
+      "parent": "skirt_l_stop",
+      "length": 58.085,
+      "rotation": 5.12264,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l0_d",
+      "parent": "skirt_l_stop",
+      "length": 58.085,
+      "rotation": 5.12264,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l1_ctl",
+      "parent": "skirt_l0_d",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 58.085,
+      "y": 0
+    },
+    {
+      "name": "skirt_l1",
+      "parent": "skirt_l1_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l1_d",
+      "parent": "skirt_l1_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l2_ctl",
+      "parent": "skirt_l1_d",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 58.085,
+      "y": 0
+    },
+    {
+      "name": "skirt_l2",
+      "parent": "skirt_l2_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l2_d",
+      "parent": "skirt_l2_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r_touch",
+      "parent": "leg_r0",
+      "x": 106.135,
+      "y": -38.359
+    },
+    {
+      "name": "skirt_l_touch",
+      "parent": "leg_l0",
+      "x": 114.861,
+      "y": 37.42
+    }
+  ],
+  "oldSkirtConstraints": [
+    {
+      "type": "physics",
+      "name": "skirt_swing_phys",
+      "bone": "skirt_swing",
+      "rotate": 1,
+      "inertia": 0.6,
+      "strength": 100,
+      "damping": 0.975,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "ik",
+      "name": "skirt_r_stop_aim",
+      "bones": [
+        "skirt_r_stop"
+      ],
+      "target": "skirt_r_touch",
+      "mix": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_r0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1.2
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r0_rel_copy",
+      "source": "skirt_r0",
+      "bones": [
+        "skirt_r0_rel"
+      ],
+      "properties": {
+        "rotate": {
+          "to": {
+            "rotate": {}
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r0_clamp",
+      "source": "skirt_r0_rel",
+      "bones": [
+        "skirt_r0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -65.4353,
+          "to": {
+            "rotate": {
+              "offset": -65.4353,
+              "max": -14,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_r1_phys",
+      "bone": "skirt_r1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 320,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r1_clamp",
+      "source": "skirt_r1",
+      "bones": [
+        "skirt_r1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -14,
+          "to": {
+            "rotate": {
+              "offset": -14,
+              "max": 0,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_r2_phys",
+      "bone": "skirt_r2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 320,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r2_clamp",
+      "source": "skirt_r2",
+      "bones": [
+        "skirt_r2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -14,
+          "to": {
+            "rotate": {
+              "offset": -14,
+              "max": 0,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_rm0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_rm0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1.1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_rm0_clamp",
+      "source": "skirt_rm0",
+      "bones": [
+        "skirt_rm0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -60,
+          "to": {
+            "rotate": {
+              "offset": -60,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_rm1_phys",
+      "bone": "skirt_rm1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 460,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_rm1_clamp",
+      "source": "skirt_rm1",
+      "bones": [
+        "skirt_rm1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_rm2_phys",
+      "bone": "skirt_rm2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 460,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_rm2_clamp",
+      "source": "skirt_rm2",
+      "bones": [
+        "skirt_rm2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_c0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_c0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_c0_clamp",
+      "source": "skirt_c0",
+      "bones": [
+        "skirt_c0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -60,
+          "to": {
+            "rotate": {
+              "offset": -60,
+              "max": 60,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_c1_phys",
+      "bone": "skirt_c1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 360,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_c1_clamp",
+      "source": "skirt_c1",
+      "bones": [
+        "skirt_c1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_c2_phys",
+      "bone": "skirt_c2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 360,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_c2_clamp",
+      "source": "skirt_c2",
+      "bones": [
+        "skirt_c2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_lm0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_lm0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1.1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_lm0_clamp",
+      "source": "skirt_lm0",
+      "bones": [
+        "skirt_lm0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 60,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_lm1_phys",
+      "bone": "skirt_lm1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 480,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_lm1_clamp",
+      "source": "skirt_lm1",
+      "bones": [
+        "skirt_lm1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_lm2_phys",
+      "bone": "skirt_lm2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 480,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_lm2_clamp",
+      "source": "skirt_lm2",
+      "bones": [
+        "skirt_lm2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "ik",
+      "name": "skirt_l_stop_aim",
+      "bones": [
+        "skirt_l_stop"
+      ],
+      "target": "skirt_l_touch",
+      "mix": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_l0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1.2
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l0_rel_copy",
+      "source": "skirt_l0",
+      "bones": [
+        "skirt_l0_rel"
+      ],
+      "properties": {
+        "rotate": {
+          "to": {
+            "rotate": {}
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l0_clamp",
+      "source": "skirt_l0_rel",
+      "bones": [
+        "skirt_l0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": 14,
+          "to": {
+            "rotate": {
+              "offset": 14,
+              "max": 65.1226,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_l1_phys",
+      "bone": "skirt_l1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 340,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l1_clamp",
+      "source": "skirt_l1",
+      "bones": [
+        "skirt_l1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": 0,
+          "to": {
+            "rotate": {
+              "offset": 0,
+              "max": 14,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_l2_phys",
+      "bone": "skirt_l2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 340,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l2_clamp",
+      "source": "skirt_l2",
+      "bones": [
+        "skirt_l2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": 0,
+          "to": {
+            "rotate": {
+              "offset": 0,
+              "max": 14,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    }
+  ],
+  "oldBottomwear": {
+    "type": "mesh",
+    "image": "bottomwear.png",
+    "generator": {
+      "kind": "segments",
+      "cell": 20,
+      "bones": [
+        {
+          "bone": "hip",
+          "from": [
+            52,
+            22
+          ],
+          "to": [
+            166,
+            22
+          ]
+        },
+        {
+          "bone": "hip",
+          "from": [
+            58,
+            45
+          ],
+          "to": [
+            160,
+            45
+          ]
+        },
+        [
+          "skirt_r0_d",
+          "skirt_r1_d",
+          "skirt_r2_d"
+        ],
+        [
+          "skirt_rm0_d",
+          "skirt_rm1_d",
+          "skirt_rm2_d"
+        ],
+        [
+          "skirt_c0_d",
+          "skirt_c1_d",
+          "skirt_c2_d"
+        ],
+        [
+          "skirt_lm0_d",
+          "skirt_lm1_d",
+          "skirt_lm2_d"
+        ],
+        [
+          "skirt_l0_d",
+          "skirt_l1_d",
+          "skirt_l2_d"
+        ]
+      ],
+      "falloff": {
+        "power": 2,
+        "radius": 20,
+        "maxBones": 4,
+        "minWeight": 0.03
+      },
+      "anchor": [
+        109,
+        83
+      ]
+    }
+  },
+  "newMeshConfig": {
+    "grid": 20,
+    "r": 20,
+    "exponent": 2,
+    "segments": [
+      [
+        "hip",
+        [
+          359.0,
+          482.0
+        ],
+        [
+          473.0,
+          482.0
+        ]
+      ],
+      [
+        "hip",
+        [
+          365.0,
+          505.0
+        ],
+        [
+          467.0,
+          505.0
+        ]
+      ],
+      [
+        "skirt_r0_d",
+        [
+          369.0,
+          490.0
+        ],
+        [
+          351.00013437,
+          545.33291793
+        ]
+      ],
+      [
+        "skirt_r1_d",
+        [
+          351.00013437,
+          545.33291793
+        ],
+        [
+          333.00026873,
+          600.66583585
+        ]
+      ],
+      [
+        "skirt_r2_d",
+        [
+          333.00026873,
+          600.66583585
+        ],
+        [
+          315.0004031,
+          655.99875378
+        ]
+      ],
+      [
+        "skirt_rm0_d",
+        [
+          392.5,
+          490.0
+        ],
+        [
+          383.41665372,
+          545.33341031
+        ]
+      ],
+      [
+        "skirt_rm1_d",
+        [
+          383.41665372,
+          545.33341031
+        ],
+        [
+          374.33330744,
+          600.66682062
+        ]
+      ],
+      [
+        "skirt_rm2_d",
+        [
+          374.33330744,
+          600.66682062
+        ],
+        [
+          365.24996115,
+          656.00023092
+        ]
+      ],
+      [
+        "skirt_c0_d",
+        [
+          416.0,
+          490.0
+        ],
+        [
+          415.8333322,
+          545.333749
+        ]
+      ],
+      [
+        "skirt_c1_d",
+        [
+          415.8333322,
+          545.333749
+        ],
+        [
+          415.66666441,
+          600.66749799
+        ]
+      ],
+      [
+        "skirt_c2_d",
+        [
+          415.66666441,
+          600.66749799
+        ],
+        [
+          415.49999661,
+          656.00124699
+        ]
+      ],
+      [
+        "skirt_lm0_d",
+        [
+          439.5,
+          490.0
+        ],
+        [
+          448.25001669,
+          545.3334406
+        ]
+      ],
+      [
+        "skirt_lm1_d",
+        [
+          448.25001669,
+          545.3334406
+        ],
+        [
+          457.00003339,
+          600.6668812
+        ]
+      ],
+      [
+        "skirt_lm2_d",
+        [
+          457.00003339,
+          600.6668812
+        ],
+        [
+          465.75005008,
+          656.00032181
+        ]
+      ],
+      [
+        "skirt_l0_d",
+        [
+          463.0,
+          490.0
+        ],
+        [
+          480.66661051,
+          545.3331555
+        ]
+      ],
+      [
+        "skirt_l1_d",
+        [
+          480.66661051,
+          545.3331555
+        ],
+        [
+          498.33322103,
+          600.66631101
+        ]
+      ],
+      [
+        "skirt_l2_d",
+        [
+          498.33322103,
+          600.66631101
+        ],
+        [
+          515.99983154,
+          655.99946651
+        ]
+      ]
+    ],
+    "influences": {
+      "maxInfluences": 4
+    },
+    "note": "Port of old skirt generator falloff (cut .03), 5 stopped chains + two hip waistband segments. Lattice recomputed by parts; numeric rounding may differ (parts5dp vs old generator6dp)."
+  },
+  "limits": {
+    "swingSpanDeg": [
+      60.21,
+      73.59
+    ],
+    "seamMaxPx": 1.0
+  }
+}
