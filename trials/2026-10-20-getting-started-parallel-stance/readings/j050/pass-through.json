@@ -1,0 +1,45 @@
+{
+  "spec": "rigc-pass-through/1",
+  "animation": "j050",
+  "fps": 4,
+  "reading": {
+    "read": "a frame is read when both slots draw and the cloth slot draws over the leg slot in that frame's draw order; a frame where the leg draws over the cloth is not read",
+    "drawn": "a point is drawn when the renderer paints it at 128 of 255 or more (half opacity) — the slot's art through its page, tint included",
+    "rows": "the cloth's rows are cells of one texel of its drawing at its setup pose (the rest table's vertices), on multiples of that texel from the world origin; on each side its corner is the outermost drawn cell in the lower half of its drawn rows, the lowest on a tie, and the rows from the corner up to its top are read",
+    "run": "on a read row, the number of steps outward from the outermost drawn cell's centre as the frame poses it — in world units, along the setup pose's outward direction carried to the frame by the cloth triangle holding that centre — whose world point the leg draws, up to the first it does not: how far the leg's outline passes the cloth's. A step (cell) is one texel of the coarser of the two drawings at the setup pose, in world units; depth is the run times the step",
+    "passes": "a frame passes through when some read row's run is 2 steps or more — more than the one step an outline is resolved to",
+    "box": "a passing frame's box is [minX, minY, maxX, maxY] in world units (y up) over both ends of every run of that frame that reaches the line — the cloth's outline and the run's far end"
+  },
+  "pairs": [
+    {
+      "cloth": "bottomwear",
+      "leg": "thigh_r",
+      "drawn": 3,
+      "over": 3,
+      "frames": [],
+      "deepest": {
+        "index": 0,
+        "time": 0,
+        "cells": 0,
+        "depth": 0,
+        "cell": 1.000000047382749,
+        "side": "left"
+      }
+    },
+    {
+      "cloth": "bottomwear",
+      "leg": "thigh_l",
+      "drawn": 3,
+      "over": 3,
+      "frames": [],
+      "deepest": {
+        "index": 0,
+        "time": 0,
+        "cells": 0,
+        "depth": 0,
+        "cell": 1.000000047382749,
+        "side": "left"
+      }
+    }
+  ]
+}

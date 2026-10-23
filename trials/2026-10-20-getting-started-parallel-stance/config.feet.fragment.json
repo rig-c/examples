@@ -1,0 +1,139 @@
+{
+ "_fragment": "Not a config. The stance-related blocks of config.feet.json, the config the shoes split was built from, as rig-parts propose drafted them from keypoints.feet.json and the guide's scripts/take.ts copied them (fields bones, regions, limbs). Every other block of that config is the guide's own and is not published here; see the README, Inputs.",
+ "bones": {
+  "_note": "four entries of the bones list: the two leg chains (leg_l's tip moved from [428, 1077] to [424, 1070] with the keypoint) and the two foot bones the draft added. Coordinates are rig px (rig_scale 0.5), y down.",
+  "entries": [
+   {
+    "chain": "leg_r",
+    "parent": "hip",
+    "points": [
+     [
+      389,
+      497
+     ],
+     [
+      318,
+      828
+     ]
+    ],
+    "tip": [
+     224,
+     1074
+    ]
+   },
+   {
+    "chain": "leg_l",
+    "parent": "hip",
+    "points": [
+     [
+      505,
+      500
+     ],
+     [
+      472,
+      834
+     ]
+    ],
+    "tip": [
+     424,
+     1070
+    ]
+   },
+   {
+    "name": "foot_r",
+    "parent": "leg_r1",
+    "at": [
+     224,
+     1074
+    ],
+    "inherit": "noRotationOrReflection"
+   },
+   {
+    "name": "foot_l",
+    "parent": "leg_l1",
+    "at": [
+     424,
+     1070
+    ],
+    "inherit": "noRotationOrReflection"
+   }
+  ],
+  "before": {
+   "leg_l": {
+    "chain": "leg_l",
+    "parent": "hip",
+    "points": [
+     [
+      505,
+      500
+     ],
+     [
+      472,
+      834
+     ]
+    ],
+    "tip": [
+     428,
+     1077
+    ]
+   }
+  }
+ },
+ "regions": {
+  "_note": "the region entries that changed: \"shoes\": \"root\" removed; foot_r and foot_l added on their own bones. shin_r and shin_l are unchanged and shown for context.",
+  "removed": {
+   "shoes": "root"
+  },
+  "entries": {
+   "shin_r": "leg_r1",
+   "foot_r": "foot_r",
+   "shin_l": "leg_l1",
+   "foot_l": "foot_l"
+  }
+ },
+ "limbs": {
+  "leg_r": {
+   "segments": [
+    {
+     "part": "thigh_r",
+     "from": "legwear",
+     "bone": "leg_r0"
+    },
+    {
+     "part": "shin_r",
+     "from": "legwear",
+     "bone": "leg_r1",
+     "joint": "knee"
+    },
+    {
+     "part": "foot_r",
+     "from": "shoes",
+     "bone": "foot_r",
+     "joint": "ankle"
+    }
+   ]
+  },
+  "leg_l": {
+   "segments": [
+    {
+     "part": "thigh_l",
+     "from": "legwear",
+     "bone": "leg_l0"
+    },
+    {
+     "part": "shin_l",
+     "from": "legwear",
+     "bone": "leg_l1",
+     "joint": "knee"
+    },
+    {
+     "part": "foot_l",
+     "from": "shoes",
+     "bone": "foot_l",
+     "joint": "ankle"
+    }
+   ]
+  },
+  "_note": "the third segment of each leg (foot_<s> from shoes, joint ankle) is what the corrected keypoint lets propose draft; arm_r and arm_l are unchanged and not shown."
+ }
+}

@@ -1,0 +1,93 @@
+{
+  "spec": "rigc-folds/1",
+  "animation": "j075",
+  "fps": 4,
+  "reading": {
+    "folded": "a triangle whose world orientation (the sign of its signed area) at the frame is the opposite of its orientation at the setup pose — the rest table's vertices, the setup pose's bones with no deform. A triangle degenerate at the frame is not counted there",
+    "degenerate": "a triangle whose height over its longest edge is at most 9.313225746154785e-10 of the largest coordinate magnitude its attachment holds at that pose, in world space or in its UVs — thinner than the posed numbers resolve",
+    "inverted": "a triangle drawn mirrored against the rest of its mesh at the setup pose: the sign of world area x UV area is the opposite of the mesh's own sense (that product summed over its triangles, weighted by world area). Setup faults are listed once and never counted as folds",
+    "index": "a triangle is named by its index i in the rest table: vertices triangles[3i], triangles[3i+1], triangles[3i+2]",
+    "box": "a frame's box is [minX, minY, maxX, maxY] in world units (y up) over every vertex of that frame's folded triangles as posed there, and nothing else",
+    "area": "a frame's area is its folded triangles' unsigned areas at the setup pose (the rest table), summed, in world units²; share is that over the mesh's area, every triangle's unsigned setup-pose area summed. The setup pose's, not the frame's: a folded triangle's posed area passes through 0 as it turns, so it says how far the turn has gone rather than how much art is turned over"
+  },
+  "meshes": [
+    {
+      "slot": "hair_back",
+      "attachment": "hair_back",
+      "triangleCount": 72,
+      "area": 33572.99974118207,
+      "setup": {
+        "degenerate": [],
+        "inverted": []
+      },
+      "frames": [],
+      "worst": null,
+      "folded": []
+    },
+    {
+      "slot": "neck",
+      "attachment": "neck",
+      "triangleCount": 12,
+      "area": 4291.999616658231,
+      "setup": {
+        "degenerate": [],
+        "inverted": []
+      },
+      "frames": [],
+      "worst": null,
+      "folded": []
+    },
+    {
+      "slot": "bottomwear",
+      "attachment": "bottomwear",
+      "triangleCount": 182,
+      "area": 83792.99955515942,
+      "setup": {
+        "degenerate": [],
+        "inverted": []
+      },
+      "frames": [],
+      "worst": null,
+      "folded": []
+    },
+    {
+      "slot": "topwear",
+      "attachment": "topwear",
+      "triangleCount": 86,
+      "area": 37974.99974081773,
+      "setup": {
+        "degenerate": [],
+        "inverted": []
+      },
+      "frames": [],
+      "worst": null,
+      "folded": []
+    },
+    {
+      "slot": "hairpin",
+      "attachment": "hairpin",
+      "triangleCount": 8,
+      "area": 3420,
+      "setup": {
+        "degenerate": [],
+        "inverted": []
+      },
+      "frames": [],
+      "worst": null,
+      "folded": []
+    },
+    {
+      "slot": "hair_front",
+      "attachment": "hair_front",
+      "triangleCount": 74,
+      "area": 30861.000647245535,
+      "setup": {
+        "degenerate": [],
+        "inverted": []
+      },
+      "frames": [],
+      "worst": null,
+      "folded": []
+    }
+  ]
+}

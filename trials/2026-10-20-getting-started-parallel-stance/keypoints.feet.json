@@ -1,0 +1,162 @@
+{
+ "spec": "spine-parts-keypoints/1",
+ "space": {
+  "units": "painting-px",
+  "origin": "top-left",
+  "y": "down"
+ },
+ "width": 1664,
+ "height": 2432,
+ "source": "RTMPose whole-body \"balanced\" (rtmlib, onnxruntime, CPU) on inputs/painting.png; body-18 names, neck = midpoint of the shoulders; occluded below score 0.3; l_ankle moved by hand onto the shin art",
+ "people": [
+  {
+   "id": "a",
+   "joints": {
+    "nose": {
+     "state": "observed",
+     "at": [
+      891.2,
+      331.5
+     ],
+     "score": 0.937
+    },
+    "neck": {
+     "state": "observed",
+     "at": [
+      876.4,
+      541.6
+     ],
+     "score": 0.827
+    },
+    "r_shoulder": {
+     "state": "observed",
+     "at": [
+      719.6,
+      532.7
+     ],
+     "score": 0.827
+    },
+    "r_elbow": {
+     "state": "observed",
+     "at": [
+      672.2,
+      834.5
+     ],
+     "score": 0.885
+    },
+    "r_wrist": {
+     "state": "observed",
+     "at": [
+      559.8,
+      1136.3
+     ],
+     "score": 0.914
+    },
+    "l_shoulder": {
+     "state": "observed",
+     "at": [
+      1033.2,
+      550.4
+     ],
+     "score": 0.856
+    },
+    "l_elbow": {
+     "state": "observed",
+     "at": [
+      1098.3,
+      834.5
+     ],
+     "score": 0.888
+    },
+    "l_wrist": {
+     "state": "observed",
+     "at": [
+      1228.5,
+      1106.7
+     ],
+     "score": 0.944
+    },
+    "r_hip": {
+     "state": "observed",
+     "at": [
+      778.8,
+      994.2
+     ],
+     "score": 0.693
+    },
+    "r_knee": {
+     "state": "observed",
+     "at": [
+      636.7,
+      1657.0
+     ],
+     "score": 0.893
+    },
+    "r_ankle": {
+     "state": "observed",
+     "at": [
+      447.4,
+      2148.2
+     ],
+     "score": 0.893
+    },
+    "l_hip": {
+     "state": "observed",
+     "at": [
+      1009.5,
+      1000.2
+     ],
+     "score": 0.698
+    },
+    "l_knee": {
+     "state": "observed",
+     "at": [
+      944.5,
+      1668.8
+     ],
+     "score": 0.856
+    },
+    "l_ankle": {
+     "state": "observed",
+     "at": [
+      848.0,
+      2140.0
+     ],
+     "score": 0.928
+    },
+    "r_eye": {
+     "state": "observed",
+     "at": [
+      832.0,
+      272.3
+     ],
+     "score": 1.01
+    },
+    "l_eye": {
+     "state": "observed",
+     "at": [
+      950.4,
+      284.1
+     ],
+     "score": 0.973
+    },
+    "r_ear": {
+     "state": "observed",
+     "at": [
+      766.9,
+      290.1
+     ],
+     "score": 0.893
+    },
+    "l_ear": {
+     "state": "observed",
+     "at": [
+      997.7,
+      301.9
+     ],
+     "score": 0.852
+    }
+   }
+  }
+ ]
+}
