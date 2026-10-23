@@ -1,0 +1,1319 @@
+{
+  "spec": "dancer-corpus-inputs/1",
+  "files": [
+    {
+      "path": "painting.png",
+      "bytes": 1439904,
+      "sha256": "54f5ee3c60725c1a7fd3e13ab479199797a7a74040989bc3b76b4d28d65208f1",
+      "sourceSHA256": "54f5ee3c60725c1a7fd3e13ab479199797a7a74040989bc3b76b4d28d65208f1",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "generated painting",
+      "contentIdentical": true
+    },
+    {
+      "path": "painting_meta.json",
+      "bytes": 2428,
+      "sha256": "6b53a913ec83eed57c2f55e20c202caefc3e2af76d7029bbbe13ee0e029f48f4",
+      "sourceSHA256": "6b53a913ec83eed57c2f55e20c202caefc3e2af76d7029bbbe13ee0e029f48f4",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "generation record",
+      "contentIdentical": true
+    },
+    {
+      "path": "generation/config.json",
+      "bytes": 1970,
+      "sha256": "78abcfebc915c17170836f9d2fe7948d04a6561deb35947fde7089469ddd5e1a",
+      "sourceSHA256": "78abcfebc915c17170836f9d2fe7948d04a6561deb35947fde7089469ddd5e1a",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "generation configuration",
+      "contentIdentical": true
+    },
+    {
+      "path": "generation/pose_a.json",
+      "bytes": 668,
+      "sha256": "f3aba92ec798bd54e42113efc52fc4d83540013d57773f0883848b9adff3b276",
+      "sourceSHA256": "f3aba92ec798bd54e42113efc52fc4d83540013d57773f0883848b9adff3b276",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "generation control pose",
+      "contentIdentical": true
+    },
+    {
+      "path": "generation/control_pose.png",
+      "bytes": 10677,
+      "sha256": "102906e39d3309f39af3f283dd857896566acb723bc30d64955743461464b55f",
+      "sourceSHA256": "102906e39d3309f39af3f283dd857896566acb723bc30d64955743461464b55f",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "actual generation control raster",
+      "contentIdentical": true
+    },
+    {
+      "path": "seethrough.json",
+      "bytes": 97,
+      "sha256": "dfb4c1275bb62fa7a9ef895e2a30a81c1787874ab79f1d988cf52f1e9dd09dd3",
+      "sourceSHA256": "dfb4c1275bb62fa7a9ef895e2a30a81c1787874ab79f1d988cf52f1e9dd09dd3",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through parameters",
+      "contentIdentical": true
+    },
+    {
+      "path": "inputs/st_input_full.png",
+      "bytes": 1374301,
+      "sha256": "8d343f3edf473420def2b49d839bf7ecbeffe243f0de270777441693de156b45",
+      "sourceSHA256": "8d343f3edf473420def2b49d839bf7ecbeffe243f0de270777441693de156b45",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through full input",
+      "contentIdentical": true
+    },
+    {
+      "path": "inputs/st_input_head.png",
+      "bytes": 235284,
+      "sha256": "a89d4be4810c6d662db6aca084a21d167e3d0c061d4cd5ecab980eedba359f5b",
+      "sourceSHA256": "a89d4be4810c6d662db6aca084a21d167e3d0c061d4cd5ecab980eedba359f5b",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through head input",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/layers.json",
+      "bytes": 9641,
+      "sha256": "fae34555a878d23f18f8c5d8df32f8d5ab51a79f1bf5961c9c8642bffe380f6e",
+      "sourceSHA256": "fae34555a878d23f18f8c5d8df32f8d5ab51a79f1bf5961c9c8642bffe380f6e",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/meta.json",
+      "bytes": 932,
+      "sha256": "5f48ab2939d8d2f0af56265f7484453f129d83475f05aa049677675fba9988b4",
+      "sourceSHA256": "024eb2fff4b1b9fa9784c2cc18fad4d4fec2debef378694b654886866adec71f",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": false
+    },
+    {
+      "path": "layers/full/parts/back hair.png",
+      "bytes": 557253,
+      "sha256": "0109e1adc3a980a69fb6d03d7d3a9cc07525eb2eec2690020f61a13cb9b1ad1e",
+      "sourceSHA256": "0109e1adc3a980a69fb6d03d7d3a9cc07525eb2eec2690020f61a13cb9b1ad1e",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/bottomwear.png",
+      "bytes": 484792,
+      "sha256": "ed11a317c6e4d7d007d850251df46c367f369461e076baca1866fde93aa1c1af",
+      "sourceSHA256": "ed11a317c6e4d7d007d850251df46c367f369461e076baca1866fde93aa1c1af",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/ears-l.png",
+      "bytes": 1676,
+      "sha256": "572be425cc913984fcf2e340b19c8005c5d1d52ab9215ef17037574e818a834b",
+      "sourceSHA256": "572be425cc913984fcf2e340b19c8005c5d1d52ab9215ef17037574e818a834b",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/ears-r.png",
+      "bytes": 1718,
+      "sha256": "250fabd04751d649e1e6e19982b559e446651dd08f7df98a18eff406f16d69d3",
+      "sourceSHA256": "250fabd04751d649e1e6e19982b559e446651dd08f7df98a18eff406f16d69d3",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/earwear.png",
+      "bytes": 489692,
+      "sha256": "7bf2c6d15606bb547a62764038396177d67b9d2ee6082baefe9d69f3e7ae8d39",
+      "sourceSHA256": "7bf2c6d15606bb547a62764038396177d67b9d2ee6082baefe9d69f3e7ae8d39",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/eyebrow-l.png",
+      "bytes": 377,
+      "sha256": "994f158139c2d29cd9a8bd185eba2146fdf5c93a8ba8844f0e64a9da4f35afc7",
+      "sourceSHA256": "994f158139c2d29cd9a8bd185eba2146fdf5c93a8ba8844f0e64a9da4f35afc7",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/eyebrow-r.png",
+      "bytes": 329,
+      "sha256": "1b265416c25e07eeafbec0a115ef8eba24affb5ca8e97d84a0e17e6c098097fb",
+      "sourceSHA256": "1b265416c25e07eeafbec0a115ef8eba24affb5ca8e97d84a0e17e6c098097fb",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/eyelash-l.png",
+      "bytes": 1768,
+      "sha256": "a42ae91f65be92b8618ad7aceb0f6a423d5f4c3d4ba6d079814647a8d3eaae5e",
+      "sourceSHA256": "a42ae91f65be92b8618ad7aceb0f6a423d5f4c3d4ba6d079814647a8d3eaae5e",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/eyelash-r.png",
+      "bytes": 1838,
+      "sha256": "dbbbc1a68ecd284de80d7c85ac1fe297236e80b9a6470e262b964d878a56408e",
+      "sourceSHA256": "dbbbc1a68ecd284de80d7c85ac1fe297236e80b9a6470e262b964d878a56408e",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/eyewear.png",
+      "bytes": 498495,
+      "sha256": "202172b954c5917156f56fe72c58ba9b5e0a9c6ce3f1c98967012ed21d72d210",
+      "sourceSHA256": "202172b954c5917156f56fe72c58ba9b5e0a9c6ce3f1c98967012ed21d72d210",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/eyewhite-l.png",
+      "bytes": 1239,
+      "sha256": "f4050dbb638194ca5b701eab751b3d562cb5aad99c77573aaae2d823e145c3f7",
+      "sourceSHA256": "f4050dbb638194ca5b701eab751b3d562cb5aad99c77573aaae2d823e145c3f7",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/eyewhite-r.png",
+      "bytes": 1277,
+      "sha256": "ee11fa1db0ee0da9ef115c03961518bd66962c5a9255171130bca6c4751dbf54",
+      "sourceSHA256": "ee11fa1db0ee0da9ef115c03961518bd66962c5a9255171130bca6c4751dbf54",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/face.png",
+      "bytes": 631540,
+      "sha256": "ae7ea8e010e55fff7ecc2b9e5da43a1de0d12039d9e7e28c236a74037acc478f",
+      "sourceSHA256": "ae7ea8e010e55fff7ecc2b9e5da43a1de0d12039d9e7e28c236a74037acc478f",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/footwear.png",
+      "bytes": 386423,
+      "sha256": "1189c7c2bf2bb26c26abb3c72110ec86feb3a3217e006d2dc92bfac652e27131",
+      "sourceSHA256": "1189c7c2bf2bb26c26abb3c72110ec86feb3a3217e006d2dc92bfac652e27131",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/front hair.png",
+      "bytes": 585994,
+      "sha256": "7baebb64c1aec94198afbd3df87ded3b51644c511aad0d4e97ccce4bb676c0ab",
+      "sourceSHA256": "7baebb64c1aec94198afbd3df87ded3b51644c511aad0d4e97ccce4bb676c0ab",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/handwear-l.png",
+      "bytes": 57626,
+      "sha256": "7b2b6841f531f25be0aaf28c053692ccc9c20d7a62aef465a721fd45d202b430",
+      "sourceSHA256": "7b2b6841f531f25be0aaf28c053692ccc9c20d7a62aef465a721fd45d202b430",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/handwear-r.png",
+      "bytes": 57157,
+      "sha256": "86ba7ded66cea4f4e2be3bba78c21121c83ee2eb0befcc4cb9298b9bd14ffcc0",
+      "sourceSHA256": "86ba7ded66cea4f4e2be3bba78c21121c83ee2eb0befcc4cb9298b9bd14ffcc0",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/headwear.png",
+      "bytes": 404580,
+      "sha256": "4fb45501f27426acfffc12465552f09dc81d6460a2f03ff250d1c3e206d96161",
+      "sourceSHA256": "4fb45501f27426acfffc12465552f09dc81d6460a2f03ff250d1c3e206d96161",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/irides-l.png",
+      "bytes": 1060,
+      "sha256": "5a6b75a7de3a159a7322dbb97744b38a0a230dad6a1dc5d736c2c690f868a117",
+      "sourceSHA256": "5a6b75a7de3a159a7322dbb97744b38a0a230dad6a1dc5d736c2c690f868a117",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/irides-r.png",
+      "bytes": 1098,
+      "sha256": "e2f51c0b1d2c0a6e640538e84cee22ffb71793f3b23e8660deaeaa8027c4bfbd",
+      "sourceSHA256": "e2f51c0b1d2c0a6e640538e84cee22ffb71793f3b23e8660deaeaa8027c4bfbd",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/legwear.png",
+      "bytes": 655835,
+      "sha256": "8654a0bcdf4ee050460a8fabde5be85b4833cbe747c0cba4ee7f9e2e48b641f5",
+      "sourceSHA256": "8654a0bcdf4ee050460a8fabde5be85b4833cbe747c0cba4ee7f9e2e48b641f5",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/mouth.png",
+      "bytes": 367488,
+      "sha256": "45abd64f144c1962f2fffed209471056818971958fdb8326732777ba225e17f8",
+      "sourceSHA256": "45abd64f144c1962f2fffed209471056818971958fdb8326732777ba225e17f8",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/neck.png",
+      "bytes": 585140,
+      "sha256": "c8ed5423a7bf76d67bd2c1ce07f894778f1ce5579df25aee3543ee61bf1d909e",
+      "sourceSHA256": "c8ed5423a7bf76d67bd2c1ce07f894778f1ce5579df25aee3543ee61bf1d909e",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/neckwear.png",
+      "bytes": 451892,
+      "sha256": "3db9eadaaa6ad3648229d5b0c303f209f99926cf9de1780efaf4144bba1690a4",
+      "sourceSHA256": "3db9eadaaa6ad3648229d5b0c303f209f99926cf9de1780efaf4144bba1690a4",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/nose.png",
+      "bytes": 366888,
+      "sha256": "fdcfa3ca99b8b30f991601b51efd02b79c8d0d4602f61512bcf47de8ecbdb71a",
+      "sourceSHA256": "fdcfa3ca99b8b30f991601b51efd02b79c8d0d4602f61512bcf47de8ecbdb71a",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/objects.png",
+      "bytes": 485084,
+      "sha256": "6c904615322c6d48e8b00c79e081d3a82c788add64c05821329a28b8960198ce",
+      "sourceSHA256": "6c904615322c6d48e8b00c79e081d3a82c788add64c05821329a28b8960198ce",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/tail.png",
+      "bytes": 484116,
+      "sha256": "71b9f1eb028f638e9051b80d243ec6413aa44e579d79ad792eb178b14dd40dd5",
+      "sourceSHA256": "71b9f1eb028f638e9051b80d243ec6413aa44e579d79ad792eb178b14dd40dd5",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/topwear.png",
+      "bytes": 557282,
+      "sha256": "b688da9d0228887f098f2bf8b584c7bf4e0b0927074e6646606b405858e4cc4b",
+      "sourceSHA256": "b688da9d0228887f098f2bf8b584c7bf4e0b0927074e6646606b405858e4cc4b",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/parts/wings.png",
+      "bytes": 1046152,
+      "sha256": "aeadb1666683a9e71beaa872d16357bf204a8ec2114e843909a89b9df56b184f",
+      "sourceSHA256": "aeadb1666683a9e71beaa872d16357bf204a8ec2114e843909a89b9df56b184f",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/previews/spine_parts_3b0af7d3_preview_layers_00001_.png",
+      "bytes": 834153,
+      "sha256": "091d806b919437eaf5b67f2257ea52096d20e180415dc2f003d3c11c6656621c",
+      "sourceSHA256": "091d806b919437eaf5b67f2257ea52096d20e180415dc2f003d3c11c6656621c",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/full/previews/spine_parts_3b0af7d3_preview_parts_00001_.png",
+      "bytes": 181472,
+      "sha256": "840e3a1d40ddf7fc092fee09eadb2118f00413d83d657b4c63c842b6cc30dce2",
+      "sourceSHA256": "840e3a1d40ddf7fc092fee09eadb2118f00413d83d657b4c63c842b6cc30dce2",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/layers.json",
+      "bytes": 9621,
+      "sha256": "2cfa12d70997ac640dfc6be285ddb0cc941f16e9d50c6e5034c3aebca85be3b8",
+      "sourceSHA256": "2cfa12d70997ac640dfc6be285ddb0cc941f16e9d50c6e5034c3aebca85be3b8",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/meta.json",
+      "bytes": 933,
+      "sha256": "783086bf6cf49ddce264251eaf3fc020381a42b3f976f70518aaaf61970fbc37",
+      "sourceSHA256": "ddefc4d5534bb26ed414f3d4686140ba897f5f08e7ad7af58fbaf4b7756998fb",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": false
+    },
+    {
+      "path": "layers/head/parts/back hair.png",
+      "bytes": 683613,
+      "sha256": "13d7bada2d2b84c2dce7e5c142f55c9c0472c56c2d93ab06e96d699fa07ea624",
+      "sourceSHA256": "13d7bada2d2b84c2dce7e5c142f55c9c0472c56c2d93ab06e96d699fa07ea624",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/bottomwear.png",
+      "bytes": 481581,
+      "sha256": "b86b1ba7310c8cd9f0b2d5e243bd8603fdf4a7874ea9b39dc1857b99d3cf2cfe",
+      "sourceSHA256": "b86b1ba7310c8cd9f0b2d5e243bd8603fdf4a7874ea9b39dc1857b99d3cf2cfe",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/ears-l.png",
+      "bytes": 16525,
+      "sha256": "be69b1f02dfed2d63fbd48b86e882fdeca9a818f76434add3fb4bc68b738246d",
+      "sourceSHA256": "be69b1f02dfed2d63fbd48b86e882fdeca9a818f76434add3fb4bc68b738246d",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/ears-r.png",
+      "bytes": 16914,
+      "sha256": "cf1fa72f57b468fa37f4934947a5adb0aa759049f66bc37141174c47d99e5b68",
+      "sourceSHA256": "cf1fa72f57b468fa37f4934947a5adb0aa759049f66bc37141174c47d99e5b68",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/earwear.png",
+      "bytes": 444594,
+      "sha256": "420d34885a655b0cc32ac5395d5cb5137e799e278c89c84158e2271fa425653a",
+      "sourceSHA256": "420d34885a655b0cc32ac5395d5cb5137e799e278c89c84158e2271fa425653a",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/eyebrow-l.png",
+      "bytes": 2144,
+      "sha256": "b8c042ce48d719bf89a1ad2498b352a076870faeeb6bb482543c89dc8006bc1b",
+      "sourceSHA256": "b8c042ce48d719bf89a1ad2498b352a076870faeeb6bb482543c89dc8006bc1b",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/eyebrow-r.png",
+      "bytes": 2396,
+      "sha256": "be946769955b490fcf0dceead85bd0aef8ab40773542896fdf66b8d338c12c06",
+      "sourceSHA256": "be946769955b490fcf0dceead85bd0aef8ab40773542896fdf66b8d338c12c06",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/eyelash-l.png",
+      "bytes": 17104,
+      "sha256": "99ad84eae8b4f66a7f110878be7fbbd797165d64d775faad19f7299c4f274422",
+      "sourceSHA256": "99ad84eae8b4f66a7f110878be7fbbd797165d64d775faad19f7299c4f274422",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/eyelash-r.png",
+      "bytes": 19392,
+      "sha256": "3eb5dc51c5d4b37061b88003ab68a31a0a2edd300dce446dda43fd851f3f0238",
+      "sourceSHA256": "3eb5dc51c5d4b37061b88003ab68a31a0a2edd300dce446dda43fd851f3f0238",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/eyewear.png",
+      "bytes": 442123,
+      "sha256": "59549448329b9ae16008eaa74019a74e7dad49ca783f1474030f78dd7a02ece1",
+      "sourceSHA256": "59549448329b9ae16008eaa74019a74e7dad49ca783f1474030f78dd7a02ece1",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/eyewhite-l.png",
+      "bytes": 13053,
+      "sha256": "681da480dadf2f9f9980a1b8e9eccd0c6534fadf4b07986c4ee2bb071c303e6b",
+      "sourceSHA256": "681da480dadf2f9f9980a1b8e9eccd0c6534fadf4b07986c4ee2bb071c303e6b",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/eyewhite-r.png",
+      "bytes": 11944,
+      "sha256": "fb59fa264c1100f9b2e455a5494175709a4122ea9f1f8c38e8b92c849d10a59b",
+      "sourceSHA256": "fb59fa264c1100f9b2e455a5494175709a4122ea9f1f8c38e8b92c849d10a59b",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/face.png",
+      "bytes": 689467,
+      "sha256": "9b01257fca6cc82303f1433ae1c6da92710140667cb04e93b4622940063fece3",
+      "sourceSHA256": "9b01257fca6cc82303f1433ae1c6da92710140667cb04e93b4622940063fece3",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/footwear.png",
+      "bytes": 486549,
+      "sha256": "f029ea18e7471717134752cb19ca04abeb488ba7077cc44f1d0a39e35884c71f",
+      "sourceSHA256": "f029ea18e7471717134752cb19ca04abeb488ba7077cc44f1d0a39e35884c71f",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/front hair.png",
+      "bytes": 663105,
+      "sha256": "1d39bacded505ccdfb5b5ebfff03a2c3fd6caf019fccad5801a77be195824935",
+      "sourceSHA256": "1d39bacded505ccdfb5b5ebfff03a2c3fd6caf019fccad5801a77be195824935",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/handwear-l.png",
+      "bytes": 91,
+      "sha256": "2026d0ee5e2cdfa8edca6026fe89bd89996cbbd0378040da95a3bd0228ca23f6",
+      "sourceSHA256": "2026d0ee5e2cdfa8edca6026fe89bd89996cbbd0378040da95a3bd0228ca23f6",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/handwear-r.png",
+      "bytes": 339,
+      "sha256": "179d5ac7030bfad6eaca46e0181fcdd597765d0836f8ee775f71eb5e600e2be8",
+      "sourceSHA256": "179d5ac7030bfad6eaca46e0181fcdd597765d0836f8ee775f71eb5e600e2be8",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/headwear.png",
+      "bytes": 380370,
+      "sha256": "3ba61a86536db611aaa21645cc2f898a980aefbb62ac597db720a4c6a8611172",
+      "sourceSHA256": "3ba61a86536db611aaa21645cc2f898a980aefbb62ac597db720a4c6a8611172",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/irides-l.png",
+      "bytes": 10742,
+      "sha256": "fe7adf85f5a640a7e129413d2d88859ff3753f873d3f2f4d62e05598432a9a34",
+      "sourceSHA256": "fe7adf85f5a640a7e129413d2d88859ff3753f873d3f2f4d62e05598432a9a34",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/irides-r.png",
+      "bytes": 11648,
+      "sha256": "714abe515a71a9133167d00c6e4466a2bc5b707f7a3a2d4256552dce72c3b3ef",
+      "sourceSHA256": "714abe515a71a9133167d00c6e4466a2bc5b707f7a3a2d4256552dce72c3b3ef",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/legwear.png",
+      "bytes": 475781,
+      "sha256": "f023afef02a984b28ce7ba71c52f0edca7cdf73223328429ab70a4d50a7f88d3",
+      "sourceSHA256": "f023afef02a984b28ce7ba71c52f0edca7cdf73223328429ab70a4d50a7f88d3",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/mouth.png",
+      "bytes": 605075,
+      "sha256": "b7c451d388c773fd35c88ca233f6e567c2371a45f660e8260bae9fca568b1099",
+      "sourceSHA256": "b7c451d388c773fd35c88ca233f6e567c2371a45f660e8260bae9fca568b1099",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/neck.png",
+      "bytes": 522619,
+      "sha256": "2f3b0b8261b40de59a380f775598e1414c29d55c9410fb2ab64b364d5721313d",
+      "sourceSHA256": "2f3b0b8261b40de59a380f775598e1414c29d55c9410fb2ab64b364d5721313d",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/neckwear.png",
+      "bytes": 447137,
+      "sha256": "969b5871f6b15edfe5b73a1ccd92fd6f7a7de516f2780dce6557fa6201dc443b",
+      "sourceSHA256": "969b5871f6b15edfe5b73a1ccd92fd6f7a7de516f2780dce6557fa6201dc443b",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/nose.png",
+      "bytes": 616991,
+      "sha256": "22e74c7b41e201abb579781765910f5c0a972a58ab1cf31feb4cdd01a8ea5df0",
+      "sourceSHA256": "22e74c7b41e201abb579781765910f5c0a972a58ab1cf31feb4cdd01a8ea5df0",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/objects.png",
+      "bytes": 477988,
+      "sha256": "faac6e62df62247556f549e2936211538e418cf052ab090b817990808be4002f",
+      "sourceSHA256": "faac6e62df62247556f549e2936211538e418cf052ab090b817990808be4002f",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/tail.png",
+      "bytes": 450537,
+      "sha256": "b1c59af132045e1de6f5cae52e76d97da923184d516769ba4dea411884983725",
+      "sourceSHA256": "b1c59af132045e1de6f5cae52e76d97da923184d516769ba4dea411884983725",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/topwear.png",
+      "bytes": 582276,
+      "sha256": "a2b5540b81f98e8d9885bd41d951a523b4743679dd3c908bd57c57d6a8095344",
+      "sourceSHA256": "a2b5540b81f98e8d9885bd41d951a523b4743679dd3c908bd57c57d6a8095344",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/parts/wings.png",
+      "bytes": 433101,
+      "sha256": "c7f95eab4bcacc092bf41b09ac8c59982c3876e9bcacb210a8dd258f98200eaa",
+      "sourceSHA256": "c7f95eab4bcacc092bf41b09ac8c59982c3876e9bcacb210a8dd258f98200eaa",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/previews/spine_parts_05084fdf_preview_layers_00001_.png",
+      "bytes": 493734,
+      "sha256": "7c8288026beda3aae4e238f098f0fc89a7aa0ef550936f8017c9a64817434d7b",
+      "sourceSHA256": "7c8288026beda3aae4e238f098f0fc89a7aa0ef550936f8017c9a64817434d7b",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "layers/head/previews/spine_parts_05084fdf_preview_parts_00001_.png",
+      "bytes": 444548,
+      "sha256": "5ba2602be18a62d76f48aedc3e7fef30f1132c1feb1b67cd0fc1f6bb893d9aaf",
+      "sourceSHA256": "5ba2602be18a62d76f48aedc3e7fef30f1132c1feb1b67cd0fc1f6bb893d9aaf",
+      "origin": "the dancer original generation and See-through inputs, 2026-10-13",
+      "role": "See-through exported layer set",
+      "contentIdentical": true
+    },
+    {
+      "path": "config.json",
+      "bytes": 46041,
+      "sha256": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
+      "sourceSHA256": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "active keeper config",
+      "contentIdentical": true
+    },
+    {
+      "path": "config-base.json",
+      "bytes": 25151,
+      "sha256": "f249133220a8a782f64cd3502b275b60ee57296ef3b722068637553646dea6af",
+      "sourceSHA256": "f249133220a8a782f64cd3502b275b60ee57296ef3b722068637553646dea6af",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "historical input, not active",
+      "contentIdentical": true
+    },
+    {
+      "path": "requirements.json",
+      "bytes": 1669,
+      "sha256": "274b996dd08949d6c8dadc4f7f3d4728d2c9831be8b4ef34f718c384e2daec63",
+      "sourceSHA256": "274b996dd08949d6c8dadc4f7f3d4728d2c9831be8b4ef34f718c384e2daec63",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "declared config dependency",
+      "contentIdentical": true
+    },
+    {
+      "path": "stress.json",
+      "bytes": 12458,
+      "sha256": "1b55c3428dc3b1baeb16cdbfccadff286387ea6f95125a0b8edf79447f897ecb",
+      "sourceSHA256": "1b55c3428dc3b1baeb16cdbfccadff286387ea6f95125a0b8edf79447f897ecb",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "declared config dependency",
+      "contentIdentical": true
+    },
+    {
+      "path": "under/elbow_l.png",
+      "bytes": 11101,
+      "sha256": "7dab8baada61626ad98d56acfa1a4004aee3cd6e58b37b3355dba686a2a6ce28",
+      "sourceSHA256": "7dab8baada61626ad98d56acfa1a4004aee3cd6e58b37b3355dba686a2a6ce28",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "declared joint-under image",
+      "contentIdentical": true
+    },
+    {
+      "path": "under/elbow_r.png",
+      "bytes": 10800,
+      "sha256": "9841ee592ad4315e80db8f089357a83f101851363dc44edd94b9b33b181e8c23",
+      "sourceSHA256": "9841ee592ad4315e80db8f089357a83f101851363dc44edd94b9b33b181e8c23",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "declared joint-under image",
+      "contentIdentical": true
+    },
+    {
+      "path": "under/knee_l.png",
+      "bytes": 2496,
+      "sha256": "268ebfeef30c0f34954b111a747e5eef64ad7374d0f008a121d59aeb56ca78a3",
+      "sourceSHA256": "268ebfeef30c0f34954b111a747e5eef64ad7374d0f008a121d59aeb56ca78a3",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "declared joint-under image",
+      "contentIdentical": true
+    },
+    {
+      "path": "under/knee_r.png",
+      "bytes": 2502,
+      "sha256": "f2d09ab0c2f387658f36ae8ba1a4acd1dea19fdca56e2cb3ce60e8e9ecf775f5",
+      "sourceSHA256": "f2d09ab0c2f387658f36ae8ba1a4acd1dea19fdca56e2cb3ce60e8e9ecf775f5",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "declared joint-under image",
+      "contentIdentical": true
+    },
+    {
+      "path": "provenance/config-diff.json",
+      "bytes": 61771,
+      "sha256": "965aa4eae10885177a293acac13c037669bce565d814226f136dc09492e883c0",
+      "sourceSHA256": "d2a1b764f3e53acb96abad87b2f10133ec0492b098fe2fbad0db5da4f545af51",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "saved hand-port value ledger",
+      "contentIdentical": false
+    },
+    {
+      "path": "provenance/port-diff.json",
+      "bytes": 29734,
+      "sha256": "861882fbe246bf2176285d1e27e4fbd7ae197f6d70711213148c7963b8d30df1",
+      "sourceSHA256": "95ea9a24dd36288ceca49e30b6d2eb7b11e746b60b6189815433e85fe5e6d8f7",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "saved hand-port value ledger",
+      "contentIdentical": false
+    },
+    {
+      "path": "provenance/weighted-shins-diff.json",
+      "bytes": 5071,
+      "sha256": "db057ea89e2f9816d91a150fbe53c48a17d6713f5d374d201ebcc51d4c8cae7f",
+      "sourceSHA256": "afc14e6134607a93d8c896b3be95701ea28b1087b417fc38eb7015940e382932",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "weighted-shins replacement ledger",
+      "contentIdentical": false
+    },
+    {
+      "path": "provenance/bridge-triangle-alpha.json",
+      "bytes": 169,
+      "sha256": "37baedaa53b181bdac8f96729e29638368553eb4109e8823d5c99cef78d188c3",
+      "sourceSHA256": "995bb5e9db207517b54723b26ea1a2773e5102211f2e09d1169c1e7801490ede",
+      "origin": "accepted dance-skirt v3/v5, 2026-10-22",
+      "role": "transparent bridge source evidence",
+      "contentIdentical": false
+    },
+    {
+      "path": "accepted/rig.json",
+      "bytes": 185889,
+      "sha256": "490fd2116a5c7b5c1188be010d6091b68c35c2d837475cd8540f631367da08d6",
+      "sourceSHA256": "490fd2116a5c7b5c1188be010d6091b68c35c2d837475cd8540f631367da08d6",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 hand-built source rig, 11 physics constraints",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K0_forearm_l.png",
+      "bytes": 23240,
+      "sha256": "bf59e9ef903dafbaa992c98bea30d4a270ccc9d59dd24392640a2707b933cfc6",
+      "sourceSHA256": "bf59e9ef903dafbaa992c98bea30d4a270ccc9d59dd24392640a2707b933cfc6",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K0_forearm_r.png",
+      "bytes": 23949,
+      "sha256": "4e30b720d37a1262246adb4eba603dbc95e75b85fdcec3ff27a55de9ec3067f2",
+      "sourceSHA256": "4e30b720d37a1262246adb4eba603dbc95e75b85fdcec3ff27a55de9ec3067f2",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K0_topwear.png",
+      "bytes": 51081,
+      "sha256": "b0ddc7b7c1c599e6c60c78b45a36f028759a45c694d41b49bae2a4a819ac8455",
+      "sourceSHA256": "b0ddc7b7c1c599e6c60c78b45a36f028759a45c694d41b49bae2a4a819ac8455",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K0_upperarm_l.png",
+      "bytes": 18196,
+      "sha256": "12caaf4633902cf181272e590cc9110d3f93f5fd4c7713e33a43d02be56333f2",
+      "sourceSHA256": "12caaf4633902cf181272e590cc9110d3f93f5fd4c7713e33a43d02be56333f2",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K0_upperarm_r.png",
+      "bytes": 18410,
+      "sha256": "fe26483c3ddd5d437010bdd7db5584146558fea1c14fe48b84572fa63900c9c8",
+      "sourceSHA256": "fe26483c3ddd5d437010bdd7db5584146558fea1c14fe48b84572fa63900c9c8",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K1_forearm_l.png",
+      "bytes": 21140,
+      "sha256": "5cb9b21987e1a29c0bfc4c0b27228ead46223cb9e67ca21e686b42036a515083",
+      "sourceSHA256": "5cb9b21987e1a29c0bfc4c0b27228ead46223cb9e67ca21e686b42036a515083",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K1_forearm_r.png",
+      "bytes": 23098,
+      "sha256": "450cef5ee675848c9023dd5d44eba481baf0042071162c5b2423cafed206fe4f",
+      "sourceSHA256": "450cef5ee675848c9023dd5d44eba481baf0042071162c5b2423cafed206fe4f",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K1_topwear.png",
+      "bytes": 49312,
+      "sha256": "0b42c0bec9c31b35989c25eeba300b674371b172f58004269a46c8dc3583cea4",
+      "sourceSHA256": "0b42c0bec9c31b35989c25eeba300b674371b172f58004269a46c8dc3583cea4",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K1_upperarm_l.png",
+      "bytes": 21634,
+      "sha256": "f6260bcc31d6d2904f51c089e32960bdcca3c8bd282eb0424635298df8cd0dd0",
+      "sourceSHA256": "f6260bcc31d6d2904f51c089e32960bdcca3c8bd282eb0424635298df8cd0dd0",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K1_upperarm_r.png",
+      "bytes": 19867,
+      "sha256": "f4ce6d6206abd01fd01e5d4c89201b048727b8db646fa25acb36c17209806ebc",
+      "sourceSHA256": "f4ce6d6206abd01fd01e5d4c89201b048727b8db646fa25acb36c17209806ebc",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K2_forearm_l.png",
+      "bytes": 23123,
+      "sha256": "ebb11068ba7960ae8b786b2cbf42c60ae0ae0c6753385ba35a10fed964e53729",
+      "sourceSHA256": "ebb11068ba7960ae8b786b2cbf42c60ae0ae0c6753385ba35a10fed964e53729",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K2_forearm_r.png",
+      "bytes": 27288,
+      "sha256": "c98d28815ca00b0f90546cb092c592410cb86bd1cabc9e146447a5028b5789c5",
+      "sourceSHA256": "c98d28815ca00b0f90546cb092c592410cb86bd1cabc9e146447a5028b5789c5",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K2_topwear.png",
+      "bytes": 44807,
+      "sha256": "8a8efeedf08c763f111982fff3e391b70c08cf23fd968d319c2913e1be1c1538",
+      "sourceSHA256": "8a8efeedf08c763f111982fff3e391b70c08cf23fd968d319c2913e1be1c1538",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K2_upperarm_l.png",
+      "bytes": 10303,
+      "sha256": "ac18bb76e8318c5635ed187bd80683759ec14a7ce6f9955dbfbe06a79bffc0c2",
+      "sourceSHA256": "ac18bb76e8318c5635ed187bd80683759ec14a7ce6f9955dbfbe06a79bffc0c2",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K2_upperarm_r.png",
+      "bytes": 18554,
+      "sha256": "26adfd742a039efcc0255d2b87c2e3ca0fe2cce3b47a5a789567d4fc9ef8a4e9",
+      "sourceSHA256": "26adfd742a039efcc0255d2b87c2e3ca0fe2cce3b47a5a789567d4fc9ef8a4e9",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K3_forearm_l.png",
+      "bytes": 26238,
+      "sha256": "39be37a2d78afb300e8d4fdfac36719b9e23ae842f662625a0ca12ece502d748",
+      "sourceSHA256": "39be37a2d78afb300e8d4fdfac36719b9e23ae842f662625a0ca12ece502d748",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K3_forearm_r.png",
+      "bytes": 22509,
+      "sha256": "f1d3ee9f0cdc139cfc1b356a2097368d6c9dc91fb870687a3e31201a51ea1c8f",
+      "sourceSHA256": "f1d3ee9f0cdc139cfc1b356a2097368d6c9dc91fb870687a3e31201a51ea1c8f",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K3_topwear.png",
+      "bytes": 50609,
+      "sha256": "ab659f1fca4c5b23c23704c041d3fe0f1d7c579e7c962902dc82c4ef97e89618",
+      "sourceSHA256": "ab659f1fca4c5b23c23704c041d3fe0f1d7c579e7c962902dc82c4ef97e89618",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K3_upperarm_l.png",
+      "bytes": 18072,
+      "sha256": "5cec4870f2ab6bf280abd39b30c9a6d952c58a26ae21cef1ef66d95695fc7700",
+      "sourceSHA256": "5cec4870f2ab6bf280abd39b30c9a6d952c58a26ae21cef1ef66d95695fc7700",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K3_upperarm_r.png",
+      "bytes": 22561,
+      "sha256": "c7de2e42a186192b4a0627ab93e115dcdfd2b3163f509e04a37bc7d60ae07dcf",
+      "sourceSHA256": "c7de2e42a186192b4a0627ab93e115dcdfd2b3163f509e04a37bc7d60ae07dcf",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K4_forearm_l.png",
+      "bytes": 24763,
+      "sha256": "a7ec075abfd015a3779b89f660d90c8ca8a0d10ae0b529c45ec0da5e98d69516",
+      "sourceSHA256": "a7ec075abfd015a3779b89f660d90c8ca8a0d10ae0b529c45ec0da5e98d69516",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K4_forearm_r.png",
+      "bytes": 29118,
+      "sha256": "220a0951210ab1f62553be29ebe0a3872e908477ee100c3a9de462dcf458db26",
+      "sourceSHA256": "220a0951210ab1f62553be29ebe0a3872e908477ee100c3a9de462dcf458db26",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K4_topwear.png",
+      "bytes": 49943,
+      "sha256": "abce1cc903e9f48fdc5139296eb55ac3b3e44906e6401d3a2992bc4f07928fa8",
+      "sourceSHA256": "abce1cc903e9f48fdc5139296eb55ac3b3e44906e6401d3a2992bc4f07928fa8",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K4_upperarm_l.png",
+      "bytes": 20724,
+      "sha256": "c3324030687721f4cf8eed1b7d4c7c5fd48b87e72cee26207bdda20dc96d041a",
+      "sourceSHA256": "c3324030687721f4cf8eed1b7d4c7c5fd48b87e72cee26207bdda20dc96d041a",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/K4_upperarm_r.png",
+      "bytes": 14579,
+      "sha256": "5218997d0e05a50ab63e1aea4c50d26ea15c93109e9c69736221311fcd5fa11a",
+      "sourceSHA256": "5218997d0e05a50ab63e1aea4c50d26ea15c93109e9c69736221311fcd5fa11a",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/bottomwear.png",
+      "bytes": 53567,
+      "sha256": "2c9aea3750d0cc5c8e769f0b3948ca7311cfef470b31fd2d698c722fc0ba5d79",
+      "sourceSHA256": "2c9aea3750d0cc5c8e769f0b3948ca7311cfef470b31fd2d698c722fc0ba5d79",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/brow_l.png",
+      "bytes": 305,
+      "sha256": "58d8f5dd5b3b456e2279ffa53d4eb987632e5061f6a00c6fd5f54c8d867406c1",
+      "sourceSHA256": "58d8f5dd5b3b456e2279ffa53d4eb987632e5061f6a00c6fd5f54c8d867406c1",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/brow_r.png",
+      "bytes": 569,
+      "sha256": "4d62dfdffa30b6afb7d49f33502ad384deab515497e1c89342d245cc7cdb4b16",
+      "sourceSHA256": "4d62dfdffa30b6afb7d49f33502ad384deab515497e1c89342d245cc7cdb4b16",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/ear_l.png",
+      "bytes": 1788,
+      "sha256": "9cf0a1ed9e4a4650622c625664a038923b4ec98bc79625a91ca17c256c1c366b",
+      "sourceSHA256": "9cf0a1ed9e4a4650622c625664a038923b4ec98bc79625a91ca17c256c1c366b",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/ear_r.png",
+      "bytes": 1901,
+      "sha256": "9136a74c08f1c615c48318f43ae1864c8d022cc1ede78989636c4c4fb1ab038d",
+      "sourceSHA256": "9136a74c08f1c615c48318f43ae1864c8d022cc1ede78989636c4c4fb1ab038d",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/eyewhite_l.png",
+      "bytes": 1545,
+      "sha256": "62c542d0de59410cc9077d892c8138afb078a45dc01f74e1d20ccfcd89822a3a",
+      "sourceSHA256": "62c542d0de59410cc9077d892c8138afb078a45dc01f74e1d20ccfcd89822a3a",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/eyewhite_r.png",
+      "bytes": 1509,
+      "sha256": "1a0a252b1859d5c91f8cbbaeb4dc41c165f84f0203b837bb8fbea95b47580560",
+      "sourceSHA256": "1a0a252b1859d5c91f8cbbaeb4dc41c165f84f0203b837bb8fbea95b47580560",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/face.png",
+      "bytes": 13515,
+      "sha256": "c4b273759474164ce2e3ed50b76400877ee7b5268b91361c1bc192c71e2eddb2",
+      "sourceSHA256": "c4b273759474164ce2e3ed50b76400877ee7b5268b91361c1bc192c71e2eddb2",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/forearm_l.png",
+      "bytes": 32424,
+      "sha256": "beebfa8eba7f51b0f89df2c1e3e0f79b9fb81f1279adff5781e8f1e01a18991e",
+      "sourceSHA256": "beebfa8eba7f51b0f89df2c1e3e0f79b9fb81f1279adff5781e8f1e01a18991e",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/forearm_r.png",
+      "bytes": 35637,
+      "sha256": "978773db93e962c8b24e8e88723d65c89adbfa23235a9120553a63fc32079b17",
+      "sourceSHA256": "978773db93e962c8b24e8e88723d65c89adbfa23235a9120553a63fc32079b17",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/hair_back.png",
+      "bytes": 33152,
+      "sha256": "809652f89fa30abbf5b9afb8fa3bae421cff0d83f2cb12443943eb30928e8404",
+      "sourceSHA256": "809652f89fa30abbf5b9afb8fa3bae421cff0d83f2cb12443943eb30928e8404",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/hair_front.png",
+      "bytes": 32475,
+      "sha256": "92ee31f2da01f1586759c3c57d5ca507cce3adc82e0949313dadd791fdbd825f",
+      "sourceSHA256": "92ee31f2da01f1586759c3c57d5ca507cce3adc82e0949313dadd791fdbd825f",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/hairpin.png",
+      "bytes": 6779,
+      "sha256": "62111a97a3f65abfde9ef073ff5803defdaa5caa5ca079d20f319d051d9424bb",
+      "sourceSHA256": "62111a97a3f65abfde9ef073ff5803defdaa5caa5ca079d20f319d051d9424bb",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/iris_l.png",
+      "bytes": 1400,
+      "sha256": "52fab7f7ab371840a8d30f7b4aa5ddce5e69d02c7ee5e59feee85b993e7eac54",
+      "sourceSHA256": "52fab7f7ab371840a8d30f7b4aa5ddce5e69d02c7ee5e59feee85b993e7eac54",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/iris_r.png",
+      "bytes": 1438,
+      "sha256": "0467eb19345073ef4b46823e345844225ad62ba579c9902f832557297ffce31f",
+      "sourceSHA256": "0467eb19345073ef4b46823e345844225ad62ba579c9902f832557297ffce31f",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/lash_l.png",
+      "bytes": 1734,
+      "sha256": "69dda3102bece4df929f0c6708e91f60cf393076811a3cca34d5b72a75c5d3c5",
+      "sourceSHA256": "69dda3102bece4df929f0c6708e91f60cf393076811a3cca34d5b72a75c5d3c5",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/lash_r.png",
+      "bytes": 1578,
+      "sha256": "42c91c0e44d3c6ee0571549f3b4187750b53c6dbd674dcd290cae8bee0f3c633",
+      "sourceSHA256": "42c91c0e44d3c6ee0571549f3b4187750b53c6dbd674dcd290cae8bee0f3c633",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/mouth.png",
+      "bytes": 666,
+      "sha256": "169c617778e2b73e816065b8f7f301968f2f84b27e1a45c6db7fc4db1cc32452",
+      "sourceSHA256": "169c617778e2b73e816065b8f7f301968f2f84b27e1a45c6db7fc4db1cc32452",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/neck.png",
+      "bytes": 3733,
+      "sha256": "39a35dd5063c674fa99aac4d3fc7fd2a2eb702c6c83b103da7b7bdd752f6c98c",
+      "sourceSHA256": "39a35dd5063c674fa99aac4d3fc7fd2a2eb702c6c83b103da7b7bdd752f6c98c",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/nose.png",
+      "bytes": 166,
+      "sha256": "73299c9cdeb983fae5e771fe5d91065c49cbf3eefb6f65fd3127bab02dbf403f",
+      "sourceSHA256": "73299c9cdeb983fae5e771fe5d91065c49cbf3eefb6f65fd3127bab02dbf403f",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/shin_l.png",
+      "bytes": 21310,
+      "sha256": "be37e6016c1d4b7804755e40d5afd69f9c7db18daf60d79bcc60351d833a4d2a",
+      "sourceSHA256": "be37e6016c1d4b7804755e40d5afd69f9c7db18daf60d79bcc60351d833a4d2a",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/shin_r.png",
+      "bytes": 21803,
+      "sha256": "194e8b16dc25fe1edc8e77a40c20930683158394605bb0ca0dd0e7b2f5ae3703",
+      "sourceSHA256": "194e8b16dc25fe1edc8e77a40c20930683158394605bb0ca0dd0e7b2f5ae3703",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/shins.png",
+      "bytes": 56860,
+      "sha256": "f61e4fa37f0fa495c198f008c99d746f08d3014ae8ed29db853f073054c05a25",
+      "sourceSHA256": "f61e4fa37f0fa495c198f008c99d746f08d3014ae8ed29db853f073054c05a25",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/shoe_l.png",
+      "bytes": 16974,
+      "sha256": "1000c93f4190e546965f5d44a1c8a56b5b33cda8901cc7ea583ab4d72f6de71b",
+      "sourceSHA256": "1000c93f4190e546965f5d44a1c8a56b5b33cda8901cc7ea583ab4d72f6de71b",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/shoe_r.png",
+      "bytes": 16987,
+      "sha256": "8ee71530a0e09341098f250de31eca0238c3d336522721768511599cf18c566d",
+      "sourceSHA256": "8ee71530a0e09341098f250de31eca0238c3d336522721768511599cf18c566d",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/sleevefront_l.png",
+      "bytes": 3273,
+      "sha256": "908a53f78216b72d21367f1e3b54e2b0ac9ec7b512f4083cc9ef39eafab60f1e",
+      "sourceSHA256": "908a53f78216b72d21367f1e3b54e2b0ac9ec7b512f4083cc9ef39eafab60f1e",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/thigh_l.png",
+      "bytes": 25705,
+      "sha256": "78bad7d68d12078bcc588f7290096629de078fc081cd215951bbdf0a52d5ce69",
+      "sourceSHA256": "78bad7d68d12078bcc588f7290096629de078fc081cd215951bbdf0a52d5ce69",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/thigh_r.png",
+      "bytes": 25711,
+      "sha256": "ed63d33c39719771352fe5fb77aa7a3679f1f52edf7ff60381ad2811e2afe4ca",
+      "sourceSHA256": "ed63d33c39719771352fe5fb77aa7a3679f1f52edf7ff60381ad2811e2afe4ca",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/topwear.png",
+      "bytes": 65387,
+      "sha256": "d35407077aa7ab99264383dbb40d74aa7a52536943f508d009faca49dbbda571",
+      "sourceSHA256": "d35407077aa7ab99264383dbb40d74aa7a52536943f508d009faca49dbbda571",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/upperarm_l.png",
+      "bytes": 23482,
+      "sha256": "c11f83c8b61958af5f240ab07fe5b27ff0ffbf0dc159ac9db0fab148c05a3bbf",
+      "sourceSHA256": "c11f83c8b61958af5f240ab07fe5b27ff0ffbf0dc159ac9db0fab148c05a3bbf",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/images/upperarm_r.png",
+      "bytes": 23839,
+      "sha256": "1c2b32d343436c443526ab176fb23bee53a00cb738813616389970db14ecff1b",
+      "sourceSHA256": "1c2b32d343436c443526ab176fb23bee53a00cb738813616389970db14ecff1b",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 unchanged source image / atlas input",
+      "contentIdentical": true
+    },
+    {
+      "path": "map.json",
+      "bytes": 9285,
+      "sha256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
+      "sourceSHA256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
+      "origin": "the accepted dance\u2019s map, 2026-10-22",
+      "role": "accepted body/alternate map",
+      "contentIdentical": true
+    },
+    {
+      "path": "pose_a.json",
+      "bytes": 668,
+      "sha256": "f3aba92ec798bd54e42113efc52fc4d83540013d57773f0883848b9adff3b276",
+      "sourceSHA256": "f3aba92ec798bd54e42113efc52fc4d83540013d57773f0883848b9adff3b276",
+      "origin": "the dancer original generation, 2026-10-13",
+      "role": "literal control-pose dependency of painting_meta.json",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted/motion.json",
+      "bytes": 184650,
+      "sha256": "67beb056983b32a5af4e402a1ebcb8257d1ded8f4cfd372a223b6eeeb0c166ab",
+      "sourceSHA256": "67beb056983b32a5af4e402a1ebcb8257d1ded8f4cfd372a223b6eeeb0c166ab",
+      "origin": "accepted dance-skirt v3 hand-built rig, 2026-10-22",
+      "role": "accepted v3 base idle, pose, set and turn motion; not a dance",
+      "contentIdentical": true
+    }
+  ]
+}

@@ -1,0 +1,10615 @@
+{
+  "spec": "rigc-rig/1",
+  "name": "dancer_painting",
+  "images": "images",
+  "skeleton": {
+    "x": -416,
+    "y": 0,
+    "width": 832,
+    "height": 1216
+  },
+  "bones": [
+    {
+      "name": "root",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "ground",
+      "parent": "root",
+      "x": 0,
+      "y": 56
+    },
+    {
+      "name": "hip",
+      "parent": "root",
+      "x": 0,
+      "y": 673
+    },
+    {
+      "name": "chest_ctl",
+      "parent": "hip",
+      "x": 0,
+      "y": 100
+    },
+    {
+      "name": "chest",
+      "parent": "chest_ctl",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "neck",
+      "parent": "chest",
+      "x": 0,
+      "y": 101
+    },
+    {
+      "name": "head_ctl",
+      "parent": "neck",
+      "x": 2,
+      "y": 71
+    },
+    {
+      "name": "head",
+      "parent": "head_ctl",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "eye_r",
+      "parent": "head",
+      "rotation": -1.941486,
+      "x": -30,
+      "y": 43
+    },
+    {
+      "name": "eye_l",
+      "parent": "head",
+      "rotation": -1.941486,
+      "x": 29,
+      "y": 41
+    },
+    {
+      "name": "brow_r",
+      "parent": "head",
+      "rotation": -1.941486,
+      "x": -24,
+      "y": 71
+    },
+    {
+      "name": "brow_l",
+      "parent": "head",
+      "rotation": -1.941486,
+      "x": 26,
+      "y": 70
+    },
+    {
+      "name": "mouth",
+      "parent": "head",
+      "rotation": -1.941486,
+      "x": -2,
+      "y": 9
+    },
+    {
+      "name": "nose",
+      "parent": "head",
+      "x": -1.5,
+      "y": 27.5,
+      "rotation": -1.941486
+    },
+    {
+      "name": "ear_r",
+      "parent": "head",
+      "x": -51,
+      "y": 32,
+      "rotation": -1.941486
+    },
+    {
+      "name": "ear_l",
+      "parent": "head",
+      "x": 47.5,
+      "y": 32,
+      "rotation": -1.941486
+    },
+    {
+      "name": "yaw_dial",
+      "parent": "root",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "pitch_dial",
+      "parent": "root",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "bun_ctl",
+      "parent": "head",
+      "length": 109,
+      "rotation": -90,
+      "x": 0,
+      "y": 123
+    },
+    {
+      "name": "bun",
+      "parent": "bun_ctl",
+      "length": 109,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "bang_r0_ctl",
+      "parent": "head",
+      "length": 41.761,
+      "rotation": -106.699244,
+      "x": -24,
+      "y": 135
+    },
+    {
+      "name": "bang_r0",
+      "parent": "bang_r0_ctl",
+      "length": 41.761,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "bang_r1_ctl",
+      "parent": "bang_r0",
+      "length": 47.854,
+      "rotation": 5.858939,
+      "x": 41.761226,
+      "y": 0
+    },
+    {
+      "name": "bang_r1",
+      "parent": "bang_r1_ctl",
+      "length": 47.854,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "bang_c0_ctl",
+      "parent": "head",
+      "length": 41.012,
+      "rotation": -91.397181,
+      "x": 2,
+      "y": 135
+    },
+    {
+      "name": "bang_c0",
+      "parent": "bang_c0_ctl",
+      "length": 41.012,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "bang_c1_ctl",
+      "parent": "bang_c0",
+      "length": 48.042,
+      "rotation": -0.988763,
+      "x": 41.012193,
+      "y": 0
+    },
+    {
+      "name": "bang_c1",
+      "parent": "bang_c1_ctl",
+      "length": 48.042,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "bang_l0_ctl",
+      "parent": "head",
+      "length": 40.025,
+      "rotation": -77.005383,
+      "x": 28,
+      "y": 129
+    },
+    {
+      "name": "bang_l0",
+      "parent": "bang_l0_ctl",
+      "length": 40.025,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "bang_l1_ctl",
+      "parent": "bang_l0",
+      "length": 45.541,
+      "rotation": -4.152802,
+      "x": 40.024992,
+      "y": 0
+    },
+    {
+      "name": "bang_l1",
+      "parent": "bang_l1_ctl",
+      "length": 45.541,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "hairpin",
+      "parent": "head",
+      "length": 12,
+      "rotation": 0,
+      "x": 26,
+      "y": 150
+    },
+    {
+      "name": "skirt_swing",
+      "parent": "hip",
+      "length": 57.7,
+      "rotation": -90,
+      "x": 0,
+      "y": 53
+    },
+    {
+      "name": "skirt_r_stop",
+      "parent": "hip",
+      "length": 58.187,
+      "rotation": -102.584453,
+      "x": -47,
+      "y": 53
+    },
+    {
+      "name": "skirt_r0_ctl",
+      "parent": "hip",
+      "length": 58.187,
+      "rotation": -108.019769,
+      "x": -47,
+      "y": 53
+    },
+    {
+      "name": "skirt_r0",
+      "parent": "skirt_r0_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r0_rel",
+      "parent": "skirt_r_stop",
+      "length": 58.187,
+      "rotation": -5.435317,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r0_d",
+      "parent": "skirt_r_stop",
+      "length": 58.187,
+      "rotation": -5.435317,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r1_ctl",
+      "parent": "skirt_r0_d",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 58.187,
+      "y": 0
+    },
+    {
+      "name": "skirt_r1",
+      "parent": "skirt_r1_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r1_d",
+      "parent": "skirt_r1_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r2_ctl",
+      "parent": "skirt_r1_d",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 58.187,
+      "y": 0
+    },
+    {
+      "name": "skirt_r2",
+      "parent": "skirt_r2_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r2_d",
+      "parent": "skirt_r2_ctl",
+      "length": 58.187,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm0_ctl",
+      "parent": "hip",
+      "length": 56.074,
+      "rotation": -99.322338,
+      "x": -23.5,
+      "y": 53
+    },
+    {
+      "name": "skirt_rm0",
+      "parent": "skirt_rm0_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm0_d",
+      "parent": "skirt_rm0_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm1_ctl",
+      "parent": "skirt_rm0_d",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 56.074,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm1",
+      "parent": "skirt_rm1_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm1_d",
+      "parent": "skirt_rm1_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm2_ctl",
+      "parent": "skirt_rm1_d",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 56.074,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm2",
+      "parent": "skirt_rm2_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_rm2_d",
+      "parent": "skirt_rm2_ctl",
+      "length": 56.074,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c0_ctl",
+      "parent": "hip",
+      "length": 55.334,
+      "rotation": -90.172577,
+      "x": 0,
+      "y": 53
+    },
+    {
+      "name": "skirt_c0",
+      "parent": "skirt_c0_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c0_d",
+      "parent": "skirt_c0_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c1_ctl",
+      "parent": "skirt_c0_d",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 55.334,
+      "y": 0
+    },
+    {
+      "name": "skirt_c1",
+      "parent": "skirt_c1_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c1_d",
+      "parent": "skirt_c1_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c2_ctl",
+      "parent": "skirt_c1_d",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 55.334,
+      "y": 0
+    },
+    {
+      "name": "skirt_c2",
+      "parent": "skirt_c2_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_c2_d",
+      "parent": "skirt_c2_ctl",
+      "length": 55.334,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm0_ctl",
+      "parent": "hip",
+      "length": 56.021,
+      "rotation": -81.014081,
+      "x": 23.5,
+      "y": 53
+    },
+    {
+      "name": "skirt_lm0",
+      "parent": "skirt_lm0_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm0_d",
+      "parent": "skirt_lm0_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm1_ctl",
+      "parent": "skirt_lm0_d",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 56.021,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm1",
+      "parent": "skirt_lm1_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm1_d",
+      "parent": "skirt_lm1_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm2_ctl",
+      "parent": "skirt_lm1_d",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 56.021,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm2",
+      "parent": "skirt_lm2_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_lm2_d",
+      "parent": "skirt_lm2_ctl",
+      "length": 56.021,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l_stop",
+      "parent": "hip",
+      "length": 58.085,
+      "rotation": -77.415547,
+      "x": 47,
+      "y": 53
+    },
+    {
+      "name": "skirt_l0_ctl",
+      "parent": "hip",
+      "length": 58.085,
+      "rotation": -72.292908,
+      "x": 47,
+      "y": 53
+    },
+    {
+      "name": "skirt_l0",
+      "parent": "skirt_l0_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l0_rel",
+      "parent": "skirt_l_stop",
+      "length": 58.085,
+      "rotation": 5.12264,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l0_d",
+      "parent": "skirt_l_stop",
+      "length": 58.085,
+      "rotation": 5.12264,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l1_ctl",
+      "parent": "skirt_l0_d",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 58.085,
+      "y": 0
+    },
+    {
+      "name": "skirt_l1",
+      "parent": "skirt_l1_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l1_d",
+      "parent": "skirt_l1_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l2_ctl",
+      "parent": "skirt_l1_d",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 58.085,
+      "y": 0
+    },
+    {
+      "name": "skirt_l2",
+      "parent": "skirt_l2_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_l2_d",
+      "parent": "skirt_l2_ctl",
+      "length": 58.085,
+      "rotation": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "sleeve_r0",
+      "parent": "chest",
+      "length": 127.144,
+      "rotation": -113.15717,
+      "x": -59.9,
+      "y": 102.2
+    },
+    {
+      "name": "sleeve_r1",
+      "parent": "sleeve_r0",
+      "length": 134.712,
+      "rotation": -5.062928,
+      "x": 127.144052,
+      "y": -1e-06
+    },
+    {
+      "name": "sleeve_l0",
+      "parent": "chest",
+      "length": 136.315,
+      "rotation": -67.347803,
+      "x": 60.5,
+      "y": 99.3
+    },
+    {
+      "name": "sleeve_l1",
+      "parent": "sleeve_l0",
+      "length": 127.053,
+      "rotation": 3.852352,
+      "x": 136.315406,
+      "y": 0
+    },
+    {
+      "name": "leg_r0",
+      "parent": "hip",
+      "length": 277.803,
+      "rotation": -89.752504,
+      "x": -45.6,
+      "y": -4.2
+    },
+    {
+      "name": "leg_r1",
+      "parent": "leg_r0",
+      "length": 235.376,
+      "rotation": -1.708185,
+      "x": 277.802592,
+      "y": 2e-06
+    },
+    {
+      "name": "leg_l0",
+      "parent": "hip",
+      "length": 286.4,
+      "rotation": -90.060017,
+      "x": 46.2,
+      "y": 4.4
+    },
+    {
+      "name": "leg_l1",
+      "parent": "leg_l0",
+      "length": 238.266,
+      "rotation": 1.406773,
+      "x": 286.400157,
+      "y": 2e-06
+    },
+    {
+      "name": "foot_r",
+      "parent": "leg_r1",
+      "rotation": 91.460689,
+      "x": 235.376485,
+      "y": -1e-06
+    },
+    {
+      "name": "foot_l",
+      "parent": "leg_l1",
+      "rotation": 88.653244,
+      "x": 238.265818,
+      "y": 0
+    },
+    {
+      "name": "head_up",
+      "parent": "head",
+      "length": 41.959,
+      "rotation": 88.058514,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "skirt_r_touch",
+      "parent": "leg_r0",
+      "x": 106.135,
+      "y": -38.359
+    },
+    {
+      "name": "skirt_l_touch",
+      "parent": "leg_l0",
+      "x": 114.861,
+      "y": 37.42
+    }
+  ],
+  "slots": [
+{
+      "name": "forearm_r_back",
+      "bone": "sleeve_r1",
+      "attachment": null
+    },
+{
+      "name": "forearm_l_back",
+      "bone": "sleeve_l1",
+      "attachment": null
+    },
+{
+      "name": "upperarm_r_back",
+      "bone": "sleeve_r0",
+      "attachment": null
+    },
+{
+      "name": "hair_back",
+      "bone": "head",
+      "attachment": "hair_back"
+    },
+{
+ "name": "shins",
+ "bone": "leg_r1",
+ "attachment": "shins"
+},
+{
+      "name": "thigh_r",
+      "bone": "leg_r0",
+      "attachment": "thigh_r"
+    },
+{
+      "name": "thigh_l",
+      "bone": "leg_l0",
+      "attachment": "thigh_l"
+    },
+{
+      "name": "shoe_l",
+      "bone": "foot_l",
+      "attachment": "shoe_l"
+    },
+{
+      "name": "shoe_r",
+      "bone": "foot_r",
+      "attachment": "shoe_r"
+    },
+{
+      "name": "neck",
+      "bone": "chest",
+      "attachment": "neck"
+    },
+{
+      "name": "bottomwear",
+      "bone": "hip",
+      "attachment": "bottomwear"
+    },
+{
+      "name": "forearm_r_under",
+      "bone": "sleeve_r1",
+      "attachment": null
+    },
+{
+      "name": "upperarm_r_under",
+      "bone": "sleeve_r0",
+      "attachment": null
+    },
+{
+      "name": "forearm_l_under",
+      "bone": "sleeve_l1",
+      "attachment": null
+    },
+{
+      "name": "upperarm_l_under",
+      "bone": "sleeve_l0",
+      "attachment": null
+    },
+{
+      "name": "topwear",
+      "bone": "chest",
+      "attachment": "topwear"
+    },
+{
+      "name": "sleevefront_l",
+      "bone": "chest",
+      "attachment": "sleevefront_l"
+    },
+{
+      "name": "forearm_l_mid",
+      "bone": "sleeve_l1",
+      "attachment": null
+    },
+{
+      "name": "upperarm_l_mid",
+      "bone": "sleeve_l0",
+      "attachment": null
+    },
+{
+      "name": "forearm_r",
+      "bone": "sleeve_r1",
+      "attachment": "forearm_r"
+    },
+{
+      "name": "upperarm_r",
+      "bone": "sleeve_r0",
+      "attachment": "upperarm_r"
+    },
+{
+      "name": "forearm_l",
+      "bone": "sleeve_l1",
+      "attachment": "forearm_l"
+    },
+{
+      "name": "upperarm_l",
+      "bone": "sleeve_l0",
+      "attachment": "upperarm_l"
+    },
+{
+      "name": "ear_l",
+      "bone": "ear_l",
+      "attachment": "ear_l"
+    },
+{
+      "name": "ear_r",
+      "bone": "ear_r",
+      "attachment": "ear_r"
+    },
+{
+      "name": "face",
+      "bone": "head",
+      "attachment": "face"
+    },
+{
+      "name": "nose",
+      "bone": "nose",
+      "attachment": "nose"
+    },
+{
+      "name": "mouth",
+      "bone": "mouth",
+      "attachment": "mouth"
+    },
+{
+      "name": "brow_r",
+      "bone": "brow_r",
+      "attachment": "brow_r"
+    },
+{
+      "name": "brow_l",
+      "bone": "brow_l",
+      "attachment": "brow_l"
+    },
+{
+      "name": "eyewhite_r",
+      "bone": "eye_r",
+      "attachment": "eyewhite_r"
+    },
+{
+      "name": "eyewhite_l",
+      "bone": "eye_l",
+      "attachment": "eyewhite_l"
+    },
+{
+      "name": "iris_r",
+      "bone": "eye_r",
+      "attachment": "iris_r"
+    },
+{
+      "name": "iris_l",
+      "bone": "eye_l",
+      "attachment": "iris_l"
+    },
+{
+      "name": "lash_r",
+      "bone": "eye_r",
+      "attachment": "lash_r"
+    },
+{
+      "name": "hairpin",
+      "bone": "hairpin",
+      "attachment": "hairpin"
+    },
+{
+      "name": "lash_l",
+      "bone": "eye_l",
+      "attachment": "lash_l"
+    },
+{
+      "name": "hair_front",
+      "bone": "head",
+      "attachment": "hair_front"
+    }
+],
+  "skins": {
+    "default": {
+"hair_back": {
+        "hair_back": {
+          "type": "mesh",
+          "image": "hair_back.png",
+          "width": 144,
+          "height": 210,
+          "uvs": [
+            0.201389,
+            0,
+            0.402778,
+            0,
+            0.604167,
+            0,
+            0.805556,
+            0,
+            0.805556,
+            0.138095,
+            0.805556,
+            0.27619,
+            1,
+            0.27619,
+            1,
+            0.414286,
+            1,
+            0.552381,
+            1,
+            0.690476,
+            1,
+            0.828571,
+            1,
+            0.966667,
+            0.805556,
+            0.966667,
+            0.805556,
+            1,
+            0.604167,
+            1,
+            0.402778,
+            1,
+            0.402778,
+            0.966667,
+            0.201389,
+            0.966667,
+            0,
+            0.966667,
+            0,
+            0.828571,
+            0,
+            0.690476,
+            0,
+            0.552381,
+            0,
+            0.414286,
+            0,
+            0.27619,
+            0.201389,
+            0.27619,
+            0.201389,
+            0.138095,
+            0.402778,
+            0.138095,
+            0.604167,
+            0.138095,
+            0.402778,
+            0.27619,
+            0.604167,
+            0.27619,
+            0.201389,
+            0.414286,
+            0.402778,
+            0.414286,
+            0.604167,
+            0.414286,
+            0.805556,
+            0.414286,
+            0.201389,
+            0.552381,
+            0.402778,
+            0.552381,
+            0.604167,
+            0.552381,
+            0.805556,
+            0.552381,
+            0.201389,
+            0.690476,
+            0.402778,
+            0.690476,
+            0.604167,
+            0.690476,
+            0.805556,
+            0.690476,
+            0.201389,
+            0.828571,
+            0.402778,
+            0.828571,
+            0.604167,
+            0.828571,
+            0.805556,
+            0.828571,
+            0.604167,
+            0.966667
+          ],
+          "triangles": [
+            0,
+            25,
+            1,
+            1,
+            25,
+            26,
+            1,
+            27,
+            2,
+            1,
+            26,
+            27,
+            2,
+            27,
+            3,
+            3,
+            27,
+            4,
+            25,
+            28,
+            26,
+            25,
+            24,
+            28,
+            26,
+            28,
+            27,
+            27,
+            28,
+            29,
+            27,
+            5,
+            4,
+            27,
+            29,
+            5,
+            23,
+            30,
+            24,
+            23,
+            22,
+            30,
+            24,
+            30,
+            28,
+            28,
+            30,
+            31,
+            28,
+            32,
+            29,
+            28,
+            31,
+            32,
+            29,
+            32,
+            5,
+            5,
+            32,
+            33,
+            5,
+            7,
+            6,
+            5,
+            33,
+            7,
+            22,
+            21,
+            30,
+            30,
+            21,
+            34,
+            30,
+            35,
+            31,
+            30,
+            34,
+            35,
+            31,
+            35,
+            32,
+            32,
+            35,
+            36,
+            32,
+            37,
+            33,
+            32,
+            36,
+            37,
+            33,
+            37,
+            7,
+            7,
+            37,
+            8,
+            21,
+            38,
+            34,
+            21,
+            20,
+            38,
+            34,
+            38,
+            35,
+            35,
+            38,
+            39,
+            35,
+            40,
+            36,
+            35,
+            39,
+            40,
+            36,
+            40,
+            37,
+            37,
+            40,
+            41,
+            37,
+            9,
+            8,
+            37,
+            41,
+            9,
+            20,
+            19,
+            38,
+            38,
+            19,
+            42,
+            38,
+            43,
+            39,
+            38,
+            42,
+            43,
+            39,
+            43,
+            40,
+            40,
+            43,
+            44,
+            40,
+            45,
+            41,
+            40,
+            44,
+            45,
+            41,
+            45,
+            9,
+            9,
+            45,
+            10,
+            19,
+            17,
+            42,
+            19,
+            18,
+            17,
+            42,
+            17,
+            43,
+            43,
+            17,
+            16,
+            43,
+            46,
+            44,
+            43,
+            16,
+            46,
+            44,
+            46,
+            45,
+            45,
+            46,
+            12,
+            45,
+            11,
+            10,
+            45,
+            12,
+            11,
+            16,
+            15,
+            46,
+            46,
+            15,
+            14,
+            46,
+            13,
+            12,
+            46,
+            14,
+            13
+          ],
+          "hull": 26,
+          "weights": [
+            [
+              {
+                "bone": "head",
+                "x": -44,
+                "y": 200,
+                "weight": 0.76026
+              },
+              {
+                "bone": "bun",
+                "x": -77,
+                "y": -44,
+                "weight": 0.23974
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -15,
+                "y": 200,
+                "weight": 0.89664
+              },
+              {
+                "bone": "bun",
+                "x": -77,
+                "y": -15,
+                "weight": 0.10336
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 14,
+                "y": 200,
+                "weight": 0.90041
+              },
+              {
+                "bone": "bun",
+                "x": -77,
+                "y": 14,
+                "weight": 0.09959
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 43,
+                "y": 200,
+                "weight": 0.76478
+              },
+              {
+                "bone": "bun",
+                "x": -77,
+                "y": 43,
+                "weight": 0.23522
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 43,
+                "y": 171,
+                "weight": 0.67392
+              },
+              {
+                "bone": "bun",
+                "x": -48,
+                "y": 43,
+                "weight": 0.32608
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 43,
+                "y": 142,
+                "weight": 0.53926
+              },
+              {
+                "bone": "bun",
+                "x": -19,
+                "y": 43,
+                "weight": 0.46074
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 71,
+                "y": 142,
+                "weight": 0.51596
+              },
+              {
+                "bone": "bun",
+                "x": -19,
+                "y": 71,
+                "weight": 0.48404
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 71,
+                "y": 113,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 10,
+                "y": 71,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 71,
+                "y": 84,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 39,
+                "y": 71,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 71,
+                "y": 55,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 68,
+                "y": 71,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 71,
+                "y": 26,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 97,
+                "y": 71,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 71,
+                "y": -3,
+                "weight": 0.51245
+              },
+              {
+                "bone": "bun",
+                "x": 126,
+                "y": 71,
+                "weight": 0.48755
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 43,
+                "y": -3,
+                "weight": 0.5309
+              },
+              {
+                "bone": "bun",
+                "x": 126,
+                "y": 43,
+                "weight": 0.4691
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 43,
+                "y": -10,
+                "weight": 0.54825
+              },
+              {
+                "bone": "bun",
+                "x": 133,
+                "y": 43,
+                "weight": 0.45175
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 14,
+                "y": -10,
+                "weight": 0.67947
+              },
+              {
+                "bone": "bun",
+                "x": 133,
+                "y": 14,
+                "weight": 0.32053
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -15,
+                "y": -10,
+                "weight": 0.67084
+              },
+              {
+                "bone": "bun",
+                "x": 133,
+                "y": -15,
+                "weight": 0.32916
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -15,
+                "y": -3,
+                "weight": 0.64444
+              },
+              {
+                "bone": "bun",
+                "x": 126,
+                "y": -15,
+                "weight": 0.35556
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -44,
+                "y": -3,
+                "weight": 0.52968
+              },
+              {
+                "bone": "bun",
+                "x": 126,
+                "y": -44,
+                "weight": 0.47032
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -73,
+                "y": -3,
+                "weight": 0.51182
+              },
+              {
+                "bone": "bun",
+                "x": 126,
+                "y": -73,
+                "weight": 0.48818
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -73,
+                "y": 26,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 97,
+                "y": -73,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -73,
+                "y": 55,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 68,
+                "y": -73,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -73,
+                "y": 84,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 39,
+                "y": -73,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -73,
+                "y": 113,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 10,
+                "y": -73,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -73,
+                "y": 142,
+                "weight": 0.51516
+              },
+              {
+                "bone": "bun",
+                "x": -19,
+                "y": -73,
+                "weight": 0.48484
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -44,
+                "y": 142,
+                "weight": 0.53773
+              },
+              {
+                "bone": "bun",
+                "x": -19,
+                "y": -44,
+                "weight": 0.46227
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -44,
+                "y": 171,
+                "weight": 0.6692
+              },
+              {
+                "bone": "bun",
+                "x": -48,
+                "y": -44,
+                "weight": 0.3308
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -15,
+                "y": 171,
+                "weight": 0.87782
+              },
+              {
+                "bone": "bun",
+                "x": -48,
+                "y": -15,
+                "weight": 0.12218
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 14,
+                "y": 171,
+                "weight": 0.88688
+              },
+              {
+                "bone": "bun",
+                "x": -48,
+                "y": 14,
+                "weight": 0.11312
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -15,
+                "y": 142,
+                "weight": 0.67418
+              },
+              {
+                "bone": "bun",
+                "x": -19,
+                "y": -15,
+                "weight": 0.32582
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 14,
+                "y": 142,
+                "weight": 0.68657
+              },
+              {
+                "bone": "bun",
+                "x": -19,
+                "y": 14,
+                "weight": 0.31343
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -44,
+                "y": 113,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 10,
+                "y": -44,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -15,
+                "y": 113,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 10,
+                "y": -15,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 14,
+                "y": 113,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 10,
+                "y": 14,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 43,
+                "y": 113,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 10,
+                "y": 43,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -44,
+                "y": 84,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 39,
+                "y": -44,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -15,
+                "y": 84,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 39,
+                "y": -15,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 14,
+                "y": 84,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 39,
+                "y": 14,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 43,
+                "y": 84,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 39,
+                "y": 43,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -44,
+                "y": 55,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 68,
+                "y": -44,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -15,
+                "y": 55,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 68,
+                "y": -15,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 14,
+                "y": 55,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 68,
+                "y": 14,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 43,
+                "y": 55,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 68,
+                "y": 43,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -44,
+                "y": 26,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 97,
+                "y": -44,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -15,
+                "y": 26,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 97,
+                "y": -15,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 14,
+                "y": 26,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 97,
+                "y": 14,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 43,
+                "y": 26,
+                "weight": 0.5
+              },
+              {
+                "bone": "bun",
+                "x": 97,
+                "y": 43,
+                "weight": 0.5
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 14,
+                "y": -3,
+                "weight": 0.65544
+              },
+              {
+                "bone": "bun",
+                "x": 126,
+                "y": 14,
+                "weight": 0.34456
+              }
+            ]
+          ]
+        }
+      },
+"thigh_r": {
+        "thigh_r": {
+          "image": "thigh_r.png",
+          "x": 161.298927,
+          "y": -0.596753,
+          "rotation": 89.752504
+        }
+      },
+"thigh_l": {
+        "thigh_l": {
+          "image": "thigh_l.png",
+          "x": 169.900116,
+          "y": -0.022031,
+          "rotation": 90.060017
+        }
+      },
+"shoe_l": {
+        "shoe_l": {
+          "image": "shoe_l.png",
+          "x": -5.5,
+          "y": -43.8
+        }
+      },
+"shoe_r": {
+        "shoe_r": {
+          "image": "shoe_r.png",
+          "x": 4.4,
+          "y": -46.2
+        }
+      },
+"neck": {
+        "neck": {
+          "type": "mesh",
+          "image": "neck.png",
+          "width": 53,
+          "height": 79,
+          "uvs": [
+            0,
+            0,
+            0.54717,
+            0,
+            1,
+            0,
+            1,
+            0.367089,
+            1,
+            0.734177,
+            1,
+            1,
+            0.54717,
+            1,
+            0,
+            1,
+            0,
+            0.734177,
+            0,
+            0.367089,
+            0.54717,
+            0.367089,
+            0.54717,
+            0.734177
+          ],
+          "triangles": [
+            0,
+            10,
+            1,
+            0,
+            9,
+            10,
+            1,
+            10,
+            2,
+            2,
+            10,
+            3,
+            9,
+            8,
+            10,
+            10,
+            8,
+            11,
+            10,
+            4,
+            3,
+            10,
+            11,
+            4,
+            8,
+            6,
+            11,
+            8,
+            7,
+            6,
+            11,
+            6,
+            4,
+            4,
+            6,
+            5
+          ],
+          "hull": 10,
+          "weights": [
+            [
+              {
+                "bone": "head",
+                "x": -29,
+                "y": 19,
+                "weight": 0.92734
+              },
+              {
+                "bone": "chest",
+                "x": -27,
+                "y": 191,
+                "weight": 0.07266
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 0,
+                "y": 19,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 24,
+                "y": 19,
+                "weight": 0.94696
+              },
+              {
+                "bone": "chest",
+                "x": 26,
+                "y": 191,
+                "weight": 0.05304
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 24,
+                "y": -10,
+                "weight": 0.89826
+              },
+              {
+                "bone": "chest",
+                "x": 26,
+                "y": 162,
+                "weight": 0.10174
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 24,
+                "y": -39,
+                "weight": 0.59675
+              },
+              {
+                "bone": "chest",
+                "x": 26,
+                "y": 133,
+                "weight": 0.40325
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 26,
+                "y": 112,
+                "weight": 0.72211
+              },
+              {
+                "bone": "head",
+                "x": 24,
+                "y": -60,
+                "weight": 0.27789
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 2,
+                "y": 112,
+                "weight": 0.79421
+              },
+              {
+                "bone": "head",
+                "x": 0,
+                "y": -60,
+                "weight": 0.20579
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -27,
+                "y": 112,
+                "weight": 0.72749
+              },
+              {
+                "bone": "head",
+                "x": -29,
+                "y": -60,
+                "weight": 0.27251
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -29,
+                "y": -39,
+                "weight": 0.57341
+              },
+              {
+                "bone": "chest",
+                "x": -27,
+                "y": 133,
+                "weight": 0.42659
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -29,
+                "y": -10,
+                "weight": 0.86835
+              },
+              {
+                "bone": "chest",
+                "x": -27,
+                "y": 162,
+                "weight": 0.13165
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 0,
+                "y": -10,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 0,
+                "y": -39,
+                "weight": 0.61461
+              },
+              {
+                "bone": "chest",
+                "x": 2,
+                "y": 133,
+                "weight": 0.38539
+              }
+            ]
+          ]
+        }
+      },
+"bottomwear": {
+        "bottomwear": {
+          "type": "mesh",
+          "image": "bottomwear.png",
+          "generator": {
+            "kind": "segments",
+            "cell": 20,
+            "bones": [
+              {
+                "bone": "hip",
+                "from": [
+                  52,
+                  22
+                ],
+                "to": [
+                  166,
+                  22
+                ]
+              },
+              {
+                "bone": "hip",
+                "from": [
+                  58,
+                  45
+                ],
+                "to": [
+                  160,
+                  45
+                ]
+              },
+              [
+                "skirt_r0_d",
+                "skirt_r1_d",
+                "skirt_r2_d"
+              ],
+              [
+                "skirt_rm0_d",
+                "skirt_rm1_d",
+                "skirt_rm2_d"
+              ],
+              [
+                "skirt_c0_d",
+                "skirt_c1_d",
+                "skirt_c2_d"
+              ],
+              [
+                "skirt_lm0_d",
+                "skirt_lm1_d",
+                "skirt_lm2_d"
+              ],
+              [
+                "skirt_l0_d",
+                "skirt_l1_d",
+                "skirt_l2_d"
+              ]
+            ],
+            "falloff": {
+              "power": 2,
+              "radius": 20,
+              "maxBones": 4,
+              "minWeight": 0.03
+            },
+            "anchor": [
+              109,
+              83
+            ]
+          }
+        }
+      },
+"topwear": {
+        "topwear": {
+          "type": "mesh",
+          "image": "topwear.png",
+          "width": 168,
+          "height": 206,
+          "uvs": [
+            0.172619,
+            0,
+            0.345238,
+            0,
+            0.517857,
+            0,
+            0.690476,
+            0,
+            0.863095,
+            0,
+            0.863095,
+            0.140777,
+            1,
+            0.140777,
+            1,
+            0.281553,
+            1,
+            0.42233,
+            1,
+            0.563107,
+            1,
+            0.703883,
+            1,
+            0.84466,
+            1,
+            0.985437,
+            0.863095,
+            0.985437,
+            0.690476,
+            0.985437,
+            0.517857,
+            0.985437,
+            0.345238,
+            0.985437,
+            0.172619,
+            0.985437,
+            0,
+            0.985437,
+            0,
+            0.84466,
+            0,
+            0.703883,
+            0,
+            0.563107,
+            0,
+            0.42233,
+            0,
+            0.281553,
+            0,
+            0.140777,
+            0.172619,
+            0.140777,
+            0.345238,
+            0.140777,
+            0.517857,
+            0.140777,
+            0.690476,
+            0.140777,
+            0.172619,
+            0.281553,
+            0.345238,
+            0.281553,
+            0.517857,
+            0.281553,
+            0.690476,
+            0.281553,
+            0.863095,
+            0.281553,
+            0.172619,
+            0.42233,
+            0.345238,
+            0.42233,
+            0.517857,
+            0.42233,
+            0.690476,
+            0.42233,
+            0.863095,
+            0.42233,
+            0.172619,
+            0.563107,
+            0.345238,
+            0.563107,
+            0.517857,
+            0.563107,
+            0.690476,
+            0.563107,
+            0.863095,
+            0.563107,
+            0.172619,
+            0.703883,
+            0.345238,
+            0.703883,
+            0.517857,
+            0.703883,
+            0.690476,
+            0.703883,
+            0.863095,
+            0.703883,
+            0.172619,
+            0.84466,
+            0.345238,
+            0.84466,
+            0.517857,
+            0.84466,
+            0.690476,
+            0.84466,
+            0.863095,
+            0.84466
+          ],
+          "triangles": [
+            0,
+            25,
+            1,
+            1,
+            25,
+            26,
+            1,
+            27,
+            2,
+            1,
+            26,
+            27,
+            2,
+            27,
+            3,
+            3,
+            27,
+            28,
+            3,
+            5,
+            4,
+            3,
+            28,
+            5,
+            24,
+            23,
+            25,
+            25,
+            23,
+            29,
+            25,
+            30,
+            26,
+            25,
+            29,
+            30,
+            26,
+            30,
+            27,
+            27,
+            30,
+            31,
+            27,
+            32,
+            28,
+            27,
+            31,
+            32,
+            28,
+            32,
+            5,
+            5,
+            32,
+            33,
+            5,
+            7,
+            6,
+            5,
+            33,
+            7,
+            23,
+            34,
+            29,
+            23,
+            22,
+            34,
+            29,
+            34,
+            30,
+            30,
+            34,
+            35,
+            30,
+            36,
+            31,
+            30,
+            35,
+            36,
+            31,
+            36,
+            32,
+            32,
+            36,
+            37,
+            32,
+            38,
+            33,
+            32,
+            37,
+            38,
+            33,
+            38,
+            7,
+            7,
+            38,
+            8,
+            22,
+            21,
+            34,
+            34,
+            21,
+            39,
+            34,
+            40,
+            35,
+            34,
+            39,
+            40,
+            35,
+            40,
+            36,
+            36,
+            40,
+            41,
+            36,
+            42,
+            37,
+            36,
+            41,
+            42,
+            37,
+            42,
+            38,
+            38,
+            42,
+            43,
+            38,
+            9,
+            8,
+            38,
+            43,
+            9,
+            21,
+            44,
+            39,
+            21,
+            20,
+            44,
+            39,
+            44,
+            40,
+            40,
+            44,
+            45,
+            40,
+            46,
+            41,
+            40,
+            45,
+            46,
+            41,
+            46,
+            42,
+            42,
+            46,
+            47,
+            42,
+            48,
+            43,
+            42,
+            47,
+            48,
+            43,
+            48,
+            9,
+            9,
+            48,
+            10,
+            20,
+            19,
+            44,
+            44,
+            19,
+            49,
+            44,
+            50,
+            45,
+            44,
+            49,
+            50,
+            45,
+            50,
+            46,
+            46,
+            50,
+            51,
+            46,
+            52,
+            47,
+            46,
+            51,
+            52,
+            47,
+            52,
+            48,
+            48,
+            52,
+            53,
+            48,
+            11,
+            10,
+            48,
+            53,
+            11,
+            19,
+            17,
+            49,
+            19,
+            18,
+            17,
+            49,
+            17,
+            50,
+            50,
+            17,
+            16,
+            50,
+            15,
+            51,
+            50,
+            16,
+            15,
+            51,
+            15,
+            52,
+            52,
+            15,
+            14,
+            52,
+            13,
+            53,
+            52,
+            14,
+            13,
+            53,
+            13,
+            11,
+            11,
+            13,
+            12
+          ],
+          "hull": 26,
+          "weights": [
+            [
+              {
+                "bone": "chest",
+                "x": -55,
+                "y": 168,
+                "weight": 0.94622
+              },
+              {
+                "bone": "hip",
+                "x": -55,
+                "y": 268,
+                "weight": 0.05378
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -26,
+                "y": 168,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 3,
+                "y": 168,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 32,
+                "y": 168,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 61,
+                "y": 168,
+                "weight": 0.93671
+              },
+              {
+                "bone": "hip",
+                "x": 61,
+                "y": 268,
+                "weight": 0.06329
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 61,
+                "y": 139,
+                "weight": 0.92233
+              },
+              {
+                "bone": "hip",
+                "x": 61,
+                "y": 239,
+                "weight": 0.07767
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 84,
+                "y": 139,
+                "weight": 0.87572
+              },
+              {
+                "bone": "hip",
+                "x": 84,
+                "y": 239,
+                "weight": 0.12428
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 84,
+                "y": 110,
+                "weight": 0.84776
+              },
+              {
+                "bone": "hip",
+                "x": 84,
+                "y": 210,
+                "weight": 0.15224
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 84,
+                "y": 81,
+                "weight": 0.81115
+              },
+              {
+                "bone": "hip",
+                "x": 84,
+                "y": 181,
+                "weight": 0.18885
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 84,
+                "y": 52,
+                "weight": 0.7634
+              },
+              {
+                "bone": "hip",
+                "x": 84,
+                "y": 152,
+                "weight": 0.2366
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 84,
+                "y": 23,
+                "weight": 0.70272
+              },
+              {
+                "bone": "hip",
+                "x": 84,
+                "y": 123,
+                "weight": 0.29728
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 84,
+                "y": -6,
+                "weight": 0.63079
+              },
+              {
+                "bone": "hip",
+                "x": 84,
+                "y": 94,
+                "weight": 0.36921
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 84,
+                "y": -35,
+                "weight": 0.55823
+              },
+              {
+                "bone": "hip",
+                "x": 84,
+                "y": 65,
+                "weight": 0.44177
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 61,
+                "y": -35,
+                "weight": 0.59722
+              },
+              {
+                "bone": "hip",
+                "x": 61,
+                "y": 65,
+                "weight": 0.40278
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 32,
+                "y": -35,
+                "weight": 0.71792
+              },
+              {
+                "bone": "hip",
+                "x": 32,
+                "y": 65,
+                "weight": 0.28208
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 3,
+                "y": -35,
+                "weight": 0.96447
+              },
+              {
+                "bone": "hip",
+                "x": 3,
+                "y": 65,
+                "weight": 0.03553
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -26,
+                "y": -35,
+                "weight": 0.76153
+              },
+              {
+                "bone": "hip",
+                "x": -26,
+                "y": 65,
+                "weight": 0.23847
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -55,
+                "y": -35,
+                "weight": 0.6132
+              },
+              {
+                "bone": "hip",
+                "x": -55,
+                "y": 65,
+                "weight": 0.3868
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -84,
+                "y": -35,
+                "weight": 0.55823
+              },
+              {
+                "bone": "hip",
+                "x": -84,
+                "y": 65,
+                "weight": 0.44177
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -84,
+                "y": -6,
+                "weight": 0.63079
+              },
+              {
+                "bone": "hip",
+                "x": -84,
+                "y": 94,
+                "weight": 0.36921
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -84,
+                "y": 23,
+                "weight": 0.70272
+              },
+              {
+                "bone": "hip",
+                "x": -84,
+                "y": 123,
+                "weight": 0.29728
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -84,
+                "y": 52,
+                "weight": 0.7634
+              },
+              {
+                "bone": "hip",
+                "x": -84,
+                "y": 152,
+                "weight": 0.2366
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -84,
+                "y": 81,
+                "weight": 0.81115
+              },
+              {
+                "bone": "hip",
+                "x": -84,
+                "y": 181,
+                "weight": 0.18885
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -84,
+                "y": 110,
+                "weight": 0.84776
+              },
+              {
+                "bone": "hip",
+                "x": -84,
+                "y": 210,
+                "weight": 0.15224
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -84,
+                "y": 139,
+                "weight": 0.87572
+              },
+              {
+                "bone": "hip",
+                "x": -84,
+                "y": 239,
+                "weight": 0.12428
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -55,
+                "y": 139,
+                "weight": 0.93377
+              },
+              {
+                "bone": "hip",
+                "x": -55,
+                "y": 239,
+                "weight": 0.06623
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -26,
+                "y": 139,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 3,
+                "y": 139,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 32,
+                "y": 139,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -55,
+                "y": 110,
+                "weight": 0.91605
+              },
+              {
+                "bone": "hip",
+                "x": -55,
+                "y": 210,
+                "weight": 0.08395
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -26,
+                "y": 110,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 3,
+                "y": 110,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 32,
+                "y": 110,
+                "weight": 0.96325
+              },
+              {
+                "bone": "hip",
+                "x": 32,
+                "y": 210,
+                "weight": 0.03675
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 61,
+                "y": 110,
+                "weight": 0.90222
+              },
+              {
+                "bone": "hip",
+                "x": 61,
+                "y": 210,
+                "weight": 0.09778
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -55,
+                "y": 81,
+                "weight": 0.89086
+              },
+              {
+                "bone": "hip",
+                "x": -55,
+                "y": 181,
+                "weight": 0.10914
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -26,
+                "y": 81,
+                "weight": 0.96372
+              },
+              {
+                "bone": "hip",
+                "x": -26,
+                "y": 181,
+                "weight": 0.03628
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 3,
+                "y": 81,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 32,
+                "y": 81,
+                "weight": 0.95064
+              },
+              {
+                "bone": "hip",
+                "x": 32,
+                "y": 181,
+                "weight": 0.04936
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 61,
+                "y": 81,
+                "weight": 0.87409
+              },
+              {
+                "bone": "hip",
+                "x": 61,
+                "y": 181,
+                "weight": 0.12591
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -55,
+                "y": 52,
+                "weight": 0.85408
+              },
+              {
+                "bone": "hip",
+                "x": -55,
+                "y": 152,
+                "weight": 0.14592
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -26,
+                "y": 52,
+                "weight": 0.94844
+              },
+              {
+                "bone": "hip",
+                "x": -26,
+                "y": 152,
+                "weight": 0.05156
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 3,
+                "y": 52,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 32,
+                "y": 52,
+                "weight": 0.93061
+              },
+              {
+                "bone": "hip",
+                "x": 32,
+                "y": 152,
+                "weight": 0.06939
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 61,
+                "y": 52,
+                "weight": 0.83399
+              },
+              {
+                "bone": "hip",
+                "x": 61,
+                "y": 152,
+                "weight": 0.16601
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -55,
+                "y": 23,
+                "weight": 0.79939
+              },
+              {
+                "bone": "hip",
+                "x": -55,
+                "y": 123,
+                "weight": 0.20061
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -26,
+                "y": 23,
+                "weight": 0.92171
+              },
+              {
+                "bone": "hip",
+                "x": -26,
+                "y": 123,
+                "weight": 0.07829
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 3,
+                "y": 23,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 32,
+                "y": 23,
+                "weight": 0.89662
+              },
+              {
+                "bone": "hip",
+                "x": 32,
+                "y": 123,
+                "weight": 0.10338
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 61,
+                "y": 23,
+                "weight": 0.77639
+              },
+              {
+                "bone": "hip",
+                "x": 61,
+                "y": 123,
+                "weight": 0.22361
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -55,
+                "y": -6,
+                "weight": 0.7191
+              },
+              {
+                "bone": "hip",
+                "x": -55,
+                "y": 94,
+                "weight": 0.2809
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": -26,
+                "y": -6,
+                "weight": 0.87017
+              },
+              {
+                "bone": "hip",
+                "x": -26,
+                "y": 94,
+                "weight": 0.12983
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 3,
+                "y": -6,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 32,
+                "y": -6,
+                "weight": 0.83465
+              },
+              {
+                "bone": "hip",
+                "x": 32,
+                "y": 94,
+                "weight": 0.16535
+              }
+            ],
+            [
+              {
+                "bone": "chest",
+                "x": 61,
+                "y": -6,
+                "weight": 0.69604
+              },
+              {
+                "bone": "hip",
+                "x": 61,
+                "y": 94,
+                "weight": 0.30396
+              }
+            ]
+          ]
+        },
+        "K1_topwear": {
+          "type": "mesh",
+          "image": "K1_topwear.png",
+          "generator": {
+            "kind": "segments",
+            "cell": 29,
+            "bones": [
+              {
+                "bone": "chest",
+                "from": [
+                  77,
+                  1
+                ],
+                "to": [
+                  77,
+                  244
+                ]
+              },
+              {
+                "bone": "hip",
+                "from": [
+                  77,
+                  244
+                ],
+                "to": [
+                  77,
+                  364
+                ]
+              }
+            ],
+            "falloff": {
+              "power": 2,
+              "radius": 7,
+              "maxBones": 2
+            },
+            "anchor": [
+              77,
+              164
+            ]
+          }
+        },
+        "K2_topwear": {
+          "type": "mesh",
+          "image": "K2_topwear.png",
+          "generator": {
+            "kind": "segments",
+            "cell": 29,
+            "bones": [
+              {
+                "bone": "chest",
+                "from": [
+                  76,
+                  1
+                ],
+                "to": [
+                  76,
+                  244
+                ]
+              },
+              {
+                "bone": "hip",
+                "from": [
+                  76,
+                  244
+                ],
+                "to": [
+                  76,
+                  364
+                ]
+              }
+            ],
+            "falloff": {
+              "power": 2,
+              "radius": 7,
+              "maxBones": 2
+            },
+            "anchor": [
+              76,
+              164
+            ]
+          }
+        },
+        "K3_topwear": {
+          "type": "mesh",
+          "image": "K3_topwear.png",
+          "generator": {
+            "kind": "segments",
+            "cell": 29,
+            "bones": [
+              {
+                "bone": "chest",
+                "from": [
+                  88,
+                  0
+                ],
+                "to": [
+                  88,
+                  243
+                ]
+              },
+              {
+                "bone": "hip",
+                "from": [
+                  88,
+                  243
+                ],
+                "to": [
+                  88,
+                  363
+                ]
+              }
+            ],
+            "falloff": {
+              "power": 2,
+              "radius": 7,
+              "maxBones": 2
+            },
+            "anchor": [
+              88,
+              163
+            ]
+          }
+        },
+        "K4_topwear": {
+          "type": "mesh",
+          "image": "K4_topwear.png",
+          "generator": {
+            "kind": "segments",
+            "cell": 29,
+            "bones": [
+              {
+                "bone": "chest",
+                "from": [
+                  87,
+                  0
+                ],
+                "to": [
+                  87,
+                  243
+                ]
+              },
+              {
+                "bone": "hip",
+                "from": [
+                  87,
+                  243
+                ],
+                "to": [
+                  87,
+                  363
+                ]
+              }
+            ],
+            "falloff": {
+              "power": 2,
+              "radius": 7,
+              "maxBones": 2
+            },
+            "anchor": [
+              87,
+              163
+            ]
+          }
+        },
+        "K0_topwear": {
+          "type": "mesh",
+          "image": "K0_topwear.png",
+          "generator": {
+            "kind": "segments",
+            "cell": 29,
+            "bones": [
+              {
+                "bone": "chest",
+                "from": [
+                  79,
+                  1
+                ],
+                "to": [
+                  79,
+                  244
+                ]
+              },
+              {
+                "bone": "hip",
+                "from": [
+                  79,
+                  244
+                ],
+                "to": [
+                  79,
+                  364
+                ]
+              }
+            ],
+            "falloff": {
+              "power": 2,
+              "radius": 7,
+              "maxBones": 2
+            },
+            "anchor": [
+              79,
+              164
+            ]
+          }
+        }
+      },
+"sleevefront_l": {
+        "sleevefront_l": {
+          "image": "sleevefront_l.png",
+          "x": 43.5,
+          "y": 72
+        }
+      },
+"forearm_r": {
+        "forearm_r": {
+          "image": "forearm_r.png",
+          "x": 87.912075,
+          "y": -4.573528,
+          "rotation": 118.220098
+        },
+        "K2_forearm_r": {
+          "image": "K2_forearm_r.png",
+          "x": 79.345357,
+          "y": 3.295552,
+          "rotation": 72.007105
+        }
+      },
+"upperarm_r": {
+        "upperarm_r": {
+          "image": "upperarm_r.png",
+          "x": 62.786106,
+          "y": -6.426884,
+          "rotation": 113.15717
+        },
+        "K2_upperarm_r": {
+          "image": "K2_upperarm_r.png",
+          "x": 51.132986,
+          "y": 5.921802,
+          "rotation": 81.516939
+        }
+      },
+"forearm_l": {
+        "forearm_l": {
+          "image": "forearm_l.png",
+          "x": 80.715634,
+          "y": 6.12262,
+          "rotation": 63.495451
+        }
+      },
+"upperarm_l": {
+        "upperarm_l": {
+          "image": "upperarm_l.png",
+          "x": 67.358784,
+          "y": 8.731222,
+          "rotation": 67.347803
+        }
+      },
+"ear_l": {
+        "ear_l": {
+          "image": "ear_l.png",
+          "x": 0,
+          "y": 0,
+          "rotation": 1.941486
+        }
+      },
+"ear_r": {
+        "ear_r": {
+          "image": "ear_r.png",
+          "x": 0,
+          "y": 0,
+          "rotation": 1.941486
+        }
+      },
+"face": {
+        "face": {
+          "image": "face.png",
+          "x": -1,
+          "y": 49
+        }
+      },
+"mouth": {
+        "mouth": {
+          "image": "mouth.png",
+          "x": 0,
+          "y": 0,
+          "rotation": 1.941486
+        }
+      },
+"brow_r": {
+        "brow_r": {
+          "image": "brow_r.png",
+          "x": 0.516652,
+          "y": -0.482774,
+          "rotation": 1.941486
+        }
+      },
+"brow_l": {
+        "brow_l": {
+          "image": "brow_l.png",
+          "x": 0,
+          "y": 0,
+          "rotation": 1.941486
+        }
+      },
+"eyewhite_r": {
+        "eyewhite_r": {
+          "image": "eyewhite_r.png",
+          "x": 0.516652,
+          "y": -0.482774,
+          "rotation": 1.941486
+        }
+      },
+"eyewhite_l": {
+        "eyewhite_l": {
+          "image": "eyewhite_l.png",
+          "x": -0.016939,
+          "y": 0.499713,
+          "rotation": 1.941486
+        }
+      },
+"iris_r": {
+        "iris_r": {
+          "image": "iris_r.png",
+          "x": 2.532444,
+          "y": -0.914729,
+          "rotation": 1.941486
+        }
+      },
+"iris_l": {
+        "iris_l": {
+          "image": "iris_l.png",
+          "x": -1.533018,
+          "y": 0.948608,
+          "rotation": 1.941486
+        }
+      },
+"lash_r": {
+        "lash_r": {
+          "image": "lash_r.png",
+          "x": -0.550531,
+          "y": 1.4822,
+          "rotation": 1.941486
+        }
+      },
+"hairpin": {
+        "hairpin": {
+          "type": "mesh",
+          "image": "hairpin.png",
+          "width": 91,
+          "height": 42,
+          "uvs": [
+            0,
+            0,
+            0.318681,
+            0,
+            0.637363,
+            0,
+            0.956044,
+            0,
+            0.956044,
+            0.690476,
+            0.956044,
+            1,
+            0.637363,
+            1,
+            0.318681,
+            1,
+            0,
+            1,
+            0,
+            0.690476,
+            0.318681,
+            0.690476,
+            0.637363,
+            0.690476
+          ],
+          "triangles": [
+            0,
+            10,
+            1,
+            0,
+            9,
+            10,
+            1,
+            10,
+            2,
+            2,
+            10,
+            11,
+            2,
+            4,
+            3,
+            2,
+            11,
+            4,
+            9,
+            8,
+            10,
+            10,
+            8,
+            7,
+            10,
+            6,
+            11,
+            10,
+            7,
+            6,
+            11,
+            6,
+            4,
+            4,
+            6,
+            5
+          ],
+          "hull": 10,
+          "weights": [
+            [
+              {
+                "bone": "hairpin",
+                "x": -73,
+                "y": 19,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": -44,
+                "y": 19,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": -15,
+                "y": 19,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": 14,
+                "y": 19,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": 14,
+                "y": -10,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": 14,
+                "y": -23,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": -15,
+                "y": -23,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": -44,
+                "y": -23,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": -73,
+                "y": -23,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": -73,
+                "y": -10,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": -44,
+                "y": -10,
+                "weight": 1
+              }
+            ],
+            [
+              {
+                "bone": "hairpin",
+                "x": -15,
+                "y": -10,
+                "weight": 1
+              }
+            ]
+          ]
+        }
+      },
+"lash_l": {
+        "lash_l": {
+          "image": "lash_l.png",
+          "x": 1.846397,
+          "y": 4.565174,
+          "rotation": 1.941486
+        }
+      },
+"hair_front": {
+        "hair_front": {
+          "type": "mesh",
+          "image": "hair_front.png",
+          "width": 151,
+          "height": 195,
+          "uvs": [
+            0.192053,
+            0,
+            0.384106,
+            0,
+            0.576159,
+            0,
+            0.768212,
+            0,
+            0.960265,
+            0,
+            0.960265,
+            0.148718,
+            0.960265,
+            0.297436,
+            0.960265,
+            0.446154,
+            0.960265,
+            0.594872,
+            1,
+            0.594872,
+            1,
+            0.74359,
+            1,
+            0.892308,
+            0.960265,
+            0.892308,
+            0.960265,
+            1,
+            0.768212,
+            1,
+            0.576159,
+            1,
+            0.576159,
+            0.892308,
+            0.576159,
+            0.74359,
+            0.768212,
+            0.74359,
+            0.768212,
+            0.594872,
+            0.576159,
+            0.594872,
+            0.384106,
+            0.594872,
+            0.384106,
+            0.74359,
+            0.384106,
+            0.892308,
+            0.384106,
+            1,
+            0.192053,
+            1,
+            0,
+            1,
+            0,
+            0.892308,
+            0,
+            0.74359,
+            0,
+            0.594872,
+            0,
+            0.446154,
+            0,
+            0.297436,
+            0,
+            0.148718,
+            0.192053,
+            0.148718,
+            0.384106,
+            0.148718,
+            0.576159,
+            0.148718,
+            0.768212,
+            0.148718,
+            0.192053,
+            0.297436,
+            0.384106,
+            0.297436,
+            0.576159,
+            0.297436,
+            0.768212,
+            0.297436,
+            0.192053,
+            0.446154,
+            0.384106,
+            0.446154,
+            0.576159,
+            0.446154,
+            0.768212,
+            0.446154,
+            0.192053,
+            0.594872,
+            0.192053,
+            0.74359,
+            0.960265,
+            0.74359,
+            0.192053,
+            0.892308,
+            0.768212,
+            0.892308
+          ],
+          "triangles": [
+            0,
+            33,
+            1,
+            1,
+            33,
+            34,
+            1,
+            35,
+            2,
+            1,
+            34,
+            35,
+            2,
+            35,
+            3,
+            3,
+            35,
+            36,
+            3,
+            5,
+            4,
+            3,
+            36,
+            5,
+            32,
+            31,
+            33,
+            33,
+            31,
+            37,
+            33,
+            38,
+            34,
+            33,
+            37,
+            38,
+            34,
+            38,
+            35,
+            35,
+            38,
+            39,
+            35,
+            40,
+            36,
+            35,
+            39,
+            40,
+            36,
+            40,
+            5,
+            5,
+            40,
+            6,
+            31,
+            41,
+            37,
+            31,
+            30,
+            41,
+            37,
+            41,
+            38,
+            38,
+            41,
+            42,
+            38,
+            43,
+            39,
+            38,
+            42,
+            43,
+            39,
+            43,
+            40,
+            40,
+            43,
+            44,
+            40,
+            7,
+            6,
+            40,
+            44,
+            7,
+            30,
+            29,
+            41,
+            41,
+            29,
+            45,
+            41,
+            21,
+            42,
+            41,
+            45,
+            21,
+            42,
+            21,
+            43,
+            43,
+            21,
+            20,
+            43,
+            19,
+            44,
+            43,
+            20,
+            19,
+            44,
+            19,
+            7,
+            7,
+            19,
+            8,
+            29,
+            46,
+            45,
+            29,
+            28,
+            46,
+            45,
+            46,
+            21,
+            21,
+            46,
+            22,
+            19,
+            47,
+            8,
+            19,
+            18,
+            47,
+            8,
+            47,
+            9,
+            9,
+            47,
+            10,
+            28,
+            27,
+            46,
+            46,
+            27,
+            48,
+            46,
+            23,
+            22,
+            46,
+            48,
+            23,
+            17,
+            49,
+            18,
+            17,
+            16,
+            49,
+            18,
+            49,
+            47,
+            47,
+            49,
+            12,
+            47,
+            11,
+            10,
+            47,
+            12,
+            11,
+            27,
+            25,
+            48,
+            27,
+            26,
+            25,
+            48,
+            25,
+            23,
+            23,
+            25,
+            24,
+            16,
+            15,
+            49,
+            49,
+            15,
+            14,
+            49,
+            13,
+            12,
+            49,
+            14,
+            13
+          ],
+          "hull": 34,
+          "weights": [
+            [
+              {
+                "bone": "bang_r0",
+                "x": -12.547524,
+                "y": -27.776962,
+                "weight": 0.46502
+              },
+              {
+                "bone": "head",
+                "x": -47,
+                "y": 155,
+                "weight": 0.2189
+              },
+              {
+                "bone": "bang_c0",
+                "x": -18.799287,
+                "y": -49.473092,
+                "weight": 0.17823
+              },
+              {
+                "bone": "bang_r1",
+                "x": -56.860517,
+                "y": -22.088043,
+                "weight": 0.13785
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -18,
+                "y": 155,
+                "weight": 0.39884
+              },
+              {
+                "bone": "bang_r0",
+                "x": -20.880613,
+                "y": 0,
+                "weight": 0.32968
+              },
+              {
+                "bone": "bang_c0",
+                "x": -19.506394,
+                "y": -20.481714,
+                "weight": 0.20267
+              },
+              {
+                "bone": "bang_l0",
+                "x": -35.677709,
+                "y": -38.975648,
+                "weight": 0.06881
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 11,
+                "y": 155,
+                "weight": 0.56303
+              },
+              {
+                "bone": "bang_c0",
+                "x": -20.213501,
+                "y": 8.509664,
+                "weight": 0.22621
+              },
+              {
+                "bone": "bang_l0",
+                "x": -29.156783,
+                "y": -10.718303,
+                "weight": 0.12847
+              },
+              {
+                "bone": "bang_r0",
+                "x": -29.213702,
+                "y": 27.776962,
+                "weight": 0.08229
+              }
+            ],
+            [
+              {
+                "bone": "bang_l0",
+                "x": -22.635857,
+                "y": 17.539042,
+                "weight": 0.43471
+              },
+              {
+                "bone": "head",
+                "x": 40,
+                "y": 155,
+                "weight": 0.24433
+              },
+              {
+                "bone": "bang_c0",
+                "x": -20.920608,
+                "y": 37.501042,
+                "weight": 0.21771
+              },
+              {
+                "bone": "bang_l1",
+                "x": -63.766449,
+                "y": 12.955305,
+                "weight": 0.10325
+              }
+            ],
+            [
+              {
+                "bone": "bang_l0",
+                "x": -16.114931,
+                "y": 45.796386,
+                "weight": 0.39571
+              },
+              {
+                "bone": "head",
+                "x": 69,
+                "y": 155,
+                "weight": 0.20868
+              },
+              {
+                "bone": "bang_c0",
+                "x": -21.627714,
+                "y": 66.49242,
+                "weight": 0.20428
+              },
+              {
+                "bone": "bang_l1",
+                "x": -59.308946,
+                "y": 41.610683,
+                "weight": 0.19133
+              }
+            ],
+            [
+              {
+                "bone": "bang_l0",
+                "x": 12.142414,
+                "y": 39.27546,
+                "weight": 0.40889
+              },
+              {
+                "bone": "bang_l1",
+                "x": -30.653568,
+                "y": 37.153179,
+                "weight": 0.28567
+              },
+              {
+                "bone": "bang_c0",
+                "x": 7.363664,
+                "y": 67.199527,
+                "weight": 0.15643
+              },
+              {
+                "bone": "head",
+                "x": 69,
+                "y": 126,
+                "weight": 0.14901
+              }
+            ],
+            [
+              {
+                "bone": "bang_l0",
+                "x": 40.399758,
+                "y": 32.754535,
+                "weight": 0.39234
+              },
+              {
+                "bone": "bang_l1",
+                "x": -1.998191,
+                "y": 32.695676,
+                "weight": 0.39234
+              },
+              {
+                "bone": "bang_c0",
+                "x": 36.355042,
+                "y": 67.906634,
+                "weight": 0.10789
+              },
+              {
+                "bone": "bang_c1",
+                "x": -5.828276,
+                "y": 67.816157,
+                "weight": 0.10743
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 26.657187,
+                "y": 28.238173,
+                "weight": 0.50003
+              },
+              {
+                "bone": "bang_l0",
+                "x": 68.657103,
+                "y": 26.233609,
+                "weight": 0.29162
+              },
+              {
+                "bone": "head",
+                "x": 69,
+                "y": 68,
+                "weight": 0.10421
+              },
+              {
+                "bone": "bang_c1",
+                "x": 23.146583,
+                "y": 69.023443,
+                "weight": 0.10414
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 55.312565,
+                "y": 23.780669,
+                "weight": 0.63265
+              },
+              {
+                "bone": "bang_l0",
+                "x": 96.914447,
+                "y": 19.712683,
+                "weight": 0.14512
+              },
+              {
+                "bone": "head",
+                "x": 69,
+                "y": 39,
+                "weight": 0.11309
+              },
+              {
+                "bone": "bang_c1",
+                "x": 52.121442,
+                "y": 70.230729,
+                "weight": 0.10914
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 56.234807,
+                "y": 29.709368,
+                "weight": 0.58309
+              },
+              {
+                "bone": "bang_l0",
+                "x": 98.263605,
+                "y": 25.55903,
+                "weight": 0.16995
+              },
+              {
+                "bone": "head",
+                "x": 75,
+                "y": 39,
+                "weight": 0.12548
+              },
+              {
+                "bone": "bang_c1",
+                "x": 51.871659,
+                "y": 76.225527,
+                "weight": 0.12148
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 84.890184,
+                "y": 25.251865,
+                "weight": 0.48117
+              },
+              {
+                "bone": "head",
+                "x": 75,
+                "y": 10,
+                "weight": 0.20411
+              },
+              {
+                "bone": "bang_c1",
+                "x": 80.846518,
+                "y": 77.432813,
+                "weight": 0.16498
+              },
+              {
+                "bone": "bang_l0",
+                "x": 126.520949,
+                "y": 19.038104,
+                "weight": 0.14974
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 113.545562,
+                "y": 20.794361,
+                "weight": 0.35869
+              },
+              {
+                "bone": "head",
+                "x": 75,
+                "y": -19,
+                "weight": 0.30687
+              },
+              {
+                "bone": "bang_c1",
+                "x": 109.821377,
+                "y": 78.640099,
+                "weight": 0.18981
+              },
+              {
+                "bone": "bang_l0",
+                "x": 154.778294,
+                "y": 12.517179,
+                "weight": 0.14463
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 112.62332,
+                "y": 14.865662,
+                "weight": 0.34973
+              },
+              {
+                "bone": "head",
+                "x": 69,
+                "y": -19,
+                "weight": 0.32443
+              },
+              {
+                "bone": "bang_c1",
+                "x": 110.071161,
+                "y": 72.6453,
+                "weight": 0.18938
+              },
+              {
+                "bone": "bang_l0",
+                "x": 153.429137,
+                "y": 6.670831,
+                "weight": 0.13646
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 69,
+                "y": -40,
+                "weight": 0.36551
+              },
+              {
+                "bone": "bang_l1",
+                "x": 133.373765,
+                "y": 11.637815,
+                "weight": 0.30036
+              },
+              {
+                "bone": "bang_c1",
+                "x": 131.052955,
+                "y": 73.519542,
+                "weight": 0.19674
+              },
+              {
+                "bone": "bang_l0",
+                "x": 173.891352,
+                "y": 1.948782,
+                "weight": 0.13739
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 40,
+                "y": -40,
+                "weight": 0.47821
+              },
+              {
+                "bone": "bang_l1",
+                "x": 128.916262,
+                "y": -17.017563,
+                "weight": 0.22561
+              },
+              {
+                "bone": "bang_c1",
+                "x": 132.260241,
+                "y": 44.544683,
+                "weight": 0.18253
+              },
+              {
+                "bone": "bang_r1",
+                "x": 118.297459,
+                "y": 100.03355,
+                "weight": 0.11365
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 11,
+                "y": -40,
+                "weight": 0.59322
+              },
+              {
+                "bone": "bang_c1",
+                "x": 133.467527,
+                "y": 15.569824,
+                "weight": 0.15521
+              },
+              {
+                "bone": "bang_l1",
+                "x": 124.458759,
+                "y": -45.67294,
+                "weight": 0.14163
+              },
+              {
+                "bone": "bang_r1",
+                "x": 123.751555,
+                "y": 71.551049,
+                "weight": 0.10994
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 11,
+                "y": -19,
+                "weight": 0.73074
+              },
+              {
+                "bone": "bang_c1",
+                "x": 112.485732,
+                "y": 14.695582,
+                "weight": 0.10985
+              },
+              {
+                "bone": "bang_l1",
+                "x": 103.708313,
+                "y": -42.445093,
+                "weight": 0.09384
+              },
+              {
+                "bone": "bang_r1",
+                "x": 103.126296,
+                "y": 67.601532,
+                "weight": 0.06557
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 11,
+                "y": 10,
+                "weight": 0.76828
+              },
+              {
+                "bone": "bang_c1",
+                "x": 83.510873,
+                "y": 13.488296,
+                "weight": 0.11496
+              },
+              {
+                "bone": "bang_l1",
+                "x": 75.052935,
+                "y": -37.987589,
+                "weight": 0.07585
+              },
+              {
+                "bone": "bang_r1",
+                "x": 74.643795,
+                "y": 62.147436,
+                "weight": 0.04091
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 79.510439,
+                "y": -9.332212,
+                "weight": 0.40061
+              },
+              {
+                "bone": "head",
+                "x": 40,
+                "y": 10,
+                "weight": 0.3218
+              },
+              {
+                "bone": "bang_c1",
+                "x": 82.303587,
+                "y": 42.463156,
+                "weight": 0.18565
+              },
+              {
+                "bone": "bang_l0",
+                "x": 118.650866,
+                "y": -15.065587,
+                "weight": 0.09194
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 50.855061,
+                "y": -4.874708,
+                "weight": 0.82434
+              },
+              {
+                "bone": "head",
+                "x": 40,
+                "y": 39,
+                "weight": 0.06799
+              },
+              {
+                "bone": "bang_c1",
+                "x": 53.328728,
+                "y": 41.25587,
+                "weight": 0.06352
+              },
+              {
+                "bone": "bang_l0",
+                "x": 90.393522,
+                "y": -8.544662,
+                "weight": 0.04415
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 11,
+                "y": 39,
+                "weight": 0.50236
+              },
+              {
+                "bone": "bang_c1",
+                "x": 54.536014,
+                "y": 12.281011,
+                "weight": 0.36689
+              },
+              {
+                "bone": "bang_l1",
+                "x": 46.397558,
+                "y": -33.530086,
+                "weight": 0.09286
+              },
+              {
+                "bone": "bang_c0",
+                "x": 95.752011,
+                "y": 11.338091,
+                "weight": 0.03789
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -18,
+                "y": 39,
+                "weight": 0.38558
+              },
+              {
+                "bone": "bang_c1",
+                "x": 55.7433,
+                "y": -16.693848,
+                "weight": 0.3735
+              },
+              {
+                "bone": "bang_r1",
+                "x": 51.61539,
+                "y": 28.21084,
+                "weight": 0.18702
+              },
+              {
+                "bone": "bang_c0",
+                "x": 96.459118,
+                "y": -17.653287,
+                "weight": 0.0539
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -18,
+                "y": 10,
+                "weight": 0.63324
+              },
+              {
+                "bone": "bang_c1",
+                "x": 84.718159,
+                "y": -15.486563,
+                "weight": 0.17379
+              },
+              {
+                "bone": "bang_r1",
+                "x": 80.097891,
+                "y": 33.664936,
+                "weight": 0.13176
+              },
+              {
+                "bone": "bang_l1",
+                "x": 70.595432,
+                "y": -66.642967,
+                "weight": 0.06121
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -18,
+                "y": -19,
+                "weight": 0.67715
+              },
+              {
+                "bone": "bang_c1",
+                "x": 113.693018,
+                "y": -14.279277,
+                "weight": 0.13086
+              },
+              {
+                "bone": "bang_r1",
+                "x": 108.580391,
+                "y": 39.119031,
+                "weight": 0.11451
+              },
+              {
+                "bone": "bang_l1",
+                "x": 99.250809,
+                "y": -71.10047,
+                "weight": 0.07748
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -18,
+                "y": -40,
+                "weight": 0.5737
+              },
+              {
+                "bone": "bang_c1",
+                "x": 134.674812,
+                "y": -13.405035,
+                "weight": 0.16259
+              },
+              {
+                "bone": "bang_r1",
+                "x": 129.20565,
+                "y": 43.068549,
+                "weight": 0.14838
+              },
+              {
+                "bone": "bang_l1",
+                "x": 120.001255,
+                "y": -74.328318,
+                "weight": 0.11533
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -47,
+                "y": -40,
+                "weight": 0.45132
+              },
+              {
+                "bone": "bang_r1",
+                "x": 134.659746,
+                "y": 14.586048,
+                "weight": 0.23411
+              },
+              {
+                "bone": "bang_c1",
+                "x": 135.882098,
+                "y": -42.379895,
+                "weight": 0.19309
+              },
+              {
+                "bone": "bang_l1",
+                "x": 115.543752,
+                "y": -102.983695,
+                "weight": 0.12148
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -76,
+                "y": -40,
+                "weight": 0.35296
+              },
+              {
+                "bone": "bang_r1",
+                "x": 140.113842,
+                "y": -13.896452,
+                "weight": 0.3022
+              },
+              {
+                "bone": "bang_c1",
+                "x": 137.089384,
+                "y": -71.354754,
+                "weight": 0.20656
+              },
+              {
+                "bone": "bang_r0",
+                "x": 182.56169,
+                "y": 0.478912,
+                "weight": 0.13828
+              }
+            ],
+            [
+              {
+                "bone": "bang_r1",
+                "x": 119.488583,
+                "y": -17.84597,
+                "weight": 0.34877
+              },
+              {
+                "bone": "head",
+                "x": -76,
+                "y": -19,
+                "weight": 0.31242
+              },
+              {
+                "bone": "bang_c1",
+                "x": 116.107589,
+                "y": -72.228995,
+                "weight": 0.20062
+              },
+              {
+                "bone": "bang_r0",
+                "x": 162.447338,
+                "y": -5.555393,
+                "weight": 0.13819
+              }
+            ],
+            [
+              {
+                "bone": "bang_r1",
+                "x": 91.006082,
+                "y": -23.300066,
+                "weight": 0.46846
+              },
+              {
+                "bone": "head",
+                "x": -76,
+                "y": 10,
+                "weight": 0.21106
+              },
+              {
+                "bone": "bang_c1",
+                "x": 87.13273,
+                "y": -73.436281,
+                "weight": 0.17839
+              },
+              {
+                "bone": "bang_r0",
+                "x": 134.670376,
+                "y": -13.888482,
+                "weight": 0.14209
+              }
+            ],
+            [
+              {
+                "bone": "bang_r1",
+                "x": 62.523581,
+                "y": -28.754161,
+                "weight": 0.5878
+              },
+              {
+                "bone": "bang_r0",
+                "x": 106.893413,
+                "y": -22.22157,
+                "weight": 0.15387
+              },
+              {
+                "bone": "bang_c1",
+                "x": 58.157871,
+                "y": -74.643567,
+                "weight": 0.13023
+              },
+              {
+                "bone": "head",
+                "x": -76,
+                "y": 39,
+                "weight": 0.1281
+              }
+            ],
+            [
+              {
+                "bone": "bang_r1",
+                "x": 34.041081,
+                "y": -34.208257,
+                "weight": 0.4924
+              },
+              {
+                "bone": "bang_r0",
+                "x": 79.116451,
+                "y": -30.554659,
+                "weight": 0.27039
+              },
+              {
+                "bone": "bang_c1",
+                "x": 29.183012,
+                "y": -75.850852,
+                "weight": 0.11882
+              },
+              {
+                "bone": "head",
+                "x": -76,
+                "y": 68,
+                "weight": 0.11839
+              }
+            ],
+            [
+              {
+                "bone": "bang_r1",
+                "x": 5.55858,
+                "y": -39.662352,
+                "weight": 0.38526
+              },
+              {
+                "bone": "bang_r0",
+                "x": 51.339489,
+                "y": -38.887747,
+                "weight": 0.37881
+              },
+              {
+                "bone": "head",
+                "x": -76,
+                "y": 97,
+                "weight": 0.11947
+              },
+              {
+                "bone": "bang_c0",
+                "x": 39.890576,
+                "y": -77.050256,
+                "weight": 0.11646
+              }
+            ],
+            [
+              {
+                "bone": "bang_r0",
+                "x": 23.562526,
+                "y": -47.220836,
+                "weight": 0.36915
+              },
+              {
+                "bone": "bang_r1",
+                "x": -22.92392,
+                "y": -45.116448,
+                "weight": 0.32631
+              },
+              {
+                "bone": "head",
+                "x": -76,
+                "y": 126,
+                "weight": 0.1555
+              },
+              {
+                "bone": "bang_c0",
+                "x": 10.899198,
+                "y": -77.757363,
+                "weight": 0.14904
+              }
+            ],
+            [
+              {
+                "bone": "bang_r0",
+                "x": 15.229438,
+                "y": -19.443874,
+                "weight": 0.53354
+              },
+              {
+                "bone": "bang_r1",
+                "x": -28.378016,
+                "y": -16.633947,
+                "weight": 0.22833
+              },
+              {
+                "bone": "head",
+                "x": -47,
+                "y": 126,
+                "weight": 0.12296
+              },
+              {
+                "bone": "bang_c0",
+                "x": 10.192091,
+                "y": -48.765985,
+                "weight": 0.11517
+              }
+            ],
+            [
+              {
+                "bone": "bang_r0",
+                "x": 6.896349,
+                "y": 8.333089,
+                "weight": 0.56078
+              },
+              {
+                "bone": "head",
+                "x": -18,
+                "y": 126,
+                "weight": 0.20001
+              },
+              {
+                "bone": "bang_c0",
+                "x": 9.484984,
+                "y": -19.774607,
+                "weight": 0.17342
+              },
+              {
+                "bone": "bang_r1",
+                "x": -33.832112,
+                "y": 11.848553,
+                "weight": 0.06579
+              }
+            ],
+            [
+              {
+                "bone": "bang_c0",
+                "x": 8.777877,
+                "y": 9.216771,
+                "weight": 0.42064
+              },
+              {
+                "bone": "head",
+                "x": 11,
+                "y": 126,
+                "weight": 0.33703
+              },
+              {
+                "bone": "bang_l0",
+                "x": -0.899438,
+                "y": -17.239229,
+                "weight": 0.17999
+              },
+              {
+                "bone": "bang_c1",
+                "x": -32.388563,
+                "y": 8.659153,
+                "weight": 0.06234
+              }
+            ],
+            [
+              {
+                "bone": "bang_l0",
+                "x": 5.621488,
+                "y": 11.018116,
+                "weight": 0.69048
+              },
+              {
+                "bone": "bang_l1",
+                "x": -35.111072,
+                "y": 8.497802,
+                "weight": 0.11269
+              },
+              {
+                "bone": "bang_c0",
+                "x": 8.070771,
+                "y": 38.208149,
+                "weight": 0.10232
+              },
+              {
+                "bone": "head",
+                "x": 40,
+                "y": 126,
+                "weight": 0.09451
+              }
+            ],
+            [
+              {
+                "bone": "bang_r1",
+                "x": 0.104485,
+                "y": -11.179852,
+                "weight": 0.45331
+              },
+              {
+                "bone": "bang_r0",
+                "x": 43.0064,
+                "y": -11.110785,
+                "weight": 0.45328
+              },
+              {
+                "bone": "head",
+                "x": -47,
+                "y": 97,
+                "weight": 0.04763
+              },
+              {
+                "bone": "bang_c0",
+                "x": 39.183469,
+                "y": -48.058878,
+                "weight": 0.04578
+              }
+            ],
+            [
+              {
+                "bone": "bang_r0",
+                "x": 34.673312,
+                "y": 16.666177,
+                "weight": 0.2783
+              },
+              {
+                "bone": "head",
+                "x": -18,
+                "y": 97,
+                "weight": 0.24822
+              },
+              {
+                "bone": "bang_r1",
+                "x": -5.349611,
+                "y": 17.302649,
+                "weight": 0.24595
+              },
+              {
+                "bone": "bang_c0",
+                "x": 38.476362,
+                "y": -19.0675,
+                "weight": 0.22753
+              }
+            ],
+            [
+              {
+                "bone": "bang_c0",
+                "x": 37.769255,
+                "y": 9.923878,
+                "weight": 0.32239
+              },
+              {
+                "bone": "bang_c1",
+                "x": -3.413704,
+                "y": 9.866439,
+                "weight": 0.30245
+              },
+              {
+                "bone": "head",
+                "x": 11,
+                "y": 97,
+                "weight": 0.28286
+              },
+              {
+                "bone": "bang_l0",
+                "x": 27.357907,
+                "y": -23.760155,
+                "weight": 0.0923
+              }
+            ],
+            [
+              {
+                "bone": "bang_l0",
+                "x": 33.878832,
+                "y": 4.49719,
+                "weight": 0.58715
+              },
+              {
+                "bone": "bang_l1",
+                "x": -6.455694,
+                "y": 4.040298,
+                "weight": 0.34899
+              },
+              {
+                "bone": "bang_c0",
+                "x": 37.062149,
+                "y": 38.915256,
+                "weight": 0.03207
+              },
+              {
+                "bone": "bang_c1",
+                "x": -4.62099,
+                "y": 38.841298,
+                "weight": 0.03179
+              }
+            ],
+            [
+              {
+                "bone": "bang_r1",
+                "x": 28.586985,
+                "y": -5.725756,
+                "weight": 0.82687
+              },
+              {
+                "bone": "bang_r0",
+                "x": 70.783362,
+                "y": -2.777697,
+                "weight": 0.09199
+              },
+              {
+                "bone": "bang_c1",
+                "x": 27.975726,
+                "y": -46.875993,
+                "weight": 0.04066
+              },
+              {
+                "bone": "head",
+                "x": -47,
+                "y": 68,
+                "weight": 0.04048
+              }
+            ],
+            [
+              {
+                "bone": "bang_c1",
+                "x": 26.768441,
+                "y": -17.901134,
+                "weight": 0.32531
+              },
+              {
+                "bone": "head",
+                "x": -18,
+                "y": 68,
+                "weight": 0.32263
+              },
+              {
+                "bone": "bang_r1",
+                "x": 23.13289,
+                "y": 22.756744,
+                "weight": 0.22473
+              },
+              {
+                "bone": "bang_c0",
+                "x": 67.46774,
+                "y": -18.360393,
+                "weight": 0.12733
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 11,
+                "y": 68,
+                "weight": 0.40348
+              },
+              {
+                "bone": "bang_c1",
+                "x": 25.561155,
+                "y": 11.073725,
+                "weight": 0.4
+              },
+              {
+                "bone": "bang_c0",
+                "x": 66.760633,
+                "y": 10.630985,
+                "weight": 0.10172
+              },
+              {
+                "bone": "bang_l1",
+                "x": 17.74218,
+                "y": -29.072583,
+                "weight": 0.0948
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 22.199684,
+                "y": -0.417205,
+                "weight": 0.95078
+              },
+              {
+                "bone": "bang_l0",
+                "x": 62.136177,
+                "y": -2.023736,
+                "weight": 0.04922
+              }
+            ],
+            [
+              {
+                "bone": "bang_r1",
+                "x": 57.069486,
+                "y": -0.271661,
+                "weight": 0.81657
+              },
+              {
+                "bone": "bang_c1",
+                "x": 56.950585,
+                "y": -45.668708,
+                "weight": 0.06855
+              },
+              {
+                "bone": "head",
+                "x": -47,
+                "y": 39,
+                "weight": 0.06734
+              },
+              {
+                "bone": "bang_r0",
+                "x": 98.560325,
+                "y": 5.555392,
+                "weight": 0.04754
+              }
+            ],
+            [
+              {
+                "bone": "bang_r1",
+                "x": 85.551986,
+                "y": 5.182435,
+                "weight": 0.41853
+              },
+              {
+                "bone": "head",
+                "x": -47,
+                "y": 10,
+                "weight": 0.28914
+              },
+              {
+                "bone": "bang_c1",
+                "x": 85.925445,
+                "y": -44.461422,
+                "weight": 0.19576
+              },
+              {
+                "bone": "bang_r0",
+                "x": 126.337287,
+                "y": 13.888481,
+                "weight": 0.09657
+              }
+            ],
+            [
+              {
+                "bone": "bang_l1",
+                "x": 83.967942,
+                "y": 19.323166,
+                "weight": 0.4891
+              },
+              {
+                "bone": "head",
+                "x": 69,
+                "y": 10,
+                "weight": 0.20887
+              },
+              {
+                "bone": "bang_c1",
+                "x": 81.096301,
+                "y": 71.438015,
+                "weight": 0.16371
+              },
+              {
+                "bone": "bang_l0",
+                "x": 125.171792,
+                "y": 13.191757,
+                "weight": 0.13832
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": -47,
+                "y": -19,
+                "weight": 0.43959
+              },
+              {
+                "bone": "bang_r1",
+                "x": 114.034487,
+                "y": 10.636531,
+                "weight": 0.26493
+              },
+              {
+                "bone": "bang_c1",
+                "x": 114.900304,
+                "y": -43.254136,
+                "weight": 0.1927
+              },
+              {
+                "bone": "bang_l1",
+                "x": 94.793306,
+                "y": -99.755848,
+                "weight": 0.10278
+              }
+            ],
+            [
+              {
+                "bone": "head",
+                "x": 40,
+                "y": -19,
+                "weight": 0.48163
+              },
+              {
+                "bone": "bang_l1",
+                "x": 108.165816,
+                "y": -13.789715,
+                "weight": 0.24764
+              },
+              {
+                "bone": "bang_c1",
+                "x": 111.278446,
+                "y": 43.670441,
+                "weight": 0.17741
+              },
+              {
+                "bone": "bang_r1",
+                "x": 97.6722,
+                "y": 96.084033,
+                "weight": 0.09332
+              }
+            ]
+          ]
+        }
+      },
+"upperarm_r_under": {
+        "K1_upperarm_r": {
+          "image": "K1_upperarm_r.png",
+          "x": 56.062207,
+          "y": 2.806945,
+          "rotation": -117.76484
+        },
+        "K4_upperarm_r": {
+          "image": "K4_upperarm_r.png",
+          "x": 66.728571,
+          "y": -15.300257,
+          "rotation": 101.779132
+        },
+        "K0_upperarm_r": {
+          "image": "K0_upperarm_r.png",
+          "x": 50.760028,
+          "y": 12.78552,
+          "rotation": 99.864887
+        }
+      },
+"forearm_r_back": {
+        "K1_forearm_r": {
+          "image": "K1_forearm_r.png",
+          "x": 71.535516,
+          "y": 7.106254,
+          "rotation": -30.366278
+        },
+        "K3_forearm_r": {
+          "image": "K3_forearm_r.png",
+          "x": 108.384638,
+          "y": 0.922825,
+          "rotation": -77.323062
+        },
+        "K0_forearm_r": {
+          "image": "K0_forearm_r.png",
+          "x": 85.499765,
+          "y": -31.82124,
+          "rotation": 50.929749
+        }
+      },
+"upperarm_l_under": {
+        "K1_upperarm_l": {
+          "image": "K1_upperarm_l.png",
+          "x": 55.636057,
+          "y": 3.445166,
+          "rotation": -56.303728
+        },
+        "K3_upperarm_l": {
+          "image": "K3_upperarm_l.png",
+          "x": 56.622817,
+          "y": -8.677359,
+          "rotation": 49.706003
+        },
+        "K4_upperarm_l": {
+          "image": "K4_upperarm_l.png",
+          "x": 48.882809,
+          "y": -4.770843,
+          "rotation": 35.545807
+        },
+        "K0_upperarm_l": {
+          "image": "K0_upperarm_l.png",
+          "x": 48.037141,
+          "y": -1.507671,
+          "rotation": 82.230766
+        }
+      },
+"forearm_l_back": {
+        "K1_forearm_l": {
+          "image": "K1_forearm_l.png",
+          "x": 69.248559,
+          "y": 1.88412,
+          "rotation": -141.858038
+        },
+        "K0_forearm_l": {
+          "image": "K0_forearm_l.png",
+          "x": 68.81945,
+          "y": 19.920942,
+          "rotation": 119.399404
+        }
+      },
+"forearm_l_under": {
+        "K3_forearm_l": {
+          "image": "K3_forearm_l.png",
+          "x": 58.364898,
+          "y": -21.79167,
+          "rotation": 125.537678
+        },
+        "K4_forearm_l": {
+          "image": "K4_forearm_l.png",
+          "x": 84.548704,
+          "y": 19.924965,
+          "rotation": -107.106341
+        }
+      },
+"upperarm_r_back": {
+        "K3_upperarm_r": {
+          "image": "K3_upperarm_r.png",
+          "x": 54.483671,
+          "y": -4.85588,
+          "rotation": -102.023187
+        }
+      },
+"forearm_r_under": {
+        "K4_forearm_r": {
+          "image": "K4_forearm_r.png",
+          "x": 98.752525,
+          "y": -13.517376,
+          "rotation": 76.820132
+        }
+      },
+"forearm_l_mid": {
+        "K2_forearm_l": {
+          "image": "K2_forearm_l.png",
+          "x": 77.15081,
+          "y": 3.913743,
+          "rotation": 121.225096
+        }
+      },
+"upperarm_l_mid": {
+        "K2_upperarm_l": {
+          "image": "K2_upperarm_l.png",
+          "x": 53.903371,
+          "y": 4.161321,
+          "rotation": 74.404189
+        }
+      },
+"nose": {
+        "nose": {
+          "image": "nose.png",
+          "x": 0,
+          "y": 0,
+          "rotation": 1.941486
+        }
+      },
+"shins": {
+ "shins": {
+  "type": "mesh",
+  "image": "shins.png",
+  "width": 182,
+  "height": 292,
+  "uvs": [
+   0.131868,
+   0,
+   0.197802,
+   0,
+   0.263736,
+   0,
+   0.32967,
+   0,
+   0.395604,
+   0,
+   0.395604,
+   0.041096,
+   0.461538,
+   0.041096,
+   0.527473,
+   0.041096,
+   0.593407,
+   0.041096,
+   0.593407,
+   0,
+   0.659341,
+   0,
+   0.725275,
+   0,
+   0.791209,
+   0,
+   0.857143,
+   0,
+   0.857143,
+   0.041096,
+   0.923077,
+   0.041096,
+   0.923077,
+   0.082192,
+   0.923077,
+   0.123288,
+   0.923077,
+   0.164384,
+   0.989011,
+   0.164384,
+   0.989011,
+   0.205479,
+   0.989011,
+   0.246575,
+   0.989011,
+   0.287671,
+   0.989011,
+   0.328767,
+   0.989011,
+   0.369863,
+   0.989011,
+   0.410959,
+   0.989011,
+   0.452055,
+   0.989011,
+   0.493151,
+   0.989011,
+   0.534247,
+   0.989011,
+   0.575342,
+   0.989011,
+   0.616438,
+   0.923077,
+   0.616438,
+   0.923077,
+   0.657534,
+   0.923077,
+   0.69863,
+   0.923077,
+   0.739726,
+   0.923077,
+   0.780822,
+   0.923077,
+   0.821918,
+   0.923077,
+   0.863014,
+   0.923077,
+   0.90411,
+   0.923077,
+   0.945205,
+   0.923077,
+   0.986301,
+   0.857143,
+   0.986301,
+   0.791209,
+   0.986301,
+   0.725275,
+   0.986301,
+   0.659341,
+   0.986301,
+   0.659341,
+   0.945205,
+   0.659341,
+   0.90411,
+   0.659341,
+   0.863014,
+   0.659341,
+   0.821918,
+   0.659341,
+   0.780822,
+   0.659341,
+   0.739726,
+   0.659341,
+   0.69863,
+   0.659341,
+   0.657534,
+   0.659341,
+   0.616438,
+   0.659341,
+   0.575342,
+   0.659341,
+   0.534247,
+   0.659341,
+   0.493151,
+   0.659341,
+   0.452055,
+   0.659341,
+   0.410959,
+   0.659341,
+   0.369863,
+   0.659341,
+   0.328767,
+   0.659341,
+   0.287671,
+   0.659341,
+   0.246575,
+   0.659341,
+   0.205479,
+   0.593407,
+   0.205479,
+   0.593407,
+   0.164384,
+   0.593407,
+   0.123288,
+   0.593407,
+   0.082192,
+   0.527473,
+   0.082192,
+   0.461538,
+   0.082192,
+   0.461538,
+   0.123288,
+   0.395604,
+   0.123288,
+   0.395604,
+   0.164384,
+   0.395604,
+   0.205479,
+   0.395604,
+   0.246575,
+   0.395604,
+   0.287671,
+   0.32967,
+   0.287671,
+   0.32967,
+   0.328767,
+   0.32967,
+   0.369863,
+   0.32967,
+   0.410959,
+   0.32967,
+   0.452055,
+   0.32967,
+   0.493151,
+   0.32967,
+   0.534247,
+   0.32967,
+   0.575342,
+   0.32967,
+   0.616438,
+   0.32967,
+   0.657534,
+   0.32967,
+   0.69863,
+   0.32967,
+   0.739726,
+   0.32967,
+   0.780822,
+   0.32967,
+   0.821918,
+   0.32967,
+   0.863014,
+   0.32967,
+   0.90411,
+   0.32967,
+   0.945205,
+   0.32967,
+   0.986301,
+   0.263736,
+   0.986301,
+   0.197802,
+   0.986301,
+   0.131868,
+   0.986301,
+   0.065934,
+   0.986301,
+   0.065934,
+   0.945205,
+   0.065934,
+   0.90411,
+   0.131868,
+   0.90411,
+   0.131868,
+   0.863014,
+   0.131868,
+   0.821918,
+   0.065934,
+   0.821918,
+   0.065934,
+   0.780822,
+   0.065934,
+   0.739726,
+   0.065934,
+   0.69863,
+   0.065934,
+   0.657534,
+   0.065934,
+   0.616438,
+   0.065934,
+   0.575342,
+   0,
+   0.575342,
+   0,
+   0.534247,
+   0,
+   0.493151,
+   0,
+   0.452055,
+   0,
+   0.410959,
+   0,
+   0.369863,
+   0,
+   0.328767,
+   0,
+   0.287671,
+   0,
+   0.246575,
+   0,
+   0.205479,
+   0.065934,
+   0.205479,
+   0.065934,
+   0.164384,
+   0.065934,
+   0.123288,
+   0.065934,
+   0.082192,
+   0.065934,
+   0.041096,
+   0.131868,
+   0.041096,
+   0.197802,
+   0.041096,
+   0.263736,
+   0.041096,
+   0.32967,
+   0.041096,
+   0.659341,
+   0.041096,
+   0.725275,
+   0.041096,
+   0.791209,
+   0.041096,
+   0.131868,
+   0.082192,
+   0.197802,
+   0.082192,
+   0.263736,
+   0.082192,
+   0.32967,
+   0.082192,
+   0.395604,
+   0.082192,
+   0.659341,
+   0.082192,
+   0.725275,
+   0.082192,
+   0.791209,
+   0.082192,
+   0.857143,
+   0.082192,
+   0.131868,
+   0.123288,
+   0.197802,
+   0.123288,
+   0.263736,
+   0.123288,
+   0.32967,
+   0.123288,
+   0.659341,
+   0.123288,
+   0.725275,
+   0.123288,
+   0.791209,
+   0.123288,
+   0.857143,
+   0.123288,
+   0.131868,
+   0.164384,
+   0.197802,
+   0.164384,
+   0.263736,
+   0.164384,
+   0.32967,
+   0.164384,
+   0.659341,
+   0.164384,
+   0.725275,
+   0.164384,
+   0.791209,
+   0.164384,
+   0.857143,
+   0.164384,
+   0.131868,
+   0.205479,
+   0.197802,
+   0.205479,
+   0.263736,
+   0.205479,
+   0.32967,
+   0.205479,
+   0.725275,
+   0.205479,
+   0.791209,
+   0.205479,
+   0.857143,
+   0.205479,
+   0.923077,
+   0.205479,
+   0.065934,
+   0.246575,
+   0.131868,
+   0.246575,
+   0.197802,
+   0.246575,
+   0.263736,
+   0.246575,
+   0.32967,
+   0.246575,
+   0.725275,
+   0.246575,
+   0.791209,
+   0.246575,
+   0.857143,
+   0.246575,
+   0.923077,
+   0.246575,
+   0.065934,
+   0.287671,
+   0.131868,
+   0.287671,
+   0.197802,
+   0.287671,
+   0.263736,
+   0.287671,
+   0.725275,
+   0.287671,
+   0.791209,
+   0.287671,
+   0.857143,
+   0.287671,
+   0.923077,
+   0.287671,
+   0.065934,
+   0.328767,
+   0.131868,
+   0.328767,
+   0.197802,
+   0.328767,
+   0.263736,
+   0.328767,
+   0.725275,
+   0.328767,
+   0.791209,
+   0.328767,
+   0.857143,
+   0.328767,
+   0.923077,
+   0.328767,
+   0.065934,
+   0.369863,
+   0.131868,
+   0.369863,
+   0.197802,
+   0.369863,
+   0.263736,
+   0.369863,
+   0.725275,
+   0.369863,
+   0.791209,
+   0.369863,
+   0.857143,
+   0.369863,
+   0.923077,
+   0.369863,
+   0.065934,
+   0.410959,
+   0.131868,
+   0.410959,
+   0.197802,
+   0.410959,
+   0.263736,
+   0.410959,
+   0.725275,
+   0.410959,
+   0.791209,
+   0.410959,
+   0.857143,
+   0.410959,
+   0.923077,
+   0.410959,
+   0.065934,
+   0.452055,
+   0.131868,
+   0.452055,
+   0.197802,
+   0.452055,
+   0.263736,
+   0.452055,
+   0.725275,
+   0.452055,
+   0.791209,
+   0.452055,
+   0.857143,
+   0.452055,
+   0.923077,
+   0.452055,
+   0.065934,
+   0.493151,
+   0.131868,
+   0.493151,
+   0.197802,
+   0.493151,
+   0.263736,
+   0.493151,
+   0.725275,
+   0.493151,
+   0.791209,
+   0.493151,
+   0.857143,
+   0.493151,
+   0.923077,
+   0.493151,
+   0.065934,
+   0.534247,
+   0.131868,
+   0.534247,
+   0.197802,
+   0.534247,
+   0.263736,
+   0.534247,
+   0.725275,
+   0.534247,
+   0.791209,
+   0.534247,
+   0.857143,
+   0.534247,
+   0.923077,
+   0.534247,
+   0.131868,
+   0.575342,
+   0.197802,
+   0.575342,
+   0.263736,
+   0.575342,
+   0.725275,
+   0.575342,
+   0.791209,
+   0.575342,
+   0.857143,
+   0.575342,
+   0.923077,
+   0.575342,
+   0.131868,
+   0.616438,
+   0.197802,
+   0.616438,
+   0.263736,
+   0.616438,
+   0.725275,
+   0.616438,
+   0.791209,
+   0.616438,
+   0.857143,
+   0.616438,
+   0.131868,
+   0.657534,
+   0.197802,
+   0.657534,
+   0.263736,
+   0.657534,
+   0.725275,
+   0.657534,
+   0.791209,
+   0.657534,
+   0.857143,
+   0.657534,
+   0.131868,
+   0.69863,
+   0.197802,
+   0.69863,
+   0.263736,
+   0.69863,
+   0.725275,
+   0.69863,
+   0.791209,
+   0.69863,
+   0.857143,
+   0.69863,
+   0.131868,
+   0.739726,
+   0.197802,
+   0.739726,
+   0.263736,
+   0.739726,
+   0.725275,
+   0.739726,
+   0.791209,
+   0.739726,
+   0.857143,
+   0.739726,
+   0.131868,
+   0.780822,
+   0.197802,
+   0.780822,
+   0.263736,
+   0.780822,
+   0.725275,
+   0.780822,
+   0.791209,
+   0.780822,
+   0.857143,
+   0.780822,
+   0.197802,
+   0.821918,
+   0.263736,
+   0.821918,
+   0.725275,
+   0.821918,
+   0.791209,
+   0.821918,
+   0.857143,
+   0.821918,
+   0.197802,
+   0.863014,
+   0.263736,
+   0.863014,
+   0.725275,
+   0.863014,
+   0.791209,
+   0.863014,
+   0.857143,
+   0.863014,
+   0.197802,
+   0.90411,
+   0.263736,
+   0.90411,
+   0.725275,
+   0.90411,
+   0.791209,
+   0.90411,
+   0.857143,
+   0.90411,
+   0.131868,
+   0.945205,
+   0.197802,
+   0.945205,
+   0.263736,
+   0.945205,
+   0.725275,
+   0.945205,
+   0.791209,
+   0.945205,
+   0.857143,
+   0.945205
+  ],
+  "triangles": [
+   0,
+   126,
+   1,
+   0,
+   125,
+   126,
+   1,
+   126,
+   2,
+   2,
+   126,
+   127,
+   2,
+   128,
+   3,
+   2,
+   127,
+   128,
+   3,
+   128,
+   4,
+   4,
+   128,
+   5,
+   9,
+   8,
+   10,
+   10,
+   8,
+   129,
+   10,
+   130,
+   11,
+   10,
+   129,
+   130,
+   11,
+   130,
+   12,
+   12,
+   130,
+   131,
+   12,
+   14,
+   13,
+   12,
+   131,
+   14,
+   124,
+   132,
+   125,
+   124,
+   123,
+   132,
+   125,
+   132,
+   126,
+   126,
+   132,
+   133,
+   126,
+   134,
+   127,
+   126,
+   133,
+   134,
+   127,
+   134,
+   128,
+   128,
+   134,
+   135,
+   128,
+   136,
+   5,
+   128,
+   135,
+   136,
+   5,
+   136,
+   6,
+   6,
+   136,
+   69,
+   6,
+   68,
+   7,
+   6,
+   69,
+   68,
+   7,
+   68,
+   8,
+   8,
+   68,
+   67,
+   8,
+   137,
+   129,
+   8,
+   67,
+   137,
+   129,
+   137,
+   130,
+   130,
+   137,
+   138,
+   130,
+   139,
+   131,
+   130,
+   138,
+   139,
+   131,
+   139,
+   14,
+   14,
+   139,
+   140,
+   14,
+   16,
+   15,
+   14,
+   140,
+   16,
+   123,
+   122,
+   132,
+   132,
+   122,
+   141,
+   132,
+   142,
+   133,
+   132,
+   141,
+   142,
+   133,
+   142,
+   134,
+   134,
+   142,
+   143,
+   134,
+   144,
+   135,
+   134,
+   143,
+   144,
+   135,
+   144,
+   136,
+   136,
+   144,
+   71,
+   136,
+   70,
+   69,
+   136,
+   71,
+   70,
+   67,
+   66,
+   137,
+   137,
+   66,
+   145,
+   137,
+   146,
+   138,
+   137,
+   145,
+   146,
+   138,
+   146,
+   139,
+   139,
+   146,
+   147,
+   139,
+   148,
+   140,
+   139,
+   147,
+   148,
+   140,
+   148,
+   16,
+   16,
+   148,
+   17,
+   122,
+   149,
+   141,
+   122,
+   121,
+   149,
+   141,
+   149,
+   142,
+   142,
+   149,
+   150,
+   142,
+   151,
+   143,
+   142,
+   150,
+   151,
+   143,
+   151,
+   144,
+   144,
+   151,
+   152,
+   144,
+   72,
+   71,
+   144,
+   152,
+   72,
+   66,
+   153,
+   145,
+   66,
+   65,
+   153,
+   145,
+   153,
+   146,
+   146,
+   153,
+   154,
+   146,
+   155,
+   147,
+   146,
+   154,
+   155,
+   147,
+   155,
+   148,
+   148,
+   155,
+   156,
+   148,
+   18,
+   17,
+   148,
+   156,
+   18,
+   121,
+   120,
+   149,
+   149,
+   120,
+   157,
+   149,
+   158,
+   150,
+   149,
+   157,
+   158,
+   150,
+   158,
+   151,
+   151,
+   158,
+   159,
+   151,
+   160,
+   152,
+   151,
+   159,
+   160,
+   152,
+   160,
+   72,
+   72,
+   160,
+   73,
+   65,
+   64,
+   153,
+   153,
+   64,
+   63,
+   153,
+   161,
+   154,
+   153,
+   63,
+   161,
+   154,
+   161,
+   155,
+   155,
+   161,
+   162,
+   155,
+   163,
+   156,
+   155,
+   162,
+   163,
+   156,
+   163,
+   18,
+   18,
+   163,
+   164,
+   18,
+   20,
+   19,
+   18,
+   164,
+   20,
+   119,
+   118,
+   120,
+   120,
+   118,
+   165,
+   120,
+   166,
+   157,
+   120,
+   165,
+   166,
+   157,
+   166,
+   158,
+   158,
+   166,
+   167,
+   158,
+   168,
+   159,
+   158,
+   167,
+   168,
+   159,
+   168,
+   160,
+   160,
+   168,
+   169,
+   160,
+   74,
+   73,
+   160,
+   169,
+   74,
+   63,
+   62,
+   161,
+   161,
+   62,
+   170,
+   161,
+   171,
+   162,
+   161,
+   170,
+   171,
+   162,
+   171,
+   163,
+   163,
+   171,
+   172,
+   163,
+   173,
+   164,
+   163,
+   172,
+   173,
+   164,
+   173,
+   20,
+   20,
+   173,
+   21,
+   118,
+   174,
+   165,
+   118,
+   117,
+   174,
+   165,
+   174,
+   166,
+   166,
+   174,
+   175,
+   166,
+   176,
+   167,
+   166,
+   175,
+   176,
+   167,
+   176,
+   168,
+   168,
+   176,
+   177,
+   168,
+   76,
+   169,
+   168,
+   177,
+   76,
+   169,
+   76,
+   74,
+   74,
+   76,
+   75,
+   62,
+   178,
+   170,
+   62,
+   61,
+   178,
+   170,
+   178,
+   171,
+   171,
+   178,
+   179,
+   171,
+   180,
+   172,
+   171,
+   179,
+   180,
+   172,
+   180,
+   173,
+   173,
+   180,
+   181,
+   173,
+   22,
+   21,
+   173,
+   181,
+   22,
+   117,
+   116,
+   174,
+   174,
+   116,
+   182,
+   174,
+   183,
+   175,
+   174,
+   182,
+   183,
+   175,
+   183,
+   176,
+   176,
+   183,
+   184,
+   176,
+   185,
+   177,
+   176,
+   184,
+   185,
+   177,
+   185,
+   76,
+   76,
+   185,
+   77,
+   61,
+   60,
+   178,
+   178,
+   60,
+   186,
+   178,
+   187,
+   179,
+   178,
+   186,
+   187,
+   179,
+   187,
+   180,
+   180,
+   187,
+   188,
+   180,
+   189,
+   181,
+   180,
+   188,
+   189,
+   181,
+   189,
+   22,
+   22,
+   189,
+   23,
+   116,
+   190,
+   182,
+   116,
+   115,
+   190,
+   182,
+   190,
+   183,
+   183,
+   190,
+   191,
+   183,
+   192,
+   184,
+   183,
+   191,
+   192,
+   184,
+   192,
+   185,
+   185,
+   192,
+   193,
+   185,
+   78,
+   77,
+   185,
+   193,
+   78,
+   60,
+   194,
+   186,
+   60,
+   59,
+   194,
+   186,
+   194,
+   187,
+   187,
+   194,
+   195,
+   187,
+   196,
+   188,
+   187,
+   195,
+   196,
+   188,
+   196,
+   189,
+   189,
+   196,
+   197,
+   189,
+   24,
+   23,
+   189,
+   197,
+   24,
+   115,
+   114,
+   190,
+   190,
+   114,
+   198,
+   190,
+   199,
+   191,
+   190,
+   198,
+   199,
+   191,
+   199,
+   192,
+   192,
+   199,
+   200,
+   192,
+   201,
+   193,
+   192,
+   200,
+   201,
+   193,
+   201,
+   78,
+   78,
+   201,
+   79,
+   59,
+   58,
+   194,
+   194,
+   58,
+   202,
+   194,
+   203,
+   195,
+   194,
+   202,
+   203,
+   195,
+   203,
+   196,
+   196,
+   203,
+   204,
+   196,
+   205,
+   197,
+   196,
+   204,
+   205,
+   197,
+   205,
+   24,
+   24,
+   205,
+   25,
+   114,
+   206,
+   198,
+   114,
+   113,
+   206,
+   198,
+   206,
+   199,
+   199,
+   206,
+   207,
+   199,
+   208,
+   200,
+   199,
+   207,
+   208,
+   200,
+   208,
+   201,
+   201,
+   208,
+   209,
+   201,
+   80,
+   79,
+   201,
+   209,
+   80,
+   58,
+   210,
+   202,
+   58,
+   57,
+   210,
+   202,
+   210,
+   203,
+   203,
+   210,
+   211,
+   203,
+   212,
+   204,
+   203,
+   211,
+   212,
+   204,
+   212,
+   205,
+   205,
+   212,
+   213,
+   205,
+   26,
+   25,
+   205,
+   213,
+   26,
+   113,
+   112,
+   206,
+   206,
+   112,
+   214,
+   206,
+   215,
+   207,
+   206,
+   214,
+   215,
+   207,
+   215,
+   208,
+   208,
+   215,
+   216,
+   208,
+   217,
+   209,
+   208,
+   216,
+   217,
+   209,
+   217,
+   80,
+   80,
+   217,
+   81,
+   57,
+   56,
+   210,
+   210,
+   56,
+   218,
+   210,
+   219,
+   211,
+   210,
+   218,
+   219,
+   211,
+   219,
+   212,
+   212,
+   219,
+   220,
+   212,
+   221,
+   213,
+   212,
+   220,
+   221,
+   213,
+   221,
+   26,
+   26,
+   221,
+   27,
+   112,
+   222,
+   214,
+   112,
+   111,
+   222,
+   214,
+   222,
+   215,
+   215,
+   222,
+   223,
+   215,
+   224,
+   216,
+   215,
+   223,
+   224,
+   216,
+   224,
+   217,
+   217,
+   224,
+   225,
+   217,
+   82,
+   81,
+   217,
+   225,
+   82,
+   56,
+   226,
+   218,
+   56,
+   55,
+   226,
+   218,
+   226,
+   219,
+   219,
+   226,
+   227,
+   219,
+   228,
+   220,
+   219,
+   227,
+   228,
+   220,
+   228,
+   221,
+   221,
+   228,
+   229,
+   221,
+   28,
+   27,
+   221,
+   229,
+   28,
+   111,
+   110,
+   222,
+   222,
+   110,
+   109,
+   222,
+   230,
+   223,
+   222,
+   109,
+   230,
+   223,
+   230,
+   224,
+   224,
+   230,
+   231,
+   224,
+   232,
+   225,
+   224,
+   231,
+   232,
+   225,
+   232,
+   82,
+   82,
+   232,
+   83,
+   55,
+   54,
+   226,
+   226,
+   54,
+   233,
+   226,
+   234,
+   227,
+   226,
+   233,
+   234,
+   227,
+   234,
+   228,
+   228,
+   234,
+   235,
+   228,
+   236,
+   229,
+   228,
+   235,
+   236,
+   229,
+   236,
+   28,
+   28,
+   236,
+   29,
+   109,
+   108,
+   230,
+   230,
+   108,
+   237,
+   230,
+   238,
+   231,
+   230,
+   237,
+   238,
+   231,
+   238,
+   232,
+   232,
+   238,
+   239,
+   232,
+   84,
+   83,
+   232,
+   239,
+   84,
+   54,
+   240,
+   233,
+   54,
+   53,
+   240,
+   233,
+   240,
+   234,
+   234,
+   240,
+   241,
+   234,
+   242,
+   235,
+   234,
+   241,
+   242,
+   235,
+   242,
+   236,
+   236,
+   242,
+   31,
+   236,
+   30,
+   29,
+   236,
+   31,
+   30,
+   108,
+   243,
+   237,
+   108,
+   107,
+   243,
+   237,
+   243,
+   238,
+   238,
+   243,
+   244,
+   238,
+   245,
+   239,
+   238,
+   244,
+   245,
+   239,
+   245,
+   84,
+   84,
+   245,
+   85,
+   53,
+   52,
+   240,
+   240,
+   52,
+   246,
+   240,
+   247,
+   241,
+   240,
+   246,
+   247,
+   241,
+   247,
+   242,
+   242,
+   247,
+   248,
+   242,
+   32,
+   31,
+   242,
+   248,
+   32,
+   107,
+   106,
+   243,
+   243,
+   106,
+   249,
+   243,
+   250,
+   244,
+   243,
+   249,
+   250,
+   244,
+   250,
+   245,
+   245,
+   250,
+   251,
+   245,
+   86,
+   85,
+   245,
+   251,
+   86,
+   52,
+   252,
+   246,
+   52,
+   51,
+   252,
+   246,
+   252,
+   247,
+   247,
+   252,
+   253,
+   247,
+   254,
+   248,
+   247,
+   253,
+   254,
+   248,
+   254,
+   32,
+   32,
+   254,
+   33,
+   106,
+   255,
+   249,
+   106,
+   105,
+   255,
+   249,
+   255,
+   250,
+   250,
+   255,
+   256,
+   250,
+   257,
+   251,
+   250,
+   256,
+   257,
+   251,
+   257,
+   86,
+   86,
+   257,
+   87,
+   51,
+   50,
+   252,
+   252,
+   50,
+   258,
+   252,
+   259,
+   253,
+   252,
+   258,
+   259,
+   253,
+   259,
+   254,
+   254,
+   259,
+   260,
+   254,
+   34,
+   33,
+   254,
+   260,
+   34,
+   105,
+   104,
+   255,
+   255,
+   104,
+   261,
+   255,
+   262,
+   256,
+   255,
+   261,
+   262,
+   256,
+   262,
+   257,
+   257,
+   262,
+   263,
+   257,
+   88,
+   87,
+   257,
+   263,
+   88,
+   50,
+   264,
+   258,
+   50,
+   49,
+   264,
+   258,
+   264,
+   259,
+   259,
+   264,
+   265,
+   259,
+   266,
+   260,
+   259,
+   265,
+   266,
+   260,
+   266,
+   34,
+   34,
+   266,
+   35,
+   104,
+   102,
+   261,
+   104,
+   103,
+   102,
+   261,
+   102,
+   262,
+   262,
+   102,
+   267,
+   262,
+   268,
+   263,
+   262,
+   267,
+   268,
+   263,
+   268,
+   88,
+   88,
+   268,
+   89,
+   49,
+   48,
+   264,
+   264,
+   48,
+   269,
+   264,
+   270,
+   265,
+   264,
+   269,
+   270,
+   265,
+   270,
+   266,
+   266,
+   270,
+   271,
+   266,
+   36,
+   35,
+   266,
+   271,
+   36,
+   102,
+   272,
+   267,
+   102,
+   101,
+   272,
+   267,
+   272,
+   268,
+   268,
+   272,
+   273,
+   268,
+   90,
+   89,
+   268,
+   273,
+   90,
+   48,
+   274,
+   269,
+   48,
+   47,
+   274,
+   269,
+   274,
+   270,
+   270,
+   274,
+   275,
+   270,
+   276,
+   271,
+   270,
+   275,
+   276,
+   271,
+   276,
+   36,
+   36,
+   276,
+   37,
+   101,
+   100,
+   272,
+   272,
+   100,
+   277,
+   272,
+   278,
+   273,
+   272,
+   277,
+   278,
+   273,
+   278,
+   90,
+   90,
+   278,
+   91,
+   47,
+   46,
+   274,
+   274,
+   46,
+   279,
+   274,
+   280,
+   275,
+   274,
+   279,
+   280,
+   275,
+   280,
+   276,
+   276,
+   280,
+   281,
+   276,
+   38,
+   37,
+   276,
+   281,
+   38,
+   99,
+   98,
+   100,
+   100,
+   98,
+   282,
+   100,
+   283,
+   277,
+   100,
+   282,
+   283,
+   277,
+   283,
+   278,
+   278,
+   283,
+   284,
+   278,
+   92,
+   91,
+   278,
+   284,
+   92,
+   46,
+   285,
+   279,
+   46,
+   45,
+   285,
+   279,
+   285,
+   280,
+   280,
+   285,
+   286,
+   280,
+   287,
+   281,
+   280,
+   286,
+   287,
+   281,
+   287,
+   38,
+   38,
+   287,
+   39,
+   98,
+   96,
+   282,
+   98,
+   97,
+   96,
+   282,
+   96,
+   283,
+   283,
+   96,
+   95,
+   283,
+   94,
+   284,
+   283,
+   95,
+   94,
+   284,
+   94,
+   92,
+   92,
+   94,
+   93,
+   45,
+   44,
+   285,
+   285,
+   44,
+   43,
+   285,
+   42,
+   286,
+   285,
+   43,
+   42,
+   286,
+   42,
+   287,
+   287,
+   42,
+   41,
+   287,
+   40,
+   39,
+   287,
+   41,
+   40
+  ],
+  "hull": 126,
+  "weights": [
+   [
+    {
+     "bone": "leg_r1",
+     "x": -31.413504,
+     "y": -23.40837,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -31.719397,
+     "y": -11.41227,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -32.025288,
+     "y": 0.583831,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -32.33118,
+     "y": 12.579931,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -32.637074,
+     "y": 24.576033,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -20.640974,
+     "y": 24.881926,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -20.946867,
+     "y": 36.878025,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -20.955753,
+     "y": -40.418636,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -20.673716,
+     "y": -28.421953,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -32.670403,
+     "y": -28.139915,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -32.388363,
+     "y": -16.14323,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -32.106327,
+     "y": -4.146545,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -31.824287,
+     "y": 7.85014,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -31.54225,
+     "y": 19.846827,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -19.545565,
+     "y": 19.564789,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -19.263527,
+     "y": 31.561474,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -7.266842,
+     "y": 31.279434,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 4.729844,
+     "y": 30.997396,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 16.726528,
+     "y": 30.715359,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 17.008568,
+     "y": 42.712044,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 29.005253,
+     "y": 42.430004,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 41.001938,
+     "y": 42.14797,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 52.998623,
+     "y": 41.86593,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 64.99531,
+     "y": 41.583893,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 76.99199,
+     "y": 41.301853,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 88.98868,
+     "y": 41.019817,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 100.98536,
+     "y": 40.737778,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 112.98205,
+     "y": 40.45574,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 124.97873,
+     "y": 40.173702,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 136.97542,
+     "y": 39.891666,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 148.9721,
+     "y": 39.609627,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 148.69006,
+     "y": 27.612942,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 160.68675,
+     "y": 27.330904,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 172.68344,
+     "y": 27.048866,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 184.68011,
+     "y": 26.766829,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 196.6768,
+     "y": 26.48479,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 208.6735,
+     "y": 26.202751,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 220.67018,
+     "y": 25.920713,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 232.66685,
+     "y": 25.638676,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 244.66354,
+     "y": 25.356638,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 256.66022,
+     "y": 25.0746,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 256.3782,
+     "y": 13.077915,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 256.09616,
+     "y": 1.08123,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 255.81412,
+     "y": -10.915455,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 255.53207,
+     "y": -22.912142,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 243.5354,
+     "y": -22.630102,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 231.53871,
+     "y": -22.348064,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 219.54202,
+     "y": -22.066027,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 207.54533,
+     "y": -21.783989,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 195.54866,
+     "y": -21.501951,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 183.55197,
+     "y": -21.219913,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 171.55528,
+     "y": -20.937876,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 159.5586,
+     "y": -20.655836,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 147.56192,
+     "y": -20.373798,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 135.56523,
+     "y": -20.09176,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 123.56854,
+     "y": -19.809723,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 111.57186,
+     "y": -19.527685,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 99.57517,
+     "y": -19.245647,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 87.57849,
+     "y": -18.96361,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 75.5818,
+     "y": -18.68157,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 63.585117,
+     "y": -18.399532,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 51.588432,
+     "y": -18.117496,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 39.591747,
+     "y": -17.835459,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 27.595062,
+     "y": -17.55342,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 27.313025,
+     "y": -29.550104,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 15.316339,
+     "y": -29.268066,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 3.319654,
+     "y": -28.986029,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -8.677031,
+     "y": -28.70399,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -8.959069,
+     "y": -40.700676,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -8.950767,
+     "y": 37.183918,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 3.045334,
+     "y": 37.48981,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 3.351227,
+     "y": 25.493711,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 15.347327,
+     "y": 25.799603,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 27.343428,
+     "y": 26.105495,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 39.339527,
+     "y": 26.411388,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 51.33563,
+     "y": 26.717281,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 51.64152,
+     "y": 14.721181,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 63.637623,
+     "y": 15.027074,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 75.63372,
+     "y": 15.332967,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 87.62982,
+     "y": 15.63886,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 99.62592,
+     "y": 15.944753,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 111.622025,
+     "y": 16.250647,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 123.618126,
+     "y": 16.55654,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 135.61423,
+     "y": 16.86243,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 147.61032,
+     "y": 17.168324,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 159.60643,
+     "y": 17.474216,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 171.60252,
+     "y": 17.78011,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 183.59863,
+     "y": 18.086002,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 195.59473,
+     "y": 18.391895,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 207.59084,
+     "y": 18.697788,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 219.58693,
+     "y": 19.003681,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 231.58304,
+     "y": 19.309574,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 243.57913,
+     "y": 19.615467,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 255.57523,
+     "y": 19.92136,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 255.88112,
+     "y": 7.925259,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 256.187,
+     "y": -4.070841,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 256.49292,
+     "y": -16.066942,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 256.7988,
+     "y": -28.063042,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 244.8027,
+     "y": -28.368935,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 232.8066,
+     "y": -28.674828,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 232.50072,
+     "y": -16.678728,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 220.50461,
+     "y": -16.98462,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 208.50851,
+     "y": -17.290512,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 208.8144,
+     "y": -29.286613,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 196.8183,
+     "y": -29.592506,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 184.8222,
+     "y": -29.8984,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 172.8261,
+     "y": -30.204292,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 160.83,
+     "y": -30.510185,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 148.8339,
+     "y": -30.816078,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 136.8378,
+     "y": -31.121971,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 137.14369,
+     "y": -43.118073,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 125.14759,
+     "y": -43.423965,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 113.15149,
+     "y": -43.72986,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 101.15539,
+     "y": -44.03575,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 89.15929,
+     "y": -44.341644,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 77.163185,
+     "y": -44.647537,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 65.16708,
+     "y": -44.95343,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 53.170986,
+     "y": -45.259323,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 41.174885,
+     "y": -45.565212,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 29.178785,
+     "y": -45.871105,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 28.872892,
+     "y": -33.875008,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 16.876793,
+     "y": -34.1809,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 4.880691,
+     "y": -34.486794,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -7.11541,
+     "y": -34.792686,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -19.11151,
+     "y": -35.09858,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -19.417402,
+     "y": -23.102476,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -19.723295,
+     "y": -11.106377,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -20.029188,
+     "y": 0.889724,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -20.335081,
+     "y": 12.885824,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -20.39168,
+     "y": -16.425268,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -20.10964,
+     "y": -4.428583,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -19.827602,
+     "y": 7.568102,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -7.421302,
+     "y": -22.796585,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -7.727195,
+     "y": -10.800484,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -8.033088,
+     "y": 1.195617,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -8.338981,
+     "y": 13.191717,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": -8.644874,
+     "y": 25.187819,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -8.394993,
+     "y": -16.707306,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -8.112955,
+     "y": -4.710621,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -7.830918,
+     "y": 7.286064,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": -7.54888,
+     "y": 19.28275,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 4.574798,
+     "y": -22.490692,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 4.268905,
+     "y": -10.494591,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 3.963012,
+     "y": 1.501509,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 3.65712,
+     "y": 13.49761,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 3.601692,
+     "y": -16.989344,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 3.88373,
+     "y": -4.992659,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 4.165768,
+     "y": 7.004027,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 4.447806,
+     "y": 19.000711,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 16.570898,
+     "y": -22.1848,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 16.265005,
+     "y": -10.188698,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 15.959113,
+     "y": 1.807402,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 15.65322,
+     "y": 13.803503,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 15.598377,
+     "y": -17.271381,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 15.880415,
+     "y": -5.274697,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 16.162453,
+     "y": 6.721989,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 16.44449,
+     "y": 18.718674,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 28.567,
+     "y": -21.878906,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 28.261106,
+     "y": -9.882805,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 27.955214,
+     "y": 2.113295,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 27.64932,
+     "y": 14.109396,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 27.8771,
+     "y": -5.556735,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 28.159138,
+     "y": 6.439951,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 28.441175,
+     "y": 18.436636,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 28.723213,
+     "y": 30.433321,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 40.86899,
+     "y": -33.569115,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 40.5631,
+     "y": -21.573013,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 40.257206,
+     "y": -9.576913,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 39.951313,
+     "y": 2.419188,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 39.64542,
+     "y": 14.415289,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 39.873783,
+     "y": -5.838772,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 40.155823,
+     "y": 6.157913,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 40.437862,
+     "y": 18.154598,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 40.7199,
+     "y": 30.151283,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 52.865093,
+     "y": -33.26322,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 52.5592,
+     "y": -21.26712,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 52.253307,
+     "y": -9.27102,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 51.947414,
+     "y": 2.725081,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 51.87047,
+     "y": -6.12081,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 52.152508,
+     "y": 5.875875,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 52.434547,
+     "y": 17.87256,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 52.716583,
+     "y": 29.869246,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 64.86119,
+     "y": -32.95733,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 64.5553,
+     "y": -20.961227,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 64.249405,
+     "y": -8.965127,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 63.943516,
+     "y": 3.030974,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 63.867153,
+     "y": -6.402848,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 64.14919,
+     "y": 5.593837,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 64.43123,
+     "y": 17.590523,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 64.71327,
+     "y": 29.587208,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 76.85729,
+     "y": -32.651436,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 76.5514,
+     "y": -20.655334,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 76.24551,
+     "y": -8.659234,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 75.93961,
+     "y": 3.336867,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 75.86384,
+     "y": -6.684886,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 76.14588,
+     "y": 5.311799,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 76.42792,
+     "y": 17.308483,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 76.70995,
+     "y": 29.305168,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 88.85339,
+     "y": -32.345543,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 88.5475,
+     "y": -20.349442,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 88.24161,
+     "y": -8.353341,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 87.935715,
+     "y": 3.642759,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 87.86053,
+     "y": -6.966924,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 88.14256,
+     "y": 5.029761,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 88.4246,
+     "y": 17.026445,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 88.70664,
+     "y": 29.02313,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 100.849495,
+     "y": -32.03965,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 100.5436,
+     "y": -20.043549,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 100.23771,
+     "y": -8.047448,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 99.931816,
+     "y": 3.948652,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 99.85721,
+     "y": -7.248962,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 100.13925,
+     "y": 4.747723,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 100.42129,
+     "y": 16.744408,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 100.70332,
+     "y": 28.741093,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 112.8456,
+     "y": -31.733757,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 112.5397,
+     "y": -19.737656,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 112.23381,
+     "y": -7.741556,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 111.92792,
+     "y": 4.254545,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 111.8539,
+     "y": -7.531,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 112.13593,
+     "y": 4.465685,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 112.41797,
+     "y": 16.46237,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 112.70001,
+     "y": 28.459055,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 124.8417,
+     "y": -31.427864,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 124.535805,
+     "y": -19.431763,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 124.22991,
+     "y": -7.435663,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 123.92402,
+     "y": 4.560438,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 123.85058,
+     "y": -7.813038,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 124.13262,
+     "y": 4.183647,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 124.41466,
+     "y": 16.180332,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 124.69669,
+     "y": 28.177017,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 136.5319,
+     "y": -19.12587,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 136.22601,
+     "y": -7.12977,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 135.92012,
+     "y": 4.866331,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 135.84726,
+     "y": -8.095076,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 136.1293,
+     "y": 3.901609,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 136.41135,
+     "y": 15.898294,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 136.69337,
+     "y": 27.89498,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 148.528,
+     "y": -18.819979,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 148.2221,
+     "y": -6.823877,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 147.91621,
+     "y": 5.172224,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 147.84395,
+     "y": -8.377114,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 148.12599,
+     "y": 3.619571,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 148.40802,
+     "y": 15.616256,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 160.52411,
+     "y": -18.514086,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 160.21822,
+     "y": -6.517984,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 159.91232,
+     "y": 5.478116,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 159.84064,
+     "y": -8.659152,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 160.12268,
+     "y": 3.337533,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 160.40471,
+     "y": 15.334218,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 172.5202,
+     "y": -18.208193,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 172.21431,
+     "y": -6.212091,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 171.90842,
+     "y": 5.784009,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 171.83733,
+     "y": -8.94119,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 172.11935,
+     "y": 3.055495,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 172.4014,
+     "y": 15.05218,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 184.51631,
+     "y": -17.9023,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 184.21042,
+     "y": -5.906198,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 183.90453,
+     "y": 6.089902,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 183.834,
+     "y": -9.223228,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 184.11604,
+     "y": 2.773457,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 184.39809,
+     "y": 14.770143,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 196.5124,
+     "y": -17.596407,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 196.20651,
+     "y": -5.600306,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 195.90062,
+     "y": 6.395795,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 195.83069,
+     "y": -9.505266,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 196.11273,
+     "y": 2.491419,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 196.39478,
+     "y": 14.488105,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 208.20262,
+     "y": -5.294413,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 207.89673,
+     "y": 6.701688,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 207.82738,
+     "y": -9.787304,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 208.10942,
+     "y": 2.209381,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 208.39145,
+     "y": 14.206067,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 220.19872,
+     "y": -4.98852,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 219.89282,
+     "y": 7.007581,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 219.82407,
+     "y": -10.069342,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 220.1061,
+     "y": 1.927344,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 220.38814,
+     "y": 13.924029,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 232.19482,
+     "y": -4.682627,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 231.88893,
+     "y": 7.313474,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 231.82076,
+     "y": -10.35138,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 232.10278,
+     "y": 1.645306,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 232.38483,
+     "y": 13.641991,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 244.49681,
+     "y": -16.372835,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 244.19092,
+     "y": -4.376734,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_r1",
+     "x": 243.88503,
+     "y": 7.619366,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 243.81743,
+     "y": -10.633418,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 244.09947,
+     "y": 1.363268,
+     "weight": 1
+    }
+   ],
+   [
+    {
+     "bone": "leg_l1",
+     "x": 244.38152,
+     "y": 13.359953,
+     "weight": 1
+    }
+   ]
+  ]
+ }
+}
+}
+  },
+  "constraints": [
+    {
+      "type": "transform",
+      "name": "foot_level",
+      "source": "ground",
+      "bones": [
+        "foot_r",
+        "foot_l"
+      ],
+      "properties": {
+        "rotate": {
+          "to": {
+            "rotate": {}
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_swing_phys",
+      "bone": "skirt_swing",
+      "rotate": 1,
+      "inertia": 0.6,
+      "strength": 100,
+      "damping": 0.975,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "ik",
+      "name": "skirt_r_stop_aim",
+      "bones": [
+        "skirt_r_stop"
+      ],
+      "target": "skirt_r_touch",
+      "mix": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_r0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1.2
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r0_rel_copy",
+      "source": "skirt_r0",
+      "bones": [
+        "skirt_r0_rel"
+      ],
+      "properties": {
+        "rotate": {
+          "to": {
+            "rotate": {}
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r0_clamp",
+      "source": "skirt_r0_rel",
+      "bones": [
+        "skirt_r0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -65.4353,
+          "to": {
+            "rotate": {
+              "offset": -65.4353,
+              "max": -14,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_r1_phys",
+      "bone": "skirt_r1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 320,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r1_clamp",
+      "source": "skirt_r1",
+      "bones": [
+        "skirt_r1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -14,
+          "to": {
+            "rotate": {
+              "offset": -14,
+              "max": 0,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_r2_phys",
+      "bone": "skirt_r2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 320,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r2_clamp",
+      "source": "skirt_r2",
+      "bones": [
+        "skirt_r2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -14,
+          "to": {
+            "rotate": {
+              "offset": -14,
+              "max": 0,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_rm0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_rm0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1.1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_rm0_clamp",
+      "source": "skirt_rm0",
+      "bones": [
+        "skirt_rm0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -60,
+          "to": {
+            "rotate": {
+              "offset": -60,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_rm1_phys",
+      "bone": "skirt_rm1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 460,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_rm1_clamp",
+      "source": "skirt_rm1",
+      "bones": [
+        "skirt_rm1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_rm2_phys",
+      "bone": "skirt_rm2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 460,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_rm2_clamp",
+      "source": "skirt_rm2",
+      "bones": [
+        "skirt_rm2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_c0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_c0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_c0_clamp",
+      "source": "skirt_c0",
+      "bones": [
+        "skirt_c0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -60,
+          "to": {
+            "rotate": {
+              "offset": -60,
+              "max": 60,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_c1_phys",
+      "bone": "skirt_c1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 360,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_c1_clamp",
+      "source": "skirt_c1",
+      "bones": [
+        "skirt_c1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_c2_phys",
+      "bone": "skirt_c2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 360,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_c2_clamp",
+      "source": "skirt_c2",
+      "bones": [
+        "skirt_c2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_lm0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_lm0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1.1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_lm0_clamp",
+      "source": "skirt_lm0",
+      "bones": [
+        "skirt_lm0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 60,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_lm1_phys",
+      "bone": "skirt_lm1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 480,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_lm1_clamp",
+      "source": "skirt_lm1",
+      "bones": [
+        "skirt_lm1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_lm2_phys",
+      "bone": "skirt_lm2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 480,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_lm2_clamp",
+      "source": "skirt_lm2",
+      "bones": [
+        "skirt_lm2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": -20,
+          "to": {
+            "rotate": {
+              "offset": -20,
+              "max": 20,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "ik",
+      "name": "skirt_l_stop_aim",
+      "bones": [
+        "skirt_l_stop"
+      ],
+      "target": "skirt_l_touch",
+      "mix": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l0_swing",
+      "source": "skirt_swing",
+      "bones": [
+        "skirt_l0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90,
+          "to": {
+            "rotate": {
+              "scale": 1.2
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l0_rel_copy",
+      "source": "skirt_l0",
+      "bones": [
+        "skirt_l0_rel"
+      ],
+      "properties": {
+        "rotate": {
+          "to": {
+            "rotate": {}
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l0_clamp",
+      "source": "skirt_l0_rel",
+      "bones": [
+        "skirt_l0_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": 14,
+          "to": {
+            "rotate": {
+              "offset": 14,
+              "max": 65.1226,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_l1_phys",
+      "bone": "skirt_l1",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 340,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l1_clamp",
+      "source": "skirt_l1",
+      "bones": [
+        "skirt_l1_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": 0,
+          "to": {
+            "rotate": {
+              "offset": 0,
+              "max": 14,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "type": "physics",
+      "name": "skirt_l2_phys",
+      "bone": "skirt_l2",
+      "rotate": 1,
+      "inertia": 0.3,
+      "strength": 340,
+      "damping": 0.95,
+      "mass": 1,
+      "mix": 0.75
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l2_clamp",
+      "source": "skirt_l2",
+      "bones": [
+        "skirt_l2_d"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "clamp": true,
+      "properties": {
+        "rotate": {
+          "offset": 0,
+          "to": {
+            "rotate": {
+              "offset": 0,
+              "max": 14,
+              "scale": 1
+            }
+          }
+        }
+      },
+      "mixRotate": 1
+    },
+    {
+      "name": "yaw",
+      "type": "slider",
+      "animation": "turn",
+      "bone": "yaw_dial",
+      "property": "rotate",
+      "from": -30,
+      "to": 0,
+      "scale": 0.05,
+      "max": 30,
+      "local": true,
+      "additive": true,
+      "mix": 1
+    },
+    {
+      "name": "pitch",
+      "type": "slider",
+      "animation": "tilt",
+      "bone": "pitch_dial",
+      "property": "rotate",
+      "from": -25,
+      "to": 0,
+      "scale": 0.05,
+      "max": 25,
+      "local": true,
+      "additive": true,
+      "mix": 1
+    }
+  ],
+  "invariants": {
+    "detached": [
+      {
+        "bone": "ground",
+        "notUnder": "foot_r",
+        "why": "rig-parts: \"ground\" is the source of transform constraint \"foot_level\" (config.constraints[0]), and \"foot_r\" is a bone it drives; under it, driving it would move what it follows"
+      },
+      {
+        "bone": "ground",
+        "notUnder": "foot_l",
+        "why": "rig-parts: \"ground\" is the source of transform constraint \"foot_level\" (config.constraints[0]), and \"foot_l\" is a bone it drives; under it, driving it would move what it follows"
+      },
+      {
+        "bone": "skirt_r_touch",
+        "notUnder": "skirt_r_stop",
+        "why": "\"skirt_r_touch\" is the target of \"skirt_r_stop_aim\", which turns \"skirt_r_stop\""
+      },
+      {
+        "bone": "skirt_swing",
+        "notUnder": "skirt_r0",
+        "why": "\"skirt_swing\" is the source of \"skirt_r0_swing\""
+      },
+      {
+        "bone": "skirt_r0",
+        "notUnder": "skirt_r0_rel",
+        "why": "\"skirt_r0\" is the source of \"skirt_r0_rel_copy\""
+      },
+      {
+        "bone": "skirt_r0_rel",
+        "notUnder": "skirt_r0_d",
+        "why": "\"skirt_r0_rel\" is the source of \"skirt_r0_clamp\""
+      },
+      {
+        "bone": "skirt_r1",
+        "notUnder": "skirt_r1_d",
+        "why": "\"skirt_r1\" is the source of \"skirt_r1_clamp\""
+      },
+      {
+        "bone": "skirt_r2",
+        "notUnder": "skirt_r2_d",
+        "why": "\"skirt_r2\" is the source of \"skirt_r2_clamp\""
+      },
+      {
+        "bone": "skirt_swing",
+        "notUnder": "skirt_rm0",
+        "why": "\"skirt_swing\" is the source of \"skirt_rm0_swing\""
+      },
+      {
+        "bone": "skirt_rm0",
+        "notUnder": "skirt_rm0_d",
+        "why": "\"skirt_rm0\" is the source of \"skirt_rm0_clamp\""
+      },
+      {
+        "bone": "skirt_rm1",
+        "notUnder": "skirt_rm1_d",
+        "why": "\"skirt_rm1\" is the source of \"skirt_rm1_clamp\""
+      },
+      {
+        "bone": "skirt_rm2",
+        "notUnder": "skirt_rm2_d",
+        "why": "\"skirt_rm2\" is the source of \"skirt_rm2_clamp\""
+      },
+      {
+        "bone": "skirt_swing",
+        "notUnder": "skirt_c0",
+        "why": "\"skirt_swing\" is the source of \"skirt_c0_swing\""
+      },
+      {
+        "bone": "skirt_c0",
+        "notUnder": "skirt_c0_d",
+        "why": "\"skirt_c0\" is the source of \"skirt_c0_clamp\""
+      },
+      {
+        "bone": "skirt_c1",
+        "notUnder": "skirt_c1_d",
+        "why": "\"skirt_c1\" is the source of \"skirt_c1_clamp\""
+      },
+      {
+        "bone": "skirt_c2",
+        "notUnder": "skirt_c2_d",
+        "why": "\"skirt_c2\" is the source of \"skirt_c2_clamp\""
+      },
+      {
+        "bone": "skirt_swing",
+        "notUnder": "skirt_lm0",
+        "why": "\"skirt_swing\" is the source of \"skirt_lm0_swing\""
+      },
+      {
+        "bone": "skirt_lm0",
+        "notUnder": "skirt_lm0_d",
+        "why": "\"skirt_lm0\" is the source of \"skirt_lm0_clamp\""
+      },
+      {
+        "bone": "skirt_lm1",
+        "notUnder": "skirt_lm1_d",
+        "why": "\"skirt_lm1\" is the source of \"skirt_lm1_clamp\""
+      },
+      {
+        "bone": "skirt_lm2",
+        "notUnder": "skirt_lm2_d",
+        "why": "\"skirt_lm2\" is the source of \"skirt_lm2_clamp\""
+      },
+      {
+        "bone": "skirt_l_touch",
+        "notUnder": "skirt_l_stop",
+        "why": "\"skirt_l_touch\" is the target of \"skirt_l_stop_aim\", which turns \"skirt_l_stop\""
+      },
+      {
+        "bone": "skirt_swing",
+        "notUnder": "skirt_l0",
+        "why": "\"skirt_swing\" is the source of \"skirt_l0_swing\""
+      },
+      {
+        "bone": "skirt_l0",
+        "notUnder": "skirt_l0_rel",
+        "why": "\"skirt_l0\" is the source of \"skirt_l0_rel_copy\""
+      },
+      {
+        "bone": "skirt_l0_rel",
+        "notUnder": "skirt_l0_d",
+        "why": "\"skirt_l0_rel\" is the source of \"skirt_l0_clamp\""
+      },
+      {
+        "bone": "skirt_l1",
+        "notUnder": "skirt_l1_d",
+        "why": "\"skirt_l1\" is the source of \"skirt_l1_clamp\""
+      },
+      {
+        "bone": "skirt_l2",
+        "notUnder": "skirt_l2_d",
+        "why": "\"skirt_l2\" is the source of \"skirt_l2_clamp\""
+      }
+    ],
+    "axes": [
+      {
+        "name": "face",
+        "through": [
+          "eye_r",
+          "eye_l"
+        ],
+        "bones": [
+          "eye_r",
+          "eye_l",
+          "brow_r",
+          "brow_l",
+          "mouth"
+        ],
+        "tolerance": 2e-06
+      }
+    ],
+    "meshSlots": 12,
+    "meshTriangles": 444
+  }
+}

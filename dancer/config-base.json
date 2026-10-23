@@ -1,0 +1,1240 @@
+{
+  "key": "dancer",
+  "seethrough": {
+    "resolution": 1024,
+    "steps": 30,
+    "seed": 42,
+    "offload": true,
+    "head_box": [
+      545,
+      116,
+      1123,
+      694
+    ]
+  },
+  "assemble": {
+    "rig_scale": 0.5,
+    "plan": [
+      [
+        "hair_back",
+        "head",
+        "back hair"
+      ],
+      [
+        "shins",
+        "full",
+        "legwear"
+      ],
+      [
+        "shoe_l",
+        "full",
+        "footwear"
+      ],
+      [
+        "neck",
+        "head",
+        "neck"
+      ],
+      [
+        "bottomwear",
+        "full",
+        "bottomwear"
+      ],
+      [
+        "topwear",
+        "full",
+        "topwear"
+      ],
+      [
+        "forearm_r",
+        "full",
+        "handwear-r"
+      ],
+      [
+        "forearm_l",
+        "full",
+        "handwear-l"
+      ],
+      [
+        "ear_l",
+        "head",
+        "ears-l"
+      ],
+      [
+        "ear_r",
+        "head",
+        "ears-r"
+      ],
+      [
+        "face",
+        "head",
+        "face"
+      ],
+      [
+        "mouth",
+        "head",
+        "mouth"
+      ],
+      [
+        "brow_r",
+        "head",
+        "eyebrow-r"
+      ],
+      [
+        "brow_l",
+        "head",
+        "eyebrow-l"
+      ],
+      [
+        "eyewhite_r",
+        "head",
+        "eyewhite-r"
+      ],
+      [
+        "eyewhite_l",
+        "head",
+        "eyewhite-l"
+      ],
+      [
+        "iris_r",
+        "head",
+        "irides-r"
+      ],
+      [
+        "iris_l",
+        "head",
+        "irides-l"
+      ],
+      [
+        "lash_r",
+        "head",
+        "eyelash-r"
+      ],
+      [
+        "hairpin",
+        "head",
+        "headwear"
+      ],
+      [
+        "lash_l",
+        "head",
+        "eyelash-l"
+      ],
+      [
+        "hair_front",
+        "head",
+        "front hair"
+      ]
+    ],
+    "extend_below_crop": [
+      {
+        "part": "hair_back",
+        "run": "full",
+        "tag": "back hair"
+      }
+    ],
+    "cuts": [
+      {
+        "from": "forearm_l",
+        "into": "sleevefront_l",
+        "polygon": [
+          [
+            445,
+            312
+          ],
+          [
+            456,
+            318
+          ],
+          [
+            459,
+            335
+          ],
+          [
+            469,
+            343
+          ],
+          [
+            469,
+            376
+          ],
+          [
+            465,
+            398
+          ],
+          [
+            469,
+            420
+          ],
+          [
+            472,
+            440
+          ],
+          [
+            476,
+            462
+          ],
+          [
+            445,
+            462
+          ]
+        ],
+        "draw": {
+          "before": "forearm_r"
+        },
+        "overlap": 0,
+        "note": "the strip of handwear-l left of the jacket side seam (over the chest, holding half the badge); it rides chest so the badge stays on the chest when the arm moves, and is drawn right after topwear, behind both arms, as the torso it is"
+      },
+      {
+        "from": "forearm_r",
+        "into": "upperarm_r",
+        "polygon": [
+          [
+            180,
+            397
+          ],
+          [
+            432,
+            519
+          ],
+          [
+            616,
+            141
+          ],
+          [
+            364,
+            19
+          ]
+        ],
+        "draw": {
+          "before": "forearm_l"
+        },
+        "overlap": 0,
+        "under": "under/elbow_r.png",
+        "note": "cut through the right elbow, perpendicular to the bisector of upper arm and forearm; under = the sleeve's own pixels in a disc of the arm's half-width + 3 px about the elbow, left in forearm_r as the joint cap"
+      },
+      {
+        "from": "forearm_l",
+        "into": "upperarm_l",
+        "polygon": [
+          [
+            403,
+            530
+          ],
+          [
+            655,
+            409
+          ],
+          [
+            475,
+            30
+          ],
+          [
+            222,
+            150
+          ],
+          [
+            403,
+            530
+          ],
+          [
+            445,
+            462
+          ],
+          [
+            476,
+            462
+          ],
+          [
+            472,
+            440
+          ],
+          [
+            469,
+            420
+          ],
+          [
+            465,
+            398
+          ],
+          [
+            469,
+            376
+          ],
+          [
+            469,
+            343
+          ],
+          [
+            459,
+            335
+          ],
+          [
+            456,
+            318
+          ],
+          [
+            445,
+            312
+          ],
+          [
+            445,
+            462
+          ]
+        ],
+        "draw": {
+          "before": "ear_l"
+        },
+        "overlap": 0,
+        "under": "under/elbow_l.png",
+        "note": "as upperarm_r, on the left elbow"
+      },
+      {
+        "from": "shins",
+        "into": "thigh_r",
+        "polygon": [
+          [
+            300,
+            560
+          ],
+          [
+            417,
+            560
+          ],
+          [
+            417,
+            825
+          ],
+          [
+            300,
+            825
+          ]
+        ],
+        "draw": {
+          "before": "shoe_l"
+        },
+        "overlap": 0,
+        "under": "under/knee_r.png",
+        "note": "rows above the right knee (825), left of the gap between the legs (x 417); under = knee cap disc left in shins"
+      },
+      {
+        "from": "shins",
+        "into": "thigh_l",
+        "polygon": [
+          [
+            417,
+            560
+          ],
+          [
+            540,
+            560
+          ],
+          [
+            540,
+            825
+          ],
+          [
+            417,
+            825
+          ]
+        ],
+        "draw": {
+          "before": "shoe_l"
+        },
+        "overlap": 0,
+        "under": "under/knee_l.png",
+        "note": "as thigh_r, on the left leg"
+      },
+      {
+        "from": "shoe_l",
+        "into": "shoe_r",
+        "polygon": [
+          [
+            330,
+            1045
+          ],
+          [
+            417,
+            1045
+          ],
+          [
+            417,
+            1170
+          ],
+          [
+            330,
+            1170
+          ]
+        ],
+        "draw": {
+          "before": "neck"
+        },
+        "overlap": 0,
+        "note": "the right shoe; the two shoes' art does not touch (columns 403-428 are empty)"
+      }
+    ]
+  },
+  "bones": [
+    {
+      "name": "ground",
+      "parent": "root",
+      "at": [
+        416,
+        1160
+      ],
+      "note": "level reference for the feet: world rotation 0, keyed by nothing; foot_level copies its world rotation onto foot_r and foot_l"
+    },
+    {
+      "name": "hip",
+      "parent": "root",
+      "at": [
+        416,
+        543
+      ]
+    },
+    {
+      "name": "chest",
+      "parent": "hip",
+      "at": [
+        416,
+        443
+      ]
+    },
+    {
+      "name": "neck",
+      "parent": "chest",
+      "at": [
+        416,
+        342
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "neck",
+      "at": [
+        418,
+        271
+      ]
+    },
+    {
+      "name": "eye_r",
+      "parent": "head",
+      "at": [
+        388,
+        228
+      ]
+    },
+    {
+      "name": "eye_l",
+      "parent": "head",
+      "at": [
+        447,
+        230
+      ]
+    },
+    {
+      "name": "brow_r",
+      "parent": "head",
+      "at": [
+        394,
+        200
+      ]
+    },
+    {
+      "name": "brow_l",
+      "parent": "head",
+      "at": [
+        444,
+        201
+      ]
+    },
+    {
+      "name": "mouth",
+      "parent": "head",
+      "at": [
+        415,
+        262
+      ]
+    },
+    {
+      "name": "bun",
+      "parent": "head",
+      "at": [
+        418,
+        148
+      ],
+      "tip": [
+        418,
+        257
+      ]
+    },
+    {
+      "chain": "bang_r",
+      "parent": "head",
+      "points": [
+        [
+          394,
+          136
+        ],
+        [
+          382,
+          176
+        ]
+      ],
+      "tip": [
+        373,
+        223
+      ]
+    },
+    {
+      "chain": "bang_c",
+      "parent": "head",
+      "points": [
+        [
+          420,
+          136
+        ],
+        [
+          419,
+          177
+        ]
+      ],
+      "tip": [
+        417,
+        225
+      ]
+    },
+    {
+      "chain": "bang_l",
+      "parent": "head",
+      "points": [
+        [
+          446,
+          142
+        ],
+        [
+          455,
+          181
+        ]
+      ],
+      "tip": [
+        462,
+        226
+      ]
+    },
+    {
+      "name": "hairpin",
+      "parent": "head",
+      "at": [
+        444,
+        121
+      ],
+      "tip": [
+        456,
+        121
+      ]
+    },
+    {
+      "chain": "skirt_r",
+      "parent": "hip",
+      "points": [
+        [
+          387,
+          494
+        ],
+        [
+          380,
+          548
+        ],
+        [
+          373,
+          602
+        ]
+      ],
+      "tip": [
+        366,
+        656
+      ],
+      "note": "moved from the proposal (563..665) to start under the waistband (row 494, where the flare begins) and end at the hem (656), at a quarter, half and three quarters of the skirt width on each row"
+    },
+    {
+      "chain": "skirt_c",
+      "parent": "hip",
+      "points": [
+        [
+          416,
+          494
+        ],
+        [
+          416,
+          548
+        ],
+        [
+          416,
+          602
+        ]
+      ],
+      "tip": [
+        416,
+        656
+      ],
+      "note": "moved from the proposal (563..665) to start under the waistband (row 494, where the flare begins) and end at the hem (656), at a quarter, half and three quarters of the skirt width on each row"
+    },
+    {
+      "chain": "skirt_l",
+      "parent": "hip",
+      "points": [
+        [
+          444,
+          494
+        ],
+        [
+          452,
+          548
+        ],
+        [
+          459,
+          602
+        ]
+      ],
+      "tip": [
+        466,
+        656
+      ],
+      "note": "moved from the proposal (563..665) to start under the waistband (row 494, where the flare begins) and end at the hem (656), at a quarter, half and three quarters of the skirt width on each row"
+    },
+    {
+      "chain": "sleeve_r",
+      "parent": "chest",
+      "points": [
+        [
+          356.1,
+          340.8
+        ],
+        [
+          306.1,
+          457.7
+        ]
+      ],
+      "tip": [
+        242.4,
+        576.4
+      ],
+      "note": "shoulder = RTMPose r_shoulder; elbow = r_elbow moved along the cut line to the centre of the arm art (1.5 px); tip = r_wrist centred across the forearm"
+    },
+    {
+      "chain": "sleeve_l",
+      "parent": "chest",
+      "points": [
+        [
+          476.5,
+          343.7
+        ],
+        [
+          529.0,
+          469.5
+        ]
+      ],
+      "tip": [
+        585.7,
+        583.2
+      ],
+      "note": "shoulder = RTMPose l_shoulder; elbow = l_elbow moved along the cut line to the centre of the arm art (7.3 px); tip = l_wrist centred across the forearm"
+    },
+    {
+      "chain": "leg_r",
+      "parent": "hip",
+      "points": [
+        [
+          370.4,
+          547.2
+        ],
+        [
+          371.6,
+          825
+        ]
+      ],
+      "tip": [
+        365.6,
+        1060.3
+      ],
+      "note": "hip = RTMPose r_hip (under the skirt); knee on row 825 at the centre of the leg art; tip = the ankle centred across the sock"
+    },
+    {
+      "chain": "leg_l",
+      "parent": "hip",
+      "points": [
+        [
+          462.2,
+          538.6
+        ],
+        [
+          461.9,
+          825
+        ]
+      ],
+      "tip": [
+        467.5,
+        1063.2
+      ],
+      "note": "hip = RTMPose l_hip (under the skirt); knee on row 825 at the centre of the leg art; tip = the ankle centred across the sock"
+    },
+    {
+      "name": "foot_r",
+      "parent": "leg_r1",
+      "at": [
+        365.6,
+        1060.3
+      ],
+      "note": "the shoe rides this bone; it sits at the shin tip (the ankle) and foot_level holds it at world rotation 0"
+    },
+    {
+      "name": "foot_l",
+      "parent": "leg_l1",
+      "at": [
+        467.5,
+        1063.2
+      ],
+      "note": "the shoe rides this bone; it sits at the shin tip (the ankle) and foot_level holds it at world rotation 0"
+    }
+  ],
+  "meshes": {
+    "hair_back": {
+      "grid": 29,
+      "r": 6,
+      "segments": [
+        [
+          "head",
+          [
+            418,
+            271
+          ],
+          [
+            418,
+            88
+          ]
+        ],
+        "bun"
+      ]
+    },
+    "hair_front": {
+      "grid": 29,
+      "r": 6,
+      "segments": [
+        [
+          "head",
+          [
+            418,
+            271
+          ],
+          [
+            418,
+            120
+          ]
+        ],
+        "bang_r",
+        "bang_c",
+        "bang_l"
+      ]
+    },
+    "hairpin": {
+      "grid": 29,
+      "r": 3,
+      "segments": [
+        [
+          "hairpin",
+          [
+            444,
+            121
+          ],
+          [
+            456,
+            121
+          ]
+        ],
+        [
+          "hairpin",
+          [
+            375,
+            109
+          ],
+          [
+            444,
+            139
+          ]
+        ]
+      ]
+    },
+    "neck": {
+      "grid": 29,
+      "r": 3,
+      "segments": [
+        [
+          "chest",
+          [
+            416,
+            360
+          ],
+          [
+            416,
+            443
+          ]
+        ],
+        [
+          "head",
+          [
+            418,
+            271
+          ],
+          [
+            418,
+            221
+          ]
+        ]
+      ]
+    },
+    "topwear": {
+      "grid": 29,
+      "r": 7,
+      "segments": [
+        [
+          "chest",
+          [
+            416,
+            280
+          ],
+          [
+            416,
+            523
+          ]
+        ],
+        [
+          "hip",
+          [
+            416,
+            523
+          ],
+          [
+            416,
+            643
+          ]
+        ]
+      ]
+    },
+    "bottomwear": {
+      "grid": 29,
+      "r": 8,
+      "segments": [
+        [
+          "hip",
+          [
+            355,
+            488
+          ],
+          [
+            475,
+            488
+          ]
+        ],
+        "skirt_r",
+        "skirt_c",
+        "skirt_l"
+      ],
+      "note": "hip segment moved onto the waistband (row 488), above where the skirt chains start"
+    },
+    "shins": {
+      "grid": 12,
+      "r": 4,
+      "segments": [
+        [
+          "leg_r1",
+          [
+            371.6,
+            825
+          ],
+          [
+            365.6,
+            1060.3
+          ]
+        ],
+        [
+          "leg_l1",
+          [
+            461.9,
+            825
+          ],
+          [
+            467.5,
+            1063.2
+          ]
+        ]
+      ],
+      "influences": {
+        "maxInfluences": 1
+      },
+      "note": "both shins are one See-through layer (legwear), and only a cut's from part can take an under image, so the two shins stay one part with both knee caps; maxInfluences 1 gives every vertex weight 1 on its own shin bone, so each shin is rigid"
+    }
+  },
+  "regions": {
+    "eyewhite_r": "eye_r",
+    "eyewhite_l": "eye_l",
+    "ear_l": "head",
+    "ear_r": "head",
+    "face": "head",
+    "mouth": "mouth",
+    "brow_r": "brow_r",
+    "brow_l": "brow_l",
+    "iris_r": "eye_r",
+    "iris_l": "eye_l",
+    "lash_r": "eye_r",
+    "lash_l": "eye_l",
+    "sleevefront_l": "chest",
+    "upperarm_r": "sleeve_r0",
+    "forearm_r": "sleeve_r1",
+    "upperarm_l": "sleeve_l0",
+    "forearm_l": "sleeve_l1",
+    "thigh_r": "leg_r0",
+    "thigh_l": "leg_l0",
+    "shoe_r": "foot_r",
+    "shoe_l": "foot_l"
+  },
+  "motion": {
+    "duration": 3.3333333333333335,
+    "tracks": [
+      {
+        "bone": "chest",
+        "prop": "translatey",
+        "amp": 2.51,
+        "period": 3.3333333333333335,
+        "phase": 0,
+        "base": 2.51
+      },
+      {
+        "bone": "chest",
+        "prop": "scalex",
+        "amp": 0.004,
+        "period": 3.3333333333333335,
+        "phase": 0,
+        "base": 1.004
+      },
+      {
+        "bone": "head",
+        "prop": "rotate",
+        "amp": 0.9,
+        "period": 3.3333333333333335,
+        "phase": 0.12
+      },
+      {
+        "bone": "neck",
+        "prop": "rotate",
+        "amp": 0.35,
+        "period": 3.3333333333333335,
+        "phase": 0.08
+      },
+      {
+        "bone": "bun",
+        "prop": "rotate",
+        "amp": 0.8,
+        "period": 3.3333333333333335,
+        "phase": 0.2
+      },
+      {
+        "chain": "bang_r",
+        "amps": [
+          1,
+          2.2
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.18,
+        "lag": 0.1
+      },
+      {
+        "chain": "bang_c",
+        "amps": [
+          0.8,
+          1.76
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.18,
+        "lag": 0.1
+      },
+      {
+        "chain": "bang_l",
+        "amps": [
+          1,
+          2.2
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.18,
+        "lag": 0.1
+      },
+      {
+        "chain": "sleeve_r",
+        "amps": [
+          0.5,
+          0.9
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.22,
+        "lag": 0.08
+      },
+      {
+        "chain": "sleeve_l",
+        "amps": [
+          -0.5,
+          -0.9
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.27,
+        "lag": 0.08
+      },
+      {
+        "chain": "skirt_r",
+        "amps": [
+          0.15,
+          0.35,
+          0.7
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.3,
+        "lag": 0.07
+      },
+      {
+        "chain": "skirt_c",
+        "amps": [
+          0.15,
+          0.35,
+          0.7
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.34,
+        "lag": 0.07
+      },
+      {
+        "chain": "skirt_l",
+        "amps": [
+          0.15,
+          0.35,
+          0.7
+        ],
+        "period": 3.3333333333333335,
+        "phase": 0.38,
+        "lag": 0.07
+      }
+    ],
+    "blink": {
+      "t": 2.3,
+      "eyes": [
+        "eye_r",
+        "eye_l"
+      ],
+      "brows": [
+        "brow_r",
+        "brow_l"
+      ],
+      "squash": 0.12,
+      "brow_drop": 1.2
+    },
+    "animations_from": "stress.json"
+  },
+  "constraints": [
+    {
+      "type": "transform",
+      "name": "foot_level",
+      "source": "ground",
+      "bones": [
+        "foot_r",
+        "foot_l"
+      ],
+      "properties": {
+        "rotate": {
+          "to": {
+            "rotate": {}
+          }
+        }
+      },
+      "mixRotate": 1,
+      "note": "world-space rotate copy: each foot takes ground's world rotation (0), so the shoe stays level whatever the shin does"
+    },
+    {
+      "type": "transform",
+      "name": "skirt_r_follow",
+      "source": "leg_r0",
+      "bones": [
+        "skirt_r0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -89.7525,
+          "to": {
+            "rotate": {
+              "scale": 0.5
+            }
+          }
+        }
+      },
+      "mixRotate": 1,
+      "note": "the thigh pushes the skirt: skirt_r0 turns by 0.5 of leg_r0's turn from its setup rotation (-89.7525, read from the built skeleton.json); without it the thigh's hidden top (See-through's flat inpaint) shows beside the skirt from ~15 degrees of swing"
+    },
+    {
+      "type": "transform",
+      "name": "skirt_l_follow",
+      "source": "leg_l0",
+      "bones": [
+        "skirt_l0"
+      ],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "properties": {
+        "rotate": {
+          "offset": -90.06002,
+          "to": {
+            "rotate": {
+              "scale": 0.5
+            }
+          }
+        }
+      },
+      "mixRotate": 1,
+      "note": "the thigh pushes the skirt: skirt_l0 turns by 0.5 of leg_l0's turn from its setup rotation (-90.06002, read from the built skeleton.json); without it the thigh's hidden top (See-through's flat inpaint) shows beside the skirt from ~15 degrees of swing"
+    },
+    {
+      "type": "physics",
+      "name": "skirt_r0_phys",
+      "bone": "skirt_r0",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 250,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1,
+      "note": "calmer than the task-05 reference (0.5 / 90-76.5-65 / 0.85): on the sway clip (hip +-8 deg, a key every 0.25 s) the chain tip leaves the rigid pose by at most 11.6 px / 9.4 deg against 19.1 px / 12.6 deg (work/physmeasure.py); untuned for the dance"
+    },
+    {
+      "type": "physics",
+      "name": "skirt_r1_phys",
+      "bone": "skirt_r1",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 215,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1,
+      "note": "calmer than the task-05 reference (0.5 / 90-76.5-65 / 0.85): on the sway clip (hip +-8 deg, a key every 0.25 s) the chain tip leaves the rigid pose by at most 11.6 px / 9.4 deg against 19.1 px / 12.6 deg (work/physmeasure.py); untuned for the dance"
+    },
+    {
+      "type": "physics",
+      "name": "skirt_r2_phys",
+      "bone": "skirt_r2",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 180,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1,
+      "note": "calmer than the task-05 reference (0.5 / 90-76.5-65 / 0.85): on the sway clip (hip +-8 deg, a key every 0.25 s) the chain tip leaves the rigid pose by at most 11.6 px / 9.4 deg against 19.1 px / 12.6 deg (work/physmeasure.py); untuned for the dance"
+    },
+    {
+      "type": "physics",
+      "name": "skirt_c0_phys",
+      "bone": "skirt_c0",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 250,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1,
+      "note": "calmer than the task-05 reference (0.5 / 90-76.5-65 / 0.85): on the sway clip (hip +-8 deg, a key every 0.25 s) the chain tip leaves the rigid pose by at most 11.6 px / 9.4 deg against 19.1 px / 12.6 deg (work/physmeasure.py); untuned for the dance"
+    },
+    {
+      "type": "physics",
+      "name": "skirt_c1_phys",
+      "bone": "skirt_c1",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 215,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1,
+      "note": "calmer than the task-05 reference (0.5 / 90-76.5-65 / 0.85): on the sway clip (hip +-8 deg, a key every 0.25 s) the chain tip leaves the rigid pose by at most 11.6 px / 9.4 deg against 19.1 px / 12.6 deg (work/physmeasure.py); untuned for the dance"
+    },
+    {
+      "type": "physics",
+      "name": "skirt_c2_phys",
+      "bone": "skirt_c2",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 180,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1,
+      "note": "calmer than the task-05 reference (0.5 / 90-76.5-65 / 0.85): on the sway clip (hip +-8 deg, a key every 0.25 s) the chain tip leaves the rigid pose by at most 11.6 px / 9.4 deg against 19.1 px / 12.6 deg (work/physmeasure.py); untuned for the dance"
+    },
+    {
+      "type": "physics",
+      "name": "skirt_l0_phys",
+      "bone": "skirt_l0",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 250,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1,
+      "note": "calmer than the task-05 reference (0.5 / 90-76.5-65 / 0.85): on the sway clip (hip +-8 deg, a key every 0.25 s) the chain tip leaves the rigid pose by at most 11.6 px / 9.4 deg against 19.1 px / 12.6 deg (work/physmeasure.py); untuned for the dance"
+    },
+    {
+      "type": "physics",
+      "name": "skirt_l1_phys",
+      "bone": "skirt_l1",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 215,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1,
+      "note": "calmer than the task-05 reference (0.5 / 90-76.5-65 / 0.85): on the sway clip (hip +-8 deg, a key every 0.25 s) the chain tip leaves the rigid pose by at most 11.6 px / 9.4 deg against 19.1 px / 12.6 deg (work/physmeasure.py); untuned for the dance"
+    },
+    {
+      "type": "physics",
+      "name": "skirt_l2_phys",
+      "bone": "skirt_l2",
+      "rotate": 1,
+      "inertia": 0.15,
+      "strength": 180,
+      "damping": 0.93,
+      "mass": 1,
+      "mix": 1,
+      "note": "calmer than the task-05 reference (0.5 / 90-76.5-65 / 0.85): on the sway clip (hip +-8 deg, a key every 0.25 s) the chain tip leaves the rigid pose by at most 11.6 px / 9.4 deg against 19.1 px / 12.6 deg (work/physmeasure.py); untuned for the dance"
+    }
+  ],
+  "turn": {
+    "pivot": 0.738005,
+    "depths": {
+      "hair_back": 0.9140625,
+      "shoe_l": 0.83984375,
+      "shoe_r": 0.83984375,
+      "neck": 0.6796875,
+      "bottomwear": 0.7578125,
+      "topwear": 0.69921875,
+      "sleevefront_l": 0.80859375,
+      "ear_l": 0.44140625,
+      "ear_r": 0.42578125,
+      "face": 0.423828125,
+      "mouth": 0.422828125,
+      "brow_r": 0.422828125,
+      "brow_l": 0.422828125,
+      "eyewhite_r": 0.422828125,
+      "eyewhite_l": 0.422828125,
+      "iris_r": 0.422828125,
+      "iris_l": 0.422828125,
+      "lash_r": 0.422828125,
+      "hairpin": 0.1875,
+      "lash_l": 0.422828125,
+      "hair_front": 0.091796875
+    }
+  }
+}

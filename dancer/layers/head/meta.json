@@ -1,0 +1,56 @@
+{
+  "prompt_id": "6fa9b2cb-917c-4edd-9ed9-30915bc89801",
+  "image": "inputs/st_input_head.png",
+  "elapsed_s": 167.8,
+  "vram_free_before_gb": {
+    "cuda:0": 14.59,
+    "cuda:1": 10.8
+  },
+  "vram_free_low_gb": {
+    "cuda:0": 5.08,
+    "cuda:1": 10.8
+  },
+  "prefix": "spine_parts_05084fdf",
+  "seed": 42,
+  "resolution": 1024,
+  "steps": 30,
+  "quant": "none",
+  "offload": true,
+  "lama": false,
+  "layer_count": 29,
+  "layer_names": [
+    "neckwear",
+    "bottomwear",
+    "legwear",
+    "footwear",
+    "tail",
+    "wings",
+    "objects",
+    "eyewear",
+    "earwear",
+    "handwear-r",
+    "handwear-l",
+    "back hair",
+    "neck",
+    "topwear",
+    "ears-l",
+    "ears-r",
+    "face",
+    "mouth",
+    "nose",
+    "eyebrow-r",
+    "eyebrow-l",
+    "eyewhite-r",
+    "eyewhite-l",
+    "irides-r",
+    "irides-l",
+    "eyelash-r",
+    "headwear",
+    "eyelash-l",
+    "front hair"
+  ],
+  "canvas": [
+    1024,
+    1024
+  ]
+}
