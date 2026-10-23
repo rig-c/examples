@@ -1,0 +1,29 @@
+## 0 versions
+  rigc     bun $RIGC_ROOT/cli.ts
+  0.21.0
+  editor   <Spine editor binary>
+           [licence-holder line withheld]
+           Complete.
+
+## 1 import  (json -> project)
+  exit=0
+
+## 2 export  (project -> json, default settings)
+  exit=0
+
+## 3 validate --profile spine  (the export)
+  exit=0
+  rigc: green
+
+## 4 diff  (export against the build)
+  exit=0
+  rigc: wrote out/packed/roundtrip/diff.json
+    40 measure(s), every one a perfect match
+
+## 5 render both @12fps, check the export against the build's own frames
+  exit=0
+  rigc: wrote out/packed/roundtrip/check.json
+    turn         13 frame(s)  mean MAE 0.0000  worst 0.0000  worst drift 11.188px on small @ f1
+
+## 6 what the editor rewrote
+  skeleton.spine: build "4.3.13" -> export "4.3.26"

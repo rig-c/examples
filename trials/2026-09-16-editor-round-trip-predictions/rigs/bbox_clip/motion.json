@@ -1,0 +1,26 @@
+{
+  "spec": "rigc-motion/1",
+  "archetype": "r6bbox",
+  "cut": "r6bbox",
+
+  "easings": { "smooth": [0.25, 0, 0.75, 1] },
+
+  "animations": {
+    "wobble": {
+      "duration": 1,
+      "loop": true,
+      "note": "One bone rotate, so the trip has something to render and check. What this rig measures is structural, not visual.",
+      "tracks": [
+        {
+          "bone": "plate",
+          "property": "rotate",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 0.5, "v": [12], "ease": "smooth" },
+            { "t": 1, "v": [0] }
+          ]
+        }
+      ]
+    }
+  }
+}

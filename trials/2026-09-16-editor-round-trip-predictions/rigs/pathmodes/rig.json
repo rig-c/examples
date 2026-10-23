@@ -1,0 +1,63 @@
+{
+  "spec": "rigc-rig/1",
+  "name": "r6path",
+  "note": "Round trip 6 probe: the path modes and path-attachment flags trip 1 did not carry. gallery/ride round-tripped positionMode percent, spacingMode percent, rotateMode tangent, an open path and a position timeline; this rig varies every one of those and adds spacing and mix timelines. Fixed-point control: the position timeline and the region attachment on slot tag.",
+  "images": "parts",
+  "skeleton": { "x": 0, "y": 0, "width": 400, "height": 320 },
+
+  "bones": [
+    { "name": "root" },
+    { "name": "rail", "parent": "root", "x": 0, "y": 0 },
+    { "name": "link_a", "parent": "root", "x": -40, "y": 0, "length": 36 },
+    { "name": "link_b", "parent": "link_a", "x": 36, "y": 0, "length": 28 },
+    { "name": "tag", "parent": "root", "x": 0, "y": 120 }
+  ],
+
+  "slots": [
+    { "name": "track", "bone": "rail", "attachment": "track" },
+    { "name": "link_a", "bone": "link_a", "attachment": "link_a" },
+    { "name": "link_b", "bone": "link_b", "attachment": "link_b" },
+    { "name": "tag", "bone": "tag", "attachment": "tag" }
+  ],
+
+  "skins": {
+    "default": {
+      "track": {
+        "track": {
+          "type": "path",
+          "closed": true,
+          "constantSpeed": false,
+          "vertexCount": 12,
+          "vertices": [
+            -120, -40, -120, 0, -120, 40,
+            -40, 80, 0, 80, 40, 80,
+            120, 40, 120, 0, 120, -40,
+            40, -80, 0, -80, -40, -80
+          ],
+          "color": "ff6b3cff"
+        }
+      },
+      "link_a": { "link_a": { "image": "link_a.png" } },
+      "link_b": { "link_b": { "image": "link_b.png" } },
+      "tag": { "tag": { "image": "tag.png" } }
+    }
+  },
+
+  "constraints": [
+    {
+      "name": "ride",
+      "type": "path",
+      "bones": ["link_a", "link_b"],
+      "slot": "track",
+      "positionMode": "fixed",
+      "spacingMode": "proportional",
+      "rotateMode": "chainScale",
+      "rotation": 12.5,
+      "position": 20.25,
+      "spacing": 0.375,
+      "mixRotate": 0.5625,
+      "mixX": 0.4375,
+      "mixY": 0.21875
+    }
+  ]
+}

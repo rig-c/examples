@@ -1,0 +1,34 @@
+PA-08 — what I expect to find, written BEFORE opening the export.
+
+Known already: PA-07 is CONFIRMED, so the `path.ride.mix` timeline is PRESENT in
+the export. PA-08 probes key 0 of it and came back REFUTED, so the key's contents
+moved.
+
+The build key 0 states three channels (mixRotate 0.5625, mixX 0.4375,
+mixY 0.21875) plus a bezier curve of 12 numbers, because a path mix key is one
+timeline with three curve channels.
+
+P1 (most likely, ~55%): the editor kept mixRotate and mixX and DROPPED mixY.
+    Reason: the format documents mixY as defaulting to the same key's mixX, and
+    the editor's exporter drops fields equal to their default. ⚠️ If that is the
+    mechanism it is still a REAL LOSS here, because this rig's mixY (0.21875) is
+    NOT equal to its mixX (0.4375) — so an elision would be writing a value the
+    reader will resolve to something else. That is #540's shape: a component
+    that vanishes while a sibling survives.
+
+P2 (~25%): the whole key came back with only the curve rewritten — the #369
+    shape. Ruled unlikely because key 0 and key 1 differ on every channel, so
+    the segment is not a hold.
+
+P3 (~15%): the editor's path-constraint model holds fewer than three mixes (as
+    its physics model holds only x and y, #540), so mixY and possibly mixX are
+    both gone.
+
+P4 (~5%): a field-spelling difference — the editor writes the three channels
+    under names SkeletonJson does not read, which would be a silent break.
+
+Import-versus-export: I expect the answer to be EXPORT-side if P1 is right (an
+exporter eliding a default), and IMPORT-side if P3 is right (a model that cannot
+hold the value). The inflated project file decides it: 0.21875 is float32
+0x3E600000 and 0.4375 is 0x3EE00000, and each occurs exactly once in the build's
+mix key.

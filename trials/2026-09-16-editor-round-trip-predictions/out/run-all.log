@@ -1,0 +1,1255 @@
+
+==================== bbox_clip ====================
+rigc build rigs/bbox_clip/rig.json
+  ..    rig    rigs/bbox_clip/rig.json
+  ..    motion rigs/bbox_clip/motion.json
+  ..    2 part page(s):
+  ..      base                     96x72  <- ../../../rigs/bbox_clip/parts/base.png
+  ..      mark                     48x40  <- ../../../rigs/bbox_clip/parts/mark.png
+  ..    validate (spine-core round trip + machine assertions, profile spine)
+  ..    profile spine — 7 renderer-policy and 8 archetype assertion(s) do not apply
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A33_VERTEX_ATTACHMENT_GEOMETRY
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A34_CONSTRAINT_TIMELINE_TARGETS: no animation carries a constraint timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A41_PHYSICS_SURVIVES_EDITOR_ROUND_TRIP: the rig "r6bbox" does not declare `invariants.editorRoundTrip`, so nothing here is gated against the Spine editor. What is here: no physics constraint here drives a component it would discard
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile "spine"
+  PROF  A11_NO_CLIPPING_ATTACHMENTS: renderer rule, not in profile "spine"
+  PROF  A13_MESH_BUDGET: renderer rule, not in profile "spine"
+  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile "spine"
+  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile "spine"
+  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile "spine"
+  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile "spine"
+  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile "spine"
+  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile "spine"
+  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile "spine"
+  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile "spine"
+  PROF  A27_REGION_NAME_MATCHES_PAGE_FILENAME: renderer rule, not in profile "spine"
+  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile "spine"
+  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile "spine"
+  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile "spine"
+  ..    pages=2 regions=2 bones=3 slots=4 animations=1 version=4.3.13 regionAttachments=2 meshAttachments=0 physicsConstraints=0 rig=r6bbox profile=spine
+  ..    copy-images: 2 page(s) copied into out/bbox_clip/build
+  ..      base                     <- base.png
+  ..      mark                     <- mark.png
+rigc: wrote out/bbox_clip/build/skeleton.json
+rigc: wrote out/bbox_clip/build/skeleton.atlas
+## 0 versions
+  rigc     bun $RIGC_ROOT/cli.ts
+  0.21.0
+  editor   <Spine editor binary>
+           [licence-holder line withheld]
+           Complete.
+
+## 1 import  (json -> project)
+  exit=0
+
+## 2 export  (project -> json, default settings)
+  exit=0
+
+## 3 validate --profile spine  (the export)
+  exit=0
+  rigc: green
+
+## 4 diff  (export against the build)
+  exit=0
+  rigc: wrote out/bbox_clip/roundtrip/diff.json
+    40 measure(s), every one a perfect match
+
+## 5 render both @12fps, check the export against the build's own frames
+  exit=0
+  rigc: wrote out/bbox_clip/roundtrip/check.json
+    wobble       13 frame(s)  mean MAE 0.0000  worst 0.0000  worst drift 0.104px on base @ f5
+
+## 6 what the editor rewrote
+  skeleton.spine: build "4.3.13" -> export "4.3.26"
+
+log: out/bbox_clip/roundtrip/roundtrip.log
+## bbox_clip   10 row(s)
+  CONFIRMED BBOX-C1    the slots array comes back element for element [control]
+      basis=inferred  predicted(kept)=["base","mask","mark","hit"]
+      observed=["base","mask","mark","hit"]
+  CONFIRMED BBOX-C2    the region attachment on the control slot keeps its measured width [control]
+      basis=inferred  predicted(kept)=96
+      observed=96
+  CONFIRMED BBOX-01    does a boundingbox attachment come back at all
+      basis=doc  predicted(kept)="boundingbox"
+      observed="boundingbox"
+  CONFIRMED BBOX-02    does its polygon come back unchanged
+      basis=NO BASIS  predicted(kept)=[-33,-21,33,-21,33,21,0,37,-33,21]
+      observed=[-33,-21,33,-21,33,21,0,37,-33,21]
+  CONFIRMED BBOX-03    does its vertexCount come back
+      basis=NO BASIS  predicted(kept)=5
+      observed=5
+  REFUTED   BBOX-04    does the bounding box's editor colour survive an export made with the default settings
+      basis=doc  predicted(dropped)=(absent)
+      observed="3cff6bff"
+      what came back is kept
+  CONFIRMED BBOX-05    does a clipping attachment come back at all
+      basis=doc  predicted(kept)="clipping"
+      observed="clipping"
+  CONFIRMED BBOX-06    does the clipping attachment's end slot come back
+      basis=doc  predicted(kept)="mark"
+      observed="mark"
+  REFUTED   BBOX-07    does the clipping attachment's editor colour survive
+      basis=doc  predicted(dropped)=(absent)
+      observed="ff3c6bff"
+      what came back is kept
+  CONFIRMED BBOX-08    does a clipping attachment's convex flag survive
+      basis=doc  predicted(kept)=true
+      observed=true
+run-all.sh: bbox_clip has rows that are not CONFIRMED -- that is a finding, not an error
+
+==================== xform ====================
+rigc build rigs/xform/rig.json
+  ..    rig    rigs/xform/rig.json
+  ..    motion rigs/xform/motion.json
+  ..    3 part page(s):
+  ..      src                      64x56  <- ../../../rigs/xform/parts/src.png
+  ..      dst                      64x56  <- ../../../rigs/xform/parts/dst.png
+  ..      tag                      40x36  <- ../../../rigs/xform/parts/tag.png
+  ..    validate (spine-core round trip + machine assertions, profile spine)
+  ..    profile spine — 7 renderer-policy and 8 archetype assertion(s) do not apply
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A34_CONSTRAINT_TIMELINE_TARGETS
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path
+  SKIP  A41_PHYSICS_SURVIVES_EDITOR_ROUND_TRIP: the rig "r6xform" does not declare `invariants.editorRoundTrip`, so nothing here is gated against the Spine editor. What is here: no physics constraint here drives a component it would discard
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile "spine"
+  PROF  A11_NO_CLIPPING_ATTACHMENTS: renderer rule, not in profile "spine"
+  PROF  A13_MESH_BUDGET: renderer rule, not in profile "spine"
+  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile "spine"
+  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile "spine"
+  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile "spine"
+  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile "spine"
+  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile "spine"
+  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile "spine"
+  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile "spine"
+  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile "spine"
+  PROF  A27_REGION_NAME_MATCHES_PAGE_FILENAME: renderer rule, not in profile "spine"
+  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile "spine"
+  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile "spine"
+  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile "spine"
+  ..    pages=3 regions=3 bones=4 slots=3 animations=1 version=4.3.13 regionAttachments=3 meshAttachments=0 physicsConstraints=1 rig=r6xform profile=spine
+  ..    copy-images: 3 page(s) copied into out/xform/build
+  ..      src                      <- src.png
+  ..      dst                      <- dst.png
+  ..      tag                      <- tag.png
+rigc: wrote out/xform/build/skeleton.json
+rigc: wrote out/xform/build/skeleton.atlas
+## 0 versions
+  rigc     bun $RIGC_ROOT/cli.ts
+  0.21.0
+  editor   <Spine editor binary>
+           [licence-holder line withheld]
+           Complete.
+
+## 1 import  (json -> project)
+  exit=0
+
+## 2 export  (project -> json, default settings)
+  exit=0
+
+## 3 validate --profile spine  (the export)
+  exit=0
+  rigc: green
+
+## 4 diff  (export against the build)
+  exit=0
+  rigc: wrote out/xform/roundtrip/diff.json
+    40 measure(s), every one a perfect match
+
+## 5 render both @12fps, check the export against the build's own frames
+  exit=0
+  rigc: wrote out/xform/roundtrip/check.json
+    swing        13 frame(s)  mean MAE 0.0000  worst 0.0000  worst drift 0.143px on tag @ f0
+
+## 6 what the editor rewrote
+  skeleton.spine: build "4.3.13" -> export "4.3.26"
+
+log: out/xform/roundtrip/roundtrip.log
+## xform   11 row(s)
+  CONFIRMED XF-C1      the physics constraint's strength returns exactly [control]
+      basis=inferred  predicted(kept)=55
+      observed=55
+  CONFIRMED XF-C2      the physics constraint's x component survives, as it did in #540 [control]
+      basis=inferred  predicted(kept)=1
+      observed=1
+  CONFIRMED XF-01      does a transform constraint come back at all
+      basis=doc  predicted(kept)="transform"
+      observed="transform"
+  CONFIRMED XF-02      does 4.3's source + properties model come back unchanged
+      basis=NO BASIS  predicted(kept)={"rotate":{"offset":3.25,"to":{"rotate":{"offset":7.5,"max":100,"scale":0.5}}},"x":{"to":{"y"...
+      observed={"rotate":{"offset":3.25,"to":{"rotate":{"offset":7.5,"max":100,"scale":0.5}}},"x":{"to":{"y"...
+  CONFIRMED XF-03      does the source bone reference come back
+      basis=doc  predicted(kept)="src"
+      observed="src"
+  CONFIRMED XF-04      does a non-default boolean flag survive (additive)
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED XF-05      and clamp
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED XF-06      and localSource
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED XF-07      does a mix the constraint's properties map actually reads survive
+      basis=NO BASIS  predicted(kept)=0.8125
+      observed=0.8125
+  CONFIRMED XF-08      does the transform timeline survive at all
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"mixRotate":0.5625,"mixY":0.03125},{"time":1,"mixRotate":0.75,"mixY":0.15625}]
+  CONFIRMED XF-09      and does its first key still carry the mixRotate it was given
+      basis=NO BASIS  predicted(kept)=0.5625
+      observed=0.5625
+
+==================== shear ====================
+rigc build rigs/shear/rig.json
+  ..    rig    rigs/shear/rig.json
+  ..    motion rigs/shear/motion.json
+  ..    4 part page(s):
+  ..      pin                      48x48  <- ../../../rigs/shear/parts/pin.png
+  ..      lean                     56x64  <- ../../../rigs/shear/parts/lean.png
+  ..      tip                      40x40  <- ../../../rigs/shear/parts/tip.png
+  ..      side                     44x52  <- ../../../rigs/shear/parts/side.png
+  ..    validate (spine-core round trip + machine assertions, profile spine)
+  ..    profile spine — 7 renderer-policy and 8 archetype assertion(s) do not apply
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A34_CONSTRAINT_TIMELINE_TARGETS: no animation carries a constraint timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path
+  SKIP  A41_PHYSICS_SURVIVES_EDITOR_ROUND_TRIP: the rig "r6shear" does not declare `invariants.editorRoundTrip`, so nothing here is gated against the Spine editor. What is here: no physics constraint here drives a component it would discard
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile "spine"
+  PROF  A11_NO_CLIPPING_ATTACHMENTS: renderer rule, not in profile "spine"
+  PROF  A13_MESH_BUDGET: renderer rule, not in profile "spine"
+  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile "spine"
+  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile "spine"
+  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile "spine"
+  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile "spine"
+  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile "spine"
+  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile "spine"
+  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile "spine"
+  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile "spine"
+  PROF  A27_REGION_NAME_MATCHES_PAGE_FILENAME: renderer rule, not in profile "spine"
+  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile "spine"
+  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile "spine"
+  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile "spine"
+  ..    pages=4 regions=4 bones=5 slots=4 animations=1 version=4.3.13 regionAttachments=4 meshAttachments=0 physicsConstraints=0 rig=r6shear profile=spine
+  ..    copy-images: 4 page(s) copied into out/shear/build
+  ..      pin                      <- pin.png
+  ..      lean                     <- lean.png
+  ..      tip                      <- tip.png
+  ..      side                     <- side.png
+rigc: wrote out/shear/build/skeleton.json
+rigc: wrote out/shear/build/skeleton.atlas
+## 0 versions
+  rigc     bun $RIGC_ROOT/cli.ts
+  0.21.0
+  editor   <Spine editor binary>
+           [licence-holder line withheld]
+           Complete.
+
+## 1 import  (json -> project)
+  exit=0
+
+## 2 export  (project -> json, default settings)
+  exit=0
+
+## 3 validate --profile spine  (the export)
+  exit=0
+  rigc: green
+
+## 4 diff  (export against the build)
+  exit=0
+  rigc: wrote out/shear/roundtrip/diff.json
+    40 measure(s), every one a perfect match
+
+## 5 render both @12fps, check the export against the build's own frames
+  exit=0
+  rigc: wrote out/shear/roundtrip/check.json
+    skew         13 frame(s)  mean MAE 0.0000  worst 0.0000  worst drift 0.293px on tip @ f1
+
+## 6 what the editor rewrote
+  skeleton.spine: build "4.3.13" -> export "4.3.26"
+
+log: out/shear/roundtrip/roundtrip.log
+## shear   10 row(s)
+  CONFIRMED SH-C1      a rotate timeline survives, as it did on six rigs in pass 1 [control]
+      basis=inferred  predicted(present)="(any value)"
+      observed=[{"curve":[0.125,0,0.375,15]},{"time":0.5,"value":15,"curve":[0.625,15,0.875,0]},{"time":1}]
+  CONFIRMED SH-01      does a paired shear timeline survive
+      basis=doc  predicted(present)="(any value)"
+      observed=[{"curve":[0.125,0,0.375,12.5,0.125,0,0.375,-6.25]},{"time":0.5,"x":12.5,"y":-6.25,"curve":[0...
+  CONFIRMED SH-02      and does its middle key keep both channels
+      basis=NO BASIS  predicted(kept)={"time":0.5,"x":12.5,"y":-6.25,"curve":[0.625,12.5,0.875,0,0.625,-6.25,0.875,0]}
+      observed={"time":0.5,"x":12.5,"y":-6.25,"curve":[0.625,12.5,0.875,0,0.625,-6.25,0.875,0]}
+  CONFIRMED SH-03      does a single-axis shearx timeline survive
+      basis=doc  predicted(present)="(any value)"
+      observed=[{"curve":[0.125,0,0.375,18.75]},{"time":0.5,"value":18.75,"curve":[0.625,18.75,0.875,0]},{"t...
+  CONFIRMED SH-04      does a single-axis sheary timeline survive
+      basis=doc  predicted(present)="(any value)"
+      observed=[{"curve":[0.125,0,0.375,-9.125]},{"time":0.5,"value":-9.125,"curve":[0.625,-9.125,0.875,0]},...
+  CONFIRMED SH-05      does a bone's setup shearX survive
+      basis=doc  predicted(kept)=6.5
+      observed=6.5
+  CONFIRMED SH-06      does a bone's setup scaleX survive
+      basis=doc  predicted(kept)=1.25
+      observed=1.25
+  CONFIRMED SH-07      does a non-default inherit mode survive
+      basis=doc  predicted(kept)="noScale"
+      observed="noScale"
+  CONFIRMED SH-08      does a bone's editor colour survive
+      basis=NO BASIS  predicted(kept)="ff7f00ff"
+      observed="ff7f00ff"
+  REFUTED   SH-09      does a bone's icon survive
+      basis=NO BASIS  predicted(dropped)=(absent)
+      observed="circle"
+      what came back is kept
+run-all.sh: shear has rows that are not CONFIRMED -- that is a finding, not an error
+
+==================== draworder ====================
+rigc build rigs/draworder/rig.json
+  ..    rig    rigs/draworder/rig.json
+  ..    motion rigs/draworder/motion.json
+  ..    4 part page(s):
+  ..      back                     80x64  <- ../../../rigs/draworder/parts/back.png
+  ..      mid                      64x56  <- ../../../rigs/draworder/parts/mid.png
+  ..      front                    48x48  <- ../../../rigs/draworder/parts/front.png
+  ..      flag                     40x40  <- ../../../rigs/draworder/parts/flag.png
+  ..    validate (spine-core round trip + machine assertions, profile spine)
+  ..    profile spine — 7 renderer-policy and 8 archetype assertion(s) do not apply
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A31_DRAW_ORDER_OFFSETS_RESOLVE
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A34_CONSTRAINT_TIMELINE_TARGETS: no animation carries a constraint timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path
+  SKIP  A41_PHYSICS_SURVIVES_EDITOR_ROUND_TRIP: the rig "r6draw" does not declare `invariants.editorRoundTrip`, so nothing here is gated against the Spine editor. What is here: no physics constraint here drives a component it would discard
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile "spine"
+  PROF  A11_NO_CLIPPING_ATTACHMENTS: renderer rule, not in profile "spine"
+  PROF  A13_MESH_BUDGET: renderer rule, not in profile "spine"
+  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile "spine"
+  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile "spine"
+  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile "spine"
+  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile "spine"
+  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile "spine"
+  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile "spine"
+  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile "spine"
+  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile "spine"
+  PROF  A27_REGION_NAME_MATCHES_PAGE_FILENAME: renderer rule, not in profile "spine"
+  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile "spine"
+  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile "spine"
+  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile "spine"
+  ..    pages=4 regions=4 bones=3 slots=4 animations=1 version=4.3.13 regionAttachments=4 meshAttachments=0 physicsConstraints=0 rig=r6draw profile=spine
+  ..    copy-images: 4 page(s) copied into out/draworder/build
+  ..      back                     <- back.png
+  ..      mid                      <- mid.png
+  ..      front                    <- front.png
+  ..      flag                     <- flag.png
+rigc: wrote out/draworder/build/skeleton.json
+rigc: wrote out/draworder/build/skeleton.atlas
+## 0 versions
+  rigc     bun $RIGC_ROOT/cli.ts
+  0.21.0
+  editor   <Spine editor binary>
+           [licence-holder line withheld]
+           Complete.
+
+## 1 import  (json -> project)
+  exit=0
+
+## 2 export  (project -> json, default settings)
+  exit=0
+
+## 3 validate --profile spine  (the export)
+  exit=0
+  rigc: green
+
+## 4 diff  (export against the build)
+  exit=0
+  rigc: wrote out/draworder/roundtrip/diff.json
+    40 measure(s), every one a perfect match
+
+## 5 render both @12fps, check the export against the build's own frames
+  exit=0
+  rigc: wrote out/draworder/roundtrip/check.json
+    shuffle      15 frame(s)  mean MAE 0.0000  worst 0.0000  worst drift 13.741px on front @ f5
+
+## 6 what the editor rewrote
+  skeleton.spine: build "4.3.13" -> export "4.3.26"
+
+log: out/draworder/roundtrip/roundtrip.log
+## draworder   8 row(s)
+  CONFIRMED DO-C1      the rotate timeline beside the drawOrder one survives [control]
+      basis=inferred  predicted(present)="(any value)"
+      observed=[{"curve":[0.15,0,0.45,20]},{"time":0.6,"value":20,"curve":[0.75,20,1.05,0]},{"time":1.2}]
+  CONFIRMED DO-C2      the setup slot order is unchanged, which is what the offsets are counted against [control]
+      basis=inferred  predicted(kept)=["back","mid","front","flag"]
+      observed=["back","mid","front","flag"]
+  CONFIRMED DO-01      does the drawOrder timeline survive at all
+      basis=doc  predicted(present)="(any value)"
+      observed=[{"time":0.4,"offsets":[{"slot":"back","offset":2}]},{"time":0.8}]
+  CONFIRMED DO-02      does the offset key come back naming the same slot and the same number of places
+      basis=doc  predicted(kept)={"time":0.4,"offsets":[{"slot":"back","offset":2}]}
+      observed={"time":0.4,"offsets":[{"slot":"back","offset":2}]}
+  CONFIRMED DO-03      does the empty key that restores the setup order survive as an empty key
+      basis=doc  predicted(kept)={"time":0.8}
+      observed={"time":0.8}
+  CONFIRMED DO-04      does a slot's setup colour survive
+      basis=doc  predicted(kept)="80c0ffff"
+      observed="80c0ffff"
+  CONFIRMED DO-05      does a slot's two-colour dark tint survive
+      basis=doc  predicted(kept)="203040"
+      observed="203040"
+  CONFIRMED DO-06      does a non-default blend mode survive
+      basis=doc  predicted(kept)="multiply"
+      observed="multiply"
+
+==================== pathmodes ====================
+rigc build rigs/pathmodes/rig.json
+  ..    rig    rigs/pathmodes/rig.json
+  ..    motion rigs/pathmodes/motion.json
+  ..    3 part page(s):
+  ..      link_a                   48x40  <- ../../../rigs/pathmodes/parts/link_a.png
+  ..      link_b                   40x36  <- ../../../rigs/pathmodes/parts/link_b.png
+  ..      tag                      44x40  <- ../../../rigs/pathmodes/parts/tag.png
+  ..    validate (spine-core round trip + machine assertions, profile spine)
+  ..    profile spine — 7 renderer-policy and 8 archetype assertion(s) do not apply
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A34_CONSTRAINT_TIMELINE_TARGETS
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A33_VERTEX_ATTACHMENT_GEOMETRY
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A36_PATH_CONSTRAINT_EFFECTIVE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A41_PHYSICS_SURVIVES_EDITOR_ROUND_TRIP: the rig "r6path" does not declare `invariants.editorRoundTrip`, so nothing here is gated against the Spine editor. What is here: no physics constraint here drives a component it would discard
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile "spine"
+  PROF  A11_NO_CLIPPING_ATTACHMENTS: renderer rule, not in profile "spine"
+  PROF  A13_MESH_BUDGET: renderer rule, not in profile "spine"
+  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile "spine"
+  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile "spine"
+  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile "spine"
+  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile "spine"
+  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile "spine"
+  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile "spine"
+  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile "spine"
+  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile "spine"
+  PROF  A27_REGION_NAME_MATCHES_PAGE_FILENAME: renderer rule, not in profile "spine"
+  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile "spine"
+  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile "spine"
+  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile "spine"
+  ..    pages=3 regions=3 bones=5 slots=4 animations=1 version=4.3.13 regionAttachments=3 meshAttachments=0 physicsConstraints=0 pathConstraints=1 rig=r6path profile=spine
+  ..    copy-images: 3 page(s) copied into out/pathmodes/build
+  ..      link_a                   <- link_a.png
+  ..      link_b                   <- link_b.png
+  ..      tag                      <- tag.png
+rigc: wrote out/pathmodes/build/skeleton.json
+rigc: wrote out/pathmodes/build/skeleton.atlas
+## 0 versions
+  rigc     bun $RIGC_ROOT/cli.ts
+  0.21.0
+  editor   <Spine editor binary>
+           [licence-holder line withheld]
+           Complete.
+
+## 1 import  (json -> project)
+  exit=0
+
+## 2 export  (project -> json, default settings)
+  exit=0
+
+## 3 validate --profile spine  (the export)
+  exit=0
+  rigc: green
+
+## 4 diff  (export against the build)
+  exit=0
+  rigc: wrote out/pathmodes/roundtrip/diff.json
+    40 measure(s), every one a perfect match
+
+## 5 render both @12fps, check the export against the build's own frames
+  exit=0
+  rigc: wrote out/pathmodes/roundtrip/check.json
+    travel       25 frame(s)  mean MAE 4.9612  worst 7.8243  worst drift 0.530px on link_a @ f17
+
+## 6 what the editor rewrote
+  skeleton.spine: build "4.3.13" -> export "4.3.26"
+
+log: out/pathmodes/roundtrip/roundtrip.log
+## pathmodes   9 row(s)
+  CONFIRMED PA-C1      the position timeline survives, as it did on gallery/ride in pass 1 [control]
+      basis=inferred  predicted(present)="(any value)"
+      observed=[{"value":20.25,"curve":[0.5,20.25,1.5,140.5]},{"time":2,"value":140.5}]
+  CONFIRMED PA-01      does a non-default positionMode survive
+      basis=doc  predicted(kept)="fixed"
+      observed="fixed"
+  CONFIRMED PA-02      does a non-default spacingMode survive
+      basis=doc  predicted(kept)="proportional"
+      observed="proportional"
+  CONFIRMED PA-03      does a non-default rotateMode survive
+      basis=doc  predicted(kept)="chainScale"
+      observed="chainScale"
+  CONFIRMED PA-04      does a closed path attachment come back closed
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED PA-05      does constantSpeed false survive
+      basis=doc  predicted(kept)=false
+      observed=false
+  CONFIRMED PA-06      does the spacing timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"value":0.375,"curve":[0.25,0.375,0.75,0.8125]},{"time":1,"value":0.8125,"curve":[1.25,0.81...
+  CONFIRMED PA-07      does the three-channel path mix timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"mixRotate":0.5625,"mixX":0.4375,"mixY":0.21875,"curve":[0.25,0.5625,0.75,0.75,0.25,0.4375,...
+  REFUTED   PA-08      and does that mix key keep all three of its channels
+      basis=NO BASIS  predicted(kept)={"time":0,"mixRotate":0.5625,"mixX":0.4375,"mixY":0.21875,"curve":[0.25,0.5625,0.75,0.75,0.25...
+      observed={"mixRotate":0.5625,"mixX":0.4375,"mixY":0.21875,"curve":[0.25,0.5625,0.75,0.75,0.25,0.4375,0...
+      no hypothesis on the table predicted this observation
+run-all.sh: pathmodes has rows that are not CONFIRMED -- that is a finding, not an error
+
+==================== physlider ====================
+rigc build rigs/physlider/rig.json
+  ..    rig    rigs/physlider/rig.json
+  ..    motion rigs/physlider/motion.json
+  ..    3 part page(s):
+  ..      tag                      48x44  <- ../../../rigs/physlider/parts/tag.png
+  ..      gate                     40x64  <- ../../../rigs/physlider/parts/gate.png
+  ..      mark                     44x40  <- ../../../rigs/physlider/parts/mark.png
+  ..    validate (spine-core round trip + machine assertions, profile spine)
+  ..    profile spine — 7 renderer-policy and 8 archetype assertion(s) do not apply
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A34_CONSTRAINT_TIMELINE_TARGETS
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A37_SLIDER_CONSTRAINT_EFFECTIVE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path
+  SKIP  A41_PHYSICS_SURVIVES_EDITOR_ROUND_TRIP: the rig "r6drive" does not declare `invariants.editorRoundTrip`, so nothing here is gated against the Spine editor. What is here: no physics constraint here drives a component it would discard
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 1 slider constraint, and one slider has nothing to compose with
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile "spine"
+  PROF  A11_NO_CLIPPING_ATTACHMENTS: renderer rule, not in profile "spine"
+  PROF  A13_MESH_BUDGET: renderer rule, not in profile "spine"
+  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile "spine"
+  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile "spine"
+  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile "spine"
+  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile "spine"
+  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile "spine"
+  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile "spine"
+  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile "spine"
+  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile "spine"
+  PROF  A27_REGION_NAME_MATCHES_PAGE_FILENAME: renderer rule, not in profile "spine"
+  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile "spine"
+  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile "spine"
+  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile "spine"
+  ..    pages=3 regions=3 bones=4 slots=3 animations=2 version=4.3.13 regionAttachments=3 meshAttachments=0 physicsConstraints=1 sliderConstraints=1 rig=r6drive profile=spine
+  ..    copy-images: 3 page(s) copied into out/physlider/build
+  ..      tag                      <- tag.png
+  ..      gate                     <- gate.png
+  ..      mark                     <- mark.png
+rigc: wrote out/physlider/build/skeleton.json
+rigc: wrote out/physlider/build/skeleton.atlas
+## 0 versions
+  rigc     bun $RIGC_ROOT/cli.ts
+  0.21.0
+  editor   <Spine editor binary>
+           [licence-holder line withheld]
+           Complete.
+
+## 1 import  (json -> project)
+  exit=0
+
+## 2 export  (project -> json, default settings)
+  exit=0
+
+## 3 validate --profile spine  (the export)
+  exit=0
+  rigc: green
+
+## 4 diff  (export against the build)
+  exit=0
+  rigc: wrote out/physlider/roundtrip/diff.json
+    40 measure(s), every one a perfect match
+
+## 5 render both @12fps, check the export against the build's own frames
+  exit=0
+  rigc: wrote out/physlider/roundtrip/check.json
+    dial         13 frame(s)  mean MAE 0.0000  worst 0.0000  worst drift 0.128px on mark @ f0
+    play         19 frame(s)  mean MAE 0.0000  worst 0.0000  worst drift 0.128px on mark @ f0
+
+## 6 what the editor rewrote
+  skeleton.spine: build "4.3.13" -> export "4.3.26"
+
+log: out/physlider/roundtrip/roundtrip.log
+## physlider   9 row(s)
+  CONFIRMED PS-C1      the physics constraint's strength returns exactly [control]
+      basis=inferred  predicted(kept)=55
+      observed=55
+  CONFIRMED PS-C2      the slider still names the animation it was given, which is index 0 under every candidate ordering here [control]
+      basis=inferred  predicted(kept)="dial"
+      observed="dial"
+  CONFIRMED PS-01      does the physics mix timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"value":0.75,"curve":[0.1875,0.75,0.5625,0.3125]},{"time":0.75,"value":0.3125,"curve":[0.93...
+  CONFIRMED PS-02      does the physics reset timeline -- a key with a time and no value at all -- survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"time":0.5}]
+  CONFIRMED PS-03      does the slider time timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"value":0.25,"curve":[0.375,0.25,1.125,0.6875]},{"time":1.5,"value":0.6875}]
+  CONFIRMED PS-04      does the slider mix timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"value":0.5,"curve":[0.375,0.5,1.125,0.90625]},{"time":1.5,"value":0.90625}]
+  CONFIRMED PS-05      does a time-driven slider keep loop true
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED PS-06      does its setup time survive
+      basis=NO BASIS  predicted(kept)=0.25
+      observed=0.25
+  CONFIRMED PS-07      does the physics constraint's setup mix survive
+      basis=doc  predicted(kept)=0.75
+      observed=0.75
+
+==================== packed ====================
+rigc build rigs/packed/rig.json
+  ..    rig    rigs/packed/rig.json
+  ..    motion rigs/packed/motion.json
+  ..    4 part page(s):
+  ..      wide                     120x40  <- ../../../rigs/packed/parts/wide.png
+  ..      tall                     40x112  <- ../../../rigs/packed/parts/tall.png
+  ..      small                    36x36  <- ../../../rigs/packed/parts/small.png
+  ..      odd                      68x52  <- ../../../rigs/packed/parts/odd.png
+  ..    validate (spine-core round trip + machine assertions, profile spine)
+  ..    profile spine — 7 renderer-policy and 8 archetype assertion(s) do not apply
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A34_CONSTRAINT_TIMELINE_TARGETS: no animation carries a constraint timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path
+  SKIP  A41_PHYSICS_SURVIVES_EDITOR_ROUND_TRIP: the rig "r6pack" does not declare `invariants.editorRoundTrip`, so nothing here is gated against the Spine editor. What is here: no physics constraint here drives a component it would discard
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile "spine"
+  PROF  A11_NO_CLIPPING_ATTACHMENTS: renderer rule, not in profile "spine"
+  PROF  A13_MESH_BUDGET: renderer rule, not in profile "spine"
+  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile "spine"
+  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile "spine"
+  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile "spine"
+  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile "spine"
+  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile "spine"
+  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile "spine"
+  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile "spine"
+  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile "spine"
+  PROF  A27_REGION_NAME_MATCHES_PAGE_FILENAME: renderer rule, not in profile "spine"
+  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile "spine"
+  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile "spine"
+  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile "spine"
+  ..    pages=4 regions=4 bones=3 slots=4 animations=1 version=4.3.13 regionAttachments=4 meshAttachments=0 physicsConstraints=0 rig=r6pack profile=spine
+  ..    pack: skeleton.png 128x256, 4 region(s), 43.1% covered, padding 2
+  ..      wide                     120x40 -> skeleton.png @ 2,2
+  ..      tall                     40x112 -> skeleton.png @ 2,46
+  ..      odd                      68x52 -> skeleton.png @ 46,46
+  ..      small                    36x36 -> skeleton.png @ 46,102
+  ..    validate (packed atlas, pages on disk)
+  ..    profile spine — 7 renderer-policy and 8 archetype assertion(s) do not apply
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A34_CONSTRAINT_TIMELINE_TARGETS: no animation carries a constraint timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path
+  SKIP  A41_PHYSICS_SURVIVES_EDITOR_ROUND_TRIP: the rig "r6pack" does not declare `invariants.editorRoundTrip`, so nothing here is gated against the Spine editor. What is here: no physics constraint here drives a component it would discard
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile "spine"
+  PROF  A11_NO_CLIPPING_ATTACHMENTS: renderer rule, not in profile "spine"
+  PROF  A13_MESH_BUDGET: renderer rule, not in profile "spine"
+  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile "spine"
+  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile "spine"
+  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile "spine"
+  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile "spine"
+  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile "spine"
+  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile "spine"
+  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile "spine"
+  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile "spine"
+  PROF  A27_REGION_NAME_MATCHES_PAGE_FILENAME: renderer rule, not in profile "spine"
+  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile "spine"
+  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile "spine"
+  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile "spine"
+  ..    pages=1 regions=4 bones=3 slots=4 animations=1 version=4.3.13 regionAttachments=4 meshAttachments=0 physicsConstraints=0 rig=r6pack profile=spine
+rigc: wrote out/packed/build/skeleton.json
+rigc: wrote out/packed/build/skeleton.atlas
+## 0 versions
+  rigc     bun $RIGC_ROOT/cli.ts
+  0.21.0
+  editor   <Spine editor binary>
+           [licence-holder line withheld]
+           Complete.
+
+## 1 import  (json -> project)
+  exit=0
+
+## 2 export  (project -> json, default settings)
+  exit=0
+
+## 3 validate --profile spine  (the export)
+  exit=0
+  rigc: green
+
+## 4 diff  (export against the build)
+  exit=0
+  rigc: wrote out/packed/roundtrip/diff.json
+    40 measure(s), every one a perfect match
+
+## 5 render both @12fps, check the export against the build's own frames
+  exit=0
+  rigc: wrote out/packed/roundtrip/check.json
+    turn         13 frame(s)  mean MAE 0.0000  worst 0.0000  worst drift 11.188px on small @ f1
+
+## 6 what the editor rewrote
+  skeleton.spine: build "4.3.13" -> export "4.3.26"
+
+log: out/packed/roundtrip/roundtrip.log
+## packed   3 row(s)
+  CONFIRMED PK-C1      the bones array comes back element for element [control]
+      basis=inferred  predicted(kept)=["root","spin","rest"]
+      observed=["root","spin","rest"]
+  CONFIRMED PK-01      a packed build points skeleton.images at the loose parts rather than at itself -- does the editor still resolve them
+      basis=inferred  predicted(kept)=4
+      observed=4
+  CONFIRMED PK-02      does a region attachment out of a packed atlas keep the width measured off its loose PNG
+      basis=doc  predicted(kept)=120
+      observed=120
+
+==================== fields ====================
+rigc build rigs/fields/rig.json
+  ..    rig    rigs/fields/rig.json
+  ..    motion rigs/fields/motion.json
+  ..    4 part page(s):
+  ..      plain                    56x48  <- ../../../rigs/fields/parts/plain.png
+  ..      dressed                  56x48  <- ../../../rigs/fields/parts/dressed.png
+  ..      badge                    36x36  <- ../../../rigs/fields/parts/badge.png
+  ..      panel                    64x48  <- ../../../rigs/fields/parts/panel.png
+  MESH  panel        authored 5 vertices / 4 triangles  (no budget declared)  bones=[panel]  attachments=[panel]  covers 100.00% of the art, reaching 2.83px past it
+  ..    validate (spine-core round trip + machine assertions, profile spine)
+  ..    profile spine — 7 renderer-policy and 8 archetype assertion(s) do not apply
+  PASS  A07_ATLAS_TEXT_SHAPE
+  PASS  A00_ROUNDTRIP_PARSE
+  PASS  A16_SKELETON_VERSION_4_3
+  PASS  A01_NO_LEGACY_TOPLEVEL_CONSTRAINT_ARRAYS
+  PASS  A02_NO_BONE_TRANSFORM_KEY
+  PASS  A05_CURVE_ARRAY_LENGTH
+  PASS  A03_REGION_WIDTH_HEIGHT_FINITE
+  PASS  A04_MESH_TRIANGLES_AND_ENCODING
+  PASS  A20_MESH_WEIGHTS_COHERENT
+  PASS  A22_MESH_UVS_IN_UNIT_RANGE
+  PASS  A23_PHYSICS_CONSTRAINT_EFFECTIVE
+  PASS  A08_REGION_NAMES_MATCH_ATTACHMENTS
+  PASS  A09_ANIMATION_DURATION_MATCHES_SPEC
+  PASS  A10_NO_NAN_AFTER_STEPPING
+  PASS  A17_ATLAS_PAGE_FILES_EXIST
+  PASS  A06_ATLAS_PAGE_SIZE_MATCHES_PNG
+  PASS  A18_DETERMINISTIC_EMIT
+  SKIP  A31_DRAW_ORDER_OFFSETS_RESOLVE: no animation carries a drawOrder timeline
+  SKIP  A32_EVENT_KEYS_RESOLVE: no animation carries an event timeline
+  SKIP  A34_CONSTRAINT_TIMELINE_TARGETS: no animation carries a constraint timeline
+  SKIP  A35_DEFORM_KEYS_FIT_THE_ATTACHMENT: no animation carries a deform timeline
+  SKIP  A33_VERTEX_ATTACHMENT_GEOMETRY: the skeleton carries no bounding box, clipping attachment or path
+  SKIP  A41_PHYSICS_SURVIVES_EDITOR_ROUND_TRIP: the rig "r6fields" does not declare `invariants.editorRoundTrip`, so nothing here is gated against the Spine editor. What is here: no physics constraint here drives a component it would discard
+  SKIP  A36_PATH_CONSTRAINT_EFFECTIVE: the skeleton declares no path constraint
+  SKIP  A37_SLIDER_CONSTRAINT_EFFECTIVE: the skeleton declares no slider constraint
+  SKIP  A40_SLIDERS_COMPOSE_ON_A_SHARED_TARGET: the skeleton declares 0 slider constraints, and one slider has nothing to compose with
+  SKIP  A38_SKIN_MEMBERS_ARE_SKIN_REQUIRED: no skin activates a bone or a constraint, and nothing declares itself skinRequired
+  PROF  A12_NO_DARK_COLOR: renderer rule, not in profile "spine"
+  PROF  A11_NO_CLIPPING_ATTACHMENTS: renderer rule, not in profile "spine"
+  PROF  A13_MESH_BUDGET: renderer rule, not in profile "spine"
+  PROF  A14_NO_FULL_FRAME_MESH: renderer rule, not in profile "spine"
+  PROF  A15_IDLE_NO_MESH_BONE_KEYS: renderer rule, not in profile "spine"
+  PROF  A21_MESH_RIM_PINNED: archetype rule, not in profile "spine"
+  PROF  A39_DEFORM_KEEPS_TRIANGLE_WINDING: archetype rule, not in profile "spine"
+  PROF  A19_OVERLAY_PNGS_HAVE_ALPHA: renderer rule, not in profile "spine"
+  PROF  A24_AXIS_SPACE_STROKE: archetype rule, not in profile "spine"
+  PROF  A25_DETACHED_BONE_PARENTAGE: archetype rule, not in profile "spine"
+  PROF  A26_SLOT_DRAW_ORDER: archetype rule, not in profile "spine"
+  PROF  A27_REGION_NAME_MATCHES_PAGE_FILENAME: renderer rule, not in profile "spine"
+  PROF  A28_RIBBON_ROWS_SHARE_WEIGHTS: archetype rule, not in profile "spine"
+  PROF  A29_STROKE_WITHIN_CONTACT_DEPTH: archetype rule, not in profile "spine"
+  PROF  A30_STROKE_WITHIN_CAP_CONTAINMENT: archetype rule, not in profile "spine"
+  ..    pages=4 regions=4 bones=4 slots=4 animations=1 version=4.3.13 regionAttachments=3 meshAttachments=1 physicsConstraints=0 rig=r6fields profile=spine
+  ..    copy-images: 4 page(s) copied into out/fields/build
+  ..      plain                    <- plain.png
+  ..      dressed                  <- dressed.png
+  ..      badge                    <- badge.png
+  ..      panel                    <- panel.png
+rigc: wrote out/fields/build/skeleton.json
+rigc: wrote out/fields/build/skeleton.atlas
+## 0 versions
+  rigc     bun $RIGC_ROOT/cli.ts
+  0.21.0
+  editor   <Spine editor binary>
+           [licence-holder line withheld]
+           Complete.
+
+## 1 import  (json -> project)
+  exit=0
+
+## 2 export  (project -> json, default settings)
+  exit=0
+
+## 3 validate --profile spine  (the export)
+  exit=0
+  rigc: green
+
+## 4 diff  (export against the build)
+  exit=0
+  rigc: wrote out/fields/roundtrip/diff.json
+    40 measure(s), every one a perfect match
+
+## 5 render both @12fps, check the export against the build's own frames
+  exit=0
+  rigc: wrote out/fields/roundtrip/check.json
+    nudge        13 frame(s)  mean MAE 0.0000  worst 0.0000  worst drift 0.142px on dressed @ f0
+
+## 6 what the editor rewrote
+  skeleton.spine: build "4.3.13" -> export "4.3.26"
+
+log: out/fields/roundtrip/roundtrip.log
+## fields   12 row(s)
+  CONFIRMED FI-C1      the region that names nothing but its image comes back with the same width [control]
+      basis=inferred  predicted(kept)=56
+      observed=56
+  CONFIRMED FI-01      does the header's referenceScale survive
+      basis=doc  predicted(kept)=0.625
+      observed=0.625
+  REFUTED   FI-02      does the header's fps survive an export made with the default settings
+      basis=doc  predicted(dropped)=(absent)
+      observed=24
+      what came back is kept
+  CONFIRMED FI-03      does a region's rotation survive
+      basis=doc  predicted(kept)=22.5
+      observed=22.5
+  CONFIRMED FI-04      does a region's scaleX survive
+      basis=doc  predicted(kept)=1.375
+      observed=1.375
+  CONFIRMED FI-05      does a region's colour survive
+      basis=doc  predicted(kept)="c06030ff"
+      observed="c06030ff"
+  CONFIRMED FI-06      does an attachment whose path differs from its placeholder keep that path
+      basis=doc  predicted(kept)="badge"
+      observed="badge"
+  CONFIRMED FI-07      does an UNWEIGHTED mesh come back with its vertices unchanged
+      basis=NO BASIS  predicted(kept)=[-32,24,32,24,32,-24,-32,-24,0,0]
+      observed=[-32,24,32,24,32,-24,-32,-24,0,0]
+  CONFIRMED FI-08      does the editor recompute the mesh hull, as issue #368 measured it doing to authored meshes
+      basis=inferred  predicted(kept)=4
+      observed=4
+  REFUTED   FI-09      does a mesh's internal edge list survive an export made with the default settings
+      basis=doc  predicted(dropped)=(absent)
+      observed=[0,2,2,4,4,6,6,0,0,8,2,8,4,8,6,8]
+      what came back is kept
+  CONFIRMED FI-10      does a mesh's colour survive
+      basis=doc  predicted(kept)="3090c0ff"
+      observed="3090c0ff"
+  REFUTED   FI-11      does a mesh's width and height survive an export made with the default settings
+      basis=doc  predicted(dropped)=(absent)
+      observed=64
+      what came back is kept
+run-all.sh: fields has rows that are not CONFIRMED -- that is a finding, not an error
+
+==================== every rig ====================
+## bbox_clip   10 row(s)
+  CONFIRMED BBOX-C1    the slots array comes back element for element [control]
+      basis=inferred  predicted(kept)=["base","mask","mark","hit"]
+      observed=["base","mask","mark","hit"]
+  CONFIRMED BBOX-C2    the region attachment on the control slot keeps its measured width [control]
+      basis=inferred  predicted(kept)=96
+      observed=96
+  CONFIRMED BBOX-01    does a boundingbox attachment come back at all
+      basis=doc  predicted(kept)="boundingbox"
+      observed="boundingbox"
+  CONFIRMED BBOX-02    does its polygon come back unchanged
+      basis=NO BASIS  predicted(kept)=[-33,-21,33,-21,33,21,0,37,-33,21]
+      observed=[-33,-21,33,-21,33,21,0,37,-33,21]
+  CONFIRMED BBOX-03    does its vertexCount come back
+      basis=NO BASIS  predicted(kept)=5
+      observed=5
+  REFUTED   BBOX-04    does the bounding box's editor colour survive an export made with the default settings
+      basis=doc  predicted(dropped)=(absent)
+      observed="3cff6bff"
+      what came back is kept
+  CONFIRMED BBOX-05    does a clipping attachment come back at all
+      basis=doc  predicted(kept)="clipping"
+      observed="clipping"
+  CONFIRMED BBOX-06    does the clipping attachment's end slot come back
+      basis=doc  predicted(kept)="mark"
+      observed="mark"
+  REFUTED   BBOX-07    does the clipping attachment's editor colour survive
+      basis=doc  predicted(dropped)=(absent)
+      observed="ff3c6bff"
+      what came back is kept
+  CONFIRMED BBOX-08    does a clipping attachment's convex flag survive
+      basis=doc  predicted(kept)=true
+      observed=true
+## draworder   8 row(s)
+  CONFIRMED DO-C1      the rotate timeline beside the drawOrder one survives [control]
+      basis=inferred  predicted(present)="(any value)"
+      observed=[{"curve":[0.15,0,0.45,20]},{"time":0.6,"value":20,"curve":[0.75,20,1.05,0]},{"time":1.2}]
+  CONFIRMED DO-C2      the setup slot order is unchanged, which is what the offsets are counted against [control]
+      basis=inferred  predicted(kept)=["back","mid","front","flag"]
+      observed=["back","mid","front","flag"]
+  CONFIRMED DO-01      does the drawOrder timeline survive at all
+      basis=doc  predicted(present)="(any value)"
+      observed=[{"time":0.4,"offsets":[{"slot":"back","offset":2}]},{"time":0.8}]
+  CONFIRMED DO-02      does the offset key come back naming the same slot and the same number of places
+      basis=doc  predicted(kept)={"time":0.4,"offsets":[{"slot":"back","offset":2}]}
+      observed={"time":0.4,"offsets":[{"slot":"back","offset":2}]}
+  CONFIRMED DO-03      does the empty key that restores the setup order survive as an empty key
+      basis=doc  predicted(kept)={"time":0.8}
+      observed={"time":0.8}
+  CONFIRMED DO-04      does a slot's setup colour survive
+      basis=doc  predicted(kept)="80c0ffff"
+      observed="80c0ffff"
+  CONFIRMED DO-05      does a slot's two-colour dark tint survive
+      basis=doc  predicted(kept)="203040"
+      observed="203040"
+  CONFIRMED DO-06      does a non-default blend mode survive
+      basis=doc  predicted(kept)="multiply"
+      observed="multiply"
+## fields   12 row(s)
+  CONFIRMED FI-C1      the region that names nothing but its image comes back with the same width [control]
+      basis=inferred  predicted(kept)=56
+      observed=56
+  CONFIRMED FI-01      does the header's referenceScale survive
+      basis=doc  predicted(kept)=0.625
+      observed=0.625
+  REFUTED   FI-02      does the header's fps survive an export made with the default settings
+      basis=doc  predicted(dropped)=(absent)
+      observed=24
+      what came back is kept
+  CONFIRMED FI-03      does a region's rotation survive
+      basis=doc  predicted(kept)=22.5
+      observed=22.5
+  CONFIRMED FI-04      does a region's scaleX survive
+      basis=doc  predicted(kept)=1.375
+      observed=1.375
+  CONFIRMED FI-05      does a region's colour survive
+      basis=doc  predicted(kept)="c06030ff"
+      observed="c06030ff"
+  CONFIRMED FI-06      does an attachment whose path differs from its placeholder keep that path
+      basis=doc  predicted(kept)="badge"
+      observed="badge"
+  CONFIRMED FI-07      does an UNWEIGHTED mesh come back with its vertices unchanged
+      basis=NO BASIS  predicted(kept)=[-32,24,32,24,32,-24,-32,-24,0,0]
+      observed=[-32,24,32,24,32,-24,-32,-24,0,0]
+  CONFIRMED FI-08      does the editor recompute the mesh hull, as issue #368 measured it doing to authored meshes
+      basis=inferred  predicted(kept)=4
+      observed=4
+  REFUTED   FI-09      does a mesh's internal edge list survive an export made with the default settings
+      basis=doc  predicted(dropped)=(absent)
+      observed=[0,2,2,4,4,6,6,0,0,8,2,8,4,8,6,8]
+      what came back is kept
+  CONFIRMED FI-10      does a mesh's colour survive
+      basis=doc  predicted(kept)="3090c0ff"
+      observed="3090c0ff"
+  REFUTED   FI-11      does a mesh's width and height survive an export made with the default settings
+      basis=doc  predicted(dropped)=(absent)
+      observed=64
+      what came back is kept
+## packed   3 row(s)
+  CONFIRMED PK-C1      the bones array comes back element for element [control]
+      basis=inferred  predicted(kept)=["root","spin","rest"]
+      observed=["root","spin","rest"]
+  CONFIRMED PK-01      a packed build points skeleton.images at the loose parts rather than at itself -- does the editor still resolve them
+      basis=inferred  predicted(kept)=4
+      observed=4
+  CONFIRMED PK-02      does a region attachment out of a packed atlas keep the width measured off its loose PNG
+      basis=doc  predicted(kept)=120
+      observed=120
+## pathmodes   9 row(s)
+  CONFIRMED PA-C1      the position timeline survives, as it did on gallery/ride in pass 1 [control]
+      basis=inferred  predicted(present)="(any value)"
+      observed=[{"value":20.25,"curve":[0.5,20.25,1.5,140.5]},{"time":2,"value":140.5}]
+  CONFIRMED PA-01      does a non-default positionMode survive
+      basis=doc  predicted(kept)="fixed"
+      observed="fixed"
+  CONFIRMED PA-02      does a non-default spacingMode survive
+      basis=doc  predicted(kept)="proportional"
+      observed="proportional"
+  CONFIRMED PA-03      does a non-default rotateMode survive
+      basis=doc  predicted(kept)="chainScale"
+      observed="chainScale"
+  CONFIRMED PA-04      does a closed path attachment come back closed
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED PA-05      does constantSpeed false survive
+      basis=doc  predicted(kept)=false
+      observed=false
+  CONFIRMED PA-06      does the spacing timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"value":0.375,"curve":[0.25,0.375,0.75,0.8125]},{"time":1,"value":0.8125,"curve":[1.25,0.81...
+  CONFIRMED PA-07      does the three-channel path mix timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"mixRotate":0.5625,"mixX":0.4375,"mixY":0.21875,"curve":[0.25,0.5625,0.75,0.75,0.25,0.4375,...
+  REFUTED   PA-08      and does that mix key keep all three of its channels
+      basis=NO BASIS  predicted(kept)={"time":0,"mixRotate":0.5625,"mixX":0.4375,"mixY":0.21875,"curve":[0.25,0.5625,0.75,0.75,0.25...
+      observed={"mixRotate":0.5625,"mixX":0.4375,"mixY":0.21875,"curve":[0.25,0.5625,0.75,0.75,0.25,0.4375,0...
+      no hypothesis on the table predicted this observation
+## physlider   9 row(s)
+  CONFIRMED PS-C1      the physics constraint's strength returns exactly [control]
+      basis=inferred  predicted(kept)=55
+      observed=55
+  CONFIRMED PS-C2      the slider still names the animation it was given, which is index 0 under every candidate ordering here [control]
+      basis=inferred  predicted(kept)="dial"
+      observed="dial"
+  CONFIRMED PS-01      does the physics mix timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"value":0.75,"curve":[0.1875,0.75,0.5625,0.3125]},{"time":0.75,"value":0.3125,"curve":[0.93...
+  CONFIRMED PS-02      does the physics reset timeline -- a key with a time and no value at all -- survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"time":0.5}]
+  CONFIRMED PS-03      does the slider time timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"value":0.25,"curve":[0.375,0.25,1.125,0.6875]},{"time":1.5,"value":0.6875}]
+  CONFIRMED PS-04      does the slider mix timeline survive
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"value":0.5,"curve":[0.375,0.5,1.125,0.90625]},{"time":1.5,"value":0.90625}]
+  CONFIRMED PS-05      does a time-driven slider keep loop true
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED PS-06      does its setup time survive
+      basis=NO BASIS  predicted(kept)=0.25
+      observed=0.25
+  CONFIRMED PS-07      does the physics constraint's setup mix survive
+      basis=doc  predicted(kept)=0.75
+      observed=0.75
+## run-all.log   NOT RUN — no build under out/run-all.log
+## shear   10 row(s)
+  CONFIRMED SH-C1      a rotate timeline survives, as it did on six rigs in pass 1 [control]
+      basis=inferred  predicted(present)="(any value)"
+      observed=[{"curve":[0.125,0,0.375,15]},{"time":0.5,"value":15,"curve":[0.625,15,0.875,0]},{"time":1}]
+  CONFIRMED SH-01      does a paired shear timeline survive
+      basis=doc  predicted(present)="(any value)"
+      observed=[{"curve":[0.125,0,0.375,12.5,0.125,0,0.375,-6.25]},{"time":0.5,"x":12.5,"y":-6.25,"curve":[0...
+  CONFIRMED SH-02      and does its middle key keep both channels
+      basis=NO BASIS  predicted(kept)={"time":0.5,"x":12.5,"y":-6.25,"curve":[0.625,12.5,0.875,0,0.625,-6.25,0.875,0]}
+      observed={"time":0.5,"x":12.5,"y":-6.25,"curve":[0.625,12.5,0.875,0,0.625,-6.25,0.875,0]}
+  CONFIRMED SH-03      does a single-axis shearx timeline survive
+      basis=doc  predicted(present)="(any value)"
+      observed=[{"curve":[0.125,0,0.375,18.75]},{"time":0.5,"value":18.75,"curve":[0.625,18.75,0.875,0]},{"t...
+  CONFIRMED SH-04      does a single-axis sheary timeline survive
+      basis=doc  predicted(present)="(any value)"
+      observed=[{"curve":[0.125,0,0.375,-9.125]},{"time":0.5,"value":-9.125,"curve":[0.625,-9.125,0.875,0]},...
+  CONFIRMED SH-05      does a bone's setup shearX survive
+      basis=doc  predicted(kept)=6.5
+      observed=6.5
+  CONFIRMED SH-06      does a bone's setup scaleX survive
+      basis=doc  predicted(kept)=1.25
+      observed=1.25
+  CONFIRMED SH-07      does a non-default inherit mode survive
+      basis=doc  predicted(kept)="noScale"
+      observed="noScale"
+  CONFIRMED SH-08      does a bone's editor colour survive
+      basis=NO BASIS  predicted(kept)="ff7f00ff"
+      observed="ff7f00ff"
+  REFUTED   SH-09      does a bone's icon survive
+      basis=NO BASIS  predicted(dropped)=(absent)
+      observed="circle"
+      what came back is kept
+## xform   11 row(s)
+  CONFIRMED XF-C1      the physics constraint's strength returns exactly [control]
+      basis=inferred  predicted(kept)=55
+      observed=55
+  CONFIRMED XF-C2      the physics constraint's x component survives, as it did in #540 [control]
+      basis=inferred  predicted(kept)=1
+      observed=1
+  CONFIRMED XF-01      does a transform constraint come back at all
+      basis=doc  predicted(kept)="transform"
+      observed="transform"
+  CONFIRMED XF-02      does 4.3's source + properties model come back unchanged
+      basis=NO BASIS  predicted(kept)={"rotate":{"offset":3.25,"to":{"rotate":{"offset":7.5,"max":100,"scale":0.5}}},"x":{"to":{"y"...
+      observed={"rotate":{"offset":3.25,"to":{"rotate":{"offset":7.5,"max":100,"scale":0.5}}},"x":{"to":{"y"...
+  CONFIRMED XF-03      does the source bone reference come back
+      basis=doc  predicted(kept)="src"
+      observed="src"
+  CONFIRMED XF-04      does a non-default boolean flag survive (additive)
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED XF-05      and clamp
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED XF-06      and localSource
+      basis=doc  predicted(kept)=true
+      observed=true
+  CONFIRMED XF-07      does a mix the constraint's properties map actually reads survive
+      basis=NO BASIS  predicted(kept)=0.8125
+      observed=0.8125
+  CONFIRMED XF-08      does the transform timeline survive at all
+      basis=NO BASIS  predicted(present)="(any value)"
+      observed=[{"mixRotate":0.5625,"mixY":0.03125},{"time":1,"mixRotate":0.75,"mixY":0.15625}]
+  CONFIRMED XF-09      and does its first key still carry the mixRotate it was given
+      basis=NO BASIS  predicted(kept)=0.5625
+      observed=0.5625
+
+logs:      out/<rig>/roundtrip/roundtrip.log
+exports:   out/<rig>/roundtrip/export/
+projects:  out/<rig>/roundtrip/<rig>.spine   (inflateRawSync it to grep float32 patterns -- issue #540's recipe)
+exit=0

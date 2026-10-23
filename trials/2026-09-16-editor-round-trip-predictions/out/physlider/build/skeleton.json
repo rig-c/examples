@@ -1,0 +1,223 @@
+{
+  "skeleton": {
+    "spine": "4.3.13",
+    "x": 0,
+    "y": 0,
+    "width": 260,
+    "height": 220,
+    "images": "../build/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "tag",
+      "parent": "root",
+      "x": -60,
+      "y": 40
+    },
+    {
+      "name": "gate",
+      "parent": "root",
+      "length": 48,
+      "x": 60,
+      "y": 40
+    },
+    {
+      "name": "mark",
+      "parent": "root",
+      "x": 0,
+      "y": -60
+    }
+  ],
+  "slots": [
+    {
+      "name": "tag",
+      "bone": "tag",
+      "attachment": "tag"
+    },
+    {
+      "name": "gate",
+      "bone": "gate",
+      "attachment": "gate"
+    },
+    {
+      "name": "mark",
+      "bone": "mark",
+      "attachment": "mark"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "tag": {
+          "tag": {
+            "width": 48,
+            "height": 44
+          }
+        },
+        "gate": {
+          "gate": {
+            "width": 40,
+            "height": 64
+          }
+        },
+        "mark": {
+          "mark": {
+            "width": 44,
+            "height": 40
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "dial": {
+      "bones": {
+        "gate": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": [
+                0.25,
+                0,
+                0.75,
+                72
+              ]
+            },
+            {
+              "time": 1,
+              "value": 72
+            }
+          ]
+        }
+      }
+    },
+    "play": {
+      "bones": {
+        "mark": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": [
+                0.1875,
+                0,
+                0.5625,
+                18
+              ]
+            },
+            {
+              "time": 0.75,
+              "value": 18,
+              "curve": [
+                0.9375,
+                18,
+                1.3125,
+                0
+              ]
+            },
+            {
+              "time": 1.5,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "physics": {
+        "hold": {
+          "mix": [
+            {
+              "time": 0,
+              "value": 0.75,
+              "curve": [
+                0.1875,
+                0.75,
+                0.5625,
+                0.3125
+              ]
+            },
+            {
+              "time": 0.75,
+              "value": 0.3125,
+              "curve": [
+                0.9375,
+                0.3125,
+                1.3125,
+                0.75
+              ]
+            },
+            {
+              "time": 1.5,
+              "value": 0.75
+            }
+          ],
+          "reset": [
+            {
+              "time": 0.5
+            }
+          ]
+        }
+      },
+      "slider": {
+        "knob": {
+          "time": [
+            {
+              "time": 0,
+              "value": 0.25,
+              "curve": [
+                0.375,
+                0.25,
+                1.125,
+                0.6875
+              ]
+            },
+            {
+              "time": 1.5,
+              "value": 0.6875
+            }
+          ],
+          "mix": [
+            {
+              "time": 0,
+              "value": 0.5,
+              "curve": [
+                0.375,
+                0.5,
+                1.125,
+                0.90625
+              ]
+            },
+            {
+              "time": 1.5,
+              "value": 0.90625
+            }
+          ]
+        }
+      }
+    }
+  },
+  "constraints": [
+    {
+      "name": "hold",
+      "type": "physics",
+      "bone": "tag",
+      "x": 1,
+      "inertia": 0.55,
+      "strength": 55,
+      "damping": 0.72,
+      "mix": 0.75
+    },
+    {
+      "name": "knob",
+      "type": "slider",
+      "animation": "dial",
+      "loop": true,
+      "mix": 0.5,
+      "time": 0.25
+    }
+  ]
+}

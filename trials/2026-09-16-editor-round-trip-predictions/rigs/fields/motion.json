@@ -1,0 +1,26 @@
+{
+  "spec": "rigc-motion/1",
+  "archetype": "r6fields",
+  "cut": "r6fields",
+
+  "easings": { "smooth": [0.25, 0, 0.75, 1] },
+
+  "animations": {
+    "nudge": {
+      "duration": 1,
+      "loop": true,
+      "note": "One rotate, so the trip has something to render. Everything this rig measures is in the setup file.",
+      "tracks": [
+        {
+          "bone": "hold",
+          "property": "rotate",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 0.5, "v": [10], "ease": "smooth" },
+            { "t": 1, "v": [0] }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "skeleton": {
+    "spine": "4.3.13",
+    "x": 0,
+    "y": 0,
+    "width": 200,
+    "height": 200,
+    "images": "../build/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "plate",
+      "parent": "root",
+      "x": 0,
+      "y": 40
+    },
+    {
+      "name": "box",
+      "parent": "root",
+      "x": 0,
+      "y": -30
+    }
+  ],
+  "slots": [
+    {
+      "name": "base",
+      "bone": "plate",
+      "attachment": "base"
+    },
+    {
+      "name": "mask",
+      "bone": "box",
+      "attachment": "mask"
+    },
+    {
+      "name": "mark",
+      "bone": "plate",
+      "attachment": "mark"
+    },
+    {
+      "name": "hit",
+      "bone": "box",
+      "attachment": "hit"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "base": {
+          "base": {
+            "width": 96,
+            "height": 72
+          }
+        },
+        "mask": {
+          "mask": {
+            "type": "clipping",
+            "end": "mark",
+            "convex": true,
+            "vertexCount": 4,
+            "vertices": [
+              -41,
+              -29,
+              41,
+              -29,
+              41,
+              29,
+              -41,
+              29
+            ],
+            "color": "ff3c6bff"
+          }
+        },
+        "mark": {
+          "mark": {
+            "width": 48,
+            "height": 40
+          }
+        },
+        "hit": {
+          "hit": {
+            "type": "boundingbox",
+            "vertexCount": 5,
+            "vertices": [
+              -33,
+              -21,
+              33,
+              -21,
+              33,
+              21,
+              0,
+              37,
+              -33,
+              21
+            ],
+            "color": "3cff6bff"
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "wobble": {
+      "bones": {
+        "plate": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": [
+                0.125,
+                0,
+                0.375,
+                12
+              ]
+            },
+            {
+              "time": 0.5,
+              "value": 12,
+              "curve": [
+                0.625,
+                12,
+                0.875,
+                0
+              ]
+            },
+            {
+              "time": 1,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  }
+}

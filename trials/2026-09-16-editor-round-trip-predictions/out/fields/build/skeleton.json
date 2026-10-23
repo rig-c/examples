@@ -1,0 +1,188 @@
+{
+  "skeleton": {
+    "spine": "4.3.13",
+    "x": 0,
+    "y": 0,
+    "width": 280,
+    "height": 220,
+    "fps": 24,
+    "referenceScale": 0.625,
+    "images": "../build/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "hold",
+      "parent": "root",
+      "x": -70,
+      "y": 0
+    },
+    {
+      "name": "dressed",
+      "parent": "root",
+      "x": 70,
+      "y": 0
+    },
+    {
+      "name": "panel",
+      "parent": "root",
+      "x": 0,
+      "y": 70
+    }
+  ],
+  "slots": [
+    {
+      "name": "plain",
+      "bone": "hold",
+      "attachment": "plain"
+    },
+    {
+      "name": "dressed",
+      "bone": "dressed",
+      "attachment": "dressed"
+    },
+    {
+      "name": "badge_alt",
+      "bone": "dressed",
+      "attachment": "badge_alt"
+    },
+    {
+      "name": "panel",
+      "bone": "panel",
+      "attachment": "panel"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "plain": {
+          "plain": {
+            "width": 56,
+            "height": 48
+          }
+        },
+        "dressed": {
+          "dressed": {
+            "width": 56,
+            "height": 48,
+            "x": 3.5,
+            "y": -6.25,
+            "rotation": 22.5,
+            "scaleX": 1.375,
+            "scaleY": 0.8125,
+            "color": "c06030ff"
+          }
+        },
+        "badge_alt": {
+          "badge_alt": {
+            "width": 36,
+            "height": 36,
+            "path": "badge"
+          }
+        },
+        "panel": {
+          "panel": {
+            "type": "mesh",
+            "uvs": [
+              0,
+              0,
+              1,
+              0,
+              1,
+              1,
+              0,
+              1,
+              0.5,
+              0.5
+            ],
+            "triangles": [
+              4,
+              0,
+              1,
+              4,
+              1,
+              2,
+              4,
+              2,
+              3,
+              4,
+              3,
+              0
+            ],
+            "vertices": [
+              -32,
+              24,
+              32,
+              24,
+              32,
+              -24,
+              -32,
+              -24,
+              0,
+              0
+            ],
+            "hull": 4,
+            "edges": [
+              0,
+              2,
+              2,
+              4,
+              4,
+              6,
+              6,
+              0,
+              0,
+              8,
+              2,
+              8,
+              4,
+              8,
+              6,
+              8
+            ],
+            "width": 64,
+            "height": 48,
+            "color": "3090c0ff"
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "nudge": {
+      "bones": {
+        "hold": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": [
+                0.125,
+                0,
+                0.375,
+                10
+              ]
+            },
+            {
+              "time": 0.5,
+              "value": 10,
+              "curve": [
+                0.625,
+                10,
+                0.875,
+                0
+              ]
+            },
+            {
+              "time": 1,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  }
+}

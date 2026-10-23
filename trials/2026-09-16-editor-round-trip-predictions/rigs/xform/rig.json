@@ -1,0 +1,56 @@
+{
+  "spec": "rigc-rig/1",
+  "name": "r6xform",
+  "note": "Round trip 6 probe: the transform constraint, which 4.3 rebuilt around source + properties and which no editor round trip has carried. Fixed-point control: a physics constraint driving x with strength 55 -- issue #540 measured x kept and every strength returned exactly.",
+  "images": "parts",
+  "skeleton": { "x": 0, "y": 0, "width": 240, "height": 200 },
+
+  "bones": [
+    { "name": "root" },
+    { "name": "src", "parent": "root", "x": -60, "y": 0 },
+    { "name": "dst", "parent": "root", "x": 60, "y": 0 },
+    { "name": "tag", "parent": "root", "x": 0, "y": 70 }
+  ],
+
+  "slots": [
+    { "name": "src", "bone": "src", "attachment": "src" },
+    { "name": "dst", "bone": "dst", "attachment": "dst" },
+    { "name": "tag", "bone": "tag", "attachment": "tag" }
+  ],
+
+  "skins": {
+    "default": {
+      "src": { "src": { "image": "src.png" } },
+      "dst": { "dst": { "image": "dst.png" } },
+      "tag": { "tag": { "image": "tag.png" } }
+    }
+  },
+
+  "constraints": [
+    {
+      "name": "aim",
+      "type": "transform",
+      "source": "src",
+      "bones": ["dst"],
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "clamp": true,
+      "properties": {
+        "rotate": { "offset": 3.25, "to": { "rotate": { "offset": 7.5, "max": 100, "scale": 0.5 } } },
+        "x": { "to": { "y": { "offset": 1.75, "max": 40, "scale": 0.25 } } }
+      },
+      "mixRotate": 0.8125,
+      "mixY": 0.09375
+    },
+    {
+      "name": "hold",
+      "type": "physics",
+      "bone": "tag",
+      "x": 1,
+      "inertia": 0.55,
+      "strength": 55,
+      "damping": 0.72
+    }
+  ]
+}

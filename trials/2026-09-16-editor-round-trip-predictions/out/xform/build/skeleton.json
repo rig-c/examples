@@ -1,0 +1,169 @@
+{
+  "skeleton": {
+    "spine": "4.3.13",
+    "x": 0,
+    "y": 0,
+    "width": 240,
+    "height": 200,
+    "images": "../build/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "src",
+      "parent": "root",
+      "x": -60,
+      "y": 0
+    },
+    {
+      "name": "dst",
+      "parent": "root",
+      "x": 60,
+      "y": 0
+    },
+    {
+      "name": "tag",
+      "parent": "root",
+      "x": 0,
+      "y": 70
+    }
+  ],
+  "slots": [
+    {
+      "name": "src",
+      "bone": "src",
+      "attachment": "src"
+    },
+    {
+      "name": "dst",
+      "bone": "dst",
+      "attachment": "dst"
+    },
+    {
+      "name": "tag",
+      "bone": "tag",
+      "attachment": "tag"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "src": {
+          "src": {
+            "width": 64,
+            "height": 56
+          }
+        },
+        "dst": {
+          "dst": {
+            "width": 64,
+            "height": 56
+          }
+        },
+        "tag": {
+          "tag": {
+            "width": 40,
+            "height": 36
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "swing": {
+      "bones": {
+        "src": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": [
+                0.125,
+                0,
+                0.375,
+                24
+              ]
+            },
+            {
+              "time": 0.5,
+              "value": 24,
+              "curve": [
+                0.625,
+                24,
+                0.875,
+                0
+              ]
+            },
+            {
+              "time": 1,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "transform": {
+        "aim": [
+          {
+            "time": 0,
+            "mixRotate": 0.5625,
+            "mixY": 0.03125
+          },
+          {
+            "time": 1,
+            "mixRotate": 0.75,
+            "mixY": 0.15625
+          }
+        ]
+      }
+    }
+  },
+  "constraints": [
+    {
+      "name": "aim",
+      "type": "transform",
+      "bones": [
+        "dst"
+      ],
+      "source": "src",
+      "properties": {
+        "rotate": {
+          "offset": 3.25,
+          "to": {
+            "rotate": {
+              "offset": 7.5,
+              "max": 100,
+              "scale": 0.5
+            }
+          }
+        },
+        "x": {
+          "to": {
+            "y": {
+              "offset": 1.75,
+              "max": 40,
+              "scale": 0.25
+            }
+          }
+        }
+      },
+      "localSource": true,
+      "localTarget": true,
+      "additive": true,
+      "clamp": true,
+      "mixRotate": 0.8125,
+      "mixY": 0.09375
+    },
+    {
+      "name": "hold",
+      "type": "physics",
+      "bone": "tag",
+      "x": 1,
+      "inertia": 0.55,
+      "strength": 55,
+      "damping": 0.72
+    }
+  ]
+}

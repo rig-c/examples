@@ -1,0 +1,1124 @@
+{
+  "candidate": {
+    "skeleton": "out/bbox_clip/roundtrip/export-cand/skeleton.json",
+    "atlas": "out/bbox_clip/roundtrip/export-cand/skeleton.atlas"
+  },
+  "framesDir": "out/bbox_clip/roundtrip/render-build",
+  "framesRoot": "out/bbox_clip/roundtrip/render-build",
+  "framingScope": "per-shot",
+  "framing": "frames-viewport",
+  "viewport": {
+    "x": -58.79078068844773,
+    "y": -9.547947308925416,
+    "width": 117.5815595204872,
+    "height": 99.0958946178508,
+    "scale": 2.1772121499663815,
+    "pixelWidth": 256,
+    "pixelHeight": 216
+  },
+  "framingFit": {
+    "fit": {
+      "candidate": {
+        "left": 18.594240837696336,
+        "top": 15.652956298200515,
+        "right": 240.34726688102893,
+        "bottom": 197.35723350253807
+      },
+      "reference": {
+        "left": 18.594240837696336,
+        "top": 15.652956298200515,
+        "right": 240.34726688102893,
+        "bottom": 197.35723350253807
+      },
+      "frames": 13,
+      "scale": 1,
+      "dx": 0,
+      "dy": 0,
+      "rms": 0,
+      "residualWidth": 0,
+      "residualHeight": 0,
+      "aspectError": 0
+    },
+    "passes": 1,
+    "settled": true,
+    "source": "declared",
+    "cycled": false,
+    "agrees": true,
+    "applied": true,
+    "refinement": {
+      "dx": 0,
+      "dy": 0,
+      "before": 0,
+      "after": 0,
+      "radius": 2,
+      "frames": 13,
+      "applied": false,
+      "declined": "identity"
+    },
+    "units": {
+      "candidate": {
+        "width": 101.85182277563383,
+        "height": 83.45731361417548
+      },
+      "reference": {
+        "width": 101.85182277563383,
+        "height": 83.45731361417548
+      },
+      "ratio": 1
+    }
+  },
+  "declaredBox": {
+    "distance": 0,
+    "rms": 0,
+    "reach": 11.08765130216663,
+    "frames": 13,
+    "taken": true,
+    "clause": "coincident"
+  },
+  "sharedFraming": null,
+  "referenceViewport": {
+    "x": -58.79078068844773,
+    "y": -9.547947308925416,
+    "width": 117.5815595204872,
+    "height": 99.0958946178508,
+    "scale": 2.1772121499663815,
+    "pixelWidth": 256,
+    "pixelHeight": 216
+  },
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "chains": [
+    {
+      "name": "root",
+      "bones": [
+        "root"
+      ],
+      "slots": []
+    },
+    {
+      "name": "plate",
+      "bones": [
+        "plate"
+      ],
+      "slots": [
+        "base",
+        "mark"
+      ]
+    },
+    {
+      "name": "box",
+      "bones": [
+        "box"
+      ],
+      "slots": [
+        "mask",
+        "hit"
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "dir": "wobble",
+      "animation": "wobble",
+      "candidateAnimation": "wobble",
+      "fps": 12,
+      "referenceFrames": 13,
+      "candidateFrames": 13,
+      "compared": 13,
+      "meanMae": 0,
+      "meanMaeReference": 0,
+      "drawnRatio": 1.0079109502362458,
+      "meanMaeFrame": 0,
+      "textureFloor": null,
+      "worstMae": 0,
+      "worstMaeFrame": -1,
+      "worstDrift": 0.10376430165963406,
+      "worstDriftFrame": 5,
+      "worstDriftSlot": "base",
+      "framesWithoutDrift": 0,
+      "changePairs": 12,
+      "changeDisagreements": 0,
+      "worstChangeFrame": -1,
+      "chains": [
+        {
+          "chain": "plate",
+          "slots": 2,
+          "drewSlots": 2,
+          "worstDrift": 0.10376430165963406,
+          "worstDriftSlot": "base",
+          "worstDriftFrame": 5,
+          "meanDrift": 0.04917518594967469,
+          "driftSamples": 26,
+          "driftFrames": 13,
+          "error": 0,
+          "referencePixels": 392057,
+          "mae": 0,
+          "maeShare": 0
+        },
+        {
+          "chain": "box",
+          "slots": 2,
+          "drewSlots": 0,
+          "worstDrift": 0,
+          "worstDriftSlot": null,
+          "worstDriftFrame": -1,
+          "meanDrift": 0,
+          "driftSamples": 0,
+          "driftFrames": 0,
+          "error": 0,
+          "referencePixels": 0,
+          "mae": 0,
+          "maeShare": 0
+        }
+      ],
+      "chainDenominator": 0,
+      "unattributedError": 0,
+      "frames": [
+        {
+          "index": 0,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0000.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30300,
+          "candidatePixels": 30300,
+          "referencePixels": 30206,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "mark",
+          "worstDrift": 0.0612044653551835,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 128.00000000000077,
+                "cy": 107.88825583333434,
+                "width": 202,
+                "height": 150,
+                "pixels": 29650
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01931147111007334,
+              "driftX": 0.017684585796040417,
+              "driftY": 0.0077581145684813635,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.3895196127379691,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 128.00000000000094,
+                "cy": 107.8867271652122,
+                "width": 98,
+                "height": 80,
+                "pixels": 7507
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.0612044653551835,
+              "driftX": 0.02422009719391738,
+              "driftY": -0.05620830429154621,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8754302573348631,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": null,
+          "textureFloor": null
+        },
+        {
+          "index": 1,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0001.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30416,
+          "candidatePixels": 30416,
+          "referencePixels": 30150,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.05986718797024689,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 127.99998611482853,
+                "cy": 107.87649073845846,
+                "width": 206,
+                "height": 154,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.05986718797024689,
+              "driftX": 0.05897001165624801,
+              "driftY": -0.010325595417546029,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.4003520762141455,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 127.99761988827014,
+                "cy": 107.87608272363762,
+                "width": 100,
+                "height": 82,
+                "pixels": 7508
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.04536919342020831,
+              "driftX": -0.005363331316354015,
+              "driftY": -0.045051064235945515,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.896176931812037,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 0,
+            "candidate": 11632,
+            "reference": 11632,
+            "candidateMae": 10.562096113040123,
+            "referenceMae": 10.562096113040123,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 2,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0002.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30415,
+          "candidatePixels": 30415,
+          "referencePixels": 30150,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.034430279929279675,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 128.00021416158884,
+                "cy": 107.8762801262672,
+                "width": 210,
+                "height": 162,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.034430279929279675,
+              "driftX": 0.023111612175873743,
+              "driftY": 0.025520532099479496,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.3956657681940705,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 127.99932577040273,
+                "cy": 107.87565190324938,
+                "width": 102,
+                "height": 86,
+                "pixels": 7509
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01881221463343551,
+              "driftX": 0.018775624301155487,
+              "driftY": -0.0011727538174334054,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9096996262134618,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 1,
+            "candidate": 14829,
+            "reference": 14829,
+            "candidateMae": 19.65012538580247,
+            "referenceMae": 19.65012538580247,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 3,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0003.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30412,
+          "candidatePixels": 30412,
+          "referencePixels": 30148,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.09016545243423223,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 127.99986385900155,
+                "cy": 107.87629570327371,
+                "width": 216,
+                "height": 170,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.09016545243423223,
+              "driftX": 0.0860575029539189,
+              "driftY": -0.026905668510669528,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42887666041805295,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 128.00015772689426,
+                "cy": 107.87643142379355,
+                "width": 106,
+                "height": 90,
+                "pixels": 7509
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.05371833113177115,
+              "driftX": 0.03316159013992006,
+              "driftY": -0.042260715078836164,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9071823204419889,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 2,
+            "candidate": 15673,
+            "reference": 15673,
+            "candidateMae": 22.30903983410494,
+            "referenceMae": 22.30903983410494,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 4,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0004.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30413,
+          "candidatePixels": 30413,
+          "referencePixels": 30153,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.046774021980738274,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 127.99976084460937,
+                "cy": 107.8763660520212,
+                "width": 222,
+                "height": 178,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.046774021980738274,
+              "driftX": -0.022927319976528297,
+              "driftY": -0.040769438688170255,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.43019293790828395,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 128.00009427029818,
+                "cy": 107.87637194620365,
+                "width": 108,
+                "height": 94,
+                "pixels": 7509
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.044522399123430874,
+              "driftX": 0.008173227641183839,
+              "driftY": -0.04376576714318472,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9040860800871697,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 3,
+            "candidate": 15690,
+            "reference": 15690,
+            "candidateMae": 22.309992283950617,
+            "referenceMae": 22.309992283950617,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 5,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0005.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30415,
+          "candidatePixels": 30415,
+          "referencePixels": 30148,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.10376430165963406,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 128.00037106467806,
+                "cy": 107.87643175953953,
+                "width": 226,
+                "height": 186,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.10376430165963406,
+              "driftX": -0.10270846013390242,
+              "driftY": -0.014764908256880956,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.40368200836820123,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 128.0000921825537,
+                "cy": 107.87633775687718,
+                "width": 111,
+                "height": 97,
+                "pixels": 7509
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.022167050322984667,
+              "driftX": -0.011026829610900362,
+              "driftY": -0.01922985046103858,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8895539185594434,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 4,
+            "candidate": 14797,
+            "reference": 14797,
+            "candidateMae": 19.63913604359568,
+            "referenceMae": 19.63913604359568,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 6,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0006.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30416,
+          "candidatePixels": 30416,
+          "referencePixels": 30147,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "mark",
+          "worstDrift": 0.04963908643204822,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 127.9999677335577,
+                "cy": 107.87646660238065,
+                "width": 229,
+                "height": 188,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.028703010117056702,
+              "driftX": 0.017052229906987165,
+              "driftY": -0.02308861721669602,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.41587440580435375,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 127.99983757144764,
+                "cy": 107.87648274810317,
+                "width": 112,
+                "height": 99,
+                "pixels": 7509
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.04963908643204822,
+              "driftX": 0.04543092247726286,
+              "driftY": -0.020001754539871908,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8664259009639106,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 5,
+            "candidate": 11624,
+            "reference": 11624,
+            "candidateMae": 10.56229504243827,
+            "referenceMae": 10.56229504243827,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 7,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0007.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30415,
+          "candidatePixels": 30415,
+          "referencePixels": 30148,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.10376430165963406,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 128.00037106467806,
+                "cy": 107.87643175953953,
+                "width": 226,
+                "height": 186,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.10376430165963406,
+              "driftX": -0.10270846013390242,
+              "driftY": -0.014764908256880956,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.40368200836820123,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 128.0000921825537,
+                "cy": 107.87633775687718,
+                "width": 111,
+                "height": 97,
+                "pixels": 7509
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.022167050322984667,
+              "driftX": -0.011026829610900362,
+              "driftY": -0.01922985046103858,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8895539185594434,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 6,
+            "candidate": 11624,
+            "reference": 11624,
+            "candidateMae": 10.56229504243827,
+            "referenceMae": 10.56229504243827,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 8,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0008.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30413,
+          "candidatePixels": 30413,
+          "referencePixels": 30153,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.046774021980738274,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 127.99976084460937,
+                "cy": 107.8763660520212,
+                "width": 222,
+                "height": 178,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.046774021980738274,
+              "driftX": -0.022927319976528297,
+              "driftY": -0.040769438688170255,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.43019293790828395,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 128.00009427029818,
+                "cy": 107.87637194620365,
+                "width": 108,
+                "height": 94,
+                "pixels": 7509
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.044522399123430874,
+              "driftX": 0.008173227641183839,
+              "driftY": -0.04376576714318472,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9040860800871697,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 7,
+            "candidate": 14797,
+            "reference": 14797,
+            "candidateMae": 19.63913604359568,
+            "referenceMae": 19.63913604359568,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 9,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0009.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30412,
+          "candidatePixels": 30412,
+          "referencePixels": 30148,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.09016545243423223,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 127.99986385900155,
+                "cy": 107.87629570327371,
+                "width": 216,
+                "height": 170,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.09016545243423223,
+              "driftX": 0.0860575029539189,
+              "driftY": -0.026905668510669528,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42887666041805295,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 128.00015772689426,
+                "cy": 107.87643142379355,
+                "width": 106,
+                "height": 90,
+                "pixels": 7509
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.05371833113177115,
+              "driftX": 0.03316159013992006,
+              "driftY": -0.042260715078836164,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9071823204419889,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 8,
+            "candidate": 15690,
+            "reference": 15690,
+            "candidateMae": 22.309992283950617,
+            "referenceMae": 22.309992283950617,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 10,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0010.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30415,
+          "candidatePixels": 30415,
+          "referencePixels": 30150,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.034430279929279675,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 128.00021416158884,
+                "cy": 107.8762801262672,
+                "width": 210,
+                "height": 162,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.034430279929279675,
+              "driftX": 0.023111612175873743,
+              "driftY": 0.025520532099479496,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.3956657681940705,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 127.99932577040273,
+                "cy": 107.87565190324938,
+                "width": 102,
+                "height": 86,
+                "pixels": 7509
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01881221463343551,
+              "driftX": 0.018775624301155487,
+              "driftY": -0.0011727538174334054,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9096996262134618,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 9,
+            "candidate": 15673,
+            "reference": 15673,
+            "candidateMae": 22.30903983410494,
+            "referenceMae": 22.30903983410494,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 11,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0011.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30416,
+          "candidatePixels": 30416,
+          "referencePixels": 30150,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "base",
+          "worstDrift": 0.05986718797024689,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 127.99998611482853,
+                "cy": 107.87649073845846,
+                "width": 206,
+                "height": 154,
+                "pixels": 29655
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.05986718797024689,
+              "driftX": 0.05897001165624801,
+              "driftY": -0.010325595417546029,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.4003520762141455,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 127.99761988827014,
+                "cy": 107.87608272363762,
+                "width": 100,
+                "height": 82,
+                "pixels": 7508
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.04536919342020831,
+              "driftX": -0.005363331316354015,
+              "driftY": -0.045051064235945515,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.896176931812037,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 10,
+            "candidate": 14829,
+            "reference": 14829,
+            "candidateMae": 19.65012538580247,
+            "referenceMae": 19.65012538580247,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 12,
+          "file": "out/bbox_clip/roundtrip/render-build/wobble/f0012.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 30300,
+          "candidatePixels": 30300,
+          "referencePixels": 30206,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "mark",
+          "worstDrift": 0.0612044653551835,
+          "attributed": 2,
+          "drawn": 2,
+          "slots": [
+            {
+              "slot": "base",
+              "candidate": {
+                "cx": 128.00000000000077,
+                "cy": 107.88825583333434,
+                "width": 202,
+                "height": 150,
+                "pixels": 29650
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01931147111007334,
+              "driftX": 0.017684585796040417,
+              "driftY": 0.0077581145684813635,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.3895196127379691,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mark",
+              "candidate": {
+                "cx": 128.00000000000094,
+                "cy": 107.8867271652122,
+                "width": 98,
+                "height": 80,
+                "pixels": 7507
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.0612044653551835,
+              "driftX": 0.02422009719391738,
+              "driftY": -0.05620830429154621,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8754302573348631,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 11,
+            "candidate": 11632,
+            "reference": 11632,
+            "candidateMae": 10.562096113040123,
+            "referenceMae": 10.562096113040123,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        }
+      ],
+      "viewport": {
+        "x": -58.79078068844773,
+        "y": -9.547947308925416,
+        "width": 117.5815595204872,
+        "height": 99.0958946178508,
+        "scale": 2.1772121499663815,
+        "pixelWidth": 256,
+        "pixelHeight": 216
+      },
+      "framing": "frames-viewport",
+      "framingFit": {
+        "fit": {
+          "candidate": {
+            "left": 18.594240837696336,
+            "top": 15.652956298200515,
+            "right": 240.34726688102893,
+            "bottom": 197.35723350253807
+          },
+          "reference": {
+            "left": 18.594240837696336,
+            "top": 15.652956298200515,
+            "right": 240.34726688102893,
+            "bottom": 197.35723350253807
+          },
+          "frames": 13,
+          "scale": 1,
+          "dx": 0,
+          "dy": 0,
+          "rms": 0,
+          "residualWidth": 0,
+          "residualHeight": 0,
+          "aspectError": 0
+        },
+        "passes": 1,
+        "settled": true,
+        "source": "declared",
+        "cycled": false,
+        "agrees": true,
+        "applied": true,
+        "refinement": {
+          "dx": 0,
+          "dy": 0,
+          "before": 0,
+          "after": 0,
+          "radius": 2,
+          "frames": 13,
+          "applied": false,
+          "declined": "identity"
+        },
+        "units": {
+          "candidate": {
+            "width": 101.85182277563383,
+            "height": 83.45731361417548
+          },
+          "reference": {
+            "width": 101.85182277563383,
+            "height": 83.45731361417548
+          },
+          "ratio": 1
+        }
+      },
+      "declaredBox": {
+        "distance": 0,
+        "rms": 0,
+        "reach": 11.08765130216663,
+        "frames": 13,
+        "taken": true,
+        "clause": "coincident"
+      },
+      "sheet": null,
+      "notes": []
+    }
+  ],
+  "textureFrom": null,
+  "notes": [
+    "the candidate's world box was taken from frames.json rather than fitted, because rendering it into that box put its own drawn pixels on the reference's to within 0.00 px rms — so the candidate is authored in the frames' own coordinates, measured rather than assumed, and the box they were rendered at is exact where a fit of it is an estimate. The framing line below is still measured; what it leaves over is the extent fit's own floor. Pass --viewport to override.",
+    "part of every MAE below is TEXTURE, not animation, and it is not attributed here. The frames were rendered through the reference's own atlas; this candidate samples its own, and if the two were packed at different scales every edge of every part is filtered from a different source in every frame. That difference is a constant no key can move and is invisible to the content box, the fit residual and the whole-pixel refinement. Pass --texture-from <the atlas the frames were rendered through> to measure it: the candidate's own geometry is kept and only the texels are swapped, so the run reports the floor and what sits above it beside the figure of record."
+  ]
+}

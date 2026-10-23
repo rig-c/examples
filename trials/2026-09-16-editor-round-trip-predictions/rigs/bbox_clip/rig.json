@@ -1,0 +1,45 @@
+{
+  "spec": "rigc-rig/1",
+  "name": "r6bbox",
+  "note": "Round trip 6 probe: the two attachment types no editor round trip has carried -- boundingbox and clipping. Fixed-point control: the region attachment on slot base, which pass 1 measured returned unchanged.",
+  "images": "parts",
+  "skeleton": { "x": 0, "y": 0, "width": 200, "height": 200 },
+
+  "bones": [
+    { "name": "root" },
+    { "name": "plate", "parent": "root", "x": 0, "y": 40 },
+    { "name": "box", "parent": "root", "x": 0, "y": -30 }
+  ],
+
+  "slots": [
+    { "name": "base", "bone": "plate", "attachment": "base" },
+    { "name": "mask", "bone": "box", "attachment": "mask" },
+    { "name": "mark", "bone": "plate", "attachment": "mark" },
+    { "name": "hit", "bone": "box", "attachment": "hit" }
+  ],
+
+  "skins": {
+    "default": {
+      "base": { "base": { "image": "base.png" } },
+      "mark": { "mark": { "image": "mark.png" } },
+      "mask": {
+        "mask": {
+          "type": "clipping",
+          "vertexCount": 4,
+          "vertices": [-41, -29, 41, -29, 41, 29, -41, 29],
+          "end": "mark",
+          "convex": true,
+          "color": "ff3c6bff"
+        }
+      },
+      "hit": {
+        "hit": {
+          "type": "boundingbox",
+          "vertexCount": 5,
+          "vertices": [-33, -21, 33, -21, 33, 21, 0, 37, -33, 21],
+          "color": "3cff6bff"
+        }
+      }
+    }
+  }
+}

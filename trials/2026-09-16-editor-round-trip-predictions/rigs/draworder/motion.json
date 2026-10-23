@@ -1,0 +1,30 @@
+{
+  "spec": "rigc-motion/1",
+  "archetype": "r6draw",
+  "cut": "r6draw",
+
+  "easings": { "smooth": [0.25, 0, 0.75, 1] },
+
+  "animations": {
+    "shuffle": {
+      "duration": 1.2,
+      "loop": true,
+      "note": "back moves two places later at 0.4 and the setup order is restored by an empty key at 0.8. The rotate on spin is the fixed point.",
+      "drawOrder": [
+        { "t": 0.4, "offsets": [{ "slot": "back", "offset": 2 }] },
+        { "t": 0.8 }
+      ],
+      "tracks": [
+        {
+          "bone": "spin",
+          "property": "rotate",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 0.6, "v": [20], "ease": "smooth" },
+            { "t": 1.2, "v": [0] }
+          ]
+        }
+      ]
+    }
+  }
+}

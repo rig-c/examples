@@ -1,0 +1,132 @@
+{
+  "skeleton": {
+    "spine": "4.3.13",
+    "x": 0,
+    "y": 0,
+    "width": 240,
+    "height": 200,
+    "images": "../build/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "spin",
+      "parent": "root",
+      "x": 0,
+      "y": 60
+    },
+    {
+      "name": "stack",
+      "parent": "root",
+      "x": 0,
+      "y": -20
+    }
+  ],
+  "slots": [
+    {
+      "name": "back",
+      "bone": "stack",
+      "attachment": "back"
+    },
+    {
+      "name": "mid",
+      "bone": "stack",
+      "attachment": "mid",
+      "color": "80c0ffff",
+      "blend": "multiply"
+    },
+    {
+      "name": "front",
+      "bone": "stack",
+      "attachment": "front",
+      "dark": "203040",
+      "blend": "additive"
+    },
+    {
+      "name": "flag",
+      "bone": "spin",
+      "attachment": "flag"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "back": {
+          "back": {
+            "width": 80,
+            "height": 64
+          }
+        },
+        "mid": {
+          "mid": {
+            "width": 64,
+            "height": 56
+          }
+        },
+        "front": {
+          "front": {
+            "width": 48,
+            "height": 48
+          }
+        },
+        "flag": {
+          "flag": {
+            "width": 40,
+            "height": 40
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "shuffle": {
+      "bones": {
+        "spin": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": [
+                0.15,
+                0,
+                0.45,
+                20
+              ]
+            },
+            {
+              "time": 0.6,
+              "value": 20,
+              "curve": [
+                0.75,
+                20,
+                1.05,
+                0
+              ]
+            },
+            {
+              "time": 1.2,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "drawOrder": [
+        {
+          "time": 0.4,
+          "offsets": [
+            {
+              "slot": "back",
+              "offset": 2
+            }
+          ]
+        },
+        {
+          "time": 0.8
+        }
+      ]
+    }
+  }
+}

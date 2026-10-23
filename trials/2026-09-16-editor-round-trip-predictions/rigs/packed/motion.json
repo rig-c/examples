@@ -1,0 +1,26 @@
+{
+  "spec": "rigc-motion/1",
+  "archetype": "r6pack",
+  "cut": "r6pack",
+
+  "easings": { "smooth": [0.25, 0, 0.75, 1] },
+
+  "animations": {
+    "turn": {
+      "duration": 1,
+      "loop": true,
+      "note": "One rotate. The question this rig asks is about the atlas beside the skeleton, not about the skeleton.",
+      "tracks": [
+        {
+          "bone": "spin",
+          "property": "rotate",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 0.5, "v": [16], "ease": "smooth" },
+            { "t": 1, "v": [0] }
+          ]
+        }
+      ]
+    }
+  }
+}

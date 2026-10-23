@@ -1,0 +1,1644 @@
+{
+  "candidate": {
+    "skeleton": "out/packed/roundtrip/export-cand/skeleton.json",
+    "atlas": "out/packed/roundtrip/export-cand/skeleton.atlas"
+  },
+  "framesDir": "out/packed/roundtrip/render-build",
+  "framesRoot": "out/packed/roundtrip/render-build",
+  "framingScope": "per-shot",
+  "framing": "frames-viewport",
+  "viewport": {
+    "x": -66.81457873319444,
+    "y": -112.81457896524543,
+    "width": 133.6291597868992,
+    "height": 183.99363206162792,
+    "scale": 1.3913525002553013,
+    "pixelWidth": 186,
+    "pixelHeight": 256
+  },
+  "framingFit": {
+    "fit": {
+      "candidate": {
+        "left": 12.331553182020471,
+        "top": 14.623119556611243,
+        "right": 173.59345794392524,
+        "bottom": 243.63869588455373
+      },
+      "reference": {
+        "left": 12.331553182020471,
+        "top": 14.623119556611243,
+        "right": 173.59345794392524,
+        "bottom": 243.63869588455373
+      },
+      "frames": 13,
+      "scale": 1,
+      "dx": 0,
+      "dy": 0,
+      "rms": 0,
+      "residualWidth": 0,
+      "residualHeight": 0,
+      "aspectError": 0
+    },
+    "passes": 1,
+    "settled": true,
+    "source": "declared",
+    "cycled": false,
+    "agrees": true,
+    "applied": true,
+    "refinement": {
+      "dx": 0,
+      "dy": 0,
+      "before": 0,
+      "after": 0,
+      "radius": 2,
+      "frames": 13,
+      "applied": false,
+      "declined": "identity"
+    },
+    "units": {
+      "candidate": {
+        "width": 115.90298269655933,
+        "height": 164.59924877837938
+      },
+      "reference": {
+        "width": 115.90298269655933,
+        "height": 164.59924877837938
+      },
+      "ratio": 1
+    }
+  },
+  "declaredBox": {
+    "distance": 0,
+    "rms": 0,
+    "reach": 11.450778816397126,
+    "frames": 13,
+    "taken": true,
+    "clause": "coincident"
+  },
+  "sharedFraming": null,
+  "referenceViewport": {
+    "x": -66.81457873319444,
+    "y": -112.81457896524543,
+    "width": 133.6291597868992,
+    "height": 183.99363206162792,
+    "scale": 1.3913525002553013,
+    "pixelWidth": 186,
+    "pixelHeight": 256
+  },
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "chains": [
+    {
+      "name": "root",
+      "bones": [
+        "root"
+      ],
+      "slots": []
+    },
+    {
+      "name": "spin",
+      "bones": [
+        "spin"
+      ],
+      "slots": [
+        "small",
+        "odd"
+      ]
+    },
+    {
+      "name": "rest",
+      "bones": [
+        "rest"
+      ],
+      "slots": [
+        "wide",
+        "tall"
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "dir": "turn",
+      "animation": "turn",
+      "candidateAnimation": "turn",
+      "fps": 12,
+      "referenceFrames": 13,
+      "candidateFrames": 13,
+      "compared": 13,
+      "meanMae": 0,
+      "meanMaeReference": 0,
+      "drawnRatio": 1.008046679431432,
+      "meanMaeFrame": 0,
+      "textureFloor": null,
+      "worstMae": 0,
+      "worstMaeFrame": -1,
+      "worstDrift": 11.188381309705354,
+      "worstDriftFrame": 1,
+      "worstDriftSlot": "small",
+      "framesWithoutDrift": 0,
+      "changePairs": 12,
+      "changeDisagreements": 0,
+      "worstChangeFrame": -1,
+      "chains": [
+        {
+          "chain": "spin",
+          "slots": 2,
+          "drewSlots": 2,
+          "worstDrift": 11.188381309705354,
+          "worstDriftSlot": "small",
+          "worstDriftFrame": 1,
+          "meanDrift": 3.537251473569747,
+          "driftSamples": 19,
+          "driftFrames": 13,
+          "error": 0,
+          "referencePixels": 79201,
+          "mae": 0,
+          "maeShare": 0
+        },
+        {
+          "chain": "rest",
+          "slots": 2,
+          "drewSlots": 2,
+          "worstDrift": 0.20476927814347937,
+          "worstDriftSlot": "wide",
+          "worstDriftFrame": 0,
+          "meanDrift": 0.10951037896072473,
+          "driftSamples": 26,
+          "driftFrames": 13,
+          "error": 0,
+          "referencePixels": 173448,
+          "mae": 0,
+          "maeShare": 0
+        }
+      ],
+      "chainDenominator": 0,
+      "unattributedError": 0,
+      "frames": [
+        {
+          "index": 0,
+          "file": "out/packed/roundtrip/render-build/turn/f0000.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19582,
+          "candidatePixels": 19582,
+          "referencePixels": 19447,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "small",
+          "worstDrift": 11.077900519041691,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.97255606688489,
+                "cy": 57.24684105373602,
+                "width": 90,
+                "height": 68,
+                "pixels": 5945
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01071424972916057,
+              "driftX": -0.006408508317425621,
+              "driftY": 0.008586394377403357,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.97233564700167,
+                "cy": 57.29376710828325,
+                "width": 46,
+                "height": 46,
+                "pixels": 1987
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 11.077900519041691,
+              "driftX": 11.077759313114527,
+              "driftY": -0.05593308938839538,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.3332879571648968,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.011163033017963977,
+              "driftX": -0.00302023557837504,
+              "driftY": 0.01074669638592584,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9538378336616834,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": null,
+          "textureFloor": null
+        },
+        {
+          "index": 1,
+          "file": "out/packed/roundtrip/render-build/turn/f0001.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19630,
+          "candidatePixels": 19630,
+          "referencePixels": 19459,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "small",
+          "worstDrift": 11.188381309705354,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.960242754684,
+                "cy": 57.28849374978562,
+                "width": 92,
+                "height": 71,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.02166799499580752,
+              "driftX": 0.015856613454960113,
+              "driftY": -0.014767187168798178,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.9749926283022,
+                "cy": 57.29777800206209,
+                "width": 47,
+                "height": 47,
+                "pixels": 1982
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 11.188381309705354,
+              "driftX": -11.187726942628904,
+              "driftY": 0.12100491122024937,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.3102604814830704,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.011163033017963977,
+              "driftX": -0.00302023557837504,
+              "driftY": 0.01074669638592584,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9539428042858243,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 0,
+            "candidate": 2625,
+            "reference": 2625,
+            "candidateMae": 2.501435091845878,
+            "referenceMae": 2.501435091845878,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 2,
+          "file": "out/packed/roundtrip/render-build/turn/f0002.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19627,
+          "candidatePixels": 19627,
+          "referencePixels": 19460,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "small",
+          "worstDrift": 11.163277409232075,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.96569348649393,
+                "cy": 57.29455988942258,
+                "width": 96,
+                "height": 75,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03505376459174769,
+              "driftX": 0.01634668465926498,
+              "driftY": -0.03100890698983463,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.9614377041687,
+                "cy": 57.29248639204749,
+                "width": 50,
+                "height": 49,
+                "pixels": 1982
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 11.163277409232075,
+              "driftX": 11.11849790421219,
+              "driftY": -0.9988828106941978,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.4432566088505874,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01912979136882594,
+              "driftX": -0.002471231843048431,
+              "driftY": 0.01896950001957645,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9551915830317501,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 1,
+            "candidate": 3251,
+            "reference": 3251,
+            "candidateMae": 4.600036402329749,
+            "referenceMae": 4.600036402329749,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 3,
+          "file": "out/packed/roundtrip/render-build/turn/f0003.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19604,
+          "candidatePixels": 19604,
+          "referencePixels": 19456,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "wide",
+          "worstDrift": 0.20476927814347937,
+          "attributed": 3,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.96290892568997,
+                "cy": 57.29616444535005,
+                "width": 98,
+                "height": 80,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.042228110199624344,
+              "driftX": -0.040676132078565144,
+              "driftY": -0.011343084684456037,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.96174100201385,
+                "cy": 57.296060154064676,
+                "width": 52,
+                "height": 51,
+                "pixels": 1982
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.06815908549654692,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 9.8x its size and 162x226 px against its 52x51 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 27.8 against its own 113.9 of contrast; confidence 0.07 where 0.51 is needed 25.3 px out)"
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.017668528620190305,
+              "driftX": -0.002777462872690103,
+              "driftY": 0.017448856799037352,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9407400079145232,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 2,
+            "candidate": 3417,
+            "reference": 3417,
+            "candidateMae": 5.185322860663082,
+            "referenceMae": 5.185322860663082,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 4,
+          "file": "out/packed/roundtrip/render-build/turn/f0004.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19580,
+          "candidatePixels": 19580,
+          "referencePixels": 19417,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "wide",
+          "worstDrift": 0.20476927814347937,
+          "attributed": 3,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.96319842477719,
+                "cy": 57.29440996410112,
+                "width": 102,
+                "height": 85,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.027520997116161662,
+              "driftX": -0.009740989183811008,
+              "driftY": -0.02573943301606808,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9955634956081584,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.96066677745335,
+                "cy": 57.29510797743116,
+                "width": 54,
+                "height": 54,
+                "pixels": 1982
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.2389661719688454,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 9.8x its size and 162x228 px against its 54x54 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 28.0 against its own 114.2 of contrast; confidence 0.24 where 0.50 is needed 25.0 px out)"
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.007053844872805857,
+              "driftX": -0.005048587913756437,
+              "driftY": 0.004926305671259337,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9466270394105446,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 3,
+            "candidate": 3426,
+            "reference": 3426,
+            "candidateMae": 5.204112063172043,
+            "referenceMae": 5.204112063172043,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 5,
+          "file": "out/packed/roundtrip/render-build/turn/f0005.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19552,
+          "candidatePixels": 19552,
+          "referencePixels": 19392,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "wide",
+          "worstDrift": 0.20476927814347937,
+          "attributed": 3,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.96162200515525,
+                "cy": 57.294522318446504,
+                "width": 104,
+                "height": 88,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.025758156965916663,
+              "driftX": -0.01112578408715758,
+              "driftY": 0.023231435141350013,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.96196089757922,
+                "cy": 57.295067389657184,
+                "width": 56,
+                "height": 55,
+                "pixels": 1982
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.2747304778554781,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 9.8x its size and 162x230 px against its 56x55 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 28.2 against its own 114.0 of contrast; confidence 0.27 where 0.49 is needed 24.5 px out)"
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01606114728836956,
+              "driftX": -0.013171597176688274,
+              "driftY": 0.009190727938186309,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9443670474598309,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 4,
+            "candidate": 3242,
+            "reference": 3242,
+            "candidateMae": 4.61396729390681,
+            "referenceMae": 4.61396729390681,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 6,
+          "file": "out/packed/roundtrip/render-build/turn/f0006.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19532,
+          "candidatePixels": 19532,
+          "referencePixels": 19387,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "wide",
+          "worstDrift": 0.20476927814347937,
+          "attributed": 3,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.962607571731,
+                "cy": 57.29529882684992,
+                "width": 106,
+                "height": 90,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.022772974670127046,
+              "driftX": -0.013150801532132139,
+              "driftY": -0.018592062671708025,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9776245706605605,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.96175743871878,
+                "cy": 57.2939928426875,
+                "width": 56,
+                "height": 57,
+                "pixels": 1982
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.07317839195979858,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 9.8x its size and 162x231 px against its 56x57 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 33.6 against its own 114.2 of contrast; confidence 0.07 where 0.49 is needed 24.5 px out)"
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.020790480741370708,
+              "driftX": -0.018195660449181514,
+              "driftY": 0.010057933698101111,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9539023559642116,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 5,
+            "candidate": 2663,
+            "reference": 2663,
+            "candidateMae": 2.5083865367383513,
+            "referenceMae": 2.5083865367383513,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 7,
+          "file": "out/packed/roundtrip/render-build/turn/f0007.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19552,
+          "candidatePixels": 19552,
+          "referencePixels": 19392,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "wide",
+          "worstDrift": 0.20476927814347937,
+          "attributed": 3,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.96162200515525,
+                "cy": 57.294522318446504,
+                "width": 104,
+                "height": 88,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.025758156965916663,
+              "driftX": -0.01112578408715758,
+              "driftY": 0.023231435141350013,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.96196089757922,
+                "cy": 57.295067389657184,
+                "width": 56,
+                "height": 55,
+                "pixels": 1982
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.2747304778554781,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 9.8x its size and 162x230 px against its 56x55 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 28.2 against its own 114.0 of contrast; confidence 0.27 where 0.49 is needed 24.5 px out)"
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01606114728836956,
+              "driftX": -0.013171597176688274,
+              "driftY": 0.009190727938186309,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9443670474598309,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 6,
+            "candidate": 2663,
+            "reference": 2663,
+            "candidateMae": 2.5083865367383513,
+            "referenceMae": 2.5083865367383513,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 8,
+          "file": "out/packed/roundtrip/render-build/turn/f0008.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19580,
+          "candidatePixels": 19580,
+          "referencePixels": 19417,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "wide",
+          "worstDrift": 0.20476927814347937,
+          "attributed": 3,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.96319842477719,
+                "cy": 57.29440996410112,
+                "width": 102,
+                "height": 85,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.027520997116161662,
+              "driftX": -0.009740989183811008,
+              "driftY": -0.02573943301606808,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9955634956081584,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.96066677745335,
+                "cy": 57.29510797743116,
+                "width": 54,
+                "height": 54,
+                "pixels": 1982
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.2389661719688454,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 9.8x its size and 162x228 px against its 54x54 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 28.0 against its own 114.2 of contrast; confidence 0.24 where 0.50 is needed 25.0 px out)"
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.007053844872805857,
+              "driftX": -0.005048587913756437,
+              "driftY": 0.004926305671259337,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9466270394105446,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 7,
+            "candidate": 3242,
+            "reference": 3242,
+            "candidateMae": 4.613960293458781,
+            "referenceMae": 4.613960293458781,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 9,
+          "file": "out/packed/roundtrip/render-build/turn/f0009.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19604,
+          "candidatePixels": 19604,
+          "referencePixels": 19456,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "wide",
+          "worstDrift": 0.20476927814347937,
+          "attributed": 3,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.96290892568997,
+                "cy": 57.29616444535005,
+                "width": 98,
+                "height": 80,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.042228110199624344,
+              "driftX": -0.040676132078565144,
+              "driftY": -0.011343084684456037,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.96174100201385,
+                "cy": 57.296060154064676,
+                "width": 52,
+                "height": 51,
+                "pixels": 1982
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.06815908549654692,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 9.8x its size and 162x226 px against its 52x51 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 27.8 against its own 113.9 of contrast; confidence 0.07 where 0.51 is needed 25.3 px out)"
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.017668528620190305,
+              "driftX": -0.002777462872690103,
+              "driftY": 0.017448856799037352,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9407400079145232,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 8,
+            "candidate": 3426,
+            "reference": 3426,
+            "candidateMae": 5.204105062724014,
+            "referenceMae": 5.204105062724014,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 10,
+          "file": "out/packed/roundtrip/render-build/turn/f0010.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19627,
+          "candidatePixels": 19627,
+          "referencePixels": 19460,
+          "components": 1,
+          "unmatchedComponents": 0,
+          "worstSlot": "small",
+          "worstDrift": 11.163277409232075,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.96569348649393,
+                "cy": 57.29455988942258,
+                "width": 96,
+                "height": 75,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03505376459174769,
+              "driftX": 0.01634668465926498,
+              "driftY": -0.03100890698983463,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.9614377041687,
+                "cy": 57.29248639204749,
+                "width": 50,
+                "height": 49,
+                "pixels": 1982
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 11.163277409232075,
+              "driftX": 11.11849790421219,
+              "driftY": -0.9988828106941978,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.4432566088505874,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01912979136882594,
+              "driftX": -0.002471231843048431,
+              "driftY": 0.01896950001957645,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9551915830317501,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 9,
+            "candidate": 3417,
+            "reference": 3417,
+            "candidateMae": 5.185322860663082,
+            "referenceMae": 5.185322860663082,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 11,
+          "file": "out/packed/roundtrip/render-build/turn/f0011.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19630,
+          "candidatePixels": 19630,
+          "referencePixels": 19459,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "small",
+          "worstDrift": 11.188381309705354,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.960242754684,
+                "cy": 57.28849374978562,
+                "width": 92,
+                "height": 71,
+                "pixels": 5947
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.02166799499580752,
+              "driftX": 0.015856613454960113,
+              "driftY": -0.014767187168798178,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.9749926283022,
+                "cy": 57.29777800206209,
+                "width": 47,
+                "height": 47,
+                "pixels": 1982
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 11.188381309705354,
+              "driftX": -11.187726942628904,
+              "driftY": 0.12100491122024937,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.3102604814830704,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.011163033017963977,
+              "driftX": -0.00302023557837504,
+              "driftY": 0.01074669638592584,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9539428042858243,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 10,
+            "candidate": 3251,
+            "reference": 3251,
+            "candidateMae": 4.600036402329749,
+            "referenceMae": 4.600036402329749,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 12,
+          "file": "out/packed/roundtrip/render-build/turn/f0012.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 19582,
+          "candidatePixels": 19582,
+          "referencePixels": 19447,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "small",
+          "worstDrift": 11.077900519041691,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "odd",
+              "candidate": {
+                "cx": 92.97255606688489,
+                "cy": 57.24684105373602,
+                "width": 90,
+                "height": 68,
+                "pixels": 5945
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.01071424972916057,
+              "driftX": -0.006408508317425621,
+              "driftY": 0.008586394377403357,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "small",
+              "candidate": {
+                "cx": 92.97233564700167,
+                "cy": 57.29376710828325,
+                "width": 46,
+                "height": 46,
+                "pixels": 1987
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 11.077900519041691,
+              "driftX": 11.077759313114527,
+              "driftY": -0.05593308938839538,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.3332879571648968,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tall",
+              "candidate": {
+                "cx": 92.94524020487987,
+                "cy": 168.57442348172214,
+                "width": 52,
+                "height": 151,
+                "pixels": 7528
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.011163033017963977,
+              "driftX": -0.00302023557837504,
+              "driftY": 0.01074669638592584,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9538378336616834,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "wide",
+              "candidate": {
+                "cx": 92.97263207996127,
+                "cy": 168.57246306423488,
+                "width": 162,
+                "height": 51,
+                "pixels": 8074
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.20476927814347937,
+              "driftX": 0.19192790434834306,
+              "driftY": 0.0713732218962749,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.42092500442042025,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 11,
+            "candidate": 2625,
+            "reference": 2625,
+            "candidateMae": 2.501435091845878,
+            "referenceMae": 2.501435091845878,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        }
+      ],
+      "viewport": {
+        "x": -66.81457873319444,
+        "y": -112.81457896524543,
+        "width": 133.6291597868992,
+        "height": 183.99363206162792,
+        "scale": 1.3913525002553013,
+        "pixelWidth": 186,
+        "pixelHeight": 256
+      },
+      "framing": "frames-viewport",
+      "framingFit": {
+        "fit": {
+          "candidate": {
+            "left": 12.331553182020471,
+            "top": 14.623119556611243,
+            "right": 173.59345794392524,
+            "bottom": 243.63869588455373
+          },
+          "reference": {
+            "left": 12.331553182020471,
+            "top": 14.623119556611243,
+            "right": 173.59345794392524,
+            "bottom": 243.63869588455373
+          },
+          "frames": 13,
+          "scale": 1,
+          "dx": 0,
+          "dy": 0,
+          "rms": 0,
+          "residualWidth": 0,
+          "residualHeight": 0,
+          "aspectError": 0
+        },
+        "passes": 1,
+        "settled": true,
+        "source": "declared",
+        "cycled": false,
+        "agrees": true,
+        "applied": true,
+        "refinement": {
+          "dx": 0,
+          "dy": 0,
+          "before": 0,
+          "after": 0,
+          "radius": 2,
+          "frames": 13,
+          "applied": false,
+          "declined": "identity"
+        },
+        "units": {
+          "candidate": {
+            "width": 115.90298269655933,
+            "height": 164.59924877837938
+          },
+          "reference": {
+            "width": 115.90298269655933,
+            "height": 164.59924877837938
+          },
+          "ratio": 1
+        }
+      },
+      "declaredBox": {
+        "distance": 0,
+        "rms": 0,
+        "reach": 11.450778816397126,
+        "frames": 13,
+        "taken": true,
+        "clause": "coincident"
+      },
+      "sheet": null,
+      "notes": []
+    }
+  ],
+  "textureFrom": null,
+  "notes": [
+    "the candidate's world box was taken from frames.json rather than fitted, because rendering it into that box put its own drawn pixels on the reference's to within 0.00 px rms — so the candidate is authored in the frames' own coordinates, measured rather than assumed, and the box they were rendered at is exact where a fit of it is an estimate. The framing line below is still measured; what it leaves over is the extent fit's own floor. Pass --viewport to override.",
+    "part of every MAE below is TEXTURE, not animation, and it is not attributed here. The frames were rendered through the reference's own atlas; this candidate samples its own, and if the two were packed at different scales every edge of every part is filtered from a different source in every frame. That difference is a constant no key can move and is invisible to the content box, the fit residual and the whole-pixel refinement. Pass --texture-from <the atlas the frames were rendered through> to measure it: the candidate's own geometry is kept and only the texels are swapped, so the run reports the floor and what sits above it beside the figure of record."
+  ]
+}

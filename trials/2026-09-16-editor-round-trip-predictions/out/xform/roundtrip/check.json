@@ -1,0 +1,1640 @@
+{
+  "candidate": {
+    "skeleton": "out/xform/roundtrip/export-cand/skeleton.json",
+    "atlas": "out/xform/roundtrip/export-cand/skeleton.atlas"
+  },
+  "framesDir": "out/xform/roundtrip/render-build",
+  "framesRoot": "out/xform/roundtrip/render-build",
+  "framingScope": "per-shot",
+  "framing": "frames-viewport",
+  "viewport": {
+    "x": -108.5279368702636,
+    "y": -46.500700495290275,
+    "width": 213.4580919314892,
+    "height": 142.40655575201208,
+    "scale": 1.1992986430430799,
+    "pixelWidth": 256,
+    "pixelHeight": 171
+  },
+  "framingFit": {
+    "fit": {
+      "candidate": {
+        "left": 16.521649484536084,
+        "top": 12,
+        "right": 243.10690633869442,
+        "bottom": 154.38035264483628
+      },
+      "reference": {
+        "left": 16.521649484536084,
+        "top": 12,
+        "right": 243.10690633869442,
+        "bottom": 154.38035264483628
+      },
+      "frames": 13,
+      "scale": 1,
+      "dx": 0,
+      "dy": 0,
+      "rms": 0,
+      "residualWidth": 0,
+      "residualHeight": 0,
+      "aspectError": 0
+    },
+    "passes": 1,
+    "settled": true,
+    "source": "declared",
+    "cycled": false,
+    "agrees": true,
+    "applied": true,
+    "refinement": {
+      "dx": 0,
+      "dy": 0,
+      "before": 0,
+      "after": 0,
+      "radius": 2,
+      "frames": 13,
+      "applied": false,
+      "declined": "identity"
+    },
+    "units": {
+      "candidate": {
+        "width": 188.93147104646494,
+        "height": 118.71968126601294
+      },
+      "reference": {
+        "width": 188.93147104646494,
+        "height": 118.71968126601294
+      },
+      "ratio": 1
+    }
+  },
+  "declaredBox": {
+    "distance": 0,
+    "rms": 0,
+    "reach": 11.329262842707918,
+    "frames": 13,
+    "taken": true,
+    "clause": "coincident"
+  },
+  "sharedFraming": null,
+  "referenceViewport": {
+    "x": -108.5279368702636,
+    "y": -46.500700495290275,
+    "width": 213.4580919314892,
+    "height": 142.40655575201208,
+    "scale": 1.1992986430430799,
+    "pixelWidth": 256,
+    "pixelHeight": 171
+  },
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "chains": [
+    {
+      "name": "root",
+      "bones": [
+        "root"
+      ],
+      "slots": []
+    },
+    {
+      "name": "src",
+      "bones": [
+        "src"
+      ],
+      "slots": [
+        "src"
+      ]
+    },
+    {
+      "name": "dst",
+      "bones": [
+        "dst"
+      ],
+      "slots": [
+        "dst"
+      ]
+    },
+    {
+      "name": "tag",
+      "bones": [
+        "tag"
+      ],
+      "slots": [
+        "tag"
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "dir": "swing",
+      "animation": "swing",
+      "candidateAnimation": "swing",
+      "fps": 12,
+      "referenceFrames": 13,
+      "candidateFrames": 13,
+      "compared": 13,
+      "meanMae": 0,
+      "meanMaeReference": 0,
+      "drawnRatio": 1.0147253024252403,
+      "meanMaeFrame": 0,
+      "textureFloor": null,
+      "worstMae": 0,
+      "worstMaeFrame": -1,
+      "worstDrift": 0.14297376829173034,
+      "worstDriftFrame": 0,
+      "worstDriftSlot": "tag",
+      "framesWithoutDrift": 0,
+      "changePairs": 12,
+      "changeDisagreements": 0,
+      "worstChangeFrame": -1,
+      "chains": [
+        {
+          "chain": "src",
+          "slots": 1,
+          "drewSlots": 1,
+          "worstDrift": 0.13288551178133512,
+          "worstDriftSlot": "src",
+          "worstDriftFrame": 0,
+          "meanDrift": 0.04994922932818249,
+          "driftSamples": 13,
+          "driftFrames": 13,
+          "error": 0,
+          "referencePixels": 59694,
+          "mae": 0,
+          "maeShare": 0
+        },
+        {
+          "chain": "dst",
+          "slots": 1,
+          "drewSlots": 1,
+          "worstDrift": 0.07519334263702732,
+          "worstDriftSlot": "dst",
+          "worstDriftFrame": 3,
+          "meanDrift": 0.04632409219204625,
+          "driftSamples": 13,
+          "driftFrames": 13,
+          "error": 0,
+          "referencePixels": 59728,
+          "mae": 0,
+          "maeShare": 0
+        },
+        {
+          "chain": "tag",
+          "slots": 1,
+          "drewSlots": 1,
+          "worstDrift": 0.14297376829173034,
+          "worstDriftSlot": "tag",
+          "worstDriftFrame": 0,
+          "meanDrift": 0.1429737682917303,
+          "driftSamples": 13,
+          "driftFrames": 13,
+          "error": 0,
+          "referencePixels": 22308,
+          "mae": 0,
+          "maeShare": 0
+        }
+      ],
+      "chainDenominator": 0,
+      "unattributedError": 0,
+      "frames": [
+        {
+          "index": 0,
+          "file": "out/xform/roundtrip/render-build/swing/f0000.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11079,
+          "candidatePixels": 11079,
+          "referencePixels": 10902,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.1167357954,
+                "cy": 114.95527956498715,
+                "width": 78,
+                "height": 68,
+                "pixels": 4487
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.12983906046108,
+                "cy": 114.94976076555024,
+                "width": 77,
+                "height": 68,
+                "pixels": 4598
+              },
+              "drift": 0.01421804144339407,
+              "driftX": 0.013103265061090497,
+              "driftY": -0.0055187994369134685,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.24890395831153,
+                "cy": 115.01582696410907,
+                "width": 73,
+                "height": 64,
+                "pixels": 4496
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.38099389712293,
+                "cy": 115.00130775937228,
+                "width": 73,
+                "height": 64,
+                "pixels": 4588
+              },
+              "drift": 0.13288551178133512,
+              "driftX": 0.1320899388113972,
+              "driftY": -0.014519204736785696,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": null,
+          "textureFloor": null
+        },
+        {
+          "index": 1,
+          "file": "out/xform/roundtrip/render-build/swing/f0001.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11057,
+          "candidatePixels": 11057,
+          "referencePixels": 10903,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11618051647045,
+                "cy": 114.934122395187,
+                "width": 78,
+                "height": 68,
+                "pixels": 4487
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.12869565217392,
+                "cy": 114.95065217391304,
+                "width": 77,
+                "height": 68,
+                "pixels": 4600
+              },
+              "drift": 0.020733118588576703,
+              "driftX": 0.01251513570346674,
+              "driftY": 0.016529778726038558,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.205533728091986,
+                "cy": 115.02033770037961,
+                "width": 76,
+                "height": 66,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.170372792674954,
+                "cy": 115.03215609330718,
+                "width": 75,
+                "height": 66,
+                "pixels": 4587
+              },
+              "drift": 0.03709401286988299,
+              "driftX": -0.035160935417032135,
+              "driftY": 0.011818392927565924,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 0,
+            "candidate": 2451,
+            "reference": 2451,
+            "candidateMae": 2.995096247563353,
+            "referenceMae": 2.995096247563353,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 2,
+          "file": "out/xform/roundtrip/render-build/swing/f0002.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11060,
+          "candidatePixels": 11060,
+          "referencePixels": 10906,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11505718188187,
+                "cy": 114.9086946871141,
+                "width": 79,
+                "height": 70,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.17667536988685,
+                "cy": 114.8848999129678,
+                "width": 78,
+                "height": 69,
+                "pixels": 4596
+              },
+              "drift": 0.06605295125648515,
+              "driftX": 0.061618188004985086,
+              "driftY": -0.02379477414631026,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.19964249916765,
+                "cy": 115.02024279645865,
+                "width": 80,
+                "height": 72,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.23508924684371,
+                "cy": 115.01197213757075,
+                "width": 79,
+                "height": 71,
+                "pixels": 4594
+              },
+              "drift": 0.036398842278976475,
+              "driftX": 0.03544674767605471,
+              "driftY": -0.00827065888789491,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 1,
+            "candidate": 4458,
+            "reference": 4458,
+            "candidateMae": 6.559438961988304,
+            "referenceMae": 6.559438961988304,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 3,
+          "file": "out/xform/roundtrip/render-build/swing/f0003.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11058,
+          "candidatePixels": 11058,
+          "referencePixels": 10902,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.1159962528718,
+                "cy": 114.88785661292111,
+                "width": 80,
+                "height": 72,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.1904658249891,
+                "cy": 114.87744884632129,
+                "width": 80,
+                "height": 71,
+                "pixels": 4594
+              },
+              "drift": 0.07519334263702732,
+              "driftX": 0.07446957211729455,
+              "driftY": -0.010407766599826118,
+              "widthDrift": 0,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.199460466546995,
+                "cy": 115.01926206085346,
+                "width": 84,
+                "height": 77,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.232142857142854,
+                "cy": 115.0241724738676,
+                "width": 84,
+                "height": 76,
+                "pixels": 4592
+              },
+              "drift": 0.033049218009351414,
+              "driftX": 0.03268239059585909,
+              "driftY": 0.004910413014130199,
+              "widthDrift": 0,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 2,
+            "candidate": 4829,
+            "reference": 4829,
+            "candidateMae": 7.849986293859649,
+            "referenceMae": 7.849986293859649,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 4,
+          "file": "out/xform/roundtrip/render-build/swing/f0004.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11062,
+          "candidatePixels": 11062,
+          "referencePixels": 10899,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11630560068113,
+                "cy": 114.86689524032566,
+                "width": 82,
+                "height": 74,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.13099389712292,
+                "cy": 114.90387968613776,
+                "width": 81,
+                "height": 73,
+                "pixels": 4588
+              },
+              "drift": 0.039794412728292615,
+              "driftX": 0.014688296441789817,
+              "driftY": 0.036984445812095146,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.19929382443753,
+                "cy": 115.02006540054349,
+                "width": 88,
+                "height": 82,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.23275299238303,
+                "cy": 115.00533188248096,
+                "width": 87,
+                "height": 81,
+                "pixels": 4595
+              },
+              "drift": 0.036559437551795526,
+              "driftX": 0.03345916794549453,
+              "driftY": -0.01473351806252765,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 3,
+            "candidate": 4832,
+            "reference": 4832,
+            "candidateMae": 7.946051108674464,
+            "referenceMae": 7.946051108674464,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 5,
+          "file": "out/xform/roundtrip/render-build/swing/f0005.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11060,
+          "candidatePixels": 11060,
+          "referencePixels": 10908,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11575514370207,
+                "cy": 114.8446061913184,
+                "width": 84,
+                "height": 76,
+                "pixels": 4487
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.16369371329128,
+                "cy": 114.8308679573635,
+                "width": 83,
+                "height": 75,
+                "pixels": 4597
+              },
+              "drift": 0.04986828176766301,
+              "driftX": 0.04793856958920628,
+              "driftY": -0.013738233954910584,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.19947629612999,
+                "cy": 115.01951808408107,
+                "width": 91,
+                "height": 86,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.23275299238303,
+                "cy": 115.00924918389553,
+                "width": 91,
+                "height": 85,
+                "pixels": 4595
+              },
+              "drift": 0.034825117724676835,
+              "driftX": 0.03327669625303997,
+              "driftY": -0.010268900185536722,
+              "widthDrift": 0,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 4,
+            "candidate": 4651,
+            "reference": 4651,
+            "candidateMae": 7.163004081384016,
+            "referenceMae": 7.163004081384016,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 6,
+          "file": "out/xform/roundtrip/render-build/swing/f0006.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11060,
+          "candidatePixels": 11060,
+          "referencePixels": 10901,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11585233176268,
+                "cy": 114.82342493417661,
+                "width": 84,
+                "height": 77,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.15795776181145,
+                "cy": 114.84095362508165,
+                "width": 83,
+                "height": 76,
+                "pixels": 4593
+              },
+              "drift": 0.04560835717755834,
+              "driftX": 0.04210543004876399,
+              "driftY": 0.017528690905038502,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.199260360975956,
+                "cy": 115.0199590681806,
+                "width": 92,
+                "height": 88,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.22691637630662,
+                "cy": 115.02177700348432,
+                "width": 91,
+                "height": 87,
+                "pixels": 4592
+              },
+              "drift": 0.027715700834335666,
+              "driftX": 0.02765601533066331,
+              "driftY": 0.0018179353037197643,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 5,
+            "candidate": 3779,
+            "reference": 3779,
+            "candidateMae": 4.134837962962963,
+            "referenceMae": 4.134837962962963,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 7,
+          "file": "out/xform/roundtrip/render-build/swing/f0007.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11062,
+          "candidatePixels": 11062,
+          "referencePixels": 10902,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11568381397467,
+                "cy": 114.8020424891575,
+                "width": 84,
+                "height": 76,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.17588760618602,
+                "cy": 114.79405358309737,
+                "width": 83,
+                "height": 75,
+                "pixels": 4591
+              },
+              "drift": 0.06073153395613787,
+              "driftX": 0.06020379221135386,
+              "driftY": -0.007988906060134582,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.19947629612999,
+                "cy": 115.01951808408107,
+                "width": 91,
+                "height": 86,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.23275299238303,
+                "cy": 115.00924918389553,
+                "width": 91,
+                "height": 85,
+                "pixels": 4595
+              },
+              "drift": 0.034825117724676835,
+              "driftX": 0.03327669625303997,
+              "driftY": -0.010268900185536722,
+              "widthDrift": 0,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 6,
+            "candidate": 3386,
+            "reference": 3386,
+            "candidateMae": 3.4764482821637426,
+            "referenceMae": 3.4764482821637426,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 8,
+          "file": "out/xform/roundtrip/render-build/swing/f0008.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11060,
+          "candidatePixels": 11060,
+          "referencePixels": 10905,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.1142188005209,
+                "cy": 114.7794744522996,
+                "width": 83,
+                "height": 75,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.15629081410535,
+                "cy": 114.75076186329996,
+                "width": 82,
+                "height": 75,
+                "pixels": 4594
+              },
+              "drift": 0.05093591163524108,
+              "driftX": 0.042072013584459,
+              "driftY": -0.02871258899963891,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.19929382443753,
+                "cy": 115.02006540054349,
+                "width": 88,
+                "height": 82,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.23275299238303,
+                "cy": 115.00533188248096,
+                "width": 87,
+                "height": 81,
+                "pixels": 4595
+              },
+              "drift": 0.036559437551795526,
+              "driftX": 0.03345916794549453,
+              "driftY": -0.01473351806252765,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 7,
+            "candidate": 4520,
+            "reference": 4520,
+            "candidateMae": 6.698746649610136,
+            "referenceMae": 6.698746649610136,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 9,
+          "file": "out/xform/roundtrip/render-build/swing/f0009.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11059,
+          "candidatePixels": 11059,
+          "referencePixels": 10902,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11541372207884,
+                "cy": 114.75760029222323,
+                "width": 82,
+                "height": 73,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.15106660861994,
+                "cy": 114.74619068350022,
+                "width": 81,
+                "height": 73,
+                "pixels": 4594
+              },
+              "drift": 0.037434041859314045,
+              "driftX": 0.03565288654110077,
+              "driftY": -0.011409608723013775,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.199460466546995,
+                "cy": 115.01926206085346,
+                "width": 84,
+                "height": 77,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.232142857142854,
+                "cy": 115.0241724738676,
+                "width": 84,
+                "height": 76,
+                "pixels": 4592
+              },
+              "drift": 0.033049218009351414,
+              "driftX": 0.03268239059585909,
+              "driftY": 0.004910413014130199,
+              "widthDrift": 0,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 8,
+            "candidate": 4794,
+            "reference": 4794,
+            "candidateMae": 7.705919529727095,
+            "referenceMae": 7.705919529727095,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 10,
+          "file": "out/xform/roundtrip/render-build/swing/f0010.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11058,
+          "candidatePixels": 11058,
+          "referencePixels": 10903,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11470523467963,
+                "cy": 114.73497948212454,
+                "width": 80,
+                "height": 71,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.1642717178315,
+                "cy": 114.72207707380797,
+                "width": 79,
+                "height": 71,
+                "pixels": 4593
+              },
+              "drift": 0.05121824276965863,
+              "driftX": 0.04956648315186385,
+              "driftY": -0.012902408316577407,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.19964249916765,
+                "cy": 115.02024279645865,
+                "width": 80,
+                "height": 72,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.23508924684371,
+                "cy": 115.01197213757075,
+                "width": 79,
+                "height": 71,
+                "pixels": 4594
+              },
+              "drift": 0.036398842278976475,
+              "driftX": 0.03544674767605471,
+              "driftY": -0.00827065888789491,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 9,
+            "candidate": 4806,
+            "reference": 4806,
+            "candidateMae": 7.795755665204679,
+            "referenceMae": 7.795755665204679,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 11,
+          "file": "out/xform/roundtrip/render-build/swing/f0011.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11060,
+          "candidatePixels": 11060,
+          "referencePixels": 10898,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11465486354464,
+                "cy": 114.71144949446403,
+                "width": 79,
+                "height": 70,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.15244831338413,
+                "cy": 114.66779107725789,
+                "width": 78,
+                "height": 69,
+                "pixels": 4595
+              },
+              "drift": 0.05774428321241381,
+              "driftX": 0.03779344983948363,
+              "driftY": -0.04365841720614583,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.205533728091986,
+                "cy": 115.02033770037961,
+                "width": 76,
+                "height": 66,
+                "pixels": 4488
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.170372792674954,
+                "cy": 115.03215609330718,
+                "width": 75,
+                "height": 66,
+                "pixels": 4587
+              },
+              "drift": 0.03709401286988299,
+              "driftX": -0.035160935417032135,
+              "driftY": 0.011818392927565924,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 10,
+            "candidate": 4438,
+            "reference": 4438,
+            "candidateMae": 6.535080104775829,
+            "referenceMae": 6.535080104775829,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 12,
+          "file": "out/xform/roundtrip/render-build/swing/f0012.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 11082,
+          "candidatePixels": 11082,
+          "referencePixels": 10899,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tag",
+          "worstDrift": 0.14297376829173034,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "dst",
+              "candidate": {
+                "cx": 202.11460893122447,
+                "cy": 114.69072970374903,
+                "width": 79,
+                "height": 70,
+                "pixels": 4487
+              },
+              "method": "component",
+              "reference": {
+                "cx": 202.13525571273124,
+                "cy": 114.66539717083786,
+                "width": 78,
+                "height": 69,
+                "pixels": 4595
+              },
+              "drift": 0.032680679464838665,
+              "driftX": 0.020646781506769685,
+              "driftY": -0.025332532911164662,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "src",
+              "candidate": {
+                "cx": 58.24890395831153,
+                "cy": 115.01582696410907,
+                "width": 73,
+                "height": 64,
+                "pixels": 4496
+              },
+              "method": "component",
+              "reference": {
+                "cx": 58.38099389712293,
+                "cy": 115.00130775937228,
+                "width": 73,
+                "height": 64,
+                "pixels": 4588
+              },
+              "drift": 0.13288551178133512,
+              "driftX": 0.1320899388113972,
+              "driftY": -0.014519204736785696,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 130.13085203615327,
+                "cy": 31.057612872295003,
+                "width": 44,
+                "height": 40,
+                "pixels": 1660
+              },
+              "method": "component",
+              "reference": {
+                "cx": 130,
+                "cy": 31,
+                "width": 44,
+                "height": 40,
+                "pixels": 1716
+              },
+              "drift": 0.14297376829173034,
+              "driftX": -0.13085203615327146,
+              "driftY": -0.057612872295003115,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 11,
+            "candidate": 2453,
+            "reference": 2453,
+            "candidateMae": 2.9949896442495123,
+            "referenceMae": 2.9949896442495123,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        }
+      ],
+      "viewport": {
+        "x": -108.5279368702636,
+        "y": -46.500700495290275,
+        "width": 213.4580919314892,
+        "height": 142.40655575201208,
+        "scale": 1.1992986430430799,
+        "pixelWidth": 256,
+        "pixelHeight": 171
+      },
+      "framing": "frames-viewport",
+      "framingFit": {
+        "fit": {
+          "candidate": {
+            "left": 16.521649484536084,
+            "top": 12,
+            "right": 243.10690633869442,
+            "bottom": 154.38035264483628
+          },
+          "reference": {
+            "left": 16.521649484536084,
+            "top": 12,
+            "right": 243.10690633869442,
+            "bottom": 154.38035264483628
+          },
+          "frames": 13,
+          "scale": 1,
+          "dx": 0,
+          "dy": 0,
+          "rms": 0,
+          "residualWidth": 0,
+          "residualHeight": 0,
+          "aspectError": 0
+        },
+        "passes": 1,
+        "settled": true,
+        "source": "declared",
+        "cycled": false,
+        "agrees": true,
+        "applied": true,
+        "refinement": {
+          "dx": 0,
+          "dy": 0,
+          "before": 0,
+          "after": 0,
+          "radius": 2,
+          "frames": 13,
+          "applied": false,
+          "declined": "identity"
+        },
+        "units": {
+          "candidate": {
+            "width": 188.93147104646494,
+            "height": 118.71968126601294
+          },
+          "reference": {
+            "width": 188.93147104646494,
+            "height": 118.71968126601294
+          },
+          "ratio": 1
+        }
+      },
+      "declaredBox": {
+        "distance": 0,
+        "rms": 0,
+        "reach": 11.329262842707918,
+        "frames": 13,
+        "taken": true,
+        "clause": "coincident"
+      },
+      "sheet": null,
+      "notes": []
+    }
+  ],
+  "textureFrom": null,
+  "notes": [
+    "the candidate's world box was taken from frames.json rather than fitted, because rendering it into that box put its own drawn pixels on the reference's to within 0.00 px rms — so the candidate is authored in the frames' own coordinates, measured rather than assumed, and the box they were rendered at is exact where a fit of it is an estimate. The framing line below is still measured; what it leaves over is the extent fit's own floor. Pass --viewport to override.",
+    "part of every MAE below is TEXTURE, not animation, and it is not attributed here. The frames were rendered through the reference's own atlas; this candidate samples its own, and if the two were packed at different scales every edge of every part is filtered from a different source in every frame. That difference is a constant no key can move and is invisible to the content box, the fit residual and the whole-pixel refinement. Pass --texture-from <the atlas the frames were rendered through> to measure it: the candidate's own geometry is kept and only the texels are swapped, so the run reports the floor and what sits above it beside the figure of record."
+  ]
+}

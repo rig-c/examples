@@ -1,0 +1,43 @@
+{
+  "spec": "rigc-motion/1",
+  "archetype": "r6path",
+  "cut": "r6path",
+
+  "easings": { "smooth": [0.25, 0, 0.75, 1] },
+
+  "animations": {
+    "travel": {
+      "duration": 2,
+      "loop": true,
+      "note": "position is the fixed point -- trip 1 carried one on gallery/ride. spacing and mix are the two path timelines nothing has round-tripped.",
+      "tracks": [
+        {
+          "path": "ride",
+          "property": "position",
+          "keys": [
+            { "t": 0, "v": [20.25], "ease": "smooth" },
+            { "t": 2, "v": [140.5] }
+          ]
+        },
+        {
+          "path": "ride",
+          "property": "spacing",
+          "keys": [
+            { "t": 0, "v": [0.375], "ease": "smooth" },
+            { "t": 1, "v": [0.8125], "ease": "smooth" },
+            { "t": 2, "v": [0.375] }
+          ]
+        },
+        {
+          "path": "ride",
+          "property": "mix",
+          "keys": [
+            { "t": 0, "v": [0.5625, 0.4375, 0.21875], "ease": "smooth" },
+            { "t": 1, "v": [0.75, 0.5, 0.28125], "ease": "smooth" },
+            { "t": 2, "v": [0.5625, 0.4375, 0.21875] }
+          ]
+        }
+      ]
+    }
+  }
+}

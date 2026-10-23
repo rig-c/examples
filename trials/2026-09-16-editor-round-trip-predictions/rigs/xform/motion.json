@@ -1,0 +1,35 @@
+{
+  "spec": "rigc-motion/1",
+  "archetype": "r6xform",
+  "cut": "r6xform",
+
+  "easings": { "smooth": [0.25, 0, 0.75, 1] },
+
+  "animations": {
+    "swing": {
+      "duration": 1,
+      "loop": true,
+      "note": "The source bone turns; the transform timeline mixes the constraint in over the same second. Both halves of the question are here -- the constraint in the setup file and its timeline in the animation.",
+      "tracks": [
+        {
+          "bone": "src",
+          "property": "rotate",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 0.5, "v": [24], "ease": "smooth" },
+            { "t": 1, "v": [0] }
+          ]
+        }
+      ],
+      "transform": [
+        {
+          "constraint": "aim",
+          "keys": [
+            { "t": 0, "mixRotate": 0.5625, "mixY": 0.03125 },
+            { "t": 1, "mixRotate": 0.75, "mixY": 0.15625 }
+          ]
+        }
+      ]
+    }
+  }
+}
