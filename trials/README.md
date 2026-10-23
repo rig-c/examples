@@ -57,9 +57,11 @@ trials/<yyyy-mm-dd>-<slug>/
   in, and the README says what was withheld and where it came from.
 - **Large renders and videos.** Commit their SHA-256 and the command that
   reproduces them instead.
-- **Anything that cannot be released under this repository's
-  [LICENSE](../LICENSE).** That licence covers the images and JSON here; a
-  file that may not be released under it is withheld and listed as withheld.
+- **A licence review of its own.** Licensing is settled once, on the rig-c
+  [licensing page](https://rig-c.github.io/docs/licensing/) and on each
+  input's own page, not per trial. A trial names where each input came from
+  and stops there. When a file's standing is unclear, it is not argued about
+  here: commit its SHA-256 and the command that reproduces it, and move on.
 - **Local paths and private names.** No home-directory path, machine name or
   account, and no name of a project, character or corpus outside this
   repository's public examples.
@@ -72,9 +74,9 @@ section with nothing to say states that, in a sentence.
 
 1. **Question** — one question with a yes, no or partly answer, naming the
    tool and the behaviour.
-2. **Inputs** — each input, where it came from (corpus directory and commit,
-   URL, or the generating command), and its licence or the statement that it
-   was generated. Then what was withheld, and why.
+2. **Inputs** — each input and where it came from (corpus directory and
+   commit, URL, or the generating command). Origin, not a licence review: the
+   licensing page covers that. Then what was withheld, and why.
 3. **Commands and pins** — every command exactly as run, in order, and the
    exact version or commit of every tool, checkpoint and model it used.
    "Latest" is not a pin.
@@ -113,7 +115,7 @@ The skeleton, for reference:
 
 ## Inputs
 
-| Input | Where it came from | Licence or origin | Committed here? |
+| Input | Where it came from | Origin | Committed here? |
 | --- | --- | --- | --- |
 
 Withheld:
