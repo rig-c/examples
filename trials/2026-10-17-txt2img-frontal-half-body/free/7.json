@@ -1,0 +1,25 @@
+{
+ "mode": "free",
+ "seed": 7,
+ "prompt_id": "d9486ac0-5ca1-42a8-86e1-c3f035b23882",
+ "checkpoint": "novaAnimeXL_ilV80.safetensors",
+ "sampler": {
+  "steps": 30,
+  "cfg": 5.5,
+  "sampler": "euler_ancestral",
+  "scheduler": "normal"
+ },
+ "latent": [
+  832,
+  1216
+ ],
+ "size": [
+  1664,
+  2432
+ ],
+ "control": null,
+ "positive": "score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, (solo:1.3), young adult woman, (black hair:1.2), (long twintails:1.3), black hair ribbons, blunt bangs, long sidelocks, ears visible, green eyes, eyes open, gentle smile, closed mouth, (dark navy blue knit sweater:1.2), white collared shirt, green necktie, (upper body:1.2), sitting at a wooden school desk, (arms folded on the desk:1.2), (both forearms flat on the desk:1.3), desk in front of her covering her waist, (front view:1.2), (facing viewer:1.3), (looking at viewer:1.2), head straight, level eyes, symmetrical composition, centered, anime illustration, detailed, soft shading, vibrant colors, (plain light grey background:1.3), simple background, plain background",
+ "negative": "score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, hat, clouds, sky, gradient background, scenery, outdoors, from behind, back view, vignette, dark background, flat color, monochrome, lineart, open mouth, teeth, tongue, closed eyes, half-closed eyes, wind, floating hair, white hair, blonde hair, jacket, cropped, out of frame, cut off feet, from side, profile, kneeling, lying, hands in pockets, hands behind back, contact shadow, cast shadow, floor, ground, multiple views, reference sheet, hands on hips, long jacket, jacket covering skirt, number, wings, extra limbs, extra arms, full body, legs, feet, standing, looking away, looking up, looking down, head tilt, from above, from below, from side, three-quarter view, closed eyes, wink, short hair, single ponytail, school uniform with sailor collar, chair back visible, detailed background, classroom, window, multiple girls, 2koma, comic, multiple panels, split screen, panel border, grey hair, silver hair, blazer, jacket, blue hair, light blue hair, grey sweater, hands on own face, hand on own cheek, chin rest, head rest, (multiple girls:1.3), another girl, duplicate, clone, red hair, multicolored hair, streaked hair, colored inner hair, two-tone hair, arms crossed over chest, hands on own shoulders, self hug, hugging own arms",
+ "queue_wait_s": 0.0,
+ "gpu_s": 16.3
+}
