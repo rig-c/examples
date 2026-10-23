@@ -18,14 +18,19 @@ jobs:
           set -eu
           # Five Family tool scripts still default to local paths; they are
           # excluded by name until rig-c/examples#37 removes the paths, and
-          # that card ends by deleting these five lines.
+          # that card ends by deleting these five lines. Run logs and the one
+          # validation record keep the pooled runner's paths they were
+          # produced with: they are evidence of a run, not a path anyone
+          # resolves, and rewriting evidence is not hygiene.
           if git grep -n -E '(^|[^A-Za-z0-9_])/(Users|home)/[A-Za-z0-9._-]+/' -- . \
                ':!.github/workflows/hygiene.yml' \
                ':!family/tools/homewear-wave-author.py' \
                ':!family/tools/swimwear-wave-author.py' \
                ':!family/tools/swimwear-wave-prepare.py' \
                ':!family/tools/bust-region-rebuild.py' \
-               ':!family/viewer/server.mjs' ; then
+               ':!family/viewer/server.mjs' \
+               ':!*.log' \
+               ':!family/naru/repairs/body-edge-validation.json' ; then
             echo "::error::a local home path is committed; replace it with a repository-relative path or an argument"
             exit 1
           fi
