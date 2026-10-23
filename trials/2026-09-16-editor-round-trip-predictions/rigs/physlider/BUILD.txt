@@ -1,0 +1,25 @@
+physlider -- physics mix and reset timelines, slider time and mix timelines, and a time-driven slider with loop
+
+rig spec name: r6drive
+
+Built green on 2026-09-16 against the rigc worktree at d8485ea. Two commands,
+in this order, both run from the rigc checkout root:
+
+  # 1. the plates. Checkerboards with PLACEHOLDER burned in, drawn by
+  #    tools/plate.ts. Nothing here is art and no claim about appearance can
+  #    come from any of it.
+  RIGC_ROOT=<rigc checkout> bun rigs/physlider/r6_make_plates.ts
+
+  # 2. the build. rigc emits only after green, so a written skeleton.json IS
+  #    the gate having passed.
+  bun cli.ts build \
+    --rig    rigs/physlider/rig.json \
+    --motion rigs/physlider/motion.json \
+    --out    out/physlider/build \
+    --copy-images
+
+run-all.sh runs exactly these two, then tools/editor_roundtrip.ts, then read.ts.
+
+Why --copy-images: the round-trip harness refuses a build whose atlas names its pages
+by path, because it copies the atlas beside the export at another depth and
+every page name would resolve to nothing. --copy-images puts the pages beside the skeleton under plain names.

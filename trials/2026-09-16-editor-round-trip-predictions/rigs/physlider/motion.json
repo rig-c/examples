@@ -1,0 +1,71 @@
+{
+  "spec": "rigc-motion/1",
+  "archetype": "r6drive",
+  "cut": "r6drive",
+
+  "easings": { "smooth": [0.25, 0, 0.75, 1] },
+
+  "animations": {
+    "dial": {
+      "duration": 1,
+      "loop": false,
+      "note": "The animation the slider applies. It is named so that the emitted order dial, play is already the order the editor writes back.",
+      "tracks": [
+        {
+          "bone": "gate",
+          "property": "rotate",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 1, "v": [72] }
+          ]
+        }
+      ]
+    },
+    "play": {
+      "duration": 1.5,
+      "loop": true,
+      "note": "Every timeline under measurement sits here: physics mix, physics reset, slider time, slider mix. The rotate on mark is the animation's own fixed point.",
+      "tracks": [
+        {
+          "bone": "mark",
+          "property": "rotate",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 0.75, "v": [18], "ease": "smooth" },
+            { "t": 1.5, "v": [0] }
+          ]
+        },
+        {
+          "physics": "hold",
+          "property": "mix",
+          "keys": [
+            { "t": 0, "v": [0.75], "ease": "smooth" },
+            { "t": 0.75, "v": [0.3125], "ease": "smooth" },
+            { "t": 1.5, "v": [0.75] }
+          ]
+        },
+        {
+          "physics": "hold",
+          "property": "reset",
+          "keys": [{ "t": 0.5, "v": null }]
+        },
+        {
+          "slider": "knob",
+          "property": "time",
+          "keys": [
+            { "t": 0, "v": [0.25], "ease": "smooth" },
+            { "t": 1.5, "v": [0.6875] }
+          ]
+        },
+        {
+          "slider": "knob",
+          "property": "mix",
+          "keys": [
+            { "t": 0, "v": [0.5], "ease": "smooth" },
+            { "t": 1.5, "v": [0.90625] }
+          ]
+        }
+      ]
+    }
+  }
+}

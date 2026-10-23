@@ -1,0 +1,247 @@
+{
+  "skeleton": {
+    "spine": "4.3.13",
+    "x": 0,
+    "y": 0,
+    "width": 400,
+    "height": 320,
+    "images": "../build/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "rail",
+      "parent": "root",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "link_a",
+      "parent": "root",
+      "length": 36,
+      "x": -40,
+      "y": 0
+    },
+    {
+      "name": "link_b",
+      "parent": "link_a",
+      "length": 28,
+      "x": 36,
+      "y": 0
+    },
+    {
+      "name": "tag",
+      "parent": "root",
+      "x": 0,
+      "y": 120
+    }
+  ],
+  "slots": [
+    {
+      "name": "track",
+      "bone": "rail",
+      "attachment": "track"
+    },
+    {
+      "name": "link_a",
+      "bone": "link_a",
+      "attachment": "link_a"
+    },
+    {
+      "name": "link_b",
+      "bone": "link_b",
+      "attachment": "link_b"
+    },
+    {
+      "name": "tag",
+      "bone": "tag",
+      "attachment": "tag"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "track": {
+          "track": {
+            "type": "path",
+            "closed": true,
+            "constantSpeed": false,
+            "vertexCount": 12,
+            "vertices": [
+              -120,
+              -40,
+              -120,
+              0,
+              -120,
+              40,
+              -40,
+              80,
+              0,
+              80,
+              40,
+              80,
+              120,
+              40,
+              120,
+              0,
+              120,
+              -40,
+              40,
+              -80,
+              0,
+              -80,
+              -40,
+              -80
+            ],
+            "lengths": [
+              153.780555,
+              307.56111,
+              461.341665,
+              615.122221
+            ],
+            "color": "ff6b3cff"
+          }
+        },
+        "link_a": {
+          "link_a": {
+            "width": 48,
+            "height": 40
+          }
+        },
+        "link_b": {
+          "link_b": {
+            "width": 40,
+            "height": 36
+          }
+        },
+        "tag": {
+          "tag": {
+            "width": 44,
+            "height": 40
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "travel": {
+      "path": {
+        "ride": {
+          "position": [
+            {
+              "time": 0,
+              "value": 20.25,
+              "curve": [
+                0.5,
+                20.25,
+                1.5,
+                140.5
+              ]
+            },
+            {
+              "time": 2,
+              "value": 140.5
+            }
+          ],
+          "spacing": [
+            {
+              "time": 0,
+              "value": 0.375,
+              "curve": [
+                0.25,
+                0.375,
+                0.75,
+                0.8125
+              ]
+            },
+            {
+              "time": 1,
+              "value": 0.8125,
+              "curve": [
+                1.25,
+                0.8125,
+                1.75,
+                0.375
+              ]
+            },
+            {
+              "time": 2,
+              "value": 0.375
+            }
+          ],
+          "mix": [
+            {
+              "time": 0,
+              "mixRotate": 0.5625,
+              "mixX": 0.4375,
+              "mixY": 0.21875,
+              "curve": [
+                0.25,
+                0.5625,
+                0.75,
+                0.75,
+                0.25,
+                0.4375,
+                0.75,
+                0.5,
+                0.25,
+                0.21875,
+                0.75,
+                0.28125
+              ]
+            },
+            {
+              "time": 1,
+              "mixRotate": 0.75,
+              "mixX": 0.5,
+              "mixY": 0.28125,
+              "curve": [
+                1.25,
+                0.75,
+                1.75,
+                0.5625,
+                1.25,
+                0.5,
+                1.75,
+                0.4375,
+                1.25,
+                0.28125,
+                1.75,
+                0.21875
+              ]
+            },
+            {
+              "time": 2,
+              "mixRotate": 0.5625,
+              "mixX": 0.4375,
+              "mixY": 0.21875
+            }
+          ]
+        }
+      }
+    }
+  },
+  "constraints": [
+    {
+      "name": "ride",
+      "type": "path",
+      "bones": [
+        "link_a",
+        "link_b"
+      ],
+      "slot": "track",
+      "positionMode": "fixed",
+      "spacingMode": "proportional",
+      "rotateMode": "chainScale",
+      "rotation": 12.5,
+      "position": 20.25,
+      "spacing": 0.375,
+      "mixRotate": 0.5625,
+      "mixX": 0.4375,
+      "mixY": 0.21875
+    }
+  ]
+}

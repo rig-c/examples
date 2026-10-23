@@ -1,0 +1,25 @@
+packed -- an ordinary skeleton built with --pack, so four regions share one atlas page
+
+rig spec name: r6pack
+
+Built green on 2026-09-16 against the rigc worktree at d8485ea. Two commands,
+in this order, both run from the rigc checkout root:
+
+  # 1. the plates. Checkerboards with PLACEHOLDER burned in, drawn by
+  #    tools/plate.ts. Nothing here is art and no claim about appearance can
+  #    come from any of it.
+  RIGC_ROOT=<rigc checkout> bun rigs/packed/r6_make_plates.ts
+
+  # 2. the build. rigc emits only after green, so a written skeleton.json IS
+  #    the gate having passed.
+  bun cli.ts build \
+    --rig    rigs/packed/rig.json \
+    --motion rigs/packed/motion.json \
+    --out    out/packed/build \
+    --pack
+
+run-all.sh runs exactly these two, then tools/editor_roundtrip.ts, then read.ts.
+
+Why --pack: the round-trip harness refuses a build whose atlas names its pages
+by path, because it copies the atlas beside the export at another depth and
+every page name would resolve to nothing. --pack writes real shared pages into --out under plain names, which satisfies that.

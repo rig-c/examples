@@ -1,0 +1,232 @@
+{
+  "skeleton": {
+    "spine": "4.3.13",
+    "x": 0,
+    "y": 0,
+    "width": 320,
+    "height": 200,
+    "images": "../build/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "pin",
+      "parent": "root",
+      "length": 40,
+      "x": -100,
+      "y": 0
+    },
+    {
+      "name": "lean",
+      "parent": "root",
+      "length": 52,
+      "x": 0,
+      "y": 0,
+      "scaleX": 1.25,
+      "scaleY": 0.75,
+      "shearX": 6.5,
+      "shearY": -4.25,
+      "inherit": "noScale",
+      "color": "ff7f00ff",
+      "icon": "circle"
+    },
+    {
+      "name": "tip",
+      "parent": "lean",
+      "x": 0,
+      "y": 52,
+      "inherit": "onlyTranslation"
+    },
+    {
+      "name": "side",
+      "parent": "root",
+      "x": 100,
+      "y": 0,
+      "inherit": "noRotationOrReflection"
+    }
+  ],
+  "slots": [
+    {
+      "name": "pin",
+      "bone": "pin",
+      "attachment": "pin"
+    },
+    {
+      "name": "lean",
+      "bone": "lean",
+      "attachment": "lean"
+    },
+    {
+      "name": "tip",
+      "bone": "tip",
+      "attachment": "tip"
+    },
+    {
+      "name": "side",
+      "bone": "side",
+      "attachment": "side"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "pin": {
+          "pin": {
+            "width": 48,
+            "height": 48
+          }
+        },
+        "lean": {
+          "lean": {
+            "width": 56,
+            "height": 64
+          }
+        },
+        "tip": {
+          "tip": {
+            "width": 40,
+            "height": 40
+          }
+        },
+        "side": {
+          "side": {
+            "width": 44,
+            "height": 52
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "skew": {
+      "bones": {
+        "pin": {
+          "rotate": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": [
+                0.125,
+                0,
+                0.375,
+                15
+              ]
+            },
+            {
+              "time": 0.5,
+              "value": 15,
+              "curve": [
+                0.625,
+                15,
+                0.875,
+                0
+              ]
+            },
+            {
+              "time": 1,
+              "value": 0
+            }
+          ]
+        },
+        "lean": {
+          "shear": [
+            {
+              "time": 0,
+              "x": 0,
+              "y": 0,
+              "curve": [
+                0.125,
+                0,
+                0.375,
+                12.5,
+                0.125,
+                0,
+                0.375,
+                -6.25
+              ]
+            },
+            {
+              "time": 0.5,
+              "x": 12.5,
+              "y": -6.25,
+              "curve": [
+                0.625,
+                12.5,
+                0.875,
+                0,
+                0.625,
+                -6.25,
+                0.875,
+                0
+              ]
+            },
+            {
+              "time": 1,
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        "tip": {
+          "shearx": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": [
+                0.125,
+                0,
+                0.375,
+                18.75
+              ]
+            },
+            {
+              "time": 0.5,
+              "value": 18.75,
+              "curve": [
+                0.625,
+                18.75,
+                0.875,
+                0
+              ]
+            },
+            {
+              "time": 1,
+              "value": 0
+            }
+          ]
+        },
+        "side": {
+          "sheary": [
+            {
+              "time": 0,
+              "value": 0,
+              "curve": [
+                0.125,
+                0,
+                0.375,
+                -9.125
+              ]
+            },
+            {
+              "time": 0.5,
+              "value": -9.125,
+              "curve": [
+                0.625,
+                -9.125,
+                0.875,
+                0
+              ]
+            },
+            {
+              "time": 1,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  }
+}

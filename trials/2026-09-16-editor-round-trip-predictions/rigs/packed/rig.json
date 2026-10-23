@@ -1,0 +1,29 @@
+{
+  "spec": "rigc-rig/1",
+  "name": "r6pack",
+  "note": "Round trip 6 probe: the atlas. Every trip so far used the default one-part-per-page atlas; this rig is built with --pack, so several regions share one page and each carries an xy offset into it. The skeleton is deliberately ordinary -- four regions and one rotate -- so that anything that moves is the atlas and not the rig. Fixed-point control: the whole skeleton, which is the same shape pass 1 carried six times.",
+  "images": "parts",
+  "skeleton": { "x": 0, "y": 0, "width": 240, "height": 200 },
+
+  "bones": [
+    { "name": "root" },
+    { "name": "spin", "parent": "root", "x": 0, "y": 30 },
+    { "name": "rest", "parent": "root", "x": 0, "y": -50 }
+  ],
+
+  "slots": [
+    { "name": "wide", "bone": "rest", "attachment": "wide" },
+    { "name": "tall", "bone": "rest", "attachment": "tall" },
+    { "name": "small", "bone": "spin", "attachment": "small" },
+    { "name": "odd", "bone": "spin", "attachment": "odd" }
+  ],
+
+  "skins": {
+    "default": {
+      "wide": { "wide": { "image": "wide.png" } },
+      "tall": { "tall": { "image": "tall.png" } },
+      "small": { "small": { "image": "small.png" } },
+      "odd": { "odd": { "image": "odd.png" } }
+    }
+  }
+}

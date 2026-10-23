@@ -1,0 +1,44 @@
+{
+  "spec": "rigc-rig/1",
+  "name": "r6shear",
+  "note": "Round trip 6 probe: the three shear timelines and the bone setup fields no trip has carried -- scaleX/scaleY, shearX/shearY, inherit, color, icon. Fixed-point control: the bone pin, which carries a rotate timeline and nothing else; rotate was measured returned by pass 1 on six rigs.",
+  "images": "parts",
+  "skeleton": { "x": 0, "y": 0, "width": 320, "height": 200 },
+
+  "bones": [
+    { "name": "root" },
+    { "name": "pin", "parent": "root", "x": -100, "y": 0, "length": 40 },
+    {
+      "name": "lean",
+      "parent": "root",
+      "x": 0,
+      "y": 0,
+      "length": 52,
+      "scaleX": 1.25,
+      "scaleY": 0.75,
+      "shearX": 6.5,
+      "shearY": -4.25,
+      "inherit": "noScale",
+      "color": "ff7f00ff",
+      "icon": "circle"
+    },
+    { "name": "tip", "parent": "lean", "x": 0, "y": 52, "inherit": "onlyTranslation" },
+    { "name": "side", "parent": "root", "x": 100, "y": 0, "inherit": "noRotationOrReflection" }
+  ],
+
+  "slots": [
+    { "name": "pin", "bone": "pin", "attachment": "pin" },
+    { "name": "lean", "bone": "lean", "attachment": "lean" },
+    { "name": "tip", "bone": "tip", "attachment": "tip" },
+    { "name": "side", "bone": "side", "attachment": "side" }
+  ],
+
+  "skins": {
+    "default": {
+      "pin": { "pin": { "image": "pin.png" } },
+      "lean": { "lean": { "image": "lean.png" } },
+      "tip": { "tip": { "image": "tip.png" } },
+      "side": { "side": { "image": "side.png" } }
+    }
+  }
+}

@@ -1,0 +1,1002 @@
+{
+  "spec": "r6-predictions/1",
+  "note": "Round trip 6's prediction table, written BEFORE the editor ran. Every row states a probe, the hypotheses that compete over it, and which one this table predicts. read.ts resolves the probe on the build and on the export and reports which hypotheses survive: exactly one -> CONFIRMED or REFUTED, more than one -> AMBIGUOUS (the rig cannot separate them), none -> REFUTED, nothing on the table predicted it. basis: doc = an official Spine page, inferred = a prior measurement with its issue, none = no basis at all, which is the point of the row.",
+  "bases": {
+    "doc-nonessential": "https://esotericsoftware.com/spine-json-format and https://esotericsoftware.com/spine-export -- data marked nonessential is only written when the Nonessential data export box is checked, and that list is: the skeleton's fps, images and audio; a mesh's and a linked mesh's width and height; a mesh's edges; and the editor colours of bounding box, path, point and clipping attachments. Quoted in docs/AUTHORING.md 10.5.",
+    "doc-defaults": "https://esotericsoftware.com/spine-json-format -- the exporter omits a field equal to its default, which is why the format page is a list of assume-N-if-omitted. Quoted in docs/AUTHORING.md 10.5.",
+    "doc-boundingbox": "https://esotericsoftware.com/spine-bounding-boxes -- bounding boxes are an editor feature with their own attachment type.",
+    "doc-clipping": "https://esotericsoftware.com/spine-clipping -- clipping attachments are an editor feature, and the end slot is part of the documented model.",
+    "doc-transform": "https://esotericsoftware.com/spine-transform-constraints -- transform constraints are an editor feature.",
+    "doc-path": "https://esotericsoftware.com/spine-path-constraints -- position, spacing and rotate modes are the documented model.",
+    "doc-physics": "https://esotericsoftware.com/spine-physics-constraints",
+    "doc-slider": "https://esotericsoftware.com/spine-sliders",
+    "doc-shear": "https://esotericsoftware.com/spine-keys -- shear is a keyable bone property.",
+    "doc-draworder": "https://esotericsoftware.com/spine-slots and https://esotericsoftware.com/spine-keys -- the draw order can be keyed, and offsets count from the setup order.",
+    "doc-blend": "https://esotericsoftware.com/spine-slots -- a slot carries a blend mode and a two-colour tint.",
+    "doc-images": "https://esotericsoftware.com/spine-images -- the editor finds an image by appending the attachment name to the Images path, unless the attachment has a Path.",
+    "m-535": "issue #535 -- the editor returned bones, slots and constraints element for element, and re-keyed every name-keyed object.",
+    "m-539": "issue #539 -- the re-key is natural order, case-insensitive; events are re-keyed and their firings still resolve by name.",
+    "m-540": "issue #540 -- twelve physics constraints, x and y kept, rotate/scaleX/shearX discarded, and every constraint's strength returned exactly.",
+    "m-541": "issue #541 and PR #552 -- skins is re-sorted with default pinned first.",
+    "m-368": "issue #368 -- the editor recomputes a mesh hull and drops internal edges on import, warning that Nonessential was unchecked.",
+    "m-369": "issue #369 -- a curve over a hold segment comes back stepped.",
+    "m-370": "issue #370 -- skeleton.images is resolved against the skeleton's directory and re-anchored on export; the editor collapses ./ to no path."
+  },
+
+  "rows": [
+    {
+      "id": "BBOX-C1",
+      "rig": "bbox_clip",
+      "control": true,
+      "question": "the slots array comes back element for element",
+      "probe": "order.slots",
+      "basis": "inferred",
+      "basisNote": "m-535",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true }, "why": "arrays other than skins were measured preserved" },
+        { "name": "editorSorted", "expect": { "editorSorted": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "BBOX-C2",
+      "rig": "bbox_clip",
+      "control": true,
+      "question": "the region attachment on the control slot keeps its measured width",
+      "probe": "att[base/base].width",
+      "basis": "inferred",
+      "basisNote": "m-535 -- pass 1 round-tripped six rigs of region attachments with every diff measure a perfect match",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "BBOX-01",
+      "rig": "bbox_clip",
+      "question": "does a boundingbox attachment come back at all",
+      "probe": "att[hit/hit].type",
+      "basis": "doc",
+      "basisNote": "doc-boundingbox",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true }, "why": "bounding boxes are a first-class editor feature" },
+        { "name": "lost", "expect": { "absent": true }, "why": "an attachment type the editor's importer does not read would vanish the way a 4.1-shaped constraint does" },
+        { "name": "becameRegion", "expect": { "value": "region" } }
+      ]
+    },
+    {
+      "id": "BBOX-02",
+      "rig": "bbox_clip",
+      "question": "does its polygon come back unchanged",
+      "probe": "att[hit/hit].vertices",
+      "basis": "none",
+      "basisNote": "nothing has round-tripped a vertex attachment that is not a mesh",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "BBOX-03",
+      "rig": "bbox_clip",
+      "question": "does its vertexCount come back",
+      "probe": "att[hit/hit].vertexCount",
+      "basis": "none",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "BBOX-04",
+      "rig": "bbox_clip",
+      "question": "does the bounding box's editor colour survive an export made with the default settings",
+      "probe": "att[hit/hit].color",
+      "basis": "doc",
+      "basisNote": "doc-nonessential -- the colours of bounding box, path, point and clipping attachments are on the nonessential list",
+      "predict": "dropped",
+      "hypotheses": [
+        { "name": "dropped", "expect": { "absent": true }, "why": "nonessential, and the round trip exports with default settings" },
+        { "name": "kept", "expect": { "kept": true } }
+      ]
+    },
+    {
+      "id": "BBOX-05",
+      "rig": "bbox_clip",
+      "question": "does a clipping attachment come back at all",
+      "probe": "att[mask/mask].type",
+      "basis": "doc",
+      "basisNote": "doc-clipping",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "BBOX-06",
+      "rig": "bbox_clip",
+      "question": "does the clipping attachment's end slot come back",
+      "probe": "att[mask/mask].end",
+      "basis": "doc",
+      "basisNote": "doc-clipping",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "BBOX-07",
+      "rig": "bbox_clip",
+      "question": "does the clipping attachment's editor colour survive",
+      "probe": "att[mask/mask].color",
+      "basis": "doc",
+      "basisNote": "doc-nonessential",
+      "predict": "dropped",
+      "hypotheses": [
+        { "name": "dropped", "expect": { "absent": true } },
+        { "name": "kept", "expect": { "kept": true } }
+      ]
+    },
+    {
+      "id": "BBOX-08",
+      "rig": "bbox_clip",
+      "question": "does a clipping attachment's convex flag survive",
+      "probe": "att[mask/mask].convex",
+      "basis": "doc",
+      "basisNote": "doc-defaults -- true is not the default false",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+
+    {
+      "id": "XF-C1",
+      "rig": "xform",
+      "control": true,
+      "question": "the physics constraint's strength returns exactly",
+      "probe": "constraint[hold].strength",
+      "basis": "inferred",
+      "basisNote": "m-540 -- every one of twelve constraints returned its strength exactly, which is what made the rows that reported nothing readable as live data",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "XF-C2",
+      "rig": "xform",
+      "control": true,
+      "question": "the physics constraint's x component survives, as it did in #540",
+      "probe": "constraint[hold].x",
+      "basis": "inferred",
+      "basisNote": "m-540",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "XF-01",
+      "rig": "xform",
+      "question": "does a transform constraint come back at all",
+      "probe": "constraint[aim].type",
+      "basis": "doc",
+      "basisNote": "doc-transform",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "XF-02",
+      "rig": "xform",
+      "question": "does 4.3's source + properties model come back unchanged",
+      "probe": "constraint[aim].properties",
+      "basis": "none",
+      "basisNote": "4.3 rebuilt the transform constraint around this map and no round trip has carried one",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "XF-03",
+      "rig": "xform",
+      "question": "does the source bone reference come back",
+      "probe": "constraint[aim].source",
+      "basis": "doc",
+      "basisNote": "doc-transform",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "XF-04",
+      "rig": "xform",
+      "question": "does a non-default boolean flag survive (additive)",
+      "probe": "constraint[aim].additive",
+      "basis": "doc",
+      "basisNote": "doc-defaults -- true is not the default, so an exporter that drops defaults keeps it",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "XF-05",
+      "rig": "xform",
+      "question": "and clamp",
+      "probe": "constraint[aim].clamp",
+      "basis": "doc",
+      "basisNote": "doc-defaults",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "XF-06",
+      "rig": "xform",
+      "question": "and localSource",
+      "probe": "constraint[aim].localSource",
+      "basis": "doc",
+      "basisNote": "doc-defaults",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "XF-07",
+      "rig": "xform",
+      "question": "does a mix the constraint's properties map actually reads survive",
+      "probe": "constraint[aim].mixRotate",
+      "basis": "none",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } },
+        { "name": "reset", "expect": { "value": 1 } }
+      ]
+    },
+    {
+      "id": "XF-08",
+      "rig": "xform",
+      "question": "does the transform timeline survive at all",
+      "probe": "anim[swing].transform[aim]",
+      "basis": "none",
+      "basisNote": "no round trip has carried an ik or transform timeline -- these are the two groups the format writes with no timeline name under the constraint",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "XF-09",
+      "rig": "xform",
+      "question": "and does its first key still carry the mixRotate it was given",
+      "probe": "anim[swing].transform[aim].0.mixRotate",
+      "basis": "none",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } },
+        { "name": "reset", "expect": { "value": 1 } }
+      ],
+      "tolerance": 0.0005
+    },
+
+    {
+      "id": "SH-C1",
+      "rig": "shear",
+      "control": true,
+      "question": "a rotate timeline survives, as it did on six rigs in pass 1",
+      "probe": "anim[skew].bone[pin].rotate",
+      "basis": "inferred",
+      "basisNote": "m-535",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "SH-01",
+      "rig": "shear",
+      "question": "does a paired shear timeline survive",
+      "probe": "anim[skew].bone[lean].shear",
+      "basis": "doc",
+      "basisNote": "doc-shear",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "SH-02",
+      "rig": "shear",
+      "question": "and does its middle key keep both channels",
+      "probe": "anim[skew].bone[lean].shear.1",
+      "basis": "none",
+      "basisNote": "the editor may split a paired timeline into shearx and sheary, which no whole-array row could tell from a loss",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } },
+        { "name": "curveRewritten", "expect": { "without": ["curve"] }, "why": "issue #369's shape: the numbers stand and the curve encoding moves" }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "SH-03",
+      "rig": "shear",
+      "question": "does a single-axis shearx timeline survive",
+      "probe": "anim[skew].bone[tip].shearx",
+      "basis": "doc",
+      "basisNote": "doc-shear",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "SH-04",
+      "rig": "shear",
+      "question": "does a single-axis sheary timeline survive",
+      "probe": "anim[skew].bone[side].sheary",
+      "basis": "doc",
+      "basisNote": "doc-shear",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "SH-05",
+      "rig": "shear",
+      "question": "does a bone's setup shearX survive",
+      "probe": "bone[lean].shearX",
+      "basis": "doc",
+      "basisNote": "doc-defaults -- 6.5 is not the default 0",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "SH-06",
+      "rig": "shear",
+      "question": "does a bone's setup scaleX survive",
+      "probe": "bone[lean].scaleX",
+      "basis": "doc",
+      "basisNote": "doc-defaults -- 1.25 is not the default 1",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "SH-07",
+      "rig": "shear",
+      "question": "does a non-default inherit mode survive",
+      "probe": "bone[lean].inherit",
+      "basis": "doc",
+      "basisNote": "doc-defaults -- 4.2 renamed bone transform to inherit and noScale is not the default normal",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "SH-08",
+      "rig": "shear",
+      "question": "does a bone's editor colour survive",
+      "probe": "bone[lean].color",
+      "basis": "none",
+      "basisNote": "a bone colour is an editor affordance and is NOT on the nonessential list the format page prints, so neither answer has a document behind it",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "dropped", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "SH-09",
+      "rig": "shear",
+      "question": "does a bone's icon survive",
+      "probe": "bone[lean].icon",
+      "basis": "none",
+      "basisNote": "4.3 added bone icons; nothing public says whether an export carries them",
+      "predict": "dropped",
+      "hypotheses": [
+        { "name": "dropped", "expect": { "absent": true } },
+        { "name": "kept", "expect": { "kept": true } }
+      ]
+    },
+
+    {
+      "id": "DO-C1",
+      "rig": "draworder",
+      "control": true,
+      "question": "the rotate timeline beside the drawOrder one survives",
+      "probe": "anim[shuffle].bone[spin].rotate",
+      "basis": "inferred",
+      "basisNote": "m-535",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "DO-C2",
+      "rig": "draworder",
+      "control": true,
+      "question": "the setup slot order is unchanged, which is what the offsets are counted against",
+      "probe": "order.slots",
+      "basis": "inferred",
+      "basisNote": "m-535",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "editorSorted", "expect": { "editorSorted": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "DO-01",
+      "rig": "draworder",
+      "question": "does the drawOrder timeline survive at all",
+      "probe": "anim[shuffle].drawOrder",
+      "basis": "doc",
+      "basisNote": "doc-draworder",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "DO-02",
+      "rig": "draworder",
+      "question": "does the offset key come back naming the same slot and the same number of places",
+      "probe": "anim[shuffle].drawOrder.0",
+      "basis": "doc",
+      "basisNote": "doc-draworder -- offsets are counted from the setup order, and DO-C2 checks that order did not move",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "DO-03",
+      "rig": "draworder",
+      "question": "does the empty key that restores the setup order survive as an empty key",
+      "probe": "anim[shuffle].drawOrder.1",
+      "basis": "doc",
+      "basisNote": "doc-draworder -- a key with no offsets IS the format's encoding for restore, so an editor that wrote the identity permutation out in full would be saying the same thing differently",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } },
+        { "name": "spelledOut", "expect": { "value": { "time": 0.8, "offsets": [] } } }
+      ]
+    },
+    {
+      "id": "DO-04",
+      "rig": "draworder",
+      "question": "does a slot's setup colour survive",
+      "probe": "slot[mid].color",
+      "basis": "doc",
+      "basisNote": "doc-defaults -- 80c0ffff is not the default opaque white",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "DO-05",
+      "rig": "draworder",
+      "question": "does a slot's two-colour dark tint survive",
+      "probe": "slot[front].dark",
+      "basis": "doc",
+      "basisNote": "doc-blend",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "DO-06",
+      "rig": "draworder",
+      "question": "does a non-default blend mode survive",
+      "probe": "slot[mid].blend",
+      "basis": "doc",
+      "basisNote": "doc-blend and doc-defaults",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+
+    {
+      "id": "PA-C1",
+      "rig": "pathmodes",
+      "control": true,
+      "question": "the position timeline survives, as it did on gallery/ride in pass 1",
+      "probe": "anim[travel].path[ride].position",
+      "basis": "inferred",
+      "basisNote": "m-535 -- gallery/ride round-tripped green with a path constraint and a position timeline",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PA-01",
+      "rig": "pathmodes",
+      "question": "does a non-default positionMode survive",
+      "probe": "constraint[ride].positionMode",
+      "basis": "doc",
+      "basisNote": "doc-path and doc-defaults -- fixed is not the default percent",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } },
+        { "name": "reset", "expect": { "value": "percent" } }
+      ]
+    },
+    {
+      "id": "PA-02",
+      "rig": "pathmodes",
+      "question": "does a non-default spacingMode survive",
+      "probe": "constraint[ride].spacingMode",
+      "basis": "doc",
+      "basisNote": "doc-path and doc-defaults -- proportional is not the default length",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } },
+        { "name": "reset", "expect": { "value": "length" } }
+      ]
+    },
+    {
+      "id": "PA-03",
+      "rig": "pathmodes",
+      "question": "does a non-default rotateMode survive",
+      "probe": "constraint[ride].rotateMode",
+      "basis": "doc",
+      "basisNote": "doc-path and doc-defaults -- chainScale is not the default tangent",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } },
+        { "name": "reset", "expect": { "value": "tangent" } }
+      ]
+    },
+    {
+      "id": "PA-04",
+      "rig": "pathmodes",
+      "question": "does a closed path attachment come back closed",
+      "probe": "att[track/track].closed",
+      "basis": "doc",
+      "basisNote": "doc-path and doc-defaults -- true is not the default",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PA-05",
+      "rig": "pathmodes",
+      "question": "does constantSpeed false survive",
+      "probe": "att[track/track].constantSpeed",
+      "basis": "doc",
+      "basisNote": "doc-path and doc-defaults -- false is not the default true",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PA-06",
+      "rig": "pathmodes",
+      "question": "does the spacing timeline survive",
+      "probe": "anim[travel].path[ride].spacing",
+      "basis": "none",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PA-07",
+      "rig": "pathmodes",
+      "question": "does the three-channel path mix timeline survive",
+      "probe": "anim[travel].path[ride].mix",
+      "basis": "none",
+      "basisNote": "a path mix key states mixRotate, mixX and mixY in one key, and nothing has round-tripped one",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PA-08",
+      "rig": "pathmodes",
+      "question": "and does that mix key keep all three of its channels",
+      "probe": "anim[travel].path[ride].mix.0",
+      "basis": "none",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } },
+        { "name": "curveRewritten", "expect": { "without": ["curve"] } }
+      ],
+      "tolerance": 0.0005
+    },
+
+    {
+      "id": "PS-C1",
+      "rig": "physlider",
+      "control": true,
+      "question": "the physics constraint's strength returns exactly",
+      "probe": "constraint[hold].strength",
+      "basis": "inferred",
+      "basisNote": "m-540",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PS-C2",
+      "rig": "physlider",
+      "control": true,
+      "question": "the slider still names the animation it was given, which is index 0 under every candidate ordering here",
+      "probe": "constraint[knob].animation",
+      "basis": "inferred",
+      "basisNote": "m-535 and m-539 -- the slider follows the ORDINAL, and dial/play is already the order the measured comparator produces, so a re-key must not move it",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "repointed", "expect": { "value": "play" } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PS-01",
+      "rig": "physlider",
+      "question": "does the physics mix timeline survive",
+      "probe": "anim[play].physics[hold].mix",
+      "basis": "none",
+      "basisNote": "gallery/look carried a physics CONSTRAINT through the editor but no physics TIMELINE",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PS-02",
+      "rig": "physlider",
+      "question": "does the physics reset timeline -- a key with a time and no value at all -- survive",
+      "probe": "anim[play].physics[hold].reset",
+      "basis": "none",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PS-03",
+      "rig": "physlider",
+      "question": "does the slider time timeline survive",
+      "probe": "anim[play].slider[knob].time",
+      "basis": "none",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PS-04",
+      "rig": "physlider",
+      "question": "does the slider mix timeline survive",
+      "probe": "anim[play].slider[knob].mix",
+      "basis": "none",
+      "predict": "present",
+      "hypotheses": [
+        { "name": "present", "expect": { "presentOnly": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PS-05",
+      "rig": "physlider",
+      "question": "does a time-driven slider keep loop true",
+      "probe": "constraint[knob].loop",
+      "basis": "doc",
+      "basisNote": "doc-slider and doc-defaults",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PS-06",
+      "rig": "physlider",
+      "question": "does its setup time survive",
+      "probe": "constraint[knob].time",
+      "basis": "none",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "PS-07",
+      "rig": "physlider",
+      "question": "does the physics constraint's setup mix survive",
+      "probe": "constraint[hold].mix",
+      "basis": "doc",
+      "basisNote": "doc-defaults -- 0.75 is not the default 1",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } },
+        { "name": "reset", "expect": { "value": 1 } }
+      ],
+      "tolerance": 0.0005
+    },
+
+    {
+      "id": "PK-C1",
+      "rig": "packed",
+      "control": true,
+      "question": "the bones array comes back element for element",
+      "probe": "order.bones",
+      "basis": "inferred",
+      "basisNote": "m-535",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "editorSorted", "expect": { "editorSorted": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PK-01",
+      "rig": "packed",
+      "question": "a packed build points skeleton.images at the loose parts rather than at itself -- does the editor still resolve them",
+      "probe": "count.slots",
+      "basis": "inferred",
+      "basisNote": "m-370 -- the editor resolves images against the skeleton's directory and re-anchors on export; under --pack the pages are in --out but the images path names the parts directory, so the run only works while the loose parts are still there. If the import cannot find them the run stops before this row and roundtrip.log carries the editor's words.",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "PK-02",
+      "rig": "packed",
+      "question": "does a region attachment out of a packed atlas keep the width measured off its loose PNG",
+      "probe": "att[wide/wide].width",
+      "basis": "doc",
+      "basisNote": "doc-images -- the editor measures a region from the image it finds at the images path, which under --pack is the loose part and not the page",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+
+    {
+      "id": "FI-C1",
+      "rig": "fields",
+      "control": true,
+      "question": "the region that names nothing but its image comes back with the same width",
+      "probe": "att[plain/plain].width",
+      "basis": "inferred",
+      "basisNote": "m-535",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "FI-01",
+      "rig": "fields",
+      "question": "does the header's referenceScale survive",
+      "probe": "skeleton.referenceScale",
+      "basis": "doc",
+      "basisNote": "doc-nonessential -- referenceScale is NOT on the nonessential list, unlike fps, images and audio which are",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "FI-02",
+      "rig": "fields",
+      "question": "does the header's fps survive an export made with the default settings",
+      "probe": "skeleton.fps",
+      "basis": "doc",
+      "basisNote": "doc-nonessential -- fps is on the nonessential list, and issue #370 already observed a 0/0 x/y and an fps dropped by the export",
+      "predict": "dropped",
+      "hypotheses": [
+        { "name": "dropped", "expect": { "absent": true } },
+        { "name": "kept", "expect": { "kept": true } }
+      ]
+    },
+    {
+      "id": "FI-03",
+      "rig": "fields",
+      "question": "does a region's rotation survive",
+      "probe": "att[dressed/dressed].rotation",
+      "basis": "doc",
+      "basisNote": "doc-defaults",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "FI-04",
+      "rig": "fields",
+      "question": "does a region's scaleX survive",
+      "probe": "att[dressed/dressed].scaleX",
+      "basis": "doc",
+      "basisNote": "doc-defaults",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "FI-05",
+      "rig": "fields",
+      "question": "does a region's colour survive",
+      "probe": "att[dressed/dressed].color",
+      "basis": "doc",
+      "basisNote": "doc-defaults -- a region colour is not on the nonessential list; only the colours of bounding box, path, point and clipping attachments are",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "FI-06",
+      "rig": "fields",
+      "question": "does an attachment whose path differs from its placeholder keep that path",
+      "probe": "att[badge_alt/badge_alt].path",
+      "basis": "doc",
+      "basisNote": "doc-images -- if an attachment has a Path set, the path is used to find the image file instead of the attachment name. PR #552 depends on this holding.",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "FI-07",
+      "rig": "fields",
+      "question": "does an UNWEIGHTED mesh come back with its vertices unchanged",
+      "probe": "att[panel/panel].vertices",
+      "basis": "none",
+      "basisNote": "every mesh any round trip has carried was weighted; an unweighted mesh's vertices are plain xy pairs in the slot bone's space and nothing has measured what the editor does with them",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ],
+      "tolerance": 0.0005
+    },
+    {
+      "id": "FI-08",
+      "rig": "fields",
+      "question": "does the editor recompute the mesh hull, as issue #368 measured it doing to authored meshes",
+      "probe": "att[panel/panel].hull",
+      "basis": "inferred",
+      "basisNote": "m-368 -- on the pass-1 trip every authored mesh came back with every vertex a hull vertex. This mesh has FIVE vertices and a hull of four, chosen so the two answers cannot coincide: a keep reads 4 and a recompute reads 5. An earlier draft of this rig used a bare quad, where hull already equalled the vertex count, and the reader printed AMBIGUOUS on it -- which is what the rig deserved.",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "recomputedToAllVertices", "expect": { "value": 5 } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "FI-09",
+      "rig": "fields",
+      "question": "does a mesh's internal edge list survive an export made with the default settings",
+      "probe": "att[panel/panel].edges",
+      "basis": "doc",
+      "basisNote": "doc-nonessential and m-368 -- a mesh's edges are nonessential, and the editor warned mesh internal edges lost on every mesh of the pass-1 trip",
+      "predict": "dropped",
+      "hypotheses": [
+        { "name": "dropped", "expect": { "absent": true } },
+        { "name": "kept", "expect": { "kept": true } }
+      ]
+    },
+    {
+      "id": "FI-10",
+      "rig": "fields",
+      "question": "does a mesh's colour survive",
+      "probe": "att[panel/panel].color",
+      "basis": "doc",
+      "basisNote": "doc-defaults -- a mesh colour is not on the nonessential list",
+      "predict": "kept",
+      "hypotheses": [
+        { "name": "kept", "expect": { "kept": true } },
+        { "name": "lost", "expect": { "absent": true } }
+      ]
+    },
+    {
+      "id": "FI-11",
+      "rig": "fields",
+      "question": "does a mesh's width and height survive an export made with the default settings",
+      "probe": "att[panel/panel].width",
+      "basis": "doc",
+      "basisNote": "doc-nonessential -- a mesh's width and height are on the nonessential list, and a region's are NOT, which is why FI-C1 and this row probe the same field name on two attachment types and predict opposite answers",
+      "predict": "dropped",
+      "hypotheses": [
+        { "name": "dropped", "expect": { "absent": true } },
+        { "name": "kept", "expect": { "kept": true } }
+      ]
+    }
+  ]
+}

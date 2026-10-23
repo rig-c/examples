@@ -1,0 +1,38 @@
+{
+  "spec": "rigc-frames/1",
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "viewport": {
+    "x": -91.24845024810678,
+    "y": -93.06795242603668,
+    "width": 195.70810406970872,
+    "height": 178.0522163148288,
+    "scale": 1.3080705125466652,
+    "pixelWidth": 256,
+    "pixelHeight": 233
+  },
+  "sets": [
+    {
+      "dir": "dial",
+      "animation": "dial",
+      "fps": 12,
+      "sampled": 13,
+      "written": 13,
+      "stride": 1,
+      "duration": 1
+    },
+    {
+      "dir": "play",
+      "animation": "play",
+      "fps": 12,
+      "sampled": 19,
+      "written": 19,
+      "stride": 1,
+      "duration": 1.5
+    }
+  ]
+}

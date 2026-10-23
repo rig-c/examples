@@ -1,0 +1,1948 @@
+{
+  "candidate": {
+    "skeleton": "out/draworder/roundtrip/export-cand/skeleton.json",
+    "atlas": "out/draworder/roundtrip/export-cand/skeleton.atlas"
+  },
+  "framesDir": "out/draworder/roundtrip/render-build",
+  "framesRoot": "out/draworder/roundtrip/render-build",
+  "framingScope": "per-shot",
+  "framing": "frames-viewport",
+  "viewport": {
+    "x": -45.505371226165515,
+    "y": -57.505370205140956,
+    "width": 91.01074338053516,
+    "height": 148.6449955388062,
+    "scale": 1.7222241426430467,
+    "pixelWidth": 157,
+    "pixelHeight": 256
+  },
+  "framingFit": {
+    "fit": {
+      "candidate": {
+        "left": 13.176712197917661,
+        "top": 18.480251346499102,
+        "right": 143.6566109785203,
+        "bottom": 242.817860100896
+      },
+      "reference": {
+        "left": 13.176712197917661,
+        "top": 18.480251346499102,
+        "right": 143.6566109785203,
+        "bottom": 242.817860100896
+      },
+      "frames": 15,
+      "scale": 1,
+      "dx": 0,
+      "dy": 0,
+      "rms": 0,
+      "residualWidth": 0,
+      "residualHeight": 0,
+      "aspectError": 0
+    },
+    "passes": 1,
+    "settled": true,
+    "source": "declared",
+    "cycled": false,
+    "agrees": true,
+    "applied": true,
+    "refinement": {
+      "dx": 0,
+      "dy": 0,
+      "before": 0,
+      "after": 0,
+      "radius": 2,
+      "frames": 15,
+      "applied": false,
+      "declined": "identity"
+    },
+    "units": {
+      "candidate": {
+        "width": 75.76243739119751,
+        "height": 130.26040176751476
+      },
+      "reference": {
+        "width": 75.76243739119751,
+        "height": 130.26040176751476
+      },
+      "ratio": 1
+    }
+  },
+  "declaredBox": {
+    "distance": 0,
+    "rms": 0,
+    "reach": 11.216880437719846,
+    "frames": 15,
+    "taken": true,
+    "clause": "coincident"
+  },
+  "sharedFraming": null,
+  "referenceViewport": {
+    "x": -45.505371226165515,
+    "y": -57.505370205140956,
+    "width": 91.01074338053516,
+    "height": 148.6449955388062,
+    "scale": 1.7222241426430467,
+    "pixelWidth": 157,
+    "pixelHeight": 256
+  },
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "chains": [
+    {
+      "name": "root",
+      "bones": [
+        "root"
+      ],
+      "slots": []
+    },
+    {
+      "name": "spin",
+      "bones": [
+        "spin"
+      ],
+      "slots": [
+        "flag"
+      ]
+    },
+    {
+      "name": "stack",
+      "bones": [
+        "stack"
+      ],
+      "slots": [
+        "back",
+        "mid",
+        "front"
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "dir": "shuffle",
+      "animation": "shuffle",
+      "candidateAnimation": "shuffle",
+      "fps": 12,
+      "referenceFrames": 15,
+      "candidateFrames": 15,
+      "compared": 15,
+      "meanMae": 0,
+      "meanMaeReference": 0,
+      "drawnRatio": 1.0129273746533458,
+      "meanMaeFrame": 0,
+      "textureFloor": null,
+      "worstMae": 0,
+      "worstMaeFrame": -1,
+      "worstDrift": 13.741444944569526,
+      "worstDriftFrame": 5,
+      "worstDriftSlot": "front",
+      "framesWithoutDrift": 0,
+      "changePairs": 14,
+      "changeDisagreements": 0,
+      "worstChangeFrame": -1,
+      "chains": [
+        {
+          "chain": "spin",
+          "slots": 1,
+          "drewSlots": 1,
+          "worstDrift": 0.09704701291430555,
+          "worstDriftSlot": "flag",
+          "worstDriftFrame": 0,
+          "meanDrift": 0.037903796768158436,
+          "driftSamples": 15,
+          "driftFrames": 15,
+          "error": 0,
+          "referencePixels": 59676,
+          "mae": 0,
+          "maeShare": 0
+        },
+        {
+          "chain": "stack",
+          "slots": 3,
+          "drewSlots": 3,
+          "worstDrift": 13.741444944569526,
+          "worstDriftSlot": "front",
+          "worstDriftFrame": 5,
+          "meanDrift": 4.130862021759627,
+          "driftSamples": 25,
+          "driftFrames": 15,
+          "error": 0,
+          "referencePixels": 207120,
+          "mae": 0,
+          "maeShare": 0
+        }
+      ],
+      "chainDenominator": 0,
+      "unattributedError": 0,
+      "frames": [
+        {
+          "index": 0,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0000.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 17934,
+          "candidatePixels": 17934,
+          "referencePixels": 17774,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "flag",
+          "worstDrift": 0.09704701291430555,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.42356095933681,
+                "cy": 53.57643904066356,
+                "width": 63,
+                "height": 63,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.49218356026223,
+                "cy": 53.50781643973777,
+                "width": 63,
+                "height": 63,
+                "pixels": 3966
+              },
+              "drift": 0.09704701291430555,
+              "driftX": 0.06862260092542272,
+              "driftY": -0.0686226009257851,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": null,
+          "textureFloor": null
+        },
+        {
+          "index": 1,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0001.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18032,
+          "candidatePixels": 18032,
+          "referencePixels": 17800,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "flag",
+          "worstDrift": 0.09517568862201228,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.36352669202883,
+                "cy": 53.63649983319709,
+                "width": 65,
+                "height": 65,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.30260521042084,
+                "cy": 53.563376753507015,
+                "width": 65,
+                "height": 65,
+                "pixels": 3992
+              },
+              "drift": 0.09517568862201228,
+              "driftX": -0.06092148160799127,
+              "driftY": -0.07312307969007747,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": {
+            "previous": 0,
+            "candidate": 1772,
+            "reference": 1772,
+            "candidateMae": 1.2330231555201698,
+            "referenceMae": 1.2330231555201698,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 2,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0002.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18022,
+          "candidatePixels": 18022,
+          "referencePixels": 17790,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "flag",
+          "worstDrift": 0.061951076946440045,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.37280650748862,
+                "cy": 53.62845536914741,
+                "width": 68,
+                "height": 68,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.32471120040181,
+                "cy": 53.66750376695128,
+                "width": 67,
+                "height": 67,
+                "pixels": 3982
+              },
+              "drift": 0.061951076946440045,
+              "driftX": -0.04809530708681109,
+              "driftY": 0.039048397803867374,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": {
+            "previous": 1,
+            "candidate": 2102,
+            "reference": 2102,
+            "candidateMae": 2.2673085854564756,
+            "referenceMae": 2.2673085854564756,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 3,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0003.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18024,
+          "candidatePixels": 18024,
+          "referencePixels": 17789,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "flag",
+          "worstDrift": 0.02278120213828868,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.36990832407596,
+                "cy": 53.62946635778194,
+                "width": 71,
+                "height": 71,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.35732228083396,
+                "cy": 53.648455162019594,
+                "width": 70,
+                "height": 70,
+                "pixels": 3981
+              },
+              "drift": 0.02278120213828868,
+              "driftX": -0.012586043242009737,
+              "driftY": 0.018988804237650925,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": {
+            "previous": 2,
+            "candidate": 2220,
+            "reference": 2220,
+            "candidateMae": 2.7732882165605095,
+            "referenceMae": 2.7732882165605095,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 4,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0004.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18026,
+          "candidatePixels": 18026,
+          "referencePixels": 17785,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "front",
+          "worstDrift": 0.012548720709467158,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.37052000122442,
+                "cy": 53.629768718309755,
+                "width": 75,
+                "height": 75,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.36824239376415,
+                "cy": 53.622705556952475,
+                "width": 73,
+                "height": 73,
+                "pixels": 3977
+              },
+              "drift": 0.007421303396443188,
+              "driftX": -0.0022776074602717244,
+              "driftY": -0.007063161357280023,
+              "widthDrift": 2,
+              "heightDrift": 2,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": {
+            "previous": 3,
+            "candidate": 2256,
+            "reference": 2256,
+            "candidateMae": 2.8691115976645434,
+            "referenceMae": 2.8691115976645434,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 5,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0005.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18023,
+          "candidatePixels": 18023,
+          "referencePixels": 17778,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "front",
+          "worstDrift": 13.741444944569526,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.035443932929047614,
+              "driftX": 0.030585665070162166,
+              "driftY": -0.017910596687287884,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.37033043265365,
+                "cy": 53.62922885445255,
+                "width": 78,
+                "height": 77,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.38841309823678,
+                "cy": 53.62267002518892,
+                "width": 76,
+                "height": 76,
+                "pixels": 3970
+              },
+              "drift": 0.019235410988617706,
+              "driftX": 0.01808266558313676,
+              "driftY": -0.006558829263632049,
+              "widthDrift": 2,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 13.741444944569526,
+              "driftX": 13.741443379620575,
+              "driftY": -0.006558148920427979,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.4522304027717622,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 6.852323789880636,
+              "driftX": -0.11504683840749416,
+              "driftY": 6.8513579344781395,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.2726770050519013,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 4,
+            "candidate": 11675,
+            "reference": 11675,
+            "candidateMae": 32.007323182059444,
+            "referenceMae": 32.007323182059444,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 6,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0006.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18022,
+          "candidatePixels": 18022,
+          "referencePixels": 17784,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "front",
+          "worstDrift": 13.741444944569526,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.035443932929047614,
+              "driftX": 0.030585665070162166,
+              "driftY": -0.017910596687287884,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.3705974169064,
+                "cy": 53.62956377139822,
+                "width": 80,
+                "height": 80,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.35840040241449,
+                "cy": 53.64864185110664,
+                "width": 78,
+                "height": 78,
+                "pixels": 3976
+              },
+              "drift": 0.022643769294817755,
+              "driftX": -0.012197014491917457,
+              "driftY": 0.01907807970842157,
+              "widthDrift": 2,
+              "heightDrift": 2,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 13.741444944569526,
+              "driftX": 13.741443379620575,
+              "driftY": -0.006558148920427979,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.4522304027717622,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 6.852323789880636,
+              "driftX": -0.11504683840749416,
+              "driftY": 6.8513579344781395,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.2726770050519013,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 5,
+            "candidate": 2121,
+            "reference": 2121,
+            "candidateMae": 2.447684447983015,
+            "referenceMae": 2.447684447983015,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 7,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0007.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18025,
+          "candidatePixels": 18025,
+          "referencePixels": 17787,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "front",
+          "worstDrift": 13.741444944569526,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.035443932929047614,
+              "driftX": 0.030585665070162166,
+              "driftY": -0.017910596687287884,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.3701084860715,
+                "cy": 53.6288611308913,
+                "width": 81,
+                "height": 81,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.38590098014576,
+                "cy": 53.65305353103795,
+                "width": 79,
+                "height": 79,
+                "pixels": 3979
+              },
+              "drift": 0.028890744087700836,
+              "driftX": 0.015792494074261754,
+              "driftY": 0.02419240014664581,
+              "widthDrift": 2,
+              "heightDrift": 2,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 13.741444944569526,
+              "driftX": 13.741443379620575,
+              "driftY": -0.006558148920427979,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.4522304027717622,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 6.852323789880636,
+              "driftX": -0.11504683840749416,
+              "driftY": 6.8513579344781395,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.2726770050519013,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 6,
+            "candidate": 1857,
+            "reference": 1857,
+            "candidateMae": 1.4465399416135882,
+            "referenceMae": 1.4465399416135882,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 8,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0008.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18025,
+          "candidatePixels": 18025,
+          "referencePixels": 17785,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "front",
+          "worstDrift": 13.741444944569526,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.035443932929047614,
+              "driftX": 0.030585665070162166,
+              "driftY": -0.017910596687287884,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.37112646384601,
+                "cy": 53.63013143115399,
+                "width": 81,
+                "height": 81,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.40621071159165,
+                "cy": 53.65036459642947,
+                "width": 79,
+                "height": 79,
+                "pixels": 3977
+              },
+              "drift": 0.04050043724384372,
+              "driftX": 0.03508424774564389,
+              "driftY": 0.020233165275477916,
+              "widthDrift": 2,
+              "heightDrift": 2,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 13.741444944569526,
+              "driftX": 13.741443379620575,
+              "driftY": -0.006558148920427979,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.4522304027717622,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 6.852323789880636,
+              "driftX": -0.11504683840749416,
+              "driftY": 6.8513579344781395,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.2726770050519013,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 7,
+            "candidate": 1460,
+            "reference": 1460,
+            "candidateMae": 0.7119576035031847,
+            "referenceMae": 0.7119576035031847,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 9,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0009.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18024,
+          "candidatePixels": 18024,
+          "referencePixels": 17787,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "front",
+          "worstDrift": 13.741444944569526,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.035443932929047614,
+              "driftX": 0.030585665070162166,
+              "driftY": -0.017910596687287884,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 1,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.37079203627844,
+                "cy": 53.629590540657695,
+                "width": 79,
+                "height": 79,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.37207841166122,
+                "cy": 53.60153304850465,
+                "width": 77,
+                "height": 77,
+                "pixels": 3979
+              },
+              "drift": 0.02808696543850265,
+              "driftX": 0.0012863753827758728,
+              "driftY": -0.02805749215304587,
+              "widthDrift": 2,
+              "heightDrift": 2,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 13.741444944569526,
+              "driftX": 13.741443379620575,
+              "driftY": -0.006558148920427979,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.4522304027717622,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 6.852323789880636,
+              "driftX": -0.11504683840749416,
+              "driftY": 6.8513579344781395,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.2726770050519013,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 8,
+            "candidate": 2061,
+            "reference": 2061,
+            "candidateMae": 2.145932855626327,
+            "referenceMae": 2.145932855626327,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 10,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0010.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18025,
+          "candidatePixels": 18025,
+          "referencePixels": 17789,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "flag",
+          "worstDrift": 0.01771120956266671,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.37108410627644,
+                "cy": 53.63033902039914,
+                "width": 76,
+                "height": 76,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.35707108766641,
+                "cy": 53.64117056016077,
+                "width": 75,
+                "height": 75,
+                "pixels": 3981
+              },
+              "drift": 0.01771120956266671,
+              "driftX": -0.014013018610029349,
+              "driftY": 0.010831539761625208,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": {
+            "previous": 9,
+            "candidate": 11635,
+            "reference": 11635,
+            "candidateMae": 31.88077229299363,
+            "referenceMae": 31.88077229299363,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 11,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0011.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18026,
+          "candidatePixels": 18026,
+          "referencePixels": 17783,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "flag",
+          "worstDrift": 0.016358747855189103,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.36997652574965,
+                "cy": 53.628774778800334,
+                "width": 73,
+                "height": 73,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.3794968553459,
+                "cy": 53.615471698113204,
+                "width": 71,
+                "height": 71,
+                "pixels": 3975
+              },
+              "drift": 0.016358747855189103,
+              "driftX": 0.00952032959625626,
+              "driftY": -0.013303080687130375,
+              "widthDrift": 2,
+              "heightDrift": 2,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": {
+            "previous": 10,
+            "candidate": 2263,
+            "reference": 2263,
+            "candidateMae": 2.8886843152866244,
+            "referenceMae": 2.8886843152866244,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 12,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0012.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18021,
+          "candidatePixels": 18021,
+          "referencePixels": 17780,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "flag",
+          "worstDrift": 0.03457923447649592,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.36910025360774,
+                "cy": 53.628150458962686,
+                "width": 69,
+                "height": 69,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.35322255790534,
+                "cy": 53.59743202416919,
+                "width": 68,
+                "height": 68,
+                "pixels": 3972
+              },
+              "drift": 0.03457923447649592,
+              "driftX": -0.015877695702400274,
+              "driftY": -0.030718434793499227,
+              "widthDrift": 1,
+              "heightDrift": 1,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": {
+            "previous": 11,
+            "candidate": 2238,
+            "reference": 2238,
+            "candidateMae": 2.8221619559447984,
+            "referenceMae": 2.8221619559447984,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 13,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0013.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 18022,
+          "candidatePixels": 18022,
+          "referencePixels": 17805,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "flag",
+          "worstDrift": 0.06883999694411477,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.37337122127927,
+                "cy": 53.62726126462498,
+                "width": 67,
+                "height": 67,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.43069802351764,
+                "cy": 53.66537403052289,
+                "width": 65,
+                "height": 65,
+                "pixels": 3997
+              },
+              "drift": 0.06883999694411477,
+              "driftX": 0.057326802238364394,
+              "driftY": 0.0381127658979139,
+              "widthDrift": 2,
+              "heightDrift": 2,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": {
+            "previous": 12,
+            "candidate": 2188,
+            "reference": 2188,
+            "candidateMae": 2.538987858280255,
+            "referenceMae": 2.538987858280255,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 14,
+          "file": "out/draworder/roundtrip/render-build/shuffle/f0014.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 17994,
+          "candidatePixels": 17994,
+          "referencePixels": 17780,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "front",
+          "worstDrift": 0.012548720709467158,
+          "attributed": 2,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "back",
+              "candidate": {
+                "cx": 78.35079494638396,
+                "cy": 191.39062748185793,
+                "width": 133,
+                "height": 105,
+                "pixels": 13530
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.0023138371132109814,
+              "searchRadius": 32,
+              "ambiguity": "this slot's reference component also holds \"mid\", \"front\" — 13808 px of blob against this slot's own 13530 px, so its centroid is the merged shape's and not this part's; correlating the slot's own pixels found no match within 32 px either (best residual 71.3 against its own 114.5 of contrast; confidence 0.00 where 0.26 is needed 8.0 px out)"
+            },
+            {
+              "slot": "flag",
+              "candidate": {
+                "cx": 78.39778571246417,
+                "cy": 53.60178479430751,
+                "width": 64,
+                "height": 64,
+                "pixels": 3844
+              },
+              "method": "component",
+              "reference": {
+                "cx": 78.3904833836858,
+                "cy": 53.60246727089628,
+                "width": 64,
+                "height": 64,
+                "pixels": 3972
+              },
+              "drift": 0.00733415161293774,
+              "driftX": -0.007302328778365563,
+              "driftY": 0.0006824765887643025,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "front",
+              "candidate": {
+                "cx": 78.39657176496465,
+                "cy": 191.42588949455526,
+                "width": 77,
+                "height": 77,
+                "pixels": 5749
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.012548720709467158,
+              "driftX": 0.0010422939732246575,
+              "driftY": 0.012505359439759799,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9008778346744697,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "mid",
+              "candidate": {
+                "cx": 78.35154708102618,
+                "cy": 191.39680470217783,
+                "width": 105,
+                "height": 91,
+                "pixels": 9267
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.17188588804189464,
+              "searchRadius": 32,
+              "ambiguity": "this slot is inside a reference component 1.5x its size and 133x105 px against its 105x91 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 32 px either (best residual 51.9 against its own 167.3 of contrast; confidence 0.17 where 0.19 is needed 3.0 px out)"
+            }
+          ],
+          "change": {
+            "previous": 13,
+            "candidate": 1964,
+            "reference": 1964,
+            "candidateMae": 1.7574061173036095,
+            "referenceMae": 1.7574061173036095,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        }
+      ],
+      "viewport": {
+        "x": -45.505371226165515,
+        "y": -57.505370205140956,
+        "width": 91.01074338053516,
+        "height": 148.6449955388062,
+        "scale": 1.7222241426430467,
+        "pixelWidth": 157,
+        "pixelHeight": 256
+      },
+      "framing": "frames-viewport",
+      "framingFit": {
+        "fit": {
+          "candidate": {
+            "left": 13.176712197917661,
+            "top": 18.480251346499102,
+            "right": 143.6566109785203,
+            "bottom": 242.817860100896
+          },
+          "reference": {
+            "left": 13.176712197917661,
+            "top": 18.480251346499102,
+            "right": 143.6566109785203,
+            "bottom": 242.817860100896
+          },
+          "frames": 15,
+          "scale": 1,
+          "dx": 0,
+          "dy": 0,
+          "rms": 0,
+          "residualWidth": 0,
+          "residualHeight": 0,
+          "aspectError": 0
+        },
+        "passes": 1,
+        "settled": true,
+        "source": "declared",
+        "cycled": false,
+        "agrees": true,
+        "applied": true,
+        "refinement": {
+          "dx": 0,
+          "dy": 0,
+          "before": 0,
+          "after": 0,
+          "radius": 2,
+          "frames": 15,
+          "applied": false,
+          "declined": "identity"
+        },
+        "units": {
+          "candidate": {
+            "width": 75.76243739119751,
+            "height": 130.26040176751476
+          },
+          "reference": {
+            "width": 75.76243739119751,
+            "height": 130.26040176751476
+          },
+          "ratio": 1
+        }
+      },
+      "declaredBox": {
+        "distance": 0,
+        "rms": 0,
+        "reach": 11.216880437719846,
+        "frames": 15,
+        "taken": true,
+        "clause": "coincident"
+      },
+      "sheet": null,
+      "notes": []
+    }
+  ],
+  "textureFrom": null,
+  "notes": [
+    "the candidate's world box was taken from frames.json rather than fitted, because rendering it into that box put its own drawn pixels on the reference's to within 0.00 px rms — so the candidate is authored in the frames' own coordinates, measured rather than assumed, and the box they were rendered at is exact where a fit of it is an estimate. The framing line below is still measured; what it leaves over is the extent fit's own floor. Pass --viewport to override.",
+    "part of every MAE below is TEXTURE, not animation, and it is not attributed here. The frames were rendered through the reference's own atlas; this candidate samples its own, and if the two were packed at different scales every edge of every part is filtered from a different source in every frame. That difference is a constant no key can move and is invisible to the content box, the fit residual and the whole-pixel refinement. Pass --texture-from <the atlas the frames were rendered through> to measure it: the candidate's own geometry is kept and only the texels are swapped, so the run reports the floor and what sits above it beside the figure of record."
+  ]
+}

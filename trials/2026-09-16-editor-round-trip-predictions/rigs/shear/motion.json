@@ -1,0 +1,53 @@
+{
+  "spec": "rigc-motion/1",
+  "archetype": "r6shear",
+  "cut": "r6shear",
+
+  "easings": { "smooth": [0.25, 0, 0.75, 1] },
+
+  "animations": {
+    "skew": {
+      "duration": 1,
+      "loop": true,
+      "note": "One timeline of each shear form -- paired shear on lean, single-axis shearx on tip, single-axis sheary on side -- beside the fixed-point rotate on pin.",
+      "tracks": [
+        {
+          "bone": "pin",
+          "property": "rotate",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 0.5, "v": [15], "ease": "smooth" },
+            { "t": 1, "v": [0] }
+          ]
+        },
+        {
+          "bone": "lean",
+          "property": "shear",
+          "keys": [
+            { "t": 0, "v": [0, 0], "ease": "smooth" },
+            { "t": 0.5, "v": [12.5, -6.25], "ease": "smooth" },
+            { "t": 1, "v": [0, 0] }
+          ]
+        },
+        {
+          "bone": "tip",
+          "property": "shearx",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 0.5, "v": [18.75], "ease": "smooth" },
+            { "t": 1, "v": [0] }
+          ]
+        },
+        {
+          "bone": "side",
+          "property": "sheary",
+          "keys": [
+            { "t": 0, "v": [0], "ease": "smooth" },
+            { "t": 0.5, "v": [-9.125], "ease": "smooth" },
+            { "t": 1, "v": [0] }
+          ]
+        }
+      ]
+    }
+  }
+}

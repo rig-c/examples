@@ -1,0 +1,2626 @@
+{
+  "candidate": {
+    "skeleton": "out/pathmodes/roundtrip/export-cand/skeleton.json",
+    "atlas": "out/pathmodes/roundtrip/export-cand/skeleton.atlas"
+  },
+  "framesDir": "out/pathmodes/roundtrip/render-build",
+  "framesRoot": "out/pathmodes/roundtrip/render-build",
+  "framingScope": "per-shot",
+  "framing": "frames-viewport",
+  "viewport": {
+    "x": -187.24872293009304,
+    "y": -125.47691139409507,
+    "width": 330.8817041877333,
+    "height": 277.731789326974,
+    "scale": 0.773690405845929,
+    "pixelWidth": 256,
+    "pixelHeight": 215
+  },
+  "framingFit": {
+    "fit": {
+      "candidate": {
+        "left": 17.690040650406505,
+        "top": 11,
+        "right": 235.42741935483872,
+        "bottom": 193.21217391304347
+      },
+      "reference": {
+        "left": 17.45394736842105,
+        "top": 11,
+        "right": 235.19250425894379,
+        "bottom": 193.45404411764707
+      },
+      "frames": 25,
+      "scale": 1.0005410214174228,
+      "dx": -0.26798595385922397,
+      "dy": -0.04296875483078111,
+      "rms": 0.24169177559141428,
+      "residualWidth": 0.1166223991620825,
+      "residualHeight": -0.14328951600145956,
+      "aspectError": 0.0013219914909405883
+    },
+    "passes": 1,
+    "settled": false,
+    "source": "declared",
+    "cycled": false,
+    "agrees": true,
+    "applied": true,
+    "refinement": {
+      "dx": 0,
+      "dy": 0,
+      "before": 5.0498295421338,
+      "after": 5.0498295421338,
+      "radius": 2,
+      "frames": 25,
+      "applied": false,
+      "declined": "identity"
+    },
+    "units": {
+      "candidate": {
+        "width": 281.4270114495797,
+        "height": 235.51044776601356
+      },
+      "reference": {
+        "width": 281.4285342629449,
+        "height": 235.82306661558962
+      },
+      "ratio": 0.9993342514668712
+    }
+  },
+  "declaredBox": {
+    "distance": 0.26564726983235565,
+    "rms": 0.24169177559141428,
+    "reach": 10.886927844526138,
+    "frames": 25,
+    "taken": true,
+    "clause": "coincident"
+  },
+  "sharedFraming": null,
+  "referenceViewport": {
+    "x": -187.24872293009304,
+    "y": -125.47691139409507,
+    "width": 330.8817041877333,
+    "height": 277.731789326974,
+    "scale": 0.773690405845929,
+    "pixelWidth": 256,
+    "pixelHeight": 215
+  },
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "chains": [
+    {
+      "name": "root",
+      "bones": [
+        "root"
+      ],
+      "slots": []
+    },
+    {
+      "name": "rail",
+      "bones": [
+        "rail"
+      ],
+      "slots": [
+        "track"
+      ]
+    },
+    {
+      "name": "link_a",
+      "bones": [
+        "link_a",
+        "link_b"
+      ],
+      "slots": [
+        "link_a",
+        "link_b"
+      ]
+    },
+    {
+      "name": "tag",
+      "bones": [
+        "tag"
+      ],
+      "slots": [
+        "tag"
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "dir": "travel",
+      "animation": "travel",
+      "candidateAnimation": "travel",
+      "fps": 12,
+      "referenceFrames": 25,
+      "candidateFrames": 25,
+      "compared": 25,
+      "meanMae": 4.96115894609373,
+      "meanMaeReference": 5.049829542133801,
+      "drawnRatio": 1.0159483212522717,
+      "meanMaeFrame": 0.6579789244186045,
+      "textureFloor": null,
+      "worstMae": 7.824302954640025,
+      "worstMaeFrame": 16,
+      "worstDrift": 0.5298076538271518,
+      "worstDriftFrame": 17,
+      "worstDriftSlot": "link_a",
+      "framesWithoutDrift": 0,
+      "changePairs": 24,
+      "changeDisagreements": 0,
+      "worstChangeFrame": -1,
+      "chains": [
+        {
+          "chain": "rail",
+          "slots": 1,
+          "drewSlots": 0,
+          "worstDrift": 0,
+          "worstDriftSlot": null,
+          "worstDriftFrame": -1,
+          "meanDrift": 0,
+          "driftSamples": 0,
+          "driftFrames": 0,
+          "error": 0,
+          "referencePixels": 0,
+          "mae": 0,
+          "maeShare": 0
+        },
+        {
+          "chain": "link_a",
+          "slots": 2,
+          "drewSlots": 2,
+          "worstDrift": 0.5298076538271518,
+          "worstDriftSlot": "link_a",
+          "worstDriftFrame": 17,
+          "meanDrift": 0.1493175443430767,
+          "driftSamples": 50,
+          "driftFrames": 25,
+          "error": 889654.6666666892,
+          "referencePixels": 148866,
+          "mae": 5.976211268299607,
+          "maeShare": 1
+        },
+        {
+          "chain": "tag",
+          "slots": 1,
+          "drewSlots": 1,
+          "worstDrift": 0.012176188811422633,
+          "worstDriftSlot": "tag",
+          "worstDriftFrame": 0,
+          "meanDrift": 0.01217618881142263,
+          "driftSamples": 25,
+          "driftFrames": 25,
+          "error": 0,
+          "referencePixels": 22150,
+          "mae": 0,
+          "maeShare": 0
+        }
+      ],
+      "chainDenominator": 889654.6666666892,
+      "unattributedError": 0,
+      "frames": [
+        {
+          "index": 0,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0000.png",
+          "mae": 0.7875386718468956,
+          "maeReference": 0.8001461988304095,
+          "maeFrame": 0.0663638565891473,
+          "unionPixels": 4633,
+          "candidatePixels": 4633,
+          "referencePixels": 4560,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.020166075335616287,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 88.1801838085684,
+                "cy": 115.12032377504205,
+                "width": 90,
+                "height": 60,
+                "pixels": 2342
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.020166075335616287,
+              "driftX": 0.014662981728849509,
+              "driftY": -0.013844405413782745,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.5130043883121054,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 142.14000749542265,
+                "cy": 104.2699627712292,
+                "width": 74,
+                "height": 32,
+                "pixels": 1737
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.004342099410583626,
+              "driftX": 0.002107832260927371,
+              "driftY": 0.003796165229700162,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9283164041958429,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": null,
+          "textureFloor": null
+        },
+        {
+          "index": 1,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0001.png",
+          "mae": 0.8484721054107105,
+          "maeReference": 0.8611466780480876,
+          "maeFrame": 0.07331637596899235,
+          "unionPixels": 4756,
+          "candidatePixels": 4756,
+          "referencePixels": 4686,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.07370539910507291,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 88.29908339444584,
+                "cy": 114.87320317055357,
+                "width": 92,
+                "height": 60,
+                "pixels": 2401
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.07370539910507291,
+              "driftX": 0.04100819815105556,
+              "driftY": 0.06124388574904311,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.5958661314705731,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 143.80631408526708,
+                "cy": 104.15212951969777,
+                "width": 78,
+                "height": 34,
+                "pixels": 1817
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.0035016707083964887,
+              "driftX": 0.0034682809938201423,
+              "driftY": -0.00048241548269923067,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9712912376549695,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 0,
+            "candidate": 2120,
+            "reference": 2117,
+            "candidateMae": 1.970657703488372,
+            "referenceMae": 1.9705971414728682,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 2,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0002.png",
+          "mae": 1.0096128347918332,
+          "maeReference": 1.0253147512287086,
+          "maeFrame": 0.09226017441860472,
+          "unionPixels": 5028,
+          "candidatePixels": 5028,
+          "referencePixels": 4951,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.07063230046794802,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 88.30933570002355,
+                "cy": 114.57920766167209,
+                "width": 97,
+                "height": 61,
+                "pixels": 2547
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.07063230046794802,
+              "driftX": -0.007832140785148389,
+              "driftY": 0.07019671958230032,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.6523464581988571,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 147.358548111775,
+                "cy": 104.06434728014166,
+                "width": 84,
+                "height": 39,
+                "pixels": 1955
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.06866109915237402,
+              "driftX": -0.0582219223145375,
+              "driftY": -0.0363944267548219,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9419526389725066,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 1,
+            "candidate": 2790,
+            "reference": 2790,
+            "candidateMae": 3.6403524709302326,
+            "referenceMae": 3.634780765503876,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 3,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0003.png",
+          "mae": 1.317315452908672,
+          "maeReference": 1.337493696419565,
+          "maeFrame": 0.12851259689922467,
+          "unionPixels": 5369,
+          "candidatePixels": 5368,
+          "referencePixels": 5288,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.08917742615952498,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 88.64381075964182,
+                "cy": 113.94899345515394,
+                "width": 105,
+                "height": 61,
+                "pixels": 2765
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.08917742615952498,
+              "driftX": -0.07422434367541794,
+              "driftY": -0.04943035648658599,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.756543364883137,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 153.23328077118768,
+                "cy": 104.40004583004817,
+                "width": 87,
+                "height": 47,
+                "pixels": 2019
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.023547436912151925,
+              "driftX": -0.016085465941752572,
+              "driftY": 0.017197080291970875,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9317754635509271,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 2,
+            "candidate": 3464,
+            "reference": 3473,
+            "candidateMae": 5.3344355620155035,
+            "referenceMae": 5.331044089147287,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 4,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0004.png",
+          "mae": 1.796538305163502,
+          "maeReference": 1.8258072132695835,
+          "maeFrame": 0.18734253875969,
+          "unionPixels": 5739,
+          "candidatePixels": 5739,
+          "referencePixels": 5647,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.04148332199126341,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 89.04272466413497,
+                "cy": 113.28466093807599,
+                "width": 115,
+                "height": 60,
+                "pixels": 3042
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.04148332199126341,
+              "driftX": -0.040991011337458944,
+              "driftY": 0.006372047784123303,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8019563436611575,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 160.333595876272,
+                "cy": 105.31804772269047,
+                "width": 83,
+                "height": 59,
+                "pixels": 1957
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.026262170708693165,
+              "driftX": -0.015647979292899777,
+              "driftY": -0.021091286219230943,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9511825875462239,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 3,
+            "candidate": 3948,
+            "reference": 3935,
+            "candidateMae": 6.251174903100775,
+            "referenceMae": 6.244416182170543,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 5,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0005.png",
+          "mae": 2.389769875593998,
+          "maeReference": 2.42590785907859,
+          "maeFrame": 0.2711967054263565,
+          "unionPixels": 6243,
+          "candidatePixels": 6243,
+          "referencePixels": 6150,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_b",
+          "worstDrift": 0.06872519419314428,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 89.75809044991937,
+                "cy": 112.43859006250985,
+                "width": 127,
+                "height": 57,
+                "pixels": 3366
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.04041072008560526,
+              "driftX": -0.03151704493246364,
+              "driftY": 0.02529233434387203,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8598330241187383,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 168.3667764836519,
+                "cy": 106.94970871963197,
+                "width": 75,
+                "height": 74,
+                "pixels": 1921
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.06872519419314428,
+              "driftX": -0.06508366670968294,
+              "driftY": 0.022074162373877354,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9163318153406553,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 4,
+            "candidate": 4573,
+            "reference": 4578,
+            "candidateMae": 7.43499878875969,
+            "referenceMae": 7.424327761627907,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 6,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0006.png",
+          "mae": 2.8869301488010626,
+          "maeReference": 2.936611231622079,
+          "maeFrame": 0.3692708333333335,
+          "unionPixels": 7034,
+          "candidatePixels": 7032,
+          "referencePixels": 6915,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_b",
+          "worstDrift": 0.025020886363335305,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 90.69915642183145,
+                "cy": 111.51431119249362,
+                "width": 139,
+                "height": 53,
+                "pixels": 3705
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.02335546424737757,
+              "driftX": -0.019631936903469198,
+              "driftY": 0.012651670388874986,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.927400336889388,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 176.27216502562445,
+                "cy": 109.27297383156754,
+                "width": 62,
+                "height": 91,
+                "pixels": 2148
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.025020886363335305,
+              "driftX": -0.01631870790071062,
+              "driftY": -0.018966932457786193,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9333918800243194,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 5,
+            "candidate": 5426,
+            "reference": 5414,
+            "candidateMae": 9.010477228682172,
+            "referenceMae": 8.996971899224805,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 7,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0007.png",
+          "mae": 3.0972346119536245,
+          "maeReference": 3.1563636363636483,
+          "maeFrame": 0.44193313953488544,
+          "unionPixels": 7847,
+          "candidatePixels": 7841,
+          "referencePixels": 7700,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_b",
+          "worstDrift": 0.1182405113348355,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 91.87285955682643,
+                "cy": 110.53082648642373,
+                "width": 150,
+                "height": 45,
+                "pixels": 4013
+              },
+              "method": "component",
+              "reference": {
+                "cx": 91.87919382090273,
+                "cy": 110.58423847453535,
+                "width": 148,
+                "height": 45,
+                "pixels": 4143
+              },
+              "drift": 0.05378627497256271,
+              "driftX": 0.0063342640763011104,
+              "driftY": 0.053411988111619735,
+              "widthDrift": 2,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 182.91513359397703,
+                "cy": 112.17528050699138,
+                "width": 44,
+                "height": 110,
+                "pixels": 2575
+              },
+              "method": "component",
+              "reference": {
+                "cx": 182.80175964058404,
+                "cy": 112.14170722575814,
+                "width": 42,
+                "height": 108,
+                "pixels": 2671
+              },
+              "drift": 0.1182405113348355,
+              "driftX": -0.11337395339299405,
+              "driftY": -0.03357328123324521,
+              "widthDrift": 2,
+              "heightDrift": 2,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 6,
+            "candidate": 6386,
+            "reference": 6370,
+            "candidateMae": 10.970972625968994,
+            "referenceMae": 10.958375726744187,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 8,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0008.png",
+          "mae": 3.4495366006911765,
+          "maeReference": 3.517922223557216,
+          "maeFrame": 0.5325884205426364,
+          "unionPixels": 8488,
+          "candidatePixels": 8481,
+          "referencePixels": 8323,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_b",
+          "worstDrift": 0.11273064510776133,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 93.40570541851204,
+                "cy": 109.45357229238891,
+                "width": 157,
+                "height": 37,
+                "pixels": 4232
+              },
+              "method": "component",
+              "reference": {
+                "cx": 93.34636488340192,
+                "cy": 109.52560585276635,
+                "width": 157,
+                "height": 37,
+                "pixels": 4374
+              },
+              "drift": 0.09332809291850631,
+              "driftX": -0.05934053511012394,
+              "driftY": 0.07203356037743447,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 187.27208956709225,
+                "cy": 115.49429026372506,
+                "width": 32,
+                "height": 123,
+                "pixels": 2955
+              },
+              "method": "component",
+              "reference": {
+                "cx": 187.19735553379041,
+                "cy": 115.40989226248776,
+                "width": 30,
+                "height": 123,
+                "pixels": 3063
+              },
+              "drift": 0.11273064510776133,
+              "driftX": -0.07473403330183714,
+              "driftY": -0.08439800123730379,
+              "widthDrift": 2,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 7,
+            "candidate": 7225,
+            "reference": 7211,
+            "candidateMae": 12.497541182170542,
+            "referenceMae": 12.46750847868217,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 9,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0009.png",
+          "mae": 3.966703744901723,
+          "maeReference": 4.056497175141223,
+          "maeFrame": 0.6485949612403069,
+          "unionPixels": 8990,
+          "candidatePixels": 8988,
+          "referencePixels": 8791,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.07432390455917146,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 95.15327550042292,
+                "cy": 108.3769874772947,
+                "width": 159,
+                "height": 31,
+                "pixels": 4324
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.07432390455917146,
+              "driftX": -0.0707491082045184,
+              "driftY": 0.02277293299481152,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8495625299264354,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 188.47192729404858,
+                "cy": 118.88889123424202,
+                "width": 61,
+                "height": 140,
+                "pixels": 3344
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.023026015170976414,
+              "driftX": 0.019308044683758064,
+              "driftY": 0.012545787545787548,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9287800970645055,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 8,
+            "candidate": 7922,
+            "reference": 7862,
+            "candidateMae": 14.089528827519379,
+            "referenceMae": 14.079941860465116,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 10,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0010.png",
+          "mae": 4.915384339466972,
+          "maeReference": 4.99930684761591,
+          "maeFrame": 0.8306746608527114,
+          "unionPixels": 9293,
+          "candidatePixels": 9279,
+          "referencePixels": 9137,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.19732793547696342,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 97.18442744001068,
+                "cy": 107.28911657313525,
+                "width": 159,
+                "height": 43,
+                "pixels": 4289
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.19732793547696342,
+              "driftX": -0.19329971880151284,
+              "driftY": -0.039667780765461305,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8119588844269241,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 186.6654295751205,
+                "cy": 122.17021929437402,
+                "width": 89,
+                "height": 148,
+                "pixels": 3687
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.04196774451285964,
+              "driftX": 0.023319332303205726,
+              "driftY": 0.03489269723637492,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9047441761514733,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 9,
+            "candidate": 8409,
+            "reference": 8379,
+            "candidateMae": 15.443598594961239,
+            "referenceMae": 15.38921996124031,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 11,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0011.png",
+          "mae": 5.851974740447389,
+          "maeReference": 5.953288327526128,
+          "maeFrame": 0.994688711240309,
+          "unionPixels": 9343,
+          "candidatePixels": 9321,
+          "referencePixels": 9184,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.21936932832385533,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 99.4564601454207,
+                "cy": 106.24156414144025,
+                "width": 155,
+                "height": 54,
+                "pixels": 4177
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.21936932832385533,
+              "driftX": -0.21608149111400085,
+              "driftY": 0.03783769822821426,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.7516491530480326,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 183.23063896247996,
+                "cy": 124.93471680060468,
+                "width": 111,
+                "height": 148,
+                "pixels": 3902
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.11000046865625619,
+              "driftX": 0.07982590396020672,
+              "driftY": 0.07568307711458257,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8644908935337978,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 10,
+            "candidate": 8493,
+            "reference": 8495,
+            "candidateMae": 15.62065164728682,
+            "referenceMae": 15.612257751937983,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 12,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0012.png",
+          "mae": 6.757193135227322,
+          "maeReference": 6.865553343655541,
+          "maeFrame": 1.1296451065891484,
+          "unionPixels": 9187,
+          "candidatePixels": 9157,
+          "referencePixels": 9042,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.49559173349405067,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 101.93088893882101,
+                "cy": 105.32344902528979,
+                "width": 151,
+                "height": 63,
+                "pixels": 4049
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.49559173349405067,
+              "driftX": -0.48783886496073026,
+              "driftY": 0.08731785694498304,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.6829883101742444,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 180.1478030151472,
+                "cy": 126.66686210386823,
+                "width": 122,
+                "height": 144,
+                "pixels": 3960
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.1067502841043597,
+              "driftX": 0.08022327688490942,
+              "driftY": 0.07042619542619544,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8550198622502929,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 11,
+            "candidate": 7785,
+            "reference": 7796,
+            "candidateMae": 13.566121608527132,
+            "referenceMae": 13.547686531007752,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 13,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0013.png",
+          "mae": 7.335599390764903,
+          "maeReference": 7.464542224238317,
+          "maeFrame": 1.1973110465116308,
+          "unionPixels": 8973,
+          "candidatePixels": 8942,
+          "referencePixels": 8818,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.26389374142898137,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 104.56222193006316,
+                "cy": 104.61695296602949,
+                "width": 147,
+                "height": 65,
+                "pixels": 3937
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.26389374142898137,
+              "driftX": -0.2566112801310556,
+              "driftY": 0.06156750502405455,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.7655927464659925,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 179.2899800601219,
+                "cy": 126.94176305618453,
+                "width": 119,
+                "height": 142,
+                "pixels": 3890
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.12577948568057068,
+              "driftX": 0.11167160189722462,
+              "driftY": 0.05787860008480391,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8397807779708595,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 12,
+            "candidate": 5401,
+            "reference": 5421,
+            "candidateMae": 6.472171753875968,
+            "referenceMae": 6.447601744186047,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 14,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0014.png",
+          "mae": 7.7089595044166455,
+          "maeReference": 7.854020570359969,
+          "maeFrame": 1.2226078003875955,
+          "unionPixels": 8717,
+          "candidatePixels": 8685,
+          "referencePixels": 8556,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.2636129690867894,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 107.25635782211607,
+                "cy": 104.09513204628787,
+                "width": 143,
+                "height": 66,
+                "pixels": 3833
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.2636129690867894,
+              "driftX": -0.26165289256198365,
+              "driftY": 0.03208677741219292,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8138138138138139,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 180.07778171528165,
+                "cy": 126.28944443803739,
+                "width": 106,
+                "height": 143,
+                "pixels": 3740
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.02708799666892993,
+              "driftX": 0.011232290552352428,
+              "driftY": -0.024649446494465006,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8931762239037286,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 13,
+            "candidate": 6599,
+            "reference": 6602,
+            "candidateMae": 10.375999273255815,
+            "referenceMae": 10.371329941860465,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 15,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0015.png",
+          "mae": 7.809075750357325,
+          "maeReference": 7.954021594079838,
+          "maeFrame": 1.1928476259689946,
+          "unionPixels": 8396,
+          "candidatePixels": 8362,
+          "referencePixels": 8243,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.4089368942222376,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 109.9014894109721,
+                "cy": 103.73197339059406,
+                "width": 140,
+                "height": 64,
+                "pixels": 3726
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.4089368942222376,
+              "driftX": -0.4070266953053088,
+              "driftY": 0.03947977665804159,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.7280056270966344,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 181.6056159753199,
+                "cy": 125.14151645255231,
+                "width": 89,
+                "height": 141,
+                "pixels": 3521
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.18003469364954697,
+              "driftX": 0.12070423235689064,
+              "driftY": 0.13357761492338446,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8427815378352247,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 14,
+            "candidate": 6595,
+            "reference": 6598,
+            "candidateMae": 10.873885658914729,
+            "referenceMae": 10.856904069767442,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 16,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0016.png",
+          "mae": 7.824302954640025,
+          "maeReference": 7.955403232630947,
+          "maeFrame": 1.140515988372092,
+          "unionPixels": 8010,
+          "candidatePixels": 7985,
+          "referencePixels": 7878,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.46080561108236073,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 112.39505871506373,
+                "cy": 103.51199959555598,
+                "width": 135,
+                "height": 61,
+                "pixels": 3607
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.46080561108236073,
+              "driftX": -0.4569837189374465,
+              "driftY": 0.05922576999152337,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.6976271911073109,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 183.3139979645289,
+                "cy": 123.6820613245998,
+                "width": 69,
+                "height": 135,
+                "pixels": 3252
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.11756409397788121,
+              "driftX": 0.04992009025101074,
+              "driftY": 0.10643918818823746,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8694794037059397,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 15,
+            "candidate": 6264,
+            "reference": 6267,
+            "candidateMae": 10.22625363372093,
+            "referenceMae": 10.213032945736435,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 17,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0017.png",
+          "mae": 7.460227522291024,
+          "maeReference": 7.587197355490027,
+          "maeFrame": 1.0298691860465101,
+          "unionPixels": 7589,
+          "candidatePixels": 7564,
+          "referencePixels": 7462,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.5298076538271518,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 114.81092354311302,
+                "cy": 103.39723999909549,
+                "width": 130,
+                "height": 57,
+                "pixels": 3468
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.5298076538271518,
+              "driftX": -0.5297653958944288,
+              "driftY": -0.006691439803969078,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.7507050741231771,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 184.75292389344486,
+                "cy": 122.08856873745744,
+                "width": 50,
+                "height": 126,
+                "pixels": 2964
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.08665421144048147,
+              "driftX": 0.0732423834226591,
+              "driftY": 0.04630880727183396,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8611446036508426,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 16,
+            "candidate": 5848,
+            "reference": 5834,
+            "candidateMae": 9.488487160852713,
+            "referenceMae": 9.496166424418604,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 18,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0018.png",
+          "mae": 6.956697862830009,
+          "maeReference": 7.074289772727278,
+          "maeFrame": 0.906189437984497,
+          "unionPixels": 7159,
+          "candidatePixels": 7138,
+          "referencePixels": 7040,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.33878285775951433,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 116.92276832747376,
+                "cy": 103.41277625862665,
+                "width": 124,
+                "height": 53,
+                "pixels": 3313
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.33878285775951433,
+              "driftX": -0.3384392131570459,
+              "driftY": 0.015255284636576322,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.7604715525041248,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 185.73690499276094,
+                "cy": 120.36452782155943,
+                "width": 32,
+                "height": 113,
+                "pixels": 2690
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.07208591045690281,
+              "driftX": 0.06333478430204594,
+              "driftY": -0.03442504297475787,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8334508531941897,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 17,
+            "candidate": 5372,
+            "reference": 5398,
+            "candidateMae": 8.627137839147288,
+            "referenceMae": 8.628688226744186,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 19,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0019.png",
+          "mae": 6.319012932956724,
+          "maeReference": 6.422118144734837,
+          "maeFrame": 0.7732376453488351,
+          "unionPixels": 6727,
+          "candidatePixels": 6711,
+          "referencePixels": 6619,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.3745826643405535,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 118.84560238175662,
+                "cy": 103.50994358339273,
+                "width": 118,
+                "height": 49,
+                "pixels": 3135
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.3745826643405535,
+              "driftX": -0.3712692191739526,
+              "driftY": 0.04971256700705864,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8087042812588601,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 185.96613480248428,
+                "cy": 118.65677583570478,
+                "width": 32,
+                "height": 103,
+                "pixels": 2454
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.09091676481920456,
+              "driftX": 0.03801110345666013,
+              "driftY": -0.08258943115918424,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8864029191473016,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 18,
+            "candidate": 4858,
+            "reference": 4860,
+            "candidateMae": 7.517435804263566,
+            "referenceMae": 7.5409883720930235,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 20,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0020.png",
+          "mae": 6.312393162393165,
+          "maeReference": 6.429861791272176,
+          "maeFrame": 0.7164849806201556,
+          "unionPixels": 6240,
+          "candidatePixels": 6228,
+          "referencePixels": 6126,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.21594597354999429,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 120.56466732022218,
+                "cy": 103.66725019840085,
+                "width": 111,
+                "height": 45,
+                "pixels": 2940
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.21594597354999429,
+              "driftX": -0.21269440941572057,
+              "driftY": 0.03733298401886288,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8000055848761554,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 185.3636929037884,
+                "cy": 117.08076841966042,
+                "width": 43,
+                "height": 94,
+                "pixels": 2194
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.07721572257260097,
+              "driftX": -0.07183891085797472,
+              "driftY": -0.028309692671395062,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.921834526893189,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 19,
+            "candidate": 4342,
+            "reference": 4338,
+            "candidateMae": 6.41750242248062,
+            "referenceMae": 6.442411579457364,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 21,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0021.png",
+          "mae": 6.504776976730553,
+          "maeReference": 6.627134838170307,
+          "maeFrame": 0.6730559593023253,
+          "unionPixels": 5687,
+          "candidatePixels": 5680,
+          "referencePixels": 5582,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.28622079147623863,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 121.81953618923433,
+                "cy": 103.88706099074362,
+                "width": 104,
+                "height": 42,
+                "pixels": 2740
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.28622079147623863,
+              "driftX": -0.2857559836544079,
+              "driftY": -0.016305191780112843,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.7708555929974521,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 184.00177134721721,
+                "cy": 115.58351612422608,
+                "width": 50,
+                "height": 82,
+                "pixels": 1895
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03387633636547361,
+              "driftX": -0.0336979965757233,
+              "driftY": -0.0034714827277764486,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.868612041570042,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 20,
+            "candidate": 3895,
+            "reference": 3913,
+            "candidateMae": 5.712742248062015,
+            "referenceMae": 5.717847625968992,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 22,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0022.png",
+          "mae": 6.756880144032912,
+          "maeReference": 6.897925692529857,
+          "maeFrame": 0.636809593023255,
+          "unionPixels": 5184,
+          "candidatePixels": 5179,
+          "referencePixels": 5078,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.3071324677294755,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 123.0257247692868,
+                "cy": 104.09879579636896,
+                "width": 96,
+                "height": 40,
+                "pixels": 2548
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.3071324677294755,
+              "driftX": -0.30539763853314195,
+              "driftY": 0.03259808448325881,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.768532342098047,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 182.29747871525885,
+                "cy": 114.42181953035563,
+                "width": 53,
+                "height": 72,
+                "pixels": 1634
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.08775209449922677,
+              "driftX": -0.08693049626166112,
+              "driftY": -0.011979937758709217,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8584478784256809,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 21,
+            "candidate": 3334,
+            "reference": 3323,
+            "candidateMae": 4.72093023255814,
+            "referenceMae": 4.705686773255814,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 23,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0023.png",
+          "mae": 6.914503070910115,
+          "maeReference": 7.036792385822865,
+          "maeFrame": 0.6005147771317837,
+          "unionPixels": 4776,
+          "candidatePixels": 4770,
+          "referencePixels": 4693,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.30652285772048127,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 123.49703846071988,
+                "cy": 104.3122655857348,
+                "width": 91,
+                "height": 38,
+                "pixels": 2395
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.30652285772048127,
+              "driftX": -0.3052693553135115,
+              "driftY": 0.0276926526646236,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.779216329327688,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 180.44853717000433,
+                "cy": 113.39088429926473,
+                "width": 55,
+                "height": 63,
+                "pixels": 1450
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.13730251396892576,
+              "driftX": -0.13490076474872512,
+              "driftY": 0.025568809366026027,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8480551215799383,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 22,
+            "candidate": 2816,
+            "reference": 2835,
+            "candidateMae": 3.755062984496124,
+            "referenceMae": 3.7575399709302326,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 24,
+          "file": "out/pathmodes/roundtrip/render-build/travel/f0024.png",
+          "mae": 7.052339812814975,
+          "maeReference": 7.181071768931897,
+          "maeFrame": 0.5936409883720931,
+          "unionPixels": 4630,
+          "candidatePixels": 4623,
+          "referencePixels": 4547,
+          "components": 2,
+          "unmatchedComponents": 0,
+          "worstSlot": "link_a",
+          "worstDrift": 0.31857433013027486,
+          "attributed": 3,
+          "drawn": 3,
+          "slots": [
+            {
+              "slot": "link_a",
+              "candidate": {
+                "cx": 123.97475033260923,
+                "cy": 104.38394213442464,
+                "width": 88,
+                "height": 37,
+                "pixels": 2329
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.31857433013027486,
+              "driftX": -0.31761134983971023,
+              "driftY": 0.024751449875725178,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.7148026315789472,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "link_b",
+              "candidate": {
+                "cx": 179.7546607389307,
+                "cy": 113.09091551845067,
+                "width": 54,
+                "height": 60,
+                "pixels": 1387
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.12935437722679174,
+              "driftX": -0.12929612857628978,
+              "driftY": 0.0038815000856214704,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8133034160253321,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tag",
+              "candidate": {
+                "cx": 144.83489279988393,
+                "cy": 24.99620927346677,
+                "width": 32,
+                "height": 28,
+                "pixels": 866
+              },
+              "method": "component",
+              "reference": {
+                "cx": 144.82505643340858,
+                "cy": 25.003386004514674,
+                "width": 32,
+                "height": 28,
+                "pixels": 886
+              },
+              "drift": 0.012176188811422633,
+              "driftX": -0.009836366475354907,
+              "driftY": 0.007176731047902507,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 24,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 23,
+            "candidate": 1893,
+            "reference": 1886,
+            "candidateMae": 1.637360707364341,
+            "referenceMae": 1.635719476744186,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        }
+      ],
+      "viewport": {
+        "x": -187.24872293009304,
+        "y": -125.47691139409507,
+        "width": 330.8817041877333,
+        "height": 277.731789326974,
+        "scale": 0.773690405845929,
+        "pixelWidth": 256,
+        "pixelHeight": 215
+      },
+      "framing": "frames-viewport",
+      "framingFit": {
+        "fit": {
+          "candidate": {
+            "left": 17.690040650406505,
+            "top": 11,
+            "right": 235.42741935483872,
+            "bottom": 193.21217391304347
+          },
+          "reference": {
+            "left": 17.45394736842105,
+            "top": 11,
+            "right": 235.19250425894379,
+            "bottom": 193.45404411764707
+          },
+          "frames": 25,
+          "scale": 1.0005410214174228,
+          "dx": -0.26798595385922397,
+          "dy": -0.04296875483078111,
+          "rms": 0.24169177559141428,
+          "residualWidth": 0.1166223991620825,
+          "residualHeight": -0.14328951600145956,
+          "aspectError": 0.0013219914909405883
+        },
+        "passes": 1,
+        "settled": false,
+        "source": "declared",
+        "cycled": false,
+        "agrees": true,
+        "applied": true,
+        "refinement": {
+          "dx": 0,
+          "dy": 0,
+          "before": 5.0498295421338,
+          "after": 5.0498295421338,
+          "radius": 2,
+          "frames": 25,
+          "applied": false,
+          "declined": "identity"
+        },
+        "units": {
+          "candidate": {
+            "width": 281.4270114495797,
+            "height": 235.51044776601356
+          },
+          "reference": {
+            "width": 281.4285342629449,
+            "height": 235.82306661558962
+          },
+          "ratio": 0.9993342514668712
+        }
+      },
+      "declaredBox": {
+        "distance": 0.26564726983235565,
+        "rms": 0.24169177559141428,
+        "reach": 10.886927844526138,
+        "frames": 25,
+        "taken": true,
+        "clause": "coincident"
+      },
+      "sheet": null,
+      "notes": []
+    }
+  ],
+  "textureFrom": null,
+  "notes": [
+    "the candidate's world box was taken from frames.json rather than fitted, because rendering it into that box put its own drawn pixels on the reference's to within 0.24 px rms — so the candidate is authored in the frames' own coordinates, measured rather than assumed, and the box they were rendered at is exact where a fit of it is an estimate. The framing line below is still measured; what it leaves over is the extent fit's own floor, which is why it does not read as the identity. Pass --viewport to override.",
+    "part of every MAE below is TEXTURE, not animation, and it is not attributed here. The frames were rendered through the reference's own atlas; this candidate samples its own, and if the two were packed at different scales every edge of every part is filtered from a different source in every frame. That difference is a constant no key can move and is invisible to the content box, the fit residual and the whole-pixel refinement. Pass --texture-from <the atlas the frames were rendered through> to measure it: the candidate's own geometry is kept and only the texels are swapped, so the run reports the floor and what sits above it beside the figure of record."
+  ]
+}

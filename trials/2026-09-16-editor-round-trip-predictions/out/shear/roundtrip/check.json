@@ -1,0 +1,1824 @@
+{
+  "candidate": {
+    "skeleton": "out/shear/roundtrip/export-cand/skeleton.json",
+    "atlas": "out/shear/roundtrip/export-cand/skeleton.atlas"
+  },
+  "framesDir": "out/shear/roundtrip/render-build",
+  "framesRoot": "out/shear/roundtrip/render-build",
+  "framingScope": "per-shot",
+  "framing": "frames-viewport",
+  "viewport": {
+    "x": -139.61456545424568,
+    "y": -45.21369098276851,
+    "width": 275.9585636735317,
+    "height": 120.21010946452877,
+    "scale": 0.9276755053083137,
+    "pixelWidth": 256,
+    "pixelHeight": 112
+  },
+  "framingFit": {
+    "fit": {
+      "candidate": {
+        "left": 13.771875,
+        "top": 14.575304022450888,
+        "right": 243.9468085106383,
+        "bottom": 99.20277777777778
+      },
+      "reference": {
+        "left": 13.771875,
+        "top": 14.575304022450888,
+        "right": 243.9468085106383,
+        "bottom": 99.20277777777778
+      },
+      "frames": 13,
+      "scale": 1,
+      "dx": 0,
+      "dy": 0,
+      "rms": 0,
+      "residualWidth": 0,
+      "residualHeight": 0,
+      "aspectError": 0
+    },
+    "passes": 1,
+    "settled": true,
+    "source": "declared",
+    "cycled": false,
+    "agrees": true,
+    "applied": true,
+    "refinement": {
+      "dx": 0,
+      "dy": 0,
+      "before": 0,
+      "after": 0,
+      "radius": 2,
+      "frames": 13,
+      "applied": false,
+      "declined": "identity"
+    },
+    "units": {
+      "candidate": {
+        "width": 248.1200939267438,
+        "height": 91.22529728452933
+      },
+      "reference": {
+        "width": 248.1200939267438,
+        "height": 91.22529728452933
+      },
+      "ratio": 1
+    }
+  },
+  "declaredBox": {
+    "distance": 0,
+    "rms": 0,
+    "reach": 11.508746675531917,
+    "frames": 13,
+    "taken": true,
+    "clause": "coincident"
+  },
+  "sharedFraming": null,
+  "referenceViewport": {
+    "x": -139.61456545424568,
+    "y": -45.21369098276851,
+    "width": 275.9585636735317,
+    "height": 120.21010946452877,
+    "scale": 0.9276755053083137,
+    "pixelWidth": 256,
+    "pixelHeight": 112
+  },
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "chains": [
+    {
+      "name": "root",
+      "bones": [
+        "root"
+      ],
+      "slots": []
+    },
+    {
+      "name": "pin",
+      "bones": [
+        "pin"
+      ],
+      "slots": [
+        "pin"
+      ]
+    },
+    {
+      "name": "lean",
+      "bones": [
+        "lean",
+        "tip"
+      ],
+      "slots": [
+        "lean",
+        "tip"
+      ]
+    },
+    {
+      "name": "side",
+      "bones": [
+        "side"
+      ],
+      "slots": [
+        "side"
+      ]
+    }
+  ],
+  "animations": [
+    {
+      "dir": "skew",
+      "animation": "skew",
+      "candidateAnimation": "skew",
+      "fps": 12,
+      "referenceFrames": 13,
+      "candidateFrames": 13,
+      "compared": 13,
+      "meanMae": 0,
+      "meanMaeReference": 0,
+      "drawnRatio": 1.012659141459421,
+      "meanMaeFrame": 0,
+      "textureFloor": null,
+      "worstMae": 0,
+      "worstMaeFrame": -1,
+      "worstDrift": 0.2929450373038134,
+      "worstDriftFrame": 1,
+      "worstDriftSlot": "tip",
+      "framesWithoutDrift": 0,
+      "changePairs": 12,
+      "changeDisagreements": 0,
+      "worstChangeFrame": -1,
+      "chains": [
+        {
+          "chain": "pin",
+          "slots": 1,
+          "drewSlots": 1,
+          "worstDrift": 0.10880298168974847,
+          "worstDriftSlot": "pin",
+          "worstDriftFrame": 2,
+          "meanDrift": 0.05524009102490837,
+          "driftSamples": 13,
+          "driftFrames": 13,
+          "error": 0,
+          "referencePixels": 22267,
+          "mae": 0,
+          "maeShare": 0
+        },
+        {
+          "chain": "lean",
+          "slots": 2,
+          "drewSlots": 2,
+          "worstDrift": 0.2929450373038134,
+          "worstDriftSlot": "tip",
+          "worstDriftFrame": 1,
+          "meanDrift": 0.05199251437599509,
+          "driftSamples": 24,
+          "driftFrames": 13,
+          "error": 0,
+          "referencePixels": 45075,
+          "mae": 0,
+          "maeShare": 0
+        },
+        {
+          "chain": "side",
+          "slots": 1,
+          "drewSlots": 1,
+          "worstDrift": 0.1289311726094998,
+          "worstDriftSlot": "side",
+          "worstDriftFrame": 0,
+          "meanDrift": 0.08350127088068603,
+          "driftSamples": 13,
+          "driftFrames": 13,
+          "error": 0,
+          "referencePixels": 22070,
+          "mae": 0,
+          "maeShare": 0
+        }
+      ],
+      "chainDenominator": 0,
+      "unattributedError": 0,
+      "frames": [
+        {
+          "index": 0,
+          "file": "out/shear/roundtrip/render-build/skew/f0000.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 7093,
+          "candidatePixels": 7093,
+          "referencePixels": 7012,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "side",
+          "worstDrift": 0.1289311726094998,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51402658453298,
+                "cy": 69.57301785677471,
+                "width": 65,
+                "height": 49,
+                "pixels": 2473
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.021081843036759605,
+              "driftX": -0.010297660682365813,
+              "driftY": 0.018395713911056204,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9418453239082919,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.73004301737857,
+                "cy": 69.56717202482723,
+                "width": 42,
+                "height": 41,
+                "pixels": 1667
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.771285965942454,
+                "cy": 69.47592483852026,
+                "width": 42,
+                "height": 41,
+                "pixels": 1703
+              },
+              "drift": 0.10013505787276772,
+              "driftX": 0.041242948563883886,
+              "driftY": -0.0912471863069726,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.3050014461907,
+                "cy": 69.57740197914657,
+                "width": 38,
+                "height": 45,
+                "pixels": 1654
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.18576491435323,
+                "cy": 69.52835203780272,
+                "width": 38,
+                "height": 45,
+                "pixels": 1693
+              },
+              "drift": 0.1289311726094998,
+              "driftX": -0.11923653183745841,
+              "driftY": -0.049049941343852765,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 132.21101525860786,
+                "cy": 33.49007152582554,
+                "width": 34,
+                "height": 35,
+                "pixels": 1115
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03461862397211026,
+              "driftX": -0.027515703596186044,
+              "driftY": -0.021007978992021142,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.967806703324283,
+              "searchRadius": 26,
+              "ambiguity": null
+            }
+          ],
+          "change": null,
+          "textureFloor": null
+        },
+        {
+          "index": 1,
+          "file": "out/shear/roundtrip/render-build/skew/f0001.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 7118,
+          "candidatePixels": 7118,
+          "referencePixels": 7009,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tip",
+          "worstDrift": 0.2929450373038134,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51929910256789,
+                "cy": 69.57222397813725,
+                "width": 65,
+                "height": 51,
+                "pixels": 2457
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.025792511172204095,
+              "driftX": -0.0034886338059870337,
+              "driftY": 0.02555548995296309,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.932761087267525,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.75088091365516,
+                "cy": 69.56876187203275,
+                "width": 43,
+                "height": 43,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.71461988304094,
+                "cy": 69.64035087719299,
+                "width": 42,
+                "height": 43,
+                "pixels": 1710
+              },
+              "drift": 0.08024866354673749,
+              "driftX": -0.03626103061422015,
+              "driftY": 0.07158900516023436,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.29196757431131,
+                "cy": 69.58017009731033,
+                "width": 39,
+                "height": 45,
+                "pixels": 1653
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.25397292525014,
+                "cy": 69.55885815185403,
+                "width": 39,
+                "height": 45,
+                "pixels": 1699
+              },
+              "drift": 0.04356365889608438,
+              "driftX": -0.03799464906117578,
+              "driftY": -0.021311945456304215,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 132.58528281415656,
+                "cy": 33.52253424874683,
+                "width": 35,
+                "height": 35,
+                "pixels": 1113
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.2929450373038134,
+              "driftX": -0.2922836771716661,
+              "driftY": -0.019673508582403097,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9765735371639431,
+              "searchRadius": 26,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 0,
+            "candidate": 2440,
+            "reference": 2440,
+            "candidateMae": 3.1859654017857144,
+            "referenceMae": 3.1859654017857144,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 2,
+          "file": "out/shear/roundtrip/render-build/skew/f0002.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 7042,
+          "candidatePixels": 7042,
+          "referencePixels": 6957,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "pin",
+          "worstDrift": 0.10880298168974847,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51691886887593,
+                "cy": 69.57274221869851,
+                "width": 65,
+                "height": 53,
+                "pixels": 2419
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.05077461936314508,
+              "driftX": -0.049869928599103365,
+              "driftY": 0.009542127278159724,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9226979022216977,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.75012298545124,
+                "cy": 69.5704371220698,
+                "width": 45,
+                "height": 45,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.66840882694541,
+                "cy": 69.64227642276423,
+                "width": 44,
+                "height": 45,
+                "pixels": 1722
+              },
+              "drift": 0.10880298168974847,
+              "driftX": -0.0817141585058323,
+              "driftY": 0.07183930069442113,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.2846133760612,
+                "cy": 69.57602160109215,
+                "width": 40,
+                "height": 45,
+                "pixels": 1652
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.27843252799056,
+                "cy": 69.48291101944608,
+                "width": 40,
+                "height": 45,
+                "pixels": 1697
+              },
+              "drift": 0.09331550405662695,
+              "driftX": -0.006180848070641787,
+              "driftY": -0.09311058164607289,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 133.33577296595354,
+                "cy": 33.590946304556496,
+                "width": 34,
+                "height": 37,
+                "pixels": 1111
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03719548246956556,
+              "driftX": -0.02745079574347866,
+              "driftY": -0.025098958727277375,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9675438596491228,
+              "searchRadius": 28,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 1,
+            "candidate": 3042,
+            "reference": 3042,
+            "candidateMae": 5.9383254278273805,
+            "referenceMae": 5.9383254278273805,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 3,
+          "file": "out/shear/roundtrip/render-build/skew/f0003.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 6980,
+          "candidatePixels": 6980,
+          "referencePixels": 6895,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "side",
+          "worstDrift": 0.10801408776264271,
+          "attributed": 3,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.5164025535359,
+                "cy": 69.57236401159972,
+                "width": 65,
+                "height": 55,
+                "pixels": 2364
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.025268093606935993,
+              "driftX": 0.012824547600314519,
+              "driftY": 0.02177171406610299,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9280794112254787,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.74998058042178,
+                "cy": 69.57180300779844,
+                "width": 47,
+                "height": 47,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.743731778425655,
+                "cy": 69.57230320699709,
+                "width": 46,
+                "height": 47,
+                "pixels": 1715
+              },
+              "drift": 0.006268789805462906,
+              "driftX": -0.006248801996122211,
+              "driftY": 0.0005001991986546273,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.28220992450878,
+                "cy": 69.57761834632765,
+                "width": 41,
+                "height": 45,
+                "pixels": 1648
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.34538506760728,
+                "cy": 69.49000587889476,
+                "width": 41,
+                "height": 45,
+                "pixels": 1701
+              },
+              "drift": 0.10801408776264271,
+              "driftX": 0.0631751430985048,
+              "driftY": -0.08761246743289064,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 134.17373467351013,
+                "cy": 33.69123182207019,
+                "width": 34,
+                "height": 40,
+                "pixels": 1100
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.07181250854097354,
+              "searchRadius": 30,
+              "ambiguity": "this slot is inside a reference component 3.2x its size and 65x83 px against its 34x40 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 30 px either (best residual 58.1 against its own 112.7 of contrast; confidence 0.07 where 0.38 is needed 15.1 px out)"
+            }
+          ],
+          "change": {
+            "previous": 2,
+            "candidate": 3206,
+            "reference": 3206,
+            "candidateMae": 6.836379278273809,
+            "referenceMae": 6.836379278273809,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 4,
+          "file": "out/shear/roundtrip/render-build/skew/f0004.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 6898,
+          "candidatePixels": 6898,
+          "referencePixels": 6802,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "side",
+          "worstDrift": 0.056996060055951335,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51776425221757,
+                "cy": 69.57156421737902,
+                "width": 65,
+                "height": 58,
+                "pixels": 2296
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03360146854860542,
+              "driftX": 0.03360144686116797,
+              "driftY": 0.000038176681682731145,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9157023617566158,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.74803574034581,
+                "cy": 69.57202442319735,
+                "width": 49,
+                "height": 49,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.74693520140105,
+                "cy": 69.59515469935785,
+                "width": 48,
+                "height": 49,
+                "pixels": 1713
+              },
+              "drift": 0.02315644319039451,
+              "driftX": -0.0011005389447618086,
+              "driftY": 0.023130276160500784,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.2833058758922,
+                "cy": 69.57830384642925,
+                "width": 43,
+                "height": 45,
+                "pixels": 1642
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.263839811543,
+                "cy": 69.52473498233215,
+                "width": 43,
+                "height": 45,
+                "pixels": 1698
+              },
+              "drift": 0.056996060055951335,
+              "driftX": -0.01946606434921705,
+              "driftY": -0.05356886409710171,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 135.00642583224368,
+                "cy": 33.81143106488836,
+                "width": 34,
+                "height": 42,
+                "pixels": 1083
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.014466220913129258,
+              "driftX": -0.002094877686173772,
+              "driftY": -0.014313735885066119,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9734662428970432,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 3,
+            "candidate": 3292,
+            "reference": 3292,
+            "candidateMae": 6.886032831101191,
+            "referenceMae": 6.886032831101191,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 5,
+          "file": "out/shear/roundtrip/render-build/skew/f0005.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 6784,
+          "candidatePixels": 6784,
+          "referencePixels": 6709,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "side",
+          "worstDrift": 0.0835291051564811,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51643898765542,
+                "cy": 69.57206023112765,
+                "width": 65,
+                "height": 60,
+                "pixels": 2229
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.004505446439107077,
+              "driftX": -0.004348746164426717,
+              "driftY": -0.0011779025481959689,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9275672679633176,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.7490932499194,
+                "cy": 69.57167856445162,
+                "width": 50,
+                "height": 50,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.72358435493287,
+                "cy": 69.58056042031524,
+                "width": 49,
+                "height": 50,
+                "pixels": 1713
+              },
+              "drift": 0.02701094383793221,
+              "driftX": -0.02550889498652964,
+              "driftY": 0.008881855863620558,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.28448852560484,
+                "cy": 69.57868670859523,
+                "width": 44,
+                "height": 45,
+                "pixels": 1636
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.26678445229683,
+                "cy": 69.49705535924618,
+                "width": 44,
+                "height": 45,
+                "pixels": 1698
+              },
+              "drift": 0.0835291051564811,
+              "driftX": -0.017704073308010493,
+              "driftY": -0.08163134934905258,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 135.76746592843398,
+                "cy": 33.92185139025223,
+                "width": 33,
+                "height": 44,
+                "pixels": 1067
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.034236012369616896,
+              "driftX": -0.0006788061631289443,
+              "driftY": -0.034229282276516684,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.983590518966514,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 4,
+            "candidate": 3115,
+            "reference": 3115,
+            "candidateMae": 6.070603143601191,
+            "referenceMae": 6.070603143601191,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 6,
+          "file": "out/shear/roundtrip/render-build/skew/f0006.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 6715,
+          "candidatePixels": 6715,
+          "referencePixels": 6644,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tip",
+          "worstDrift": 0.06202478541243763,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51551461520424,
+                "cy": 69.57354944254419,
+                "width": 65,
+                "height": 61,
+                "pixels": 2191
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03682484122145925,
+              "driftX": 0.034012145003987214,
+              "driftY": 0.01411534353862604,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.8932388586697204,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.748930806655494,
+                "cy": 69.57221085881474,
+                "width": 51,
+                "height": 51,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.77580174927114,
+                "cy": 69.57172011661808,
+                "width": 50,
+                "height": 51,
+                "pixels": 1715
+              },
+              "drift": 0.026875423437722062,
+              "driftX": 0.02687094261564482,
+              "driftY": -0.0004907421966606762,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.28334631510143,
+                "cy": 69.58085718132172,
+                "width": 45,
+                "height": 45,
+                "pixels": 1631
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.30624263839812,
+                "cy": 69.52885747938751,
+                "width": 45,
+                "height": 45,
+                "pixels": 1698
+              },
+              "drift": 0.05681734437434592,
+              "driftX": 0.02289632329669189,
+              "driftY": -0.05199970193420711,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 136.1233662369204,
+                "cy": 33.99625298983267,
+                "width": 32,
+                "height": 44,
+                "pixels": 1059
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.06202478541243763,
+              "driftX": -0.007878194138296967,
+              "driftY": -0.06152241918665292,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9952526122268507,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 5,
+            "candidate": 2457,
+            "reference": 2457,
+            "candidateMae": 3.3450753348214284,
+            "referenceMae": 3.3450753348214284,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 7,
+          "file": "out/shear/roundtrip/render-build/skew/f0007.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 6784,
+          "candidatePixels": 6784,
+          "referencePixels": 6709,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "side",
+          "worstDrift": 0.0835291051564811,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51643898765542,
+                "cy": 69.57206023112765,
+                "width": 65,
+                "height": 60,
+                "pixels": 2229
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.004505446439107077,
+              "driftX": -0.004348746164426717,
+              "driftY": -0.0011779025481959689,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9275672679633176,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.7490932499194,
+                "cy": 69.57167856445162,
+                "width": 50,
+                "height": 50,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.72358435493287,
+                "cy": 69.58056042031524,
+                "width": 49,
+                "height": 50,
+                "pixels": 1713
+              },
+              "drift": 0.02701094383793221,
+              "driftX": -0.02550889498652964,
+              "driftY": 0.008881855863620558,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.28448852560484,
+                "cy": 69.57868670859523,
+                "width": 44,
+                "height": 45,
+                "pixels": 1636
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.26678445229683,
+                "cy": 69.49705535924618,
+                "width": 44,
+                "height": 45,
+                "pixels": 1698
+              },
+              "drift": 0.0835291051564811,
+              "driftX": -0.017704073308010493,
+              "driftY": -0.08163134934905258,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 135.76746592843398,
+                "cy": 33.92185139025223,
+                "width": 33,
+                "height": 44,
+                "pixels": 1067
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.034236012369616896,
+              "driftX": -0.0006788061631289443,
+              "driftY": -0.034229282276516684,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.983590518966514,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 6,
+            "candidate": 2457,
+            "reference": 2457,
+            "candidateMae": 3.3450753348214284,
+            "referenceMae": 3.3450753348214284,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 8,
+          "file": "out/shear/roundtrip/render-build/skew/f0008.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 6898,
+          "candidatePixels": 6898,
+          "referencePixels": 6802,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "side",
+          "worstDrift": 0.056996060055951335,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51776425221757,
+                "cy": 69.57156421737902,
+                "width": 65,
+                "height": 58,
+                "pixels": 2296
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03360146854860542,
+              "driftX": 0.03360144686116797,
+              "driftY": 0.000038176681682731145,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9157023617566158,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.74803574034581,
+                "cy": 69.57202442319735,
+                "width": 49,
+                "height": 49,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.74693520140105,
+                "cy": 69.59515469935785,
+                "width": 48,
+                "height": 49,
+                "pixels": 1713
+              },
+              "drift": 0.02315644319039451,
+              "driftX": -0.0011005389447618086,
+              "driftY": 0.023130276160500784,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.2833058758922,
+                "cy": 69.57830384642925,
+                "width": 43,
+                "height": 45,
+                "pixels": 1642
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.263839811543,
+                "cy": 69.52473498233215,
+                "width": 43,
+                "height": 45,
+                "pixels": 1698
+              },
+              "drift": 0.056996060055951335,
+              "driftX": -0.01946606434921705,
+              "driftY": -0.05356886409710171,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 135.00642583224368,
+                "cy": 33.81143106488836,
+                "width": 34,
+                "height": 42,
+                "pixels": 1083
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.014466220913129258,
+              "driftX": -0.002094877686173772,
+              "driftY": -0.014313735885066119,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9734662428970432,
+              "searchRadius": 32,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 7,
+            "candidate": 3115,
+            "reference": 3115,
+            "candidateMae": 6.070603143601191,
+            "referenceMae": 6.070603143601191,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 9,
+          "file": "out/shear/roundtrip/render-build/skew/f0009.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 6980,
+          "candidatePixels": 6980,
+          "referencePixels": 6895,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "side",
+          "worstDrift": 0.10801408776264271,
+          "attributed": 3,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.5164025535359,
+                "cy": 69.57236401159972,
+                "width": 65,
+                "height": 55,
+                "pixels": 2364
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.025268093606935993,
+              "driftX": 0.012824547600314519,
+              "driftY": 0.02177171406610299,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9280794112254787,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.74998058042178,
+                "cy": 69.57180300779844,
+                "width": 47,
+                "height": 47,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.743731778425655,
+                "cy": 69.57230320699709,
+                "width": 46,
+                "height": 47,
+                "pixels": 1715
+              },
+              "drift": 0.006268789805462906,
+              "driftX": -0.006248801996122211,
+              "driftY": 0.0005001991986546273,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.28220992450878,
+                "cy": 69.57761834632765,
+                "width": 41,
+                "height": 45,
+                "pixels": 1648
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.34538506760728,
+                "cy": 69.49000587889476,
+                "width": 41,
+                "height": 45,
+                "pixels": 1701
+              },
+              "drift": 0.10801408776264271,
+              "driftX": 0.0631751430985048,
+              "driftY": -0.08761246743289064,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 134.17373467351013,
+                "cy": 33.69123182207019,
+                "width": 34,
+                "height": 40,
+                "pixels": 1100
+              },
+              "method": "none",
+              "reference": null,
+              "drift": null,
+              "driftX": null,
+              "driftY": null,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.07181250854097354,
+              "searchRadius": 30,
+              "ambiguity": "this slot is inside a reference component 3.2x its size and 65x83 px against its 34x40 — the reference merged it with something it touches or is drawn behind; correlating the slot's own pixels found no match within 30 px either (best residual 58.1 against its own 112.7 of contrast; confidence 0.07 where 0.38 is needed 15.1 px out)"
+            }
+          ],
+          "change": {
+            "previous": 8,
+            "candidate": 3292,
+            "reference": 3292,
+            "candidateMae": 6.886032831101191,
+            "referenceMae": 6.886032831101191,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 10,
+          "file": "out/shear/roundtrip/render-build/skew/f0010.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 7042,
+          "candidatePixels": 7042,
+          "referencePixels": 6957,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "pin",
+          "worstDrift": 0.10880298168974847,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51691886887593,
+                "cy": 69.57274221869851,
+                "width": 65,
+                "height": 53,
+                "pixels": 2419
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.05077461936314508,
+              "driftX": -0.049869928599103365,
+              "driftY": 0.009542127278159724,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9226979022216977,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.75012298545124,
+                "cy": 69.5704371220698,
+                "width": 45,
+                "height": 45,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.66840882694541,
+                "cy": 69.64227642276423,
+                "width": 44,
+                "height": 45,
+                "pixels": 1722
+              },
+              "drift": 0.10880298168974847,
+              "driftX": -0.0817141585058323,
+              "driftY": 0.07183930069442113,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.2846133760612,
+                "cy": 69.57602160109215,
+                "width": 40,
+                "height": 45,
+                "pixels": 1652
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.27843252799056,
+                "cy": 69.48291101944608,
+                "width": 40,
+                "height": 45,
+                "pixels": 1697
+              },
+              "drift": 0.09331550405662695,
+              "driftX": -0.006180848070641787,
+              "driftY": -0.09311058164607289,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 133.33577296595354,
+                "cy": 33.590946304556496,
+                "width": 34,
+                "height": 37,
+                "pixels": 1111
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03719548246956556,
+              "driftX": -0.02745079574347866,
+              "driftY": -0.025098958727277375,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9675438596491228,
+              "searchRadius": 28,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 9,
+            "candidate": 3206,
+            "reference": 3206,
+            "candidateMae": 6.836390904017857,
+            "referenceMae": 6.836390904017857,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 11,
+          "file": "out/shear/roundtrip/render-build/skew/f0011.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 7118,
+          "candidatePixels": 7118,
+          "referencePixels": 7009,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "tip",
+          "worstDrift": 0.2929450373038134,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51929910256789,
+                "cy": 69.57222397813725,
+                "width": 65,
+                "height": 51,
+                "pixels": 2457
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.025792511172204095,
+              "driftX": -0.0034886338059870337,
+              "driftY": 0.02555548995296309,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.932761087267525,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.75088091365516,
+                "cy": 69.56876187203275,
+                "width": 43,
+                "height": 43,
+                "pixels": 1666
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.71461988304094,
+                "cy": 69.64035087719299,
+                "width": 42,
+                "height": 43,
+                "pixels": 1710
+              },
+              "drift": 0.08024866354673749,
+              "driftX": -0.03626103061422015,
+              "driftY": 0.07158900516023436,
+              "widthDrift": 1,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.29196757431131,
+                "cy": 69.58017009731033,
+                "width": 39,
+                "height": 45,
+                "pixels": 1653
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.25397292525014,
+                "cy": 69.55885815185403,
+                "width": 39,
+                "height": 45,
+                "pixels": 1699
+              },
+              "drift": 0.04356365889608438,
+              "driftX": -0.03799464906117578,
+              "driftY": -0.021311945456304215,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 132.58528281415656,
+                "cy": 33.52253424874683,
+                "width": 35,
+                "height": 35,
+                "pixels": 1113
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.2929450373038134,
+              "driftX": -0.2922836771716661,
+              "driftY": -0.019673508582403097,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9765735371639431,
+              "searchRadius": 26,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 10,
+            "candidate": 3042,
+            "reference": 3042,
+            "candidateMae": 5.938313802083334,
+            "referenceMae": 5.938313802083334,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        },
+        {
+          "index": 12,
+          "file": "out/shear/roundtrip/render-build/skew/f0012.png",
+          "mae": 0,
+          "maeReference": 0,
+          "maeFrame": 0,
+          "unionPixels": 7093,
+          "candidatePixels": 7093,
+          "referencePixels": 7012,
+          "components": 3,
+          "unmatchedComponents": 0,
+          "worstSlot": "side",
+          "worstDrift": 0.1289311726094998,
+          "attributed": 4,
+          "drawn": 4,
+          "slots": [
+            {
+              "slot": "lean",
+              "candidate": {
+                "cx": 129.51402658453298,
+                "cy": 69.57301785677471,
+                "width": 65,
+                "height": 49,
+                "pixels": 2473
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.021081843036759605,
+              "driftX": -0.010297660682365813,
+              "driftY": 0.018395713911056204,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.9418453239082919,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "pin",
+              "candidate": {
+                "cx": 36.73004301737857,
+                "cy": 69.56717202482723,
+                "width": 42,
+                "height": 41,
+                "pixels": 1667
+              },
+              "method": "component",
+              "reference": {
+                "cx": 36.771285965942454,
+                "cy": 69.47592483852026,
+                "width": 42,
+                "height": 41,
+                "pixels": 1703
+              },
+              "drift": 0.10013505787276772,
+              "driftX": 0.041242948563883886,
+              "driftY": -0.0912471863069726,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "side",
+              "candidate": {
+                "cx": 222.3050014461907,
+                "cy": 69.57740197914657,
+                "width": 38,
+                "height": 45,
+                "pixels": 1654
+              },
+              "method": "component",
+              "reference": {
+                "cx": 222.18576491435323,
+                "cy": 69.52835203780272,
+                "width": 38,
+                "height": 45,
+                "pixels": 1693
+              },
+              "drift": 0.1289311726094998,
+              "driftX": -0.11923653183745841,
+              "driftY": -0.049049941343852765,
+              "widthDrift": 0,
+              "heightDrift": 0,
+              "confidence": null,
+              "searchRadius": 32,
+              "ambiguity": null
+            },
+            {
+              "slot": "tip",
+              "candidate": {
+                "cx": 132.21101525860786,
+                "cy": 33.49007152582554,
+                "width": 34,
+                "height": 35,
+                "pixels": 1115
+              },
+              "method": "template",
+              "reference": null,
+              "drift": 0.03461862397211026,
+              "driftX": -0.027515703596186044,
+              "driftY": -0.021007978992021142,
+              "widthDrift": null,
+              "heightDrift": null,
+              "confidence": 0.967806703324283,
+              "searchRadius": 26,
+              "ambiguity": null
+            }
+          ],
+          "change": {
+            "previous": 11,
+            "candidate": 2440,
+            "reference": 2440,
+            "candidateMae": 3.1859654017857144,
+            "referenceMae": 3.1859654017857144,
+            "verdict": "agrees"
+          },
+          "textureFloor": null
+        }
+      ],
+      "viewport": {
+        "x": -139.61456545424568,
+        "y": -45.21369098276851,
+        "width": 275.9585636735317,
+        "height": 120.21010946452877,
+        "scale": 0.9276755053083137,
+        "pixelWidth": 256,
+        "pixelHeight": 112
+      },
+      "framing": "frames-viewport",
+      "framingFit": {
+        "fit": {
+          "candidate": {
+            "left": 13.771875,
+            "top": 14.575304022450888,
+            "right": 243.9468085106383,
+            "bottom": 99.20277777777778
+          },
+          "reference": {
+            "left": 13.771875,
+            "top": 14.575304022450888,
+            "right": 243.9468085106383,
+            "bottom": 99.20277777777778
+          },
+          "frames": 13,
+          "scale": 1,
+          "dx": 0,
+          "dy": 0,
+          "rms": 0,
+          "residualWidth": 0,
+          "residualHeight": 0,
+          "aspectError": 0
+        },
+        "passes": 1,
+        "settled": true,
+        "source": "declared",
+        "cycled": false,
+        "agrees": true,
+        "applied": true,
+        "refinement": {
+          "dx": 0,
+          "dy": 0,
+          "before": 0,
+          "after": 0,
+          "radius": 2,
+          "frames": 13,
+          "applied": false,
+          "declined": "identity"
+        },
+        "units": {
+          "candidate": {
+            "width": 248.1200939267438,
+            "height": 91.22529728452933
+          },
+          "reference": {
+            "width": 248.1200939267438,
+            "height": 91.22529728452933
+          },
+          "ratio": 1
+        }
+      },
+      "declaredBox": {
+        "distance": 0,
+        "rms": 0,
+        "reach": 11.508746675531917,
+        "frames": 13,
+        "taken": true,
+        "clause": "coincident"
+      },
+      "sheet": null,
+      "notes": []
+    }
+  ],
+  "textureFrom": null,
+  "notes": [
+    "the candidate's world box was taken from frames.json rather than fitted, because rendering it into that box put its own drawn pixels on the reference's to within 0.00 px rms — so the candidate is authored in the frames' own coordinates, measured rather than assumed, and the box they were rendered at is exact where a fit of it is an estimate. The framing line below is still measured; what it leaves over is the extent fit's own floor. Pass --viewport to override.",
+    "part of every MAE below is TEXTURE, not animation, and it is not attributed here. The frames were rendered through the reference's own atlas; this candidate samples its own, and if the two were packed at different scales every edge of every part is filtered from a different source in every frame. That difference is a constant no key can move and is invisible to the content box, the fit residual and the whole-pixel refinement. Pass --texture-from <the atlas the frames were rendered through> to measure it: the candidate's own geometry is kept and only the texels are swapped, so the run reports the floor and what sits above it beside the figure of record."
+  ]
+}
