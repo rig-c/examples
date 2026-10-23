@@ -1,0 +1,1356 @@
+{
+ "units": "seam gap and ghost: cells of one texel of the coarser drawing, 1 rig px each on this rig (rigc render --seam, worst frame per pair); pass-through: frames that pass through",
+ "bars": {
+  "gap_max": 25,
+  "ghost_max": 50,
+  "pass_through_frames_max": 0,
+  "stated": "before any variant was measured; the guide's own wave was read once first, to find the pair"
+ },
+ "idle_12fps": {
+  "upperarm_r|topwear": {
+   "gap": 1,
+   "ghost": 3
+  },
+  "forearm_r|upperarm_r": {
+   "gap": 0,
+   "ghost": 2
+  },
+  "upperarm_l|topwear": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "forearm_l|upperarm_l": {
+   "gap": 0,
+   "ghost": 2
+  },
+  "neck|topwear": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "face|hair_front": {
+   "gap": 2,
+   "ghost": 0
+  },
+  "face|neck": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "hair_back|face": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "topwear|bottomwear": {
+   "gap": 1,
+   "ghost": 4
+  },
+  "thigh_r|bottomwear": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "thigh_l|bottomwear": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "shin_r|thigh_r": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "shin_l|thigh_l": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "shoes|shin_r": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "shoes|shin_l": "SKIP",
+  "pass-through bottomwear>thigh_r": 0,
+  "pass-through bottomwear>thigh_l": 0
+ },
+ "hello_24fps": {
+  "upperarm_r|topwear": {
+   "gap": 3,
+   "ghost": 23
+  },
+  "forearm_r|upperarm_r": {
+   "gap": 2,
+   "ghost": 30
+  },
+  "upperarm_l|topwear": {
+   "gap": 0,
+   "ghost": 1
+  },
+  "forearm_l|upperarm_l": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "neck|topwear": {
+   "gap": 0,
+   "ghost": 3
+  },
+  "face|hair_front": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "face|neck": {
+   "gap": 0,
+   "ghost": 1
+  },
+  "hair_back|face": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "topwear|bottomwear": {
+   "gap": 1,
+   "ghost": 12
+  },
+  "thigh_r|bottomwear": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "thigh_l|bottomwear": {
+   "gap": 18,
+   "ghost": 1
+  },
+  "shin_r|thigh_r": {
+   "gap": 0,
+   "ghost": 8
+  },
+  "shin_l|thigh_l": {
+   "gap": 0,
+   "ghost": 7
+  },
+  "shoes|shin_r": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "shoes|shin_l": "SKIP",
+  "pass-through bottomwear>thigh_r": 0,
+  "pass-through bottomwear>thigh_l": 0
+ },
+ "hello_head_tilt_minus6_12fps": {
+  "neck|topwear": {
+   "gap": 0,
+   "ghost": 2
+  },
+  "face|hair_front": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "face|neck": {
+   "gap": 0,
+   "ghost": 1
+  },
+  "hair_back|face": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "upperarm_r|topwear": {
+   "gap": 3,
+   "ghost": 23
+  },
+  "upperarm_l|topwear": {
+   "gap": 0,
+   "ghost": 1
+  }
+ },
+ "sweep_upper_arm_15fps": {
+  "keyed": "sleeve_r0 rotate 0 -> -60 deg over 4 s, linear",
+  "pair": "upperarm_r|topwear",
+  "rows": [
+   {
+    "deg": -3,
+    "t_s": 0.2,
+    "gap": 0,
+    "ghost": 9
+   },
+   {
+    "deg": -6,
+    "t_s": 0.4,
+    "gap": 50,
+    "ghost": 27
+   },
+   {
+    "deg": -9,
+    "t_s": 0.6,
+    "gap": 194,
+    "ghost": 33
+   },
+   {
+    "deg": -12,
+    "t_s": 0.8,
+    "gap": 337,
+    "ghost": 49
+   },
+   {
+    "deg": -15,
+    "t_s": 1.0,
+    "gap": 483,
+    "ghost": 70
+   },
+   {
+    "deg": -30,
+    "t_s": 2.0,
+    "gap": 1299,
+    "ghost": 247
+   },
+   {
+    "deg": -45,
+    "t_s": 3.0,
+    "gap": 2194,
+    "ghost": 821
+   },
+   {
+    "deg": -60,
+    "t_s": 4.0,
+    "gap": 3045,
+    "ghost": 1179
+   }
+  ],
+  "whole_sweep": {
+   "gap": 3045,
+   "ghost": 1179
+  }
+ },
+ "sweep_forearm_out_15fps": {
+  "keyed": "sleeve_r1 rotate 0 -> -160 deg over 4 s, linear",
+  "pair": "forearm_r|upperarm_r",
+  "rows": [
+   {
+    "deg": -32,
+    "t_s": 0.8,
+    "gap": 1,
+    "ghost": 21
+   },
+   {
+    "deg": -64,
+    "t_s": 1.6,
+    "gap": 0,
+    "ghost": 22
+   },
+   {
+    "deg": -96,
+    "t_s": 2.4,
+    "gap": 2,
+    "ghost": 28
+   },
+   {
+    "deg": -128,
+    "t_s": 3.2,
+    "gap": 0,
+    "ghost": 26
+   },
+   {
+    "deg": -144,
+    "t_s": 3.6,
+    "gap": 0,
+    "ghost": 26
+   },
+   {
+    "deg": -160,
+    "t_s": 4.0,
+    "gap": 8,
+    "ghost": 19
+   }
+  ],
+  "whole_sweep": {
+   "gap": 8,
+   "ghost": 28
+  }
+ },
+ "sweep_forearm_in_15fps": {
+  "keyed": "sleeve_r1 rotate 0 -> +60 deg over 4 s, linear",
+  "pair": "forearm_r|upperarm_r",
+  "rows": [
+   {
+    "deg": 30,
+    "t_s": 2.0,
+    "gap": 0,
+    "ghost": 19
+   },
+   {
+    "deg": 60,
+    "t_s": 4.0,
+    "gap": 2,
+    "ghost": 24
+   }
+  ],
+  "whole_sweep": {
+   "gap": 3,
+   "ghost": 27
+  }
+ },
+ "guide_wave_100pct_24fps": {
+  "upperarm_r|topwear": {
+   "gap": 3772,
+   "ghost": 3239
+  },
+  "forearm_r|upperarm_r": {
+   "gap": 2,
+   "ghost": 29
+  },
+  "neck|topwear": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "face|hair_front": {
+   "gap": 0,
+   "ghost": 0
+  },
+  "upperarm_l|topwear": {
+   "gap": 0,
+   "ghost": 0
+  }
+ },
+ "wave_variants_12fps": {
+  "v90": {
+   "keyed": {
+    "sleeve_r0_rotate_deg": [
+     -94.3,
+     0.1
+    ],
+    "sleeve_r1_rotate_deg": [
+     -88.2,
+     0.3
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 3759,
+     "ghost": 2587
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 2,
+     "ghost": 29
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    }
+   }
+  },
+  "v60": {
+   "keyed": {
+    "sleeve_r0_rotate_deg": [
+     -62.8,
+     0.1
+    ],
+    "sleeve_r1_rotate_deg": [
+     -119.7,
+     0.3
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 3182,
+     "ghost": 1276
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 1,
+     "ghost": 29
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    }
+   }
+  },
+  "v40": {
+   "keyed": {
+    "sleeve_r0_rotate_deg": [
+     -41.8,
+     0.1
+    ],
+    "sleeve_r1_rotate_deg": [
+     -140.6,
+     0.3
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 1999,
+     "ghost": 742
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 1,
+     "ghost": 28
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    }
+   }
+  },
+  "v25": {
+   "keyed": {
+    "sleeve_r0_rotate_deg": [
+     -26.1,
+     0.1
+    ],
+    "sleeve_r1_rotate_deg": [
+     -156.4,
+     0.3
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 1070,
+     "ghost": 183
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 3,
+     "ghost": 30
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    }
+   }
+  },
+  "fore225": {
+   "keyed": {
+    "sleeve_r0_rotate_deg": [
+     0.1,
+     0.1
+    ],
+    "sleeve_r1_rotate_deg": [
+     -130.8,
+     0.3
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 1,
+     "ghost": 25
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    }
+   }
+  },
+  "fore240u4": {
+   "keyed": {
+    "sleeve_r0_rotate_deg": [
+     -4.1,
+     -1.3
+    ],
+    "sleeve_r1_rotate_deg": [
+     -141.7,
+     6.6
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 3,
+     "ghost": 14
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 3,
+     "ghost": 29
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    }
+   }
+  }
+ },
+ "weight_shift_12fps": {
+  "ws6": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -6,
+     0
+    ],
+    "leg_r0_rotate_deg": [
+     1.98
+    ],
+    "leg_r1_rotate_deg": [
+     -3.17
+    ],
+    "leg_l0_rotate_deg": [
+     1.34
+    ],
+    "leg_l1_rotate_deg": [
+     -1.67
+    ],
+    "chest_rotate_deg": [
+     -0.5
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "thigh_r|bottomwear": {
+     "gap": 9,
+     "ghost": 0
+    },
+    "thigh_l|bottomwear": {
+     "gap": 28,
+     "ghost": 2
+    },
+    "shin_r|thigh_r": {
+     "gap": 0,
+     "ghost": 9
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 7
+    },
+    "shoes|shin_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  },
+  "ws9": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -9,
+     0
+    ],
+    "leg_r0_rotate_deg": [
+     2.85
+    ],
+    "leg_r1_rotate_deg": [
+     -4.48
+    ],
+    "leg_l0_rotate_deg": [
+     1.94
+    ],
+    "leg_l1_rotate_deg": [
+     -2.36
+    ],
+    "chest_rotate_deg": [
+     -0.8
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 0,
+     "ghost": 2
+    },
+    "thigh_r|bottomwear": {
+     "gap": 20,
+     "ghost": 0
+    },
+    "thigh_l|bottomwear": {
+     "gap": 59,
+     "ghost": 2
+    },
+    "shin_r|thigh_r": {
+     "gap": 0,
+     "ghost": 10
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 7
+    },
+    "shoes|shin_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  },
+  "ws12b": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -12,
+     0
+    ],
+    "leg_r0_rotate_deg": [
+     3.67
+    ],
+    "leg_r1_rotate_deg": [
+     -5.67
+    ],
+    "leg_l0_rotate_deg": [
+     2.52
+    ],
+    "leg_l1_rotate_deg": [
+     -2.96
+    ],
+    "chest_rotate_deg": [
+     -1.0
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 0,
+     "ghost": 4
+    },
+    "thigh_r|bottomwear": {
+     "gap": 34,
+     "ghost": 0
+    },
+    "thigh_l|bottomwear": {
+     "gap": 88,
+     "ghost": 2
+    },
+    "shin_r|thigh_r": {
+     "gap": 0,
+     "ghost": 14
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 8
+    },
+    "shoes|shin_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  },
+  "ws12c": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -12,
+     -1
+    ],
+    "leg_r0_rotate_deg": [
+     4.22
+    ],
+    "leg_r1_rotate_deg": [
+     -6.98
+    ],
+    "leg_l0_rotate_deg": [
+     3.35
+    ],
+    "leg_l1_rotate_deg": [
+     -4.94
+    ],
+    "chest_rotate_deg": [
+     -1.0
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 0,
+     "ghost": 4
+    },
+    "thigh_r|bottomwear": {
+     "gap": 44,
+     "ghost": 0
+    },
+    "thigh_l|bottomwear": {
+     "gap": 120,
+     "ghost": 5
+    },
+    "shin_r|thigh_r": {
+     "gap": 0,
+     "ghost": 16
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 14
+    },
+    "shoes|shin_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  },
+  "ws12": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -12,
+     -3
+    ],
+    "leg_r0_rotate_deg": [
+     5.2
+    ],
+    "leg_r1_rotate_deg": [
+     -9.35
+    ],
+    "leg_l0_rotate_deg": [
+     4.72
+    ],
+    "leg_l1_rotate_deg": [
+     -8.22
+    ],
+    "chest_rotate_deg": [
+     -1.0
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 0,
+     "ghost": 3
+    },
+    "thigh_r|bottomwear": {
+     "gap": 68,
+     "ghost": 0
+    },
+    "thigh_l|bottomwear": {
+     "gap": 181,
+     "ghost": 30
+    },
+    "shin_r|thigh_r": {
+     "gap": 0,
+     "ghost": 24
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 22
+    },
+    "shoes|shin_r": {
+     "gap": 0,
+     "ghost": 2
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  },
+  "ws25": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -25,
+     -6
+    ],
+    "leg_r0_rotate_deg": [
+     9.18
+    ],
+    "leg_r1_rotate_deg": [
+     -15.66
+    ],
+    "leg_l0_rotate_deg": [
+     8.25
+    ],
+    "leg_l1_rotate_deg": [
+     -13.36
+    ],
+    "chest_rotate_deg": [
+     -2.0
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 0,
+     "ghost": 7
+    },
+    "thigh_r|bottomwear": {
+     "gap": 139,
+     "ghost": 21
+    },
+    "thigh_l|bottomwear": {
+     "gap": 333,
+     "ghost": 50
+    },
+    "shin_r|thigh_r": {
+     "gap": 1,
+     "ghost": 41
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 34
+    },
+    "shoes|shin_r": {
+     "gap": 0,
+     "ghost": 5
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  },
+  "ws37": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -37,
+     -9
+    ],
+    "leg_r0_rotate_deg": [
+     12.39
+    ],
+    "leg_r1_rotate_deg": [
+     -20.39
+    ],
+    "leg_l0_rotate_deg": [
+     11.13
+    ],
+    "leg_l1_rotate_deg": [
+     -17.18
+    ],
+    "chest_rotate_deg": [
+     -3.0
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 2
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 0,
+     "ghost": 17
+    },
+    "thigh_r|bottomwear": {
+     "gap": 166,
+     "ghost": 22
+    },
+    "thigh_l|bottomwear": {
+     "gap": 447,
+     "ghost": 50
+    },
+    "shin_r|thigh_r": {
+     "gap": 0,
+     "ghost": 55
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 47
+    },
+    "shoes|shin_r": {
+     "gap": 1,
+     "ghost": 7
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  },
+  "ws12s": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -12,
+     0
+    ],
+    "leg_r0_rotate_deg": [
+     3.67
+    ],
+    "leg_r1_rotate_deg": [
+     -5.67
+    ],
+    "leg_l0_rotate_deg": [
+     2.52
+    ],
+    "leg_l1_rotate_deg": [
+     -2.96
+    ],
+    "chest_rotate_deg": [
+     -1.0
+    ],
+    "skirt_r0_rotate_deg": [
+     3.09
+    ],
+    "skirt_c0_rotate_deg": [
+     3.09
+    ],
+    "skirt_l0_rotate_deg": [
+     3.09
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 0,
+     "ghost": 23
+    },
+    "thigh_r|bottomwear": {
+     "gap": 1,
+     "ghost": 0
+    },
+    "thigh_l|bottomwear": {
+     "gap": 47,
+     "ghost": 3
+    },
+    "shin_r|thigh_r": {
+     "gap": 0,
+     "ghost": 14
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 8
+    },
+    "shoes|shin_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  },
+  "ws18s": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -18,
+     0
+    ],
+    "leg_r0_rotate_deg": [
+     5.18
+    ],
+    "leg_r1_rotate_deg": [
+     -7.76
+    ],
+    "leg_l0_rotate_deg": [
+     3.59
+    ],
+    "leg_l1_rotate_deg": [
+     -3.99
+    ],
+    "chest_rotate_deg": [
+     -1.5
+    ],
+    "skirt_r0_rotate_deg": [
+     4.38
+    ],
+    "skirt_c0_rotate_deg": [
+     4.38
+    ],
+    "skirt_l0_rotate_deg": [
+     4.38
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 0,
+     "ghost": 36
+    },
+    "thigh_r|bottomwear": {
+     "gap": 4,
+     "ghost": 0
+    },
+    "thigh_l|bottomwear": {
+     "gap": 72,
+     "ghost": 4
+    },
+    "shin_r|thigh_r": {
+     "gap": 0,
+     "ghost": 19
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 10
+    },
+    "shoes|shin_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  },
+  "ws25s": {
+   "keyed_at_hold": {
+    "hip_translate": [
+     -25,
+     0
+    ],
+    "leg_r0_rotate_deg": [
+     6.8
+    ],
+    "leg_r1_rotate_deg": [
+     -9.86
+    ],
+    "leg_l0_rotate_deg": [
+     4.73
+    ],
+    "leg_l1_rotate_deg": [
+     -4.94
+    ],
+    "chest_rotate_deg": [
+     -2.0
+    ],
+    "skirt_r0_rotate_deg": [
+     5.76
+    ],
+    "skirt_c0_rotate_deg": [
+     5.76
+    ],
+    "skirt_l0_rotate_deg": [
+     5.76
+    ]
+   },
+   "seams": {
+    "upperarm_r|topwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "forearm_r|upperarm_r": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "upperarm_l|topwear": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "forearm_l|upperarm_l": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "neck|topwear": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|hair_front": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "face|neck": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "hair_back|face": {
+     "gap": 0,
+     "ghost": 0
+    },
+    "topwear|bottomwear": {
+     "gap": 1,
+     "ghost": 47
+    },
+    "thigh_r|bottomwear": {
+     "gap": 5,
+     "ghost": 0
+    },
+    "thigh_l|bottomwear": {
+     "gap": 96,
+     "ghost": 7
+    },
+    "shin_r|thigh_r": {
+     "gap": 0,
+     "ghost": 25
+    },
+    "shin_l|thigh_l": {
+     "gap": 0,
+     "ghost": 12
+    },
+    "shoes|shin_r": {
+     "gap": 0,
+     "ghost": 1
+    },
+    "shoes|shin_l": "SKIP",
+    "pass-through bottomwear>thigh_r": 0,
+    "pass-through bottomwear>thigh_l": 0
+   }
+  }
+ }
+}
