@@ -1,0 +1,35 @@
+{
+  "kind": "static-input-and-script-reconstruction; no rig tool runtime/build/render",
+  "canonicalRig": {
+    "file": "hand/rig.json",
+    "sha256": "7273fd99a7bc841a64e7d6dbc7ba2ca38b8dca548116fe687eff92ef24d14d9d"
+  },
+  "corrections": {
+    "file": "hand/source-corrections.json",
+    "sha256": "2e41a041a3d9f28bc805245b3526e74cc8b14fb6253e26bc6ab8680ac37cfa9e",
+    "removedDuplicateWasByteIdentical": true
+  },
+  "derivedInput": {
+    "kind": "generated-not-committed",
+    "materializedPath": "hand/r3/rig.json",
+    "expectedSHA256": "c4bb9011b1f1e561065957f08050d7b9b225d2b2bd984dc5be22cb4659bc0054",
+    "reconstructedSHA256": "c4bb9011b1f1e561065957f08050d7b9b225d2b2bd984dc5be22cb4659bc0054",
+    "byteIdenticalToFrozenOriginal": true
+  },
+  "historicalInput": {
+    "kind": "hash-only-reference-no-file",
+    "expectedSHA256": "4ce9b871475cdc9c6e8c076e72276155e100253c55355436196b0936a1f14a3e",
+    "reconstructedSHA256": "4ce9b871475cdc9c6e8c076e72276155e100253c55355436196b0936a1f14a3e",
+    "byteIdenticalToFrozenOriginal": true
+  },
+  "actualApplyScript": {
+    "exitCode": 0,
+    "motionSHA256": "cb10fa1fe8e9fade2f05be9c503aa4cea03482734cee082d45ec46072fb1951b",
+    "motionByteIdenticalToFrozenAcceptedResult": true,
+    "footSamples": 53,
+    "source": "Existing frozen retarget and geometry; no retarget/build/render repeated"
+  },
+  "rigDifferences": "Only images field and JSON indent/newline serialization; all bones/slots/constraints/attachments/UVs/weights/triangles equal",
+  "finalCompiledHashPreserved": "2a21d03affaadac4a314b7dd0345b0b2b842292a24ff3ce49b4de2b460fb12d1",
+  "noNewCompiledHashClaim": true
+}

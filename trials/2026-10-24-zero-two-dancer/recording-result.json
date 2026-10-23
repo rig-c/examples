@@ -1,0 +1,74 @@
+{
+  "kind": "CLI rendered animation, not an actual Play screen recording",
+  "sourceCompiledSHA256": "21999456afd779a7c67e2c12a6de95ff4234f037981db8a0a0c2ee5a4d1f24cd",
+  "sourceFrameManifest": "fold-diagnostic/hashes.json",
+  "frameCount": 313,
+  "fps": 24,
+  "sourcePoser": "rig-c 2.67.2 core; 11 physics constraints stepped at 24 fps",
+  "upscale": {
+    "factor": 3,
+    "filter": "nearest-neighbour",
+    "nativeSize": [
+      202,
+      256
+    ],
+    "purpose": "Owner inspection; no new detail or seam acceptance is implied."
+  },
+  "versions": {
+    "ffmpeg": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+    "ffprobe": "ffprobe version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2007-2024 the FFmpeg developers"
+  },
+  "command": [
+    "ffmpeg",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-framerate",
+    "24",
+    "-start_number",
+    "0",
+    "-i",
+    "work/fold-diagnostic/zero-two@24fps/f%04d.png",
+    "-frames:v",
+    "313",
+    "-an",
+    "-vf",
+    "scale=iw*3:ih*3:flags=neighbor,pad=ceil(iw/2)*2:ceil(ih/2)*2,setsar=1",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "medium",
+    "-crf",
+    "18",
+    "-pix_fmt",
+    "yuv420p",
+    "-threads",
+    "4",
+    "work/recording/zero-two-dancer-core-render.mp4"
+  ],
+  "video": "work/recording/zero-two-dancer-core-render.mp4",
+  "bytes": 1670847,
+  "sha256": "dc131ed7fa8502353c8083fe24f3404846f11aa56f42661258cee38b12d9a877",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 606,
+        "height": 768,
+        "sample_aspect_ratio": "1:1",
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "nb_read_frames": "313"
+      }
+    ],
+    "format": {
+      "duration": "13.041667"
+    }
+  },
+  "noAcquisitionCleanRetargetBuildOrRenderRepeated": true
+}

@@ -1,0 +1,70 @@
+{
+  "mode": "balanced",
+  "backend": "onnxruntime",
+  "device": "cpu",
+  "packages": {
+    "packaging": "26.3",
+    "rtmlib": "0.0.16",
+    "opencv-python-headless": "5.0.0.93",
+    "protobuf": "7.36.2",
+    "flatbuffers": "25.12.19",
+    "numpy": "2.5.4",
+    "tqdm": "4.67.1",
+    "onnxruntime": "1.31.0"
+  },
+  "models": {
+    "det": {
+      "file": "yolox_m_8xb8-300e_humanart-c2c7a14a.onnx",
+      "sha256": "3dea6513388889f0fff4b77bf7a26013600321b9eb9ceb0e9a400a82572f5f23",
+      "bytes": 101400344,
+      "url": "https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/onnx_sdk/yolox_m_8xb8-300e_humanart-c2c7a14a.zip",
+      "inputSize": [
+        640,
+        640
+      ],
+      "origin": "existing cached checkpoint, read only"
+    },
+    "pose": {
+      "file": "rtmw-dw-x-l_simcc-cocktail14_270e-256x192_20231122.onnx",
+      "sha256": "9a9bc17c13ff0a1e37507f45a037a21bc410cd08374b0e664c57d0080843aa58",
+      "bytes": 228708578,
+      "url": "https://download.openmmlab.com/mmpose/v1/projects/rtmw/onnx_sdk/rtmw-dw-x-l_simcc-cocktail14_270e-256x192_20231122.zip",
+      "inputSize": [
+        192,
+        256
+      ],
+      "origin": "existing cached checkpoint, read only"
+    }
+  },
+  "wholebodySourceSHA256": "ea05fe04fc5c5c4b07b4c933d0c9c08668cb26e448f28fd188056ae08d54b508",
+  "uv": {
+    "version": "0.13.0",
+    "url": "https://files.pythonhosted.org/packages/c3/75/1901383808ba0d421f32060ba0e9884169b685a722e1af5d87fdd4225ba6/uv-0.13.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+    "sha256": "52c7da0fd9056d9551124777ec77de53f0df7017daf8f98a19e947b7837416ed"
+  },
+  "video": {
+    "source": "ZeroTwo; YouTube Shorts BGyjsZsWndA; creator not identified; original video withheld",
+    "sha256": "ef5b5a6578a68358e6a1510ae2bb8361ec7eb56a439dc5302385b233097e889c",
+    "bytes": 4413628,
+    "originalSize": [
+      2160,
+      3840
+    ],
+    "processingSize": [
+      1080,
+      1920
+    ],
+    "preprocessing": "FFmpeg libdav1d CPU decode original into native 2160x3840 bgr24 pipe; cv2.resize(frame,(1080,1920),INTER_AREA); preserve all frames and fps."
+  },
+  "upstreamRecipeSHA256": "dc7635056424d21eda8d161d2835d279b94a32861addd34fee59ee3556c21e37",
+  "personRule": "argmax of mean confidence over the first 17 body keypoints, as in first extract.py",
+  "decoder": {
+    "tool": "ffmpeg",
+    "version": "7.0.2-static",
+    "firstVersionLine": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+    "decoder": "libdav1d",
+    "threads": 4,
+    "output": "native-size bgr24 rawvideo pipe; never written as reference frames",
+    "officialDocumentation": "https://ffmpeg.org/ffmpeg-codecs.html#libdav1d"
+  }
+}

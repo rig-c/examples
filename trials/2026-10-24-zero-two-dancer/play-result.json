@@ -1,0 +1,102 @@
+{
+  "tool": "@rig-c/play",
+  "version": "1.16.0",
+  "browser": "Chrome actual UI through CUA",
+  "compiledModelSHA256": "21999456afd779a7c67e2c12a6de95ff4234f037981db8a0a0c2ee5a4d1f24cd",
+  "observedAdvancingTimesSeconds": [
+    0.15,
+    6.05
+  ],
+  "pausedTimeSeconds": 6.0834,
+  "captures": [
+    {
+      "frame": 0,
+      "timeSeconds": 0.0,
+      "file": "browser-frame0.png",
+      "sha256": "d84574cc2877ef87211793ebc2dc8536ebf8c40f015462b7dcb5f5085de333ff"
+    },
+    {
+      "frame": 156,
+      "timeSeconds": 6.5,
+      "file": "browser-frame156.png",
+      "sha256": "f14fd63c012e011907ae2837cd342e8ad344e1375c302736008e9a1888a34e04"
+    },
+    {
+      "frame": 312,
+      "timeSeconds": 13.0,
+      "file": "browser-frame312.png",
+      "sha256": "fe210de9c8422745da7109d394e03fb712e8e8f79d8479c93e8260faaaac3819"
+    },
+    {
+      "frame": 30,
+      "timeSeconds": 1.25,
+      "file": "browser-frame30.png",
+      "sha256": "225094b2d9308ffaa661561c93530bd2a069c4f043fb7f42f822d6b0649bf9d2"
+    },
+    {
+      "frame": 227,
+      "timeSeconds": 9.458333333333334,
+      "file": "browser-frame227.png",
+      "sha256": "f84470a70ed4346b0e200ba059201260b6f5b1e8c8583c845f9a50702cd29ebe"
+    },
+    {
+      "frame": 299,
+      "timeSeconds": 12.458333333333334,
+      "file": "browser-frame299.png",
+      "sha256": "57878c88ac3a8a4d33d4f9cb356131501d072032bbd2ac324232e1138a766a05"
+    }
+  ],
+  "additionalFoldCountCaptures": [
+    {
+      "rank": 1,
+      "frame": 0,
+      "timeSeconds": 0,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/0/triangles",
+      "label": "folded triangles 2, frame 0",
+      "file": "browser-fold-frame0.png",
+      "screenshotSHA256": "fc1c50e983d33b4fb365fb7d1a514eec74419298e7a051aaff91d5a3b44505c4"
+    },
+    {
+      "rank": 2,
+      "frame": 1,
+      "timeSeconds": 0.041666666666666664,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/1/triangles",
+      "label": "folded triangles 2, frame 1",
+      "file": "browser-fold-frame1.png",
+      "screenshotSHA256": "3e0157731c3e05a74fa9c48aba849ffa9620c4e750b19c74edc0aab2340126d7"
+    },
+    {
+      "rank": 3,
+      "frame": 2,
+      "timeSeconds": 0.08333333333333333,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/2/triangles",
+      "label": "folded triangles 2, frame 2",
+      "file": "browser-fold-frame2.png",
+      "screenshotSHA256": "4f9c6f0418e5bcd5e8d74e59fdc589a0625763002ad0cdec108d1c8356d9f720"
+    }
+  ],
+  "contactSheet": "contact-sheet.jpg",
+  "contactSheetBytes": 99013,
+  "contactSheetSHA256": "7b334dc37117b102959e94b8fdf1a31d740bd80294a440b553f992e0f71c4bf8",
+  "consoleWarningsErrors": [],
+  "cleanup": {
+    "ownTabClosed": true,
+    "ownServerExited": true
+  },
+  "scope": "Playback and nine public-rig panels; CLI rendered 3x video is distinct from a Play recording; no owner eye-pass or performance claim."
+}

@@ -1,0 +1,5253 @@
+{
+  "spec": "rig-pose-sequence/1",
+  "space": {
+    "units": "picture-px",
+    "origin": "top-left",
+    "y": "down"
+  },
+  "width": 1080,
+  "height": 1920,
+  "source": "a public dance clip (source credited at publication), 24 fps, 313 frames; RTMPose whole-body 'balanced' via rtmlib/onnxruntime on CPU; body-18 names, neck = shoulders' midpoint; the most confident person per frame | camera hand-labelled, 8 keys; linear between keys, held outside them; joints normalised p' = (p - t) / s",
+  "cameraSource": "hand-labelled, 8 keys",
+  "camera": [
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    },
+    {
+      "s": 1,
+      "tx": 0,
+      "ty": 0,
+      "inliers": 0
+    }
+  ],
+  "cleaned": {
+    "spec": "rig-pose-clean/1",
+    "params": {
+      "loop": false,
+      "legs": 5,
+      "rest": 7,
+      "hold": {
+        "speed": 0.015,
+        "reach": 0.03,
+        "minSeconds": 0.5,
+        "blend": 6
+      },
+      "hipsInferred": {
+        "by": "measured",
+        "method": "B' v2.2 skirt waistband (rig-c/pose#86)",
+        "fit": {
+          "frames": 119,
+          "gain": 2.7253,
+          "corr": 0.9375
+        },
+        "read": [
+          [
+            0,
+            29
+          ]
+        ],
+        "interpolated": [],
+        "scaled": [],
+        "held": [],
+        "unmeasured": [],
+        "declined": []
+      }
+    },
+    "spikes": {
+      "found": [],
+      "untested": [
+        0,
+        1
+      ]
+    },
+    "jitter": {
+      "before": 8.8469,
+      "after": 4.7135
+    },
+    "holds": [
+      {
+        "joint": "nose",
+        "frames": [
+          0,
+          20
+        ],
+        "jitter": {
+          "before": 0.8858,
+          "after": 0
+        }
+      },
+      {
+        "joint": "neck",
+        "frames": [
+          0,
+          23
+        ],
+        "jitter": {
+          "before": 0.4467,
+          "after": 0.0953
+        }
+      },
+      {
+        "joint": "r_shoulder",
+        "frames": [
+          0,
+          20
+        ],
+        "jitter": {
+          "before": 0.4909,
+          "after": 0.0766
+        }
+      },
+      {
+        "joint": "r_elbow",
+        "frames": [
+          0,
+          17
+        ],
+        "jitter": {
+          "before": 0.4992,
+          "after": 0
+        }
+      },
+      {
+        "joint": "r_wrist",
+        "frames": [
+          0,
+          18
+        ],
+        "jitter": {
+          "before": 1.9482,
+          "after": 0
+        }
+      },
+      {
+        "joint": "l_shoulder",
+        "frames": [
+          0,
+          26
+        ],
+        "jitter": {
+          "before": 0.767,
+          "after": 0
+        }
+      },
+      {
+        "joint": "l_elbow",
+        "frames": [
+          0,
+          19
+        ],
+        "jitter": {
+          "before": 1.0359,
+          "after": 0
+        }
+      },
+      {
+        "joint": "l_wrist",
+        "frames": [
+          0,
+          17
+        ],
+        "jitter": {
+          "before": 0.8036,
+          "after": 0
+        }
+      },
+      {
+        "joint": "r_hip",
+        "frames": [
+          0,
+          23
+        ],
+        "jitter": {
+          "before": 1.2331,
+          "after": 0
+        }
+      },
+      {
+        "joint": "r_knee",
+        "frames": [
+          0,
+          24
+        ],
+        "jitter": {
+          "before": 1.1411,
+          "after": 0
+        }
+      },
+      {
+        "joint": "r_ankle",
+        "frames": [
+          0,
+          28
+        ],
+        "jitter": {
+          "before": 1.663,
+          "after": 0.0868
+        }
+      },
+      {
+        "joint": "l_hip",
+        "frames": [
+          0,
+          21
+        ],
+        "jitter": {
+          "before": 0.8244,
+          "after": 0
+        }
+      },
+      {
+        "joint": "l_knee",
+        "frames": [
+          0,
+          24
+        ],
+        "jitter": {
+          "before": 1.8729,
+          "after": 0
+        }
+      },
+      {
+        "joint": "l_ankle",
+        "frames": [
+          0,
+          29
+        ],
+        "jitter": {
+          "before": 1.7581,
+          "after": 0.1066
+        }
+      },
+      {
+        "joint": "r_eye",
+        "frames": [
+          0,
+          20
+        ],
+        "jitter": {
+          "before": 0.6376,
+          "after": 0
+        }
+      },
+      {
+        "joint": "l_eye",
+        "frames": [
+          0,
+          20
+        ],
+        "jitter": {
+          "before": 0.2505,
+          "after": 0
+        }
+      },
+      {
+        "joint": "r_ear",
+        "frames": [
+          0,
+          20
+        ],
+        "jitter": {
+          "before": 0.9786,
+          "after": 0
+        }
+      },
+      {
+        "joint": "l_ear",
+        "frames": [
+          0,
+          20
+        ],
+        "jitter": {
+          "before": 0.4676,
+          "after": 0
+        }
+      },
+      {
+        "joint": "r_shoulder",
+        "frames": [
+          21,
+          29
+        ],
+        "jitter": {
+          "before": 0.8434,
+          "after": 0.0892
+        }
+      },
+      {
+        "joint": "neck",
+        "frames": [
+          24,
+          29
+        ],
+        "jitter": {
+          "before": 0.9619,
+          "after": 0.2532
+        }
+      },
+      {
+        "joint": "r_elbow",
+        "frames": [
+          29,
+          29
+        ],
+        "jitter": {
+          "before": 1.974,
+          "after": 0
+        }
+      },
+      {
+        "joint": "r_ankle",
+        "frames": [
+          29,
+          29
+        ],
+        "jitter": {
+          "before": 2.0596,
+          "after": 0.1803
+        }
+      }
+    ],
+    "seams": [
+      {
+        "joint": "r_shoulder",
+        "frame": 21,
+        "step": 0.0394,
+        "gap": 0
+      },
+      {
+        "joint": "neck",
+        "frame": 24,
+        "step": 0.0413,
+        "gap": 0
+      },
+      {
+        "joint": "r_ankle",
+        "frame": 29,
+        "step": 0.0423,
+        "gap": 0
+      }
+    ],
+    "unheld": [
+      {
+        "joint": "r_elbow",
+        "frames": [
+          18,
+          28
+        ],
+        "test": "speed",
+        "value": 0.0196
+      },
+      {
+        "joint": "l_wrist",
+        "frames": [
+          18,
+          29
+        ],
+        "test": "speed",
+        "value": 0.2058
+      },
+      {
+        "joint": "r_wrist",
+        "frames": [
+          19,
+          29
+        ],
+        "test": "speed",
+        "value": 0.0361
+      },
+      {
+        "joint": "l_elbow",
+        "frames": [
+          20,
+          29
+        ],
+        "test": "speed",
+        "value": 0.0732
+      },
+      {
+        "joint": "nose",
+        "frames": [
+          21,
+          29
+        ],
+        "test": "reach",
+        "value": 0.0629
+      },
+      {
+        "joint": "r_eye",
+        "frames": [
+          21,
+          29
+        ],
+        "test": "reach",
+        "value": 0.0609
+      },
+      {
+        "joint": "l_eye",
+        "frames": [
+          21,
+          29
+        ],
+        "test": "reach",
+        "value": 0.0617
+      },
+      {
+        "joint": "r_ear",
+        "frames": [
+          21,
+          29
+        ],
+        "test": "reach",
+        "value": 0.0531
+      },
+      {
+        "joint": "l_ear",
+        "frames": [
+          21,
+          29
+        ],
+        "test": "reach",
+        "value": 0.0533
+      },
+      {
+        "joint": "l_hip",
+        "frames": [
+          22,
+          29
+        ],
+        "test": "reach",
+        "value": 0.0521
+      },
+      {
+        "joint": "r_hip",
+        "frames": [
+          24,
+          29
+        ],
+        "test": "reach",
+        "value": 0.0374
+      },
+      {
+        "joint": "r_knee",
+        "frames": [
+          25,
+          29
+        ],
+        "test": "speed",
+        "value": 0.0195
+      },
+      {
+        "joint": "l_knee",
+        "frames": [
+          25,
+          29
+        ],
+        "test": "short",
+        "value": 0.2917
+      },
+      {
+        "joint": "l_shoulder",
+        "frames": [
+          27,
+          29
+        ],
+        "test": "reach",
+        "value": 0.0641
+      }
+    ]
+  },
+  "frames": [
+    {
+      "t": 0,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.972
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.937
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.963
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.85
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.647
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.937
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.855
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.73
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.09,
+                986.12
+              ],
+              "score": 0.913
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.991
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.965
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.17,
+                997.11
+              ],
+              "score": 0.856
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.011
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.996
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.004
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.042
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.921
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.967
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.04167,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.972
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.936
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.963
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.852
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.646
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.936
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.862
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.734
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.11,
+                985.9
+              ],
+              "score": 0.913
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.993
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.972
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.15,
+                997.33
+              ],
+              "score": 0.856
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.012
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.999
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.004
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.041
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.921
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.969
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.08333,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.972
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.934
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.962
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.856
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.642
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.934
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.863
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.731
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.07,
+                986.32
+              ],
+              "score": 0.911
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.996
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.976
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.19,
+                996.91
+              ],
+              "score": 0.854
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.011
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.999
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.003
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.039
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.92
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.967
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.125,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.974
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.938
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.962
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.845
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.622
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.938
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.847
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.707
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.04,
+                986.73
+              ],
+              "score": 0.909
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.998
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.978
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.22,
+                996.5
+              ],
+              "score": 0.854
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.013
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.003
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.003
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.04
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.92
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.969
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.16667,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.975
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.938
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.965
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.842
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.62
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.938
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.847
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.705
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.04,
+                986.73
+              ],
+              "score": 0.91
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.998
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.98
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.22,
+                996.5
+              ],
+              "score": 0.855
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.014
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.005
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.003
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.04
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.923
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.973
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.20833,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.973
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.941
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.962
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.841
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.625
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.941
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.837
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.707
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.04,
+                986.67
+              ],
+              "score": 0.912
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.983
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.22,
+                996.56
+              ],
+              "score": 0.855
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.015
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.003
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.005
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.037
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.922
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.978
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.25,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.976
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.932
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.963
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.825
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.613
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.932
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.828
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.686
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.04,
+                986.65
+              ],
+              "score": 0.908
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1.003
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.987
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.22,
+                996.58
+              ],
+              "score": 0.856
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.024
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.015
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.009
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.041
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.928
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.976
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.29167,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.973
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.937
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.962
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.833
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.619
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.937
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.836
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.7
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.05,
+                986.54
+              ],
+              "score": 0.909
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1.003
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.984
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.21,
+                996.69
+              ],
+              "score": 0.855
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.021
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.009
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.008
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.039
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.926
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.976
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.33333,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.976
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.94
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.964
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.832
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.617
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.94
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.841
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.7
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.03,
+                986.75
+              ],
+              "score": 0.91
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1.005
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.982
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.23,
+                996.48
+              ],
+              "score": 0.857
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.023
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.014
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.011
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.042
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.928
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.976
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.375,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.973
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.939
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.964
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.84
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.623
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.939
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.853
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.71
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.08,
+                986.25
+              ],
+              "score": 0.911
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1.004
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.978
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.18,
+                996.98
+              ],
+              "score": 0.856
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.03
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.012
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.01
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.041
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.923
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.976
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.41667,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.969
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.933
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.963
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.848
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.629
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.933
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.854
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.716
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.06,
+                986.47
+              ],
+              "score": 0.906
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.995
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.968
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.2,
+                996.76
+              ],
+              "score": 0.852
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.021
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.009
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.004
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.038
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.918
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.973
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.45833,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.969
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.931
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.96
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.843
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.626
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.931
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.857
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.718
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.06,
+                986.46
+              ],
+              "score": 0.906
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.996
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.965
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.2,
+                996.77
+              ],
+              "score": 0.851
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.024
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.002
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.004
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.039
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.916
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.973
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.5,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.971
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.933
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.961
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.843
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.623
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.933
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.846
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.704
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.04,
+                986.69
+              ],
+              "score": 0.907
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.999
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.965
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.22,
+                996.54
+              ],
+              "score": 0.853
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.036
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.005
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.009
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.04
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.919
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.975
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.54167,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.972
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.936
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.959
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.832
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.618
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.936
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.85
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.705
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.04,
+                986.65
+              ],
+              "score": 0.908
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1.004
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.979
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.22,
+                996.58
+              ],
+              "score": 0.854
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.038
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.012
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.009
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.037
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.924
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.977
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.58333,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.969
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.93
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.951
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.826
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.623
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.93
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.852
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.717
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.03,
+                986.85
+              ],
+              "score": 0.903
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1.001
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.981
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.23,
+                996.38
+              ],
+              "score": 0.85
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.034
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.007
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.009
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.037
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.922
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.976
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.625,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.972
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.932
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.954
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.831
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.62
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.932
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.842
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.711
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.05,
+                986.55
+              ],
+              "score": 0.903
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.975
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.21,
+                996.68
+              ],
+              "score": 0.851
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.033
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.004
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.011
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.04
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.922
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.977
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.66667,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.972
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.928
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.953
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.829
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.614
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.928
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.835
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.699
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.02,
+                986.99
+              ],
+              "score": 0.903
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.993
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.958
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.24,
+                996.24
+              ],
+              "score": 0.852
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.028
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.998
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.005
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.039
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.917
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.974
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.70833,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.971
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.925
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                447.13,
+                650.17
+              ],
+              "score": 0.953
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                443.17,
+                830.77
+              ],
+              "score": 0.849
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.623
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.925
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.847
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                609.26,
+                959.94
+              ],
+              "score": 0.713
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.06,
+                986.42
+              ],
+              "score": 0.904
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.993
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.969
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.2,
+                996.81
+              ],
+              "score": 0.852
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.032
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.004
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.012
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.038
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.923
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.974
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.75,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.97
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.927
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                445.91,
+                649.44
+              ],
+              "score": 0.949
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                440.93,
+                830.61
+              ],
+              "score": 0.843
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                497.15,
+                938.92
+              ],
+              "score": 0.633
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.927
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.851
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                610.27,
+                962.59
+              ],
+              "score": 0.711
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.08,
+                986.19
+              ],
+              "score": 0.907
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.997
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.97
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.18,
+                997.04
+              ],
+              "score": 0.851
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.022
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.991
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.009
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.039
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.92
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.974
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.79167,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.972
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.916
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                443.48,
+                647.99
+              ],
+              "score": 0.953
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                438.06,
+                831.04
+              ],
+              "score": 0.84
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                493.92,
+                941.56
+              ],
+              "score": 0.619
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.916
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                676.64,
+                839.86
+              ],
+              "score": 0.846
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                615.86,
+                969.94
+              ],
+              "score": 0.703
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.06,
+                986.49
+              ],
+              "score": 0.903
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.995
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.97
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.2,
+                996.74
+              ],
+              "score": 0.849
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.022
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.993
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.01
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.039
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.919
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.977
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.83333,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.27,
+                520.7
+              ],
+              "score": 0.976
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                560.3,
+                647.89
+              ],
+              "score": 0.909
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                441.04,
+                646.53
+              ],
+              "score": 0.96
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                434.34,
+                832.57
+              ],
+              "score": 0.834
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                486.12,
+                946.68
+              ],
+              "score": 0.594
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.909
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                677.48,
+                841.5
+              ],
+              "score": 0.791
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                635.31,
+                981.26
+              ],
+              "score": 0.643
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                457.02,
+                986.96
+              ],
+              "score": 0.905
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.992
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.965
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.24,
+                996.27
+              ],
+              "score": 0.851
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.032
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.994
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.79,
+                494.4
+              ],
+              "score": 1.008
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.39,
+                490.36
+              ],
+              "score": 1.046
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.93,
+                510.84
+              ],
+              "score": 0.924
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.12,
+                494.4
+              ],
+              "score": 0.974
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.875,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                519.63,
+                518.26
+              ],
+              "score": 0.982
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                559.24,
+                646.84
+              ],
+              "score": 0.907
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                438.61,
+                645.08
+              ],
+              "score": 0.968
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                428.8,
+                834.83
+              ],
+              "score": 0.819
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                474.33,
+                949.6
+              ],
+              "score": 0.616
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.907
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                683.59,
+                841.91
+              ],
+              "score": 0.887
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                670.3,
+                988.32
+              ],
+              "score": 0.875
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                456.98,
+                987.42
+              ],
+              "score": 0.909
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 0.997
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.95
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                578.28,
+                995.81
+              ],
+              "score": 0.857
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.022
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.996
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.52,
+                492.27
+              ],
+              "score": 1.025
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                544.4,
+                488.73
+              ],
+              "score": 1.043
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                490.74,
+                508.82
+              ],
+              "score": 0.938
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                596.8,
+                494.14
+              ],
+              "score": 0.978
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.91667,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                520.12,
+                514.81
+              ],
+              "score": 0.986
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                557.13,
+                644.74
+              ],
+              "score": 0.906
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                436.18,
+                643.62
+              ],
+              "score": 0.953
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                419.19,
+                830.22
+              ],
+              "score": 0.802
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                461.48,
+                944.03
+              ],
+              "score": 0.585
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.906
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                694.89,
+                836.74
+              ],
+              "score": 0.875
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                718.22,
+                966.34
+              ],
+              "score": 0.873
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                456.92,
+                988.79
+              ],
+              "score": 0.9
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1.017
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.959
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                580.45,
+                995.2
+              ],
+              "score": 0.864
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.029
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.988
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                499.71,
+                489.23
+              ],
+              "score": 1.028
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                545.36,
+                486.14
+              ],
+              "score": 1.032
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                489.86,
+                506.81
+              ],
+              "score": 0.964
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                596.88,
+                493.77
+              ],
+              "score": 1.004
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 0.95833,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                521.73,
+                510.85
+              ],
+              "score": 0.99
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                555.01,
+                642.65
+              ],
+              "score": 0.909
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                433.74,
+                642.17
+              ],
+              "score": 0.942
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                407.8,
+                824.81
+              ],
+              "score": 0.825
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                453.76,
+                933.29
+              ],
+              "score": 0.649
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.909
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                702,
+                830.21
+              ],
+              "score": 0.779
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                776.3,
+                923.66
+              ],
+              "score": 0.674
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                456.9,
+                988.99
+              ],
+              "score": 0.898
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1.005
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.97
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                584.08,
+                994.47
+              ],
+              "score": 0.866
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.002
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.977
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                500.65,
+                486.49
+              ],
+              "score": 1.037
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                547.44,
+                483
+              ],
+              "score": 1.024
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                489.69,
+                504.75
+              ],
+              "score": 0.973
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                597.71,
+                493.3
+              ],
+              "score": 1.022
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 1,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                525.41,
+                507.56
+              ],
+              "score": 0.989
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                552.9,
+                640.55
+              ],
+              "score": 0.923
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                432.52,
+                641.44
+              ],
+              "score": 0.943
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                399.94,
+                819.24
+              ],
+              "score": 0.843
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                448.7,
+                924.6
+              ],
+              "score": 0.672
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.923
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                712.97,
+                813.52
+              ],
+              "score": 0.709
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                790.87,
+                835.89
+              ],
+              "score": 0.558
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                459.56,
+                986.07
+              ],
+              "score": 0.901
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                480.76,
+                1282.97
+              ],
+              "score": 1.017
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.983
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                588.73,
+                995.03
+              ],
+              "score": 0.866
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                564.76,
+                1278.54
+              ],
+              "score": 1.006
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.983
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                503.87,
+                483.85
+              ],
+              "score": 1.036
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                551.52,
+                480.15
+              ],
+              "score": 1.031
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                490.32,
+                502.32
+              ],
+              "score": 0.974
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                599.94,
+                492.67
+              ],
+              "score": 1.022
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 1.04167,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                528.46,
+                505.21
+              ],
+              "score": 0.983
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                550.78,
+                638.45
+              ],
+              "score": 0.902
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                432.52,
+                641.44
+              ],
+              "score": 0.934
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                395.47,
+                816.6
+              ],
+              "score": 0.854
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                446.12,
+                934.9
+              ],
+              "score": 0.68
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.902
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                729.22,
+                785.36
+              ],
+              "score": 0.679
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                787,
+                735.83
+              ],
+              "score": 0.455
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                463.11,
+                988.59
+              ],
+              "score": 0.887
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                483.49,
+                1283.87
+              ],
+              "score": 1.006
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                514.67,
+                1553.56
+              ],
+              "score": 0.956
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                594.49,
+                992.01
+              ],
+              "score": 0.855
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                567.24,
+                1279.03
+              ],
+              "score": 1.006
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.972
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                507.5,
+                481.04
+              ],
+              "score": 1.026
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                556.33,
+                479.06
+              ],
+              "score": 1.023
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                491.26,
+                498.86
+              ],
+              "score": 0.975
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                602,
+                493.36
+              ],
+              "score": 1.015
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 1.08333,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                533.67,
+                503.13
+              ],
+              "score": 0.996
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                548.67,
+                636.36
+              ],
+              "score": 0.86
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                432.52,
+                641.44
+              ],
+              "score": 0.934
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                394.05,
+                817.7
+              ],
+              "score": 0.842
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                448.1,
+                950.75
+              ],
+              "score": 0.691
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                673.38,
+                647.07
+              ],
+              "score": 0.86
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                743.44,
+                756.02
+              ],
+              "score": 0.733
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                768.03,
+                643.27
+              ],
+              "score": 0.746
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                468.56,
+                989.74
+              ],
+              "score": 0.898
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                488.32,
+                1285.09
+              ],
+              "score": 0.984
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                515.65,
+                1554.73
+              ],
+              "score": 0.954
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                602.27,
+                991.8
+              ],
+              "score": 0.85
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                571.32,
+                1280.46
+              ],
+              "score": 1
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 1.01
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                513.98,
+                478.36
+              ],
+              "score": 1.015
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                563.81,
+                477.78
+              ],
+              "score": 1.044
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                492.94,
+                494.75
+              ],
+              "score": 0.967
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                605.55,
+                494.56
+              ],
+              "score": 0.97
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 1.125,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                538.29,
+                504.47
+              ],
+              "score": 1.008
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                547.61,
+                635.31
+              ],
+              "score": 0.879
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                432.52,
+                641.44
+              ],
+              "score": 0.945
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                394.7,
+                819.05
+              ],
+              "score": 0.881
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                448.55,
+                962.45
+              ],
+              "score": 0.746
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                671.74,
+                645.18
+              ],
+              "score": 0.879
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                752.36,
+                727.9
+              ],
+              "score": 0.799
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                735.2,
+                574.16
+              ],
+              "score": 0.843
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                475.94,
+                990.33
+              ],
+              "score": 0.891
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                496.13,
+                1287.15
+              ],
+              "score": 0.992
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                517.6,
+                1557.08
+              ],
+              "score": 0.951
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                612.38,
+                990.17
+              ],
+              "score": 0.863
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                576.97,
+                1281.13
+              ],
+              "score": 0.983
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.99
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                517.63,
+                477.76
+              ],
+              "score": 1.02
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                568.26,
+                478.93
+              ],
+              "score": 1.04
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                494.85,
+                492.41
+              ],
+              "score": 0.966
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                607.64,
+                495.14
+              ],
+              "score": 0.966
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 1.16667,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                541.84,
+                507.05
+              ],
+              "score": 0.994
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                547.61,
+                635.31
+              ],
+              "score": 0.852
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                432.52,
+                641.44
+              ],
+              "score": 0.949
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                395.9,
+                820.21
+              ],
+              "score": 0.886
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                449.98,
+                971.35
+              ],
+              "score": 0.757
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                668.95,
+                642.86
+              ],
+              "score": 0.852
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                748.17,
+                695.03
+              ],
+              "score": 0.777
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                699.82,
+                526.87
+              ],
+              "score": 0.803
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                496.54,
+                993.82
+              ],
+              "score": 0.889
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                504.87,
+                1289.6
+              ],
+              "score": 1
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                519.55,
+                1559.42
+              ],
+              "score": 0.963
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                620.34,
+                991.12
+              ],
+              "score": 0.869
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                582.72,
+                1281.59
+              ],
+              "score": 0.979
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.25,
+                1558.25
+              ],
+              "score": 0.984
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                520.02,
+                478.2
+              ],
+              "score": 1.014
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                572.03,
+                480.15
+              ],
+              "score": 1.031
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                495.89,
+                491.88
+              ],
+              "score": 0.962
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                610.02,
+                495.19
+              ],
+              "score": 0.958
+            }
+          }
+        }
+      ]
+    },
+    {
+      "t": 1.20833,
+      "people": [
+        {
+          "id": "a",
+          "joints": {
+            "nose": {
+              "state": "observed",
+              "at": [
+                545.34,
+                510.2
+              ],
+              "score": 0.997
+            },
+            "neck": {
+              "state": "observed",
+              "at": [
+                547.61,
+                635.31
+              ],
+              "score": 0.843
+            },
+            "r_shoulder": {
+              "state": "observed",
+              "at": [
+                432.52,
+                641.44
+              ],
+              "score": 0.944
+            },
+            "r_elbow": {
+              "state": "observed",
+              "at": [
+                397.02,
+                821.55
+              ],
+              "score": 0.867
+            },
+            "r_wrist": {
+              "state": "observed",
+              "at": [
+                453.59,
+                978.4
+              ],
+              "score": 0.738
+            },
+            "l_shoulder": {
+              "state": "observed",
+              "at": [
+                665.57,
+                639.23
+              ],
+              "score": 0.843
+            },
+            "l_elbow": {
+              "state": "observed",
+              "at": [
+                718.24,
+                684.79
+              ],
+              "score": 0.736
+            },
+            "l_wrist": {
+              "state": "observed",
+              "at": [
+                676.72,
+                525.6
+              ],
+              "score": 0.877
+            },
+            "r_hip": {
+              "state": "inferred",
+              "at": [
+                501.81,
+                998.77
+              ],
+              "score": 0.882
+            },
+            "r_knee": {
+              "state": "observed",
+              "at": [
+                516.15,
+                1294.71
+              ],
+              "score": 1.016
+            },
+            "r_ankle": {
+              "state": "observed",
+              "at": [
+                521.5,
+                1561.76
+              ],
+              "score": 0.971
+            },
+            "l_hip": {
+              "state": "inferred",
+              "at": [
+                626.39,
+                993.32
+              ],
+              "score": 0.88
+            },
+            "l_knee": {
+              "state": "observed",
+              "at": [
+                603.79,
+                1291.65
+              ],
+              "score": 0.977
+            },
+            "l_ankle": {
+              "state": "observed",
+              "at": [
+                575.64,
+                1559.85
+              ],
+              "score": 0.967
+            },
+            "r_eye": {
+              "state": "observed",
+              "at": [
+                521.77,
+                481.16
+              ],
+              "score": 1.023
+            },
+            "l_eye": {
+              "state": "observed",
+              "at": [
+                574,
+                481.16
+              ],
+              "score": 1.008
+            },
+            "r_ear": {
+              "state": "observed",
+              "at": [
+                497.83,
+                494.04
+              ],
+              "score": 0.958
+            },
+            "l_ear": {
+              "state": "observed",
+              "at": [
+                612.35,
+                494.83
+              ],
+              "score": 0.962
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
