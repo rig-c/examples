@@ -1,0 +1,62 @@
+[
+ {
+  "beat": "cbeat",
+  "against": "idle",
+  "reading": {
+   "frames": 61,
+   "largest_less_hip_px": 0,
+   "frame": null,
+   "t_s": null,
+   "vertex": null,
+   "largest_raw_px": 0
+  }
+ },
+ {
+  "beat": "dbeat",
+  "against": "cbeat",
+  "reading": {
+   "frames": 61,
+   "largest_less_hip_px": 5.62,
+   "frame": 18,
+   "t_s": 0.75,
+   "vertex": 32,
+   "largest_raw_px": 7.24
+  }
+ },
+ {
+  "beat": "ebeat",
+  "against": "cbeat",
+  "reading": {
+   "frames": 61,
+   "largest_less_hip_px": 11.26,
+   "frame": 18,
+   "t_s": 0.75,
+   "vertex": 32,
+   "largest_raw_px": 14.47
+  }
+ },
+ {
+  "beat": "dfol",
+  "against": "cfol",
+  "reading": {
+   "frames": 61,
+   "largest_less_hip_px": 7.41,
+   "frame": 20,
+   "t_s": 0.833,
+   "vertex": 32,
+   "largest_raw_px": 7.07
+  }
+ },
+ {
+  "beat": "pfol",
+  "against": "ufol",
+  "reading": {
+   "frames": 61,
+   "largest_less_hip_px": 7.72,
+   "frame": 20,
+   "t_s": 0.833,
+   "vertex": 32,
+   "largest_raw_px": 7.14
+  }
+ }
+]

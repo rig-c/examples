@@ -1,0 +1,468 @@
+{
+  "spec": "rigc-seam/1",
+  "animation": "j050",
+  "fps": 4,
+  "reading": {
+    "read": "a frame is read when both slots draw and their two drawings share a cell at the setup pose (the band); draw order does not enter",
+    "cell": "every count is of cells one texel of the coarser of the two drawings at the setup pose (the rest table's vertices), in world units, on multiples of that texel from the world origin; px is a count of cells, cell the cell's side in world units, area px × cell² in world units²",
+    "drawn": "a cell is drawn by a piece when the renderer paints its centre at 128 of 255 or more (half opacity) — the slot's art through its page, the frame's tint included, at the setup pose drawn at the same tint",
+    "band": "the band is the cells both drawings draw at the setup pose — where the two were painted to overlap, dilated by nothing",
+    "carried": "a frame point is carried into a piece's setup pose by the affine map of the piece's triangle holding it as the frame poses it, or, outside the piece's mesh, of the triangle it is least outside of (the largest smallest barycentric weight, the lowest index on a tie); a band cell is carried to the frame the other way",
+    "gap": "a gap cell lies inside the convex hull of the band's cell centres carried to the frame by both pieces, is drawn by neither piece at the frame, and at least one piece, carrying it back, finds it drawn by either drawing at the setup pose",
+    "ghost": "a ghost cell is drawn at the frame by one piece and not the other; the drawing piece, carrying it back, lands it in the band, and the other piece, carrying it back, finds neither drawing there at the setup pose",
+    "box": "a frame's box is [minX, minY, maxX, maxY] in world units (y up) over the whole squares of that kind's counted cells",
+    "status": "a pair is skip when no frame is read — the two never draw together, or never share a cell at the setup pose — which is nothing measured, not a seam that held"
+  },
+  "pairs": [
+    {
+      "a": "thigh_r",
+      "b": "bottomwear",
+      "drawn": 3,
+      "banded": 3,
+      "status": "read",
+      "opens": [
+        0,
+        1,
+        2
+      ],
+      "maxPx": 12,
+      "gap": {
+        "frames": [
+          {
+            "index": 0,
+            "time": 0,
+            "px": 12,
+            "cell": 1.000000047382749,
+            "area": 12.000001137186004,
+            "box": [
+              -75.00000355370618,
+              533.0000252550052,
+              -68.00000322202695,
+              537.0000254445363
+            ]
+          },
+          {
+            "index": 1,
+            "time": 0.25,
+            "px": 12,
+            "cell": 1.000000047382749,
+            "area": 12.000001137186004,
+            "box": [
+              -75.00000355370618,
+              533.0000252550052,
+              -68.00000322202695,
+              537.0000254445363
+            ]
+          },
+          {
+            "index": 2,
+            "time": 0.5,
+            "px": 12,
+            "cell": 1.000000047382749,
+            "area": 12.000001137186004,
+            "box": [
+              -75.00000355370618,
+              533.0000252550052,
+              -68.00000322202695,
+              537.0000254445363
+            ]
+          }
+        ],
+        "spans": [
+          {
+            "frames": [
+              0,
+              2
+            ],
+            "times": [
+              0,
+              0.5
+            ],
+            "maxPx": 12
+          }
+        ],
+        "worst": {
+          "index": 0,
+          "time": 0,
+          "px": 12,
+          "cell": 1.000000047382749,
+          "area": 12.000001137186004,
+          "box": [
+            -75.00000355370618,
+            533.0000252550052,
+            -68.00000322202695,
+            537.0000254445363
+          ]
+        }
+      },
+      "ghost": {
+        "frames": [],
+        "spans": [],
+        "worst": null
+      }
+    },
+    {
+      "a": "thigh_l",
+      "b": "bottomwear",
+      "drawn": 3,
+      "banded": 3,
+      "status": "read",
+      "opens": [
+        0,
+        1,
+        2
+      ],
+      "maxPx": 2,
+      "gap": {
+        "frames": [
+          {
+            "index": 0,
+            "time": 0,
+            "px": 2,
+            "cell": 1.000000047382749,
+            "area": 2.0000001895310007,
+            "box": [
+              33.00000156363071,
+              526.000024923326,
+              35.00000165839621,
+              527.0000249707089
+            ]
+          },
+          {
+            "index": 1,
+            "time": 0.25,
+            "px": 2,
+            "cell": 1.000000047382749,
+            "area": 2.0000001895310007,
+            "box": [
+              33.00000156363071,
+              526.000024923326,
+              35.00000165839621,
+              527.0000249707089
+            ]
+          },
+          {
+            "index": 2,
+            "time": 0.5,
+            "px": 2,
+            "cell": 1.000000047382749,
+            "area": 2.0000001895310007,
+            "box": [
+              33.00000156363071,
+              526.000024923326,
+              35.00000165839621,
+              527.0000249707089
+            ]
+          }
+        ],
+        "spans": [
+          {
+            "frames": [
+              0,
+              2
+            ],
+            "times": [
+              0,
+              0.5
+            ],
+            "maxPx": 2
+          }
+        ],
+        "worst": {
+          "index": 0,
+          "time": 0,
+          "px": 2,
+          "cell": 1.000000047382749,
+          "area": 2.0000001895310007,
+          "box": [
+            33.00000156363071,
+            526.000024923326,
+            35.00000165839621,
+            527.0000249707089
+          ]
+        }
+      },
+      "ghost": {
+        "frames": [
+          {
+            "index": 0,
+            "time": 0,
+            "px": 2,
+            "cell": 1.000000047382749,
+            "area": 2.0000001895310007,
+            "box": [
+              35.000001658396194,
+              525.0000248759432,
+              36.00000170577895,
+              527.0000249707089
+            ]
+          },
+          {
+            "index": 1,
+            "time": 0.25,
+            "px": 2,
+            "cell": 1.000000047382749,
+            "area": 2.0000001895310007,
+            "box": [
+              35.000001658396194,
+              525.0000248759432,
+              36.00000170577895,
+              527.0000249707089
+            ]
+          },
+          {
+            "index": 2,
+            "time": 0.5,
+            "px": 2,
+            "cell": 1.000000047382749,
+            "area": 2.0000001895310007,
+            "box": [
+              35.000001658396194,
+              525.0000248759432,
+              36.00000170577895,
+              527.0000249707089
+            ]
+          }
+        ],
+        "spans": [
+          {
+            "frames": [
+              0,
+              2
+            ],
+            "times": [
+              0,
+              0.5
+            ],
+            "maxPx": 2
+          }
+        ],
+        "worst": {
+          "index": 0,
+          "time": 0,
+          "px": 2,
+          "cell": 1.000000047382749,
+          "area": 2.0000001895310007,
+          "box": [
+            35.000001658396194,
+            525.0000248759432,
+            36.00000170577895,
+            527.0000249707089
+          ]
+        }
+      }
+    },
+    {
+      "a": "shin_r",
+      "b": "thigh_r",
+      "drawn": 3,
+      "banded": 3,
+      "status": "read",
+      "opens": [
+        0,
+        1,
+        2
+      ],
+      "maxPx": 36,
+      "gap": {
+        "frames": [],
+        "spans": [],
+        "worst": null
+      },
+      "ghost": {
+        "frames": [
+          {
+            "index": 0,
+            "time": 0,
+            "px": 36,
+            "cell": 0.9999999999999994,
+            "area": 35.99999999999996,
+            "box": [
+              -67.99999999999997,
+              367.99999999999983,
+              -6,
+              408.99999999999983
+            ]
+          },
+          {
+            "index": 1,
+            "time": 0.25,
+            "px": 36,
+            "cell": 0.9999999999999994,
+            "area": 35.99999999999996,
+            "box": [
+              -67.99999999999997,
+              367.99999999999983,
+              -6,
+              408.99999999999983
+            ]
+          },
+          {
+            "index": 2,
+            "time": 0.5,
+            "px": 36,
+            "cell": 0.9999999999999994,
+            "area": 35.99999999999996,
+            "box": [
+              -67.99999999999997,
+              367.99999999999983,
+              -6,
+              408.99999999999983
+            ]
+          }
+        ],
+        "spans": [
+          {
+            "frames": [
+              0,
+              2
+            ],
+            "times": [
+              0,
+              0.5
+            ],
+            "maxPx": 36
+          }
+        ],
+        "worst": {
+          "index": 0,
+          "time": 0,
+          "px": 36,
+          "cell": 0.9999999999999994,
+          "area": 35.99999999999996,
+          "box": [
+            -67.99999999999997,
+            367.99999999999983,
+            -6,
+            408.99999999999983
+          ]
+        }
+      }
+    },
+    {
+      "a": "shin_l",
+      "b": "thigh_l",
+      "drawn": 3,
+      "banded": 3,
+      "status": "read",
+      "opens": [],
+      "maxPx": 0,
+      "gap": {
+        "frames": [],
+        "spans": [],
+        "worst": null
+      },
+      "ghost": {
+        "frames": [],
+        "spans": [],
+        "worst": null
+      }
+    },
+    {
+      "a": "shin_r",
+      "b": "foot_r",
+      "drawn": 3,
+      "banded": 3,
+      "status": "read",
+      "opens": [],
+      "maxPx": 0,
+      "gap": {
+        "frames": [],
+        "spans": [],
+        "worst": null
+      },
+      "ghost": {
+        "frames": [],
+        "spans": [],
+        "worst": null
+      }
+    },
+    {
+      "a": "topwear",
+      "b": "bottomwear",
+      "drawn": 3,
+      "banded": 3,
+      "status": "read",
+      "opens": [
+        0,
+        1,
+        2
+      ],
+      "maxPx": 32,
+      "gap": {
+        "frames": [],
+        "spans": [],
+        "worst": null
+      },
+      "ghost": {
+        "frames": [
+          {
+            "index": 0,
+            "time": 0,
+            "px": 32,
+            "cell": 1.000000047382749,
+            "area": 32.00000303249601,
+            "box": [
+              -42.00000199007547,
+              792.0000375271372,
+              87.00000412229915,
+              808.0000382852613
+            ]
+          },
+          {
+            "index": 1,
+            "time": 0.25,
+            "px": 32,
+            "cell": 1.000000047382749,
+            "area": 32.00000303249601,
+            "box": [
+              -42.00000199007547,
+              792.0000375271372,
+              87.00000412229915,
+              808.0000382852613
+            ]
+          },
+          {
+            "index": 2,
+            "time": 0.5,
+            "px": 32,
+            "cell": 1.000000047382749,
+            "area": 32.00000303249601,
+            "box": [
+              -42.00000199007547,
+              792.0000375271372,
+              87.00000412229915,
+              808.0000382852613
+            ]
+          }
+        ],
+        "spans": [
+          {
+            "frames": [
+              0,
+              2
+            ],
+            "times": [
+              0,
+              0.5
+            ],
+            "maxPx": 32
+          }
+        ],
+        "worst": {
+          "index": 0,
+          "time": 0,
+          "px": 32,
+          "cell": 1.000000047382749,
+          "area": 32.00000303249601,
+          "box": [
+            -42.00000199007547,
+            792.0000375271372,
+            87.00000412229915,
+            808.0000382852613
+          ]
+        }
+      }
+    }
+  ]
+}
