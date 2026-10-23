@@ -1,0 +1,2947 @@
+{
+ "subject": "fixture",
+ "covered": [
+  "hair_back",
+  "hair_front",
+  "skirt"
+ ],
+ "farthest": {
+  "hair_back": 53.4603,
+  "hair_front": 29.4109,
+  "skirt": 21.1043
+ },
+ "cells": {
+  "hair_back": 14,
+  "hair_front": 8,
+  "skirt": 10
+ },
+ "drafted_radii": {
+  "hair_back": 95.4603,
+  "hair_front": 53.4109,
+  "skirt": 51.1043
+ },
+ "rigc": "2.60.0",
+ "results": [
+  {
+   "id": "lattice",
+   "rule": "lattice",
+   "value": null,
+   "radii": null,
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 12,
+      "worst": 1
+     },
+     "skirt": {
+      "frames": 99,
+      "worst": 19
+     },
+     "hair_front": {
+      "frames": 90,
+      "worst": 3
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 58,
+      "worst": 4
+     },
+     "hair_front": {
+      "frames": 62,
+      "worst": 1
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "lattice",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 4,
+     "reach": null
+    },
+    "skirt": {
+     "mode": "lattice",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 4,
+     "reach": null
+    },
+    "hair_front": {
+     "mode": "lattice",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 4,
+     "reach": null
+    }
+   }
+  },
+  {
+   "id": "abs_px-1",
+   "rule": "abs_px",
+   "value": 1,
+   "radii": {
+    "hair_back": 54.4603,
+    "hair_front": 30.4109,
+    "skirt": 22.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 80,
+      "worst": 14
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 20,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 61,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 23,
+      "widest": 8
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 24,
+      "widest": 8
+     }
+    }
+   }
+  },
+  {
+   "id": "abs_px-2",
+   "rule": "abs_px",
+   "value": 2,
+   "radii": {
+    "hair_back": 55.4603,
+    "hair_front": 31.4109,
+    "skirt": 23.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 79,
+      "worst": 13
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 18,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 64,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 25,
+      "widest": 9
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 25,
+      "widest": 9
+     }
+    }
+   }
+  },
+  {
+   "id": "abs_px-4",
+   "rule": "abs_px",
+   "value": 4,
+   "radii": {
+    "hair_back": 57.4603,
+    "hair_front": 33.4109,
+    "skirt": 25.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 73,
+      "worst": 12
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 13,
+      "worst": 2
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 65,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 37,
+      "widest": 11
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 34,
+      "widest": 9
+     }
+    }
+   }
+  },
+  {
+   "id": "abs_px-8",
+   "rule": "abs_px",
+   "value": 8,
+   "radii": {
+    "hair_back": 61.4603,
+    "hair_front": 37.4109,
+    "skirt": 29.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 62,
+      "worst": 7
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 3,
+      "worst": 1
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 78,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 54,
+      "widest": 13
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 41,
+      "widest": 9
+     }
+    }
+   }
+  },
+  {
+   "id": "abs_px-16",
+   "rule": "abs_px",
+   "value": 16,
+   "radii": {
+    "hair_back": 69.4603,
+    "hair_front": 45.4109,
+    "skirt": 37.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 36,
+      "worst": 5
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 91,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 85,
+      "widest": 17
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 66,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "abs_px-32",
+   "rule": "abs_px",
+   "value": 32,
+   "radii": {
+    "hair_back": 85.4603,
+    "hair_front": 61.4109,
+    "skirt": 53.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 44,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 121,
+      "widest": 14
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 126,
+      "widest": 20
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 78,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "abs_px-64",
+   "rule": "abs_px",
+   "value": 64,
+   "radii": {
+    "hair_back": 117.4603,
+    "hair_front": 93.4109,
+    "skirt": 85.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 56,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 59,
+      "worst": 2
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 154,
+      "widest": 21
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 144,
+      "widest": 21
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 87,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "abs_px-128",
+   "rule": "abs_px",
+   "value": 128,
+   "radii": {
+    "hair_back": 181.4603,
+    "hair_front": 157.4109,
+    "skirt": 149.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 59,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 74,
+      "worst": 7
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 25,
+      "worst": 1
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 184,
+      "widest": 21
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 144,
+      "widest": 21
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 87,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "share-0.05",
+   "rule": "share",
+   "value": 0.05,
+   "radii": {
+    "hair_back": 56.1333,
+    "hair_front": 30.8814,
+    "skirt": 22.1595
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 80,
+      "worst": 14
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 19,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 65,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 23,
+      "widest": 8
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 25,
+      "widest": 8
+     }
+    }
+   }
+  },
+  {
+   "id": "share-0.1",
+   "rule": "share",
+   "value": 0.1,
+   "radii": {
+    "hair_back": 58.8063,
+    "hair_front": 32.352,
+    "skirt": 23.2147
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 77,
+      "worst": 13
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 17,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 66,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 25,
+      "widest": 9
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 31,
+      "widest": 9
+     }
+    }
+   }
+  },
+  {
+   "id": "share-0.25",
+   "rule": "share",
+   "value": 0.25,
+   "radii": {
+    "hair_back": 66.8254,
+    "hair_front": 36.7636,
+    "skirt": 26.3804
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 72,
+      "worst": 11
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 11,
+      "worst": 1
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 91,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 43,
+      "widest": 12
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 40,
+      "widest": 9
+     }
+    }
+   }
+  },
+  {
+   "id": "share-0.5",
+   "rule": "share",
+   "value": 0.5,
+   "radii": {
+    "hair_back": 80.1904,
+    "hair_front": 44.1164,
+    "skirt": 31.6564
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 48,
+      "worst": 6
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 116,
+      "widest": 12
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 63,
+      "widest": 14
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 62,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "share-1",
+   "rule": "share",
+   "value": 1,
+   "radii": {
+    "hair_back": 106.9206,
+    "hair_front": 58.8218,
+    "skirt": 42.2086
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 40,
+      "worst": 2
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 146,
+      "widest": 20
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 108,
+      "widest": 19
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 77,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "share-2",
+   "rule": "share",
+   "value": 2,
+   "radii": {
+    "hair_back": 160.3809,
+    "hair_front": 88.2327,
+    "skirt": 63.3129
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 49,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 52,
+      "worst": 2
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 182,
+      "widest": 21
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 136,
+      "widest": 21
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 87,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "share-3",
+   "rule": "share",
+   "value": 3,
+   "radii": {
+    "hair_back": 213.8412,
+    "hair_front": 117.6436,
+    "skirt": 84.4172
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 56,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 68,
+      "worst": 2
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 10,
+      "worst": 1
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 184,
+      "widest": 21
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 144,
+      "widest": 21
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 87,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "cells-0.5",
+   "rule": "cells",
+   "value": 0.5,
+   "radii": {
+    "hair_back": 60.4603,
+    "hair_front": 33.4109,
+    "skirt": 26.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 72,
+      "worst": 11
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 11,
+      "worst": 1
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 70,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 42,
+      "widest": 12
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 34,
+      "widest": 9
+     }
+    }
+   }
+  },
+  {
+   "id": "cells-1",
+   "rule": "cells",
+   "value": 1,
+   "radii": {
+    "hair_back": 67.4603,
+    "hair_front": 37.4109,
+    "skirt": 31.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 51,
+      "worst": 6
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 91,
+      "widest": 10
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 61,
+      "widest": 14
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 41,
+      "widest": 9
+     }
+    }
+   }
+  },
+  {
+   "id": "cells-2",
+   "rule": "cells",
+   "value": 2,
+   "radii": {
+    "hair_back": 81.4603,
+    "hair_front": 45.4109,
+    "skirt": 41.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 40,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 117,
+      "widest": 12
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 102,
+      "widest": 18
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 66,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "cells-3",
+   "rule": "cells",
+   "value": 3,
+   "radii": {
+    "hair_back": 95.4603,
+    "hair_front": 53.4109,
+    "skirt": 51.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 44,
+      "worst": 2
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 136,
+      "widest": 17
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 120,
+      "widest": 20
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 74,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "cells-4",
+   "rule": "cells",
+   "value": 4,
+   "radii": {
+    "hair_back": 109.4603,
+    "hair_front": 61.4109,
+    "skirt": 61.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 46,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 147,
+      "widest": 20
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 128,
+      "widest": 21
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 78,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "cells-6",
+   "rule": "cells",
+   "value": 6,
+   "radii": {
+    "hair_back": 137.4603,
+    "hair_front": 77.4109,
+    "skirt": 81.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 54,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 25,
+      "worst": 1
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 166,
+      "widest": 21
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 144,
+      "widest": 21
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 85,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "cells-8",
+   "rule": "cells",
+   "value": 8,
+   "radii": {
+    "hair_back": 165.4603,
+    "hair_front": 93.4109,
+    "skirt": 101.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 56,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 59,
+      "worst": 2
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 184,
+      "widest": 21
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 144,
+      "widest": 21
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 87,
+      "widest": 10
+     }
+    }
+   }
+  },
+  {
+   "id": "cells-11",
+   "rule": "cells",
+   "value": 11,
+   "radii": {
+    "hair_back": 207.4603,
+    "hair_front": 117.4109,
+    "skirt": 131.1043
+   },
+   "check": {
+    "exit": 0,
+    "fails": [],
+    "fold_line": "ANIMATIONS_DO_NOT_FOLD: PASS — 1 animation(s) read by rigc render --folds at 12 fps, with its 58 physics constraint(s) on and off (idle): 0 folding mesh(es), 0 not declared in may_fold (<= 0)"
+   },
+   "folds": {
+    "wind": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    },
+    "sway60": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 56,
+      "worst": 3
+     },
+     "hair_front": {
+      "frames": 68,
+      "worst": 2
+     }
+    },
+    "sway30": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 10,
+      "worst": 1
+     }
+    },
+    "sway8": {
+     "hair_back": {
+      "frames": 0,
+      "worst": 0
+     },
+     "skirt": {
+      "frames": 0,
+      "worst": 0
+     },
+     "hair_front": {
+      "frames": 0,
+      "worst": 0
+     }
+    }
+   },
+   "mesh": {
+    "hair_back": {
+     "mode": "influence",
+     "vertices": 184,
+     "triangles": 268,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 53.4603,
+      "at": [
+       60,
+       16
+      ],
+      "nearest": "hairback_r0_0",
+      "capped": 184,
+      "widest": 21
+     }
+    },
+    "skirt": {
+     "mode": "influence",
+     "vertices": 144,
+     "triangles": 238,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 21.1043,
+      "at": [
+       74,
+       196
+      ],
+      "nearest": "skirt0_0",
+      "capped": 144,
+      "widest": 21
+     }
+    },
+    "hair_front": {
+     "mode": "influence",
+     "vertices": 87,
+     "triangles": 124,
+     "max_influences": 6,
+     "reach": {
+      "farthest": 29.4109,
+      "at": [
+       86,
+       21
+      ],
+      "nearest": "bang_r0",
+      "capped": 87,
+      "widest": 10
+     }
+    }
+   }
+  }
+ ]
+}

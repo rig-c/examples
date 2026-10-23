@@ -1,0 +1,66 @@
+{
+  "rig_size": [
+    240,
+    360
+  ],
+  "scale_rig_per_source": 1,
+  "parts": [
+    {
+      "name": "hair_back",
+      "from": "head:back hair",
+      "x": 50,
+      "y": 20,
+      "w": 140,
+      "h": 280,
+      "opaque_px": 16848,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "skirt",
+      "from": "full:bottomwear",
+      "x": 68,
+      "y": 160,
+      "w": 104,
+      "h": 120,
+      "opaque_px": 9760,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "face",
+      "from": "head:face",
+      "x": 100,
+      "y": 44,
+      "w": 40,
+      "h": 50,
+      "opaque_px": 2000,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    },
+    {
+      "name": "hair_front",
+      "from": "head:front hair",
+      "x": 90,
+      "y": 25,
+      "w": 60,
+      "h": 124,
+      "opaque_px": 2940,
+      "projected_core_px": 0,
+      "source_px_taken": 0,
+      "refused_drift_px": 0,
+      "merged_px": 0,
+      "seam_override_px": 0
+    }
+  ],
+  "ghost_px": {}
+}
