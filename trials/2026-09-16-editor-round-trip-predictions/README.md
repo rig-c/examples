@@ -245,6 +245,9 @@ places the substitution at **export**. Under `spacingMode: proportional`, a
 total 0.7% long moves every constrained bone. This is a rig-c defect, not an
 editor loss: rig-c's number is the better arc length and the wrong one for the
 format.
+This finding was later filed and fixed in rig-c/core as `rig-c/core#560`
+(four samples against sixty-four) and `rig-c/core#804` (lengths re-measured on
+the wrong geometry; a stated `lengths` is carried), both closed.
 
 ### Other observations
 
@@ -313,6 +316,9 @@ rig-c's number, not a loss in the editor.
   editor release, including whether a later core still writes 64-sample
   `lengths`. A re-run on a current `@rig-c/core` is a **new trial** with its
   own date, not an update to this one.
+- **The `lengths` finding was filed and fixed after this run**, in
+  `rig-c/core#560` and `rig-c/core#804` (both closed). This trial does not
+  measure the fix; that would be a new trial.
 - **Population:** eight generated rigs, one editor session, one machine. Each
   construct is carried once, with the values the rigs chose.
 - **Six constructs were not covered**, as the preparation stated: several
