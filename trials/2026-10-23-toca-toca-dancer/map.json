@@ -1,0 +1,519 @@
+{
+  "spec": "rig-pose-map/1",
+  "chains": [
+    {
+      "name": "pelvis",
+      "bones": [
+        "hip"
+      ],
+      "joints": [
+        "r_hip",
+        "l_hip"
+      ],
+      "aim": [
+        "leg_r0>leg_l0"
+      ]
+    },
+    {
+      "name": "trunk",
+      "bones": [
+        "chest"
+      ],
+      "joints": [
+        "mid_hip",
+        "mid_shoulder"
+      ],
+      "aim": [
+        "sleeve_r0+sleeve_l0"
+      ]
+    },
+    {
+      "name": "head",
+      "bones": [
+        "head"
+      ],
+      "joints": [
+        "r_eye",
+        "l_eye"
+      ],
+      "aim": [
+        "eye_r>eye_l"
+      ]
+    },
+    {
+      "name": "arm_r",
+      "bones": [
+        "sleeve_r0",
+        "sleeve_r1"
+      ],
+      "joints": [
+        "r_shoulder",
+        "r_elbow",
+        "r_wrist"
+      ],
+      "bend": "free"
+    },
+    {
+      "name": "arm_l",
+      "bones": [
+        "sleeve_l0",
+        "sleeve_l1"
+      ],
+      "joints": [
+        "l_shoulder",
+        "l_elbow",
+        "l_wrist"
+      ],
+      "bend": "free"
+    },
+    {
+      "name": "leg_r",
+      "bones": [
+        "leg_r0",
+        "leg_r1"
+      ],
+      "joints": [
+        "r_hip",
+        "r_knee",
+        "r_ankle"
+      ],
+      "bend": "free"
+    },
+    {
+      "name": "leg_l",
+      "bones": [
+        "leg_l0",
+        "leg_l1"
+      ],
+      "joints": [
+        "l_hip",
+        "l_knee",
+        "l_ankle"
+      ],
+      "bend": "free"
+    }
+  ],
+  "translate": {
+    "bone": "hip",
+    "joint": "mid_hip",
+    "scale": {
+      "pose": [
+        "mid_hip",
+        "mid_shoulder"
+      ],
+      "rig": [
+        "hip",
+        "sleeve_r0+sleeve_l0"
+      ]
+    }
+  },
+  "alternates": [
+    {
+      "name": "K0_hands_behind_back",
+      "slots": {
+        "upperarm_r_under": "K0_upperarm_r",
+        "forearm_r_back": "K0_forearm_r",
+        "upperarm_l_under": "K0_upperarm_l",
+        "forearm_l_back": "K0_forearm_l",
+        "topwear": "K0_topwear"
+      },
+      "hides": [
+        "upperarm_r_back",
+        "forearm_r_under",
+        "forearm_l_under",
+        "forearm_r",
+        "upperarm_r",
+        "forearm_l",
+        "upperarm_l",
+        "sleevefront_l",
+        "forearm_l_mid",
+        "upperarm_l_mid"
+      ],
+      "chains": [
+        "arm_r",
+        "arm_l"
+      ],
+      "pose": {
+        "r_shoulder": [
+          359.9,
+          347.6
+        ],
+        "r_elbow": [
+          356.7,
+          474.8
+        ],
+        "r_wrist": [
+          419.3,
+          594.2
+        ],
+        "l_shoulder": [
+          480.3,
+          349.3
+        ],
+        "l_elbow": [
+          482.8,
+          486.2
+        ],
+        "l_wrist": [
+          420.1,
+          597
+        ]
+      },
+      "drawn": {
+        "sleeve_r0": -99.865,
+        "sleeve_r1": -50.93,
+        "sleeve_l0": -82.231,
+        "sleeve_l1": -119.399
+      },
+      "turn": {
+        "sleeve_r0": [
+          -5,
+          5
+        ],
+        "sleeve_r1": [
+          -5,
+          5
+        ],
+        "sleeve_l0": [
+          -5,
+          5
+        ],
+        "sleeve_l1": [
+          -5,
+          5
+        ]
+      },
+      "frames": [
+        [
+          0,
+          18
+        ],
+        [
+          61,
+          80
+        ]
+      ],
+      "note": "frames is a stopgap: by 2D angles K0 and K2 differ 2\u201321\u00b0, and visibility alone does not separate them (rig-c/pose#33)"
+    },
+    {
+      "name": "K1_hands_behind_head",
+      "slots": {
+        "upperarm_r_under": "K1_upperarm_r",
+        "forearm_r_back": "K1_forearm_r",
+        "upperarm_l_under": "K1_upperarm_l",
+        "forearm_l_back": "K1_forearm_l",
+        "topwear": "K1_topwear"
+      },
+      "hides": [
+        "upperarm_r_back",
+        "forearm_r_under",
+        "forearm_l_under",
+        "forearm_r",
+        "upperarm_r",
+        "forearm_l",
+        "upperarm_l",
+        "sleevefront_l",
+        "forearm_l_mid",
+        "upperarm_l_mid"
+      ],
+      "chains": [
+        "arm_r",
+        "arm_l"
+      ],
+      "pose": {
+        "r_shoulder": [
+          352.8,
+          320.3
+        ],
+        "r_elbow": [
+          307.7,
+          201.3
+        ],
+        "r_wrist": [
+          440.1,
+          176.3
+        ],
+        "l_shoulder": [
+          473.2,
+          328.4
+        ],
+        "l_elbow": [
+          538.5,
+          208.1
+        ],
+        "l_wrist": [
+          416.9,
+          170.1
+        ]
+      },
+      "drawn": {
+        "sleeve_r0": 117.765,
+        "sleeve_r1": 30.366,
+        "sleeve_l0": 56.304,
+        "sleeve_l1": 141.858
+      },
+      "turn": {
+        "sleeve_r0": [
+          -20,
+          20
+        ],
+        "sleeve_r1": [
+          -20,
+          20
+        ],
+        "sleeve_l0": [
+          -20,
+          20
+        ],
+        "sleeve_l1": [
+          -20,
+          20
+        ]
+      }
+    },
+    {
+      "name": "K2_hands_low_front",
+      "slots": {
+        "upperarm_r": "K2_upperarm_r",
+        "forearm_r": "K2_forearm_r",
+        "upperarm_l_mid": "K2_upperarm_l",
+        "forearm_l_mid": "K2_forearm_l",
+        "topwear": "K2_topwear"
+      },
+      "hides": [
+        "forearm_l",
+        "forearm_l_back",
+        "forearm_l_under",
+        "forearm_r_back",
+        "forearm_r_under",
+        "sleevefront_l",
+        "upperarm_l",
+        "upperarm_l_under",
+        "upperarm_r_back",
+        "upperarm_r_under"
+      ],
+      "chains": [
+        "arm_r",
+        "arm_l"
+      ],
+      "pose": {
+        "r_shoulder": [
+          353.6,
+          328.4
+        ],
+        "r_elbow": [
+          369.6,
+          454.6
+        ],
+        "r_wrist": [
+          424.3,
+          577.8
+        ],
+        "l_shoulder": [
+          474,
+          348
+        ],
+        "l_elbow": [
+          506.9,
+          480.9
+        ],
+        "l_wrist": [
+          424.3,
+          577.8
+        ]
+      },
+      "drawn": {
+        "sleeve_r0": -81.517,
+        "sleeve_r1": -72.007,
+        "sleeve_l0": -74.404,
+        "sleeve_l1": -121.225
+      },
+      "turn": {
+        "sleeve_r0": [
+          -20,
+          20
+        ],
+        "sleeve_r1": [
+          -20,
+          20
+        ],
+        "sleeve_l0": [
+          -20,
+          20
+        ],
+        "sleeve_l1": [
+          -20,
+          20
+        ]
+      }
+    },
+    {
+      "name": "K3_v_sign",
+      "slots": {
+        "upperarm_r_back": "K3_upperarm_r",
+        "forearm_r_back": "K3_forearm_r",
+        "upperarm_l_under": "K3_upperarm_l",
+        "forearm_l_under": "K3_forearm_l",
+        "topwear": "K3_topwear"
+      },
+      "hides": [
+        "forearm_l_back",
+        "forearm_r_under",
+        "upperarm_r_under",
+        "forearm_r",
+        "upperarm_r",
+        "forearm_l",
+        "upperarm_l",
+        "sleevefront_l",
+        "forearm_l_mid",
+        "upperarm_l_mid"
+      ],
+      "chains": [
+        "arm_r",
+        "arm_l"
+      ],
+      "pose": {
+        "r_shoulder": [
+          343.6,
+          334.4
+        ],
+        "r_elbow": [
+          343.6,
+          207.2
+        ],
+        "r_wrist": [
+          358.1,
+          73.2
+        ],
+        "l_shoulder": [
+          464,
+          355.5
+        ],
+        "l_elbow": [
+          556.9,
+          456
+        ],
+        "l_wrist": [
+          461.7,
+          540.6
+        ]
+      },
+      "drawn": {
+        "sleeve_r0": 102.023,
+        "sleeve_r1": 77.323,
+        "sleeve_l0": -49.706,
+        "sleeve_l1": -125.538
+      },
+      "turn": {
+        "sleeve_r0": [
+          -20,
+          20
+        ],
+        "sleeve_r1": [
+          -20,
+          20
+        ],
+        "sleeve_l0": [
+          -20,
+          20
+        ],
+        "sleeve_l1": [
+          -20,
+          20
+        ]
+      }
+    },
+    {
+      "name": "K4_hand_up",
+      "slots": {
+        "upperarm_r_under": "K4_upperarm_r",
+        "forearm_r_under": "K4_forearm_r",
+        "upperarm_l_under": "K4_upperarm_l",
+        "forearm_l_under": "K4_forearm_l",
+        "topwear": "K4_topwear"
+      },
+      "hides": [
+        "forearm_r_back",
+        "forearm_l_back",
+        "upperarm_r_back",
+        "forearm_r",
+        "upperarm_r",
+        "forearm_l",
+        "upperarm_l",
+        "sleevefront_l",
+        "forearm_l_mid",
+        "upperarm_l_mid"
+      ],
+      "chains": [
+        "arm_r",
+        "arm_l"
+      ],
+      "pose": {
+        "r_shoulder": [
+          342.1,
+          344.3
+        ],
+        "r_elbow": [
+          316.6,
+          469
+        ],
+        "r_wrist": [
+          358.2,
+          597.2
+        ],
+        "l_shoulder": [
+          462.5,
+          347.5
+        ],
+        "l_elbow": [
+          569.4,
+          433
+        ],
+        "l_wrist": [
+          537.7,
+          309.6
+        ]
+      },
+      "drawn": {
+        "sleeve_r0": -101.779,
+        "sleeve_r1": -76.82,
+        "sleeve_l0": -35.546,
+        "sleeve_l1": 107.106
+      },
+      "turn": {
+        "sleeve_r0": [
+          -20,
+          20
+        ],
+        "sleeve_r1": [
+          -20,
+          20
+        ],
+        "sleeve_l0": [
+          -20,
+          20
+        ],
+        "sleeve_l1": [
+          -20,
+          20
+        ]
+      }
+    }
+  ],
+  "face": {
+    "yaw": {
+      "bone": "yaw_dial",
+      "range": [
+        -15,
+        15
+      ]
+    },
+    "pitch": {
+      "bone": "pitch_dial",
+      "range": [
+        -10,
+        15
+      ]
+    }
+  }
+}

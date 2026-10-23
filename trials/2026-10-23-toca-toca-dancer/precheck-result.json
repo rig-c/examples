@@ -1,0 +1,26 @@
+{
+  "stage": "first 30-frame precheck, frozen before full run",
+  "frames": 30,
+  "cleanExit": 0,
+  "retargetExit": 1,
+  "problems": 2,
+  "refusalLines": [
+    "FAIL  POSE_BEND_ONE_WAY: chain \"leg_r\" hinge r_knee, 20 frame(s) in 2 run(s), frames 0\u201329 (t=0.000\u20130.967s) \u2014 worst inner angle 2.8\u00b0 at frame 29 (t=0.967s); it bends clockwise (\u2212) at rest (-1.7\u00b0), so the angle must stay \u2264 0; seen from the front, the side a hinge's picture falls on is not its limit, so for front-facing material state \"bend\": \"free\" on chain \"leg_r\"; keep a side (\"rest\", \"ccw\", \"cw\") only for a side view, where the picture's side is the joint's own; a near-straight knee's noise takes --bends clamp or --bend-tolerance <deg> (each frame: --verbose)",
+    "FAIL  POSE_BEND_ONE_WAY: chain \"leg_l\" hinge l_knee, 8 frame(s) in 1 run(s), frames 17\u201324 (t=0.567\u20130.800s) \u2014 worst inner angle -4.3\u00b0 at frame 20 (t=0.667s); it bends counter-clockwise (+) at rest (1.4\u00b0), so the angle must stay \u2265 0; seen from the front, the side a hinge's picture falls on is not its limit, so for front-facing material state \"bend\": \"free\" on chain \"leg_l\"; keep a side (\"rest\", \"ccw\", \"cw\") only for a side view, where the picture's side is the joint's own; a near-straight knee's noise takes --bends clamp or --bend-tolerance <deg> (each frame: --verbose)",
+    "rig-pose retarget: 2 problem(s) \u2014 nothing written"
+  ],
+  "profile": "spine",
+  "plantFeet": true,
+  "mapSHA256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
+  "raw492SHA256": "fe3327cb0f8772f51d3b656889e60fe7a613156391f9dbcff5f40e3141fb9ff1",
+  "outputs": "No motion, retarget report or build written; LAND and support-plant measurements not reached.",
+  "documentedRemedies": "The CLI names map bend:free for frontal motion, or --bends clamp / --bend-tolerance for near-straight knee noise. No remedy applied; accepted map and flags remain unchanged.",
+  "runtimePins": {
+    "@rig-c/pose": "1.0.1",
+    "rig-c": "2.67.2",
+    "@rig-c/play": "1.16.0",
+    "@rig-c/parts": "1.60.0",
+    "@esotericsoftware/spine-core": "4.3.13"
+  },
+  "resourceStop": null
+}

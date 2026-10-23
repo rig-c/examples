@@ -1,0 +1,36 @@
+{
+  "frames": 492,
+  "gate": "50 assertions: 23 measured (23 passed, 0 failed), 13 skipped, 14 not in profile \"spine\"",
+  "LANDpassed": 20,
+  "LANDtotal": 20,
+  "supports": 21,
+  "singletonSupports": 1,
+  "maxVertical": 0.0061378800119200605,
+  "maxHorizontal": 0.01907725924792203,
+  "pairwiseLandingDerivedBounds": {
+    "r": 0.12394978205982254,
+    "l": 0.1245486434225457
+  },
+  "lowestAnkleVerticalRangeOutsideJumps": {
+    "range": 57.16811068699414,
+    "legs": 0.11047557557893853,
+    "frames": 379
+  },
+  "folds": [
+    {
+      "slot": "shins",
+      "frames": 333
+    },
+    {
+      "slot": "bottomwear",
+      "frames": 7
+    }
+  ],
+  "seams": "NOT MEASURED: no declared neighbour pairs / no --parts",
+  "cleanedSHA256": "3bdd5b62258b0464f24cfc57126d5ce78f7efb3672a207f7d0ffe6659e2080df",
+  "matchesPreviousRigIndependentClean": true,
+  "scalePairWarning": true,
+  "flipShort": "off; absence of correction rows is not proof of absence of flips or short segments",
+  "ownerHandRows": 0,
+  "additionalFoldCountCaptures": "Resolved: three additional captures ranked by folded triangle count, not depth; frames 0, 1, 2 with 2 triangles each."
+}

@@ -1,0 +1,96 @@
+{
+  "tool": "@rig-c/play",
+  "version": "1.16.0",
+  "browser": "Chrome actual UI through CUA",
+  "compiledModelSHA256": "cc8205444b76ae2c312d4a15f41bd44b56b1c3f7d0f56dd4e3fa28268e921577",
+  "observedAdvancingTimesSeconds": [
+    0.15,
+    2.4333
+  ],
+  "pausedTimeSeconds": 2.4828,
+  "captures": [
+    {
+      "frame": 0,
+      "timeSeconds": 0.0,
+      "screenshotSHA256": "a3a090b42a342f5bea8684ed78d6be0ff7bd6d1e186d13330bb0b1b3ec99ad8c"
+    },
+    {
+      "frame": 246,
+      "timeSeconds": 8.2,
+      "screenshotSHA256": "b8ba86a4f43fc3f3f2e2d80201d43a59037a9c1eeafa90c06e11619e1f60ec86"
+    },
+    {
+      "frame": 491,
+      "timeSeconds": 16.366666666666667,
+      "screenshotSHA256": "4841994b2ef341d925f7e9ed001529b30edaae5cc1548b17c28fe7aec8a0996f"
+    },
+    {
+      "frame": 37,
+      "timeSeconds": 1.2333333333333334,
+      "screenshotSHA256": "9471cb95b1fd70479841ebfa5225af98235290b7f8f29773b7ee5ca070a31fba"
+    },
+    {
+      "frame": 278,
+      "timeSeconds": 9.266666666666667,
+      "screenshotSHA256": "84b31dd0aab184ab4cc91a91db253c39d9bda9c992191b82b618eda58321a8f6"
+    },
+    {
+      "frame": 480,
+      "timeSeconds": 16.0,
+      "screenshotSHA256": "e0bf256bebdbe1f74da9115adca4d3d1d2eb2d4f20cf6ef1673bde6ffa71a07e"
+    }
+  ],
+  "contactSheet": "contact-sheet.jpg",
+  "contactSheetBytes": 105771,
+  "contactSheetSHA256": "ae9bfee97144fa1ae13e2662598b05ee13b60bef7eeb8cfbcff8b2fceded3670",
+  "consoleWarningsErrors": [],
+  "cleanup": {
+    "ownTabClosed": true,
+    "ownServerExited": true,
+    "ownAdditionalTabClosed": true,
+    "ownAdditionalServerExited": true
+  },
+  "scope": "Time advance, standard six plus three count-ranked public-rig captures; no performance, dance fidelity or full physics acceptance.",
+  "additionalFoldCountCaptures": [
+    {
+      "rank": 1,
+      "frame": 0,
+      "timeSeconds": 0,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/0/triangles",
+      "label": "folded triangles 2, frame 0",
+      "screenshotSHA256": "de79173a3b908bf74cd39eaec9d33b98a3d0fdebd33d73bccfdba2c1c30267c1"
+    },
+    {
+      "rank": 2,
+      "frame": 1,
+      "timeSeconds": 0.03333333333333333,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/1/triangles",
+      "label": "folded triangles 2, frame 1",
+      "screenshotSHA256": "dda40cef1c77511bbb7869d47ea1009efdbea0c3736c10a621fb6c09c389e66b"
+    },
+    {
+      "rank": 3,
+      "frame": 2,
+      "timeSeconds": 0.06666666666666667,
+      "foldedTriangles": 2,
+      "triangles": [
+        28,
+        29
+      ],
+      "sourceField": "fold-diagnostic/folds.json#/meshes/1/frames/2/triangles",
+      "label": "folded triangles 2, frame 2",
+      "screenshotSHA256": "40fe1a6c785d4fbc8fe2d7e0ef07fb7921de9efe70fc9334d2639c99806ef0fd"
+    }
+  ],
+  "additionalConsoleWarningsErrors": []
+}

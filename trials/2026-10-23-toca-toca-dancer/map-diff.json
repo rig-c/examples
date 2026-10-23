@@ -1,0 +1,36 @@
+{
+  "frozenBeforeRepeatPrecheck": true,
+  "sourceRef": "06f994995a2adcae915c75edd8038586e0e3e781",
+  "sourcePath": "dancer/map.json",
+  "sourceSHA256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
+  "trialSHA256": "6c8744e9f40eaa8b69e99ef52d283e23bca68f72d930836fbf77a459c2ea79fd",
+  "changes": [
+    {
+      "chain": "leg_r",
+      "field": "bend",
+      "before": "absent (default rest)",
+      "after": "free"
+    },
+    {
+      "chain": "leg_l",
+      "field": "bend",
+      "before": "absent (default rest)",
+      "after": "free"
+    }
+  ],
+  "policy": "The reference is interpreted as frontal 2D dance material. Its projected knee side is not an anatomical hinge limit. Apply the pinned CLI frontal-motion bend:free remedy, not a fitted angular cap or tolerance increase.",
+  "policySource": "https://github.com/rig-c/pose/blob/6187ed7af25184d10782bf29a8f123061f5496a8/README.md",
+  "firstStrictResult": "precheck-result.json",
+  "limits": [
+    "Hinge bend direction is unverified for free chains.",
+    "All other accepted-map values, including alternate sets and their explicit frame spans, are unchanged."
+  ],
+  "flagsUnchanged": [
+    "no bends clamp",
+    "no bend-tolerance override",
+    "no flip",
+    "no short",
+    "no leg-scale",
+    "no invented ranges"
+  ]
+}
