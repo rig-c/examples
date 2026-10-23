@@ -1,0 +1,253 @@
+{
+  "schema": "family-outfit-switch/1",
+  "sequence": [
+    "office",
+    "uniform",
+    "office"
+  ],
+  "cuts": [
+    {
+      "atSeconds": 3.3333333333333335,
+      "from": "office",
+      "to": "uniform",
+      "loopFrame": 0
+    },
+    {
+      "atSeconds": 6.666666666666667,
+      "from": "uniform",
+      "to": "office",
+      "loopFrame": 0
+    }
+  ],
+  "loopSeconds": 3.3333333333333335,
+  "fps": 24,
+  "framesPerLoop": 80,
+  "sourceFrameIndices": [
+    0,
+    1,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    18,
+    19,
+    20,
+    21,
+    23,
+    24,
+    25,
+    26,
+    28,
+    29,
+    30,
+    31,
+    33,
+    34,
+    35,
+    36,
+    38,
+    39,
+    40,
+    41,
+    43,
+    44,
+    45,
+    46,
+    48,
+    49,
+    50,
+    51,
+    53,
+    54,
+    55,
+    56,
+    58,
+    59,
+    60,
+    61,
+    63,
+    64,
+    65,
+    66,
+    68,
+    69,
+    70,
+    71,
+    73,
+    74,
+    75,
+    76,
+    78,
+    79,
+    80,
+    81,
+    83,
+    84,
+    85,
+    86,
+    88,
+    89,
+    90,
+    91,
+    93,
+    94,
+    95,
+    96,
+    98,
+    99
+  ],
+  "width": 960,
+  "height": 832,
+  "background": "#ffffff",
+  "codec": "H.264 (libx264, preset slow, single thread), yuv420p, concatenated without re-encoding",
+  "crf": 23,
+  "capture": {
+    "frames": 100,
+    "physicsStepSeconds": 0.016666666666666666,
+    "warmupCycles": 6,
+    "environment": {
+      "wind": [
+        4,
+        0
+      ],
+      "gravity": [
+        0,
+        0
+      ]
+    },
+    "blink": "viewer smooth curve, deterministic staggered schedule (same as family-preview.json)"
+  },
+  "outfits": {
+    "office": {
+      "captureRecipeSha256": "3099a0553226a4eb556b78108d3c7b67ce94d3754cf51b11868cc8688b3a6ba6",
+      "browser": "151.0.7922.34",
+      "sources": {
+        "accepted-inputs.json": "9b4cd36fd3a95a848012818e88a22a9506dab4a45759788a2731bf011310f491",
+        "viewer/assets/player.js": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "roa/out/check/build/skeleton.model.json": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+        "luna/out/check/build/skeleton.model.json": "a1043b7b663439f53d1f6af980be855905c39e0fd822eceb76143015d5d57d1d",
+        "jinni/out/check/build/skeleton.model.json": "5475c1a67bddd25f679ade558afbfce5c4762c295fd78d3acf21d8b1274390eb",
+        "naru/out/check/build/skeleton.model.json": "7ae9cf3378b882f24a19ce5c44638d4adc0b61e9aa27b4a425c3a445482f8813",
+        "nova/out/check/build/skeleton.model.json": "0846163f16e7270caeb2005d4f63c4dff1627f4cbab7200e6e363f39ad877b41",
+        "roa/out/check/build/skeleton.png": "84cbd1b50458090896ad1cc55537df3565e3c1296b47996572efc77a9d8eb6e0",
+        "luna/out/check/build/skeleton.png": "429373a34a9392c073ad1836f618d1076525e39fdf8011d40269aa3a40ea6182",
+        "jinni/out/check/build/skeleton.png": "8477f1f4af52e2a0e16b0bc2795fbc86974f5bd728d00d645a07bcc48395c3e2",
+        "naru/out/check/build/skeleton.png": "671c9fb591e68279a37adc1ab2ea3f093a116804942d5955b6e0c37191755f14",
+        "nova/out/check/build/skeleton.png": "134523763d7fead761d9a80195c23ddc0ebc6286878fdd0204db9a445d00ef0e"
+      },
+      "frame000Sha256": "b170e5da7f25fb537a89ca7a03bf1ec4f82e5b4677bae6a73ca771a670ce033b",
+      "segmentBytes": 238670,
+      "segmentSha256": "3df9f8839687bb4cb5c58cd016c3fb6ab09e4453acfdb7f182cee37b4a68183c"
+    },
+    "uniform": {
+      "captureRecipeSha256": "38c1819efc30ef959566737962172645842b79a1763a41a15fb1a6aeca44d2bb",
+      "browser": "151.0.7922.34",
+      "sources": {
+        "accepted-inputs.json": "9b4cd36fd3a95a848012818e88a22a9506dab4a45759788a2731bf011310f491",
+        "viewer/assets/player.js": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "outfits/uniform/roa/out/check/build/skeleton.model.json": "7116a9411870ef7d2f36dc5c570ac75e8e831ced307d81119a20415659344855",
+        "outfits/uniform/luna/out/check/build/skeleton.model.json": "22a2e76785986ff21f3fd0f57a1dccda89ba440fcad04db5226bbcb965d80c48",
+        "outfits/uniform/jinni/out/check/build/skeleton.model.json": "63208b95692eaa9a577b933bf49ec37a0647ffbc275319bfafd9f141c2044028",
+        "outfits/uniform/naru/out/check/build/skeleton.model.json": "0468c10170eefc942531826e3fe29e683c2c7c7b6154a32c97f24c1c2fdc4033",
+        "outfits/uniform/nova/out/check/build/skeleton.model.json": "fcbcce97bcaaf16ee1b9d7532536ea4c97bed2398ffafe1d77873b233a297130",
+        "outfits/uniform/roa/out/check/build/skeleton.png": "9361754ba95f20e830b8c2bb84162d0433e0a6f66417163c62b51519eb9f48d5",
+        "outfits/uniform/luna/out/check/build/skeleton.png": "29bf72a60324bf77cfa374e9fd900f21eaaba43c5558b13e76c61274bd70bce2",
+        "outfits/uniform/jinni/out/check/build/skeleton.png": "17c0f7be9f0e57c66c45daa6c978ed90da09af373822a4851681ce85577623e9",
+        "outfits/uniform/naru/out/check/build/skeleton.png": "8c38af3ebaa2cd198a00e0d38463384aa1b0b2a1e5413af4f61d5be9d162704f",
+        "outfits/uniform/nova/out/check/build/skeleton.png": "988146bd7ceecd7dbe83589b108d62db5311222b5ab69c5a12a477daf9d53252"
+      },
+      "frame000Sha256": "f6851dac0fa7d0f1cda7a1b064453a4452f9c5392486d6d00ec93e7ba9caf1c0",
+      "segmentBytes": 277585,
+      "segmentSha256": "6fcb5750292a8352e82ad0b40acddda84a15622b0c9addcfd03312d6947c8cbf"
+    }
+  },
+  "cutFrame": {
+    "cutFrameSize": [
+      1200,
+      1040
+    ],
+    "clothingSlots": "per character, union of both outfits",
+    "clothingBoxes": {
+      "roa": [
+        44,
+        211,
+        340,
+        991
+      ],
+      "luna": [
+        253,
+        271,
+        497,
+        989
+      ],
+      "jinni": [
+        483,
+        264,
+        740,
+        988
+      ],
+      "naru": [
+        727,
+        285,
+        949,
+        991
+      ],
+      "nova": [
+        905,
+        251,
+        1131,
+        989
+      ]
+    },
+    "threshold0": {
+      "differingPixels": 547248,
+      "outsideClothingBoxes": 28201,
+      "outsideClothingAlpha": 37177
+    },
+    "threshold8": {
+      "differingPixels": 469238,
+      "outsideClothingBoxes": 2361,
+      "outsideClothingAlpha": 4843
+    },
+    "sharedSlotsOnly": {
+      "differingPixels": 68880,
+      "bbox": [
+        83,
+        102,
+        1137,
+        407
+      ]
+    },
+    "sharedSlotsWithoutHair": {
+      "differingPixels": 16175,
+      "bbox": [
+        109,
+        118,
+        1060,
+        340
+      ]
+    },
+    "sideBySide": "family-outfit-switch-cut.png",
+    "sideBySideSha256": "2ed3e1698e6dffe2944bb5fac65654207e99ecb4b81315bccc6f9be007726e03"
+  },
+  "probe": {
+    "duration": 10,
+    "size": 753333,
+    "codec_name": "h264",
+    "width": 960,
+    "height": 832,
+    "pix_fmt": "yuv420p",
+    "r_frame_rate": "24/1",
+    "nb_read_frames": "240"
+  },
+  "bytes": 753333,
+  "sha256": "91e03213b41c107c7b41495453c9fa889a139f28db5a7f9f0dc5832e70d3ec69"
+}

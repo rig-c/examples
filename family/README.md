@@ -22,6 +22,8 @@
 
 [재현 스크립트](./scripts/render-readme-preview.mjs) · [입력 해시·프레임 시간](./docs/family-preview.json). 실시간 조작과 검증 범위는 아래 설명을 따릅니다.
 
+같은 구도·아이들·프레임으로 `office`와 `uniform`을 한 번씩 렌더링해 루프 0프레임에서 이어 붙인 [의상 전환 클립](./docs/family-outfit-switch.mp4)(오피스 → 교복 → 오피스, 10초, 24fps, 흰 배경)도 있습니다. [재현 스크립트](./scripts/render-outfit-switch.mjs) · [입력 해시·컷 프레임 수치](./docs/family-outfit-switch.json) · [컷 프레임 비교](./docs/family-outfit-switch-cut.png).
+
 ### 현재 승인된 입력과 재검증
 
 현재 뷰어가 읽는 정본은 5명 캐릭터(`roa`, `luna`, `jinni`, `naru`, `nova`) × 4종 의상(`office`, `homewear`, `swimwear`, `uniform` — 총 **20개 리그, 396개 파츠 행**)의 `out/rig/`·`out/parts/`·`out/parts.json`과 `out/check/build/`다.
