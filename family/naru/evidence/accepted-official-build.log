@@ -1,6 +1,6 @@
 rigc build accepted/rig/rig.json
-  ..    rig    /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/rig/rig.json
-  ..    motion /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/rig/motion.json
+  ..    rig    <nova-home>/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/rig/rig.json
+  ..    motion <nova-home>/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/rig/motion.json
   ..    20 part page(s):
   ..      hair_back                448x448  <- ../rig/images/hair_back.png
   ..      shoes                    176x206  <- ../rig/images/shoes.png
@@ -156,7 +156,7 @@ rigc build accepted/rig/rig.json
   SKIP  A30_STROKE_WITHIN_CAP_CONTAINMENT: the manifest declares no `stroke.cap_containment_ceiling`, so this cut has no measured containment ceiling
   ..    50 assertions: 27 measured (27 passed, 0 failed), 23 skipped, 0 not in profile "rig-play"
   ..    pages=1 regions=20 bones=105 slots=20 animations=1 version=4.3.13 regionAttachments=15 meshAttachments=5 physicsConstraints=29 physicsTimelineKeys=0 rig=naru_painting profile=rig-play
-rigc: wrote /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build/skeleton.json
-rigc: wrote /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build/skeleton.atlas
-rigc: wrote /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build/skeleton.model.json
-rigc: look at it: rigc preview --candidate /home/firejune/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build
+rigc: wrote <nova-home>/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build/skeleton.json
+rigc: wrote <nova-home>/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build/skeleton.atlas
+rigc: wrote <nova-home>/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build/skeleton.model.json
+rigc: look at it: rigc preview --candidate <nova-home>/nova-run/runs/20261016T151314Z-76f6c91874d9476da5df0f02502c75ac/work/accepted/build

@@ -110,8 +110,8 @@ These are **local evidence locations**, not distributable repository fixtures or
 
 Both used the standard Nova pool,4CPU affinity,4GiB aggregate process-tree RSS cap and3600s timeout, without local fallback. Recovered evidence is under the local Nova state directory:
 
-- `~/.local/state/nova-run/20261015T200250Z-efcadbd7cddb4a9381a6801c29ac8aa2/bust-cause/` — Roa/Naru; `report.json` SHA256 `95139087da6735fe65e57ba868262f497bf66f57d77e376959a6d01d9f6f7c69`.
-- `~/.local/state/nova-run/20261015T200946Z-5deabe861c644a529d4c5bb0f715e228/bust-cause/` — Luna/Jinni/Nova; `report.json` SHA256 `0af128b050469c476a8668a568b7f8b6cdbdab6e2324e155418e5ae8a9f0d58f`.
+- `<home>/.local/state/nova-run/20261015T200250Z-efcadbd7cddb4a9381a6801c29ac8aa2/bust-cause/` — Roa/Naru; `report.json` SHA256 `95139087da6735fe65e57ba868262f497bf66f57d77e376959a6d01d9f6f7c69`.
+- `<home>/.local/state/nova-run/20261015T200946Z-5deabe861c644a529d4c5bb0f715e228/bust-cause/` — Luna/Jinni/Nova; `report.json` SHA256 `0af128b050469c476a8668a568b7f8b6cdbdab6e2324e155418e5ae8a9f0d58f`.
 
 Their parent directories retain `request.json`, `result.json`, `input-manifest.json` and `command.log`; the evidence folders retain raw traces, versions, budget readings, PNGs, MP4s and encoding exits. Standalone probe SHA256 values are `02e7b30b801862465ec560606a63a5cd8082708b123880220e5fcbe55a46fb5e` (run1) and `3918e9a40eb727ab1dd0b7f4859e1b5fe3e5a6a1ad197a8f71e2e719a15b0234` (run2). These exact inputs, rather than current mutable demo files, identify the experiment.
 
