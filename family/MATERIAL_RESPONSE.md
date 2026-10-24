@@ -87,6 +87,9 @@ full constraint-array check and removal of four cuff constraints remain intact.
 An extra target, different coefficient, changed topwear, or other rig drift is
 refused; there is no threshold or guard bypass.
 
+The following paragraph records the original office-only acceptance. The later
+uniform extension below supersedes only its uniform hair exclusion.
+
 The three other outfits per character retain their previous office baseline
 profile when merging common parts. The office-only acceptance does not retune
 those fifteen outfits. Complete model and Spine equality remains required for
@@ -107,3 +110,71 @@ refer to that frozen comparison, not to rerendering during integration.
 Ordinary build/check still excludes live physics from its animation fold test;
 Roa's missing eyewhite input remains an explicit blink SKIP. No new stress-force
 or superseded polygon evaluation is claimed.
+
+## Uniform shared-hair parity (issue #49)
+
+The five uniform configs now state the accepted office hair and bang values for
+the same 75 physics constraints: only `mass`, `strength`, `damping`, `inertia`
+and `wind` change. Homewear and swimwear keep their previous physics. The
+office-only skirt profile is not transferred, and no clothing, bust, bone,
+motion, image, mesh, viewer or camera change belongs to this extension.
+
+Each uniform declaration adds `uniformHairProfile`, with the accepted office
+profile's SHA256, its complete hair target list and the whole repaired rig's
+before/after hashes. The config must contain exactly those target values.
+Existing assembly and repair preimages are checked first. The final uniform
+stage changes only the five scalars, then checks the complete output hash;
+reversing that stage must recover the accepted pre-extension rig. A missing
+target, changed office profile, different coefficient or unrelated rig change
+is refused. The older common-part merge remains unchanged for other outfits.
+
+`out/rig/uniform-hair-profile.provenance.json` binds this profile, config,
+authoring rig and compiled model. Ordinary reproduction must regenerate the
+authoring and serving bytes with the pinned tools in the README.
+
+### HQ switch acceptance and retained pixel residual
+
+After viewing the [4x switch pair and diff overlay](docs/uniform-hair-switch.png),
+HQ restated the #49 bar as exact posed coordinates of **every shared draw (73)**,
+the viewed sheet with SHA256
+`bd46337ef39f333d7e8a03818524dc8f4b4a562b31ceda35d415f07c621cd8c5`,
+and the cold shared-atlas control at **0 pixels**. This ruling addresses the
+hair-motion requirement: all shared coordinates agree while atlas UV sampling
+and previous WebGL batch layout can change pixels for that same geometry.
+The cold control uses identical static geometry and batch state, with office
+shared textures/UVs substituted only in memory. It is a diagnostic control,
+not a change to serving art, UVs or the renderer.
+
+The original threshold-0 pixel gate remains honestly recorded: outside the
+unchanged union of rendered neck alpha supports, the baseline was 53,272 pixels,
+the Nova candidate was **358**, and a bounded local static replay was **357**.
+The producer job exited **1** at its final `UNIFORM_CUT_BAR` assertion after
+the five canonical builds and their physics allowlists passed. Its verified
+serving outputs were retained and separately adopted under HQ's revised bar;
+that historical job is not relabeled green. The original pixels are not claimed
+zero. The residual belongs to [rig-c/play#187](https://github.com/rig-c/play/issues/187).
+The local replay does not recover every original Nova pixel. No tolerance or
+mask was enlarged, and the frame set was deleted after individual hashes and
+the small sheet were retained. The diagnostic concatenated-PNG aggregate was
+not computed before deletion; it is not inferred from individual hashes.
+
+The [compact acceptance receipt](docs/uniform-hair-switch.json) binds source
+digests, the sheet and the [exact shared-pose result](docs/uniform-shared-pose.json).
+Reproduce the pose metric with the pinned viewer's actual parser, track and
+posed-frame functions (1200 steps at 1/60, wind [4,0], gravity [0,0], identical
+phase offsets and deterministic blink):
+
+```bash
+node family/tools/verify-uniform-hair.mjs --out .lane-evidence/new-uniform-pose.json
+```
+
+This compares all shared draws, including face and accessories, not just hair;
+only clothing and the explicitly different neck plate are excluded. The adapter
+refuses a viewer hash outside `accepted-inputs.json`. Tests plant coordinate,
+topology, colour, order and missing/extra-draw defects, and separately reject
+changes outside the exact physics allowlist. Same-input, planted-defect and
+boundary controls precede the historical pixel metric.
+
+Ordinary build/check still excludes live physics
+from its animation fold test; no new stress-force, subjective material-quality
+or physical-device acceptance is claimed.

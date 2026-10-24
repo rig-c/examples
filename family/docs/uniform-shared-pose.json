@@ -1,0 +1,116 @@
+{
+  "spec": "family-uniform-shared-pose/1",
+  "recipe": {
+    "lineup": [
+      [
+        "roa",
+        0
+      ],
+      [
+        "luna",
+        0.06
+      ],
+      [
+        "jinni",
+        0.45
+      ],
+      [
+        "naru",
+        0.85
+      ],
+      [
+        "nova",
+        1.25
+      ]
+    ],
+    "steps": 1200,
+    "dt": 0.016666666666666666,
+    "wind": [
+      4,
+      0
+    ],
+    "gravity": [
+      0,
+      0
+    ],
+    "blink": "accepted deterministic viewer schedule",
+    "excludedSlots": [
+      "clothing slots",
+      "neck"
+    ],
+    "tolerance": 0
+  },
+  "rows": [
+    {
+      "character": "roa",
+      "draws": 12,
+      "coordinates": 466,
+      "exact": true,
+      "normal": {
+        "draws": 12,
+        "coordinates": 466,
+        "exact": true
+      }
+    },
+    {
+      "character": "luna",
+      "draws": 14,
+      "coordinates": 526,
+      "exact": true,
+      "normal": {
+        "draws": 14,
+        "coordinates": 526,
+        "exact": true
+      }
+    },
+    {
+      "character": "jinni",
+      "draws": 18,
+      "coordinates": 556,
+      "exact": true,
+      "normal": {
+        "draws": 18,
+        "coordinates": 556,
+        "exact": true
+      }
+    },
+    {
+      "character": "naru",
+      "draws": 15,
+      "coordinates": 532,
+      "exact": true,
+      "normal": {
+        "draws": 15,
+        "coordinates": 532,
+        "exact": true
+      }
+    },
+    {
+      "character": "nova",
+      "draws": 14,
+      "coordinates": 886,
+      "exact": true,
+      "normal": {
+        "draws": 14,
+        "coordinates": 886,
+        "exact": true
+      }
+    }
+  ],
+  "sources": {
+    "viewer/assets/player.js": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+    "roa/out/check/build/skeleton.model.json": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+    "outfits/uniform/roa/out/check/build/skeleton.model.json": "6443f08ae56a7a22488289668153eae14033892ad5239e659692aa98bd0166f9",
+    "luna/out/check/build/skeleton.model.json": "a1043b7b663439f53d1f6af980be855905c39e0fd822eceb76143015d5d57d1d",
+    "outfits/uniform/luna/out/check/build/skeleton.model.json": "0a0094acc4ad5630b7b90300063e8405978f56d74d98a7e3495560bb89628c31",
+    "jinni/out/check/build/skeleton.model.json": "5475c1a67bddd25f679ade558afbfce5c4762c295fd78d3acf21d8b1274390eb",
+    "outfits/uniform/jinni/out/check/build/skeleton.model.json": "2b04c1c3d97ed26e321f62797dca645d73e4e9b42547ff75b4dc7e7c3b5bd666",
+    "naru/out/check/build/skeleton.model.json": "7ae9cf3378b882f24a19ce5c44638d4adc0b61e9aa27b4a425c3a445482f8813",
+    "outfits/uniform/naru/out/check/build/skeleton.model.json": "605247c4d23d152cf1cb49c436534b8ca00a7199b9c963566aea0fa618e9a671",
+    "nova/out/check/build/skeleton.model.json": "0846163f16e7270caeb2005d4f63c4dff1627f4cbab7200e6e363f39ad877b41",
+    "outfits/uniform/nova/out/check/build/skeleton.model.json": "cb88dc2fc4730cea2781be409b787006ac9b856b4ed6488ac263bc517a239a80"
+  },
+  "totalDraws": 73,
+  "PASS": true,
+  "pixelZeroClaimed": false
+}
