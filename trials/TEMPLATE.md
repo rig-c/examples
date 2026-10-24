@@ -16,6 +16,25 @@ Withheld: <every input that is not committed and why — e.g. "the reference
 video, third-party; only the cleaned pose `pose.json` derived from it is
 committed". Write "nothing" if nothing was withheld.>
 
+### Acquisition (pose/video trials)
+
+<Complete this checklist, or state why acquisition does not apply. An omitted
+step is not evidence that the shot or drawing did not need it.>
+
+| Acquisition decision | Record |
+| --- | --- |
+| Detector / extractor | <name, exact version or commit, extraction command and settings> |
+| Model / weights | <model name, checkpoint version and weights SHA-256> |
+| Clip and person | <source, crop, frame range, timestamps/fps, image dimensions and person id> |
+| Camera: zoom or pan? | <yes: method, tracking settings or hand-key file/hash, key count and frame/value list, interpolation command; no: "static shot, measured: scale drift X %", pan drift in px, measurement command and output> |
+| Camera in the sequence | <moving shot: output sequence path, per-frame `camera` and `cameraSource`, scale/translation ranges; static shot: measurement supporting omission> |
+| Accepted acquisition of this clip | <sequence path and commit/hash for the matched control below, or "none" with where checked> |
+
+A sequence carrying `camera` already has normalized joints, `(p - t) / s`,
+relative to frame 0. Keep one `{ s, tx, ty, inliers }` entry per frame and say
+how it was made; do not attach a track to unnormalized joints or apply it
+twice. Preserve the acquisition script and camera keys as reproducible inputs.
+
 ## Commands and pins
 
 | Tool | Version or commit |
@@ -23,6 +42,7 @@ committed". Write "nothing" if nothing was withheld.>
 | `@rig-c/core` | <x.y.z> |
 | `@rig-c/parts` | <x.y.z> |
 | `@rig-c/play` | <x.y.z> |
+| `@rig-c/pose` | <x.y.z or commit; CLI used below> |
 | Bun / Node | <x.y.z> |
 | this repository's corpus | <commit, if a corpus directory was read> |
 | <other tool, checkpoint, model> | <exact version, file name or hash> |
@@ -31,6 +51,34 @@ committed". Write "nothing" if nothing was withheld.>
 # Run from <where>. Every command, in order, exactly as it was run.
 <command>
 ```
+
+### Pose preparation (when applicable)
+
+- **Pelvis before clean:** <when the drawing has a waistband/skirt, run
+  `rig-pose pelvis --mode waistband` on the acquired sequence before `clean`;
+  record the PNG frame input, read/declined frames and `pelvisSource`.
+  Otherwise state why this stage does not apply.>
+- **`--hips-inferred`:** <use when a skirt/cloak hides the hips; state the
+  visual reason, or why the hips are observed and the flag is omitted. This
+  marks inferred hips without correcting their positions; it does not replace
+  the pelvis reading.>
+- **`--loop`:** <use for one cycle, naming its boundaries and why they join;
+  otherwise state why it is omitted. Circular windows and floor re-pinning
+  also declare `travel: "in-place"`; this is not a flag for every clip.>
+
+For a waistband/skirt with hidden hips and a single in-place cycle, the
+supported order is below. Replace it with the exact applicable commands in
+the run record; do not copy flags whose reasons do not apply. Run inside the
+trial directory, after camera-aware acquisition has written `pose.raw.json`:
+
+```bash
+rig-pose pelvis --pose pose.raw.json --frames frames --mode waistband --out pose.pelvis.json
+rig-pose clean --pose pose.pelvis.json --out pose.clean.json --hips-inferred --loop
+```
+
+`frames/` contains one PNG per sequence frame in filename order, at the
+sequence's image dimensions. Record camera acquisition, pelvis and clean in
+that order, then the matched-control verdict below, before downstream work.
 
 ## Measurement
 
@@ -41,6 +89,26 @@ output it was read from.>
 | Measured | Value | Threshold | Source |
 | --- | --- | --- | --- |
 | <quantity> | <number and unit> | <bar, stated before measuring> | <command / file> |
+
+### Matched acquisition control (before downstream work)
+
+<If this clip already has an accepted sequence, compare the new acquisition
+to that exact sequence per joint before retargeting, building or authoring
+anything from it. Pin both files and the comparison script/command. Match the
+person, clip interval, frame times, image dimensions and coordinate space;
+declare any resampling and the preparation stage of each input. Compare in
+the same camera-normalized space; report raw-image readings separately when
+available, rather than mixing camera motion with joint error.>
+
+| Joint | Compared / missing / inferred frames | RMS / maximum error (px), worst frame | Threshold fixed before measurement | Source |
+| --- | --- | --- | --- | --- |
+| <each joint, not only a pooled average> | <counts and exclusion policy> | <values> | <bar> | <command / output> |
+
+Control verdict: <accepted / rejected / not applicable, with the reason and
+evidence. Resolve a regression or reject the new acquisition before downstream
+work; do not build on a rejected acquisition or silently replace the accepted
+one. If there is no prior accepted sequence, record that fact instead of
+claiming a matched pass.>
 
 Renders and videos not committed:
 

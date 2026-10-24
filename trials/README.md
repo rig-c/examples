@@ -76,15 +76,20 @@ section with nothing to say states that, in a sentence.
    tool and the behaviour.
 2. **Inputs** — each input and where it came from (corpus directory and
    commit, URL, or the generating command). Origin, not a licence review: the
-   licensing page covers that. Then what was withheld, and why.
+   licensing page covers that. Then what was withheld, and why. Pose/video
+   trials complete the acquisition checklist below, including camera evidence
+   and the accepted-sequence control, or state why it does not apply.
 3. **Commands and pins** — every command exactly as run, in order, and the
    exact version or commit of every tool, checkpoint and model it used.
-   "Latest" is not a pin.
+   "Latest" is not a pin. Include acquisition, pelvis before clean when
+   applicable, the drawing-specific clean flags and their reasons, and the
+   matched-control decision before downstream commands.
 4. **Measurement** — figures, not adjectives: the quantity, its value, the
    threshold it is judged against, and the output it was read from. State the
    threshold *before* measuring; a bar fitted to the result is not a bar. For
    every render or video not committed, its SHA-256 and the command that
-   reproduces it.
+   reproduces it. A new acquisition of a clip with an accepted sequence needs
+   a per-joint matched comparison and its verdict before downstream work.
 5. **Verdict** — **PASS**, **FAIL** or **PARTIAL**, with the figure that
    decides it. A failure is stated as plainly as a success. PARTIAL names
    which part passed and which did not.
@@ -95,6 +100,51 @@ section with nothing to say states that, in a sentence.
 
 Mark a figure that was estimated rather than measured as an estimate, and say
 who or what estimated it. A figure that is not known is written as not known.
+
+## Acquisition checklist for pose/video trials
+
+Record the detector/extractor name and exact version or commit, extraction
+command/settings, model/checkpoint and weights SHA-256. Pin the clip interval,
+person, timestamps/fps, crop and image dimensions as well as the output
+sequence. A pose-tool pin alone does not identify the model that acquired it.
+
+**Camera is part of acquisition.** State whether the shot zooms or pans. If
+it does, keep how the track was made: tracking settings or hand-key file and
+hash, key count and frame/value list, interpolation command, and measured
+scale/translation ranges. The output sequence carries per-frame `camera`
+entries (`s`, `tx`, `ty`, `inliers`) and a `cameraSource` description. Its
+joints are already normalized to frame 0 by `(p - t) / s`; preserve that
+contract through pelvis, clean and comparison. If it does not move, write
+"static shot, measured: scale drift X %", report pan drift in pixels, and
+name the measurement command/output. Absence of a camera track is not a
+measurement of a static shot.
+
+**Read the drawing before choosing preparation.** When it has a
+waistband/skirt, run `rig-pose pelvis --mode waistband` before `rig-pose clean`
+and record the frame inputs, read/declined frames and `pelvisSource`. The
+reader needs one PNG per sequence frame in filename order at the sequence's
+image dimensions; a declined frame stays explicit. State why a pelvis stage
+does not apply when omitting it. Use clean's `--hips-inferred` when a
+skirt/cloak hides the hips and explain why; it marks their state, not a
+position correction or a substitute for pelvis. Use `--loop` for one cycle
+and state its matching boundaries; it wraps the windows, re-pins the floor
+and writes `travel: "in-place"`. State why either flag is absent as explicitly
+as why it is present. The template supplies a conditional command example;
+each trial records only the commands and flags it actually used.
+
+**Use the accepted acquisition as a matched control.** Before any downstream
+retarget, build or authoring from a new acquisition, check whether this clip
+already has an accepted sequence. Pin it by path and commit/hash, then compare
+per joint using a pinned comparison script/command. Match the person, clip
+interval, frame times, image dimensions, coordinate space and preparation
+stage; declare resampling. Compare the same camera-normalized space, with
+raw-image readings reported separately when available. Record per-joint RMS,
+maximum error and worst frame in pixels, compared/missing/inferred frame
+counts and the exclusion policy. Fix the acceptance thresholds before the
+measurement, and resolve a regression or reject the new acquisition before
+downstream work; do not build on a rejected acquisition. A pooled score cannot
+replace the per-joint record. If no accepted sequence exists, record where
+checked and say so; do not claim a matched pass.
 
 ## Template
 
