@@ -14,7 +14,7 @@ import { OUTFITS, outfitAssets } from '../viewer/outfits.mjs';
 const family = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const help = `Usage: node family/scripts/render-readme-preview.mjs [options]
   --outfit office|homewear|swimwear|uniform  (default office)
-  --out <preview.webp>     (default outfit-specific docs/family-preview[-outfit].webp)
+  --out <preview.webp>     (default outfit-specific docs/family-preview[-outfit].webp; preflight uses <evidence>)
   --evidence <new-dir>     (default .lane-evidence/family-preview-<outfit>)
   --width 800|960|1200     (default 960; original capture remains1200x1040)
   --quality 1..100         (default80, lossy RGB; alpha quality100)
@@ -53,9 +53,12 @@ function option(name, fallback) { const i = args.indexOf(name); return i < 0 ? f
 const evidence = path.resolve(option('--evidence', `.lane-evidence/family-preview-${option('--outfit', 'office')}`));
 const mp4 = option('--mp4', null) === null ? null : path.resolve(option('--mp4'));
 const outfit = option('--outfit', 'office');
-const output = mp4 !== null && option('--out', null) === null ? null : path.resolve(option('--out', path.join(family, `docs/family-preview${outfit === 'office' ? '' : '-'+outfit}.webp`)));
+const defaultName = `family-preview${outfit === 'office' ? '' : '-'+outfit}.webp`;
+const publishedDocs = path.join(family, 'docs');
+const output = mp4 !== null && option('--out', null) === null ? null : path.resolve(option('--out', path.join(preflight ? evidence : publishedDocs, defaultName)));
 if (!OUTFITS.includes(outfit)) throw new Error(`outfit must be one of ${OUTFITS.join(', ')}; got ${outfit}`);
 if (output !== null && !output.endsWith('.webp')) throw Error('PREVIEW_WEBP_EXTENSION_REQUIRED');
+if (preflight && output !== null && (output === publishedDocs || output.startsWith(publishedDocs + path.sep))) throw Error('PREFLIGHT_OUT_IS_PUBLISHED');
 if (mp4 !== null && !mp4.endsWith('.mp4')) throw Error('PREVIEW_MP4_EXTENSION_REQUIRED');
 const background = option('--background', '#ffffff');
 if (!/^#[0-9a-f]{6}$/i.test(background)) throw new Error('background must be #rrggbb');
