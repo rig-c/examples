@@ -1,0 +1,1185 @@
+{
+  "schema": "family-readme-preview/2",
+  "outfit": "swimwear",
+  "preflightOnly": false,
+  "width": 960,
+  "height": 832,
+  "duration": 3.3333333333333335,
+  "frames": 67,
+  "lineup": [
+    [
+      "roa",
+      0,
+      0,
+      3
+    ],
+    [
+      "luna",
+      435,
+      0.06,
+      2
+    ],
+    [
+      "jinni",
+      995,
+      0.45,
+      4
+    ],
+    [
+      "naru",
+      1540,
+      0.85,
+      3
+    ],
+    [
+      "nova",
+      1915,
+      1.25,
+      2
+    ]
+  ],
+  "capture": {
+    "width": 1200,
+    "height": 1040,
+    "frames": 100,
+    "includesExtraEndpoint": true
+  },
+  "sourceFrameIndices": [
+    0,
+    1,
+    3,
+    4,
+    6,
+    7,
+    9,
+    10,
+    12,
+    13,
+    15,
+    16,
+    18,
+    19,
+    21,
+    22,
+    24,
+    25,
+    27,
+    28,
+    30,
+    31,
+    33,
+    34,
+    36,
+    37,
+    39,
+    40,
+    42,
+    43,
+    45,
+    46,
+    48,
+    49,
+    51,
+    52,
+    54,
+    55,
+    57,
+    58,
+    60,
+    61,
+    63,
+    64,
+    66,
+    67,
+    69,
+    70,
+    72,
+    73,
+    75,
+    76,
+    78,
+    79,
+    81,
+    82,
+    84,
+    85,
+    87,
+    88,
+    90,
+    91,
+    93,
+    94,
+    96,
+    97,
+    99
+  ],
+  "frameDurationsMs": [
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49,
+    50,
+    50,
+    50,
+    49
+  ],
+  "loop": 0,
+  "renderer": "accepted viewer DOM/per-part WebGL",
+  "background": "transparent; browser compositor alpha, no chromakey",
+  "warmupCycles": 6,
+  "physicsStepSeconds": 0.016666666666666666,
+  "environment": {
+    "wind": [
+      4,
+      0
+    ],
+    "gravity": [
+      0,
+      0
+    ],
+    "profile": "constant gentle breeze"
+  },
+  "blink": "viewer smooth curve, deterministic staggered schedule",
+  "quality": 80,
+  "captureRecipeSha256": "8c83ffd024e0e18967ad33f4444cb97a92d28893bcd338054956d48947d5ad01",
+  "browser": "151.0.7922.34",
+  "sources": {
+    "accepted-inputs.json": "89aa3714b3f4a0442b729c3f1643bd07c8e24dbf9565c21150f88daf47da623c",
+    "viewer/assets/player.js": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+    "outfits/swimwear/roa/out/check/build/skeleton.model.json": "eb0f54b57bed9ac9684d63b1b3254a644aed98b889a79a149a232f1ff65cc03a",
+    "outfits/swimwear/luna/out/check/build/skeleton.model.json": "62d444cad2fdfb88d1eaa254807ea307c82157ff70ead0d13c05c89a19a24b8e",
+    "outfits/swimwear/jinni/out/check/build/skeleton.model.json": "9690b754adc20aa53b3fcc52ee98c28b7e1d60d1af661866a8ef96be64de44a2",
+    "outfits/swimwear/naru/out/check/build/skeleton.model.json": "81df3d4f4bcb42d7aa346ee1cf1ff059a2ea03a8893d786d72b95944166598c1",
+    "outfits/swimwear/nova/out/check/build/skeleton.model.json": "a71643463fd7bbc14ca1680ae8fff7ecc6b22a1ca5e9c0e3e116255c49d71350",
+    "outfits/swimwear/roa/out/check/build/skeleton.png": "d8e431e2de8e2db0258330ffed3592ae4db34c4bd4bc64344b67b8a1e6c8d664",
+    "outfits/swimwear/luna/out/check/build/skeleton.png": "39c30cfe39b834cac4c88c9b681bc2892147d7c43f441c314f1c42127e4af371",
+    "outfits/swimwear/jinni/out/check/build/skeleton.png": "228692af2aa01df7d38b384de8b39156a781ace602adc797ea00ddd5a0ff36ae",
+    "outfits/swimwear/naru/out/check/build/skeleton.png": "f35429135742319b5f422a4e974654c9b1b30574806b0cfc7048ca2413cdd0c4",
+    "outfits/swimwear/nova/out/check/build/skeleton.png": "bf2f929df213e50406d3d012837acedfe2b2c6fed0a08fdae04f92acb75d43f7"
+  },
+  "framesSHA256": "d0f507a362a2ca2bbdc4d92c2c04098a7501adc0a017b092d9af1f4233621e86",
+  "frameOrder": [
+    "frame-000.png",
+    "frame-001.png",
+    "frame-002.png",
+    "frame-003.png",
+    "frame-004.png",
+    "frame-005.png",
+    "frame-006.png",
+    "frame-007.png",
+    "frame-008.png",
+    "frame-009.png",
+    "frame-010.png",
+    "frame-011.png",
+    "frame-012.png",
+    "frame-013.png",
+    "frame-014.png",
+    "frame-015.png",
+    "frame-016.png",
+    "frame-017.png",
+    "frame-018.png",
+    "frame-019.png",
+    "frame-020.png",
+    "frame-021.png",
+    "frame-022.png",
+    "frame-023.png",
+    "frame-024.png",
+    "frame-025.png",
+    "frame-026.png",
+    "frame-027.png",
+    "frame-028.png",
+    "frame-029.png",
+    "frame-030.png",
+    "frame-031.png",
+    "frame-032.png",
+    "frame-033.png",
+    "frame-034.png",
+    "frame-035.png",
+    "frame-036.png",
+    "frame-037.png",
+    "frame-038.png",
+    "frame-039.png",
+    "frame-040.png",
+    "frame-041.png",
+    "frame-042.png",
+    "frame-043.png",
+    "frame-044.png",
+    "frame-045.png",
+    "frame-046.png",
+    "frame-047.png",
+    "frame-048.png",
+    "frame-049.png",
+    "frame-050.png",
+    "frame-051.png",
+    "frame-052.png",
+    "frame-053.png",
+    "frame-054.png",
+    "frame-055.png",
+    "frame-056.png",
+    "frame-057.png",
+    "frame-058.png",
+    "frame-059.png",
+    "frame-060.png",
+    "frame-061.png",
+    "frame-062.png",
+    "frame-063.png",
+    "frame-064.png",
+    "frame-065.png",
+    "frame-066.png",
+    "frame-067.png",
+    "frame-068.png",
+    "frame-069.png",
+    "frame-070.png",
+    "frame-071.png",
+    "frame-072.png",
+    "frame-073.png",
+    "frame-074.png",
+    "frame-075.png",
+    "frame-076.png",
+    "frame-077.png",
+    "frame-078.png",
+    "frame-079.png",
+    "frame-080.png",
+    "frame-081.png",
+    "frame-082.png",
+    "frame-083.png",
+    "frame-084.png",
+    "frame-085.png",
+    "frame-086.png",
+    "frame-087.png",
+    "frame-088.png",
+    "frame-089.png",
+    "frame-090.png",
+    "frame-091.png",
+    "frame-092.png",
+    "frame-093.png",
+    "frame-094.png",
+    "frame-095.png",
+    "frame-096.png",
+    "frame-097.png",
+    "frame-098.png",
+    "frame-099.png",
+    "frame-100.png"
+  ],
+  "frameSHA256": {
+    "frame-000.png": "d569db8e1c10daecb231022324aa14074319ebe398de2dfe31c5dfdd9b0836a3",
+    "frame-001.png": "ddbb9cb50fc143d7553e0d3c78a4552b3781c7571d5b84082cc2cde30f55a358",
+    "frame-002.png": "f38cc8f57d26d7692f5864aeb56586e2d44c9786c68e5f3f209c71532e35e1f6",
+    "frame-003.png": "ba2b75914278f90008f23a79a316c2937ae8ca8bf28c9e38292adda5ad60de26",
+    "frame-004.png": "07d861e3b4a4183570f5a7577bec7617071e693e452cd68a78c580a0e464d80a",
+    "frame-005.png": "411b8c798b8b75d3618dc9fa36472d1e627d8ab7c99f86250919e968a67a2a61",
+    "frame-006.png": "ff6ce1ff107a571f5157855b8b8ee6d06e4c03ff63f1fe6ba228293a57e91d8e",
+    "frame-007.png": "abb23fdc63f25d7c41a1c243ba1ebdf98cc9c7d0bfd0559c95b0230bbf8d2e6b",
+    "frame-008.png": "b28f919e89b1918ef333a92f1e760ab5034bbae539ffe222faf2da7dae210782",
+    "frame-009.png": "742bf26036f0777d5d0c4ac76ee8449e94d01cf8ac9475e8ddb1c93e89691ee3",
+    "frame-010.png": "7750a036d3f9d86500538ce9772b864d90e51e37ce9f23001c10b34508097028",
+    "frame-011.png": "478a4140520c27408dfff182db6a860d4e5a4d0cb08b58335b7b2c411e85c882",
+    "frame-012.png": "acafe07e59b44ccc9b83a668f2af7f35cf96ec4b4498774e437240f21e9b1159",
+    "frame-013.png": "d549fc8b8f151d1e3b77d51cf2ef718de8b19daca6c292a4ef0ab60749984cf8",
+    "frame-014.png": "cf1c564f15291d3ab2e783c8191ab8debc4ec939fe012d58ab84b3bf8c3b2f0f",
+    "frame-015.png": "d2761f262a8d34f212934c8fc916a5a09d40987edaa55e75b43418017e25a586",
+    "frame-016.png": "ee2aed075e1986880ffcc12e3d4cfbcf58e653be93590300691a9e933b251d26",
+    "frame-017.png": "3f6dc04ab52df23ce702a2b9a806cfe40803d148e4f669b2202ba101b8506d0d",
+    "frame-018.png": "c4d7b9a666e5bb7342dd6c0438c84da15a60484d61642c63dc40ed2c8dc6efe3",
+    "frame-019.png": "c4bf0e78e4ebf5bfcd22c68e67dc7de3020ce39d241de1a68e3036fb01cd7c4f",
+    "frame-020.png": "0f0e7bdc1deb3af1c776175651be8233295ef5292bf16259b01131b7bb401118",
+    "frame-021.png": "3ed5ebdc8bf4a563df154e795e2704a947cb16a6dadcfe37550d57f0b7086d55",
+    "frame-022.png": "f6667329359478356560398eacf03441617ea658a22b7204d3d6345c79e70997",
+    "frame-023.png": "65b8b7f8b0359f91b6f51ecf35d80599ad46bb2ff8d0eff0a7c4f1109bc72585",
+    "frame-024.png": "cc24bc92ed03bf78514ddb92b5876dffe84557f7e89ce25c31977b7de450faf5",
+    "frame-025.png": "c0f7a691dce580f3931627170726a95fafb716aa0c4a5378d1ddd413471a99c8",
+    "frame-026.png": "fceff37a31b347d81e40fb79c1b9ae591c3d39d90db624f7138fcf92c206298a",
+    "frame-027.png": "1c7814cfa7f714b4db0c3cc1478e6800c969aa8b5ce41eef867b61e8fa8c5c7a",
+    "frame-028.png": "97523a6007758e52b624668fbdb9b946031982d3b4f3cdf492a764c78cfda503",
+    "frame-029.png": "0a2093a1684d43beeee687e0189e770adc55cb9e804d5872d2030280175e2171",
+    "frame-030.png": "4a9caa36280c99399b2bd214461141cf41bd2402a1db167f432421e5eda10bc6",
+    "frame-031.png": "b59e463a4a6627dd3be27bf5d55d7853e61f2769e44b92472a624c0301b28bbf",
+    "frame-032.png": "c9e79de78919868a0b69661935d215d14f4f69b7e78d2c6d123f31483abc2238",
+    "frame-033.png": "29081a347d7050377d7ef4c0f4347e8a1faa3b8e5787a8d8890e10db6ee8683c",
+    "frame-034.png": "ac5210ef3adfde6125cb09d12bbed96ff1e21e628eb91e279e512dcfb7b7af12",
+    "frame-035.png": "ad26bb76f392c8b034506287a5fd901a162735016dec222963d36498fb46b8ea",
+    "frame-036.png": "48e51eba2578c5855efc8a02e4270a1c4879c67d964b89c252ded3b48a51e679",
+    "frame-037.png": "9daa476d792195dcd928ff767cb64644512feb481401ae50354525bf204f9026",
+    "frame-038.png": "f316ac6b667a8dc20472ffaff18132b60d77d3cb4dd26941f6799cfd22aa58a5",
+    "frame-039.png": "ebad7742bf674e373da196faa2dca87f82140ee66ec5d913b969f932b4adb0fd",
+    "frame-040.png": "39bfa092c00265925191f5f052e30b6b2716b63994d9284f4bb7abf40194aa42",
+    "frame-041.png": "13ba363565b36725976f9f88344fa572cd6fc92880dccb8fe64868eee7fecfde",
+    "frame-042.png": "84e00fe0795710ef48b4fc961e7aa9a053dade018686e4052b95d24c9bd1dc02",
+    "frame-043.png": "1603d4a53963f85f09ac20e6a3f5b3bc8f1365e6f16b83cd8ffb6787719b8bfd",
+    "frame-044.png": "5b0310c69e290013c592064ce8231ee9991e8441ce672e8ec6af8c32505ba1a0",
+    "frame-045.png": "e2bc58f92b32b0551ea4f6b4e329425a20e5d1df7b7afae5c08dc1b61577f399",
+    "frame-046.png": "5748045b38c891de95079bd36831e2ac00aa3809fc82cc1d7ccb7362ab4c8450",
+    "frame-047.png": "bd7ba0ece5f36c221a13b83f1e091fb14c1db435291acd1a2626bdd50b582ac4",
+    "frame-048.png": "980bc783404ed512ac920b8d4e697096cdcd98a75fa8defa12aa3db4e78dfc08",
+    "frame-049.png": "e6b21b2ef766b68a353af4ea30c2be4b82f9272ec6c3c2ae8e1b2a552975f6a7",
+    "frame-050.png": "16659287df3458355084f86ad10bedb874d6ba364e4afed52ae28a5205a167a0",
+    "frame-051.png": "b456310ca8619c860c39b9b13476139acfca6ad437057ee2bfa8666e51b10659",
+    "frame-052.png": "bcfd62cb7929ee5f6b41be8f744e19ea9da42d88c70836905c8e8d69db461a6a",
+    "frame-053.png": "0f5124dfc49a5fcba1c3a378b248eff41d641208dc1d88455ce743c95e4f0ed0",
+    "frame-054.png": "6209bc3904f227a0836c876bbbcfacb8d32d7ff186d1e4e41fecaea336dad311",
+    "frame-055.png": "47a7809edf11ad5e14165586c9ba80bc98b185e7cfe025ae875e34fd3e67f98f",
+    "frame-056.png": "02ee515b2ae5ca652af00aa0954029dd5ea22db4fb9868fcc3cd91842a556f9a",
+    "frame-057.png": "4cfe37d657606f2b67925575c747aa84a6a1bf5fb5c597e0fe85cffe8c3b528b",
+    "frame-058.png": "16f00c685d0747af9e026686c5e7294748e9d2c19e86ad794040ad9eea51387f",
+    "frame-059.png": "c17171869ef34314044e168be81c2ee852c23f0831562b04f0c30cb37ae231f5",
+    "frame-060.png": "b53dd8951ee1cd02c10ad078cabe7e91cb48da4ca20be4e6bc6f20bf48d2905d",
+    "frame-061.png": "3a4f953604258ccb993b32bd0f9d2f38fbb3441b8141cccbd7c1730a998dd304",
+    "frame-062.png": "8457d28b0125ce70ee5c670d3966999ba61737590d10e9f9f401c8c09ed33170",
+    "frame-063.png": "b1476729bca8c82966de3bba1815b859b454b8f729e87d9e54e37b1d06c54f79",
+    "frame-064.png": "f4dace87094c10d1c6f03db12373c51b4d139301ff88ce33368a4e61beea83b7",
+    "frame-065.png": "6ea5860757dade07f321b79c4d9fe2c8cebac2566fc427cfa0f2aa6c8e354595",
+    "frame-066.png": "0504473bea065d0442ff013a7443d15fa4ac6bc82e7b2f60831aab243b24d087",
+    "frame-067.png": "a7741dbf385eb2cf11b8fe8392e1b21bf83b2ef867fc63d3d623a50bff2944ab",
+    "frame-068.png": "24a2d144b6ecddece2ea5facbcbbc066e1804e5ef832f55e49b6f90e344a4e95",
+    "frame-069.png": "02d4b438b209432d06d260ecaa968fe02ae0c62e769a5b0aa34f32082338cd53",
+    "frame-070.png": "0ca818924ab4f405575f6d7b0d0283343c2d5f916bbd42282ec7593028a8326f",
+    "frame-071.png": "108da5aaca698edc3d21e531eb8cbd910a5f2ca282b608ee3ddae7eb22ef4bbb",
+    "frame-072.png": "bc3952538a72025e646f0edc3fd4422dace2341b10f7f2d3ff2bf83f0e2b144e",
+    "frame-073.png": "4e10b9c7f1e1a53c33f739c6e186e33a1170732740936bbfeb1072d465b8e49e",
+    "frame-074.png": "a32c1d53dd9f77ce3f82f7dd572e577bbec05e77e0c8d50df267a0782a694ab8",
+    "frame-075.png": "4cd120bd95f22a9f4766369d3764aae6f4a0288259ae413b48921039e275a36e",
+    "frame-076.png": "caa3047d8072d4a1b9f5f30b80eb8d5a0e03fa01d63926d47ed846ef64f355c9",
+    "frame-077.png": "d97f3e8e0e7cf196e30c3c210831164c908c7f7fb4f3fcb9666e47848aa0c876",
+    "frame-078.png": "53ac38b46bf7fa1bb09045cfde7a49bfe87396519ef1507ca512f49df2118500",
+    "frame-079.png": "5cc132b607bc981f51198467e83ee4244d95a715567d87c845531fe416a1a530",
+    "frame-080.png": "d7c5dd1bfee5a520750dc8512deabae8fb93f7208a7cf2c2306d9bb97b4c3be7",
+    "frame-081.png": "37c6ed48247cb291ac1b299fc1e01db35d92facb368ce2fdfd95b5644fb87aa4",
+    "frame-082.png": "1eaae783453ad2d37a1dcb245329f5b68c86b8b6d1735ebea181b336cf5f8fed",
+    "frame-083.png": "eefff8aac480d7ddb0d32e22bc2c0d4e3137a6777738d321ab472890b2333684",
+    "frame-084.png": "bcb40767581e52508c3ead2704f9c38a6512f4a062f02b9fa9a5f4e9c414150c",
+    "frame-085.png": "6f4bb59cac5c608764f1e37be198c3da116bcbdce629cf1a240ad8b3acda4951",
+    "frame-086.png": "b1c92c02d962a5e09b965a5228bb89705f79b8f5567f842e90519f7e8f2a6255",
+    "frame-087.png": "02f094bd269a13f0305940d9d45e1f4ef0e9fa3f208785299f40508f9b0482e8",
+    "frame-088.png": "cf497720d0ebfe8229bd791695db70ca9cdca61070a44ae764b3c5e5cd1cfce2",
+    "frame-089.png": "e68ba09a0ca39a37d892dbc561250e01a3a877c3b8759eaeb1ab1a30ecc65007",
+    "frame-090.png": "7c757cf6a7e21004e139c028bdfc66b8f7dc7bb4afc1309ea8b497435a516353",
+    "frame-091.png": "731614e5b59e145757802c9a88ba9c113c34183e07d829df937d37f71fc1731e",
+    "frame-092.png": "24064754ca3dcf1af314173e0e754dd5de664673f0d7bd8af7f206db533c8e8f",
+    "frame-093.png": "200f4ada877254858acf351397bed262600a06d605fa85aa3469f8d7587e60be",
+    "frame-094.png": "eb304d92efb97df05f56aaab6d53a46c72ad8b26e9c5584231ccf568ed624939",
+    "frame-095.png": "0b5ffc006f9162cf695e92e1a53e6b79a2f53a366baaa6c813279ad58eb4edaa",
+    "frame-096.png": "ecda648e20c45543d8535734a52258333671cb2015f76483dbbf37a5d43d1e75",
+    "frame-097.png": "fca6f006519bd17ae6c883a08de8dd7dac65fb644a86097ec1b10172937e5ea5",
+    "frame-098.png": "d84dd04ca8db32ad3b9d027628e3cfb0729d4a1f7642ab1ceae5d0c4a2ebd1fd",
+    "frame-099.png": "455f3f57cc758c58f8816db7c15a8abafe3ce807bc3e09a1c64bef195f7e1608",
+    "frame-100.png": "94df43aafa80d8d4fd49d10386060978b0c6e4190b1493d13a5fe0da215db2eb"
+  },
+  "encoder": {
+    "Pillow": "12.2.0",
+    "libwebp": "1.6.0",
+    "method": 4,
+    "minimizeSize": true,
+    "alphaQuality": 100
+  },
+  "verification": {
+    "visibleEndpointDifferingPixels": 2,
+    "foregroundPremultipliedRGBA": {
+      "adjacentMAEMin": 1.3070031510044915,
+      "adjacentMAEMax": 2.6351661836505573,
+      "lastToFirstMAE": 2.419367917466912
+    },
+    "nonstatic": true,
+    "PASS": true,
+    "alphaMaxErrorFromEncodingPNG": 0
+  },
+  "alpha": [
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "min": 0,
+      "max": 255,
+      "intermediate": true,
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "bytes": 7390994,
+  "sha256": "6e08a19deefac0d27d7d0b3e6e75384269f185ed0cc2c9928ae9dd441e18929f"
+}

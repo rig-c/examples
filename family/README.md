@@ -16,11 +16,25 @@
 
 ## 움직이는 미리보기
 
-![5인 패밀리의 호흡과 잔잔한 산들바람 — 투명 배경](./docs/family-preview.webp)
+네 의상의 정본 serving 모델을 같은 구도·아이들·산들바람으로 새로 렌더링한 미리보기다. 각 파일은 **960×832, 67프레임, 3,333ms, 무한 루프**이며 브라우저 compositor의 투명도를 보존한다. 기존 office의 해상도·프레임 시간·quality80을 네 의상 모두에 그대로 적용한다. 실제 파일 크기는 각 메타데이터에 기록하며, 요청된 최종 미리보기 산출물에는 5MB 증거 파일 제한을 적용해 임의 축소하지 않는다. 원본 프레임의 해상도·카메라·물리·모션은 바꾸지 않는다.
 
-승인된 다섯 `out/check/build/skeleton.model.json`과 현재 뷰어의 player를 그대로 재생한 960 × 832, 3.33초 WebP(7.42 MB)입니다. 호흡·눈 깜빡임·일정한 약한 산들바람(바람 4)을 고정 시간 간격으로 렌더링하고, 브라우저 합성 결과의 alpha를 보존했습니다. 배경색 제거는 사용하지 않습니다. 루프용 눈 깜빡임은 고정 위상이며 실제 뷰어의 무작위 타이머와 구분합니다.
+| Office · 오피스 | Homewear · 홈웨어 |
+| --- | --- |
+| ![Office preview](./docs/family-preview.webp) | ![Homewear preview](./docs/family-preview-homewear.webp) |
+| [프레임·시간·source 해시](./docs/family-preview.json) | [프레임·시간·source 해시](./docs/family-preview-homewear.json) |
+| Swimwear · 수영복 | Uniform · 교복 |
+| ![Swimwear preview](./docs/family-preview-swimwear.webp) | ![Uniform preview](./docs/family-preview-uniform.webp) |
+| [프레임·시간·source 해시](./docs/family-preview-swimwear.json) | [프레임·시간·source 해시](./docs/family-preview-uniform.json) |
 
-[재현 스크립트](./scripts/render-readme-preview.mjs) · [입력 해시·프레임 시간](./docs/family-preview.json). 실시간 조작과 검증 범위는 아래 설명을 따릅니다.
+[재현 스크립트](./scripts/render-readme-preview.mjs). 렌더러 자체는 루프 닫힘 판정을 내리지 않으며, 실제 WebP decode의 마지막→첫 프레임 전환 단계가 인접 프레임 간 최대 전환 단계 이하(`lastToFirstMAE ≤ adjacentMAEMax`)인지 확인하고 원본 첫 프레임과 한 주기 후 endpoint의 가시 차이는 참고 수치로 기록한다. 마지막 프레임은 첫 프레임보다 한 표시 간격 앞이므로 둘이 같은 그림이어야 한다는 기준은 쓰지 않는다. 합성·인코딩 alpha도 검사한다. 루프용 blink는 고정된 위상이며 실제 뷰어의 무작위 타이머와 구분한다.
+
+```bash
+node family/scripts/render-readme-preview.mjs --help
+# Heavy render: run under nova-run with an explicit Playwright module and Python/Pillow.
+node family/scripts/render-readme-preview.mjs --outfit homewear --width 960 --quality 80 --evidence .lane-evidence/new-homewear-frames --out .lane-evidence/new-homewear.webp
+```
+
+`--help`는 렌더 없이 끝난다. `--preflight`는 실제 모델/page 로더와 작은 PNG→WebP reader 체인만 점검하는 probe이며 루프 인수 수치가 아니다. 렌더 receipt에는 순서대로 이어 붙인 PNG 해시·개별 해시·실제 encoder/runtime 핀이 남고 bulk 프레임은 판정 뒤 지운다. serving 20개 리그, 원화·메시·UV·atlas·물리·모션·player·카메라는 그대로다. 아래 기존 수리·stress·SKIP/REPORTED 경계와 play#187의 의상 간 raster 잔여도 이번 미리보기의 보장으로 확대하지 않는다.
 
 같은 구도·아이들·프레임으로 `office`와 `uniform`을 한 번씩 렌더링해 루프 0프레임에서 이어 붙인 [의상 전환 클립](./docs/family-outfit-switch.mp4)(오피스 → 교복 → 오피스, 10초, 24fps, 흰 배경)도 있습니다. [재현 스크립트](./scripts/render-outfit-switch.mjs) · [입력 해시·컷 프레임 수치](./docs/family-outfit-switch.json) · [컷 프레임 비교](./docs/family-outfit-switch-cut.png).
 
