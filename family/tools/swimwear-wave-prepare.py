@@ -44,6 +44,12 @@ CROPS = {
 }
 
 
+def require_file(path: pathlib.Path) -> pathlib.Path:
+    if not path.is_file():
+        raise RuntimeError(f"FAMILY_INPUT_MISSING: {path}")
+    return path
+
+
 def digest(path: pathlib.Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -56,16 +62,7 @@ def prepare_character(family: pathlib.Path, source_path: pathlib.Path, character
     spec = CROPS[character]
     target = family / "outfits/swimwear" / character
     inputs = target / "inputs"
-    inputs.mkdir(parents=True, exist_ok=True)
-
-    canonical_source = family / "outfits/swimwear/naru/inputs/source-group.jpeg"
-    canonical_source.parent.mkdir(parents=True, exist_ok=True)
-    if not canonical_source.exists() or digest(canonical_source) != digest(source_path):
-        shutil.copy2(source_path, canonical_source)
-
-    source = Image.open(canonical_source)
-    if source.size != (2752, 1536) or source.mode != "RGB":
-        raise RuntimeError("SWIMWEAR_SOURCE_EXPECTED_2752_1536_RGB")
+    require_file(source_path)
 
     baseline = family / character
     paths = [
@@ -77,7 +74,22 @@ def prepare_character(family: pathlib.Path, source_path: pathlib.Path, character
     ]
     paths += sorted((baseline / "out/rig/images").glob("*.png"))
     paths += sorted((baseline / "out/parts").glob("*.png"))
+    for path in paths:
+        require_file(path)
+    # Validate before writing the shared source or any preparation record.
+    with Image.open(source_path) as image:
+        if image.size != (2752, 1536) or image.mode != "RGB":
+            raise RuntimeError("SWIMWEAR_SOURCE_EXPECTED_2752_1536_RGB")
     record = {str(p.relative_to(family)): digest(p) for p in paths}
+    inputs.mkdir(parents=True, exist_ok=True)
+    canonical_source = family / "outfits/swimwear/naru/inputs/source-group.jpeg"
+    canonical_source.parent.mkdir(parents=True, exist_ok=True)
+    if not canonical_source.exists() or digest(canonical_source) != digest(source_path):
+        shutil.copy2(source_path, canonical_source)
+
+    source = Image.open(canonical_source)
+    if source.size != (2752, 1536) or source.mode != "RGB":
+        raise RuntimeError("SWIMWEAR_SOURCE_EXPECTED_2752_1536_RGB")
 
     protection = {
         "spec": "family-swimwear-protected-baseline/1",
@@ -121,18 +133,28 @@ def prepare_character(family: pathlib.Path, source_path: pathlib.Path, character
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--family-dir", type=pathlib.Path, default=pathlib.Path(__file__).resolve().parents[1], help="Family directory (default: this checkout)")
     parser.add_argument(
         "--source",
         type=pathlib.Path,
-        default=pathlib.Path("/Users/firejune/Downloads/Gemini_Generated_Image_kdlq5ykdlq5ykdlq.jpeg"),
+        required=True,
+        help="Explicit 2752x1536 RGB source image",
     )
-    parser.add_argument("--characters", nargs="*", default=["roa", "luna", "jinni", "naru", "nova"])
+    parser.add_argument("--characters", nargs="*", choices=CROPS, default=["roa", "luna", "jinni", "naru", "nova"])
     args = parser.parse_args()
-    family = pathlib.Path(__file__).resolve().parents[1]
+    family = args.family_dir.resolve()
+    if not family.is_dir():
+        raise RuntimeError(f"FAMILY_INPUT_MISSING: {family}")
+    require_file(args.source)
     results = [prepare_character(family, args.source, ch) for ch in args.characters]
     print(json.dumps({"status": "SWIMWEAR_SOURCE_PREPARED", "characters": results}, indent=2))
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except FileNotFoundError as error:
+        raise SystemExit(f"FAMILY_INPUT_MISSING: {error.filename}") from None
+    except RuntimeError as error:
+        raise SystemExit(str(error)) from None

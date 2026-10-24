@@ -6,10 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const PORT = Number(process.env.PORT) || 4568;
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const WORKTREE_FAMILY = fs.existsSync('/Users/firejune/Workspace/Firejune/parts-examples-naru-homewear/family/tools/bust-region-rebuild.py')
-  ? '/Users/firejune/Workspace/Firejune/parts-examples-naru-homewear/family'
-  : ROOT;
-const REBUILD_SCRIPT = path.join(WORKTREE_FAMILY, 'tools/bust-region-rebuild.py');
+const REBUILD_SCRIPT = path.join(ROOT, 'tools/bust-region-rebuild.py');
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -25,7 +22,11 @@ const MIME = {
 
 function runPython(args) {
   return new Promise((resolve, reject) => {
-    execFile('python3', [REBUILD_SCRIPT, '--family-dir', WORKTREE_FAMILY, '--live-family-dir', ROOT, ...args], { maxBuffer: 10 * 1024 * 1024 }, (err, stdout, stderr) => {
+    if (!fs.existsSync(REBUILD_SCRIPT) || !fs.statSync(REBUILD_SCRIPT).isFile()) {
+      reject(new Error(`FAMILY_INPUT_MISSING: ${REBUILD_SCRIPT}`));
+      return;
+    }
+    execFile('python3', [REBUILD_SCRIPT, '--family-dir', ROOT, ...args], { maxBuffer: 10 * 1024 * 1024 }, (err, stdout, stderr) => {
       if (err) {
         reject(new Error((stderr || stdout || err.message).trim()));
         return;

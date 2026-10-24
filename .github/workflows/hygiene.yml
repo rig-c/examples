@@ -16,22 +16,15 @@ jobs:
       - name: No local home paths in tracked files
         run: |
           set -eu
-          # Five Family tool scripts still default to local paths; they are
-          # excluded by name until rig-c/examples#37 removes the paths, and
-          # that card ends by deleting these five lines. Run logs and the one
-          # validation record keep the pooled runner's paths they were
-          # produced with: they are evidence of a run, not a path anyone
-          # resolves, and rewriting evidence is not hygiene.
-          if git grep -n -E '(^|[^A-Za-z0-9_])/(Users|home)/[A-Za-z0-9._-]+/' -- . \
-               ':!.github/workflows/hygiene.yml' \
-               ':!family/tools/homewear-wave-author.py' \
-               ':!family/tools/swimwear-wave-author.py' \
-               ':!family/tools/swimwear-wave-prepare.py' \
-               ':!family/tools/bust-region-rebuild.py' \
-               ':!family/viewer/server.mjs' \
-               ':!*.log' \
-               ':!family/naru/repairs/body-edge-validation.json' ; then
+          # Historical text records use <home> or <nova-home> prefixes.
+          # Ignore binary content; no tracked text path is exempt.
+          if git grep -I -n -E '/(Users|home)/[A-Za-z0-9._-]+/|[~]/' -- . ; then
             echo "::error::a local home path is committed; replace it with a repository-relative path or an argument"
             exit 1
+          else
+            status=$?
+            if [ "$status" -ne 1 ]; then
+              exit "$status"
+            fi
           fi
           echo "no local home paths"

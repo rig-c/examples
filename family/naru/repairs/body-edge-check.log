@@ -1,5 +1,5 @@
 rig-parts check: final/rig -> final/check
-  rigc 2.57.0 at /home/firejune/nova-run/runs/20261016T154001Z-c40393de403b45b4bf23b58082f6234e/work/node_modules/.bin/rigc; entry: cli.ts — @esotericsoftware/spine-core 4.3.13 present
+  rigc 2.57.0 at <nova-home>/nova-run/runs/20261016T154001Z-c40393de403b45b4bf23b58082f6234e/work/node_modules/.bin/rigc; entry: cli.ts — @esotericsoftware/spine-core 4.3.13 present
   gate rig-play (rigc build --profile rig-play --pack --page-edges free --pack-shape polygon), verbatim:
   ..    50 assertions: 26 measured (26 passed, 0 failed), 24 skipped, 0 not in profile "rig-play"
   ..    pages=20 regions=20 bones=105 slots=20 animations=1 version=4.3.13 regionAttachments=15 meshAttachments=5 physicsConstraints=29 physicsTimelineKeys=0 rig=naru_painting profile=rig-play
