@@ -178,3 +178,72 @@ boundary controls precede the historical pixel metric.
 Ordinary build/check still excludes live physics
 from its animation fold test; no new stress-force, subjective material-quality
 or physical-device acceptance is claimed.
+
+
+## Homewear and swimwear shared-hair parity (issue #63)
+
+All predecessor exclusions above remain the historical record. This extension
+supersedes only the homewear/swimwear hair exclusion: ten configs inherit the
+accepted office hair/bang values for 150 constraints, changing only `mass`,
+`strength`, `damping`, `inertia` and `wind` (750 scalars). Office and uniform,
+Jinni's skirt, clothing/bust physics, bones, art, mesh/UV/weights/topology,
+atlas/pages, motion, player and camera remain unchanged.
+
+Each declaration adds `outfitHairProfile` (`family-outfit-hair-profile/1`),
+bound separately to character/outfit, the accepted office profile hash and its
+complete hair rows, and whole repaired-rig before/after hashes. Config values
+and the declaration hash must match. Existing common-part merging and repairs
+run first with their original preimages; only then does this stage apply.
+Reversing it recovers the previous complete rig. Extra/missing targets,
+misbound outfits, drifted coefficients, meshes or repair payloads are refused.
+`out/rig/outfit-hair-profile.provenance.json` pins the profile/config/authoring/model.
+Canonical public builds reproduce rig/model/Spine bytes; the only serving
+value changes are these five coefficients and the model's derived Spine hash.
+
+### Complete posed geometry, viewed sheets and cold control
+
+The pinned viewer's actual reader discovered shared draw counts
+**12/14/18/15/14 per outfit**, not an assumed total from #49. All **146** shared
+posed draws match office exactly, including face/accessories, after 1200 steps
+at 1/60, wind [4,0], gravity [0,0], accepted phases and deterministic blink.
+Order, coordinates, topology, tint and clipping are checked at tolerance 0.
+Independent office tracks are a normal control. The contract's planted
+coordinate/topology/colour/order/inventory defects and empty/nonfinite edge
+controls must refuse before an acceptance result is trusted.
+
+The two fresh 1200×1040 static captures use these actual posed snapshots and the
+unchanged DOM/WebGL renderer, including the preceding full-clothing draw's
+batch state. They do not replay browser physics. Both residual-bounding-box
+crops with magenta diff overlay were viewed at 4x nearest-neighbour:
+
+- [Homewear sheet](docs/homewear-switch-4x.png), SHA256
+  `99719be50e7d9e83c8b03eca7b960e73a4a4bacbbd0df9e17d3b67a603c34d48`.
+- [Swimwear sheet](docs/swimwear-switch-4x.png), SHA256
+  `497264b636e2e82035936f1781a2ca171f350603077ae5e109c90227ef22d508`.
+
+The unchanged neck-alpha-union, threshold-0 raster metric measured fresh
+homewear **52,623 → 401** and swimwear **52,986 → 370** outside-neck pixels at
+origin `40db33d`. These independently reproduce the historical preimage figures;
+they are not taken from the older receipt. Office normal and both cold controls
+are **0**. Cold controls preserve the identical posed geometry and batch state,
+substituting office shared textures/UVs only in memory; serving art is unchanged.
+The issue #49 HQ motion-versus-raster ruling is the explicit #63 bar: exact
+complete shared pose + viewed sheets + cold zero. Original pixels are **not
+zero** and their residual remains [play#187](https://github.com/rig-c/play/issues/187).
+No mask or tolerance was enlarged to obtain acceptance.
+
+The [compact receipt](docs/outfit-hair-switch.json) binds source hashes, both
+sheets, individual frame hashes, the ordered concatenated-PNG SHA256, two sealed
+Nova jobs and the [exact pose receipt](docs/outfit-shared-pose.json). Frame bulk
+was deleted after hashes and sheets were recorded. Reproduce the exact pose bar:
+
+```bash
+node family/tools/verify-outfit-hair.mjs --out .lane-evidence/new-outfit-pose.json
+```
+
+Use a fresh output path. The adapter refuses a player hash outside the accepted
+manifest and any changed shared inventory. The normal, planted-defect and
+neck-boundary raster controls precede measurement. Ordinary build/check still
+excludes live physics from animation folds; no new stress-force, subjective
+material-quality or physical-device acceptance is claimed. Roa's missing
+eyewhite blink SKIP and every other predecessor observation above remain.

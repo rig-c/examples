@@ -1,0 +1,186 @@
+{
+  "spec": "family-outfit-shared-pose/1",
+  "recipe": {
+    "lineup": [
+      [
+        "roa",
+        0
+      ],
+      [
+        "luna",
+        0.06
+      ],
+      [
+        "jinni",
+        0.45
+      ],
+      [
+        "naru",
+        0.85
+      ],
+      [
+        "nova",
+        1.25
+      ]
+    ],
+    "steps": 1200,
+    "dt": 0.016666666666666666,
+    "wind": [
+      4,
+      0
+    ],
+    "gravity": [
+      0,
+      0
+    ],
+    "blink": "accepted deterministic viewer schedule",
+    "excludedSlots": [
+      "clothing slots",
+      "neck"
+    ],
+    "tolerance": 0
+  },
+  "rows": [
+    {
+      "character": "roa",
+      "outfit": "homewear",
+      "draws": 12,
+      "coordinates": 466,
+      "exact": true,
+      "normal": {
+        "draws": 12,
+        "coordinates": 466,
+        "exact": true
+      }
+    },
+    {
+      "character": "luna",
+      "outfit": "homewear",
+      "draws": 14,
+      "coordinates": 526,
+      "exact": true,
+      "normal": {
+        "draws": 14,
+        "coordinates": 526,
+        "exact": true
+      }
+    },
+    {
+      "character": "jinni",
+      "outfit": "homewear",
+      "draws": 18,
+      "coordinates": 556,
+      "exact": true,
+      "normal": {
+        "draws": 18,
+        "coordinates": 556,
+        "exact": true
+      }
+    },
+    {
+      "character": "naru",
+      "outfit": "homewear",
+      "draws": 15,
+      "coordinates": 532,
+      "exact": true,
+      "normal": {
+        "draws": 15,
+        "coordinates": 532,
+        "exact": true
+      }
+    },
+    {
+      "character": "nova",
+      "outfit": "homewear",
+      "draws": 14,
+      "coordinates": 886,
+      "exact": true,
+      "normal": {
+        "draws": 14,
+        "coordinates": 886,
+        "exact": true
+      }
+    },
+    {
+      "character": "roa",
+      "outfit": "swimwear",
+      "draws": 12,
+      "coordinates": 466,
+      "exact": true,
+      "normal": {
+        "draws": 12,
+        "coordinates": 466,
+        "exact": true
+      }
+    },
+    {
+      "character": "luna",
+      "outfit": "swimwear",
+      "draws": 14,
+      "coordinates": 526,
+      "exact": true,
+      "normal": {
+        "draws": 14,
+        "coordinates": 526,
+        "exact": true
+      }
+    },
+    {
+      "character": "jinni",
+      "outfit": "swimwear",
+      "draws": 18,
+      "coordinates": 556,
+      "exact": true,
+      "normal": {
+        "draws": 18,
+        "coordinates": 556,
+        "exact": true
+      }
+    },
+    {
+      "character": "naru",
+      "outfit": "swimwear",
+      "draws": 15,
+      "coordinates": 532,
+      "exact": true,
+      "normal": {
+        "draws": 15,
+        "coordinates": 532,
+        "exact": true
+      }
+    },
+    {
+      "character": "nova",
+      "outfit": "swimwear",
+      "draws": 14,
+      "coordinates": 886,
+      "exact": true,
+      "normal": {
+        "draws": 14,
+        "coordinates": 886,
+        "exact": true
+      }
+    }
+  ],
+  "sources": {
+    "viewer/assets/player.js": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+    "roa/out/check/build/skeleton.model.json": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+    "outfits/homewear/roa/out/check/build/skeleton.model.json": "6fb2053f79208eca98e1dbd31215594aef786c95fb7251006f5e0db340f546a3",
+    "luna/out/check/build/skeleton.model.json": "a1043b7b663439f53d1f6af980be855905c39e0fd822eceb76143015d5d57d1d",
+    "outfits/homewear/luna/out/check/build/skeleton.model.json": "37b8abc29f34e7943b3e659569061ab1c742512f8232041e59a892bf385050f3",
+    "jinni/out/check/build/skeleton.model.json": "5475c1a67bddd25f679ade558afbfce5c4762c295fd78d3acf21d8b1274390eb",
+    "outfits/homewear/jinni/out/check/build/skeleton.model.json": "19efa8802250cecedc44d76819695053a255594096642874240071035478f22b",
+    "naru/out/check/build/skeleton.model.json": "7ae9cf3378b882f24a19ce5c44638d4adc0b61e9aa27b4a425c3a445482f8813",
+    "outfits/homewear/naru/out/check/build/skeleton.model.json": "78551b3a92173441197b4dde053b7fd9557acd82822f691a95330aadc35f56dc",
+    "nova/out/check/build/skeleton.model.json": "0846163f16e7270caeb2005d4f63c4dff1627f4cbab7200e6e363f39ad877b41",
+    "outfits/homewear/nova/out/check/build/skeleton.model.json": "838ca623f486ce27333eaefb6c5f0912d89c8a6c7166ab5a13e61bf1c12e3fdf",
+    "outfits/swimwear/roa/out/check/build/skeleton.model.json": "eb0f54b57bed9ac9684d63b1b3254a644aed98b889a79a149a232f1ff65cc03a",
+    "outfits/swimwear/luna/out/check/build/skeleton.model.json": "62d444cad2fdfb88d1eaa254807ea307c82157ff70ead0d13c05c89a19a24b8e",
+    "outfits/swimwear/jinni/out/check/build/skeleton.model.json": "9690b754adc20aa53b3fcc52ee98c28b7e1d60d1af661866a8ef96be64de44a2",
+    "outfits/swimwear/naru/out/check/build/skeleton.model.json": "81df3d4f4bcb42d7aa346ee1cf1ff059a2ea03a8893d786d72b95944166598c1",
+    "outfits/swimwear/nova/out/check/build/skeleton.model.json": "a71643463fd7bbc14ca1680ae8fff7ecc6b22a1ca5e9c0e3e116255c49d71350"
+  },
+  "totalDraws": 146,
+  "PASS": true,
+  "pixelZeroClaimed": false
+}
