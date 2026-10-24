@@ -1,12 +1,20 @@
-# 2026-10-24 Zero Two: owner-accepted hand result on the dancer
+# 2026-10-24 Zero Two: owner-accepted v3 transfer on the dancer
 
 ## Question
+
+**Current selected result: [v3](hand/v3/README.md).** The owner named v3 final on 2026-10-24. This transfer reproduces its exact compiled hashes and all 391 native PNG bytes with released pins, without another hand pass. The phase 1 and v1 material below remains historical comparison evidence. Corpus promotion is a separate second PR.
 
 The fresh acquisition established a machine comparison baseline. The owner-selected final continues the accepted 313-frame pose source, retargets it onto the public dancer with its exact source map, and applies the declared hand corrections. The owner accepted the exact final video on 2026-10-24; fresh data and earlier results remain comparison evidence.
 
 ## Inputs
 
-**Selected final:** `hand/r3/` ([source, commands and evidence](hand/r3/README.md)). Exact accepted pose SHA256 `8713172431674a57caa8d7c3f452a05bf46ec8079ca368bb4cd9df7952c2edfd`, 313 input samples at 24 fps. The final has 391 rendered samples at 30 fps. This is an explicit owner-selected pose-source hand decision; no historical whole motion was copied. The original fresh source remains below as the comparison baseline.
+| Version | Source date | Record |
+| --- | --- | --- |
+| v1 | 2026-10-24 | R3/v5 transfer, [#52](https://github.com/rig-c/examples/pull/52) and [#53](https://github.com/rig-c/examples/pull/53), retained in `hand/r3/` |
+| v2 | 2026-10-24 | Intermediate generated holds/jacket strip, [#38](https://github.com/rig-c/examples/issues/38), recorded but not promoted |
+| v3 | 2026-10-24 | Owner-named final, [#56](https://github.com/rig-c/examples/issues/56): [exact payload, generation records, before/after table and replay](hand/v3/README.md) |
+
+**Historical v1 final (superseded by v3):** `hand/r3/` ([source, commands and evidence](hand/r3/README.md)). Exact accepted pose SHA256 `8713172431674a57caa8d7c3f452a05bf46ec8079ca368bb4cd9df7952c2edfd`, 313 input samples at 24 fps. The final has 391 rendered samples at 30 fps. This is an explicit owner-selected pose-source hand decision; no historical whole motion was copied. The original fresh source remains below as the comparison baseline.
 
 | Input | Where it came from | Origin | Committed here? |
 | --- | --- | --- | --- |
@@ -41,9 +49,11 @@ parts config. Workflow was adapted from the public Toca trial at
 
 ## Commands and pins
 
+**Current v3:** `python3 hand/v3/reproduce.py --preflight`, then `python3 hand/v3/reproduce.py --runtime work/v3-runtime --out work/v3-replay` after the pinned runtime install. See [v3 commands](hand/v3/README.md#commands-and-pins). Its accepted payload is copied unchanged; no acquisition, inference, retarget or historical hand script is rerun. The commands below reproduce historical v1 and phase 1.
+
 The hand payloads are stored once: `hand/rig.json` and `hand/source-corrections.json`. `hand/r3/rig-reference.json` declares portable image-path and serialization adapters; `hand/r3/source-corrections-reference.json` is a hash reference to the shared correction payload. The reproducer materialises its derived rig before building; removed snapshots are not required files. Exact reconstructed input hashes and unchanged motion proof are in `hand/r3/dedup-proof.json`. No geometry, animation or runtime result changed during deduplication.
 
-**Accepted final:** `sh hand/r3/reproduce.sh` from this trial root under the pooled 6 GiB/four-worker guard. See `hand/r3/pins.json`. It uses the exact source map and recorded `--flip 90 --short 0.35 --bends clamp --leg-scale 0.8,1.05 --plant-feet --stance 0.04 --carry-idle --raised-by-head --profile spine`, then the declared posthoc steps. Earlier commands below reproduce the fresh comparison, not the selected final.
+**Historical v1 replay:** `sh hand/r3/reproduce.sh` from this trial root under the pooled 6 GiB/four-worker guard. See `hand/r3/pins.json`. It uses the exact source map and recorded `--flip 90 --short 0.35 --bends clamp --leg-scale 0.8,1.05 --plant-feet --stance 0.04 --carry-idle --raised-by-head --profile spine`, then the declared posthoc steps. Earlier commands below reproduce the fresh comparison, not the selected final.
 
 | Tool/input | Pin |
 | --- | --- |
@@ -206,6 +216,8 @@ The historical baseline has 391 render samples at 30 fps; this trial has 313 at 
 | LAND / core gate scope | Historical build:23PASS /13SKIP /14 spine exclusions; saved pose LAND results not available in this comparison | Phase1 LAND20/20; final core gate23PASS /13SKIP /14 exclusions. After-hand original-pose LAND not rerun/claimed | Core gate checks compiled skeleton, not source fidelity or changed foot target. Historical build.log source hash in C; hand/gate-lines.txt; machine-lines.txt. New hand-goal residual is descriptive and distinct |
 
 ## Verdict
+
+**Current v3 transfer: PASS.** Released core 2.67.2/spine-core 4.3.13 reproduce compiled model `a94c7cbee992acaf87c0e283efc1bbd44766441f791776064e929bd59a2f0e81` and concatenated 391 native PNG SHA-256 `b75fc5696ac468f3ea9f58cc892d79389d66bf6ce7aeb31428f95350b9121029` exactly. Gate 23 PASS / 0 FAIL / 13 SKIP / 14 excluded. [V3 evidence and limits](hand/v3/README.md#measurement) distinguish these observations from historical LAND, folds and local seam measurements. The original v1 verdict follows unchanged as history.
 
 **OWNER ACCEPTED — 2026-10-24.** The selected result is `hand/r3/`, compiled SHA256 `2a21d03affaadac4a314b7dd0345b0b2b842292a24ff3ce49b4de2b460fb12d1`, video SHA256 `ff27321a4bb4950d2d7a0e06ba29090f58cbac44bd2230ae8d3cacd3a09b6649`. Owner acceptance does not erase shins folds 269/391, profile exclusions, unmeasured all-rig seams or unavailable detector-based compare results. The original fresh and earlier hand results remain frozen comparisons.
 

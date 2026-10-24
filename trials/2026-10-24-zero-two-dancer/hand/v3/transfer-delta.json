@@ -1,0 +1,185 @@
+{
+  "spec": "examples-v3-transfer-delta/1",
+  "comparison": "v1 canonical hand/rig.json and hand/r3/motion.json to accepted v3",
+  "rigTopLevelDifferences": [
+    "images",
+    "slots",
+    "skins"
+  ],
+  "existingBonesConstraintsAndSkirtUnchanged": true,
+  "existingAttachmentsUnchanged": true,
+  "unchangedOtherBoneTracks": 41,
+  "changedOrAddedTracks": [
+    {
+      "target": [
+        "chest_ctl",
+        null,
+        "translatey"
+      ],
+      "beforeKeys": 33,
+      "afterKeys": 62
+    },
+    {
+      "target": [
+        null,
+        "upperarm_r_under",
+        "attachment"
+      ],
+      "beforeKeys": 4,
+      "afterKeys": 6
+    },
+    {
+      "target": [
+        null,
+        "forearm_r_back",
+        "attachment"
+      ],
+      "beforeKeys": 5,
+      "afterKeys": 7
+    },
+    {
+      "target": [
+        null,
+        "upperarm_l_under",
+        "attachment"
+      ],
+      "beforeKeys": 9,
+      "afterKeys": 11
+    },
+    {
+      "target": [
+        null,
+        "forearm_l_back",
+        "attachment"
+      ],
+      "beforeKeys": 8,
+      "afterKeys": 10
+    },
+    {
+      "target": [
+        null,
+        "forearm_r",
+        "attachment"
+      ],
+      "beforeKeys": 3,
+      "afterKeys": 5
+    },
+    {
+      "target": [
+        null,
+        "upperarm_r",
+        "attachment"
+      ],
+      "beforeKeys": 3,
+      "afterKeys": 5
+    },
+    {
+      "target": [
+        null,
+        "forearm_l",
+        "attachment"
+      ],
+      "beforeKeys": 1,
+      "afterKeys": 3
+    },
+    {
+      "target": [
+        null,
+        "upperarm_l",
+        "attachment"
+      ],
+      "beforeKeys": 1,
+      "afterKeys": 3
+    },
+    {
+      "target": [
+        null,
+        "forearm_l_mid",
+        "attachment"
+      ],
+      "beforeKeys": 2,
+      "afterKeys": 4
+    },
+    {
+      "target": [
+        null,
+        "upperarm_l_mid",
+        "attachment"
+      ],
+      "beforeKeys": 2,
+      "afterKeys": 4
+    },
+    {
+      "target": [
+        null,
+        "arms_hold_head",
+        "attachment"
+      ],
+      "beforeKeys": 0,
+      "afterKeys": 3
+    },
+    {
+      "target": [
+        null,
+        "arms_hold_front",
+        "attachment"
+      ],
+      "beforeKeys": 0,
+      "afterKeys": 3
+    },
+    {
+      "target": [
+        "head_ctl",
+        null,
+        "translatey"
+      ],
+      "beforeKeys": 0,
+      "afterKeys": 31
+    }
+  ],
+  "otherAnimationsUnchanged": true,
+  "newSlots": [
+    {
+      "name": "arms_hold_head",
+      "bone": "chest",
+      "attachment": null
+    },
+    {
+      "name": "waist",
+      "bone": "hip",
+      "attachment": "waist"
+    },
+    {
+      "name": "arms_hold_front",
+      "bone": "chest",
+      "attachment": null
+    }
+  ],
+  "newAttachments": {
+    "arms_hold_head": {
+      "arms_hold_head": {
+        "image": "arms_hold_head.png",
+        "x": 8.0,
+        "y": 172.0,
+        "rotation": 0
+      }
+    },
+    "arms_hold_front": {
+      "arms_hold_front": {
+        "image": "arms_hold_front.png",
+        "x": -2.5,
+        "y": -10.0,
+        "rotation": 0
+      }
+    },
+    "waist": {
+      "waist": {
+        "image": "waist.png",
+        "x": 3.0,
+        "y": 118.5,
+        "rotation": 0
+      }
+    }
+  },
+  "newRetargetOrHandPassPerformed": false
+}

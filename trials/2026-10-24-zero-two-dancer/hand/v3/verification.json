@@ -1,0 +1,53 @@
+{
+  "spec": "examples-v3-verification/1",
+  "runId": "20261024T063424Z-ad672c1b49a94c28a77bf3e31aef800d",
+  "status": "passed",
+  "exitCode": 0,
+  "inputSHA256": "42f1b5bf40c2be1fc740e8a57abe2616a1adb6553f3f0d05870aa403b53792e4",
+  "evidenceManifestSHA256": "9b16354aec266b79a93c961a42551ea243a3ecf979e7f7048a371223255dff47",
+  "rawResultSHA256": "910b288aae3641ffd8f8db7ec9272ae609c08a64d0a1696c31edf48378f6ab1d",
+  "processQuiescent": true,
+  "budget": {
+    "memory.max": "6442450944",
+    "memory.swap.max": "0",
+    "cpu.max": "400000 100000"
+  },
+  "runtime": {
+    "bun": "1.4.2",
+    "node": "v24.21.0",
+    "python3": "Python 3.12.3"
+  },
+  "steps": [
+    {
+      "step": "install",
+      "exitCode": 0
+    },
+    {
+      "step": "replay",
+      "exitCode": 0
+    }
+  ],
+  "gate": {
+    "profile": "spine",
+    "pass": 23,
+    "fail": 0,
+    "skip": 13,
+    "excluded": 14
+  },
+  "originalPayloadUnchanged": true,
+  "buildExactlyMatchesAccepted": true,
+  "nativeFramesExactlyMatchAccepted": true,
+  "recoveredChangedEvidenceBytes": 82316,
+  "largeOutputRecovery": false,
+  "nativeFramesRetainedRemotely": true,
+  "localPreflight": {
+    "inputHashes": "pass",
+    "actualReaders": "pass",
+    "invalidRigRejected": true,
+    "firstAttempt": "failed: validation script expected a nonexistent pose.fps property; raw log retained",
+    "correctedDryRunBeforeNova": "pass: actual timestamps on declared 24fps grid"
+  },
+  "publicHygieneAndLinks": "checked locally on the completed source freeze; CI remains a separate parent gate",
+  "fullSuite": "not run; transfer/docs/scripts only",
+  "browser": "not run"
+}
