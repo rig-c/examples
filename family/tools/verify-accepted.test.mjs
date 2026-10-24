@@ -12,11 +12,28 @@ import {
   CHARACTERS,
   OUTFITS,
   rigPaths,
+  reportMatchesDeclaration,
   verifyDeclaredReproducibility,
 } from './verify-reproducibility.mjs';
 
 const family = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const accepted = JSON.parse(readFileSync(join(family, 'accepted-inputs.json'), 'utf8'));
+
+test('report correction binds exact before/after rows and only reversible drawn-bone names', () => {
+  const hash = row => createHash('sha256').update(JSON.stringify(row)).digest('hex');
+  const before = { part: 'skirt', vertices: 3, bones: ['hip', 'skirt'] };
+  const after = { ...before, bones: ['hip', 'skirt_d'] };
+  const correction = { beforeSHA256: hash(before), afterSHA256: hash(after), boneChanges: [{ index: 1, before: 'skirt', after: 'skirt_d' }] };
+  assert.equal(reportMatchesDeclaration(before, hash(before)), true);
+  assert.equal(reportMatchesDeclaration(after, hash(before), correction), true);
+  assert.equal(reportMatchesDeclaration(before, hash(before), correction), false);
+  assert.equal(reportMatchesDeclaration({ ...after, vertices: 4 }, hash(before), correction), false);
+  assert.equal(reportMatchesDeclaration(after, '0'.repeat(64), correction), false);
+  assert.equal(reportMatchesDeclaration(after, hash(before), { ...correction, boneChanges: [...correction.boneChanges, ...correction.boneChanges] }), false);
+  const other = { ...after, vertices: 4 };
+  assert.equal(reportMatchesDeclaration(other, hash(before), { ...correction, afterSHA256: hash(other) }), false);
+  assert.equal(reportMatchesDeclaration(after, hash(before), { ...correction, boneChanges: [{ index: 1, before: 'skirt', after: 'other' }] }), false);
+});
 
 test('historical exporter spelling admits one safe basename and refuses arbitrary paths', () => {
   for (const name of ['rig', 'final', 'pants-repair-rig']) assert.equal(historicalRigName(`../../${name}/images/`), name);
@@ -90,6 +107,7 @@ test('reproducibility gate checks all 5 characters × 4 outfits, goes red withou
   // Bar 3 (Mutant: hand-edit one accepted mesh -> red by character/outfit/part name)
   const fixture = mkdtempSync(join(tmpdir(), 'family-repro-mutant-'));
   try {
+    copyFileSync(join(family, 'accepted-inputs.json'), join(fixture, 'accepted-inputs.json'));
     for (const outfit of OUTFITS) {
       for (const character of CHARACTERS) {
         const src = rigPaths(family, character, outfit);
