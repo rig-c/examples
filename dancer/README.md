@@ -1,5 +1,13 @@
 # The dancer
 
+**Current accepted dance: owner v3, 2026-10-24.** Run `sh build-accepted-dance.sh` from this directory. The corpus stores the accepted rig/motion once and replays them with released core; no trial checkout, acquisition, generation, retarget or hand authoring is needed. [V3 source and commands](accepted-dance/v3/README.md) and `declared-repairs-v3.json` bind the exact native-frame target. The setup keeper below is separate base provenance. The corpus-only v3 default replay exited 0: all three compiled hashes and native 391-PNG concatenation `b75fc5696ac468f3ea9f58cc892d79389d66bf6ce7aeb31428f95350b9121029` match the accepted target exactly; gate 23 PASS / 0 FAIL / 13 SKIP / 14 excluded. [Actual v3 proof](accepted-dance/v3/reproduction-evidence.json).
+
+| Dance version | Source date | Record / selection |
+| --- | --- | --- |
+| v1 | 2026-10-24 | Accepted R3/v5, [trial #52](https://github.com/rig-c/examples/pull/52) and [corpus #53](https://github.com/rig-c/examples/pull/53); original declarations/evidence retained; explicit `sh build-accepted-dance.sh --version v1 work/accepted-v1` |
+| v2 | 2026-10-24 | Intermediate generated holds and lifted-jacket strip, [#38](https://github.com/rig-c/examples/issues/38); recorded, not promoted |
+| v3 | 2026-10-24 | Owner-named final, [#56](https://github.com/rig-c/examples/issues/56), [trial #57](https://github.com/rig-c/examples/pull/57); permanent hip waist, generated chest holds, compensated +17u chest lift and front-slot lowering; current default |
+
 Generated painting and saved rig inputs accepted on 2026-10-22. Origin:
 accepted dance-skirt v3/v5; original painting and See-through runs, 2026-10-13.
 Each input's origin is recorded in `source-manifest.json`.
@@ -26,8 +34,8 @@ Each input's origin is recorded in `source-manifest.json`.
   phase. The saved accepted hand-built rig and a config-only generation are
   separate artifacts; config-only output is not claimed to recreate that rig.
 
-No reference video, old dance motion, installed dependency tree or private raw
-log is included. Generation model names are source records; model binary hashes
+No reference video, audio, picture-in-picture, installed dependency tree or private raw
+log is included. The current accepted dance payload is explicitly stored once under accepted-dance/v3/. Generation model names are source records; model binary hashes
 are not available in those records.
 
 ## Reproduce the keeper-config build
@@ -112,20 +120,20 @@ and output hashes, versions and relative output layout are in
 outputs remain under ignored `work/`. This gate establishes validity, not visual
 fidelity or the quality of a new dance.
 
-## Accepted dance record, 2026-10-24
+## Historical v1 accepted dance record, 2026-10-24
 
 The owner accepted the Zero Two result in [trial PR52](https://github.com/rig-c/examples/pull/52), merged at `25105715d1d9365a065bf55255bb13116e85f9f4`. The exact source is now part of this corpus: `accepted/sequence.json`, SHA256 `8713172431674a57caa8d7c3f452a05bf46ec8079ca368bb4cd9df7952c2edfd`. It preserves its `rig-pose-clean/1` record, measured waistband hip inference and camera normalisation from eight hand keys. There are 313 input samples at 24fps, 0–13s; 391@30fps describes rendering, not acquisition. The original videos and reference pixels are withheld. Origin: Zero Two challenge, [YouTube Shorts BGyjsZsWndA](https://www.youtube.com/shorts/BGyjsZsWndA); creator not identified.
 
-The existing `map.json` is unchanged, SHA256 `9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096`. `config.json` pins `declared-repairs.json` through the same `x-repairs: {file, sha256}` metadata shape used by family configs. The record pins the original keeper producer bytes (excluding only `x-repairs` as explicitly specified by its `hashMode`), accepted rig, base motion, map and selected-art bytes. This avoids a circular hash without excluding any geometry or producer value from verification. It follows the family's explicit baseline/part-declaration/hash-pins pattern with a dancer-specific record format; it is not an input to the family repair scripts.
+The existing `map.json` is unchanged, SHA256 `9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096`. `config.json` now pins `declared-repairs-v3.json`; the preserved v1 record originally pinned `declared-repairs.json` through the same `x-repairs: {file, sha256}` metadata shape used by family configs. The record pins the original keeper producer bytes (excluding only `x-repairs` as explicitly specified by its `hashMode`), accepted rig, base motion, map and selected-art bytes. This avoids a circular hash without excluding any geometry or producer value from verification. It follows the family's explicit baseline/part-declaration/hash-pins pattern with a dancer-specific record format; it is not an input to the family repair scripts.
 
 The record contains all seven attachment corrections (five additions and two K1 region-to-mesh replacements with full UV/weight/triangle/hull values), all 14 posthoc selection tracks and the K0–K4 set spans. The remaining rig bones, slots and 11 physics constraints are preserved. The distal 1.15 enlargement is in authored mesh coordinates, not a bone-scale change. The ending right foot is re-solved against newly rendered geometry using the declared 11.25s start, 0.35s smoothstep, 85-world-unit separation and late-left-foot floor rule. No historical whole-body motion is shipped or copied into the new result. Fresh acquisition remains a separate trial comparison; the selected final intentionally continues the owner-accepted camera/hip-adjusted pose sequence.
 
 From `dancer/`, with Bun and Python 3, run under the Nova pooled 6 GiB/four-worker guard:
 
 ```sh
-sh build-accepted-dance.sh
-# A second run must name a fresh output directory; existing evidence is preserved.
-sh build-accepted-dance.sh work/accepted-dance-second
+sh build-accepted-dance.sh --version v1 work/accepted-v1
+# A second historical run must name a fresh output directory.
+sh build-accepted-dance.sh --version v1 work/accepted-v1-second
 ```
 
 Only this directory is needed. The recipe first checks the source manifest, then copies its own corpus into an ignored workspace and installs the frozen `accepted-dance/package.json` / `bun.lock` pins: pose 1.0.1, core 2.67.2, official spine-core 4.3.13, with play 1.16.0 and parts 1.60.0 installed but not invoked by this replay. It retargets with the recorded source options, renders the input geometry, applies the declared hand changes, builds the final and renders 391 frames at 30fps in the accepted viewport. It does not invoke the failing config-only parts build, access another checkout, download a source video, run a detector or import a package's private API.

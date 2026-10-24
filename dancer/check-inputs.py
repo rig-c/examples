@@ -33,4 +33,15 @@ for attachments in skin.values():
         if 'image' in attachment:assert (Path('accepted')/images/attachment['image']).is_file(), attachment['image']
 physics=sum(c.get('type')=='physics' for c in json.loads(Path('config.json').read_text())['constraints'])
 assert physics==11
+v3=json.loads(Path('declared-repairs-v3.json').read_text())
+assert json.loads(Path('config.json').read_text())['x-repairs']=={'file':'declared-repairs-v3.json','sha256':hashlib.sha256(Path('declared-repairs-v3.json').read_bytes()).hexdigest()}, 'V3_METADATA_PIN'
+for row in list(v3['canonical'].values())+v3['parts']+v3['generation']+[v3['previousRepairs']]:
+    assert hashlib.sha256(Path(row['file']).read_bytes()).hexdigest()==row['sha256'], 'V3_SOURCE_HASH: '+row['file']
+v3rig=json.loads(Path(v3['canonical']['rig']['file']).read_text())
+for attachments in v3rig['skins']['default'].values():
+    for attachment in attachments.values():
+        if 'image' in attachment:assert (Path('accepted/images')/attachment['image']).is_file(), 'V3_IMAGE: '+attachment['image']
+assert [s['name'] for s in v3rig['slots']]==v3['slotOrder'], 'V3_SLOT_ORDER'
+assert sum(c.get('type')=='physics' for c in v3rig['constraints'])==11, 'V3_PHYSICS_PRESERVED'
 print('CLOSURE PASS: source hashes; full/head29+29; under/stress;11physics config; accepted-map bones/slots/attachments/images.')
+print('V3 CLOSURE PASS: canonical accepted bytes; 3 new parts; metadata and prior-v1 pins; exact slot order; 11 physics.')
