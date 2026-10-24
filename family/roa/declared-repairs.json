@@ -9072,11 +9072,9 @@
           "max_influences": 6,
           "mean_influences": 3.39,
           "art_coverage": 1,
-          "authored_outline_clip": {
-            "sourceVertices": 183,
-            "sourceTriangles": 298,
-            "removedAffineVertices": 12
-          }
+          "mode": "explicit",
+          "image_sha256": "cb469931dcd568f151edfd7e73a7283e7f1937471c1ec35d1fa137fe18713349",
+          "region_sha256": "c74205c59de8e3a0188c499c30f02f190f775241b200896a096d8637b8f2c260"
         }
       }
     },
@@ -20380,86 +20378,11 @@
             "hip"
           ],
           "max_influences": 3,
-          "mean_influences": 2.42,
+          "mean_influences": 2.2,
           "art_coverage": 0.99999,
-          "mode": "contour",
-          "params": {
-            "tolerance": 2,
-            "margin": 2,
-            "spacing": 36,
-            "maxEdge": 64,
-            "budget": null,
-            "stray": 400,
-            "bridges": true
-          },
-          "contour": {
-            "boundaryVertices": 115,
-            "interiorVertices": 385,
-            "interiorBySource": [
-              {
-                "source": "region \"bust_r\"",
-                "vertices": 208
-              },
-              {
-                "source": "region \"bust_l\"",
-                "vertices": 124
-              },
-              {
-                "source": "background",
-                "vertices": 53
-              }
-            ],
-            "triangles": 883,
-            "tracedVertices": 2708,
-            "artPixels": 169009,
-            "coveredArtPixels": 169009,
-            "coverage": 1,
-            "overshoot": 4,
-            "overshootBound": 5,
-            "meshArea": 173638.5,
-            "enclosedTransparentArea": 4629.5,
-            "filledHolePixels": 85,
-            "smallestAngle": {
-              "triangle": 156,
-              "value": 4.545107
-            },
-            "largestEdgeRatio": {
-              "triangle": 156,
-              "value": 11.910453
-            },
-            "nonDelaunayEdges": 0,
-            "strayIslands": 1,
-            "strayPixels": 2,
-            "grownPixels": 4537,
-            "pinchFilledPixels": 0,
-            "grownHolePixels": 54,
-            "outlineCut": 5,
-            "bridges": {
-              "islands": [
-                169009
-              ],
-              "units": [
-                [
-                  169009
-                ]
-              ],
-              "joins": []
-            }
-          },
-          "regions": [
-            {
-              "name": "bust_r",
-              "bone": "boob_r",
-              "reached": 143,
-              "whole": 13
-            },
-            {
-              "name": "bust_l",
-              "bone": "boob_l",
-              "reached": 37,
-              "whole": 0
-            }
-          ]
+          "mode": "explicit",
+          "image_sha256": "e4b89aea93b1d5663614db6b847cc441d9c2419e5f4eadd8ebeb1e781dbbc0fa",
+          "region_sha256": "5b320ce780bab8b71571ffb59ba2cb47a88565cf51748a93778950c59de92960"
         }
       }
     },
@@ -23231,11 +23154,32 @@
           "max_influences": 5,
           "mean_influences": 4.21,
           "art_coverage": 1,
-          "authored_outline_clip": {
-            "sourceVertices": 20,
-            "sourceTriangles": 24,
-            "removedAffineVertices": 0
-          }
+          "mode": "explicit",
+          "image_sha256": "f55bf05714d7890b343ef33871181b8c778ac817964ec54422f38ca511ddf20a",
+          "region_sha256": "1c26e4c1ee7428d941e97369b6922a07e3498fd1cda90fc5aad808d8140c4f39"
+        }
+      },
+      "outfitBaselineMeshReport": {
+        "part": "hair_front",
+        "vertices": 84,
+        "triangles": 88,
+        "hull": 78,
+        "bones": [
+          "bang_c0",
+          "bang_c1",
+          "bang_l0",
+          "bang_l1",
+          "bang_r0",
+          "bang_r1",
+          "head"
+        ],
+        "max_influences": 5,
+        "mean_influences": 4.21,
+        "art_coverage": 1,
+        "authored_outline_clip": {
+          "sourceVertices": 20,
+          "sourceTriangles": 24,
+          "removedAffineVertices": 0
         }
       }
     }
@@ -23253,7 +23197,7 @@
       "vertices": 319,
       "triangles": 422,
       "rigSHA256": "1f201e8738df828858cc6a226d23b7ed623faec143df2ae1f21ecd7399b1cf52",
-      "reportSHA256": "87dab3b4425aeb8ff9b9386662c80b45c7cd206c3134ee1b3f3aee5a516f2159",
+      "reportSHA256": "5cf0dc79db4e38447baba394f5a62e415d5be6d629730741043b5e4d3b24693f",
       "modelSHA256": "0ded00ce007bdffc66dab51b733f96f5012496c44c02a682a643a56160b2d690"
     },
     "handwear_r": {
@@ -23274,7 +23218,7 @@
       "vertices": 500,
       "triangles": 883,
       "rigSHA256": "9a1c48bbbc1e25382145ceab3c9d1f8ac179c6e2bc20ed40595678b3ac7357eb",
-      "reportSHA256": "196d23649dc4dd273fb2fb0605220c95bf6862b79998ccdc3dc25df2e46afd20",
+      "reportSHA256": "4f56890870bd1eab10ebd62ecb2f0529eeb3383cffe19eb80ad35ce5692ebfc8",
       "modelSHA256": "5c6998a4db330b04427ea5665af9ccc51f4d860ade5a88eb908ddc31c22df711"
     },
     "hair_back": {
@@ -23367,7 +23311,7 @@
       "vertices": 84,
       "triangles": 88,
       "rigSHA256": "2d15858bdd4abd05f200a1f816ecf934c51480c57cd8610add299196115b6e34",
-      "reportSHA256": "5bedb64c75a575bc4b84997f1dc8a50a7e0d099dee2165c553ca79d45179686e",
+      "reportSHA256": "6d229825bb130327e8c0cd2e6630c079294f71aaa40a0a5b8d1d8d613c8c70e8",
       "modelSHA256": "748122fec12e49c9468977ec4d09544b7a3d304975331bab195cbfc0fae58434"
     }
   },

@@ -153,16 +153,22 @@ export function applyDeclaredRepairsToRig({
     return { rig, report };
   }
 
+  const explicitPartsAlreadyInRaw = Object.keys(declared.parts ?? {}).length > 0 &&
+    Object.entries(declared.parts).every(([partName, entry]) =>
+      sha(JSON.stringify(slotsForPart(rig.skins.default, partName))) === entry.repaired.sha256,
+    );
+
   if (declared.materialProfile) {
     validateMaterialProfile(declared.materialProfile, character, outfit);
-    rig = materialProfileRig(rig, declared.materialProfile, 'raw', 'reverse');
+    rig = materialProfileRig(rig, declared.materialProfile, explicitPartsAlreadyInRaw ? 'repaired' : 'raw', 'reverse');
   }
 
   for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
     const currentSlots = slotsForPart(rig.skins.default, partName);
     const currentSha = sha(JSON.stringify(currentSlots));
-    if (currentSha !== entry.regenerated.sha256) {
-      fail(`REPRODUCIBILITY_REGENERATED_DRIFT ${character}/${outfit}/${partName} expected=${entry.regenerated.sha256} actual=${currentSha}`);
+    const expectedSha = explicitPartsAlreadyInRaw ? entry.repaired.sha256 : entry.regenerated.sha256;
+    if (currentSha !== expectedSha) {
+      fail(`REPRODUCIBILITY_REGENERATED_DRIFT ${character}/${outfit}/${partName} expected=${expectedSha} actual=${currentSha}`);
     }
     const repairedSha = sha(JSON.stringify(entry.repaired.slots));
     if (repairedSha !== entry.repaired.sha256) {
@@ -176,6 +182,9 @@ export function applyDeclaredRepairsToRig({
     }
     if (entry.repaired.meshReport) {
       const idx = report.findIndex(r => r.part === partName);
+      if (explicitPartsAlreadyInRaw && idx >= 0 && sha(JSON.stringify(report[idx])) !== sha(JSON.stringify(entry.repaired.meshReport))) {
+        fail(`REPRODUCIBILITY_REPORT_DRIFT ${character}/${outfit}/${partName}`);
+      }
       if (idx >= 0) report[idx] = structuredClone(entry.repaired.meshReport);
       else report.push(structuredClone(entry.repaired.meshReport));
     }
@@ -232,6 +241,13 @@ export function applyDeclaredRepairsToRig({
   }
 
   const baselineRig = structuredClone(rig);
+  const baselineReport = structuredClone(report);
+  for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
+    if (entry.outfitBaselineMeshReport) {
+      const idx = baselineReport.findIndex(r => r.part === partName);
+      if (idx >= 0) baselineReport[idx] = structuredClone(entry.outfitBaselineMeshReport);
+    }
+  }
   if (declared.materialProfile) rig = materialProfileRig(rig, declared.materialProfile, 'repaired', 'forward');
   if (declared.uniformHairProfile) {
     validateUniformHairProfile(declared.uniformHairProfile, officeProfile, character, outfit);
@@ -241,7 +257,7 @@ export function applyDeclaredRepairsToRig({
     validateOutfitHairProfile(declared.outfitHairProfile, officeProfile, character, outfit);
     rig = outfitHairProfileRig(rig, declared.outfitHairProfile, officeProfile, 'forward');
   }
-  return { rig, report, baselineRig };
+  return { rig, report, baselineRig, baselineReport };
 }
 
 /** Outfit profiles were not retuned by #32; preserve their declared office preimage. */
@@ -249,6 +265,18 @@ export function officeBaselineForOutfits(root, character) {
   const rig = json(join(root, character, 'out/rig/rig.json'));
   const { declared } = loadAndVerifyDeclaredRepairs(root, character, 'office');
   return declared.materialProfile ? materialProfileRig(rig, declared.materialProfile, 'repaired', 'reverse') : rig;
+}
+
+export function officeReportBaselineForOutfits(root, character) {
+  const report = json(join(root, character, 'out/rig/mesh_report.json'));
+  const { declared } = loadAndVerifyDeclaredRepairs(root, character, 'office');
+  for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
+    if (entry.outfitBaselineMeshReport) {
+      const idx = report.findIndex(r => r.part === partName);
+      if (idx >= 0) report[idx] = structuredClone(entry.outfitBaselineMeshReport);
+    }
+  }
+  return report;
 }
 
 export function mergeOutfitWithOfficeBaseline({
@@ -522,7 +550,7 @@ export function rebuildAndVerifyAll({
       if (outfit !== 'office') {
         const officeData = rebuiltOfficeByChar[character] ?? {
           rig: officeBaselineForOutfits(root, character),
-          report: json(join(root, character, 'out/rig/mesh_report.json')),
+          report: officeReportBaselineForOutfits(root, character),
           imagesDir: join(root, character, 'out/rig/images'),
         };
         const assembly = json(resolve(configDir, declared.baseline.assemblyFile));
@@ -537,7 +565,7 @@ export function rebuildAndVerifyAll({
         baseRawReport = merged.report;
       }
 
-      const { rig: finalRig, report: finalReport, baselineRig } = applyDeclaredRepairsToRig({
+      const { rig: finalRig, report: finalReport, baselineRig, baselineReport } = applyDeclaredRepairsToRig({
         character,
         outfit,
         rawRig: baseRawRig,
@@ -572,13 +600,21 @@ export function rebuildAndVerifyAll({
         ? join(rawRigDir, 'motion.json')
         : join(rebuiltOfficeByChar[character]?.compileRigDir ?? join(root, character, 'out/rig'), 'motion.json');
       cpSync(motionPath, join(compileRigDir, 'motion.json'));
-      writeFileSync(join(compileRigDir, 'rig.json'), `${JSON.stringify(finalRig, null, 2)}\n`);
-      writeFileSync(join(compileRigDir, 'mesh_report.json'), `${JSON.stringify(finalReport, null, 2)}\n`);
+      if (outfit === 'office' && !ignoreRepairs && JSON.stringify(finalRig) === JSON.stringify(baseRawRig)) {
+        cpSync(join(rawRigDir, 'rig.json'), join(compileRigDir, 'rig.json'));
+      } else {
+        writeFileSync(join(compileRigDir, 'rig.json'), `${JSON.stringify(finalRig, null, 2)}\n`);
+      }
+      if (outfit === 'office' && !ignoreRepairs && JSON.stringify(finalReport) === JSON.stringify(baseRawReport)) {
+        cpSync(join(rawRigDir, 'mesh_report.json'), join(compileRigDir, 'mesh_report.json'));
+      } else {
+        writeFileSync(join(compileRigDir, 'mesh_report.json'), `${JSON.stringify(finalReport, null, 2)}\n`);
+      }
 
       if (outfit === 'office') {
         rebuiltOfficeByChar[character] = {
           rig: baselineRig ?? finalRig,
-          report: finalReport,
+          report: baselineReport ?? finalReport,
           imagesDir: join(compileRigDir, 'images'),
           compileRigDir,
         };

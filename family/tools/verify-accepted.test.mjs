@@ -418,3 +418,44 @@ test('both outfit inventories reproduce every actual shared pose and bind viewed
     assert.ok(row.candidate.outsideNeckPlate < row.before.outsideNeckPlate);
   }
 });
+
+test('roa office config states explicit mesh payloads for bottomwear, topwear, and hair_front and refuses explicit report drift', () => {
+  const sha = bytes => createHash('sha256').update(bytes).digest('hex');
+  const cfg = JSON.parse(readFileSync(join(family, 'roa/config.json'), 'utf8'));
+  const rig = JSON.parse(readFileSync(join(family, 'roa/out/rig/rig.json'), 'utf8'));
+  const report = JSON.parse(readFileSync(join(family, 'roa/out/rig/mesh_report.json'), 'utf8'));
+  const declared = JSON.parse(readFileSync(join(family, 'roa/declared-repairs.json'), 'utf8'));
+
+  for (const part of ['bottomwear', 'topwear', 'hair_front']) {
+    const exp = cfg.meshes[part]?.explicit;
+    assert.ok(exp, `missing explicit mesh payload for ${part}`);
+    const att = rig.skins.default[part][part];
+    const rep = report.find(r => r.part === part);
+    assert.match(exp.image_sha256, /^[a-f0-9]{64}$/);
+    assert.match(exp.region_sha256, /^[a-f0-9]{64}$/);
+    assert.deepEqual(exp.uvs, att.uvs);
+    assert.deepEqual(exp.triangles, att.triangles);
+    assert.equal(exp.hull, att.hull);
+    assert.deepEqual(exp.weights, att.weights);
+    assert.equal(rep.mode, 'explicit');
+    assert.equal(rep.image_sha256, exp.image_sha256);
+    assert.equal(rep.region_sha256, exp.region_sha256);
+  }
+
+  const applied = applyDeclaredRepairsToRig({
+    character: 'roa',
+    outfit: 'office',
+    rawRig: rig,
+    rawReport: report,
+    declared,
+  });
+  assert.deepEqual(applied.rig, rig);
+  assert.deepEqual(applied.report, report);
+
+  const badReport = structuredClone(report);
+  badReport.find(r => r.part === 'topwear').mode = 'contour';
+  assert.throws(
+    () => applyDeclaredRepairsToRig({ character: 'roa', outfit: 'office', rawRig: rig, rawReport: badReport, declared }),
+    /REPRODUCIBILITY_REPORT_DRIFT roa\/office\/topwear/,
+  );
+});
