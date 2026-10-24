@@ -1,0 +1,1507 @@
+{
+  "spec": "dancer-declared-repairs/1",
+  "version": "v3",
+  "character": "the dancer",
+  "acceptedDate": "2026-10-24",
+  "trial": {
+    "pullRequest": "https://github.com/rig-c/examples/pull/57",
+    "sourceCommit": "ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+    "sourceDirectory": "trials/2026-10-24-zero-two-dancer/hand/v3"
+  },
+  "recordShape": "Explicit baseline/hash pins, accepted part values, exact slot order and changed motion track declarations. The canonical accepted rig/motion are stored once; declarations validate their existing source values, not a new hand pass.",
+  "baseline": {
+    "config.json": {
+      "file": "config.json",
+      "sha256": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
+      "hashMode": "json-indent2-lf-without-x-repairs",
+      "hashExplanation": "Remove only the top-level x-repairs metadata, serialize with two-space indentation, Unicode unescaped and one LF. This recovers the exact historical producer-input bytes and avoids a circular record/config hash."
+    },
+    "config-base.json": {
+      "file": "config-base.json",
+      "sha256": "f249133220a8a782f64cd3502b275b60ee57296ef3b722068637553646dea6af"
+    },
+    "accepted/rig.json": {
+      "file": "accepted/rig.json",
+      "sha256": "490fd2116a5c7b5c1188be010d6091b68c35c2d837475cd8540f631367da08d6"
+    },
+    "accepted/motion.json": {
+      "file": "accepted/motion.json",
+      "sha256": "67beb056983b32a5af4e402a1ebcb8257d1ded8f4cfd372a223b6eeeb0c166ab"
+    },
+    "map.json": {
+      "file": "map.json",
+      "sha256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096"
+    },
+    "selected-art.json": {
+      "file": "selected-art.json",
+      "sha256": "1b3c1fcf27da6571bdabc5ee8a8e1b8111140698fc2f0c756c430fcdf116503b"
+    },
+    "accepted/sequence.json": {
+      "file": "accepted/sequence.json",
+      "sha256": "8713172431674a57caa8d7c3f452a05bf46ec8079ca368bb4cd9df7952c2edfd"
+    }
+  },
+  "previousRepairs": {
+    "file": "declared-repairs.json",
+    "sha256": "55b8d0bf36120048309de1df6e08b8c22c7ccc09cdabf5edd6ce3e151452cbf7",
+    "version": "v1",
+    "expected": {
+      "compiledModelSHA256": "2a21d03affaadac4a314b7dd0345b0b2b842292a24ff3ce49b4de2b460fb12d1",
+      "rigSemanticSHA256": "07b7f930f4b20a18e8ee3e04c4d71b177363ecbc4940cccef749206d182fd970",
+      "finalRigSHA256": "c4bb9011b1f1e561065957f08050d7b9b225d2b2bd984dc5be22cb4659bc0054",
+      "finalMotionSHA256": "cb10fa1fe8e9fade2f05be9c503aa4cea03482734cee082d45ec46072fb1951b",
+      "finalGeometrySHA256": "e701f3a709c83aadcde9db46c0ef3ad532ff38d77c3d8fbd45270e0149308c5c",
+      "ownerVideoSHA256": "ff27321a4bb4950d2d7a0e06ba29090f58cbac44bd2230ae8d3cacd3a09b6649"
+    }
+  },
+  "canonical": {
+    "rig": {
+      "file": "accepted-dance/v3/rig.json",
+      "sha256": "a1860937f20890818a206a2b15318eaf2bf9e253d58584976b8aa9697f73e135"
+    },
+    "motion": {
+      "file": "accepted-dance/v3/motion.json",
+      "sha256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7"
+    }
+  },
+  "parts": [
+    {
+      "file": "accepted/images/arms_hold_head.png",
+      "sha256": "6954c20fbe1bf3d988b4d1e9c8baff38f91d2549bb2a3ac2ee06d1907737318b",
+      "sourceSHA256": "6954c20fbe1bf3d988b4d1e9c8baff38f91d2549bb2a3ac2ee06d1907737318b",
+      "unchanged": true
+    },
+    {
+      "file": "accepted/images/arms_hold_front.png",
+      "sha256": "18b392875be888e28bf116edceede5e4c14cafe31554e192348f7de54db00701",
+      "sourceSHA256": "18b392875be888e28bf116edceede5e4c14cafe31554e192348f7de54db00701",
+      "unchanged": true
+    },
+    {
+      "file": "accepted/images/waist.png",
+      "sha256": "1c733bdf717741d98162c96439995d3cb6a009ddf1900bad4c9271a55712d5cb",
+      "sourceSHA256": "1c733bdf717741d98162c96439995d3cb6a009ddf1900bad4c9271a55712d5cb",
+      "unchanged": true
+    }
+  ],
+  "slots": [
+    {
+      "name": "arms_hold_head",
+      "bone": "chest",
+      "attachment": null
+    },
+    {
+      "name": "waist",
+      "bone": "hip",
+      "attachment": "waist"
+    },
+    {
+      "name": "arms_hold_front",
+      "bone": "chest",
+      "attachment": null
+    }
+  ],
+  "slotOrder": [
+    "forearm_r_back",
+    "forearm_l_back",
+    "arms_hold_head",
+    "upperarm_r_back",
+    "hair_back",
+    "shins",
+    "thigh_r",
+    "thigh_l",
+    "shoe_l",
+    "shoe_r",
+    "neck",
+    "waist",
+    "bottomwear",
+    "forearm_r_under",
+    "upperarm_r_under",
+    "forearm_l_under",
+    "upperarm_l_under",
+    "topwear",
+    "sleevefront_l",
+    "arms_hold_front",
+    "forearm_l_mid",
+    "upperarm_l_mid",
+    "forearm_r",
+    "upperarm_r",
+    "forearm_l",
+    "upperarm_l",
+    "ear_l",
+    "ear_r",
+    "face",
+    "nose",
+    "mouth",
+    "brow_r",
+    "brow_l",
+    "eyewhite_r",
+    "eyewhite_l",
+    "iris_r",
+    "iris_l",
+    "lash_r",
+    "hairpin",
+    "lash_l",
+    "hair_front"
+  ],
+  "attachments": [
+    {
+      "slot": "arms_hold_head",
+      "attachment": "arms_hold_head",
+      "value": {
+        "image": "arms_hold_head.png",
+        "x": 8.0,
+        "y": 172.0,
+        "rotation": 0
+      }
+    },
+    {
+      "slot": "arms_hold_front",
+      "attachment": "arms_hold_front",
+      "value": {
+        "image": "arms_hold_front.png",
+        "x": -2.5,
+        "y": -10.0,
+        "rotation": 0
+      }
+    },
+    {
+      "slot": "waist",
+      "attachment": "waist",
+      "value": {
+        "image": "waist.png",
+        "x": 3.0,
+        "y": 118.5,
+        "rotation": 0
+      }
+    }
+  ],
+  "changedOrAddedMotionTracks": [
+    {
+      "bone": "chest_ctl",
+      "property": "translatey",
+      "keys": [
+        {
+          "t": 0,
+          "v": [
+            2.51
+          ]
+        },
+        {
+          "t": 0.416667,
+          "v": [
+            4.2848
+          ]
+        },
+        {
+          "t": 0.833333,
+          "v": [
+            5.02
+          ]
+        },
+        {
+          "t": 1.25,
+          "v": [
+            4.2848
+          ]
+        },
+        {
+          "t": 1.666667,
+          "v": [
+            2.51
+          ]
+        },
+        {
+          "t": 2.083333,
+          "v": [
+            0.7352
+          ]
+        },
+        {
+          "t": 2.5,
+          "v": [
+            0.0
+          ]
+        },
+        {
+          "t": 2.916667,
+          "v": [
+            0.7352
+          ]
+        },
+        {
+          "t": 3.333333,
+          "v": [
+            2.51
+          ]
+        },
+        {
+          "t": 3.66666667,
+          "v": [
+            3.9298
+          ]
+        },
+        {
+          "t": 3.7,
+          "v": [
+            4.3196
+          ]
+        },
+        {
+          "t": 3.73333333,
+          "v": [
+            5.1555
+          ]
+        },
+        {
+          "t": 3.75,
+          "v": [
+            5.7175
+          ]
+        },
+        {
+          "t": 3.76666667,
+          "v": [
+            6.3215
+          ]
+        },
+        {
+          "t": 3.8,
+          "v": [
+            7.7433
+          ]
+        },
+        {
+          "t": 3.83333333,
+          "v": [
+            9.3881
+          ]
+        },
+        {
+          "t": 3.86666667,
+          "v": [
+            11.1816
+          ]
+        },
+        {
+          "t": 3.9,
+          "v": [
+            13.0495
+          ]
+        },
+        {
+          "t": 3.93333333,
+          "v": [
+            14.9173
+          ]
+        },
+        {
+          "t": 3.96666667,
+          "v": [
+            16.7108
+          ]
+        },
+        {
+          "t": 4.0,
+          "v": [
+            18.3557
+          ]
+        },
+        {
+          "t": 4.03333333,
+          "v": [
+            19.7774
+          ]
+        },
+        {
+          "t": 4.06666667,
+          "v": [
+            20.9019
+          ]
+        },
+        {
+          "t": 4.1,
+          "v": [
+            21.6546
+          ]
+        },
+        {
+          "t": 4.13333333,
+          "v": [
+            21.9612
+          ]
+        },
+        {
+          "t": 4.166666,
+          "v": [
+            22.02
+          ]
+        },
+        {
+          "t": 4.583333,
+          "v": [
+            21.2848
+          ]
+        },
+        {
+          "t": 5,
+          "v": [
+            19.51
+          ]
+        },
+        {
+          "t": 5.416666,
+          "v": [
+            17.7352
+          ]
+        },
+        {
+          "t": 5.833333,
+          "v": [
+            17.0
+          ]
+        },
+        {
+          "t": 6.25,
+          "v": [
+            17.7352
+          ]
+        },
+        {
+          "t": 6.666667,
+          "v": [
+            19.51
+          ]
+        },
+        {
+          "t": 7.083334,
+          "v": [
+            21.2848
+          ]
+        },
+        {
+          "t": 7.3,
+          "v": [
+            21.6671
+          ]
+        },
+        {
+          "t": 7.33333333,
+          "v": [
+            21.4781
+          ]
+        },
+        {
+          "t": 7.36666667,
+          "v": [
+            20.843
+          ]
+        },
+        {
+          "t": 7.4,
+          "v": [
+            19.8363
+          ]
+        },
+        {
+          "t": 7.43333333,
+          "v": [
+            18.5321
+          ]
+        },
+        {
+          "t": 7.46666667,
+          "v": [
+            17.0049
+          ]
+        },
+        {
+          "t": 7.5,
+          "v": [
+            15.329
+          ]
+        },
+        {
+          "t": 7.53333333,
+          "v": [
+            13.4612
+          ]
+        },
+        {
+          "t": 7.56666667,
+          "v": [
+            11.5933
+          ]
+        },
+        {
+          "t": 7.6,
+          "v": [
+            9.7998
+          ]
+        },
+        {
+          "t": 7.63333333,
+          "v": [
+            8.155
+          ]
+        },
+        {
+          "t": 7.66666667,
+          "v": [
+            6.7332
+          ]
+        },
+        {
+          "t": 7.7,
+          "v": [
+            5.6088
+          ]
+        },
+        {
+          "t": 7.73333333,
+          "v": [
+            4.8561
+          ]
+        },
+        {
+          "t": 7.76666667,
+          "v": [
+            4.5495
+          ]
+        },
+        {
+          "t": 7.916667,
+          "v": [
+            4.2848
+          ]
+        },
+        {
+          "t": 8.333334,
+          "v": [
+            2.51
+          ]
+        },
+        {
+          "t": 8.75,
+          "v": [
+            0.7352
+          ]
+        },
+        {
+          "t": 9.166667,
+          "v": [
+            0.0
+          ]
+        },
+        {
+          "t": 9.583334,
+          "v": [
+            0.7352
+          ]
+        },
+        {
+          "t": 10,
+          "v": [
+            2.51
+          ]
+        },
+        {
+          "t": 10.416667,
+          "v": [
+            4.2848
+          ]
+        },
+        {
+          "t": 10.833333,
+          "v": [
+            5.02
+          ]
+        },
+        {
+          "t": 11.25,
+          "v": [
+            4.2848
+          ]
+        },
+        {
+          "t": 11.666667,
+          "v": [
+            2.51
+          ]
+        },
+        {
+          "t": 12.083333,
+          "v": [
+            0.7352
+          ]
+        },
+        {
+          "t": 12.5,
+          "v": [
+            0.0
+          ]
+        },
+        {
+          "t": 12.916667,
+          "v": [
+            0.7352
+          ]
+        },
+        {
+          "t": 13,
+          "v": [
+            1.0351
+          ]
+        }
+      ]
+    },
+    {
+      "slot": "upperarm_r_under",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": "K0_upperarm_r"
+        },
+        {
+          "t": 3.3666666666666667,
+          "v": "base_long_upperarm_r"
+        },
+        {
+          "t": 3.9375,
+          "v": "K1_upperarm_r"
+        },
+        {
+          "t": 4.13333333,
+          "v": null
+        },
+        {
+          "t": 7.3,
+          "v": null
+        },
+        {
+          "t": 7.8,
+          "v": null
+        }
+      ]
+    },
+    {
+      "slot": "forearm_r_back",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": "K0_forearm_r"
+        },
+        {
+          "t": 3.3666666666666667,
+          "v": "base_long_forearm_r"
+        },
+        {
+          "t": 3.9375,
+          "v": "K1_forearm_r"
+        },
+        {
+          "t": 4.13333333,
+          "v": null
+        },
+        {
+          "t": 7.3,
+          "v": null
+        },
+        {
+          "t": 7.8,
+          "v": null
+        },
+        {
+          "t": 11.229165,
+          "v": "K3_forearm_r"
+        }
+      ]
+    },
+    {
+      "slot": "upperarm_l_under",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": "K0_upperarm_l"
+        },
+        {
+          "t": 0.733333,
+          "v": "base_long_upperarm_l"
+        },
+        {
+          "t": 0.979165,
+          "v": "K4_upperarm_l"
+        },
+        {
+          "t": 2.1875,
+          "v": "base_long_upperarm_l"
+        },
+        {
+          "t": 2.466667,
+          "v": "K0_upperarm_l"
+        },
+        {
+          "t": 3.3666666666666667,
+          "v": "base_long_upperarm_l"
+        },
+        {
+          "t": 3.9375,
+          "v": "K1_upperarm_l"
+        },
+        {
+          "t": 4.13333333,
+          "v": null
+        },
+        {
+          "t": 7.3,
+          "v": null
+        },
+        {
+          "t": 7.8,
+          "v": null
+        },
+        {
+          "t": 11.229165,
+          "v": "K3_upperarm_l"
+        }
+      ]
+    },
+    {
+      "slot": "forearm_l_back",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": "K0_forearm_l"
+        },
+        {
+          "t": 0.733333,
+          "v": "base_long_forearm_l"
+        },
+        {
+          "t": 0.979165,
+          "v": null
+        },
+        {
+          "t": 2.1875,
+          "v": "base_long_forearm_l"
+        },
+        {
+          "t": 2.466667,
+          "v": "K0_forearm_l"
+        },
+        {
+          "t": 3.3666666666666667,
+          "v": "base_long_forearm_l"
+        },
+        {
+          "t": 3.9375,
+          "v": "K1_forearm_l"
+        },
+        {
+          "t": 4.13333333,
+          "v": null
+        },
+        {
+          "t": 7.3,
+          "v": null
+        },
+        {
+          "t": 7.8,
+          "v": null
+        }
+      ]
+    },
+    {
+      "slot": "forearm_r",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": null
+        },
+        {
+          "t": 7.3,
+          "v": "forearm_r"
+        },
+        {
+          "t": 7.8,
+          "v": null
+        },
+        {
+          "t": 10.96666667,
+          "v": "K2_forearm_r"
+        },
+        {
+          "t": 11.229165,
+          "v": null
+        }
+      ]
+    },
+    {
+      "slot": "upperarm_r",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": null
+        },
+        {
+          "t": 7.3,
+          "v": "upperarm_r"
+        },
+        {
+          "t": 7.8,
+          "v": null
+        },
+        {
+          "t": 10.96666667,
+          "v": "K2_upperarm_r"
+        },
+        {
+          "t": 11.229165,
+          "v": null
+        }
+      ]
+    },
+    {
+      "slot": "forearm_l",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": null
+        },
+        {
+          "t": 7.3,
+          "v": "forearm_l"
+        },
+        {
+          "t": 7.8,
+          "v": null
+        }
+      ]
+    },
+    {
+      "slot": "upperarm_l",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": null
+        },
+        {
+          "t": 7.3,
+          "v": "upperarm_l"
+        },
+        {
+          "t": 7.8,
+          "v": null
+        }
+      ]
+    },
+    {
+      "slot": "forearm_l_mid",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 7.4375,
+          "v": null
+        },
+        {
+          "t": 7.8,
+          "v": null
+        },
+        {
+          "t": 10.96666667,
+          "v": "base_full_forearm_l"
+        },
+        {
+          "t": 11.229165,
+          "v": null
+        }
+      ]
+    },
+    {
+      "slot": "upperarm_l_mid",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 7.4375,
+          "v": null
+        },
+        {
+          "t": 7.8,
+          "v": null
+        },
+        {
+          "t": 10.96666667,
+          "v": "K2_upperarm_l"
+        },
+        {
+          "t": 11.229165,
+          "v": null
+        }
+      ]
+    },
+    {
+      "slot": "arms_hold_head",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": null
+        },
+        {
+          "t": 4.13333333,
+          "v": "arms_hold_head"
+        },
+        {
+          "t": 7.3,
+          "v": null
+        }
+      ]
+    },
+    {
+      "slot": "arms_hold_front",
+      "property": "attachment",
+      "keys": [
+        {
+          "t": 0,
+          "v": null
+        },
+        {
+          "t": 7.8,
+          "v": "arms_hold_front"
+        },
+        {
+          "t": 10.96666667,
+          "v": null
+        }
+      ]
+    },
+    {
+      "bone": "head_ctl",
+      "property": "translatey",
+      "keys": [
+        {
+          "t": 0,
+          "v": [
+            0.0
+          ]
+        },
+        {
+          "t": 3.66666667,
+          "v": [
+            -0.0
+          ]
+        },
+        {
+          "t": 3.7,
+          "v": [
+            -0.2478
+          ]
+        },
+        {
+          "t": 3.73333333,
+          "v": [
+            -0.9417
+          ]
+        },
+        {
+          "t": 3.76666667,
+          "v": [
+            -2.0073
+          ]
+        },
+        {
+          "t": 3.8,
+          "v": [
+            -3.3703
+          ]
+        },
+        {
+          "t": 3.83333333,
+          "v": [
+            -4.9563
+          ]
+        },
+        {
+          "t": 3.86666667,
+          "v": [
+            -6.691
+          ]
+        },
+        {
+          "t": 3.9,
+          "v": [
+            -8.5
+          ]
+        },
+        {
+          "t": 3.93333333,
+          "v": [
+            -10.309
+          ]
+        },
+        {
+          "t": 3.96666667,
+          "v": [
+            -12.0437
+          ]
+        },
+        {
+          "t": 4.0,
+          "v": [
+            -13.6297
+          ]
+        },
+        {
+          "t": 4.03333333,
+          "v": [
+            -14.9927
+          ]
+        },
+        {
+          "t": 4.06666667,
+          "v": [
+            -16.0583
+          ]
+        },
+        {
+          "t": 4.1,
+          "v": [
+            -16.7522
+          ]
+        },
+        {
+          "t": 4.13333333,
+          "v": [
+            -17.0
+          ]
+        },
+        {
+          "t": 7.3,
+          "v": [
+            -17.0
+          ]
+        },
+        {
+          "t": 7.33333333,
+          "v": [
+            -16.7522
+          ]
+        },
+        {
+          "t": 7.36666667,
+          "v": [
+            -16.0583
+          ]
+        },
+        {
+          "t": 7.4,
+          "v": [
+            -14.9927
+          ]
+        },
+        {
+          "t": 7.43333333,
+          "v": [
+            -13.6297
+          ]
+        },
+        {
+          "t": 7.46666667,
+          "v": [
+            -12.0437
+          ]
+        },
+        {
+          "t": 7.5,
+          "v": [
+            -10.309
+          ]
+        },
+        {
+          "t": 7.53333333,
+          "v": [
+            -8.5
+          ]
+        },
+        {
+          "t": 7.56666667,
+          "v": [
+            -6.691
+          ]
+        },
+        {
+          "t": 7.6,
+          "v": [
+            -4.9563
+          ]
+        },
+        {
+          "t": 7.63333333,
+          "v": [
+            -3.3703
+          ]
+        },
+        {
+          "t": 7.66666667,
+          "v": [
+            -2.0073
+          ]
+        },
+        {
+          "t": 7.7,
+          "v": [
+            -0.9417
+          ]
+        },
+        {
+          "t": 7.73333333,
+          "v": [
+            -0.2478
+          ]
+        },
+        {
+          "t": 7.76666667,
+          "v": [
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "preservation": {
+    "spec": "examples-v3-transfer-delta/1",
+    "comparison": "v1 canonical hand/rig.json and hand/r3/motion.json to accepted v3",
+    "rigTopLevelDifferences": [
+      "images",
+      "slots",
+      "skins"
+    ],
+    "existingBonesConstraintsAndSkirtUnchanged": true,
+    "existingAttachmentsUnchanged": true,
+    "unchangedOtherBoneTracks": 41,
+    "changedOrAddedTracks": [
+      {
+        "target": [
+          "chest_ctl",
+          null,
+          "translatey"
+        ],
+        "beforeKeys": 33,
+        "afterKeys": 62
+      },
+      {
+        "target": [
+          null,
+          "upperarm_r_under",
+          "attachment"
+        ],
+        "beforeKeys": 4,
+        "afterKeys": 6
+      },
+      {
+        "target": [
+          null,
+          "forearm_r_back",
+          "attachment"
+        ],
+        "beforeKeys": 5,
+        "afterKeys": 7
+      },
+      {
+        "target": [
+          null,
+          "upperarm_l_under",
+          "attachment"
+        ],
+        "beforeKeys": 9,
+        "afterKeys": 11
+      },
+      {
+        "target": [
+          null,
+          "forearm_l_back",
+          "attachment"
+        ],
+        "beforeKeys": 8,
+        "afterKeys": 10
+      },
+      {
+        "target": [
+          null,
+          "forearm_r",
+          "attachment"
+        ],
+        "beforeKeys": 3,
+        "afterKeys": 5
+      },
+      {
+        "target": [
+          null,
+          "upperarm_r",
+          "attachment"
+        ],
+        "beforeKeys": 3,
+        "afterKeys": 5
+      },
+      {
+        "target": [
+          null,
+          "forearm_l",
+          "attachment"
+        ],
+        "beforeKeys": 1,
+        "afterKeys": 3
+      },
+      {
+        "target": [
+          null,
+          "upperarm_l",
+          "attachment"
+        ],
+        "beforeKeys": 1,
+        "afterKeys": 3
+      },
+      {
+        "target": [
+          null,
+          "forearm_l_mid",
+          "attachment"
+        ],
+        "beforeKeys": 2,
+        "afterKeys": 4
+      },
+      {
+        "target": [
+          null,
+          "upperarm_l_mid",
+          "attachment"
+        ],
+        "beforeKeys": 2,
+        "afterKeys": 4
+      },
+      {
+        "target": [
+          null,
+          "arms_hold_head",
+          "attachment"
+        ],
+        "beforeKeys": 0,
+        "afterKeys": 3
+      },
+      {
+        "target": [
+          null,
+          "arms_hold_front",
+          "attachment"
+        ],
+        "beforeKeys": 0,
+        "afterKeys": 3
+      },
+      {
+        "target": [
+          "head_ctl",
+          null,
+          "translatey"
+        ],
+        "beforeKeys": 0,
+        "afterKeys": 31
+      }
+    ],
+    "otherAnimationsUnchanged": true,
+    "newSlots": [
+      {
+        "name": "arms_hold_head",
+        "bone": "chest",
+        "attachment": null
+      },
+      {
+        "name": "waist",
+        "bone": "hip",
+        "attachment": "waist"
+      },
+      {
+        "name": "arms_hold_front",
+        "bone": "chest",
+        "attachment": null
+      }
+    ],
+    "newAttachments": {
+      "arms_hold_head": {
+        "arms_hold_head": {
+          "image": "arms_hold_head.png",
+          "x": 8.0,
+          "y": 172.0,
+          "rotation": 0
+        }
+      },
+      "arms_hold_front": {
+        "arms_hold_front": {
+          "image": "arms_hold_front.png",
+          "x": -2.5,
+          "y": -10.0,
+          "rotation": 0
+        }
+      },
+      "waist": {
+        "waist": {
+          "image": "waist.png",
+          "x": 3.0,
+          "y": 118.5,
+          "rotation": 0
+        }
+      }
+    },
+    "newRetargetOrHandPassPerformed": false
+  },
+  "intent": {
+    "headHold": {
+      "framesInclusive": [
+        124,
+        218
+      ],
+      "bone": "chest",
+      "generationKey": "H1_hold_head",
+      "seed": 1
+    },
+    "lowHold": {
+      "framesInclusive": [
+        234,
+        328
+      ],
+      "bone": "chest",
+      "generationKey": "H2z_hold_low",
+      "seed": 53
+    },
+    "lowering": {
+      "framesInclusive": [
+        219,
+        233
+      ],
+      "slots": [
+        "forearm_r",
+        "upperarm_r",
+        "forearm_l",
+        "upperarm_l"
+      ]
+    },
+    "waist": {
+      "bone": "hip",
+      "permanent": true,
+      "generationKey": "H1m_hold_head",
+      "seed": 62,
+      "sourceHistoricalExtensionRigPx": 70
+    },
+    "chestLift": {
+      "units": 17,
+      "compensatedHeadUnits": -17,
+      "inFrames": [
+        110,
+        124
+      ],
+      "outFrames": [
+        219,
+        233
+      ],
+      "classification": "Accepted source hand values; shoulder/chest-lift intent is a pose-card candidate, not an inferred correction in this replay"
+    }
+  },
+  "render": {
+    "spec": "examples-accepted-render/1",
+    "ownerAcceptedDate": "2026-10-24",
+    "frames": 391,
+    "fps": 30,
+    "size": [
+      736,
+      960
+    ],
+    "format": "PNG RGBA",
+    "sha256": "b75fc5696ac468f3ea9f58cc892d79389d66bf6ce7aeb31428f95350b9121029",
+    "computation": "SHA256 of concatenated raw f0000.png .. f0390.png bytes in index order, without separators",
+    "animation": "zero-two-r3-hand",
+    "viewport": {
+      "x": -575.1001332056925,
+      "y": -22.832002283065037,
+      "width": 1038.3634465496543,
+      "height": 1353.8478314199037,
+      "scale": 0.7090900304454161,
+      "pixelWidth": 736,
+      "pixelHeight": 960
+    },
+    "background": [
+      232,
+      232,
+      232,
+      255
+    ],
+    "viewportSHA256": "8a0f07c4304419d64125314d773b3b0f62bacdd0229a40cc0cbdffa57545a13c",
+    "build": {
+      "skeleton.json": "4e6024989f06a15525bf5cb32a47bb7aa55a75d8adf58505ce6b1a12efb49f77",
+      "skeleton.atlas": "bd9d9414f016e94407a61685455888a7aad6781acdd9d634a0a9f3c0c432cdf1",
+      "skeleton.model.json": "a94c7cbee992acaf87c0e283efc1bbd44766441f791776064e929bd59a2f0e81"
+    },
+    "gate": {
+      "profile": "spine",
+      "pass": 23,
+      "fail": 0,
+      "skip": 13,
+      "excluded": 14
+    },
+    "poser": "rigc core",
+    "sourceReceiptSHA256": "5d60e8cf85d385ff0a425edf28bc84c67a622f7c725c07fd31d178f0863f45b5",
+    "audio": false,
+    "referenceVideoPixels": false
+  },
+  "pins": {
+    "rig-c": "2.67.2",
+    "@esotericsoftware/spine-core": "4.3.13",
+    "@rig-c/parts": "1.60.0",
+    "@rig-c/pose": "1.0.1",
+    "@rig-c/play": "1.16.0",
+    "bun": "1.4.2"
+  },
+  "generation": [
+    {
+      "file": "accepted-dance/v3/generation/README.md",
+      "sha256": "42552c740d7d6681f9d3c1c4c3a27c4fafffea0a5a207222d2d602d6d6af71c4"
+    },
+    {
+      "file": "accepted-dance/v3/generation/alts/seethrough_config.json",
+      "sha256": "d8d603789d62facbd0d47b7594807ff0bb99cda0d9f1bada8a8e93d346457380"
+    },
+    {
+      "file": "accepted-dance/v3/generation/config.json",
+      "sha256": "78abcfebc915c17170836f9d2fe7948d04a6561deb35947fde7089469ddd5e1a"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys/config_H1m_hold_head.json",
+      "sha256": "ee323df49f8d209cac1af2380274f20935e2f13afbfa1ff9089b9ec6284db043"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys/config_H2z_hold_low.json",
+      "sha256": "0850f022917ff29ff75bb3b13179c4bc4323e317552549aa7111cf9fe278d2bc"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys2/masks.py",
+      "sha256": "d8582b6d1d85d9301fb9e24107ba841febfeee2045499484b988b9588a5c7573"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/H1_hold_head.json",
+      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/H1m_hold_head.json",
+      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/H2z_hold_low.json",
+      "sha256": "89097b508fe7bcc66bc9fb3dcd10701a2381a80765cb885afc36b97ccd317099"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/inpaint2.py",
+      "sha256": "d3bb0789c1bdaca2a350b581d19f73c9cc9d1b9bc0542f941af6664880564f5d"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/inpaint_H1_hold_head/prewarp.json",
+      "sha256": "04139a15bccc24ff2c6d8b536f023dc33fd4b5b3d742df74857ee42035544510"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/inpaint_H1_hold_head/warp_s1.json",
+      "sha256": "0b85478394294b12a05114d8cde4a52cf5ffd186e01a56067e6b35b3075e2b8c"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/inpaint_H1m_hold_head/prewarp.json",
+      "sha256": "0ed3846753ce85e2f08140eb481118385265769dee4b0dd5866d0396de772c3e"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/inpaint_H1m_hold_head/warp_s62.json",
+      "sha256": "26831a4cc330b0c33103265eaedf3bd37278eb54229024b34ce174432b12eb2f"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/inpaint_H2z_hold_low/prewarp.json",
+      "sha256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/inpaint_H2z_hold_low/warp_s53.json",
+      "sha256": "d48d1798e21a244c18509fbc763f328b803c44f6ee023e5d4091c2c75323cf55"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/keys.json",
+      "sha256": "d3184854e846a49e7abe781944bb224bfa02d8dbe0bb81edbdefec66451004e5"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/masks.py",
+      "sha256": "b30e93b5820346ba4758fb01cb07a747c566af758c2b813e06056284707cf73e"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/midriff_prep.py",
+      "sha256": "b1b7c69f75abf978c0fe2dc137e6d6be63306c359b2606cd7e6310c506b09a9c"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/pieces/arms_hold_front_z0.json",
+      "sha256": "41ade91fe116dc1bd09cbb1712bb2403c376304a77f08f5b4b9a67011de3d98a"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/pieces/arms_hold_head.json",
+      "sha256": "778efca8391574be46473c950b908aa5b259535e5f958ca3e05c282023686d0f"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/pieces/h1m_midriff.json",
+      "sha256": "8fa2ce987dac762368476a7f85cba6e3cbbabff8e97c83c847d11b31bf73032d"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/prewarp.py",
+      "sha256": "d1bcf8c9211dfa54b20d3eb41303f653512d44a58d51bcef04fce54007f6633a"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/run_seethrough.sh",
+      "sha256": "498a0b5911e76a41d35288d957b46061a2ff7ca48af5b06d219a6c4396788a9c"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/set_H1_hold_head/layers_full/meta.json",
+      "sha256": "6b6559e8083dede2f33a4fe62e9849032a423806eff2da5a50f221e6761d4db8"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/set_H1m_hold_head/layers_full/meta.json",
+      "sha256": "df3f86e8ad4ea643bd47575051a40065969a430bee1fa75e1fd21b0e5036771b"
+    },
+    {
+      "file": "accepted-dance/v3/generation/keys3/set_H2z_hold_low/layers_full/meta.json",
+      "sha256": "5a8eebcaca6c5ec649205e42a62198c79cda2f178e92416df081b8d71f534e9a"
+    },
+    {
+      "file": "accepted-dance/v3/generation/scripts/assemble_hold.py",
+      "sha256": "8a23f099157626ca1fb85128e9d3c59847a7274d322b6fc8de7ec69c53e30834"
+    },
+    {
+      "file": "accepted-dance/v3/generation/scripts/cut_jacket.py",
+      "sha256": "24d8283c5cd3fa73148d02f337ed739c3f51c88001acad56752e137c8ff1d6e9"
+    },
+    {
+      "file": "accepted-dance/v3/generation/scripts/cut_piece.py",
+      "sha256": "ac304ae52547df2b17b03284093c4b28ff609d6c783278b9848a14b5d5ceb16b"
+    },
+    {
+      "file": "accepted-dance/v3/generation/scripts/v3_waist.py",
+      "sha256": "d0b7c840f9caeac3ebf38713fa9a8472191ccd7ae2f30cb8bb935b1810c4694b"
+    },
+    {
+      "file": "accepted-dance/v3/generation/source-files.json",
+      "sha256": "158e01f403cc5420988ab8fa470b0615720902cd6a17b2080d24733660831ac7"
+    }
+  ],
+  "limits": [
+    "Original retarget LAND20/20 precedes historical hand foot-goal edit; no new retarget in v3 replay.",
+    "Historical shins FOLD269/391 and local seam/foot-goal readings remain v1-stage records; not newly measured here.",
+    "Non-looping 13-second take; no loop-seam claim.",
+    "No new detector compare, all-rig seam or browser/owner eye review.",
+    "Historical generator binary digests/custom-node revisions are unavailable in source; no generative byte-identity claim."
+  ]
+}

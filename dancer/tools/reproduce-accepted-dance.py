@@ -2,7 +2,12 @@
 from pathlib import Path
 import argparse,hashlib,json,os,shutil,subprocess,sys
 source=Path(__file__).resolve().parent.parent
-p=argparse.ArgumentParser();p.add_argument('--out',default='work/accepted-dance');a=p.parse_args();workspace=Path(a.out).resolve()
+p=argparse.ArgumentParser();p.add_argument('--out',default='work/accepted-dance');p.add_argument('--version',choices=['v1','v3'],default='v3');p.add_argument('--preflight',action='store_true');a=p.parse_args()
+if a.version=='v3':
+ args=[sys.executable,str(source/'tools/reproduce-accepted-dance-v3.py'),'--out',a.out]
+ if a.preflight:args.append('--preflight')
+ os.execv(sys.executable,args)
+workspace=Path(a.out).resolve()
 if workspace.exists():raise SystemExit('OUTPUT_EXISTS: choose a new output directory; existing evidence is preserved')
 record=json.loads((source/'declared-repairs.json').read_text())
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -14,10 +19,11 @@ def baseline_sha(row):
  if 'hashMode' in row:raise SystemExit('BASELINE_HASH_MODE: '+row['file'])
  return sha(path)
 config=json.loads((source/'config.json').read_text())
-if config.get('x-repairs')!={'file':'declared-repairs.json','sha256':sha(source/'declared-repairs.json')}:raise SystemExit('REPAIRS_HASH: config.json x-repairs')
+if config.get('x-repairs')!={'file':'declared-repairs-v3.json','sha256':sha(source/'declared-repairs-v3.json')}:raise SystemExit('REPAIRS_HASH: current config.json x-repairs')
 for row in record['baseline'].values():
  if baseline_sha(row)!=row['sha256']:raise SystemExit('BASELINE_HASH: '+row['file'])
 subprocess.run([sys.executable,'check-inputs.py'],cwd=source,check=True)
+if a.preflight:print('V1_PREFLIGHT_PASS: historical baseline hashes; current metadata pin; full corpus closure');sys.exit(0)
 workspace.mkdir(parents=True);corpus=workspace/'work/corpus/dancer';shutil.copytree(source,corpus,ignore=shutil.ignore_patterns('work','node_modules','__pycache__','.git'))
 runtime=workspace/'work/runtime';runtime.mkdir(parents=True)
 for name in ['package.json','bun.lock']:shutil.copy2(corpus/'accepted-dance'/name,runtime/name)

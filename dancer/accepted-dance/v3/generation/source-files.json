@@ -1,0 +1,1891 @@
+{
+  "algorithm": "sha256",
+  "scope": "Frozen historical generation files; omitted paintings, layers and masks are hash references, not claimed present files. No reference footage is included.",
+  "files": [
+    {
+      "path": "H1_hold_head.json",
+      "bytes": 740,
+      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c"
+    },
+    {
+      "path": "H1m_hold_head.json",
+      "bytes": 740,
+      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c"
+    },
+    {
+      "path": "H2_hold_low.json",
+      "bytes": 740,
+      "sha256": "9c0586cf9a373e80b32ba28e31662e96b591e2a0438a495dd57c103049471839"
+    },
+    {
+      "path": "H2x_hold_low.json",
+      "bytes": 740,
+      "sha256": "4b16314247e9eb2c90c56b73ec957919ed89de09d795e994a646f0fa4259515f"
+    },
+    {
+      "path": "H2y_hold_low.json",
+      "bytes": 740,
+      "sha256": "5d12df4fdf7bd6db95d6bbd1e5c5dfb116ff88c545a17d840cc3b1a5f67e0feb"
+    },
+    {
+      "path": "H2z_hold_low.json",
+      "bytes": 740,
+      "sha256": "89097b508fe7bcc66bc9fb3dcd10701a2381a80765cb885afc36b97ccd317099"
+    },
+    {
+      "path": "assemble_hold.py",
+      "bytes": 6309,
+      "sha256": "8a23f099157626ca1fb85128e9d3c59847a7274d322b6fc8de7ec69c53e30834"
+    },
+    {
+      "path": "control_H1_hold_head.png",
+      "bytes": 10283,
+      "sha256": "9ca9bb87f7c5bcf5aafdda1feb296f3306e4bb9189f0f3616d90f89349cdc9eb"
+    },
+    {
+      "path": "control_H1m_hold_head.png",
+      "bytes": 10283,
+      "sha256": "9ca9bb87f7c5bcf5aafdda1feb296f3306e4bb9189f0f3616d90f89349cdc9eb"
+    },
+    {
+      "path": "control_H2_hold_low.png",
+      "bytes": 10617,
+      "sha256": "c26c09b3eb193ddf1090a60c24c6b141b57bf68f5baa95a4d893d7e958a34435"
+    },
+    {
+      "path": "control_H2x_hold_low.png",
+      "bytes": 10650,
+      "sha256": "981e5bad27a9fcea1224f1af0530ecb581ca75d66a744bbcc9e15c126903eae2"
+    },
+    {
+      "path": "control_H2y_hold_low.png",
+      "bytes": 10690,
+      "sha256": "817759e0c799ca071851afd18e0836c8bdf8de3edb6859a99032b110b4a3675a"
+    },
+    {
+      "path": "control_H2z_hold_low.png",
+      "bytes": 10363,
+      "sha256": "7cf61e668c63143af883b01719d1f5868beb2a1c4b1ddfc430ae121e37812cd7"
+    },
+    {
+      "path": "cut_jacket.py",
+      "bytes": 4160,
+      "sha256": "24d8283c5cd3fa73148d02f337ed739c3f51c88001acad56752e137c8ff1d6e9"
+    },
+    {
+      "path": "cut_piece.py",
+      "bytes": 4680,
+      "sha256": "ac304ae52547df2b17b03284093c4b28ff609d6c783278b9848a14b5d5ceb16b"
+    },
+    {
+      "path": "inpaint2.py",
+      "bytes": 10887,
+      "sha256": "d3bb0789c1bdaca2a350b581d19f73c9cc9d1b9bc0542f941af6664880564f5d"
+    },
+    {
+      "path": "inpaint_H1_hold_head/compmask.png",
+      "bytes": 22584,
+      "sha256": "c7334cbdd7621eeecd4a05d83cbb1232170ce7bf2dd1d0a03a040ddcb207d066"
+    },
+    {
+      "path": "inpaint_H1_hold_head/keepmask.png",
+      "bytes": 4849,
+      "sha256": "c6e7840f4238503f9717125267d6156b6cb1e3b6ed2e4e114fd566d4e22ffc84"
+    },
+    {
+      "path": "inpaint_H1_hold_head/mask.png",
+      "bytes": 25888,
+      "sha256": "f57f1a74e86f8f202fc99c2660167b4e031f5ea8f1ed4cbc963d92c75468c638"
+    },
+    {
+      "path": "inpaint_H1_hold_head/mask_overlay.png",
+      "bytes": 410470,
+      "sha256": "56f091ecfe01e81694022380e9866731f5cbcda4e815ed31209083da46b54363"
+    },
+    {
+      "path": "inpaint_H1_hold_head/prewarp.json",
+      "bytes": 253,
+      "sha256": "04139a15bccc24ff2c6d8b536f023dc33fd4b5b3d742df74857ee42035544510"
+    },
+    {
+      "path": "inpaint_H1_hold_head/run.log",
+      "bytes": 180,
+      "sha256": "ec5d568462d0dd67e8068289689e868553041e4fc01ae784ca42977a84a4a65d"
+    },
+    {
+      "path": "inpaint_H1_hold_head/softmask.png",
+      "bytes": 33668,
+      "sha256": "6af8e237ec0fbb832dba379ebf820b54cd13eef45c934e601d86db8c68ffd4c9"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s1.json",
+      "bytes": 2579,
+      "sha256": "0b85478394294b12a05114d8cde4a52cf5ffd186e01a56067e6b35b3075e2b8c"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s1.png",
+      "bytes": 1258736,
+      "sha256": "30488c7e605323d8a3f77079de3136829bc689da07b56351f9b17903d2ea5350"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s1_raw.png",
+      "bytes": 1058617,
+      "sha256": "af9c130d4f65379484a227d7778e2e53b94cb8012ca43aab975cb3d7f34593ff"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s2.json",
+      "bytes": 2579,
+      "sha256": "ce4378e7516aaed8288155a4418962c990f513374022b7afdc0c186f97bd64ec"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s2.png",
+      "bytes": 1269792,
+      "sha256": "554a7823657edeaea461cc1fda6adcdcaa3e1d7fc2c85e723191747be7e64a27"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s2_raw.png",
+      "bytes": 1128154,
+      "sha256": "199c5f9d9db7bd44251375aa3d3ef7892f8a4394633d8c49ceb360f215f88b7f"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s3.json",
+      "bytes": 2579,
+      "sha256": "2d4adba282d18a1d8e4e266e17a2f055d4d8d0ceabf6e7857a43175e4135995b"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s3.png",
+      "bytes": 1260407,
+      "sha256": "24e5c15395304f78e85028f38c90b3485f317a6aef62b7ce40e9a2045af9f566"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s3_raw.png",
+      "bytes": 1079614,
+      "sha256": "0ac7586287f9c7cca022937a9fa78efbf0d73879b144bfe9e34830d3a47e16c2"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s4.json",
+      "bytes": 2579,
+      "sha256": "ff4b300fcad5b155348e13e33a7b1f6b351e958ab1af8b3ec35fb2c09b715cec"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s4.png",
+      "bytes": 1258570,
+      "sha256": "f2fef58ae1f35fa7acc88658c95a8209efde515466096f91b6a665c1694c0f68"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warp_s4_raw.png",
+      "bytes": 1061552,
+      "sha256": "4cceabecd6a8ddb2e6c5ed7dae87c825b7c9ea15dc6202af8447891cb7c9e9e7"
+    },
+    {
+      "path": "inpaint_H1_hold_head/warped.png",
+      "bytes": 1210075,
+      "sha256": "11decfa160cf72e8725b0fa58d05b3f679b083a5bbb53f83089c25bd22dcc19d"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/bg.log",
+      "bytes": 189,
+      "sha256": "becc4be7f042fc7874de4892c41792c7b162c79a8d54eb54a02a08f825e56348"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/compmask.png",
+      "bytes": 22421,
+      "sha256": "945270673bb9740231b8365407b678fb7b72b8b7187f198b5792689a30d79978"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/compmask_orig.png",
+      "bytes": 22602,
+      "sha256": "dedc2325b11102728734ac5b2ccb949f924fe72081f74a1816f992c6bed795a1"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/keepmask.png",
+      "bytes": 4846,
+      "sha256": "5eaaa4b060822ad187264af5b2c3c5fd1090eedba835daae1663b4bc325da3ec"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/mask.png",
+      "bytes": 25888,
+      "sha256": "f57f1a74e86f8f202fc99c2660167b4e031f5ea8f1ed4cbc963d92c75468c638"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/mask_overlay.png",
+      "bytes": 410470,
+      "sha256": "56f091ecfe01e81694022380e9866731f5cbcda4e815ed31209083da46b54363"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/prewarp.json",
+      "bytes": 253,
+      "sha256": "0ed3846753ce85e2f08140eb481118385265769dee4b0dd5866d0396de772c3e"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/run.log",
+      "bytes": 285,
+      "sha256": "6a228526d5310afcb9834d526aa5724e1f9b1085b64da63b98e0bfef563540e8"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/softmask.png",
+      "bytes": 33335,
+      "sha256": "f7d782a949bca60fa9387cc293d718f355d3324efb31f626bd5f623d7489106c"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/softmask_orig.png",
+      "bytes": 33641,
+      "sha256": "f4f3a7cda0e519d4b16535eb787b882110b9f7d259ba01f924d3d1484f7abf26"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s61.json",
+      "bytes": 2784,
+      "sha256": "7d332066e5c919e0d4beee13389f0e1bd27c4102283173a62af653e437a3ef5c"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s61.png",
+      "bytes": 1262057,
+      "sha256": "57911c527114497a756e57471e1555aa05bd518c26dfec0e8ea243e1e2f7ab4e"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s61_raw.png",
+      "bytes": 1035988,
+      "sha256": "1f5942ed87f3cd778124be1515e01e686708b8fe2bf15789e41a6fdb7ee178f8"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s62.json",
+      "bytes": 2783,
+      "sha256": "26831a4cc330b0c33103265eaedf3bd37278eb54229024b34ce174432b12eb2f"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s62.png",
+      "bytes": 1259949,
+      "sha256": "15f9673ca7ad787d3b72583e15ba89497239f95da21df9ec45ab57dd8dafc60d"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s62_raw.png",
+      "bytes": 1065507,
+      "sha256": "bb5055096618cd7d0aac78b3f70e1d391fe2b55641427f5292abaa9c5c9877df"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s63.json",
+      "bytes": 2783,
+      "sha256": "d41c7ce84a8763c21f6d1675e5464150818c58263b4af5b1806c3ef61c8dd370"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s63.png",
+      "bytes": 1262858,
+      "sha256": "3c8ea7a1aa826532be7192e4fcd4b731e92e6462aff18a3015bc81f1290ffe95"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s63_raw.png",
+      "bytes": 1048868,
+      "sha256": "58a39983bc047e7be94ab9710204c6d8d28f0854a5ee35e645e005f7873447e2"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s64.json",
+      "bytes": 2783,
+      "sha256": "d9fded61617394198ad457ce556cca92f3b351b6608d5f879547511dbe779ace"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s64.png",
+      "bytes": 1258720,
+      "sha256": "5ba8712f1ef8327eef7381c73025cade0951bf70102fa5ace6e6f30fa504023b"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s64_raw.png",
+      "bytes": 1045293,
+      "sha256": "0ed2dad0bbae6e6552e4a3e7dbaddb233cf4e56be31ad45e2576975e14e35ea3"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s65.json",
+      "bytes": 2783,
+      "sha256": "5d86233fe3ae76ea64604d238d705e479fe0243697a94f4f590a9851e2836bff"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s65.png",
+      "bytes": 1257184,
+      "sha256": "694412a39f98eac62711396c7a68a3e742e72a2d71e7a481aaa685aa3569db2d"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s65_raw.png",
+      "bytes": 1065452,
+      "sha256": "e0bceda74b0cd72625c48ac84997e267a4ae715e47821071dd2dc3bbc22e3caa"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s66.json",
+      "bytes": 2785,
+      "sha256": "0c66d2132533347ddd3bf22620eca4091b37c3713ffa4902e0a83a73fe52ad4e"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s66.png",
+      "bytes": 1262821,
+      "sha256": "d2a5b381274af383e84821850edc12b010bc20ebcbfae3cc81250bdb35fd0f4b"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warp_s66_raw.png",
+      "bytes": 1047335,
+      "sha256": "77002a7e48c6ad5e6a5d4f3e215f90465518e1b67a74f918e7e407d06c51169f"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warped.png",
+      "bytes": 1200132,
+      "sha256": "fc89b56540428723586684b730462d1bdc7b3803d9d13e9338a442eb72d5e98b"
+    },
+    {
+      "path": "inpaint_H1m_hold_head/warped_orig.png",
+      "bytes": 1203969,
+      "sha256": "cc485fb096cf48bbc6490dc26bc6c3cc46727ba8c6f873c7ece0ccbe7845f7b4"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s1.json",
+      "bytes": 2540,
+      "sha256": "1a95e6d6f50c92d8e3d02c129f57dd0bed33eaaf16a1e3374c555384b0f00c6f"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s1.png",
+      "bytes": 1242824,
+      "sha256": "98d7fdce1105477daa21b509a089ce64b7643c763f25164802954f8ccdb0cc8a"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s1_raw.png",
+      "bytes": 1179392,
+      "sha256": "edb6003c7f4e716ca7538e97b6848d9d79e691aa9bf952179972eb7670425ea3"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s2.json",
+      "bytes": 2540,
+      "sha256": "6f7ec68de094341bbbdd28d5c249e9d1557e8357c420794f0a6fb46f2494742c"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s2.png",
+      "bytes": 1255666,
+      "sha256": "fdb34a4a3bdff5465471926195b3dfca7212d6a6be3b1807be808e16caa819ad"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s2_raw.png",
+      "bytes": 1205900,
+      "sha256": "7286463effa1a5e92659af46e3e5b1efa80f2799a82db8842bc68e577028ad06"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s3.json",
+      "bytes": 2540,
+      "sha256": "ea37b3d924fcdfa86ee1e3189757a0efc74b9dac34c9aedc0323167b7efdc6dc"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s3.png",
+      "bytes": 1246728,
+      "sha256": "4b606d36cd832f5ebf80fabf3a04f7c93c0307c1338c34f865291d77e79e9b5e"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s3_raw.png",
+      "bytes": 1101677,
+      "sha256": "942cc470a6b705752715c9be9ac280c15d1ec1cf6aa8154e14897f323318aa30"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s4.json",
+      "bytes": 2540,
+      "sha256": "95b190b4b1a05a9983cf47e9360a9fa95fe0fdff694ec3b1889c15c6f4150784"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s4.png",
+      "bytes": 1249117,
+      "sha256": "3b081adfa182b43e456b5c20140f396955ea1e0ed488cacc7b6ac624e8c653bb"
+    },
+    {
+      "path": "inpaint_H2_hold_low/clasped/warp_s4_raw.png",
+      "bytes": 1207602,
+      "sha256": "2cea80835c958f0128d0db43c969d52aea906d90df0c85c4bd74cd40c2c9f78c"
+    },
+    {
+      "path": "inpaint_H2_hold_low/compmask.png",
+      "bytes": 17405,
+      "sha256": "909af7a483bb62381e88a6811d7290c816aeb38d656c5d81065a1bc46577255f"
+    },
+    {
+      "path": "inpaint_H2_hold_low/keepmask.png",
+      "bytes": 4852,
+      "sha256": "96cd418d51578018ce7be3b37bc209ebaf914d698d43b4e1649818821e33dbd9"
+    },
+    {
+      "path": "inpaint_H2_hold_low/mask.png",
+      "bytes": 20819,
+      "sha256": "69fecafea5e1174671d62112223554ab7ff50506e57b3a2575086f817e063fbd"
+    },
+    {
+      "path": "inpaint_H2_hold_low/mask_overlay.png",
+      "bytes": 400542,
+      "sha256": "1885b811499607395b66d8cea0b48e354bc8e202036665f1e7cd1a9149fee453"
+    },
+    {
+      "path": "inpaint_H2_hold_low/prewarp.json",
+      "bytes": 253,
+      "sha256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377"
+    },
+    {
+      "path": "inpaint_H2_hold_low/run.log",
+      "bytes": 449,
+      "sha256": "9f6e14cdff0f8127beb564f53fe3fd055e5076499c57b1f009aecee7631c8253"
+    },
+    {
+      "path": "inpaint_H2_hold_low/softmask.png",
+      "bytes": 29974,
+      "sha256": "f10116da302f0940f2440837cd085e97ad96b836653cc236a96c9213f6c9617f"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s21.json",
+      "bytes": 3013,
+      "sha256": "80d0f40c301a3247beb172a45b3384867edd817e2ca3692b9360503647743e7e"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s21.png",
+      "bytes": 1215982,
+      "sha256": "c149db2dc02f05729e1c286d08e915655b9bd316510a1a4454ba0f350c544333"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s21_raw.png",
+      "bytes": 1142088,
+      "sha256": "fbefadb712441bd2123932a711c24a72d457a76d08a79a849ecb69fcee62b627"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s22.json",
+      "bytes": 3013,
+      "sha256": "e52aeae9e3a3e16bf8e6a43014c44fb92c6c1c6fdf6f29bdb73a2aa248290eb5"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s22.png",
+      "bytes": 1240321,
+      "sha256": "72a2f16142ab12c6a59ef2c5cba0d86bf6e371c64d62f9399dfe2f8a54283e86"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s22_raw.png",
+      "bytes": 1141715,
+      "sha256": "c83536b569d09868775e162b24597b4ce5079af9da4b1d106fc282838966ac0f"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s23.json",
+      "bytes": 3012,
+      "sha256": "05266e7afd03834702e7125b23da497dde42d1bdf8041c605d28ccd56ccba738"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s23.png",
+      "bytes": 1264810,
+      "sha256": "92da0ad19c2deb456fd9bf7061f0d197fc136f021c1542676c14e5602740bd57"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s23_raw.png",
+      "bytes": 1191562,
+      "sha256": "9c84e92ab2dfbc9db50b38038b49e4c92f42ea2277d6a67cbe9a929d1a9769a6"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s24.json",
+      "bytes": 3012,
+      "sha256": "7f1ad397353ea53990a87610e200cd533a64f4afcef7886773252e32ad297a52"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s24.png",
+      "bytes": 1242477,
+      "sha256": "966ce6a7c28a0c03cbe0be0930d933659385d012101f7bfa1f42a6672f0acedf"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s24_raw.png",
+      "bytes": 1181755,
+      "sha256": "b0b0af84dc24a80540ed15144a32f5dd4b1ac488c16aeeb5aad5b40bdfda068e"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s25.json",
+      "bytes": 3012,
+      "sha256": "ec3b85dec47c3f61505230e1b4876ad300384c9471633f89d178bda3fe0c774d"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s25.png",
+      "bytes": 1257407,
+      "sha256": "0037c1dafa4ba2280212508f3887818d1953d6de9da24a891c1b60bf96cfc47f"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s25_raw.png",
+      "bytes": 1116092,
+      "sha256": "17be07a365b3294d341db05b605adc16857c69d61b2848d3d07d4555f5482c60"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s26.json",
+      "bytes": 3013,
+      "sha256": "f871437f0bd3c21faf148f821820904cf350129e5e4c35c2a508483e65a01244"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s26.png",
+      "bytes": 1263202,
+      "sha256": "c7176dea46b1d2e085e5f40a970882a92cd060ef934090e703f5eaa563ca285a"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warp_s26_raw.png",
+      "bytes": 1153623,
+      "sha256": "6f5dfad51dd8a5204aa1208f12137ae12598b82f51190c8273e18717aa0449f1"
+    },
+    {
+      "path": "inpaint_H2_hold_low/warped.png",
+      "bytes": 1226685,
+      "sha256": "56d2a0d43094327121c1e2a4823edc6518e15770da51fea05838de77ddf1ea2e"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/compmask.png",
+      "bytes": 17622,
+      "sha256": "140a9fd279f708a0a4f1509d5207bd683065025fda5fbf4e28bb27f5200d4a99"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/keepmask.png",
+      "bytes": 4852,
+      "sha256": "96cd418d51578018ce7be3b37bc209ebaf914d698d43b4e1649818821e33dbd9"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/mask.png",
+      "bytes": 21189,
+      "sha256": "4383524635781e143b0af822cdd96813554ff7b2055c2faf4aa92c5e86406468"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/mask_overlay.png",
+      "bytes": 400774,
+      "sha256": "73b8b4c92806877ac655c4988418be7110ed23059b942e99febb68ba3346eb11"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/prewarp.json",
+      "bytes": 253,
+      "sha256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/run.log",
+      "bytes": 277,
+      "sha256": "9c01c34c9acb37d8826baa93f9d2c44a3f364803a69ee653e108b8fa525edfc0"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/softmask.png",
+      "bytes": 29926,
+      "sha256": "90cf7150b4e400b16a648ff1cf663404bffc2afc3c93b189a01325f61e5fffd0"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s31.json",
+      "bytes": 3014,
+      "sha256": "cf4e5f59e081b1dbb5a3fad296b3e96b67251493c4bcf701b2b159da197f0372"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s31.png",
+      "bytes": 1228200,
+      "sha256": "af2d86a05eb90cbfcbf03eab5eabe204085d582c5bd12402a6a1fd6ba98f21f0"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s31_raw.png",
+      "bytes": 1108507,
+      "sha256": "324100e554f3384161addd4f3a6345e783fa3bac0d8fd6ab9fe8d52ba933d1b3"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s32.json",
+      "bytes": 3013,
+      "sha256": "870bbc9921415290f02407cc16b47276b0b190b0fb9e1e7fef30e2621e40919a"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s32.png",
+      "bytes": 1249398,
+      "sha256": "5f18836913ff46977f6025d4c222f8b942219b0b124cdd623ce92b95bbe01033"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s32_raw.png",
+      "bytes": 1112673,
+      "sha256": "9c13f65e985c637f7af85069d191848f15258689d1b8317aa899b344e6893aa5"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s33.json",
+      "bytes": 3013,
+      "sha256": "fbad4b08e036eff1626e425015c528a38f9769ba20388b287023506416180ba5"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s33.png",
+      "bytes": 1248016,
+      "sha256": "3b757a761f114050099134fbdc426e357290eda0b256c452b44412a3a5c21beb"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s33_raw.png",
+      "bytes": 1124692,
+      "sha256": "bd7ab5bde55c7f874034e81148129c17eb404b86dd405e04b61f5e221cad0ae3"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s34.json",
+      "bytes": 3013,
+      "sha256": "0f3044c9215fe9b55c6ae9c5ad3f91c445d74f52f6aad0db9229b1e16d094e08"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s34.png",
+      "bytes": 1244543,
+      "sha256": "4ec4bc1f5b71272c0d213f5120415587b6f8e0a7729c98c81deb1c07a1e6256f"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s34_raw.png",
+      "bytes": 1098988,
+      "sha256": "cdab712e4bddd82cc3c095f677301e037c9b318084be4c45d81791a2178430f2"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s35.json",
+      "bytes": 3013,
+      "sha256": "e1e5b50df72e2183e817cab46ce74482bfa17df4850ee7ac0aacaa2e0ea3ca6c"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s35.png",
+      "bytes": 1271469,
+      "sha256": "3a1be24e8658bf9db26b633fa8408a45adb0133ed3e7c85ad840bd717b645e20"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s35_raw.png",
+      "bytes": 1158258,
+      "sha256": "87dd685af682bc2598687ab02026d81ed496842a80500fbf598523dc8d98797b"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s36.json",
+      "bytes": 3013,
+      "sha256": "bd552cff4ea8a4848cd7da875fff47936a087233f6ce9484eb909a545677ae8c"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s36.png",
+      "bytes": 1252892,
+      "sha256": "c1a1fcb68a25d863562f88a941c9587dc71beb6b1caaed82cc2a5a5b64218381"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warp_s36_raw.png",
+      "bytes": 1296204,
+      "sha256": "30ad6cd9f2602a2dac4d38be16c26677231b0cf57ff018ec73a415aa7b036d1f"
+    },
+    {
+      "path": "inpaint_H2x_hold_low/warped.png",
+      "bytes": 1224282,
+      "sha256": "d23ed82e8eb67e74380cb722fcf3f49d80c00b7b24b6ed0dce35868e822de1e5"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/compmask.png",
+      "bytes": 17998,
+      "sha256": "04a759bc51917088fcb458203bb85f9758acb1a31fd29516a0405687862d950a"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/keepmask.png",
+      "bytes": 4852,
+      "sha256": "96cd418d51578018ce7be3b37bc209ebaf914d698d43b4e1649818821e33dbd9"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/mask.png",
+      "bytes": 21891,
+      "sha256": "379e3540751b295dfba980370d4fdba431b2636c27b4195ae0d412a4b906ff0c"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/mask_overlay.png",
+      "bytes": 400853,
+      "sha256": "a2e1dbdbb34eddfd95675f55e4fc624d0fcc086d705a05a8073516bac43d6cdd"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/prewarp.json",
+      "bytes": 253,
+      "sha256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/run.log",
+      "bytes": 276,
+      "sha256": "2888d4cd426fd2f479d63592d8b6da037d0c2ec2f4b462fe4f2a380eb23010a9"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/softmask.png",
+      "bytes": 30141,
+      "sha256": "2279e4b17bc5b3e608a7cd8ef2bd7b5e0051e7135d3474cbd4abffec21af932c"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s41.json",
+      "bytes": 3013,
+      "sha256": "7ebd0122edb80ea95998fe79fb9012f225ecf93f4fac5a44805bd6d3e1cbab1b"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s41.png",
+      "bytes": 1270266,
+      "sha256": "92ba954bcaa1b01ebb02e8a1e2ea4cd6fe789cbb69eda7f964b1b91baa5f1215"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s41_raw.png",
+      "bytes": 1366152,
+      "sha256": "8eee867a2edd810e36530aac9356909598458a1f740b77dc764c2e4e1eccdc5c"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s42.json",
+      "bytes": 3013,
+      "sha256": "63f4b90a27396dad9e7e19a5aa012cdfd5e7bcd75620cab52f2a2ee9f27c6f30"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s42.png",
+      "bytes": 1269331,
+      "sha256": "74f0f66a41d80d70efd7a53c643137c728dfc7b9ea48a2f92d1e548ee8c2342d"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s42_raw.png",
+      "bytes": 1330517,
+      "sha256": "23576faea60cac64d779810e5b2b1e37356083e55dfb49dcd766b71cae5c5a4f"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s43.json",
+      "bytes": 3013,
+      "sha256": "f4df63d5290025de1d575345921d728a779f1f920ff39d6f9c88c08f00df260d"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s43.png",
+      "bytes": 1253723,
+      "sha256": "5944a404428357a44d5ca5a762a08c9d6e006c4950684ae51924078f20579157"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s43_raw.png",
+      "bytes": 1195544,
+      "sha256": "62b46523ea4abf68c18a5685a6a77884f1cbffdf66e2b011845861016a14868b"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s44.json",
+      "bytes": 3013,
+      "sha256": "8be0261b6924b5d6d1251df3c00c3c1277fecd633566f13b96e90abda2ebdfaa"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s44.png",
+      "bytes": 1280430,
+      "sha256": "94f30379accae39ff8d19db2e13325f15c9d81125722a8c5cab2999f3b0fa473"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s44_raw.png",
+      "bytes": 1162767,
+      "sha256": "2017774d9a9e4d2aadb876dcf2f6dc51653158a8b0557932fb94faf345a333c7"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s45.json",
+      "bytes": 3013,
+      "sha256": "4e7b319ff8451b4fcc574cf957cebd2e074218393dd953e31a0917a9bfde6c59"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s45.png",
+      "bytes": 1249500,
+      "sha256": "c3a6eac955cf65646ab971018123cdc334f716609dd18b2f19082acf85449a5a"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s45_raw.png",
+      "bytes": 1063362,
+      "sha256": "56058c3d8b7bcd62d08d9008c0b95aca20b158c0c12c6286be0da5ff24be8c85"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s46.json",
+      "bytes": 3013,
+      "sha256": "13b698f384ec0188fb8f1aec60246601fa4921bfb94c8f17978f4d6836602b95"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s46.png",
+      "bytes": 1274933,
+      "sha256": "be819481397a801aaabbbeea179b3f5b581f0bdb5a24dd354b313c96642fd827"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warp_s46_raw.png",
+      "bytes": 1107987,
+      "sha256": "f1ef63523a5d8f7c6a6ac22dea0a3eedf0651fec2f7f8ae5e698ce518b1e77cc"
+    },
+    {
+      "path": "inpaint_H2y_hold_low/warped.png",
+      "bytes": 1220624,
+      "sha256": "5b3c7f9b344b79850f6ce0dd8f3b2b19cf00db638cea6e5b474083231062b4d2"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/compmask.png",
+      "bytes": 19039,
+      "sha256": "418abb494b6815d4376f586a1d7d564a0ce13dae5ef529cb9efca8408ac8cb78"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/keepmask.png",
+      "bytes": 4852,
+      "sha256": "96cd418d51578018ce7be3b37bc209ebaf914d698d43b4e1649818821e33dbd9"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/mask.png",
+      "bytes": 21766,
+      "sha256": "973d84b855f6134fff502945e249aeaaa43b583991f9f621a17b24f48ce9d328"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/mask_overlay.png",
+      "bytes": 402203,
+      "sha256": "eb78358e6aa8b6e46afed20432c2f59d7a0e96a4d07d7712825acf4669ab5786"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/prewarp.json",
+      "bytes": 253,
+      "sha256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/run.log",
+      "bytes": 276,
+      "sha256": "30972c8ebb4a687520edd8bc0a954fb9cb76a280a7c5675578f44eb0cc099888"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/softmask.png",
+      "bytes": 29248,
+      "sha256": "8e524268908f3659bee8fdefbe2f82a04ad939ea344afa79b4e51282623963ed"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s51.json",
+      "bytes": 3059,
+      "sha256": "b37a2ca883f3759720cfc6ef7e7ce8116211ab9c47290786e1e14e803f645e3f"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s51.png",
+      "bytes": 1235071,
+      "sha256": "119e4e9f84a158b47401247c6c530da3be22ee6441fc149df6fc26bc47de857e"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s51_raw.png",
+      "bytes": 1211426,
+      "sha256": "e24948e555c444d56295e6e30010178c0bcdc3caf942c5ac9f005dc76710351e"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s52.json",
+      "bytes": 3059,
+      "sha256": "d595b9b12dcdde62266455becccf51d52f8d19704bbe86ddfcdc1ce932b0dded"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s52.png",
+      "bytes": 1245600,
+      "sha256": "4161206688a08367fccf84a691b5299aa09f297c4e77d816096b551cce59f4a9"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s52_raw.png",
+      "bytes": 1219330,
+      "sha256": "31893fec6ab1d27c00929889eff8f541f5f68e5e26fe90f6b4dad217b4e7fd7b"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s53.json",
+      "bytes": 3059,
+      "sha256": "d48d1798e21a244c18509fbc763f328b803c44f6ee023e5d4091c2c75323cf55"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s53.png",
+      "bytes": 1239239,
+      "sha256": "4b3d42825437c3e3c428f10b8df36fce22821e41e41f4624274f2539c6015c0e"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s53_raw.png",
+      "bytes": 1203128,
+      "sha256": "2c99f8cdb0a2ae4967dbd363ddf2a5d5f986253abb0eee3723ef0d9ce7952e6e"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s54.json",
+      "bytes": 3059,
+      "sha256": "6e24ade1eca5937e0a45a35cf3da7af4fccf99d4f8e16468043f26fed2c03d81"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s54.png",
+      "bytes": 1221281,
+      "sha256": "02711d6964127a66f339544364c064d2f8f9b77b6cae0d673224f4e7921b5e81"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s54_raw.png",
+      "bytes": 1252601,
+      "sha256": "0090a28a6db5f8f5ce5ff312c7c2ef522538fb468dab4398eb7c9f70ae1f6234"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s55.json",
+      "bytes": 3059,
+      "sha256": "f58c8e7f0e4760c850c7fa012c1c1842b878bd289bd6d33703eb7c0584d62e0f"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s55.png",
+      "bytes": 1233795,
+      "sha256": "41236f24d09b2324156d0dc930bef8ec718ef49b3adabed35352afb120deacbc"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s55_raw.png",
+      "bytes": 1268088,
+      "sha256": "24a24a2d0c771260e37b0dd37ecbc19699cfb863d3d9488cf5c4c5f1a32027a3"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s56.json",
+      "bytes": 3059,
+      "sha256": "02311f4bd3d9a9ffbe9845269ff7a2a0563f2c0d88be94a28069f672c8338a78"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s56.png",
+      "bytes": 1226422,
+      "sha256": "f7ffdc058b64e6edf4b83326c661860d962567fc80eeaff9fd00b9368108bbc4"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warp_s56_raw.png",
+      "bytes": 1201087,
+      "sha256": "ccbcee12c6528aae6e8e4530804ed6ce5e4f66391bab700337b05e7529b018d5"
+    },
+    {
+      "path": "inpaint_H2z_hold_low/warped.png",
+      "bytes": 1187716,
+      "sha256": "6bb2a55f46e4a952ca57cac01e5d7d6beaee339706ce0e538f8fe58fc7220cb8"
+    },
+    {
+      "path": "keys.json",
+      "bytes": 3346,
+      "sha256": "d3184854e846a49e7abe781944bb224bfa02d8dbe0bb81edbdefec66451004e5"
+    },
+    {
+      "path": "make_keys.py",
+      "bytes": 6515,
+      "sha256": "eb383bcea9f4b57be4d74d6821e2509beff1832c4735002c6dbaa75ab816ceef"
+    },
+    {
+      "path": "masks.py",
+      "bytes": 5596,
+      "sha256": "b30e93b5820346ba4758fb01cb07a747c566af758c2b813e06056284707cf73e"
+    },
+    {
+      "path": "midriff_prep.py",
+      "bytes": 1822,
+      "sha256": "b1b7c69f75abf978c0fe2dc137e6d6be63306c359b2606cd7e6310c506b09a9c"
+    },
+    {
+      "path": "pieces/arms_hold_front.json",
+      "bytes": 308,
+      "sha256": "897adeff96163b923d3adc9b8e89cabce17e1afb5063a9c600c4972f89d2369d"
+    },
+    {
+      "path": "pieces/arms_hold_front.png",
+      "bytes": 115193,
+      "sha256": "022f3ee31bcca3c8e5aed1e926ddcfdc781834c4fcde992f1b8f23da1d0f2be1"
+    },
+    {
+      "path": "pieces/arms_hold_front_x.json",
+      "bytes": 310,
+      "sha256": "1256e584a34878906048d2354d0d2462c65f02606092b63a5427671506934565"
+    },
+    {
+      "path": "pieces/arms_hold_front_x.png",
+      "bytes": 114616,
+      "sha256": "766cd6cf2a79beaa8f9dd00d5514112f9d5397c98d27b63ecb7fc26976e86267"
+    },
+    {
+      "path": "pieces/arms_hold_front_z.json",
+      "bytes": 308,
+      "sha256": "71f7834ea9c54fbf26bc1d019d18e09ea7537fa7017375833dad0efd887a02a3"
+    },
+    {
+      "path": "pieces/arms_hold_front_z.png",
+      "bytes": 107881,
+      "sha256": "fa33c91692f9b1d07966cda5612eae663dafa4e37c6d8607d2dbb2910881d9dd"
+    },
+    {
+      "path": "pieces/arms_hold_front_z0.json",
+      "bytes": 309,
+      "sha256": "41ade91fe116dc1bd09cbb1712bb2403c376304a77f08f5b4b9a67011de3d98a"
+    },
+    {
+      "path": "pieces/arms_hold_front_z0.png",
+      "bytes": 115241,
+      "sha256": "18b392875be888e28bf116edceede5e4c14cafe31554e192348f7de54db00701"
+    },
+    {
+      "path": "pieces/arms_hold_head.json",
+      "bytes": 293,
+      "sha256": "778efca8391574be46473c950b908aa5b259535e5f958ca3e05c282023686d0f"
+    },
+    {
+      "path": "pieces/arms_hold_head.png",
+      "bytes": 114591,
+      "sha256": "6954c20fbe1bf3d988b4d1e9c8baff38f91d2549bb2a3ac2ee06d1907737318b"
+    },
+    {
+      "path": "pieces/arms_hold_head_m.json",
+      "bytes": 295,
+      "sha256": "74f3453bb49a6978590af5d92a1388de6fb523978da1c861dfb4065365fb8b3a"
+    },
+    {
+      "path": "pieces/arms_hold_head_m.png",
+      "bytes": 112665,
+      "sha256": "d612dab30e4010dd08cbf667b27b356ce216803fb10862a1f84e3e7dc3a4cd6c"
+    },
+    {
+      "path": "pieces/h1m_jacket.json",
+      "bytes": 141,
+      "sha256": "6a2ff35def950385fb96370f393d111ba42d3c198ec0187f1799dda158857e06"
+    },
+    {
+      "path": "pieces/h1m_jacket.png",
+      "bytes": 71091,
+      "sha256": "7bf1b7c9cf4886b1f2d903d9a90e89789a9a1aadd068dec5222d1f405d9dda9f"
+    },
+    {
+      "path": "pieces/h1m_midriff.json",
+      "bytes": 140,
+      "sha256": "8fa2ce987dac762368476a7f85cba6e3cbbabff8e97c83c847d11b31bf73032d"
+    },
+    {
+      "path": "pieces/h1m_midriff.png",
+      "bytes": 7817,
+      "sha256": "0217805896a38001d33a4dd99351a15b88ed65257b2f2b251377614c9b18ff49"
+    },
+    {
+      "path": "prewarp.py",
+      "bytes": 18289,
+      "sha256": "d1bcf8c9211dfa54b20d3eb41303f653512d44a58d51bcef04fce54007f6633a"
+    },
+    {
+      "path": "render_control.ts",
+      "bytes": 572,
+      "sha256": "c50c6f22025cad3c78edcd96a1f0b03e6863aba548ed8d0d37090b70199d3afa"
+    },
+    {
+      "path": "run_seethrough.sh",
+      "bytes": 1149,
+      "sha256": "51119ba6ef05f97b7b8e70bd5504656977e2d5a08acb9e08135296754e84423f"
+    },
+    {
+      "path": "seethrough.log",
+      "bytes": 7339,
+      "sha256": "865a2c2c1304db03a41924cf6c08eea81acea3ea01a13de8217c25d2b2e4acb4"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/layers.json",
+      "bytes": 10332,
+      "sha256": "5caae6392d2997e2bc284146937288d3606784365fb405edfa4a2f27e71d54c0"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/meta.json",
+      "bytes": 961,
+      "sha256": "6b6559e8083dede2f33a4fe62e9849032a423806eff2da5a50f221e6761d4db8"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/back hair.png",
+      "bytes": 434674,
+      "sha256": "445b0e95bc7f8633fa465310259eeac3a6705f0a2f9155969c0476538eb31aae"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/bottomwear.png",
+      "bytes": 577809,
+      "sha256": "6dd535e6b23c10a9b843dfa529fdb063daaeff2d850d5ab9112d8df7f52f380c"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/ears-l.png",
+      "bytes": 1934,
+      "sha256": "49fb9b379bec3e9e86cccce862485bb031a4068236adb718f938ba30e42225f0"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/ears-r.png",
+      "bytes": 1903,
+      "sha256": "628e3b5ce16625a2da7499ff35a97ce927e20d2ab1a19a520e320b945a9f96a8"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/earwear.png",
+      "bytes": 495205,
+      "sha256": "1cdaf49f4f51af1a711e12690ebbbf42341bfcad550ee7f64bef4fbeb2af7f5f"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/eyebrow-l.png",
+      "bytes": 431,
+      "sha256": "d77601bc4dcef5bd01c6619d2ed350da39c6501fa9a372e34eb2004b610058fa"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/eyebrow-r.png",
+      "bytes": 565,
+      "sha256": "0e17f3de8f594cacf916d4ff6842eec7a2b4731bb0c0bb2d82a7df96fa16c9a3"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/eyelash-l.png",
+      "bytes": 1457,
+      "sha256": "e44535bda73fab8ede433c1009548723b2ade65798d07bc22cf6c74e88bdabfa"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/eyelash-r.png",
+      "bytes": 1900,
+      "sha256": "d9b98b41b28673d097e7d6f108ab0992d502dc327bb303abf63ffe16f6938ec4"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/eyewear.png",
+      "bytes": 487149,
+      "sha256": "60de1d911c35b47813b97ed1054c6568f2917a9f007e33606c4188d5703426e0"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/eyewhite-l.png",
+      "bytes": 1150,
+      "sha256": "a64ba93948273c945d32ecf0ee3c8c908591d8473e49e623b9f3471c28becf53"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/eyewhite-r.png",
+      "bytes": 1163,
+      "sha256": "bd7be560da251ccec19a9b8f012bb31a0cee24ebd5b67b93fdf9551f604c1eed"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/face.png",
+      "bytes": 751788,
+      "sha256": "fc2979e0a1826a2c5906f7b119f70e3648ddb189dfc52b5dd28ad3b31ffe890e"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/footwear.png",
+      "bytes": 530327,
+      "sha256": "10a25f9f1c83ea7e4cea859ebc46f5ca5386a6407f70f139a2253792343f879f"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/front hair.png",
+      "bytes": 549510,
+      "sha256": "67e53454193c0de6b929b64996c8a5cc3560e342c562419f9fc2b0479e9fd423"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/handwear-l.png",
+      "bytes": 118,
+      "sha256": "23b6a47f81b8df73a2bc147a5e1f2f6020248fbd7b1cd3ce53ac825ac0e81642"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/handwear-r.png",
+      "bytes": 82834,
+      "sha256": "b945c3fdcdb3302fd0dcf776912f812b99d5faf5e459ede8aaaa424a2c868c1f"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/headwear.png",
+      "bytes": 573550,
+      "sha256": "dc0456d95fc7a870a9844261e00dd6fec4693a26c1bbe58b04e521f9d8be2db9"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/irides-l.png",
+      "bytes": 1041,
+      "sha256": "90ac73f2b1004daa773837196239b1e822528494740cb831f1d94182a5c092a4"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/irides-r.png",
+      "bytes": 1015,
+      "sha256": "6e57f9609ec40178ec1215120f7854b875858e41706bbe507af1ab32c5d45c3c"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/legwear.png",
+      "bytes": 648634,
+      "sha256": "734be295cdea0c3976fc6c0bd838fd081ba8030b3a8bd22136e125481e3d886f"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/mouth.png",
+      "bytes": 349233,
+      "sha256": "be41df2584df2247bbd5eea8eff43ba8b3107ef4f308872acf613eba915e83ee"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/neck.png",
+      "bytes": 532385,
+      "sha256": "654e15c8702ce340a2f5f9710263115b695a3c105196cf9b823f1d53f6156e09"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/neckwear.png",
+      "bytes": 498662,
+      "sha256": "d95d6d5b61631f32fdd25b497f13d5d004919e56ef239437ca761a3f373e252b"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/nose.png",
+      "bytes": 348606,
+      "sha256": "d082c0faf79ecccf37b8e9163c542a05646a1ac96668d7cfedc9dffc9135255f"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/objects.png",
+      "bytes": 504436,
+      "sha256": "6ba85c6d49ede0f27faeb846ec53c219f71046d6f44a11c2c6d35b6c20c47c58"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/tail.png",
+      "bytes": 463410,
+      "sha256": "446c884cfc4f2ff78c58490fcd6e24300c266ea326a41954bb78bbc906533c3d"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/topwear.png",
+      "bytes": 495625,
+      "sha256": "0e970126e8bfd5e5adaf114e9c6e187ef437db31807e00ed1abe97012387421b"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/parts/wings.png",
+      "bytes": 471763,
+      "sha256": "3efd0e52d73d3b200d5d8126af7bef44c1e1326bfa700a394021e0f1d9278245"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/previews/rigc_keys3_H1_hold_head_414e3d0a_preview_layers_00001_.png",
+      "bytes": 570887,
+      "sha256": "9eae984c6dd67d156005bce39fda65e15581b2da5237e54871e0b5ae27527fad"
+    },
+    {
+      "path": "set_H1_hold_head/layers_full/previews/rigc_keys3_H1_hold_head_414e3d0a_preview_parts_00001_.png",
+      "bytes": 170494,
+      "sha256": "c6a8f635bbbf6f576dc6f67147a0f69686b806539502b3135ff0c5f00d314566"
+    },
+    {
+      "path": "set_H1_hold_head/st_input_full.png",
+      "bytes": 1688378,
+      "sha256": "b0ca0e532a211f2440d178bfe5146817bdc956babc606fd40f7b6198323f0b9f"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/layers.json",
+      "bytes": 10390,
+      "sha256": "17df9029209a0366db68b90585d9c712bb448168d59e2c73f75edea8d734a239"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/meta.json",
+      "bytes": 963,
+      "sha256": "df3f86e8ad4ea643bd47575051a40065969a430bee1fa75e1fd21b0e5036771b"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/back hair.png",
+      "bytes": 445570,
+      "sha256": "ed52d62408642a60c1ed2373de759b75e70e223ec2dda13f4d9aab2840db6345"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/bottomwear.png",
+      "bytes": 566748,
+      "sha256": "af7def9a0248224d43fcfa878a797e368d5ca176c4a782fc06b89e9dc0968b62"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/ears-l.png",
+      "bytes": 1607,
+      "sha256": "7e9ce6d0e4aa0474721bd860cf3b2e5302b31cb1554638c6cf42c8567b56da3d"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/ears-r.png",
+      "bytes": 1794,
+      "sha256": "cef5e81cbabff283ea8cce5eeb0e58404b077274355a1c6716bbffb29ce8fde3"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/earwear.png",
+      "bytes": 490624,
+      "sha256": "24aab786a140bfb5f9efa8b0274468be4b72e6281787ab1a849bdd694c4cc631"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/eyebrow-l.png",
+      "bytes": 431,
+      "sha256": "d3893552aa15e05870bd6789426379185603b65cbac3efedac645ac671eaa617"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/eyebrow-r.png",
+      "bytes": 558,
+      "sha256": "55780a3d41e44d7e72041a01281cc95ddb1ceb0a4a46dc9ddc62efd15a75ca99"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/eyelash-l.png",
+      "bytes": 1371,
+      "sha256": "14b1985cd01f22030dbcc898d63c4a2b6599ba0f63b19369e6391a649c4da334"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/eyelash-r.png",
+      "bytes": 1713,
+      "sha256": "7622f31064ea9a8d045d381993215d4c6d9827116bbd5ced32b3182ce3071b29"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/eyewear.png",
+      "bytes": 498549,
+      "sha256": "6718b8ff8fd68c804f202960194909cc63bd4aaa9ed00f1d9713a5bc1e5e1ca2"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/eyewhite-l.png",
+      "bytes": 1143,
+      "sha256": "111ee1d4a65ef62a27e7b09599c48bb3b5d979c4ed7d28d6218a0ff4b7d4afd0"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/eyewhite-r.png",
+      "bytes": 1203,
+      "sha256": "69f32a4bc3a2df74545ecef7470bf57cda2a6235b6d86b7aed1dc27dfae61e0f"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/face.png",
+      "bytes": 703300,
+      "sha256": "bf7578453890ed21329f09ce116b034f760b68d490c6b9882334cdd96e584a50"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/footwear.png",
+      "bytes": 536549,
+      "sha256": "67e2e87738ed0ea06676d3fae18db96c0620a8174a3d929586f7166d6fadb53d"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/front hair.png",
+      "bytes": 479311,
+      "sha256": "d7c0a5c573a582eefdc011eaa8e8fe8f86470eeda3493da789df4b3c2f6eedac"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/handwear-l.png",
+      "bytes": 128,
+      "sha256": "f3734c6a1d37785040c493b0806618f243119f590ca204cd773e0bf8839654c0"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/handwear-r.png",
+      "bytes": 81661,
+      "sha256": "3fb9705b76a7d1792aeca7a9fbbcf2bcfef5a98722ab1034f169ab00d7cebe4e"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/headwear.png",
+      "bytes": 468623,
+      "sha256": "acb1b4eb1a04b1abac88a91e99994f007b4e7ca99abf9c625dac4e24c4e699ce"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/irides-l.png",
+      "bytes": 1051,
+      "sha256": "121fbbbd8adbcb3616bdcb72d1ed1a14c1f963343b8679a7306b0453c7b86a5d"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/irides-r.png",
+      "bytes": 1048,
+      "sha256": "5d28ea3f9ce7a5082b5b32db7f4b80f2098fd8a596340ade764795a98d00a175"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/legwear.png",
+      "bytes": 616319,
+      "sha256": "ab44655d8bc715a0a216deccdeb74efb082a7201a00d1dce43d25ac6a54a8e44"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/mouth.png",
+      "bytes": 349991,
+      "sha256": "7b5f0fce8ddbab0d4e3d7d2cef625cd56d40eb8ffd3e84b77fbd076afb6299b8"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/neck.png",
+      "bytes": 404232,
+      "sha256": "4d03cc85faf55d1dcef255fcefe272c2341e340a1d2983cc314a11798efa1133"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/neckwear.png",
+      "bytes": 487351,
+      "sha256": "04c8f3572f594752c3ca151da36afd75c61a0615e5238ac26c13bc28e26dd80d"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/nose.png",
+      "bytes": 349264,
+      "sha256": "342542d475826a9fe6e87bed39ea62639dbada9d8e68e39e4f9005f00398e5c2"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/objects.png",
+      "bytes": 510538,
+      "sha256": "a0119e3e9548c4f88d19b1f2c0c389ad645ac859317ddec4b0e659c991732734"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/tail.png",
+      "bytes": 465081,
+      "sha256": "573c34c01080771dc18e2ba552e1c826cc599a10b1da6abbb8af3e50c193e320"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/topwear.png",
+      "bytes": 434261,
+      "sha256": "9757199c4532145f0bdf5ba4a200ab697d8679bdb53186e0c28b0f30bc400197"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/parts/wings.png",
+      "bytes": 467455,
+      "sha256": "68e32d1e32ea2e22926a21b5d3dafa4ea74a7747a814ec648f5e403878b291ed"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/previews/rigc_keys3_H1m_hold_head_30109d47_preview_layers_00001_.png",
+      "bytes": 515564,
+      "sha256": "5ed97de5041e83c93103a36e5b387416e1ea31b6a55a5ff2d8d4a89a7174b447"
+    },
+    {
+      "path": "set_H1m_hold_head/layers_full/previews/rigc_keys3_H1m_hold_head_30109d47_preview_parts_00001_.png",
+      "bytes": 171299,
+      "sha256": "721777f9aa5523a2d4a1c73ff81f84b15e675b6f01ea68229c7f049de07f3974"
+    },
+    {
+      "path": "set_H1m_hold_head/st_input_full.png",
+      "bytes": 1693263,
+      "sha256": "dbf6079e3d9556f734e99978ce0bc012b56d2ff860e37adc6e3bb352cb60d983"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/layers.json",
+      "bytes": 10294,
+      "sha256": "99ee98b77f3bd0f02d36282c7877c724eb988e807a0374238b4225e121272e10"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/meta.json",
+      "bytes": 959,
+      "sha256": "a45ca434636e0ad43c02becc50e2f149ac4bacbb9a794361201f26837c7a9d98"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/back hair.png",
+      "bytes": 529204,
+      "sha256": "dbc9b90bb3cd5565e74476e61cc78b97d6b7a6f23cedaf78683446f307c4e2ec"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/bottomwear.png",
+      "bytes": 546163,
+      "sha256": "0db6376e8fa1a983373446da1202f02a91547764c751806b8d1241bf49324766"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/ears-l.png",
+      "bytes": 1476,
+      "sha256": "f35b3588471e1b969734ead808cf7488f77e211f29f30640f56e85a3844f1ab1"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/ears-r.png",
+      "bytes": 1586,
+      "sha256": "4393e66811efd85f8f8534bee9f93148703a0378f0fabf429190d762f0dc537f"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/earwear.png",
+      "bytes": 493672,
+      "sha256": "2793d5c813e14269d6f9ea69d2a56f00b530e4b4c1954aa3437c34a74ebf040f"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/eyebrow-l.png",
+      "bytes": 428,
+      "sha256": "d69ec68e1ee7e24225d7c820bebbaf74e0db038e86d140a932706a9c43be8800"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/eyebrow-r.png",
+      "bytes": 477,
+      "sha256": "091cdc25b6dd315f6f41a2af8ed192b1f9bd4228d0316ecda1ecfc34fdf22ca4"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/eyelash-l.png",
+      "bytes": 1454,
+      "sha256": "33f6b1a8f3d05de7b73d438ed9057b6b37ddad2e12cf101027e8de0831b779c6"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/eyelash-r.png",
+      "bytes": 1839,
+      "sha256": "7f89266f472a34bf7b77bb89f94180e1254f3488b0ffc293417c4912a299f5f5"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/eyewear.png",
+      "bytes": 487360,
+      "sha256": "ab9317431969cdb71828ae5fff6e0ba222bdb548db0695cd6c754673499aa4d5"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/eyewhite-l.png",
+      "bytes": 1148,
+      "sha256": "9dc6234a50ac712763eb38abacb0872ffe1c81d9ebfeb414618de7ab8c476314"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/eyewhite-r.png",
+      "bytes": 1294,
+      "sha256": "921b8df89291412f04ec29527a0fa643d2b4e41fa3e0c440b3d51b1fdd68f4db"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/face.png",
+      "bytes": 749457,
+      "sha256": "b8e298fd2788e941948d7002587d041d1ed6fa022acc17d448b3751c93fa3f75"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/footwear.png",
+      "bytes": 528027,
+      "sha256": "d90a2691ae29fe47b9129b2170a52cafd425294929c5d7afa1e0a2f7ed883698"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/front hair.png",
+      "bytes": 462071,
+      "sha256": "54bcc1ed9284a660a498096a96e0e2a218f453c3db7e501bebffa8d9e6cb1f3a"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/handwear-l.png",
+      "bytes": 126,
+      "sha256": "ecad9942ba44a8c51504fec96b7b360f294f4fcd73ac9d8a7fb65b382caa5b50"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/handwear-r.png",
+      "bytes": 73759,
+      "sha256": "c898412ffde909a424ed39301661172a6bf519ef251a52417b047905a9981a02"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/headwear.png",
+      "bytes": 377327,
+      "sha256": "8c2bff728479ec8493b6c90c184553ade9432682a2b97bf5904f09b05f16a2ae"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/irides-l.png",
+      "bytes": 1052,
+      "sha256": "8b864f37fbe2130d1cd1920a5052aad67c895ca73df4b798fea587dd1c859fb9"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/irides-r.png",
+      "bytes": 1108,
+      "sha256": "8373da64b77bc0b9b9c399d70df021d6f21788916d2a79bbe88798ec19cfbc04"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/legwear.png",
+      "bytes": 667284,
+      "sha256": "46d22e6fb8740a27cd90355457a2191d5cf03c88bd86c3069ae2fbff3609d6b5"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/mouth.png",
+      "bytes": 346923,
+      "sha256": "55f250f01d9a4ced4ff28a240ceebe0a214703e8dc70cc09513289eb9b9ab584"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/neck.png",
+      "bytes": 578313,
+      "sha256": "cc769e19b8136cc12dc716e87aa308b5c87f001b3ca33163bb781d82d19b2bfb"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/neckwear.png",
+      "bytes": 476485,
+      "sha256": "1be42196f6b4ea619c2afd1d387abb0bbe1b79093d99ffc0b2e5471c196c8d5b"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/nose.png",
+      "bytes": 346343,
+      "sha256": "bdf444f21abe9df2da2dd3a90a88c53b540f1963bbff69984446c98fd92218e0"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/objects.png",
+      "bytes": 482779,
+      "sha256": "4354a8b76267565d63d6e14d34307e9f612d0984e901ce4b8f172a8e51465705"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/tail.png",
+      "bytes": 497951,
+      "sha256": "bccb900a8df5ca82aa9ae80364eef8e0c36cafaeab0b4a34ac13c10b19dbae5b"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/topwear.png",
+      "bytes": 562801,
+      "sha256": "546fb2912d6daaadcbab1e9d8c57549de9df4d6eb0ac7af7f7c8a67fb8d69e2b"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/parts/wings.png",
+      "bytes": 1046337,
+      "sha256": "f8d06a391a2d70f6c070e46d88581b4b1fcac4a4ca301b5e06551c5da3f04d9b"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/previews/rigc_keys3_H2_hold_low_aaceae4e_preview_layers_00001_.png",
+      "bytes": 823301,
+      "sha256": "14d1cce68fec5d9fbf770c7e13728435d886507c30785f25e1b47363f9203483"
+    },
+    {
+      "path": "set_H2_hold_low/layers_full/previews/rigc_keys3_H2_hold_low_aaceae4e_preview_parts_00001_.png",
+      "bytes": 170182,
+      "sha256": "ed2c389685fc003fbcac5670d576c75920a52403bbce9b5c6a0be76928d47339"
+    },
+    {
+      "path": "set_H2_hold_low/st_input_full.png",
+      "bytes": 1663955,
+      "sha256": "9f6f7db7a09ab5f3143ebc4a5c73c0dc978a7af0e683d44e0acaff2ef9d3c41a"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/layers.json",
+      "bytes": 10345,
+      "sha256": "486f70104deaef07fe496af5325a4cda9c655291635714148b6ba9d64c365206"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/meta.json",
+      "bytes": 960,
+      "sha256": "1975b59b00d652b225ad542fad0e07394f545c3897a1e4544f27010fc8ccccbd"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/back hair.png",
+      "bytes": 550993,
+      "sha256": "ae13eb47b82e1c86465a19124293d13944ed62e67cbf9e40277cfe62ab6858b1"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/bottomwear.png",
+      "bytes": 438250,
+      "sha256": "cc25c45e263f5d5133f432fcec222c51def3c46e3767d6f0ce597651adf927a5"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/ears-l.png",
+      "bytes": 1593,
+      "sha256": "ef465c6f368d8ff2193031bc2fa9f058df05fdfbac174a72adb53ac0a90ceab8"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/ears-r.png",
+      "bytes": 1761,
+      "sha256": "0c790c4237a6183cfdc8da9daabbfe451704d77023f32da6280ba2c630c6adef"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/earwear.png",
+      "bytes": 491464,
+      "sha256": "d371a5c1fc2549a207d50f22ee05071c538d74873f3072761aeff09298074b37"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/eyebrow-l.png",
+      "bytes": 388,
+      "sha256": "2eb5b07a4a3774b3d18d27e2eecb0bc0e7a130edcd1452eb9751a7f7d4ab3cb5"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/eyebrow-r.png",
+      "bytes": 460,
+      "sha256": "e6e1c256f18a4607ced4326fd87ab614e4d147a3b56c982b4a8e79c654972859"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/eyelash-l.png",
+      "bytes": 1405,
+      "sha256": "d5c51ab8e53d2a09b17454c858bcba15d36aafdbdcd45edcab8602ce8c286b3e"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/eyelash-r.png",
+      "bytes": 1831,
+      "sha256": "957fa9ba7e2b1c8eb87edddd6a902d5c239523f8ac8ebf19a3df86fd80607aa9"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/eyewear.png",
+      "bytes": 494824,
+      "sha256": "6c00459b8e9813a55ac5fb244df72d43834ece89462dd083fe4210247b3dd27c"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/eyewhite-l.png",
+      "bytes": 1140,
+      "sha256": "26f87e7a6232777416eb20d24c621821c6a818c29662121de5dadbc90ee9dda0"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/eyewhite-r.png",
+      "bytes": 1282,
+      "sha256": "e66bc7e29d158a5b27337f6db76e11b7130546ebd3e2ef404326e566f880fa63"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/face.png",
+      "bytes": 801750,
+      "sha256": "4f97bc18c7229de3f520b9be16c711798b8ae290fc40598dd09ea19e796a5bbd"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/footwear.png",
+      "bytes": 489031,
+      "sha256": "7ba3a18c2f4fa8792c5d25a1d5fe5536a29f2e08630461304028c4c36dd75cf2"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/front hair.png",
+      "bytes": 500893,
+      "sha256": "d3e59df01d9bece6bcf2b8250fd9fa91f2041c560d41dd825dd1dc14d76777e6"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/handwear-l.png",
+      "bytes": 72179,
+      "sha256": "c11eb0ebba7f3a27458581a8ef7c7fd2146deb4f37b962ba7160a3e654b85cab"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/handwear-r.png",
+      "bytes": 96,
+      "sha256": "e5626d7cf9ae87e9431d59b257718d13b42ce5eadba0cbdba667f026c2ab9a2a"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/headwear.png",
+      "bytes": 337981,
+      "sha256": "d6826c00b918760d8d96335bdc8d3dc05feb4f86d55f313b81100f949bfd58aa"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/irides-l.png",
+      "bytes": 1053,
+      "sha256": "9add0849d9adbee037f53ff89dc0d0fa1662909dbfd8be0fdb2a6e11916f38c3"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/irides-r.png",
+      "bytes": 1120,
+      "sha256": "23f9aba71c65a9c8c0d4bfb2391d58ca46e91167ebcc3e6f1c97369bafb57066"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/legwear.png",
+      "bytes": 585531,
+      "sha256": "2464c1d268ae22652fdfdc698fb361de984c08234e5d6bbc9b24f57bafa13b70"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/mouth.png",
+      "bytes": 349188,
+      "sha256": "1761b34c41a6535eec156cb4929a094ff0ed2ee7a9d02f9fdfb3a8999aaefc50"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/neck.png",
+      "bytes": 572250,
+      "sha256": "1015a6cfcd0540d637ecc3c757f992c4bd832f6fa8ea8d48afbc14158c5727a3"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/neckwear.png",
+      "bytes": 453034,
+      "sha256": "d071157518262c1990aebc26dc6b3382fd841240554d933628ed1410187533b2"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/nose.png",
+      "bytes": 348562,
+      "sha256": "8c0f243be93f78db15704dedff2c741c52b3f86246dc6502da8dc27ce8e3db71"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/objects.png",
+      "bytes": 498708,
+      "sha256": "8b60d7cd708d79672c3eecf555a0df4f38c0e0dc527b42d807437ddbecc8be8c"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/tail.png",
+      "bytes": 492748,
+      "sha256": "77b0c353d87ed6940bf89108d9e656e26432ba235ca28662a0abebce356736a6"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/topwear.png",
+      "bytes": 591618,
+      "sha256": "46d3adc209c59313c66338e0280bbada28b102badac194a2b02d9de4b49a6dc3"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/parts/wings.png",
+      "bytes": 1090584,
+      "sha256": "7ec7c573b98cf6ac4168d15629a1c6c2f871e09f7ddd9bfb1943cfa7c753f312"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/previews/rigc_keys3_H2y_hold_low_b1ee8fc5_preview_layers_00001_.png",
+      "bytes": 838814,
+      "sha256": "22e394e2f6fb7fe9ce18d5750b88f25559e92093fb1e6f13e88d897fb8e961be"
+    },
+    {
+      "path": "set_H2y_hold_low/layers_full/previews/rigc_keys3_H2y_hold_low_b1ee8fc5_preview_parts_00001_.png",
+      "bytes": 172254,
+      "sha256": "156efd55bd44a951430508f08eedce8edea74b59b77363a7e556987c6aa3dc83"
+    },
+    {
+      "path": "set_H2y_hold_low/st_input_full.png",
+      "bytes": 1671020,
+      "sha256": "6470d653f7cc5909e574ec79a23be3301391ea6a785d33214c0ff25fba2823e6"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/layers.json",
+      "bytes": 10351,
+      "sha256": "58c9c013aa68951ec09b144bc30754a7c67b325363590365e1f4da21ffd4e4f3"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/meta.json",
+      "bytes": 961,
+      "sha256": "5a8eebcaca6c5ec649205e42a62198c79cda2f178e92416df081b8d71f534e9a"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/back hair.png",
+      "bytes": 512839,
+      "sha256": "9f23b81beee501db9eea90e1aad7c3d1e71b54043915460e1c542ea434ceac72"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/bottomwear.png",
+      "bytes": 398825,
+      "sha256": "ad97d57d131b98f62d6eed3fcb7001da2fe584c2953076dbd8e3ad224673b73b"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/ears-l.png",
+      "bytes": 1673,
+      "sha256": "3a0dc0672d52c9f8750563b383cbd8650154b8e6100db4556738bd701a999bf1"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/ears-r.png",
+      "bytes": 1884,
+      "sha256": "45e869fee7d61021bed29a4dd3aaf488a7171c8fa73f16bebf6ae1aaea973ab2"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/earwear.png",
+      "bytes": 508134,
+      "sha256": "55c7811e21b2e0cd5856b0378157e6699cbafaa954b1c42c879fe06eee348419"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/eyebrow-l.png",
+      "bytes": 471,
+      "sha256": "f9fc5f7e8427a540431d8c5d2208ef47a7009722bb284a4b252130efff19156a"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/eyebrow-r.png",
+      "bytes": 534,
+      "sha256": "c91d9502d3fdc157a2c2985029915872605d48430984d65156944ef5ae57a1f9"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/eyelash-l.png",
+      "bytes": 1356,
+      "sha256": "80daf1600dab62217bd0842b82da8a52a81328160c172f9949849c9706cd2a7b"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/eyelash-r.png",
+      "bytes": 1850,
+      "sha256": "f13b2142bc30787e4a122e6bef31beb5f890b7ed6813081b1d366a679853b567"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/eyewear.png",
+      "bytes": 492230,
+      "sha256": "10b5eabae2e62b5237a75b074607d1ea4e490d92538afb50a5cb90b1d3fd73c3"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/eyewhite-l.png",
+      "bytes": 1288,
+      "sha256": "a69c2fa9162edf5d048e9bac83eb98f06d31691e1f09cfd489afe7b29e395e2a"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/eyewhite-r.png",
+      "bytes": 1349,
+      "sha256": "dcb2722bee6cc233cc729c2af95c35ddf7d58ef046e715e614c65cdad9d95d71"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/face.png",
+      "bytes": 686525,
+      "sha256": "5fb9f99b5ee0bae9bc8ddef9e409f807c99bfdd69162c46dda4944e418e74b81"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/footwear.png",
+      "bytes": 344112,
+      "sha256": "845057622e81880da01b77d1ac935de42c482d0e657ec89245e3e6a55b4099d9"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/front hair.png",
+      "bytes": 533391,
+      "sha256": "bdb8cd540f1bf4fae98a37541f2c29e287b9f0f605f173c2d89ceec7fd5bcddb"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/handwear-l.png",
+      "bytes": 117,
+      "sha256": "b28f9172a9bfaf4ab1bb01f00be05c4f3596cbad9141d4a7870162c8d511793f"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/handwear-r.png",
+      "bytes": 66924,
+      "sha256": "f43bcc7f40bd612ba597fffd3980d50972774cf60c7cbc389c851f194ebdbb5f"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/headwear.png",
+      "bytes": 417220,
+      "sha256": "774325372fe2d2d77bdb518c87695df0bd8f93b06a9c0d258ad903eb371681b9"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/irides-l.png",
+      "bytes": 1050,
+      "sha256": "3791ff53cbd912b1b92cc5b70249f86efce1924724132da09a84ebca5d280539"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/irides-r.png",
+      "bytes": 1065,
+      "sha256": "c4fb28c47621ca146f4c2839596ec84ccd43bb73003ed7c901782bd2e87e53ca"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/legwear.png",
+      "bytes": 537793,
+      "sha256": "64da74ae5c97a73581413718047312983ecfc235e4da8d5eee1ae7bc1c51de4d"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/mouth.png",
+      "bytes": 344691,
+      "sha256": "54f8d2776f11419c0d072a0891b9e33f75ab877142ab9efcdf2121b486a1ff18"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/neck.png",
+      "bytes": 601235,
+      "sha256": "6fb38c9caba7ff7bb7c204ffae6882bd91591da38421de090934c4919cc7af1a"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/neckwear.png",
+      "bytes": 454151,
+      "sha256": "cc985cd6c635e5de61cb1741807cee2ce0071543c13e3b14a85f6f0740490fe6"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/nose.png",
+      "bytes": 344249,
+      "sha256": "5270d28341fa07b5c86a4270821ec4eeb0623c254297ebe5885a81903192a054"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/objects.png",
+      "bytes": 486064,
+      "sha256": "ed04ab4a921860a93c6b65698a58d6a29e271bb6cacb83bb8fdf078bed63071e"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/tail.png",
+      "bytes": 495129,
+      "sha256": "eb4705be76853b2e6d1227982fc36bb6b5c4e0731daa2416f27c9ac55af48628"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/topwear.png",
+      "bytes": 534633,
+      "sha256": "cf7df6105d28316defdb8f1d43d67ee3f688d8ff3f6b253e3a1e64561819a5c1"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/parts/wings.png",
+      "bytes": 1120642,
+      "sha256": "7de02acaeec3939e502f8845343026c0400949156823f403fe8ce5eaedfe1b30"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/previews/rigc_keys3_H2z_hold_low_6fc726aa_preview_layers_00001_.png",
+      "bytes": 848991,
+      "sha256": "90a8f281e8621d7f003a7fd90236ae15807f84c8759531ec0a87ab07daae8f7c"
+    },
+    {
+      "path": "set_H2z_hold_low/layers_full/previews/rigc_keys3_H2z_hold_low_6fc726aa_preview_parts_00001_.png",
+      "bytes": 162840,
+      "sha256": "010c76b5b90cbf5727e88df1b1472f94632b66738cfb15eb7c807736c9c25861"
+    },
+    {
+      "path": "set_H2z_hold_low/st_input_full.png",
+      "bytes": 1643072,
+      "sha256": "4ce07163c3de8a48d3aca694ad065fcbfe35d3df945e906c42ab8b727980443f"
+    },
+    {
+      "path": "v3_waist.py",
+      "bytes": 3533,
+      "sha256": "d0b7c840f9caeac3ebf38713fa9a8472191ccd7ae2f30cb8bb935b1810c4694b"
+    }
+  ]
+}
