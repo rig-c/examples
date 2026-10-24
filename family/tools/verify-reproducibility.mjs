@@ -12,7 +12,7 @@ import { dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-import { materialProfileRig, validateMaterialProfile } from './material-profile.mjs';
+import { materialProfileRig, validateMaterialProfile, uniformHairProfileRig, validateUniformHairProfile } from './material-profile.mjs';
 
 const defaultFamily = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const CHARACTERS = ['roa', 'luna', 'jinni', 'naru', 'nova'];
@@ -116,6 +116,15 @@ export function loadAndVerifyDeclaredRepairs(root, character, outfit) {
       if (matches.length !== 1 || Object.entries(row.after).some(([field, value]) => matches[0][field] !== value)) fail(`REPRODUCIBILITY_PROFILE_CONFIG_DRIFT ${character}/${row.name}`);
     }
   }
+  if (declared.uniformHairProfile) {
+    if (declared.materialProfile) fail(`REPRODUCIBILITY_PROFILE_UNIFORM_SCHEMA ${character}/${outfit}`);
+    const officeProfile = loadAndVerifyDeclaredRepairs(root, character, 'office').declared.materialProfile;
+    validateUniformHairProfile(declared.uniformHairProfile, officeProfile, character, outfit);
+    for (const row of declared.uniformHairProfile.constraints) {
+      const matches = cfg.constraints.filter(c => c.type === 'physics' && c.name === row.name && c.bone === row.bone);
+      if (matches.length !== 1 || Object.entries(row.after).some(([field, value]) => matches[0][field] !== value)) fail(`REPRODUCIBILITY_PROFILE_UNIFORM_CONFIG_DRIFT ${character}/${row.name}`);
+    }
+  }
   return { cfg, declared, repairPath };
 }
 
@@ -125,6 +134,7 @@ export function applyDeclaredRepairsToRig({
   rawRig,
   rawReport,
   declared,
+  officeProfile,
   ignoreRepairs = false,
 }) {
   let rig = structuredClone(rawRig);
@@ -213,6 +223,10 @@ export function applyDeclaredRepairsToRig({
 
   const baselineRig = structuredClone(rig);
   if (declared.materialProfile) rig = materialProfileRig(rig, declared.materialProfile, 'repaired', 'forward');
+  if (declared.uniformHairProfile) {
+    validateUniformHairProfile(declared.uniformHairProfile, officeProfile, character, outfit);
+    rig = uniformHairProfileRig(rig, declared.uniformHairProfile, officeProfile, 'forward');
+  }
   return { rig, report, baselineRig };
 }
 
@@ -364,6 +378,14 @@ export function verifyDeclaredReproducibility(root = defaultFamily, { ignoreRepa
         const provenance = json(provenancePath);
         if (provenance.spec !== 'family-material-profile-provenance/1' || provenance.profileSHA256 !== sha(JSON.stringify(declared.materialProfile)) || provenance.configSHA256 !== sha(readFileSync(rigPaths(root, character, outfit).configPath)) || provenance.authoringSHA256 !== sha(readFileSync(join(outDir, 'rig/rig.json'))) || provenance.compiledModelSHA256 !== sha(readFileSync(join(outDir, 'check/build/skeleton.model.json')))) provenanceFaults.push(`REPRODUCIBILITY_PROFILE_PROVENANCE_DRIFT ${character}`);
       }
+      if (declared.uniformHairProfile) {
+        const officeProfile = loadAndVerifyDeclaredRepairs(root, character, 'office').declared.materialProfile;
+        uniformHairProfileRig(deliveredRig, declared.uniformHairProfile, officeProfile, 'reverse');
+        const provenancePath = join(outDir, 'rig/uniform-hair-profile.provenance.json');
+        if (!existsSync(provenancePath)) fail(`REPRODUCIBILITY_PROFILE_UNIFORM_PROVENANCE_MISSING ${character}`);
+        const provenance = json(provenancePath);
+        if (provenance.spec !== 'family-uniform-hair-profile-provenance/1' || provenance.profileSHA256 !== sha(JSON.stringify(declared.uniformHairProfile)) || provenance.configSHA256 !== sha(readFileSync(rigPaths(root, character, outfit).configPath)) || provenance.authoringSHA256 !== sha(readFileSync(join(outDir, 'rig/rig.json'))) || provenance.compiledModelSHA256 !== sha(readFileSync(join(outDir, 'check/build/skeleton.model.json')))) provenanceFaults.push(`REPRODUCIBILITY_PROFILE_UNIFORM_PROVENANCE_DRIFT ${character}`);
+      }
       const deliveredReport = json(join(outDir, 'rig/mesh_report.json'));
       const deliveredModel = json(join(outDir, 'check/build/skeleton.model.json'));
       const partsList = json(join(outDir, 'parts.json')).parts;
@@ -499,6 +521,7 @@ export function rebuildAndVerifyAll({
         rawRig: baseRawRig,
         rawReport: baseRawReport,
         declared,
+        officeProfile: declared.uniformHairProfile ? loadAndVerifyDeclaredRepairs(root, character, 'office').declared.materialProfile : undefined,
         ignoreRepairs,
       });
 

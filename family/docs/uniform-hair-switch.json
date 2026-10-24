@@ -1,0 +1,171 @@
+{
+  "spec": "family-uniform-hair-acceptance/1",
+  "issue": "https://github.com/rig-c/examples/issues/49",
+  "baselineCommit": "6171c2fac9f1706740c05db72c0259ad46bca523",
+  "pins": {
+    "@rig-c/parts": "1.60.2",
+    "rig-c": "2.68.0",
+    "@esotericsoftware/spine-core": "4.3.13",
+    "playwright": "1.62.1",
+    "Pillow": "12.2.0"
+  },
+  "acceptance": {
+    "authority": "HQ scope and bar ruling after viewing the sheet",
+    "required": [
+      "every shared posed draw exactly equal (73)",
+      "viewed switch sheet with pinned hash",
+      "cold shared-atlas control zero"
+    ],
+    "pixelZeroClaimed": false,
+    "residualOwner": "https://github.com/rig-c/play/issues/187"
+  },
+  "sharedPose": {
+    "receipt": "uniform-shared-pose.json",
+    "sha256": "43137bef0871106d9a768558b620cf245f03e65806b6c5a7e2b0f6f52a5f7d03",
+    "command": [
+      "node",
+      "family/tools/verify-uniform-hair.mjs",
+      "--out",
+      "<new-receipt.json>"
+    ],
+    "draws": 73,
+    "exact": true
+  },
+  "sheet": {
+    "file": "uniform-hair-switch.png",
+    "sha256": "bd46337ef39f333d7e8a03818524dc8f4b4a562b31ceda35d415f07c621cd8c5",
+    "bytes": 932763,
+    "scale": 4,
+    "crop": [
+      91,
+      104,
+      1122,
+      395
+    ],
+    "method": "nearest; office/uniform static replay pair plus exact outside-neck diff overlay",
+    "viewed": true,
+    "basis": "bounded static replay of the existing candidate; original Nova PNGs already deleted"
+  },
+  "pixelHistory": {
+    "originalBaselineOutsideNeck": 53272,
+    "targetJob": "20261024T153953Z-7b2bad50d7c44a1e87b5d33b8ebe19c3",
+    "targetExitCode": 1,
+    "firstFailure": "UNIFORM_CUT_BAR",
+    "originalTargetOutsideNeck": 358,
+    "localStaticOutsideNeck": 357,
+    "originalTargetZero": false,
+    "originalFramesRecoverable": false,
+    "sameInputControl": 0,
+    "coldOriginalAtlasControl": 153,
+    "coldSharedOfficeAtlasControl": 0,
+    "controlScope": "same static geometry and fresh DOM/WebGL batch state, with only shared mesh texture/UV references changed in memory; no serving edit",
+    "normalDefectEdgeControls": {
+      "normal": 0,
+      "outsideDefect": 1,
+      "insideNeck": 0,
+      "adjacentOutside": 1,
+      "emptyMaskExcludesNothing": true,
+      "sizeMismatchRefused": true
+    }
+  },
+  "servingAllowlist": {
+    "constraints": 75,
+    "fieldsPerConstraint": [
+      "mass",
+      "strength",
+      "damping",
+      "inertia",
+      "wind"
+    ],
+    "scalarFields": 375,
+    "derivedPins": [
+      "model.spine.sha256"
+    ],
+    "allOtherRigModelSpineFieldsEqual": true,
+    "imagesMeshAtlasMotionByteEqual": true,
+    "changes": [
+      {
+        "path": "family/outfits/uniform/roa/out/rig/rig.json",
+        "beforeSHA256": "85b982eaeb36c4d6447282bd21409af91123ba64c7cec7c6c43e52ee8fb8f285",
+        "afterSHA256": "c765f51622cab53f000cb69f51af729768c5c4ea227e1e282c175cb66b4e5fa7"
+      },
+      {
+        "path": "family/outfits/uniform/roa/out/check/build/skeleton.model.json",
+        "beforeSHA256": "7116a9411870ef7d2f36dc5c570ac75e8e831ced307d81119a20415659344855",
+        "afterSHA256": "6443f08ae56a7a22488289668153eae14033892ad5239e659692aa98bd0166f9"
+      },
+      {
+        "path": "family/outfits/uniform/roa/out/check/build/skeleton.json",
+        "beforeSHA256": "46700d5100cb8277b80da4c7acfd0686bf01693b6b46ee509125ed7da134576b",
+        "afterSHA256": "975f8b05673ce46d0b3f2ce8f63a6b2a326be954c0036119b0512eebb182dd89"
+      },
+      {
+        "path": "family/outfits/uniform/luna/out/rig/rig.json",
+        "beforeSHA256": "d1145fb5386b5f11b8ee786a1f349bc7e200d4ec53aa976e333ba596852891fe",
+        "afterSHA256": "a3589a90d5a4daa0f3e58eb6e2591050d9d18d4b84ca370e8122687f5433e7b1"
+      },
+      {
+        "path": "family/outfits/uniform/luna/out/check/build/skeleton.model.json",
+        "beforeSHA256": "22a2e76785986ff21f3fd0f57a1dccda89ba440fcad04db5226bbcb965d80c48",
+        "afterSHA256": "0a0094acc4ad5630b7b90300063e8405978f56d74d98a7e3495560bb89628c31"
+      },
+      {
+        "path": "family/outfits/uniform/luna/out/check/build/skeleton.json",
+        "beforeSHA256": "77e6289b6842ed2460b3767af9d933f6e83ec0e1aae02a900b631b23995133b6",
+        "afterSHA256": "b8436bc9a135523f2594333fe0a0d8a111fb2cdea7e4c1ef7ae5d68a31dae701"
+      },
+      {
+        "path": "family/outfits/uniform/jinni/out/rig/rig.json",
+        "beforeSHA256": "50b683b79885856c348732110d9c51104479f2f6719cf00aa4c26f1fb57c4137",
+        "afterSHA256": "efaebb14893edbe292a513b1bbc7804092f54bf5da67e5dae8931b9899fac04c"
+      },
+      {
+        "path": "family/outfits/uniform/jinni/out/check/build/skeleton.model.json",
+        "beforeSHA256": "63208b95692eaa9a577b933bf49ec37a0647ffbc275319bfafd9f141c2044028",
+        "afterSHA256": "2b04c1c3d97ed26e321f62797dca645d73e4e9b42547ff75b4dc7e7c3b5bd666"
+      },
+      {
+        "path": "family/outfits/uniform/jinni/out/check/build/skeleton.json",
+        "beforeSHA256": "39cbaaada21ef546881e038a8ec9c2e89130b734e537863267dadf01519118b1",
+        "afterSHA256": "f6b0e6ea6088e90483e198b77d6e605eeb051c97715167f06c87e418e9479dcb"
+      },
+      {
+        "path": "family/outfits/uniform/naru/out/rig/rig.json",
+        "beforeSHA256": "64585c65e74f51a6c8324199e3ee724d697e41e0b8e120f567e6ebe0dfa72318",
+        "afterSHA256": "5b6142d0d298b9b0e8f992a88d33cb1fcf3d3a15b65fb8b11be0c046af67ad8b"
+      },
+      {
+        "path": "family/outfits/uniform/naru/out/check/build/skeleton.model.json",
+        "beforeSHA256": "0468c10170eefc942531826e3fe29e683c2c7c7b6154a32c97f24c1c2fdc4033",
+        "afterSHA256": "605247c4d23d152cf1cb49c436534b8ca00a7199b9c963566aea0fa618e9a671"
+      },
+      {
+        "path": "family/outfits/uniform/naru/out/check/build/skeleton.json",
+        "beforeSHA256": "a8da8a5a659a14c5e015cde88397177f582b0244074c68f3566393aa844e4b41",
+        "afterSHA256": "8eefa5d78454be66787c2a93951323787a677c5a413f144c7f97ca8bdb29205b"
+      },
+      {
+        "path": "family/outfits/uniform/nova/out/rig/rig.json",
+        "beforeSHA256": "54af6900d911b32dde91facaa4e6efeb73c37f42c54de7140fd91f9b9def3cf1",
+        "afterSHA256": "3e6644f5c4c682a285618070311d28e4c2299bfb86b20e0e84f261bc138f86c0"
+      },
+      {
+        "path": "family/outfits/uniform/nova/out/check/build/skeleton.model.json",
+        "beforeSHA256": "fcbcce97bcaaf16ee1b9d7532536ea4c97bed2398ffafe1d77873b233a297130",
+        "afterSHA256": "cb88dc2fc4730cea2781be409b787006ac9b856b4ed6488ac263bc517a239a80"
+      },
+      {
+        "path": "family/outfits/uniform/nova/out/check/build/skeleton.json",
+        "beforeSHA256": "fe8203f04e05b1545b2f794519296477f104a509b9c0696274517a410e9633b9",
+        "afterSHA256": "6b43870e397aa55a9e9cab556fd616aa3d249d482cc01f59cafdc913b7ea6846"
+      }
+    ]
+  },
+  "scopeExclusions": [
+    "homewear and swimwear are unchanged; separate followup",
+    "office skirt profile is not transferred",
+    "no art, mesh, bone, motion, player, camera, atlas or page change",
+    "ordinary build/check excludes live physics from the animation fold test",
+    "no new stress-force, subjective material-quality or physical-device acceptance"
+  ]
+}

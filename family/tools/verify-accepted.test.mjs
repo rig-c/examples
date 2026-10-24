@@ -6,6 +6,9 @@ import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 import { checkInputs, historicalRigName } from './verify-accepted.mjs';
+import { uniformHairProfileRig, validateUniformHairProfile } from './material-profile.mjs';
+import { assertSharedDrawsEqual, assertUniformPhysicsOnly } from './uniform-hair-contract.mjs';
+import { measureUniformHair } from './verify-uniform-hair.mjs';
 import {
   applyDeclaredRepairsToRig,
   officeBaselineForOutfits,
@@ -18,6 +21,74 @@ import {
 
 const family = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const accepted = JSON.parse(readFileSync(join(family, 'accepted-inputs.json'), 'utf8'));
+
+test('uniform shared draw contract rejects coordinate, topology, colour, order and inventory defects', () => {
+  const mesh = { slot: 'hair_back', kind: 'mesh', vertices: [0, 0, 1, 0, 0, 1], triangles: [0, 1, 2], tint: [1, 1, 1, 1], blend: 'Normal', uvs: [0, 0], z: 1 };
+  const frame = { order: [mesh, { ...structuredClone(mesh), slot: 'face' }] };
+  const normal = structuredClone(frame); normal.order[0].uvs = [.4, .6]; normal.order[0].z = 10;
+  assert.equal(assertSharedDrawsEqual(frame, normal).draws, 2);
+  for (const mutate of [
+    f => { f.order[0].vertices[0] += 1e-12; },
+    f => { f.order[0].triangles.reverse(); },
+    f => { f.order[0].tint[3] = .9; },
+    f => { f.order[0].clip = { polygon: [0, 0, 1, 1] }; },
+    f => { f.order.reverse(); },
+    f => { f.order.pop(); },
+    f => { f.order.push({ ...mesh, slot: 'earring' }); },
+  ]) {
+    const bad = structuredClone(frame); mutate(bad);
+    assert.throws(() => assertSharedDrawsEqual(frame, bad), /UNIFORM_SHARED/);
+  }
+  const nonfinite = structuredClone(frame); nonfinite.order[0].vertices[0] = NaN;
+  assert.throws(() => assertSharedDrawsEqual(nonfinite, nonfinite), /UNIFORM_SHARED_COORDINATES/);
+  assert.throws(() => assertSharedDrawsEqual({ order: [] }, { order: [] }), /UNIFORM_SHARED_EMPTY/);
+});
+
+test('uniform physics allowlist rejects geometry, other physics, missing targets and derived-pin defects', () => {
+  const values = { mass: 1, strength: 2, damping: .5, inertia: 1, wind: 1 };
+  const before = { constraints: [{ name: 'hair', bone: 'hair_back', type: 'physics', ...values }, { name: 'bust', bone: 'bust', type: 'physics', ...values }], meshes: [{ vertices: [1, 2] }], spine: { sha256: 'old' } };
+  const profile = { constraints: [{ name: 'hair', bone: 'hair_back', before: values, after: { ...values, mass: .45 } }] };
+  const after = structuredClone(before); Object.assign(after.constraints[0], profile.constraints[0].after);
+  const spineText = '{}\n'; after.spine.sha256 = createHash('sha256').update(spineText).digest('hex');
+  assert.equal(assertUniformPhysicsOnly(before, after, profile, { spineText }).fields, 5);
+  for (const mutate of [d => { d.meshes[0].vertices[0]++; }, d => { d.constraints[1].wind++; }, d => { d.constraints[0].mix = .5; }, d => { d.spine.sha256 = 'bad'; }]) {
+    const bad = structuredClone(after); mutate(bad);
+    assert.throws(() => assertUniformPhysicsOnly(before, bad, profile, { spineText }), /UNIFORM_PHYSICS_OUTSIDE_ALLOWLIST/);
+  }
+  assert.throws(() => assertUniformPhysicsOnly(before, after, { constraints: [] }), /UNIFORM_PHYSICS_EMPTY/);
+  const missing = structuredClone(before); missing.constraints.push({ ...before.constraints[0], name: 'other-hair' });
+  assert.throws(() => assertUniformPhysicsOnly(missing, after, profile), /UNIFORM_PHYSICS_TARGET_SET/);
+});
+
+test('uniform actual pinned viewer reproduces all 73 exact shared draws', () => {
+  const result = measureUniformHair(family);
+  assert.equal(result.totalDraws, 73);
+  assert.deepEqual(result.rows.map(row => row.draws), [12, 14, 18, 15, 14]);
+  assert.ok(result.rows.every(row => row.exact && row.normal.exact));
+  assert.equal(result.pixelZeroClaimed, false);
+  const receipt = JSON.parse(readFileSync(join(family, 'docs/uniform-hair-switch.json')));
+  const savedPoseBytes = readFileSync(join(family, 'docs/uniform-shared-pose.json'));
+  const digest = bytes => createHash('sha256').update(bytes).digest('hex');
+  assert.equal(digest(savedPoseBytes), receipt.sharedPose.sha256);
+  assert.deepEqual(result, JSON.parse(savedPoseBytes));
+  assert.equal(digest(readFileSync(join(family, 'docs', receipt.sheet.file))), receipt.sheet.sha256);
+  assert.equal(receipt.pixelHistory.targetExitCode, 1);
+  assert.equal(receipt.pixelHistory.originalTargetOutsideNeck, 358);
+  assert.equal(receipt.acceptance.pixelZeroClaimed, false);
+});
+
+test('uniform delivered rigs reverse to accepted preimages with only 75 by 5 profile fields changed', () => {
+  let constraints = 0;
+  for (const character of CHARACTERS) {
+    const uniform = rigPaths(family, character, 'uniform');
+    const office = JSON.parse(readFileSync(join(family, character, 'declared-repairs.json'))).materialProfile;
+    const profile = JSON.parse(readFileSync(join(uniform.configDir, 'declared-repairs.json'))).uniformHairProfile;
+    const after = JSON.parse(readFileSync(join(uniform.outDir, 'rig/rig.json')));
+    const before = uniformHairProfileRig(after, profile, office, 'reverse');
+    constraints += assertUniformPhysicsOnly(before, after, profile).constraints;
+  }
+  assert.equal(constraints, 75);
+});
 
 test('report correction binds exact before/after rows and only reversible drawn-bone names', () => {
   const hash = row => createHash('sha256').update(JSON.stringify(row)).digest('hex');
@@ -127,12 +198,27 @@ test('reproducibility gate checks all 5 characters × 4 outfits, goes red withou
         copyFileSync(join(src.outDir, 'parts.json'), join(dst.outDir, 'parts.json'));
         copyFileSync(join(src.outDir, 'rig/rig.json'), join(dst.outDir, 'rig/rig.json'));
         if (outfit === 'office') copyFileSync(join(src.outDir, 'rig/material-profile.provenance.json'), join(dst.outDir, 'rig/material-profile.provenance.json'));
+        if (outfit === 'uniform') copyFileSync(join(src.outDir, 'rig/uniform-hair-profile.provenance.json'), join(dst.outDir, 'rig/uniform-hair-profile.provenance.json'));
         copyFileSync(join(src.outDir, 'rig/mesh_report.json'), join(dst.outDir, 'rig/mesh_report.json'));
         copyFileSync(join(src.outDir, 'check/build/skeleton.model.json'), join(dst.outDir, 'check/build/skeleton.model.json'));
       }
     }
 
     assert.equal(verifyDeclaredReproducibility(fixture).rows.every(r => r.equal), true);
+
+    const uniformConfig = join(fixture, 'outfits/uniform/luna/authoring/config.json');
+    const uniformConfigBytes = readFileSync(uniformConfig);
+    const driftedUniformConfig = JSON.parse(uniformConfigBytes);
+    driftedUniformConfig.constraints.find(c => c.type === 'physics' && /^hair/.test(c.bone)).mass += .1;
+    writeFileSync(uniformConfig, JSON.stringify(driftedUniformConfig));
+    assert.throws(() => verifyDeclaredReproducibility(fixture), /REPRODUCIBILITY_PROFILE_UNIFORM_CONFIG_DRIFT luna/);
+    writeFileSync(uniformConfig, uniformConfigBytes);
+    const uniformProvenance = join(fixture, 'outfits/uniform/luna/out/rig/uniform-hair-profile.provenance.json');
+    const uniformProvenanceBytes = readFileSync(uniformProvenance);
+    const driftedUniformProvenance = JSON.parse(uniformProvenanceBytes); driftedUniformProvenance.profileSHA256 = '0'.repeat(64);
+    writeFileSync(uniformProvenance, JSON.stringify(driftedUniformProvenance));
+    assert.throws(() => verifyDeclaredReproducibility(fixture), /REPRODUCIBILITY_PROFILE_UNIFORM_PROVENANCE_DRIFT luna/);
+    writeFileSync(uniformProvenance, uniformProvenanceBytes);
 
     // Mutant 1: hand-edit compiled mesh vertex in luna/office/hair_front
     const lunaModelPath = join(fixture, 'luna/out/check/build/skeleton.model.json');
@@ -230,4 +316,40 @@ test('declared office profile passes the unchanged full constraint repair guard 
     assert.deepEqual(baseline.skins, current.skins);
     assert.deepEqual(baseline.bones, current.bones);
   }
+});
+
+test('uniform hair inherits exactly the accepted office targets after existing repairs', () => {
+  const digest = v => createHash('sha256').update(JSON.stringify(v)).digest('hex');
+  const before = { mass: 1, strength: 100, damping: .8, inertia: 1, wind: 1 };
+  const after = { mass: .45, strength: 110, damping: .74, inertia: .85, wind: 1.4 };
+  const hair = { type: 'physics', name: 'hair_phys', bone: 'hair0', ...before };
+  const skirt = { type: 'physics', name: 'skirt_phys', bone: 'skirt0', ...before };
+  const raw = { constraints: [hair, skirt], skins: { default: {} }, slots: [] };
+  const repaired = structuredClone(raw); repaired.constraints.pop();
+  const expected = structuredClone(repaired); Object.assign(expected.constraints[0], after);
+  const office = { spec: 'family-material-profile/1', character: 'nova', outfit: 'office', constraints: [{ name: hair.name, bone: hair.bone, before, after }], raw: { before: '0'.repeat(64), after: '1'.repeat(64) }, repaired: { before: '2'.repeat(64), after: '3'.repeat(64) } };
+  const profile = { spec: 'family-uniform-hair-profile/1', character: 'nova', outfit: 'uniform', officeProfileSHA256: digest(office), constraints: office.constraints, repaired: { before: digest(repaired), after: digest(expected) } };
+  const declared = { constraints: { regeneratedSHA256: digest(raw.constraints), repairedSHA256: digest(repaired.constraints), constraints: repaired.constraints }, uniformHairProfile: profile };
+  const apply = (rig = raw, declaration = declared) => applyDeclaredRepairsToRig({ character: 'nova', outfit: 'uniform', rawRig: rig, rawReport: [], declared: declaration, officeProfile: office });
+  assert.deepEqual(apply().rig, expected);
+  assert.deepEqual(apply().baselineRig, repaired);
+  assert.deepEqual(uniformHairProfileRig(expected, profile, office, 'reverse'), repaired);
+  assert.deepEqual(raw.constraints, [hair, skirt]);
+  for (const outfit of ['office', 'homewear', 'swimwear']) assert.throws(() => validateUniformHairProfile(profile, office, 'nova', outfit), /UNIFORM_SCHEMA/);
+  for (const mutate of [p => p.officeProfileSHA256 = 'f'.repeat(64), p => p.character = 'luna', p => p.outfit = 'homewear', p => p.spec = 'other']) {
+    const bad = structuredClone(profile); mutate(bad);
+    assert.throws(() => uniformHairProfileRig(repaired, bad, office, 'forward'), /UNIFORM_SCHEMA/);
+  }
+  for (const mutate of [p => p.constraints.pop(), p => p.constraints.push(p.constraints[0]), p => p.constraints[0].after.wind++, p => p.constraints[0].bone = 'skirt0', p => p.constraints[0].after.mix = 1]) {
+    const bad = structuredClone(profile); mutate(bad);
+    assert.throws(() => uniformHairProfileRig(repaired, bad, office, 'forward'), /UNIFORM_TARGETS/);
+  }
+  for (const mutate of [r => r.constraints[0].rotate = 2, r => r.constraints.push(skirt), r => r.skins.default.topwear = {}]) {
+    const bad = structuredClone(repaired); mutate(bad);
+    assert.throws(() => uniformHairProfileRig(bad, profile, office, 'forward'), /UNIFORM_INPUT_DRIFT/);
+  }
+  const brokenOutput = structuredClone(profile); brokenOutput.repaired.after = '0'.repeat(64);
+  assert.throws(() => uniformHairProfileRig(repaired, brokenOutput, office, 'forward'), /UNIFORM_OUTPUT_DRIFT/);
+  const badRepair = structuredClone(declared); badRepair.constraints.regeneratedSHA256 = '0'.repeat(64);
+  assert.throws(() => apply(raw, badRepair), /REPRODUCIBILITY_CONSTRAINTS_DRIFT/);
 });

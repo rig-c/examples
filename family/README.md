@@ -39,11 +39,26 @@ bun family/tools/verify-reproducibility.mjs --out /absolute/path/to/new-repro-ev
 bun family/tools/verify-accepted.mjs --out /absolute/path/to/new-family-evidence
 ```
 
+The original office-only acceptance in issue #32 was:
+
 The [accepted office material profile](./MATERIAL_RESPONSE.md) is a declared,
 hash-bound stage around the existing repairs. Only the five office rigs receive
 it; the fifteen other outfits retain their prior common-part physics. The
 serving models now represent the owner-accepted candidate from issue #32.
 Reproduction compares against those accepted outputs, not the earlier profile.
+
+Issue #49 extends only the shared hair and bang physics to the five uniform
+configs, using a separate hash-bound stage after their existing repairs. The
+office skirt profile stays office-only; homewear and swimwear retain their
+previous physics. Images, meshes, bones, motion and the player are unchanged.
+See the [uniform reproduction and switch contract](./MATERIAL_RESPONSE.md#uniform-shared-hair-parity-issue-49).
+HQ accepted exact posed coordinates for all 73 shared draws, the viewed
+[4x switch sheet](./docs/uniform-hair-switch.png), and the cold shared-atlas
+control at 0. The original pixel residual is **358 on Nova / 357 in local static
+replay**, not zero; [play#187](https://github.com/rig-c/play/issues/187) owns it.
+The [receipt](./docs/uniform-hair-switch.json) distinguishes this acceptance
+from the earlier pixel assertion's exit 1. The pose metric is reproducible with
+`node family/tools/verify-uniform-hair.mjs --out .lane-evidence/new-uniform-pose.json`.
 
 | 현재 재현성 기준선의 도구 | 고정 버전 |
 | --- | --- |
