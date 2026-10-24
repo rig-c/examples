@@ -8,6 +8,7 @@ for roa, luna, jinni, and nova.
 import argparse
 import hashlib
 import json
+import os
 import pathlib
 import shutil
 import subprocess
@@ -139,11 +140,30 @@ CHAR_SPECS = {
 }
 
 
+def require_file(path: pathlib.Path) -> pathlib.Path:
+    if not path.is_file():
+        raise RuntimeError(f"FAMILY_INPUT_MISSING: {path}")
+    return path
+
+
+def tool_binary(env_name: str, command: str) -> str:
+    requested = os.environ.get(env_name, command)
+    resolved = shutil.which(requested) if requested else None
+    if resolved is None:
+        raise RuntimeError(f"FAMILY_TOOL_MISSING: {env_name}={requested!r}; install {command} on PATH or set {env_name} to an executable")
+    return resolved
+
+
 def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
     spec = CHAR_SPECS[char]
     home = family / "outfits/homewear" / char
     candidate = home / "prepared"
     author = home / "authoring"
+    prototype = json.loads(require_file(candidate / "prototype.json").read_text())
+    require_file(family / char / "config.json")
+    require_file(family / char / "out/rig/rig.json")
+    for row in prototype["parts"]:
+        require_file(candidate / "parts" / (row["name"] + ".png"))
     if author.exists():
         if force:
             shutil.rmtree(author)
@@ -151,7 +171,6 @@ def prepare_author_inputs(family: pathlib.Path, char: str, force: bool):
             raise RuntimeError(f"HOMEWEAR_AUTHOR_FRESH_INPUT_REQUIRED: {author}")
     inputs = author / "inputs"
     (inputs / "parts").mkdir(parents=True)
-    prototype = json.loads((candidate / "prototype.json").read_text())
     records = []
     for row in prototype["parts"]:
         name = row["name"]
@@ -248,8 +267,7 @@ def run_rig_parts_rig(family: pathlib.Path, char: str):
     home = family / "outfits/homewear" / char
     author = home / "authoring"
     cmd = [
-        "node",
-        "/Users/firejune/Workspace/Firejune/rig-parts/bin/rig-parts.cjs",
+        tool_binary("RIG_PARTS_BIN", "rig-parts"),
         "rig",
         "--config",
         str(author / "config.json"),
@@ -418,8 +436,7 @@ def run_build_and_check(family: pathlib.Path, char: str):
     out = home / "out"
     subprocess.run(
         [
-            "node",
-            "/Users/firejune/Workspace/Firejune/rig-parts/bin/rig-parts.cjs",
+            tool_binary("RIG_PARTS_BIN", "rig-parts"),
             "check",
             "--rig",
             str(out / "rig"),
@@ -490,8 +507,7 @@ def run_fast_build(family: pathlib.Path, char: str):
     build_dir.mkdir(parents=True, exist_ok=True)
     subprocess.run(
         [
-            "node",
-            "/Users/firejune/Workspace/Firejune/rigc/bin/rigc.cjs",
+            tool_binary("RIGC_BIN", "rigc"),
             "build",
             "--rig",
             str(out / "rig/rig.json"),
@@ -519,12 +535,19 @@ def run_fast_build(family: pathlib.Path, char: str):
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--characters", nargs="*", default=["roa", "luna", "jinni", "nova"])
+    parser = argparse.ArgumentParser(description=__doc__, epilog="Binaries: RIG_PARTS_BIN / RIGC_BIN executable overrides, otherwise rig-parts / rigc on PATH. No automatic downloads.")
+    parser.add_argument("--family-dir", type=pathlib.Path, default=pathlib.Path(__file__).resolve().parents[1], help="Family directory (default: this checkout)")
+    parser.add_argument("--characters", nargs="*", choices=CHAR_SPECS, default=["roa", "luna", "jinni", "nova"])
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--fast-build", action="store_true")
     args = parser.parse_args()
-    family = pathlib.Path(__file__).resolve().parents[1]
+    family = args.family_dir.resolve()
+    if not family.is_dir():
+        raise RuntimeError(f"FAMILY_INPUT_MISSING: {family}")
+    if args.characters:
+        tool_binary("RIG_PARTS_BIN", "rig-parts")
+        if args.fast_build:
+            tool_binary("RIGC_BIN", "rigc")
     summary = []
     for char in args.characters:
         prev_check = None
@@ -561,4 +584,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except FileNotFoundError as error:
+        raise SystemExit(f"FAMILY_INPUT_MISSING: {error.filename}") from None
+    except RuntimeError as error:
+        raise SystemExit(str(error)) from None

@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import math
+import os
 import pathlib
 import shutil
 import subprocess
@@ -17,6 +18,20 @@ TOPWEAR_STITCH_THRESHOLD = {
     "swimwear": {"roa": 520, "luna": 645, "jinni": 625, "naru": 705, "nova": 625},
     "uniform": {"roa": 485, "luna": 645, "jinni": 625, "naru": 705, "nova": 625},
 }
+
+
+def require_file(path: pathlib.Path) -> pathlib.Path:
+    if not path.is_file():
+        raise RuntimeError(f"FAMILY_INPUT_MISSING: {path}")
+    return path
+
+
+def tool_binary(env_name: str, command: str) -> str:
+    requested = os.environ.get(env_name, command)
+    resolved = shutil.which(requested) if requested else None
+    if resolved is None:
+        raise RuntimeError(f"FAMILY_TOOL_MISSING: {env_name}={requested!r}; install {command} on PATH or set {env_name} to an executable")
+    return resolved
 
 
 def config_path_for(family: pathlib.Path, char: str, outfit: str) -> pathlib.Path:
@@ -34,7 +49,7 @@ def out_dir_for(family: pathlib.Path, char: str, outfit: str) -> pathlib.Path:
 def read_all_regions(family: pathlib.Path) -> dict:
     result = {}
     for ch in CHARACTERS:
-        base_cfg = json.loads((family / ch / "config.json").read_text())
+        base_cfg = json.loads(require_file(family / ch / "config.json").read_text())
         chest_bone = next((b for b in base_cfg["bones"] if b.get("name") == "chest"), {"at": [400, 750]})
         ch_entry = {"chest": chest_bone["at"], "outfits": {}}
         for outfit in OUTFITS:
@@ -93,7 +108,10 @@ def rebuild_single_outfit_topwear(
 ) -> tuple[dict, dict]:
     cfg_path = config_path_for(family, char, outfit)
     out_dir = out_dir_for(family, char, outfit)
-    parts_doc = json.loads((out_dir / "parts.json").read_text())
+    require_file(cfg_path)
+    require_file(out_dir / "rig/rig.json")
+    require_file(out_dir / "rig/motion.json")
+    parts_doc = json.loads(require_file(out_dir / "parts.json").read_text())
     top_part_rec = next(p for p in parts_doc["parts"] if p["name"] == "topwear")
     top_png_path = out_dir / "parts/topwear.png"
 
@@ -103,7 +121,11 @@ def rebuild_single_outfit_topwear(
     )
     target_parts = ["topwear", "cardigan"] if has_cardigan else ["topwear"]
 
-    with tempfile.TemporaryDirectory(prefix=f"bust-{char}-{outfit}-") as tmp:
+    for pname in target_parts:
+        require_file(out_dir / f"parts/{pname}.png")
+    rig_parts_bin = tool_binary("RIG_PARTS_BIN", "rig-parts")
+    rigc_bin = tool_binary("RIGC_BIN", "rigc")
+    with tempfile.TemporaryDirectory(prefix=f"bust-{char}-{outfit}-", dir=out_dir) as tmp:
         tmp_dir = pathlib.Path(tmp)
         inputs_dir = tmp_dir / "inputs"
         (inputs_dir / "parts").mkdir(parents=True)
@@ -164,17 +186,8 @@ def rebuild_single_outfit_topwear(
             rig_out = tmp_dir / "rig"
             if rig_out.exists():
                 shutil.rmtree(rig_out)
-            rig_parts_bin = (
-                "/Users/firejune/Workspace/Firejune/rig-parts-naru-369/bin/rig-parts.cjs"
-                if pathlib.Path("/Users/firejune/Workspace/Firejune/rig-parts-naru-369/bin/rig-parts.cjs").is_file()
-                else "/Users/firejune/Workspace/Firejune/rig-parts/bin/rig-parts.cjs"
-            )
-            import os
-            env = dict(os.environ)
-            env["PATH"] = "/Users/firejune/Workspace/Firejune/rig-parts/node_modules/.bin:" + env.get("PATH", "")
             proc = subprocess.run(
                 [
-                    "node",
                     rig_parts_bin,
                     "rig",
                     "--config",
@@ -184,7 +197,6 @@ def rebuild_single_outfit_topwear(
                     "--out",
                     str(rig_out),
                 ],
-                env=env,
                 capture_output=True,
                 text=True,
             )
@@ -348,15 +360,14 @@ def rebuild_single_outfit_topwear(
                     hist_dir_name = parts_sp[0]
             except Exception:
                 pass
-        with tempfile.TemporaryDirectory(prefix=f"office-build-{char}-") as btmp:
+        with tempfile.TemporaryDirectory(prefix=f"office-build-{char}-", dir=out_dir) as btmp:
             btmp_path = pathlib.Path(btmp)
             brig_dir = btmp_path / hist_dir_name
             shutil.copytree(out_dir / "rig", brig_dir)
             bout_dir = btmp_path / "compiler/build"
             bproc = subprocess.run(
                 [
-                    "node",
-                    "/Users/firejune/Workspace/Firejune/rigc/bin/rigc.cjs",
+                    rigc_bin,
                     "build",
                     "--rig",
                     str(brig_dir / "rig.json"),
@@ -385,8 +396,7 @@ def rebuild_single_outfit_topwear(
     else:
         bproc = subprocess.run(
             [
-                "node",
-                "/Users/firejune/Workspace/Firejune/rigc/bin/rigc.cjs",
+                rigc_bin,
                 "build",
                 "--rig",
                 str(out_dir / "rig/rig.json"),
@@ -410,7 +420,7 @@ def rebuild_single_outfit_topwear(
 
     decl_path = cfg_path.parent / "declared-repairs.json"
     if decl_path.is_file():
-        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as rf:
+        with tempfile.NamedTemporaryFile("w", suffix=".json", dir=out_dir, delete=False) as rf:
             json.dump(raw_slots_by_part, rf)
             raw_slots_file = rf.name
         try:
@@ -536,6 +546,8 @@ def rebuild_all_outfits_for_character(
         final_r, final_l = rebuild_single_outfit_topwear(family, live_family, char, outfit, final_r, final_l)
         rebuilt_outfits.append(outfit)
 
+    if not rebuilt_outfits:
+        raise RuntimeError(f"FAMILY_INPUT_MISSING: no configured rigs for {char} in {family}")
     sync_integrity_manifests(family, char)
     return {
         "ok": True,
@@ -555,17 +567,19 @@ def parse_region_arg(text: str) -> dict:
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=__doc__, epilog="Binaries: RIG_PARTS_BIN / RIGC_BIN executable overrides, otherwise rig-parts / rigc on PATH. No automatic downloads.")
     parser.add_argument("--action", choices=["get", "set"], required=True)
-    parser.add_argument("--family-dir", default="/Users/firejune/Workspace/Firejune/parts-examples-naru-homewear/family")
-    parser.add_argument("--live-family-dir", default="/Users/firejune/Workspace/Firejune/spine-parts-examples/family")
+    parser.add_argument("--family-dir", type=pathlib.Path, default=pathlib.Path(__file__).resolve().parents[1], help="Family directory (default: this checkout)")
+    parser.add_argument("--live-family-dir", type=pathlib.Path, help="Optional explicit second Family directory to receive the build; no default mirror")
     parser.add_argument("--character", choices=CHARACTERS)
     parser.add_argument("--outfit", choices=OUTFITS, default="swimwear")
     parser.add_argument("--bust-r")
     parser.add_argument("--bust-l")
     args = parser.parse_args()
 
-    family = pathlib.Path(args.family_dir)
+    family = args.family_dir.resolve()
+    if not family.is_dir():
+        raise RuntimeError(f"FAMILY_INPUT_MISSING: {family}")
     live_family = pathlib.Path(args.live_family_dir) if args.live_family_dir else None
 
     if args.action == "get":
@@ -586,4 +600,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except FileNotFoundError as error:
+        raise SystemExit(f"FAMILY_INPUT_MISSING: {error.filename}") from None
+    except RuntimeError as error:
+        raise SystemExit(str(error)) from None
