@@ -4,7 +4,7 @@ Status: **frozen**. Owner withdrew winddown; sole worker resumed the existing ca
 
 ## Ownership and baseline
 
-Worktree branch metadata: `codex/examples-63-outfit-hair`; parent explicitly assigns this worker sole ownership. Baseline origin API `40db33d91e4aacbe4cd31ac9f3cc557973b4a1d4`. On restart all 3,301 Family files and frozen evidence hashes matched the winddown freeze. `WINDDOWN-CHECKPOINT.md` in scratch retains the earlier checkpoint. Parent PR: none reported.
+Worktree branch metadata: `codex/examples-63-outfit-hair`; parent explicitly assigns this worker sole ownership. Baseline origin API `40db33d91e4aacbe4cd31ac9f3cc557973b4a1d4`. On restart all 3,301 Family files and frozen evidence hashes matched the winddown freeze. `WINDDOWN-CHECKPOINT.md` in scratch retains the earlier checkpoint. Parent PR: **[#65 OPEN](https://github.com/rig-c/examples/pull/65)**. Initial head: `9c301da04751f1891e6a334bae8cbb03f97918af`. Review and CI are pending (parent-reported).
 
 ## Done / milestones
 
@@ -37,10 +37,12 @@ Full per-file current hashes: `.lane-evidence/checkpoint-source.json`, SHA256 `9
 
 ## Exact next step
 
-Parent reviews .lane-evidence/final63/freeze-report.md and changed-files.md against source-freeze.json, then owns commit/PR/CI/AI-review read/exact-head HQ sign b59ea1db-6f6d-4886-9280-5787474ab1b4. No further worker edits unless review requests a bounded fix.
+Parent commits this checkpoint-only docs update first; no product source change or full rerun is needed. Then request AI review once on the resulting PR65 head → read the actual AI review/findings (30min cap) and resolve any findings → verify required CI green → request HQ exact-head sign on that same current head → land only after the matching sign. Initial PR head `9c301da04751f1891e6a334bae8cbb03f97918af` is historical after the docs commit; it is not the future sign target.
+
+The frozen product tree is unaffected: all 3,315 Family file hashes still match `.lane-evidence/final63/source-freeze.json` (SHA256 `9011496039e9c1c4c7799fd4338ee687d7503a9a07499d3355a12a993fe95bca`). This update changes only `ops/63/CHECKPOINT.md`.
 
 ## Remaining gates and boundaries
 
-Worker implementation/measurement/targeted/preflight/full/source freeze are complete. Pending parent gates only: inspect frozen diff, commit/open PR, CI, read AI review (30min cap), exact-head HQ sign and landing. No worker PR, public write or running job. Disposable local packets/venv copies were removed after sealed recovery; scripts/manifests/receipts and adopted source remain. No #63 screenshot-zero claim; demonstrated raster residual belongs to play#187. Office/uniform, Jinni skirt and art/mesh/UV/atlas/motion/player/camera remain protected. Prior exclusions remain verbatim. Parent owns PR/CI, reading AI review and exact-head HQ sign.
+Worker implementation/measurement/targeted/preflight/full/source freeze are complete. PR65 is OPEN at initial head `9c301da04751f1891e6a334bae8cbb03f97918af`; review and CI are pending. Pending parent gates: commit this checkpoint-only update, request AI once, read AI review (30min cap), verify CI, obtain exact-head HQ sign and land. The worker made no public write and has no running job. Disposable local packets/venv copies were removed after sealed recovery; scripts/manifests/receipts and adopted source remain. No #63 screenshot-zero claim; demonstrated raster residual belongs to play#187. Office/uniform, Jinni skirt and art/mesh/UV/atlas/motion/player/camera remain protected. Prior exclusions remain verbatim. Parent owns PR/CI, reading AI review and exact-head HQ sign.
 
 No unresolved scope question. Keep this checkpoint current at each admission, terminal result, red cell and final freeze. Do not abandon a running job without its ID and recovery/receipt state. #49 evidence at the relocated card49 path remains read-only.
