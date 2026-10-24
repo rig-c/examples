@@ -1,6 +1,6 @@
 {
   "spec": "family-accepted-inputs/1",
-  "baseline": "Accepted family authoring at 1ecd0d69342b04846ec4f59a0ca02b86f8e0a83f; wind viewer from main PR #4 integrated before this inventory. Naru outfit viewer adopted separately; original five-character office authoring and serving hashes retained. Office material profile accepted in issue #32 on 2026-10-22; declared stage retains prior mesh/topwear/cuff corrections and other outfit profiles.",
+  "baseline": "Accepted family authoring at 1ecd0d69342b04846ec4f59a0ca02b86f8e0a83f; wind viewer from main PR #4 integrated before this inventory. Naru outfit viewer adopted separately; original five-character office authoring and serving hashes retained. Office material profile accepted in issue #32 on 2026-10-22; declared stage retains prior mesh/topwear/cuff corrections and other outfit profiles. Report baseline advanced in issue #55 to parts 1.60.2 / rig-c 2.68.0 from origin/main 3c1065e8d06f7ea469477b39b544eb902b0f9b32; parts PR #562 corrected post-rebind bone names. Geometry and serving bytes retained.",
   "scope": "Final authoring rigs, motion, PNGs, part records, provenance, saved serving artifacts and viewer. Office material profiles and config hashes are recorded in material-profile provenance; config x-repairs binds the stage. No automatic manifest regeneration is provided.",
   "characters": [
     "roa",
@@ -239,8 +239,8 @@
       "sha256": "9a81f81f0f1a458781ba78802d6013cb0fea4a592c86315a0167fd88d5bfe2b3"
     },
     "jinni/out/rig/mesh_report.json": {
-      "bytes": 11810,
-      "sha256": "3e74f3e22de0fd60d7bd64280e436c010be18e418a23b6defdd30819071cedea"
+      "bytes": 11840,
+      "sha256": "390bde4b5f6e1e1737457d7098a6062cdf6ea839c3608f14833a8a53289bf155"
     },
     "jinni/out/rig/motion.json": {
       "bytes": 49563,
@@ -463,8 +463,8 @@
       "sha256": "e841c150d989e9bdd41f313fb39aa446b026c4ef2f6c43581466f365602d648a"
     },
     "luna/out/rig/mesh_report.json": {
-      "bytes": 10513,
-      "sha256": "896850735a378004c484d875856f41fc08e13e60e4eb37e3a9a4507ec2f419d6"
+      "bytes": 10525,
+      "sha256": "385de5207a8e7d13d20a5365730cfbfaf9de9ad30610684339e8600af61d6368"
     },
     "luna/out/rig/motion.json": {
       "bytes": 55678,
@@ -891,8 +891,8 @@
       "sha256": "8deecd7b21ab9b784f44b2d4e91f2f98c4a145089885b0a4a3f62a75ea440a8c"
     },
     "nova/out/rig/mesh_report.json": {
-      "bytes": 8136,
-      "sha256": "e1424faa486bf32739335a6ea3710e27ed2fe0e86b84bd0dcf5f1eafe9c6b028"
+      "bytes": 8144,
+      "sha256": "1ee20e062be3c6d2e99beaa17e74a590e30810ffbdc8dd895cac79d8db1d06f6"
     },
     "nova/out/rig/motion.json": {
       "bytes": 43318,
@@ -1091,8 +1091,8 @@
       "sha256": "8f3deb002f941bf056c5085a39a4b76a1ece37d5b313904145df02babbca6778"
     },
     "roa/out/rig/mesh_report.json": {
-      "bytes": 7920,
-      "sha256": "a1bd1f0418b55baeab13d32ef444a917a8653cce42eadc3576c618c7804be11c"
+      "bytes": 7932,
+      "sha256": "b34d0032ac3928ddf100c0e83fe0cbb33b001411034a0b47875d565b282750f0"
     },
     "roa/out/rig/motion.json": {
       "bytes": 46565,
@@ -1169,6 +1169,522 @@
     "viewer/wind-controls.test.mjs": {
       "bytes": 15937,
       "sha256": "0fa770992275155e8a7e5258bda3161ffe551e053d0d871486abba3cfa543631"
+    }
+  },
+  "toolchain": {
+    "@rig-c/parts": "1.60.2",
+    "rig-c": "2.68.0",
+    "@esotericsoftware/spine-core": "4.3.13"
+  },
+  "reportCorrections": {
+    "roa/office/hair_back": {
+      "beforeSHA256": "cec12f9273b6f83eaa86ee4bdbcc5b94c5fd53d1d1010ea2b83dd525ac74e37b",
+      "afterSHA256": "84d7e7e25e4aca323884f20e2dd5ae9116653abecfff16ab61ce76ff6c516d54",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "luna/office/hair_back": {
+      "beforeSHA256": "0f3ae8cd8336e980848395185b0e614049480347d128ab2a59dc3352210fec75",
+      "afterSHA256": "c5f090fc049b00fbd9f74e514d91f9daaaabbe82d0cd753d663d64a7bad52ee5",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "jinni/office/hair_back": {
+      "beforeSHA256": "759dcac503806012ac6fdff89be93cac16e3d17563c19cf9fc0b3abd11a278ad",
+      "afterSHA256": "4cc42597462cc8670698e5e5b9648e9b9a8f1ef3b6983d5b9aa61404f0d86fef",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "jinni/office/bottomwear": {
+      "beforeSHA256": "fb13e680af7bb6bafe45ca4f17f2d5052ca0a33ae457e4ec027b313cc4aabde4",
+      "afterSHA256": "a456545b23865a8020be5a5704a73b4ca8b1e60f9422f673eb3e32b08afc1d04",
+      "boneChanges": [
+        {
+          "index": 1,
+          "before": "skirt_c0",
+          "after": "skirt_c0_d"
+        },
+        {
+          "index": 2,
+          "before": "skirt_c1",
+          "after": "skirt_c1_d"
+        },
+        {
+          "index": 3,
+          "before": "skirt_c2",
+          "after": "skirt_c2_d"
+        },
+        {
+          "index": 4,
+          "before": "skirt_l0",
+          "after": "skirt_l0_d"
+        },
+        {
+          "index": 5,
+          "before": "skirt_l1",
+          "after": "skirt_l1_d"
+        },
+        {
+          "index": 6,
+          "before": "skirt_l2",
+          "after": "skirt_l2_d"
+        },
+        {
+          "index": 7,
+          "before": "skirt_r0",
+          "after": "skirt_r0_d"
+        },
+        {
+          "index": 8,
+          "before": "skirt_r1",
+          "after": "skirt_r1_d"
+        },
+        {
+          "index": 9,
+          "before": "skirt_r2",
+          "after": "skirt_r2_d"
+        }
+      ]
+    },
+    "nova/office/topwear": {
+      "beforeSHA256": "fee058fd2b2cf4dbcb2965475bf12d120db28909b3b54602af5d1d910e5aabae",
+      "afterSHA256": "4efbe70fb85a3303ccae9161f8653e6bd8475bfb36ff701fa3ef3af90b85604c",
+      "boneChanges": [
+        {
+          "index": 3,
+          "before": "hem_l0",
+          "after": "hem_l0_d"
+        },
+        {
+          "index": 4,
+          "before": "hem_l1",
+          "after": "hem_l1_d"
+        },
+        {
+          "index": 5,
+          "before": "hem_r0",
+          "after": "hem_r0_d"
+        },
+        {
+          "index": 6,
+          "before": "hem_r1",
+          "after": "hem_r1_d"
+        }
+      ]
+    },
+    "roa/homewear/hair_back": {
+      "beforeSHA256": "cec12f9273b6f83eaa86ee4bdbcc5b94c5fd53d1d1010ea2b83dd525ac74e37b",
+      "afterSHA256": "84d7e7e25e4aca323884f20e2dd5ae9116653abecfff16ab61ce76ff6c516d54",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "luna/homewear/hair_back": {
+      "beforeSHA256": "0f3ae8cd8336e980848395185b0e614049480347d128ab2a59dc3352210fec75",
+      "afterSHA256": "c5f090fc049b00fbd9f74e514d91f9daaaabbe82d0cd753d663d64a7bad52ee5",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "jinni/homewear/hair_back": {
+      "beforeSHA256": "759dcac503806012ac6fdff89be93cac16e3d17563c19cf9fc0b3abd11a278ad",
+      "afterSHA256": "4cc42597462cc8670698e5e5b9648e9b9a8f1ef3b6983d5b9aa61404f0d86fef",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "roa/swimwear/hair_back": {
+      "beforeSHA256": "cec12f9273b6f83eaa86ee4bdbcc5b94c5fd53d1d1010ea2b83dd525ac74e37b",
+      "afterSHA256": "84d7e7e25e4aca323884f20e2dd5ae9116653abecfff16ab61ce76ff6c516d54",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "luna/swimwear/hair_back": {
+      "beforeSHA256": "0f3ae8cd8336e980848395185b0e614049480347d128ab2a59dc3352210fec75",
+      "afterSHA256": "c5f090fc049b00fbd9f74e514d91f9daaaabbe82d0cd753d663d64a7bad52ee5",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "jinni/swimwear/hair_back": {
+      "beforeSHA256": "759dcac503806012ac6fdff89be93cac16e3d17563c19cf9fc0b3abd11a278ad",
+      "afterSHA256": "4cc42597462cc8670698e5e5b9648e9b9a8f1ef3b6983d5b9aa61404f0d86fef",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "roa/uniform/hair_back": {
+      "beforeSHA256": "cec12f9273b6f83eaa86ee4bdbcc5b94c5fd53d1d1010ea2b83dd525ac74e37b",
+      "afterSHA256": "84d7e7e25e4aca323884f20e2dd5ae9116653abecfff16ab61ce76ff6c516d54",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "luna/uniform/hair_back": {
+      "beforeSHA256": "0f3ae8cd8336e980848395185b0e614049480347d128ab2a59dc3352210fec75",
+      "afterSHA256": "c5f090fc049b00fbd9f74e514d91f9daaaabbe82d0cd753d663d64a7bad52ee5",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
+    },
+    "jinni/uniform/hair_back": {
+      "beforeSHA256": "759dcac503806012ac6fdff89be93cac16e3d17563c19cf9fc0b3abd11a278ad",
+      "afterSHA256": "4cc42597462cc8670698e5e5b9648e9b9a8f1ef3b6983d5b9aa61404f0d86fef",
+      "boneChanges": [
+        {
+          "index": 0,
+          "before": "hairback_l0",
+          "after": "hairback_l0_d"
+        },
+        {
+          "index": 1,
+          "before": "hairback_l1",
+          "after": "hairback_l1_d"
+        },
+        {
+          "index": 2,
+          "before": "hairback_l2",
+          "after": "hairback_l2_d"
+        },
+        {
+          "index": 3,
+          "before": "hairback_r0",
+          "after": "hairback_r0_d"
+        },
+        {
+          "index": 4,
+          "before": "hairback_r1",
+          "after": "hairback_r1_d"
+        },
+        {
+          "index": 5,
+          "before": "hairback_r2",
+          "after": "hairback_r2_d"
+        }
+      ]
     }
   }
 }

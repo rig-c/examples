@@ -45,7 +45,20 @@ it; the fifteen other outfits retain their prior common-part physics. The
 serving models now represent the owner-accepted candidate from issue #32.
 Reproduction compares against those accepted outputs, not the earlier profile.
 
-고정 도구는 parts 1.25.0 / rig-c 2.57.0 / 공식 Spine 4.3.13이다.
+| 현재 재현성 기준선의 도구 | 고정 버전 |
+| --- | --- |
+| `@rig-c/parts` | `1.60.2` |
+| `rig-c` (core) | `2.68.0` |
+| `@esotericsoftware/spine-core` (공식 oracle) | `4.3.13` |
+
+2026-10-24에 공개 npm registry의 parts `1.60.2`와 core `2.68.0`을 확인했다. Core `2.68.0`은 같은 날 06:49 UTC에 게시되어, [#55](https://github.com/rig-c/examples/issues/55)의 최초 측정에 사용한 `2.67.2` 대신 이 공개 버전을 고정했다. Package manifest와 frozen lockfile, 통합 검증기의 버전 가드도 같은 핀을 사용한다.
+
+#### #55 기준선 갱신 기록
+
+이전 기준선(parts `1.25.0` / core `2.57.0`)은 origin/main [`3c1065e`](https://github.com/rig-c/examples/commit/3c1065e8d06f7ea469477b39b544eb902b0f9b32)에서 읽었다. 새 핀으로 20개 리그를 재빌드하면 396개 파츠 비교 행 중 382개가 같고 14개가 리포트 때문에 달라진다. 실제 `mesh_report.json`에는 메시 행만 있으므로 총 121행이며, 그중 13개 리그의 14행에서 **85개 `bones[index]` 문자열에 `_d` 접미사만 추가**된다. 나머지 107개 메시 행은 같다. 이는 parts `1.49.2`의 [PR #562](https://github.com/rig-c/parts/pull/562) ([#559](https://github.com/rig-c/parts/issues/559))가 `applyStops`·`applyTurn` 뒤 실제 attachment weight가 참조하는 본 이름을 기록하도록 바로잡은 결과다. 바인딩이나 메시 자체를 다시 저작한 변경이 아니다.
+
+저장된 13개 리포트를 새 출력으로 갱신하고, 15개 의상 `rig.json`은 재현성 writer의 서식으로만 맞췄다. Rig JSON 값과 키·배열 순서, 20개 모델·20개 skeleton·20개 motion의 바이트, 모든 config와 선언된 수리는 보존했다. `accepted-inputs.json`의 `reportCorrections`는 14개 행의 이전·현재 SHA256과 정확한 본 이름 변경을 기록한다. 빠른 검증기는 현재 행의 전체 해시와 본 이름을 되돌린 이전 행의 전체 해시를 모두 검사하여 기존 수리 선언의 해시를 유지한다. 전체 재빌드에서는 이 변환을 사용하지 않고 새 리포트 전체를 직접 비교하며, 20개 authoring rig와 60개 모델·skeleton·motion의 바이트도 검사한다.
+
 1. **`verify-reproducibility.mjs` (5×4 `config.json` → `skeleton.model.json` 재현성 게이트)**: 20개 리그 전체를 정본 `config.json`에서 `rig-parts rig`로 새로 생성한 뒤 `declared-repairs.json`의 선언된 수리를 적용하고 공식 `rigc build`로 컴파일하여, 저장된 `out/rig/rig.json`, `out/rig/mesh_report.json`(396개 파츠 `v/t`), `out/check/build/skeleton.model.json`과 일치하는지 검증한다. 선언되지 않은 수리 파일, 해시 불일치, 비결정적 출력은 즉시 거부한다.
 2. **`verify-accepted.mjs` (통합 인수 및 `rig-parts check` 게이트)**: 위 5×4 재현성 게이트를 실행한 뒤 오피스 5인의 최종 rig를 직렬로 공식 `rigc build`와 전체 `rig-parts check`에 넣고, 새 Spine·model·atlas 바이트 및 PNG 디코딩 픽셀을 현재 serving 파일과 비교한다. parts/rig PNG의 4px 패딩 내부 픽셀, 메타데이터 크기와 mesh report 정점·삼각형 수도 대조한다.
 

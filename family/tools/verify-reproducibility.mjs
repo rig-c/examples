@@ -330,13 +330,28 @@ export function formatReproducibilityTable(rows) {
   return [fmtRow(headers), sep, ...cells.map(fmtRow)].join('\n');
 }
 
+/** Verify a historical declaration through an exact, reversible report-only correction. */
+export function reportMatchesDeclaration(report, declaredSHA256, correction) {
+  if (!correction) return sha(JSON.stringify(report)) === declaredSHA256;
+  if (correction.beforeSHA256 !== declaredSHA256 || sha(JSON.stringify(report)) !== correction.afterSHA256 || !Array.isArray(report?.bones) || !Array.isArray(correction.boneChanges) || correction.boneChanges.length === 0) return false;
+  const previous = structuredClone(report);
+  const seen = new Set();
+  for (const { index, before, after } of correction.boneChanges) {
+    if (!Number.isInteger(index) || index < 0 || seen.has(index) || typeof before !== 'string' || after !== `${before}_d` || previous.bones[index] !== after) return false;
+    seen.add(index);
+    previous.bones[index] = before;
+  }
+  return sha(JSON.stringify(previous)) === declaredSHA256;
+}
+
 /**
  * Fast in-memory verification of declared repairs and mesh coherence across
- * all 5 characters × 3 outfits. Used by `--check-inputs` and unit/mutant tests.
+ * all 5 characters × 4 outfits. Used by `--check-inputs` and unit/mutant tests.
  */
 export function verifyDeclaredReproducibility(root = defaultFamily, { ignoreRepairs = false } = {}) {
   const allRows = [];
   const provenanceFaults = [];
+  const corrections = json(join(root, 'accepted-inputs.json')).reportCorrections ?? {};
   for (const outfit of OUTFITS) {
     for (const character of CHARACTERS) {
       const { outDir } = rigPaths(root, character, outfit);
@@ -376,7 +391,7 @@ export function verifyDeclaredReproducibility(root = defaultFamily, { ignoreRepa
             equal = false;
           } else {
             const rigMatch = sha(JSON.stringify(dRigSlots)) === digest.rigSHA256;
-            const repMatch = sha(JSON.stringify(dRep)) === digest.reportSHA256;
+            const repMatch = reportMatchesDeclaration(dRep, digest.reportSHA256, corrections[`${character}/${outfit}/${partName}`]);
             const modMatch = sha(JSON.stringify(dModSlots)) === digest.modelSHA256;
             const repairMatch = !repairEntry || sha(JSON.stringify(dRigSlots)) === repairEntry.repaired.sha256;
             equal = (dVT === rVT) && rigMatch && repMatch && modMatch && repairMatch;
@@ -410,7 +425,7 @@ export function verifyDeclaredReproducibility(root = defaultFamily, { ignoreRepa
 /**
  * Full end-to-end rebuild from config.json via `rig-parts rig` + declared repairs +
  * `rigc build` compilation and compiled `skeleton.model.json` diff across all
- * 5 characters × 3 outfits (15 rigs).
+ * 5 characters × 4 outfits (20 rigs).
  */
 export function rebuildAndVerifyAll({
   root = defaultFamily,
@@ -559,10 +574,10 @@ export function rebuildAndVerifyAll({
         rebuiltModel,
       });
 
-      if (!ignoreRepairs && declared.materialProfile && !readFileSync(join(outDir, 'rig/rig.json')).equals(readFileSync(join(compileRigDir, 'rig.json')))) fail(`REPRODUCIBILITY_AUTHORING_BYTES_CHANGED ${character}/${outfit}`);
+      if (!ignoreRepairs && !readFileSync(join(outDir, 'rig/rig.json')).equals(readFileSync(join(compileRigDir, 'rig.json')))) fail(`REPRODUCIBILITY_AUTHORING_BYTES_CHANGED ${character}/${outfit}`);
 
-      // Also verify full compiled model and skeleton.json byte equality when all parts are equal
-      if (!ignoreRepairs && rows.every(r => r.equal)) {
+      // Serving and motion bytes are independent of a report row's verdict.
+      if (!ignoreRepairs) {
         const dModelBytes = readFileSync(join(outDir, 'check/build/skeleton.model.json'));
         const rModelBytes = readFileSync(join(compileOutDir, 'skeleton.model.json'));
         if (!dModelBytes.equals(rModelBytes)) {
@@ -572,6 +587,9 @@ export function rebuildAndVerifyAll({
         const rSkelBytes = readFileSync(join(compileOutDir, 'skeleton.json'));
         if (!dSkelBytes.equals(rSkelBytes)) {
           fail(`REPRODUCIBILITY_COMPILED_SKELETON_BYTES_CHANGED ${character}/${outfit}`);
+        }
+        if (!readFileSync(join(outDir, 'rig/motion.json')).equals(readFileSync(join(compileRigDir, 'motion.json')))) {
+          fail(`REPRODUCIBILITY_MOTION_BYTES_CHANGED ${character}/${outfit}`);
         }
       }
 
