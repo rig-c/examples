@@ -1,18 +1,7 @@
 #!/usr/bin/env node
-/** Render the accepted family rigs, retaining the browser compositor's alpha.
- * Requires Node, Playwright with Chromium installed, img2webp, and Python/Pillow.
- * npm install --prefix /tmp/family-preview-tools playwright@1.62.1
- * /tmp/family-preview-tools/node_modules/.bin/playwright install chromium
- * PLAYWRIGHT_MODULE=/tmp/family-preview-tools/node_modules/playwright/index.mjs \
- *   node family/scripts/render-readme-preview.mjs --evidence /tmp/family-preview-frames
- * --outfit <name> renders the same lineup, idle and frame set from the viewer's
- * build of that outfit (default office: the accepted README preview, unchanged).
- * --mp4 <path> encodes the frames with ffmpeg instead of the WebP (H.264,
- * yuv420p, 24 fps, over --background, default #ffffff — an mp4 has no alpha);
- * pass --out as well to also write the WebP. --cut-layers additionally captures
- * frame 0 split by slot (each character's clothing alone, everything else
- * alone, and everything else without the hair) for render-outfit-switch.mjs's cut-frame comparison.
- * Keep heavy runs under the maintainer's normal render admission controls.
+/** Render accepted rigs without modifying serving, preserving compositor alpha.
+ * Node + Playwright/Chromium + Python/Pillow are required; optional MP4 uses ffmpeg.
+ * Run --help before rendering. Heavy captures use the maintainer's Nova admission.
  */
 import http from 'node:http';
 import fs from 'node:fs/promises';
@@ -23,13 +12,54 @@ import { spawn } from 'node:child_process';
 import { OUTFITS, outfitAssets } from '../viewer/outfits.mjs';
 
 const family = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const args = process.argv.slice(2);
+const help = `Usage: node family/scripts/render-readme-preview.mjs [options]
+  --outfit office|homewear|swimwear|uniform  (default office)
+  --out <preview.webp>     (default outfit-specific docs/family-preview[-outfit].webp; preflight uses <evidence>)
+  --evidence <new-dir>     (default .lane-evidence/family-preview-<outfit>)
+  --width 800|960|1200     (default 960; original capture remains1200x1040)
+  --quality 1..100         (default80, lossy RGB; alpha quality100)
+  --reuse-frames           verify captured source/recipe/PNG hashes before encoding
+  --mp4 <clip.mp4>         optional ffmpeg H.264 over --background #rrggbb
+  --crf 0..51             (default23)
+  --cut-layers            extra split-slot capture for render-outfit-switch.mjs
+  --preflight             bounded8x8 PNG→WebP reader probe; NOT loop acceptance
+  --help                  show help without importing Playwright or rendering
+PLAYWRIGHT_MODULE selects an explicit Playwright module; PYTHON selects Python.
+Renderer gives no closure verdict; preview-loop.py checks encoded wrap MAE≤max adjacent MAE
+and reports first versus one-period endpoint visible difference. Bulk frames are temporary receipts.`;
+
+export function parsePreviewArgs(args) {
+  const values = new Set(['--outfit','--out','--evidence','--width','--quality','--mp4','--background','--crf']);
+  const flags = new Set(['--reuse-frames','--cut-layers','--preflight','--help']);
+  const seen = new Set(), parsed = {};
+  for (let i = 0; i < args.length; i++) {
+    const key = args[i];
+    if ((!values.has(key) && !flags.has(key)) || seen.has(key)) throw Error('PREVIEW_ARGUMENT_REFUSED ' + key);
+    seen.add(key);
+    if (flags.has(key)) parsed[key] = true;
+    else { if (!args[i+1] || args[i+1].startsWith('--')) throw Error('PREVIEW_ARGUMENT_VALUE_REQUIRED ' + key); parsed[key] = args[++i]; }
+  }
+  if (parsed['--help'] && args.length !== 1) throw Error('PREVIEW_HELP_ALONE');
+  if (parsed['--preflight'] && (parsed['--reuse-frames'] || parsed['--mp4'] || parsed['--cut-layers'])) throw Error('PREVIEW_PREFLIGHT_MODE_REFUSED');
+  return parsed;
+}
+
+export async function renderPreview(args = process.argv.slice(2)) {
+const parsed = parsePreviewArgs(args);
+if (parsed['--help']) { console.log(help); return; }
+const preflight = Boolean(parsed['--preflight']);
+
 function option(name, fallback) { const i = args.indexOf(name); return i < 0 ? fallback : args[i + 1]; }
-const evidence = path.resolve(option('--evidence', '/tmp/family-preview-frames'));
+const evidence = path.resolve(option('--evidence', `.lane-evidence/family-preview-${option('--outfit', 'office')}`));
 const mp4 = option('--mp4', null) === null ? null : path.resolve(option('--mp4'));
-const output = mp4 !== null && option('--out', null) === null ? null : path.resolve(option('--out', path.join(family, 'docs/family-preview.webp')));
 const outfit = option('--outfit', 'office');
+const defaultName = `family-preview${outfit === 'office' ? '' : '-'+outfit}.webp`;
+const publishedDocs = path.join(family, 'docs');
+const output = mp4 !== null && option('--out', null) === null ? null : path.resolve(option('--out', path.join(preflight ? evidence : publishedDocs, defaultName)));
 if (!OUTFITS.includes(outfit)) throw new Error(`outfit must be one of ${OUTFITS.join(', ')}; got ${outfit}`);
+if (output !== null && !output.endsWith('.webp')) throw Error('PREVIEW_WEBP_EXTENSION_REQUIRED');
+if (preflight && output !== null && (output === publishedDocs || output.startsWith(publishedDocs + path.sep))) throw Error('PREFLIGHT_OUT_IS_PUBLISHED');
+if (mp4 !== null && !mp4.endsWith('.mp4')) throw Error('PREVIEW_MP4_EXTENSION_REQUIRED');
 const background = option('--background', '#ffffff');
 if (!/^#[0-9a-f]{6}$/i.test(background)) throw new Error('background must be #rrggbb');
 const mp4Fps = 24, crf = Number(option('--crf', '23'));
@@ -39,11 +69,12 @@ const cutLayers = args.includes('--cut-layers');
 const clothingSlots = ['topwear', 'bottomwear', 'legwear', 'shoes', 'sleeves', 'handwear_l', 'handwear_r', 'neckwear'];
 // Hair is shared art driven by physics an outfit may tune differently, so it is split out too.
 const hairSlots = ['hair_back', 'hair_front', 'hair_front__island2'];
-const frames = 100, width = 1200, height = 1040, duration = 10 / 3;
-const outputFrames = 67, outputWidth = Number(option('--width', '960'));
+const frames = preflight ? 2 : 100, width = 1200, height = 1040, duration = 10 / 3;
+const outputFrames = preflight ? 3 : 67, requestedWidth = Number(option('--width', '960'));
 const quality = Number(option('--quality', '80'));
-if (![800,960,1200].includes(outputWidth) || !Number.isFinite(quality) || quality < 1 || quality > 100) throw new Error('width must be 800, 960 or 1200; quality must be 1..100');
-const outputHeight = Math.round(height * outputWidth / width);
+if (![800,960,1200].includes(requestedWidth) || !Number.isFinite(quality) || quality < 1 || quality > 100) throw new Error('width must be 800, 960 or 1200; quality must be 1..100');
+const outputWidth = preflight ? 8 : requestedWidth;
+const outputHeight = preflight ? 8 : Math.round(height * outputWidth / width);
 const lineup = [['roa', 0, 0, 3], ['luna', 435, .06, 2], ['jinni', 995, .45, 4], ['naru', 1540, .85, 3], ['nova', 1915, 1.25, 2]];
 const modelRoot = outfit === 'office' ? "'/'+key" : `'/outfits/${outfit}/'+key`;
 const modelPath = key => outfitAssets(key, outfit).modelUrl.slice(1);
@@ -55,6 +86,10 @@ async function run(command, argv) {
     const child = spawn(command, argv, { stdio: 'inherit', env: { ...process.env, OMP_NUM_THREADS: '4', OPENBLAS_NUM_THREADS: '1' } });
     child.on('error', reject); child.on('exit', code => code === 0 ? resolve() : reject(new Error(`${command} exited ${code}`)));
   });
+}
+if (!args.includes('--reuse-frames')) {
+  const present = await fs.readdir(evidence).catch(error => { if (error.code === 'ENOENT') return []; throw error; });
+  if (present.length) throw Error('PREVIEW_FRESH_EVIDENCE_REQUIRED');
 }
 await fs.mkdir(evidence, { recursive: true });
 for (const target of [output, mp4]) if (target !== null) await fs.mkdir(path.dirname(target), { recursive: true });
@@ -121,7 +156,7 @@ ${cutLayers ? `globalThis.capture.only=(key,slots,invert)=>{for(const e of entri
 ` : ''}globalThis.ready=true;
 </script>`;
 const browserArgs=['--renderer-process-limit=2','--num-raster-threads=2'];
-const captureRecipe={htmlSha256:createHash('sha256').update(html).digest('hex'),viewport:{width,height},deviceScaleFactor:1,browserArgs};
+const captureRecipe={preflightOnly:preflight,htmlSha256:createHash('sha256').update(html).digest('hex'),viewport:{width,height},deviceScaleFactor:1,browserArgs};
 let receipt;
 if(args.includes('--reuse-frames')) {
   receipt=JSON.parse(await fs.readFile(captureInputs,'utf8'));
@@ -154,19 +189,19 @@ try {
   await page.goto(`http://127.0.0.1:${server.address().port}/`);
   await page.waitForFunction(()=>globalThis.ready, null, {timeout:120000});
   for(let i=0;i<=frames;i++) {
-    await page.screenshot({path:path.join(evidence,`frame-${String(i).padStart(3,'0')}.png`),omitBackground:true});
+    await page.screenshot({path:path.join(evidence,`frame-${String(i).padStart(3,'0')}.png`),omitBackground:true,...(preflight?{clip:{x:0,y:0,width:8,height:8}}:{})});
     if(i===0 && cutLayers) {
       for(const [key] of lineup) {
         await page.evaluate(([key,slots])=>globalThis.capture.only(key,slots,false),[key,clothingSlots]);
-        await page.screenshot({path:path.join(evidence,`cut-clothing-${key}.png`),omitBackground:true});
+        await page.screenshot({path:path.join(evidence,`cut-clothing-${key}.png`),omitBackground:true,...(preflight?{clip:{x:0,y:0,width:8,height:8}}:{})});
       }
       await page.evaluate(slots=>globalThis.capture.only(null,slots,true),clothingSlots);
-      await page.screenshot({path:path.join(evidence,'cut-shared.png'),omitBackground:true});
+      await page.screenshot({path:path.join(evidence,'cut-shared.png'),omitBackground:true,...(preflight?{clip:{x:0,y:0,width:8,height:8}}:{})});
       await page.evaluate(slots=>globalThis.capture.only(null,slots,true),[...clothingSlots,...hairSlots]);
-      await page.screenshot({path:path.join(evidence,'cut-shared-without-hair.png'),omitBackground:true});
+      await page.screenshot({path:path.join(evidence,'cut-shared-without-hair.png'),omitBackground:true,...(preflight?{clip:{x:0,y:0,width:8,height:8}}:{})});
       await page.evaluate(()=>globalThis.capture.only(null,null,false));
       const again=path.join(evidence,'cut-restored.png');
-      await page.screenshot({path:again,omitBackground:true});
+      await page.screenshot({path:again,omitBackground:true,...(preflight?{clip:{x:0,y:0,width:8,height:8}}:{})});
       if(await sha(again)!==await sha(path.join(evidence,'frame-000.png'))) throw new Error('Restoring every slot after the cut layers did not redraw frame 0');
     }
     if(i<frames) await page.evaluate(()=>globalThis.capture.next());
@@ -199,17 +234,12 @@ for i,n in enumerate(${JSON.stringify(mp4Indices)}):
   console.log(JSON.stringify({mp4,evidence,outfit,bytes:(await fs.stat(mp4)).size}));
 }
 if(output!==null) {
-const indices=Array.from({length:outputFrames},(_,i)=>Math.round(i*frames/outputFrames));
-await run(process.env.PYTHON ?? 'python3',['-c', `from PIL import Image
-from pathlib import Path
-p=Path(${JSON.stringify(evidence)})
-for i,n in enumerate(${JSON.stringify(indices)}):
- Image.open(p/f'frame-{n:03}.png').resize((${outputWidth},${outputHeight}),Image.Resampling.LANCZOS).save(p/f'encoded-{i:03}.png')`]);
-const encode=['-min_size','-loop','0','-lossy','-q',String(quality),'-m','4'];
-for(let i=0;i<outputFrames;i++) encode.push('-d',String(Math.round((i+1)*duration*1000/outputFrames)-Math.round(i*duration*1000/outputFrames)),path.join(evidence,`encoded-${String(i).padStart(3,'0')}.png`));
-encode.push('-o',output);
-await run('img2webp',encode);
-const metadata={schema:'family-readme-preview/1',...(outfit==='office'?{}:{outfit}),...settings,width:outputWidth,height:outputHeight,frames:outputFrames,capture:{width,height,frames},sourceFrameIndices:indices,frameDurationsMs:Array.from({length:outputFrames},(_,i)=>Math.round((i+1)*duration*1000/outputFrames)-Math.round(i*duration*1000/outputFrames)),loop:0,renderer:'accepted viewer DOM/per-part WebGL',background:'transparent; browser compositor alpha, no chromakey',warmupCycles:6,physicsStepSeconds:1/60,environment:{wind:[4,0],gravity:[0,0],profile:'constant gentle breeze'},blink:'viewer smooth curve, deterministic staggered schedule',quality,captureRecipeSha256:captureRecipe.htmlSha256,browser:receipt.browser,sources,bytes:(await fs.stat(output)).size,sha256:await sha(output)};
+await run(process.env.PYTHON ?? 'python3', [path.join(family,'scripts/preview-loop.py'), '--evidence', evidence, '--out', output, '--width', String(outputWidth), '--height', String(outputHeight), '--quality', String(quality), ...(preflight?['--preflight']:[])]);
+const loopProof=JSON.parse(await fs.readFile(path.join(evidence,'preview-loop.json'),'utf8'));
+const metadata={schema:'family-readme-preview/2',outfit,preflightOnly:preflight,...settings,width:outputWidth,height:outputHeight,frames:loopProof.decodedFrames,capture:{width,height,frames,includesExtraEndpoint:true},sourceFrameIndices:loopProof.sourceFrameIndices,frameDurationsMs:loopProof.frameDurationsMs,loop:0,renderer:'accepted viewer DOM/per-part WebGL',background:'transparent; browser compositor alpha, no chromakey',warmupCycles:6,physicsStepSeconds:1/60,environment:{wind:[4,0],gravity:[0,0],profile:'constant gentle breeze'},blink:'viewer smooth curve, deterministic staggered schedule',quality,captureRecipeSha256:captureRecipe.htmlSha256,browser:receipt.browser,sources,framesSHA256:loopProof.framesSHA256,frameOrder:loopProof.frameOrder,frameSHA256:receipt.frames,encoder:loopProof.encoder,verification:loopProof.verification,alpha:loopProof.alpha,bytes:(await fs.stat(output)).size,sha256:await sha(output)};
 await fs.writeFile(output.replace(/\.webp$/,'.json'),JSON.stringify(metadata,null,2)+'\n');
-console.log(JSON.stringify({output,evidence,bytes:metadata.bytes,sha256:metadata.sha256}));
+console.log(JSON.stringify({output,evidence,bytes:metadata.bytes,sha256:metadata.sha256,preflightOnly:preflight}));
 }
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) await renderPreview();

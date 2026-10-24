@@ -33,10 +33,20 @@ records and checkpoint credits below concern those standalone examples.
 
 ## Family: repairing the result
 
-![Five Family rigs breathing and responding to a gentle breeze, on a transparent background](family/docs/family-preview.webp)
+| Office | Homewear |
+| --- | --- |
+| ![Office family preview](family/docs/family-preview.webp) | ![Homewear family preview](family/docs/family-preview-homewear.webp) |
+| Swimwear | Uniform |
+| ![Swimwear family preview](family/docs/family-preview-swimwear.webp) | ![Uniform family preview](family/docs/family-preview-uniform.webp) |
 
-The accepted five-rig composition, rendered with its real idle animation and
-physics: a 960 × 832, 3.33-second animated WebP (7.42 MB) with transparency. [Render recipe](family/scripts/render-readme-preview.mjs) · [Source hashes and timing](family/docs/family-preview.json).
+Four separately labeled transparent previews use the current twenty serving rigs,
+with the same breathing, gentle breeze and deterministic blink. Each README
+preview preserves the existing office presentation: 960×832, 67 frames,
+3.333 seconds and quality80 across all four outfits. [Render recipe](family/scripts/render-readme-preview.mjs) · Per-outfit frames, timing, sources and loop proofs: [office](family/docs/family-preview.json) · [homewear](family/docs/family-preview-homewear.json) · [swimwear](family/docs/family-preview-swimwear.json) · [uniform](family/docs/family-preview-uniform.json).
+The renderer gives no closure verdict; the decoded last→first step is no
+larger than the largest step between adjacent frames, and the one-period
+endpoint difference is reported. Serving
+art, mesh, physics, motion, player and camera are unchanged.
 
 The [Family case study](family/REPAIR_CASE_STUDY.md) follows five characters
 from a group painting through repairs to their alpha edges, mesh bindings and
