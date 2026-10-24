@@ -1,0 +1,298 @@
+{
+  "sourceCommit": "40db33d91e4aacbe4cd31ac9f3cc557973b4a1d4",
+  "source": "family/roa/out/check/build",
+  "rigc": "2.68.0",
+  "bun": "1.4.2",
+  "ffmpeg": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+  "frames": 41,
+  "sampledFPS": 12,
+  "dimensions": {
+    "width": 492,
+    "height": 1290
+  },
+  "animationDurationSeconds": 3.333333333333333,
+  "encodedDurationSeconds": 3.4166666666666665,
+  "frameDelays": [
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    }
+  ],
+  "plays": 0,
+  "pixelsLossless": true,
+  "concatPNGBytesSHA256": "85e0d85756b3efc384a01a235e38a2e9dc3f178dae626937cd3f511c407ec8d9",
+  "encodedSHA256": "462044902d2c1ac080d964238d3d05dab7eddafbe2c0940657cba8bf460c4ff7",
+  "bytes": 17453151,
+  "endpoint": {
+    "max": 212,
+    "mae": 0.44359887397323583,
+    "pixelsOver40": 1917
+  },
+  "maxAdjacentMAE": 0.7597497951723703,
+  "wrapMAE": 0.44359887397323583,
+  "smoothWrap": true,
+  "exactEndpoints": false,
+  "physics": {
+    "stepped": 23,
+    "fps": 12
+  },
+  "loopLine": "loop: idle 41 frame(s) at 12 fps, f0000 vs f0040: max |d| 212; wrap MAE 0.44359887397323583 vs max adjacent 0.7597497951723703 \u2014 PASS smooth wrap; different endpoints",
+  "verdict": "PARTIAL: resolution, all 41 samples, exact 12-fps delays, infinite repeat metadata, independent lossless decode and declared smooth-wrap test PASS; exact endpoint equality FAIL.",
+  "sourceInputHashes": {
+    "skeleton.json": {
+      "sha256": "be888884043311d976152070ae63e6dd4063b0cf8d3322f953be106b24b41c92",
+      "bytes": 623412
+    },
+    "skeleton.model.json": {
+      "sha256": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+      "bytes": 990791
+    },
+    "skeleton.atlas": {
+      "sha256": "fc4cb05f341664e05a181847f6714321ee6ea3826f7a4f9cf3c85fc669014461",
+      "bytes": 1183
+    },
+    "skeleton.png": {
+      "sha256": "84cbd1b50458090896ad1cc55537df3565e3c1296b47996572efc77a9d8eb6e0",
+      "bytes": 1422720
+    }
+  },
+  "sourceManifestSHA256": "89aa3714b3f4a0442b729c3f1643bd07c8e24dbf9565c21150f88daf47da623c",
+  "renderCommand": [
+    "rigc",
+    "render",
+    "--candidate",
+    "family/roa/out/check/build",
+    "--animation",
+    "idle",
+    "--fps",
+    "12",
+    "--max",
+    "1290",
+    "--poser",
+    "core",
+    "--out",
+    "<new-frames-directory>"
+  ],
+  "encodeCommand": [
+    "bun",
+    "encode.mjs",
+    "encode",
+    "<new-frames-directory>",
+    "<isolated-toolchain-directory>",
+    "<out.apng>"
+  ],
+  "encoderScriptSHA256": "fb4e74a50908dd3e0203f77137ce8331ff9b766a09357ff5e913e2b80574caa0",
+  "controls": {
+    "constantFrame": {
+      "max": 0,
+      "mae": 0
+    },
+    "blackToWhiteDefect": {
+      "max": 255,
+      "mae": 255,
+      "pixelsOver40": 1
+    },
+    "zeroMotionEdge": "zero endpoint MAE <= zero max adjacent MAE is true; no division by a zero step"
+  },
+  "barFixedBeforeMeasurement": true,
+  "sheet": {
+    "file": "sheet.png",
+    "sha256": "e3fed75798dc68b71e6064092904defdabab923dd77635d05e8227a8ee930ed7",
+    "verdict": "All 41 labelled tiles visible with the figure contained in the viewport; no missing tile observed. Small-sheet inspection does not prove exact endpoints."
+  },
+  "rejected1280Producer": {
+    "dimensions": {
+      "width": 488,
+      "height": 1280
+    },
+    "concatPNGBytesSHA256": "2fa8b2b905dd788a3653aec38edff10bda4bddc3740439da7803d5e849459dd3",
+    "reason": "width below the predeclared 492 minimum"
+  },
+  "toolchain": {
+    "packageJSON": {
+      "name": "examples-idle-2x-tools",
+      "private": true,
+      "type": "module",
+      "dependencies": {
+        "rig-c": "2.68.0",
+        "@esotericsoftware/spine-core": "4.3.13"
+      }
+    },
+    "bunLock": "{\n  \"lockfileVersion\": 2,\n  \"configVersion\": 1,\n  \"workspaces\": {\n    \"\": {\n      \"name\": \"examples-idle-2x-tools\",\n      \"dependencies\": {\n        \"@esotericsoftware/spine-core\": \"4.3.13\",\n        \"rig-c\": \"2.68.0\",\n      },\n    },\n  },\n  \"packages\": {\n    \"@esotericsoftware/spine-core\": [\"@esotericsoftware/spine-core@4.3.13\", \"\", {}, \"sha512-iGs/40qOWSQYicABebDzFSwFOS1Nsm0dCCS8sGqbpVuThRKdLYeI1cVJpmATSpEmtcetEABTmh97NoBnt7XLDw==\"],\n\n    \"rig-c\": [\"rig-c@2.68.0\", \"\", { \"bin\": { \"rigc\": \"bin/rigc.cjs\" } }, \"sha512-8AIFb38iU4oJK43R2X1iWQo+MiT9/55a5SiRbqAhP4YCw7pjDfYOcN9LEe6e7DQW+DKxhG6+3QDYKBnStxw00A==\"],\n  }\n}\n",
+    "bunLockSHA256": "0b81a866c218fec1728e56e8dff649c5679837722bdc8455fc090d5c03c0d465"
+  },
+  "novaJobs": [
+    "20261024T163053Z-a93effd31f28457baddfd45a19251c95",
+    "20261024T163209Z-c2f66be166854201a3aa38aa82035b50",
+    "20261024T163345Z-ec3a19af810f4d49a0b7749114700ef5",
+    "20261024T163538Z-ee335480381240dab28554ff2ee84045"
+  ],
+  "rigModelMotionArtworkChanged": false,
+  "framesRetainedInRepository": false,
+  "frameCleanup": {
+    "totalFramesDeleted": 82,
+    "bothConcatenatedDigestsVerifiedBeforeDeletion": true,
+    "originalCorpusTouched": false,
+    "producerFramesRetained": false
+  }
+}
