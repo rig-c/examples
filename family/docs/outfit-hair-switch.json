@@ -1,0 +1,1008 @@
+{
+  "spec": "family-outfit-hair-switch/1",
+  "origin": "40db33d91e4aacbe4cd31ac9f3cc557973b4a1d4",
+  "issue": "https://github.com/rig-c/examples/issues/63",
+  "residualOwner": "https://github.com/rig-c/play/issues/187",
+  "versions": {
+    "@rig-c/parts": "1.60.2",
+    "rig-c": "2.68.0",
+    "spine-core": "4.3.13",
+    "playwright": "1.62.1",
+    "chromium": "151.0.7922.34",
+    "Pillow": "12.2.0"
+  },
+  "acceptance": {
+    "allSharedPosedDrawsExact": 146,
+    "drawCountsDiscoveredPerOutfit": [
+      12,
+      14,
+      18,
+      15,
+      14
+    ],
+    "sheetsViewed": true,
+    "coldSharedAtlasPixels": {
+      "homewear": 0,
+      "swimwear": 0
+    },
+    "pixelZeroClaimed": false,
+    "rationale": "Issue63 extends the HQ issue49 motion-versus-raster bar to the actual complete inventories. Exact posed coordinates/order/topology/tint/clip and viewed sheets plus cold-atlas zero accept motion parity; original raster residual remains play187."
+  },
+  "measurements": {
+    "preflightOnly": false,
+    "acceptanceMeasured": true,
+    "controls": {
+      "normal": 0,
+      "defectOutside": 1,
+      "edgeInside": 0,
+      "edgeAdjacentOutside": 1,
+      "emptyMaskExcludesNothing": true,
+      "sizeMismatchRefused": true
+    },
+    "officeNormal": {
+      "sharedDifferingPixels": 0,
+      "outsideNeckPlate": 0,
+      "bbox": null,
+      "outsideNeckBBox": null,
+      "neckSupportPixels": 0
+    },
+    "outfits": {
+      "homewear": {
+        "before": {
+          "sharedDifferingPixels": 69042,
+          "outsideNeckPlate": 52623,
+          "bbox": [
+            83,
+            102,
+            1137,
+            407
+          ],
+          "outsideNeckBBox": [
+            83,
+            102,
+            1137,
+            407
+          ],
+          "neckSupportPixels": 19505
+        },
+        "candidate": {
+          "sharedDifferingPixels": 14351,
+          "outsideNeckPlate": 401,
+          "bbox": [
+            102,
+            109,
+            1125,
+            393
+          ],
+          "outsideNeckBBox": [
+            102,
+            109,
+            1125,
+            393
+          ],
+          "neckSupportPixels": 19505
+        },
+        "sheet": {
+          "file": "homewear-switch-4x.png",
+          "sha256": "99719be50e7d9e83c8b03eca7b960e73a4a4bacbbd0df9e17d3b67a603c34d48",
+          "bytes": 931932,
+          "crop": [
+            102,
+            109,
+            1125,
+            393
+          ],
+          "scale": 4
+        },
+        "coldSharedAtlas": {
+          "sharedDifferingPixels": 0,
+          "outsideNeckPlate": 0,
+          "bbox": null,
+          "outsideNeckBBox": null,
+          "neckSupportPixels": 0
+        }
+      },
+      "swimwear": {
+        "before": {
+          "sharedDifferingPixels": 68526,
+          "outsideNeckPlate": 52986,
+          "bbox": [
+            83,
+            102,
+            1137,
+            407
+          ],
+          "outsideNeckBBox": [
+            83,
+            102,
+            1137,
+            407
+          ],
+          "neckSupportPixels": 18956
+        },
+        "candidate": {
+          "sharedDifferingPixels": 13438,
+          "outsideNeckPlate": 370,
+          "bbox": [
+            99,
+            109,
+            1129,
+            393
+          ],
+          "outsideNeckBBox": [
+            99,
+            109,
+            1129,
+            393
+          ],
+          "neckSupportPixels": 18956
+        },
+        "sheet": {
+          "file": "swimwear-switch-4x.png",
+          "sha256": "497264b636e2e82035936f1781a2ca171f350603077ae5e109c90227ef22d508",
+          "bytes": 931680,
+          "crop": [
+            99,
+            109,
+            1129,
+            393
+          ],
+          "scale": 4
+        },
+        "coldSharedAtlas": {
+          "sharedDifferingPixels": 0,
+          "outsideNeckPlate": 0,
+          "bbox": null,
+          "outsideNeckBBox": null,
+          "neckSupportPixels": 0
+        }
+      }
+    },
+    "pixelZeroClaimed": false,
+    "frameBulkDeleted": true
+  },
+  "capture": {
+    "viewport": {
+      "width": 1200,
+      "height": 1040
+    },
+    "pngSize": [
+      1200,
+      1040
+    ],
+    "renderer": "actual pinned DOM/per-part WebGL; saved actual reader poses, no browser physics replay",
+    "playerSHA256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+    "snapshotReceiptSHA256": "576d0988d6b41974104277e4ef885f90fa06c22bba6c5a851a8282d163e8f74e",
+    "frameOrder": [
+      "office/shared.png",
+      "office/neck.png",
+      "normal/shared.png",
+      "normal/neck.png",
+      "homewear-before/shared.png",
+      "homewear-before/neck.png",
+      "homewear-candidate/shared.png",
+      "homewear-candidate/neck.png",
+      "swimwear-before/shared.png",
+      "swimwear-before/neck.png",
+      "swimwear-candidate/shared.png",
+      "swimwear-candidate/neck.png",
+      "cold-office/shared.png",
+      "cold-homewear/shared.png",
+      "cold-swimwear/shared.png"
+    ],
+    "framesSHA256": "ecfa3338237deee8d5809aead381ce697b644453ad0088778cd58e8044f8b55d",
+    "sources": {
+      "office::family/viewer/assets/player.js": {
+        "sha256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "bytes": 215157
+      },
+      "office::family/roa/out/check/build/skeleton.model.json": {
+        "sha256": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+        "bytes": 990791
+      },
+      "office::family/roa/out/check/build/skeleton.png": {
+        "sha256": "84cbd1b50458090896ad1cc55537df3565e3c1296b47996572efc77a9d8eb6e0",
+        "bytes": 1422720
+      },
+      "office::family/luna/out/check/build/skeleton.model.json": {
+        "sha256": "a1043b7b663439f53d1f6af980be855905c39e0fd822eceb76143015d5d57d1d",
+        "bytes": 1096368
+      },
+      "office::family/luna/out/check/build/skeleton.png": {
+        "sha256": "429373a34a9392c073ad1836f618d1076525e39fdf8011d40269aa3a40ea6182",
+        "bytes": 1558716
+      },
+      "office::family/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "5475c1a67bddd25f679ade558afbfce5c4762c295fd78d3acf21d8b1274390eb",
+        "bytes": 715025
+      },
+      "office::family/jinni/out/check/build/skeleton.png": {
+        "sha256": "8477f1f4af52e2a0e16b0bc2795fbc86974f5bd728d00d645a07bcc48395c3e2",
+        "bytes": 1622970
+      },
+      "office::family/naru/out/check/build/skeleton.model.json": {
+        "sha256": "7ae9cf3378b882f24a19ce5c44638d4adc0b61e9aa27b4a425c3a445482f8813",
+        "bytes": 848933
+      },
+      "office::family/naru/out/check/build/skeleton.png": {
+        "sha256": "671c9fb591e68279a37adc1ab2ea3f093a116804942d5955b6e0c37191755f14",
+        "bytes": 1254129
+      },
+      "office::family/nova/out/check/build/skeleton.model.json": {
+        "sha256": "0846163f16e7270caeb2005d4f63c4dff1627f4cbab7200e6e363f39ad877b41",
+        "bytes": 1033496
+      },
+      "office::family/nova/out/check/build/skeleton.png": {
+        "sha256": "134523763d7fead761d9a80195c23ddc0ebc6286878fdd0204db9a445d00ef0e",
+        "bytes": 1194393
+      },
+      "normal::family/viewer/assets/player.js": {
+        "sha256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "bytes": 215157
+      },
+      "normal::family/roa/out/check/build/skeleton.model.json": {
+        "sha256": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+        "bytes": 990791
+      },
+      "normal::family/roa/out/check/build/skeleton.png": {
+        "sha256": "84cbd1b50458090896ad1cc55537df3565e3c1296b47996572efc77a9d8eb6e0",
+        "bytes": 1422720
+      },
+      "normal::family/luna/out/check/build/skeleton.model.json": {
+        "sha256": "a1043b7b663439f53d1f6af980be855905c39e0fd822eceb76143015d5d57d1d",
+        "bytes": 1096368
+      },
+      "normal::family/luna/out/check/build/skeleton.png": {
+        "sha256": "429373a34a9392c073ad1836f618d1076525e39fdf8011d40269aa3a40ea6182",
+        "bytes": 1558716
+      },
+      "normal::family/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "5475c1a67bddd25f679ade558afbfce5c4762c295fd78d3acf21d8b1274390eb",
+        "bytes": 715025
+      },
+      "normal::family/jinni/out/check/build/skeleton.png": {
+        "sha256": "8477f1f4af52e2a0e16b0bc2795fbc86974f5bd728d00d645a07bcc48395c3e2",
+        "bytes": 1622970
+      },
+      "normal::family/naru/out/check/build/skeleton.model.json": {
+        "sha256": "7ae9cf3378b882f24a19ce5c44638d4adc0b61e9aa27b4a425c3a445482f8813",
+        "bytes": 848933
+      },
+      "normal::family/naru/out/check/build/skeleton.png": {
+        "sha256": "671c9fb591e68279a37adc1ab2ea3f093a116804942d5955b6e0c37191755f14",
+        "bytes": 1254129
+      },
+      "normal::family/nova/out/check/build/skeleton.model.json": {
+        "sha256": "0846163f16e7270caeb2005d4f63c4dff1627f4cbab7200e6e363f39ad877b41",
+        "bytes": 1033496
+      },
+      "normal::family/nova/out/check/build/skeleton.png": {
+        "sha256": "134523763d7fead761d9a80195c23ddc0ebc6286878fdd0204db9a445d00ef0e",
+        "bytes": 1194393
+      },
+      "homewear-before::family/viewer/assets/player.js": {
+        "sha256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "bytes": 215157
+      },
+      "homewear-before::family/outfits/homewear/roa/out/check/build/skeleton.model.json": {
+        "sha256": "bfdc53488c2290e632c8f0df7bb9051b434f08de00cae8f6cbd7c8ed81561ed2",
+        "bytes": 1005412
+      },
+      "homewear-before::family/outfits/homewear/roa/out/check/build/skeleton.png": {
+        "sha256": "3c99ffabc6b8733a2a4bc2feb9bde90cf16f3fd32563cda4079dfb6a469a9a8f",
+        "bytes": 1867773
+      },
+      "homewear-before::family/outfits/homewear/luna/out/check/build/skeleton.model.json": {
+        "sha256": "772cc00f6664addf8b69caad55e20e866f39656730ba93ef4f615490f0dedcb1",
+        "bytes": 1001120
+      },
+      "homewear-before::family/outfits/homewear/luna/out/check/build/skeleton.png": {
+        "sha256": "7cbfafc5c114e5b2e6beb5fe90f943b529504bc4c5306c0f33e82a7515d275ec",
+        "bytes": 1551499
+      },
+      "homewear-before::family/outfits/homewear/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "a35113b92e8765215618443d55d7a36aac52170bd33d4d4544f8f4623cadb481",
+        "bytes": 823345
+      },
+      "homewear-before::family/outfits/homewear/jinni/out/check/build/skeleton.png": {
+        "sha256": "ed6bd91a3e42b661aee308b23237531baac67cfd09179bda1c7fbb4d387140b0",
+        "bytes": 1790652
+      },
+      "homewear-before::family/outfits/homewear/naru/out/check/build/skeleton.model.json": {
+        "sha256": "c30c2d8b27b917d806faeb39344623fc3c65ebb7369726500f24fbd109b62d19",
+        "bytes": 917896
+      },
+      "homewear-before::family/outfits/homewear/naru/out/check/build/skeleton.png": {
+        "sha256": "0dac06bf1b410640e70f2f4db8486c7cf3f2cd05545e8395b11b0a8937005289",
+        "bytes": 1722505
+      },
+      "homewear-before::family/outfits/homewear/nova/out/check/build/skeleton.model.json": {
+        "sha256": "8e08a3cd63a784708981ec71985ef39ecb9965b171d2269693ac59b532eb1bf2",
+        "bytes": 1094165
+      },
+      "homewear-before::family/outfits/homewear/nova/out/check/build/skeleton.png": {
+        "sha256": "10e3bb90f494a7f97c6c5e04236867ac41856867a92a07ce5877088764c4b78c",
+        "bytes": 1694694
+      },
+      "homewear-candidate::family/viewer/assets/player.js": {
+        "sha256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "bytes": 215157
+      },
+      "homewear-candidate::family/outfits/homewear/roa/out/check/build/skeleton.model.json": {
+        "sha256": "6fb2053f79208eca98e1dbd31215594aef786c95fb7251006f5e0db340f546a3",
+        "bytes": 1005481
+      },
+      "homewear-candidate::family/outfits/homewear/roa/out/check/build/skeleton.png": {
+        "sha256": "3c99ffabc6b8733a2a4bc2feb9bde90cf16f3fd32563cda4079dfb6a469a9a8f",
+        "bytes": 1867773
+      },
+      "homewear-candidate::family/outfits/homewear/luna/out/check/build/skeleton.model.json": {
+        "sha256": "37b8abc29f34e7943b3e659569061ab1c742512f8232041e59a892bf385050f3",
+        "bytes": 1001221
+      },
+      "homewear-candidate::family/outfits/homewear/luna/out/check/build/skeleton.png": {
+        "sha256": "7cbfafc5c114e5b2e6beb5fe90f943b529504bc4c5306c0f33e82a7515d275ec",
+        "bytes": 1551499
+      },
+      "homewear-candidate::family/outfits/homewear/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "19efa8802250cecedc44d76819695053a255594096642874240071035478f22b",
+        "bytes": 823414
+      },
+      "homewear-candidate::family/outfits/homewear/jinni/out/check/build/skeleton.png": {
+        "sha256": "ed6bd91a3e42b661aee308b23237531baac67cfd09179bda1c7fbb4d387140b0",
+        "bytes": 1790652
+      },
+      "homewear-candidate::family/outfits/homewear/naru/out/check/build/skeleton.model.json": {
+        "sha256": "78551b3a92173441197b4dde053b7fd9557acd82822f691a95330aadc35f56dc",
+        "bytes": 917989
+      },
+      "homewear-candidate::family/outfits/homewear/naru/out/check/build/skeleton.png": {
+        "sha256": "0dac06bf1b410640e70f2f4db8486c7cf3f2cd05545e8395b11b0a8937005289",
+        "bytes": 1722505
+      },
+      "homewear-candidate::family/outfits/homewear/nova/out/check/build/skeleton.model.json": {
+        "sha256": "838ca623f486ce27333eaefb6c5f0912d89c8a6c7166ab5a13e61bf1c12e3fdf",
+        "bytes": 1094249
+      },
+      "homewear-candidate::family/outfits/homewear/nova/out/check/build/skeleton.png": {
+        "sha256": "10e3bb90f494a7f97c6c5e04236867ac41856867a92a07ce5877088764c4b78c",
+        "bytes": 1694694
+      },
+      "swimwear-before::family/viewer/assets/player.js": {
+        "sha256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "bytes": 215157
+      },
+      "swimwear-before::family/outfits/swimwear/roa/out/check/build/skeleton.model.json": {
+        "sha256": "3ada6184881c2d4d6f660216c2d5e011b8a154d2ec0015656b22afaf5b99a282",
+        "bytes": 1172372
+      },
+      "swimwear-before::family/outfits/swimwear/roa/out/check/build/skeleton.png": {
+        "sha256": "d8e431e2de8e2db0258330ffed3592ae4db34c4bd4bc64344b67b8a1e6c8d664",
+        "bytes": 2003843
+      },
+      "swimwear-before::family/outfits/swimwear/luna/out/check/build/skeleton.model.json": {
+        "sha256": "a4e740f068be7e5c27c1408739279e90f20faabbe99957ef20bdfa18e2b0b489",
+        "bytes": 920853
+      },
+      "swimwear-before::family/outfits/swimwear/luna/out/check/build/skeleton.png": {
+        "sha256": "39c30cfe39b834cac4c88c9b681bc2892147d7c43f441c314f1c42127e4af371",
+        "bytes": 1487629
+      },
+      "swimwear-before::family/outfits/swimwear/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "d3005c532937a3c2014049f69540c0fd3f374bf2be6dd1b4fd0746bd1c800753",
+        "bytes": 820062
+      },
+      "swimwear-before::family/outfits/swimwear/jinni/out/check/build/skeleton.png": {
+        "sha256": "228692af2aa01df7d38b384de8b39156a781ace602adc797ea00ddd5a0ff36ae",
+        "bytes": 1539794
+      },
+      "swimwear-before::family/outfits/swimwear/naru/out/check/build/skeleton.model.json": {
+        "sha256": "b69c2183d6fbd4c9ac40d695312fe362fbdd69ba4b4d10fbee9a138f2018b491",
+        "bytes": 942865
+      },
+      "swimwear-before::family/outfits/swimwear/naru/out/check/build/skeleton.png": {
+        "sha256": "f35429135742319b5f422a4e974654c9b1b30574806b0cfc7048ca2413cdd0c4",
+        "bytes": 1655291
+      },
+      "swimwear-before::family/outfits/swimwear/nova/out/check/build/skeleton.model.json": {
+        "sha256": "3fbca466688c4704fe0c22cf9a3d3b5e07236b92738d53c759e18273eee02819",
+        "bytes": 977413
+      },
+      "swimwear-before::family/outfits/swimwear/nova/out/check/build/skeleton.png": {
+        "sha256": "bf2f929df213e50406d3d012837acedfe2b2c6fed0a08fdae04f92acb75d43f7",
+        "bytes": 1375611
+      },
+      "swimwear-candidate::family/viewer/assets/player.js": {
+        "sha256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "bytes": 215157
+      },
+      "swimwear-candidate::family/outfits/swimwear/roa/out/check/build/skeleton.model.json": {
+        "sha256": "eb0f54b57bed9ac9684d63b1b3254a644aed98b889a79a149a232f1ff65cc03a",
+        "bytes": 1172441
+      },
+      "swimwear-candidate::family/outfits/swimwear/roa/out/check/build/skeleton.png": {
+        "sha256": "d8e431e2de8e2db0258330ffed3592ae4db34c4bd4bc64344b67b8a1e6c8d664",
+        "bytes": 2003843
+      },
+      "swimwear-candidate::family/outfits/swimwear/luna/out/check/build/skeleton.model.json": {
+        "sha256": "62d444cad2fdfb88d1eaa254807ea307c82157ff70ead0d13c05c89a19a24b8e",
+        "bytes": 920954
+      },
+      "swimwear-candidate::family/outfits/swimwear/luna/out/check/build/skeleton.png": {
+        "sha256": "39c30cfe39b834cac4c88c9b681bc2892147d7c43f441c314f1c42127e4af371",
+        "bytes": 1487629
+      },
+      "swimwear-candidate::family/outfits/swimwear/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "9690b754adc20aa53b3fcc52ee98c28b7e1d60d1af661866a8ef96be64de44a2",
+        "bytes": 820131
+      },
+      "swimwear-candidate::family/outfits/swimwear/jinni/out/check/build/skeleton.png": {
+        "sha256": "228692af2aa01df7d38b384de8b39156a781ace602adc797ea00ddd5a0ff36ae",
+        "bytes": 1539794
+      },
+      "swimwear-candidate::family/outfits/swimwear/naru/out/check/build/skeleton.model.json": {
+        "sha256": "81df3d4f4bcb42d7aa346ee1cf1ff059a2ea03a8893d786d72b95944166598c1",
+        "bytes": 942958
+      },
+      "swimwear-candidate::family/outfits/swimwear/naru/out/check/build/skeleton.png": {
+        "sha256": "f35429135742319b5f422a4e974654c9b1b30574806b0cfc7048ca2413cdd0c4",
+        "bytes": 1655291
+      },
+      "swimwear-candidate::family/outfits/swimwear/nova/out/check/build/skeleton.model.json": {
+        "sha256": "a71643463fd7bbc14ca1680ae8fff7ecc6b22a1ca5e9c0e3e116255c49d71350",
+        "bytes": 977497
+      },
+      "swimwear-candidate::family/outfits/swimwear/nova/out/check/build/skeleton.png": {
+        "sha256": "bf2f929df213e50406d3d012837acedfe2b2c6fed0a08fdae04f92acb75d43f7",
+        "bytes": 1375611
+      },
+      "cold-office::family/viewer/assets/player.js": {
+        "sha256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "bytes": 215157
+      },
+      "cold-office::family/roa/out/check/build/skeleton.model.json": {
+        "sha256": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+        "bytes": 990791
+      },
+      "cold-office::family/roa/out/check/build/skeleton.png": {
+        "sha256": "84cbd1b50458090896ad1cc55537df3565e3c1296b47996572efc77a9d8eb6e0",
+        "bytes": 1422720
+      },
+      "cold-office::family/luna/out/check/build/skeleton.model.json": {
+        "sha256": "a1043b7b663439f53d1f6af980be855905c39e0fd822eceb76143015d5d57d1d",
+        "bytes": 1096368
+      },
+      "cold-office::family/luna/out/check/build/skeleton.png": {
+        "sha256": "429373a34a9392c073ad1836f618d1076525e39fdf8011d40269aa3a40ea6182",
+        "bytes": 1558716
+      },
+      "cold-office::family/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "5475c1a67bddd25f679ade558afbfce5c4762c295fd78d3acf21d8b1274390eb",
+        "bytes": 715025
+      },
+      "cold-office::family/jinni/out/check/build/skeleton.png": {
+        "sha256": "8477f1f4af52e2a0e16b0bc2795fbc86974f5bd728d00d645a07bcc48395c3e2",
+        "bytes": 1622970
+      },
+      "cold-office::family/naru/out/check/build/skeleton.model.json": {
+        "sha256": "7ae9cf3378b882f24a19ce5c44638d4adc0b61e9aa27b4a425c3a445482f8813",
+        "bytes": 848933
+      },
+      "cold-office::family/naru/out/check/build/skeleton.png": {
+        "sha256": "671c9fb591e68279a37adc1ab2ea3f093a116804942d5955b6e0c37191755f14",
+        "bytes": 1254129
+      },
+      "cold-office::family/nova/out/check/build/skeleton.model.json": {
+        "sha256": "0846163f16e7270caeb2005d4f63c4dff1627f4cbab7200e6e363f39ad877b41",
+        "bytes": 1033496
+      },
+      "cold-office::family/nova/out/check/build/skeleton.png": {
+        "sha256": "134523763d7fead761d9a80195c23ddc0ebc6286878fdd0204db9a445d00ef0e",
+        "bytes": 1194393
+      },
+      "cold-homewear::family/viewer/assets/player.js": {
+        "sha256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "bytes": 215157
+      },
+      "cold-homewear::family/outfits/homewear/roa/out/check/build/skeleton.model.json": {
+        "sha256": "6fb2053f79208eca98e1dbd31215594aef786c95fb7251006f5e0db340f546a3",
+        "bytes": 1005481
+      },
+      "cold-homewear::family/outfits/homewear/roa/out/check/build/skeleton.png": {
+        "sha256": "3c99ffabc6b8733a2a4bc2feb9bde90cf16f3fd32563cda4079dfb6a469a9a8f",
+        "bytes": 1867773
+      },
+      "cold-homewear::family/roa/out/check/build/skeleton.model.json": {
+        "sha256": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+        "bytes": 990791
+      },
+      "cold-homewear::family/roa/out/check/build/skeleton.png": {
+        "sha256": "84cbd1b50458090896ad1cc55537df3565e3c1296b47996572efc77a9d8eb6e0",
+        "bytes": 1422720
+      },
+      "cold-homewear::family/outfits/homewear/luna/out/check/build/skeleton.model.json": {
+        "sha256": "37b8abc29f34e7943b3e659569061ab1c742512f8232041e59a892bf385050f3",
+        "bytes": 1001221
+      },
+      "cold-homewear::family/outfits/homewear/luna/out/check/build/skeleton.png": {
+        "sha256": "7cbfafc5c114e5b2e6beb5fe90f943b529504bc4c5306c0f33e82a7515d275ec",
+        "bytes": 1551499
+      },
+      "cold-homewear::family/luna/out/check/build/skeleton.model.json": {
+        "sha256": "a1043b7b663439f53d1f6af980be855905c39e0fd822eceb76143015d5d57d1d",
+        "bytes": 1096368
+      },
+      "cold-homewear::family/luna/out/check/build/skeleton.png": {
+        "sha256": "429373a34a9392c073ad1836f618d1076525e39fdf8011d40269aa3a40ea6182",
+        "bytes": 1558716
+      },
+      "cold-homewear::family/outfits/homewear/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "19efa8802250cecedc44d76819695053a255594096642874240071035478f22b",
+        "bytes": 823414
+      },
+      "cold-homewear::family/outfits/homewear/jinni/out/check/build/skeleton.png": {
+        "sha256": "ed6bd91a3e42b661aee308b23237531baac67cfd09179bda1c7fbb4d387140b0",
+        "bytes": 1790652
+      },
+      "cold-homewear::family/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "5475c1a67bddd25f679ade558afbfce5c4762c295fd78d3acf21d8b1274390eb",
+        "bytes": 715025
+      },
+      "cold-homewear::family/jinni/out/check/build/skeleton.png": {
+        "sha256": "8477f1f4af52e2a0e16b0bc2795fbc86974f5bd728d00d645a07bcc48395c3e2",
+        "bytes": 1622970
+      },
+      "cold-homewear::family/outfits/homewear/naru/out/check/build/skeleton.model.json": {
+        "sha256": "78551b3a92173441197b4dde053b7fd9557acd82822f691a95330aadc35f56dc",
+        "bytes": 917989
+      },
+      "cold-homewear::family/outfits/homewear/naru/out/check/build/skeleton.png": {
+        "sha256": "0dac06bf1b410640e70f2f4db8486c7cf3f2cd05545e8395b11b0a8937005289",
+        "bytes": 1722505
+      },
+      "cold-homewear::family/naru/out/check/build/skeleton.model.json": {
+        "sha256": "7ae9cf3378b882f24a19ce5c44638d4adc0b61e9aa27b4a425c3a445482f8813",
+        "bytes": 848933
+      },
+      "cold-homewear::family/naru/out/check/build/skeleton.png": {
+        "sha256": "671c9fb591e68279a37adc1ab2ea3f093a116804942d5955b6e0c37191755f14",
+        "bytes": 1254129
+      },
+      "cold-homewear::family/outfits/homewear/nova/out/check/build/skeleton.model.json": {
+        "sha256": "838ca623f486ce27333eaefb6c5f0912d89c8a6c7166ab5a13e61bf1c12e3fdf",
+        "bytes": 1094249
+      },
+      "cold-homewear::family/outfits/homewear/nova/out/check/build/skeleton.png": {
+        "sha256": "10e3bb90f494a7f97c6c5e04236867ac41856867a92a07ce5877088764c4b78c",
+        "bytes": 1694694
+      },
+      "cold-homewear::family/nova/out/check/build/skeleton.model.json": {
+        "sha256": "0846163f16e7270caeb2005d4f63c4dff1627f4cbab7200e6e363f39ad877b41",
+        "bytes": 1033496
+      },
+      "cold-homewear::family/nova/out/check/build/skeleton.png": {
+        "sha256": "134523763d7fead761d9a80195c23ddc0ebc6286878fdd0204db9a445d00ef0e",
+        "bytes": 1194393
+      },
+      "cold-swimwear::family/viewer/assets/player.js": {
+        "sha256": "7be0dface8eb043aca97e88c51741f82090c80def401e62c9b598b2c928097aa",
+        "bytes": 215157
+      },
+      "cold-swimwear::family/outfits/swimwear/roa/out/check/build/skeleton.model.json": {
+        "sha256": "eb0f54b57bed9ac9684d63b1b3254a644aed98b889a79a149a232f1ff65cc03a",
+        "bytes": 1172441
+      },
+      "cold-swimwear::family/outfits/swimwear/roa/out/check/build/skeleton.png": {
+        "sha256": "d8e431e2de8e2db0258330ffed3592ae4db34c4bd4bc64344b67b8a1e6c8d664",
+        "bytes": 2003843
+      },
+      "cold-swimwear::family/roa/out/check/build/skeleton.model.json": {
+        "sha256": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+        "bytes": 990791
+      },
+      "cold-swimwear::family/roa/out/check/build/skeleton.png": {
+        "sha256": "84cbd1b50458090896ad1cc55537df3565e3c1296b47996572efc77a9d8eb6e0",
+        "bytes": 1422720
+      },
+      "cold-swimwear::family/outfits/swimwear/luna/out/check/build/skeleton.model.json": {
+        "sha256": "62d444cad2fdfb88d1eaa254807ea307c82157ff70ead0d13c05c89a19a24b8e",
+        "bytes": 920954
+      },
+      "cold-swimwear::family/outfits/swimwear/luna/out/check/build/skeleton.png": {
+        "sha256": "39c30cfe39b834cac4c88c9b681bc2892147d7c43f441c314f1c42127e4af371",
+        "bytes": 1487629
+      },
+      "cold-swimwear::family/luna/out/check/build/skeleton.model.json": {
+        "sha256": "a1043b7b663439f53d1f6af980be855905c39e0fd822eceb76143015d5d57d1d",
+        "bytes": 1096368
+      },
+      "cold-swimwear::family/luna/out/check/build/skeleton.png": {
+        "sha256": "429373a34a9392c073ad1836f618d1076525e39fdf8011d40269aa3a40ea6182",
+        "bytes": 1558716
+      },
+      "cold-swimwear::family/outfits/swimwear/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "9690b754adc20aa53b3fcc52ee98c28b7e1d60d1af661866a8ef96be64de44a2",
+        "bytes": 820131
+      },
+      "cold-swimwear::family/outfits/swimwear/jinni/out/check/build/skeleton.png": {
+        "sha256": "228692af2aa01df7d38b384de8b39156a781ace602adc797ea00ddd5a0ff36ae",
+        "bytes": 1539794
+      },
+      "cold-swimwear::family/jinni/out/check/build/skeleton.model.json": {
+        "sha256": "5475c1a67bddd25f679ade558afbfce5c4762c295fd78d3acf21d8b1274390eb",
+        "bytes": 715025
+      },
+      "cold-swimwear::family/jinni/out/check/build/skeleton.png": {
+        "sha256": "8477f1f4af52e2a0e16b0bc2795fbc86974f5bd728d00d645a07bcc48395c3e2",
+        "bytes": 1622970
+      },
+      "cold-swimwear::family/outfits/swimwear/naru/out/check/build/skeleton.model.json": {
+        "sha256": "81df3d4f4bcb42d7aa346ee1cf1ff059a2ea03a8893d786d72b95944166598c1",
+        "bytes": 942958
+      },
+      "cold-swimwear::family/outfits/swimwear/naru/out/check/build/skeleton.png": {
+        "sha256": "f35429135742319b5f422a4e974654c9b1b30574806b0cfc7048ca2413cdd0c4",
+        "bytes": 1655291
+      },
+      "cold-swimwear::family/naru/out/check/build/skeleton.model.json": {
+        "sha256": "7ae9cf3378b882f24a19ce5c44638d4adc0b61e9aa27b4a425c3a445482f8813",
+        "bytes": 848933
+      },
+      "cold-swimwear::family/naru/out/check/build/skeleton.png": {
+        "sha256": "671c9fb591e68279a37adc1ab2ea3f093a116804942d5955b6e0c37191755f14",
+        "bytes": 1254129
+      },
+      "cold-swimwear::family/outfits/swimwear/nova/out/check/build/skeleton.model.json": {
+        "sha256": "a71643463fd7bbc14ca1680ae8fff7ecc6b22a1ca5e9c0e3e116255c49d71350",
+        "bytes": 977497
+      },
+      "cold-swimwear::family/outfits/swimwear/nova/out/check/build/skeleton.png": {
+        "sha256": "bf2f929df213e50406d3d012837acedfe2b2c6fed0a08fdae04f92acb75d43f7",
+        "bytes": 1375611
+      },
+      "cold-swimwear::family/nova/out/check/build/skeleton.model.json": {
+        "sha256": "0846163f16e7270caeb2005d4f63c4dff1627f4cbab7200e6e363f39ad877b41",
+        "bytes": 1033496
+      },
+      "cold-swimwear::family/nova/out/check/build/skeleton.png": {
+        "sha256": "134523763d7fead761d9a80195c23ddc0ebc6286878fdd0204db9a445d00ef0e",
+        "bytes": 1194393
+      }
+    }
+  },
+  "frames": [
+    {
+      "file": "office/shared.png",
+      "sha256": "527d2d9480a079b66e28eb1527855b8321d06ed3b33908400aacc85432472238",
+      "bytes": 239859
+    },
+    {
+      "file": "office/neck.png",
+      "sha256": "02d1206ade11500dd94f97c8a159f67d34d1ca9f85d3a1a7b61ee1d9d69f9dc2",
+      "bytes": 42283
+    },
+    {
+      "file": "normal/shared.png",
+      "sha256": "527d2d9480a079b66e28eb1527855b8321d06ed3b33908400aacc85432472238",
+      "bytes": 239859
+    },
+    {
+      "file": "normal/neck.png",
+      "sha256": "02d1206ade11500dd94f97c8a159f67d34d1ca9f85d3a1a7b61ee1d9d69f9dc2",
+      "bytes": 42283
+    },
+    {
+      "file": "homewear-before/shared.png",
+      "sha256": "5610be4616ccda430d450626633ec3ae9db6132c1e788745816f1363e4ed0090",
+      "bytes": 240725
+    },
+    {
+      "file": "homewear-before/neck.png",
+      "sha256": "a12dd85b9da58b498ce4bb3efeabf0b9834742a1230a03f2bd8eb2943c474fba",
+      "bytes": 49829
+    },
+    {
+      "file": "homewear-candidate/shared.png",
+      "sha256": "025e7da961e53a76b021e31938a751ebce0ae9bfd9f0fe10f1a049bd49cc9d36",
+      "bytes": 240890
+    },
+    {
+      "file": "homewear-candidate/neck.png",
+      "sha256": "a12dd85b9da58b498ce4bb3efeabf0b9834742a1230a03f2bd8eb2943c474fba",
+      "bytes": 49829
+    },
+    {
+      "file": "swimwear-before/shared.png",
+      "sha256": "5433600e438b37e75958c413424563911a2a40bca247dceb0072d9fc2a8c66e5",
+      "bytes": 238795
+    },
+    {
+      "file": "swimwear-before/neck.png",
+      "sha256": "b1c2c2618cdb050c05a222c54a33c5b919133b2e04e8fd4c2d196ef52faf1e35",
+      "bytes": 45285
+    },
+    {
+      "file": "swimwear-candidate/shared.png",
+      "sha256": "9a2f02825f85fd43cb66628e3321f4385372071834dbbdb8e86b71902c4929c8",
+      "bytes": 238853
+    },
+    {
+      "file": "swimwear-candidate/neck.png",
+      "sha256": "b1c2c2618cdb050c05a222c54a33c5b919133b2e04e8fd4c2d196ef52faf1e35",
+      "bytes": 45285
+    },
+    {
+      "file": "cold-office/shared.png",
+      "sha256": "470886555d18fa71fed6dcef631a7a8494c3e2504a87c2d72837033ab887a73d",
+      "bytes": 232543
+    },
+    {
+      "file": "cold-homewear/shared.png",
+      "sha256": "470886555d18fa71fed6dcef631a7a8494c3e2504a87c2d72837033ab887a73d",
+      "bytes": 232543
+    },
+    {
+      "file": "cold-swimwear/shared.png",
+      "sha256": "470886555d18fa71fed6dcef631a7a8494c3e2504a87c2d72837033ab887a73d",
+      "bytes": 232543
+    }
+  ],
+  "producer": {
+    "job": "20261024T162119Z-9eafa9d359a3414dbece49fe517bebab",
+    "exitCode": 0,
+    "sealManifestSHA256": "88ea6a8d510dbaa276373ab331b56680d53702d969b6ff638d5e7dac672ce7e8",
+    "results": [
+      {
+        "character": "roa",
+        "outfit": "homewear",
+        "allowlist": {
+          "constraints": 12,
+          "fields": 60,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "44fd80f2cf5be9982bfb4289da8af8887517f7706f6ad836572229fecb45d73f",
+        "modelSHA256": "6fb2053f79208eca98e1dbd31215594aef786c95fb7251006f5e0db340f546a3",
+        "spineSHA256": "46a810a798a0bb48ce6341351cad90d55d3bfebd67b34047055e8b889c9006f2"
+      },
+      {
+        "character": "luna",
+        "outfit": "homewear",
+        "allowlist": {
+          "constraints": 18,
+          "fields": 90,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "c9f60a2b542768708a29f4943332b2ced673553e061250d322868050f51cd126",
+        "modelSHA256": "37b8abc29f34e7943b3e659569061ab1c742512f8232041e59a892bf385050f3",
+        "spineSHA256": "c04242f859831baec8a0668d9058c1951aca9a13ae289eccce655aecbc4889b8"
+      },
+      {
+        "character": "jinni",
+        "outfit": "homewear",
+        "allowlist": {
+          "constraints": 12,
+          "fields": 60,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "65051a3de5f44cd1a798f461bed561c85ebf8ea9b18eb33092fb8fccf738895e",
+        "modelSHA256": "19efa8802250cecedc44d76819695053a255594096642874240071035478f22b",
+        "spineSHA256": "ca4fbddfdaf645adbdd1c72dc146c5f18b0ca3ec885001f968b9c5cd28091c8c"
+      },
+      {
+        "character": "naru",
+        "outfit": "homewear",
+        "allowlist": {
+          "constraints": 18,
+          "fields": 90,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "cae316ce642caffa177db649c9f2f8a646be5360417db0c803d5ba568994c97a",
+        "modelSHA256": "78551b3a92173441197b4dde053b7fd9557acd82822f691a95330aadc35f56dc",
+        "spineSHA256": "868ec78cd913dd2e91d076f820c036080b282ed1ac06cc04c9ad16635e57936b"
+      },
+      {
+        "character": "nova",
+        "outfit": "homewear",
+        "allowlist": {
+          "constraints": 15,
+          "fields": 75,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "aba4f2061171834d4299b8e5daf837c826348fd315882ecb339af0d5147bbd27",
+        "modelSHA256": "838ca623f486ce27333eaefb6c5f0912d89c8a6c7166ab5a13e61bf1c12e3fdf",
+        "spineSHA256": "c2a8dc3eb2ea77be83f293836a9ab2dae7f11690d6297f2d42bff8693b977611"
+      },
+      {
+        "character": "roa",
+        "outfit": "swimwear",
+        "allowlist": {
+          "constraints": 12,
+          "fields": 60,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "adb0995d7ca9cbe892aecb52a6ba1f6c9cd401d8b46ec5c7244c7d30c961bdd7",
+        "modelSHA256": "eb0f54b57bed9ac9684d63b1b3254a644aed98b889a79a149a232f1ff65cc03a",
+        "spineSHA256": "adbb9324eb94c18a995ceee420b75f79c2e84696d8b77faad7d2dd4c1e15a29e"
+      },
+      {
+        "character": "luna",
+        "outfit": "swimwear",
+        "allowlist": {
+          "constraints": 18,
+          "fields": 90,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "f0975ac68d384b43bb3ae0adb128d2840cc1856b916b1c7c7e9a6b8473884702",
+        "modelSHA256": "62d444cad2fdfb88d1eaa254807ea307c82157ff70ead0d13c05c89a19a24b8e",
+        "spineSHA256": "78f43370aa333cd399fe11f94658814161dd1daa1a47da4d28d03dde24be7034"
+      },
+      {
+        "character": "jinni",
+        "outfit": "swimwear",
+        "allowlist": {
+          "constraints": 12,
+          "fields": 60,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "4c302da2ca03c0579ef6a8dd3839de004a1a1d04c355ee20b0eb093ddff7e8c8",
+        "modelSHA256": "9690b754adc20aa53b3fcc52ee98c28b7e1d60d1af661866a8ef96be64de44a2",
+        "spineSHA256": "de61bf031c272537d7dd70fb190883f8378a394a10c8475e189ccfe9f6822619"
+      },
+      {
+        "character": "naru",
+        "outfit": "swimwear",
+        "allowlist": {
+          "constraints": 18,
+          "fields": 90,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "2e58286b651c35341a6bec94553335b8173638c7b7249918e226874ba2194842",
+        "modelSHA256": "81df3d4f4bcb42d7aa346ee1cf1ff059a2ea03a8893d786d72b95944166598c1",
+        "spineSHA256": "1accb8a86bcf56bfea5c2abe6cdf9c2d2111b653f751aa0132e133b32172fea7"
+      },
+      {
+        "character": "nova",
+        "outfit": "swimwear",
+        "allowlist": {
+          "constraints": 15,
+          "fields": 75,
+          "representations": [
+            "authoring constraints",
+            "compiled model constraints",
+            "native Spine constraints"
+          ],
+          "derivedPins": [
+            "model.spine.sha256"
+          ],
+          "allOtherFieldsEqual": true
+        },
+        "atlasAndPagesByteEqual": true,
+        "rigImagesByteEqual": true,
+        "motionByteEqual": true,
+        "rigSHA256": "f85ada79253904d5b9e31c8d6787126ff038ba5845be833b8cd49fb02b6dd3b4",
+        "modelSHA256": "a71643463fd7bbc14ca1680ae8fff7ecc6b22a1ca5e9c0e3e116255c49d71350",
+        "spineSHA256": "889d5bc81324b5a391f32438b2e50ba2515dc5f2d756278090cf12ce017b7160"
+      }
+    ]
+  },
+  "captureJob": {
+    "job": "20261024T163042Z-360fc0b329e94fd684df741ca567a58c",
+    "exitCode": 0,
+    "sealManifestSHA256": "3311bb72edc3c8916eb86b0746bab021ffeb283cb508ec39593a8f9273824970"
+  },
+  "sharedPose": {
+    "file": "outfit-shared-pose.json",
+    "sha256": "ca553acca9328e1742ed49d472f1dad293ecc585d5dfb90d6e612e5b0e0b058b"
+  },
+  "historicalFigures": {
+    "origin": "6171c2fac9f1706740c05db72c0259ad46bca523",
+    "homewear": 52623,
+    "swimwear": 52986,
+    "note": "Historical issue49 diagnosis; same figures independently observed fresh at40db33d, not copied as fresh evidence."
+  },
+  "exclusions": [
+    "Clothing and explicitly different neck plate excluded from switch pose/pixel comparison.",
+    "Cold texture/UV substitution is an in-memory diagnostic only.",
+    "No art, mesh, UV, atlas, motion, player, camera, office/uniform payload, or Jinni skirt retuning.",
+    "Ordinary animation-fold check excludes live physics; no stress-force, subjective material-quality or physical-device acceptance."
+  ]
+}

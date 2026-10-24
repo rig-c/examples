@@ -46,31 +46,50 @@ export function materialProfileRig(rig, profile, stage, direction) {
 
 /** Uniform shares the accepted office hair, while clothing keeps its own profile. */
 export function validateUniformHairProfile(profile, officeProfile, character, outfit) {
-  if (!profile || profile.spec !== 'family-uniform-hair-profile/1' || outfit !== 'uniform' || profile.outfit !== outfit || profile.character !== character || officeProfile?.character !== character || profile.officeProfileSHA256 !== digest(officeProfile)) fail('UNIFORM_SCHEMA', `${character}/${outfit}`);
+  validateSharedHairProfile(profile, officeProfile, character, outfit, 'UNIFORM', 'family-uniform-hair-profile/1', ['uniform']);
+}
+
+/** Homewear/swimwear are separately bound; an outfit cannot borrow another's declaration. */
+export function validateOutfitHairProfile(profile, officeProfile, character, outfit) {
+  validateSharedHairProfile(profile, officeProfile, character, outfit, 'OUTFIT', 'family-outfit-hair-profile/1', ['homewear', 'swimwear']);
+}
+
+function validateSharedHairProfile(profile, officeProfile, character, outfit, label, spec, outfits) {
+  if (!profile || profile.spec !== spec || !outfits.includes(outfit) || profile.outfit !== outfit || profile.character !== character || officeProfile?.character !== character || profile.officeProfileSHA256 !== digest(officeProfile)) fail(`${label}_SCHEMA`, `${character}/${outfit}`);
   validateMaterialProfile(officeProfile, character, 'office');
   const expected = officeProfile.constraints.filter(row => /^(hair|bang)/.test(row.bone));
-  if (expected.length === 0 || JSON.stringify(profile.constraints) !== JSON.stringify(expected)) fail('UNIFORM_TARGETS', character);
-  if (!profile.repaired || Object.keys(profile.repaired).sort().join() !== 'after,before' || ['before', 'after'].some(side => !/^[a-f0-9]{64}$/.test(profile.repaired[side]))) fail('UNIFORM_HASH', character);
+  if (expected.length === 0 || JSON.stringify(profile.constraints) !== JSON.stringify(expected)) fail(`${label}_TARGETS`, character);
+  if (!profile.repaired || Object.keys(profile.repaired).sort().join() !== 'after,before' || ['before', 'after'].some(side => !/^[a-f0-9]{64}$/.test(profile.repaired[side]))) fail(`${label}_HASH`, character);
 }
 
 /** Runs after existing outfit repairs; every non-profile field remains hash-bound. */
 export function uniformHairProfileRig(rig, profile, officeProfile, direction) {
   validateUniformHairProfile(profile, officeProfile, profile?.character, profile?.outfit);
-  if (!['forward', 'reverse'].includes(direction)) fail('UNIFORM_DIRECTION', String(direction));
+  return sharedHairProfileRig(rig, profile, direction, 'UNIFORM');
+}
+
+export function outfitHairProfileRig(rig, profile, officeProfile, direction) {
+  validateOutfitHairProfile(profile, officeProfile, profile?.character, profile?.outfit);
+  return sharedHairProfileRig(rig, profile, direction, 'OUTFIT');
+}
+
+function sharedHairProfileRig(rig, profile, direction, label) {
+  if (!['forward', 'reverse'].includes(direction)) fail(`${label}_DIRECTION`, String(direction));
   const from = direction === 'forward' ? 'before' : 'after';
   const to = direction === 'forward' ? 'after' : 'before';
-  if (digest(rig) !== profile.repaired[from]) fail('UNIFORM_INPUT_DRIFT', `${profile.character}/${from}`);
+  const subject = label === 'OUTFIT' ? `${profile.character}/${profile.outfit}` : profile.character;
+  if (digest(rig) !== profile.repaired[from]) fail(`${label}_INPUT_DRIFT`, `${subject}/${from}`);
   const result = structuredClone(rig);
   const targets = result.constraints.filter(c => c.type === 'physics' && /^(hair|bang)/.test(c.bone));
-  if (targets.length !== profile.constraints.length) fail('UNIFORM_TARGET_SET', profile.character);
+  if (targets.length !== profile.constraints.length) fail(`${label}_TARGET_SET`, profile.character);
   for (const row of profile.constraints) {
     const matches = targets.filter(c => c.name === row.name && c.bone === row.bone);
-    if (matches.length !== 1) fail('UNIFORM_TARGET', row.name);
+    if (matches.length !== 1) fail(`${label}_TARGET`, row.name);
     for (const field of fields) {
-      if (matches[0][field] !== row[from][field]) fail('UNIFORM_PREIMAGE', `${row.name}/${field}`);
+      if (matches[0][field] !== row[from][field]) fail(`${label}_PREIMAGE`, `${row.name}/${field}`);
       matches[0][field] = row[to][field];
     }
   }
-  if (digest(result) !== profile.repaired[to]) fail('UNIFORM_OUTPUT_DRIFT', `${profile.character}/${to}`);
+  if (digest(result) !== profile.repaired[to]) fail(`${label}_OUTPUT_DRIFT`, `${subject}/${to}`);
   return result;
 }

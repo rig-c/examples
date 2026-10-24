@@ -6,8 +6,9 @@ import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 import { checkInputs, historicalRigName } from './verify-accepted.mjs';
-import { uniformHairProfileRig, validateUniformHairProfile } from './material-profile.mjs';
+import { uniformHairProfileRig, validateUniformHairProfile, outfitHairProfileRig, validateOutfitHairProfile } from './material-profile.mjs';
 import { assertSharedDrawsEqual, assertUniformPhysicsOnly } from './uniform-hair-contract.mjs';
+import { measureOutfitHair } from './verify-outfit-hair.mjs';
 import { measureUniformHair } from './verify-uniform-hair.mjs';
 import {
   applyDeclaredRepairsToRig,
@@ -21,6 +22,31 @@ import {
 
 const family = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const accepted = JSON.parse(readFileSync(join(family, 'accepted-inputs.json'), 'utf8'));
+
+test('outfit profile binds homewear and swimwear separately while preserving uniform schema and all other fields', () => {
+  const digest = v => createHash('sha256').update(JSON.stringify(v)).digest('hex');
+  for (const outfit of ['homewear', 'swimwear']) for (const character of CHARACTERS) {
+    const office = JSON.parse(readFileSync(join(family, character, 'declared-repairs.json'))).materialProfile;
+    const p = rigPaths(family, character, outfit);
+    const profile = JSON.parse(readFileSync(join(p.configDir, 'declared-repairs.json'))).outfitHairProfile;
+    const before = JSON.parse(readFileSync(join(p.outDir, 'rig/rig.json')));
+    // The same test works both before and after adoption without weakening the preimage.
+    const preimage = digest(before) === profile.repaired.before ? before : outfitHairProfileRig(before, profile, office, 'reverse');
+    const after = outfitHairProfileRig(preimage, profile, office, 'forward');
+    assert.deepEqual(outfitHairProfileRig(after, profile, office, 'reverse'), preimage);
+    assert.equal(assertUniformPhysicsOnly(preimage, after, profile).constraints, profile.constraints.length);
+    for (const wrong of ['office', 'uniform', outfit === 'homewear' ? 'swimwear' : 'homewear']) assert.throws(() => validateOutfitHairProfile(profile, office, character, wrong), /OUTFIT_SCHEMA/);
+    assert.throws(() => validateUniformHairProfile(profile, office, character, 'uniform'), /UNIFORM_SCHEMA/);
+    for (const mutate of [p => { p.officeProfileSHA256 = '0'.repeat(64); }, p => { p.character = 'other'; }, p => { p.spec = 'family-uniform-hair-profile/1'; }]) {
+      const bad = structuredClone(profile); mutate(bad); assert.throws(() => outfitHairProfileRig(preimage, bad, office, 'forward'), /OUTFIT_SCHEMA/);
+    }
+    for (const mutate of [p => { p.constraints.pop(); }, p => { p.constraints[0].after.mass += .01; }, p => { p.constraints.push({...p.constraints[0], bone: 'skirt_0'}); }]) {
+      const bad = structuredClone(profile); mutate(bad); assert.throws(() => outfitHairProfileRig(preimage, bad, office, 'forward'), /OUTFIT_TARGETS/);
+    }
+    const drift = structuredClone(preimage); drift.bones[0].x = (drift.bones[0].x ?? 0) + 1;
+    assert.throws(() => outfitHairProfileRig(drift, profile, office, 'forward'), /OUTFIT_INPUT_DRIFT/);
+  }
+});
 
 test('uniform shared draw contract rejects coordinate, topology, colour, order and inventory defects', () => {
   const mesh = { slot: 'hair_back', kind: 'mesh', vertices: [0, 0, 1, 0, 0, 1], triangles: [0, 1, 2], tint: [1, 1, 1, 1], blend: 'Normal', uvs: [0, 0], z: 1 };
@@ -199,6 +225,7 @@ test('reproducibility gate checks all 5 characters × 4 outfits, goes red withou
         copyFileSync(join(src.outDir, 'rig/rig.json'), join(dst.outDir, 'rig/rig.json'));
         if (outfit === 'office') copyFileSync(join(src.outDir, 'rig/material-profile.provenance.json'), join(dst.outDir, 'rig/material-profile.provenance.json'));
         if (outfit === 'uniform') copyFileSync(join(src.outDir, 'rig/uniform-hair-profile.provenance.json'), join(dst.outDir, 'rig/uniform-hair-profile.provenance.json'));
+        if (['homewear', 'swimwear'].includes(outfit)) copyFileSync(join(src.outDir, 'rig/outfit-hair-profile.provenance.json'), join(dst.outDir, 'rig/outfit-hair-profile.provenance.json'));
         copyFileSync(join(src.outDir, 'rig/mesh_report.json'), join(dst.outDir, 'rig/mesh_report.json'));
         copyFileSync(join(src.outDir, 'check/build/skeleton.model.json'), join(dst.outDir, 'check/build/skeleton.model.json'));
       }
@@ -219,6 +246,20 @@ test('reproducibility gate checks all 5 characters × 4 outfits, goes red withou
     writeFileSync(uniformProvenance, JSON.stringify(driftedUniformProvenance));
     assert.throws(() => verifyDeclaredReproducibility(fixture), /REPRODUCIBILITY_PROFILE_UNIFORM_PROVENANCE_DRIFT luna/);
     writeFileSync(uniformProvenance, uniformProvenanceBytes);
+
+    for (const outfit of ['homewear', 'swimwear']) {
+      const cfg = join(fixture, `outfits/${outfit}/luna/authoring/config.json`);
+      const original = readFileSync(cfg), drift = JSON.parse(original);
+      drift.constraints.find(c => c.type === 'physics' && /^hair/.test(c.bone)).mass += .1;
+      writeFileSync(cfg, JSON.stringify(drift));
+      assert.throws(() => verifyDeclaredReproducibility(fixture), new RegExp(`REPRODUCIBILITY_PROFILE_OUTFIT_CONFIG_DRIFT luna/${outfit}`));
+      writeFileSync(cfg, original);
+      const provenance = join(fixture, `outfits/${outfit}/luna/out/rig/outfit-hair-profile.provenance.json`);
+      const bytes = readFileSync(provenance), bad = JSON.parse(bytes); bad.outfit = outfit === 'homewear' ? 'swimwear' : 'homewear';
+      writeFileSync(provenance, JSON.stringify(bad));
+      assert.throws(() => verifyDeclaredReproducibility(fixture), new RegExp(`REPRODUCIBILITY_PROFILE_OUTFIT_PROVENANCE_DRIFT luna/${outfit}`));
+      writeFileSync(provenance, bytes);
+    }
 
     // Mutant 1: hand-edit compiled mesh vertex in luna/office/hair_front
     const lunaModelPath = join(fixture, 'luna/out/check/build/skeleton.model.json');
@@ -245,7 +286,7 @@ test('reproducibility gate checks all 5 characters × 4 outfits, goes red withou
     writeFileSync(configPath, originalConfig);
 
 
-    // Mutant 2: hand-edit authoring mesh weight in roa/homewear/sleeves (an unrepaired part)
+    // Mutant 2: the complete profile preimage must refuse even an unrepaired sleeves weight change.
     const roaHomeRigPath = join(fixture, 'outfits/homewear/roa/out/rig/rig.json');
     const origRoaHomeRig = readFileSync(roaHomeRigPath);
     const mutatedRoaHomeRig = JSON.parse(origRoaHomeRig.toString('utf8'));
@@ -253,7 +294,7 @@ test('reproducibility gate checks all 5 characters × 4 outfits, goes red withou
     writeFileSync(roaHomeRigPath, JSON.stringify(mutatedRoaHomeRig));
     assert.throws(
       () => verifyDeclaredReproducibility(fixture),
-      /REPRODUCIBILITY_MISMATCH roa\/homewear\/sleeves/,
+      /REPRODUCIBILITY_PROFILE_OUTFIT_INPUT_DRIFT roa\/homewear\/after/,
     );
     writeFileSync(roaHomeRigPath, origRoaHomeRig);
 
@@ -352,4 +393,28 @@ test('uniform hair inherits exactly the accepted office targets after existing r
   assert.throws(() => uniformHairProfileRig(repaired, brokenOutput, office, 'forward'), /UNIFORM_OUTPUT_DRIFT/);
   const badRepair = structuredClone(declared); badRepair.constraints.regeneratedSHA256 = '0'.repeat(64);
   assert.throws(() => apply(raw, badRepair), /REPRODUCIBILITY_CONSTRAINTS_DRIFT/);
+});
+
+
+test('both outfit inventories reproduce every actual shared pose and bind viewed sheets and cold controls', () => {
+  const result = measureOutfitHair(family);
+  const inventory = JSON.parse(readFileSync(join(family, 'docs/outfit-hair-inventory.json')));
+  assert.equal(result.totalDraws, inventory.rows.reduce((n, row) => n + row.drawCount, 0));
+  assert.deepEqual(result.rows.map(r => [r.outfit, r.character, r.draws]), inventory.rows.map(r => [r.outfit, r.character, r.drawCount]));
+  assert.ok(result.rows.every(row => row.exact && row.normal.exact));
+  const saved = readFileSync(join(family, 'docs/outfit-shared-pose.json'));
+  assert.deepEqual(result, JSON.parse(saved));
+  const receipt = JSON.parse(readFileSync(join(family, 'docs/outfit-hair-switch.json')));
+  const sha = bytes => createHash('sha256').update(bytes).digest('hex');
+  assert.equal(sha(saved), receipt.sharedPose.sha256);
+  assert.equal(receipt.acceptance.pixelZeroClaimed, false);
+  assert.equal(receipt.measurements.officeNormal.sharedDifferingPixels, 0);
+  assert.equal(receipt.measurements.preflightOnly, false);
+  for (const outfit of ['homewear', 'swimwear']) {
+    const row = receipt.measurements.outfits[outfit];
+    assert.equal(row.coldSharedAtlas.sharedDifferingPixels, 0);
+    assert.equal(sha(readFileSync(join(family, 'docs', row.sheet.file))), row.sheet.sha256);
+    assert.ok(row.candidate.outsideNeckPlate > 0);
+    assert.ok(row.candidate.outsideNeckPlate < row.before.outsideNeckPlate);
+  }
 });

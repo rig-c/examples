@@ -47,6 +47,9 @@ it; the fifteen other outfits retain their prior common-part physics. The
 serving models now represent the owner-accepted candidate from issue #32.
 Reproduction compares against those accepted outputs, not the earlier profile.
 
+The following paragraph records the issue #49 uniform-only extension. Issue #63
+below supersedes only its homewear/swimwear hair exclusion.
+
 Issue #49 extends only the shared hair and bang physics to the five uniform
 configs, using a separate hash-bound stage after their existing repairs. The
 office skirt profile stays office-only; homewear and swimwear retain their
@@ -59,6 +62,17 @@ replay**, not zero; [play#187](https://github.com/rig-c/play/issues/187) owns it
 The [receipt](./docs/uniform-hair-switch.json) distinguishes this acceptance
 from the earlier pixel assertion's exit 1. The pose metric is reproducible with
 `node family/tools/verify-uniform-hair.mjs --out .lane-evidence/new-uniform-pose.json`.
+
+Issue #63 extends the same strict hair-only stage to the ten homewear/swimwear
+configs. The actual inventory is 73 shared draws per outfit (146 total); all
+posed geometry is exact, both viewed 4x sheets and cold-atlas controls (0) are
+bound by the [receipt](./docs/outfit-hair-switch.json). Fresh outside-neck raster
+figures are homewear **52,623→401**, swimwear **52,986→370**; residual pixels
+remain [play#187](https://github.com/rig-c/play/issues/187), not a zero claim.
+Office/uniform, Jinni skirt, art/mesh/UV/atlas/motion/player/camera are unchanged.
+See the [declaration and acceptance contract](./MATERIAL_RESPONSE.md#homewear-and-swimwear-shared-hair-parity-issue-63).
+`node family/tools/verify-outfit-hair.mjs --out .lane-evidence/new-outfit-pose.json`
+reproduces the exact pose bar through the pinned player's actual reader/track.
 
 | 현재 재현성 기준선의 도구 | 고정 버전 |
 | --- | --- |
