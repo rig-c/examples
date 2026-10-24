@@ -1,0 +1,178 @@
+{
+ "spec": "rigc-dancer-keys3/0",
+ "reference": "../pose-ref-2026-10-13/pose.json",
+ "arms_down_frames": 155,
+ "rest_ref": {
+  "dx": 14.55,
+  "shw": 230.3,
+  "torso": 366.45,
+  "l_fe": 0.7235,
+  "l_dy": 366.45,
+  "r_fe": 0.7226,
+  "r_dy": 366.2
+ },
+ "char": {
+  "hip_to_ear_px": 604.8,
+  "shoulder_width_px": 240.9,
+  "torso_px": 401.3
+ },
+ "units": "painting px (1664x2432), y down; the K*.json files are these / 2 (latent 832x1216)",
+ "keys": {
+  "H1_hold_head": {
+   "frame": 132,
+   "t_s": 5.5,
+   "shoulder_lift_px": {
+    "l": 31.9,
+    "r": 37.7
+   },
+   "shoulder_lift_px_hips_only_reading": {
+    "l": 15.3,
+    "r": 20.2
+   },
+   "neck_offset_x_px": 34.5,
+   "shoulder_tilt_deg": 2.74,
+   "base_tilt_deg": 1.38,
+   "wrist_gap_ref_shoulder_widths": 0.483,
+   "wrist_contact_kept": false,
+   "wrist_gap_new_shoulder_widths": 0.192,
+   "neck_new": [
+    867.1,
+    649.7
+   ],
+   "neck_base": [
+    832.6,
+    684.5
+   ]
+  },
+  "H2_hold_low": {
+   "frame": 228,
+   "t_s": 9.5,
+   "shoulder_lift_px": {
+    "l": 20.2,
+    "r": 1.8
+   },
+   "shoulder_lift_px_hips_only_reading": {
+    "l": 19.2,
+    "r": 2.1
+   },
+   "neck_offset_x_px": -42.2,
+   "shoulder_tilt_deg": -2.99,
+   "base_tilt_deg": 1.38,
+   "wrist_gap_ref_shoulder_widths": 0.0,
+   "wrist_contact_kept": true,
+   "wrist_gap_new_shoulder_widths": 0.0,
+   "neck_new": [
+    790.4,
+    673.5
+   ],
+   "neck_base": [
+    832.6,
+    684.5
+   ]
+  },
+  "H2x_hold_low": {
+   "frame": 228,
+   "t_s": 9.5,
+   "shoulder_lift_px": {
+    "l": 20.2,
+    "r": 1.8
+   },
+   "shoulder_lift_px_hips_only_reading": {
+    "l": 19.2,
+    "r": 2.1
+   },
+   "neck_offset_x_px": -42.2,
+   "shoulder_tilt_deg": -2.99,
+   "base_tilt_deg": 1.38,
+   "wrist_gap_ref_shoulder_widths": 0.0,
+   "wrist_contact_kept": true,
+   "wrist_gap_new_shoulder_widths": 0.0,
+   "neck_new": [
+    790.4,
+    673.5
+   ],
+   "neck_base": [
+    832.6,
+    684.5
+   ]
+  },
+  "H2y_hold_low": {
+   "frame": 228,
+   "t_s": 9.5,
+   "shoulder_lift_px": {
+    "l": 20.2,
+    "r": 1.8
+   },
+   "shoulder_lift_px_hips_only_reading": {
+    "l": 19.2,
+    "r": 2.1
+   },
+   "neck_offset_x_px": -42.2,
+   "shoulder_tilt_deg": -2.99,
+   "base_tilt_deg": 1.38,
+   "wrist_gap_ref_shoulder_widths": 0.0,
+   "wrist_contact_kept": true,
+   "wrist_gap_new_shoulder_widths": 0.0,
+   "neck_new": [
+    790.4,
+    673.5
+   ],
+   "neck_base": [
+    832.6,
+    684.5
+   ]
+  },
+  "H2z_hold_low": {
+   "frame": 228,
+   "t_s": 9.5,
+   "shoulder_lift_px": {
+    "l": 20.2,
+    "r": 1.8
+   },
+   "shoulder_lift_px_hips_only_reading": {
+    "l": 19.2,
+    "r": 2.1
+   },
+   "neck_offset_x_px": -42.2,
+   "shoulder_tilt_deg": -2.99,
+   "base_tilt_deg": 1.38,
+   "wrist_gap_ref_shoulder_widths": 0.0,
+   "wrist_contact_kept": true,
+   "wrist_gap_new_shoulder_widths": 0.0,
+   "neck_new": [
+    790.4,
+    673.5
+   ],
+   "neck_base": [
+    832.6,
+    684.5
+   ]
+  },
+  "H1m_hold_head": {
+   "frame": 132,
+   "t_s": 5.5,
+   "shoulder_lift_px": {
+    "l": 31.9,
+    "r": 37.7
+   },
+   "shoulder_lift_px_hips_only_reading": {
+    "l": 15.3,
+    "r": 20.2
+   },
+   "neck_offset_x_px": 34.5,
+   "shoulder_tilt_deg": 2.74,
+   "base_tilt_deg": 1.38,
+   "wrist_gap_ref_shoulder_widths": 0.483,
+   "wrist_contact_kept": false,
+   "wrist_gap_new_shoulder_widths": 0.192,
+   "neck_new": [
+    867.1,
+    649.7
+   ],
+   "neck_base": [
+    832.6,
+    684.5
+   ]
+  }
+ }
+}

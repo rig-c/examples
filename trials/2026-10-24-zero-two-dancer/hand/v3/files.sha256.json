@@ -1,0 +1,236 @@
+{
+  "algorithm": "sha256",
+  "scope": "Actual v3 files only; excludes this manifest. Historical omitted generation files have separate typed hash references.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 9217,
+      "sha256": "127566c9c11028243df6fc84b4a66dd314487a4e25d4bdbe15533b46484b5fb7"
+    },
+    {
+      "path": "accepted-render.json",
+      "bytes": 1332,
+      "sha256": "55b49ab1f9f59d011e10f10ed7fb2c70ccfeaa9ec39db871d8dcaee4680a56c8"
+    },
+    {
+      "path": "gate-lines.txt",
+      "bytes": 3807,
+      "sha256": "512d1e56ca85373f518bc2706074ed0cdf56f9af1ce02fa416bcc6b8294888aa"
+    },
+    {
+      "path": "generation/README.md",
+      "bytes": 4359,
+      "sha256": "a3d183dc938b443d98fc4ef428b5d16f97a33f069581558d13588ebc0079a3f1"
+    },
+    {
+      "path": "generation/alts/seethrough_config.json",
+      "bytes": 19762,
+      "sha256": "d8d603789d62facbd0d47b7594807ff0bb99cda0d9f1bada8a8e93d346457380"
+    },
+    {
+      "path": "generation/config.json",
+      "bytes": 1970,
+      "sha256": "78abcfebc915c17170836f9d2fe7948d04a6561deb35947fde7089469ddd5e1a"
+    },
+    {
+      "path": "generation/keys/config_H1m_hold_head.json",
+      "bytes": 2111,
+      "sha256": "ee323df49f8d209cac1af2380274f20935e2f13afbfa1ff9089b9ec6284db043"
+    },
+    {
+      "path": "generation/keys/config_H2z_hold_low.json",
+      "bytes": 2434,
+      "sha256": "0850f022917ff29ff75bb3b13179c4bc4323e317552549aa7111cf9fe278d2bc"
+    },
+    {
+      "path": "generation/keys2/masks.py",
+      "bytes": 5573,
+      "sha256": "d8582b6d1d85d9301fb9e24107ba841febfeee2045499484b988b9588a5c7573"
+    },
+    {
+      "path": "generation/keys3/H1_hold_head.json",
+      "bytes": 740,
+      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c"
+    },
+    {
+      "path": "generation/keys3/H1m_hold_head.json",
+      "bytes": 740,
+      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c"
+    },
+    {
+      "path": "generation/keys3/H2z_hold_low.json",
+      "bytes": 740,
+      "sha256": "89097b508fe7bcc66bc9fb3dcd10701a2381a80765cb885afc36b97ccd317099"
+    },
+    {
+      "path": "generation/keys3/inpaint2.py",
+      "bytes": 10887,
+      "sha256": "d3bb0789c1bdaca2a350b581d19f73c9cc9d1b9bc0542f941af6664880564f5d"
+    },
+    {
+      "path": "generation/keys3/inpaint_H1_hold_head/prewarp.json",
+      "bytes": 253,
+      "sha256": "04139a15bccc24ff2c6d8b536f023dc33fd4b5b3d742df74857ee42035544510"
+    },
+    {
+      "path": "generation/keys3/inpaint_H1_hold_head/warp_s1.json",
+      "bytes": 2579,
+      "sha256": "0b85478394294b12a05114d8cde4a52cf5ffd186e01a56067e6b35b3075e2b8c"
+    },
+    {
+      "path": "generation/keys3/inpaint_H1m_hold_head/prewarp.json",
+      "bytes": 253,
+      "sha256": "0ed3846753ce85e2f08140eb481118385265769dee4b0dd5866d0396de772c3e"
+    },
+    {
+      "path": "generation/keys3/inpaint_H1m_hold_head/warp_s62.json",
+      "bytes": 2783,
+      "sha256": "26831a4cc330b0c33103265eaedf3bd37278eb54229024b34ce174432b12eb2f"
+    },
+    {
+      "path": "generation/keys3/inpaint_H2z_hold_low/prewarp.json",
+      "bytes": 253,
+      "sha256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377"
+    },
+    {
+      "path": "generation/keys3/inpaint_H2z_hold_low/warp_s53.json",
+      "bytes": 3059,
+      "sha256": "d48d1798e21a244c18509fbc763f328b803c44f6ee023e5d4091c2c75323cf55"
+    },
+    {
+      "path": "generation/keys3/keys.json",
+      "bytes": 3346,
+      "sha256": "d3184854e846a49e7abe781944bb224bfa02d8dbe0bb81edbdefec66451004e5"
+    },
+    {
+      "path": "generation/keys3/masks.py",
+      "bytes": 5596,
+      "sha256": "b30e93b5820346ba4758fb01cb07a747c566af758c2b813e06056284707cf73e"
+    },
+    {
+      "path": "generation/keys3/midriff_prep.py",
+      "bytes": 1822,
+      "sha256": "b1b7c69f75abf978c0fe2dc137e6d6be63306c359b2606cd7e6310c506b09a9c"
+    },
+    {
+      "path": "generation/keys3/pieces/arms_hold_front_z0.json",
+      "bytes": 309,
+      "sha256": "41ade91fe116dc1bd09cbb1712bb2403c376304a77f08f5b4b9a67011de3d98a"
+    },
+    {
+      "path": "generation/keys3/pieces/arms_hold_head.json",
+      "bytes": 293,
+      "sha256": "778efca8391574be46473c950b908aa5b259535e5f958ca3e05c282023686d0f"
+    },
+    {
+      "path": "generation/keys3/pieces/h1m_midriff.json",
+      "bytes": 140,
+      "sha256": "8fa2ce987dac762368476a7f85cba6e3cbbabff8e97c83c847d11b31bf73032d"
+    },
+    {
+      "path": "generation/keys3/prewarp.py",
+      "bytes": 18289,
+      "sha256": "d1bcf8c9211dfa54b20d3eb41303f653512d44a58d51bcef04fce54007f6633a"
+    },
+    {
+      "path": "generation/keys3/run_seethrough.sh",
+      "bytes": 1085,
+      "sha256": "498a0b5911e76a41d35288d957b46061a2ff7ca48af5b06d219a6c4396788a9c"
+    },
+    {
+      "path": "generation/keys3/set_H1_hold_head/layers_full/meta.json",
+      "bytes": 961,
+      "sha256": "6b6559e8083dede2f33a4fe62e9849032a423806eff2da5a50f221e6761d4db8"
+    },
+    {
+      "path": "generation/keys3/set_H1m_hold_head/layers_full/meta.json",
+      "bytes": 963,
+      "sha256": "df3f86e8ad4ea643bd47575051a40065969a430bee1fa75e1fd21b0e5036771b"
+    },
+    {
+      "path": "generation/keys3/set_H2z_hold_low/layers_full/meta.json",
+      "bytes": 961,
+      "sha256": "5a8eebcaca6c5ec649205e42a62198c79cda2f178e92416df081b8d71f534e9a"
+    },
+    {
+      "path": "generation/scripts/assemble_hold.py",
+      "bytes": 6309,
+      "sha256": "8a23f099157626ca1fb85128e9d3c59847a7274d322b6fc8de7ec69c53e30834"
+    },
+    {
+      "path": "generation/scripts/cut_jacket.py",
+      "bytes": 4160,
+      "sha256": "24d8283c5cd3fa73148d02f337ed739c3f51c88001acad56752e137c8ff1d6e9"
+    },
+    {
+      "path": "generation/scripts/cut_piece.py",
+      "bytes": 4680,
+      "sha256": "ac304ae52547df2b17b03284093c4b28ff609d6c783278b9848a14b5d5ceb16b"
+    },
+    {
+      "path": "generation/scripts/v3_waist.py",
+      "bytes": 3533,
+      "sha256": "d0b7c840f9caeac3ebf38713fa9a8472191ccd7ae2f30cb8bb935b1810c4694b"
+    },
+    {
+      "path": "generation/source-files.json",
+      "bytes": 66367,
+      "sha256": "158e01f403cc5420988ab8fa470b0615720902cd6a17b2080d24733660831ac7"
+    },
+    {
+      "path": "images/arms_hold_front.png",
+      "bytes": 115241,
+      "sha256": "18b392875be888e28bf116edceede5e4c14cafe31554e192348f7de54db00701"
+    },
+    {
+      "path": "images/arms_hold_head.png",
+      "bytes": 114591,
+      "sha256": "6954c20fbe1bf3d988b4d1e9c8baff38f91d2549bb2a3ac2ee06d1907737318b"
+    },
+    {
+      "path": "images/waist.png",
+      "bytes": 8189,
+      "sha256": "1c733bdf717741d98162c96439995d3cb6a009ddf1900bad4c9271a55712d5cb"
+    },
+    {
+      "path": "inputs.json",
+      "bytes": 11451,
+      "sha256": "af7c503879bb6765094eccd9d475002df510f5559c2d4eae75ce28383fa2dd69"
+    },
+    {
+      "path": "motion.json",
+      "bytes": 1109631,
+      "sha256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7"
+    },
+    {
+      "path": "read-inputs.ts",
+      "bytes": 1604,
+      "sha256": "a640f595f484db4ebd3d54635036e5032924d909c04194ede5732802ff627dae"
+    },
+    {
+      "path": "replay-result.json",
+      "bytes": 58215,
+      "sha256": "80b2219b4e1582a8dc16f6a4eb7fbb736aaf668b8d5d0d781ce1999f44e7b308"
+    },
+    {
+      "path": "reproduce.py",
+      "bytes": 5961,
+      "sha256": "9b66e5390f415ef0c963a78863a29bbece5a17115d0ae757ab4e715978f49770"
+    },
+    {
+      "path": "rig.json",
+      "bytes": 1490283,
+      "sha256": "a1860937f20890818a206a2b15318eaf2bf9e253d58584976b8aa9697f73e135"
+    },
+    {
+      "path": "transfer-delta.json",
+      "bytes": 3239,
+      "sha256": "a6241df5925835b6778014c8ccbec40b397835affa9046a622cc9f3724e37cf6"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 1616,
+      "sha256": "4546122ea23f7bbaa98deec95ae4b799823b27749a2c6271b40f349b05096e81"
+    }
+  ]
+}

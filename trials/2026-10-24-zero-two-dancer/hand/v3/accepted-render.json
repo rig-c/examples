@@ -1,0 +1,46 @@
+{
+  "spec": "examples-accepted-render/1",
+  "ownerAcceptedDate": "2026-10-24",
+  "frames": 391,
+  "fps": 30,
+  "size": [
+    736,
+    960
+  ],
+  "format": "PNG RGBA",
+  "sha256": "b75fc5696ac468f3ea9f58cc892d79389d66bf6ce7aeb31428f95350b9121029",
+  "computation": "SHA256 of concatenated raw f0000.png .. f0390.png bytes in index order, without separators",
+  "animation": "zero-two-r3-hand",
+  "viewport": {
+    "x": -575.1001332056925,
+    "y": -22.832002283065037,
+    "width": 1038.3634465496543,
+    "height": 1353.8478314199037,
+    "scale": 0.7090900304454161,
+    "pixelWidth": 736,
+    "pixelHeight": 960
+  },
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "viewportSHA256": "8a0f07c4304419d64125314d773b3b0f62bacdd0229a40cc0cbdffa57545a13c",
+  "build": {
+    "skeleton.json": "4e6024989f06a15525bf5cb32a47bb7aa55a75d8adf58505ce6b1a12efb49f77",
+    "skeleton.atlas": "bd9d9414f016e94407a61685455888a7aad6781acdd9d634a0a9f3c0c432cdf1",
+    "skeleton.model.json": "a94c7cbee992acaf87c0e283efc1bbd44766441f791776064e929bd59a2f0e81"
+  },
+  "gate": {
+    "profile": "spine",
+    "pass": 23,
+    "fail": 0,
+    "skip": 13,
+    "excluded": 14
+  },
+  "poser": "rigc core",
+  "sourceReceiptSHA256": "5d60e8cf85d385ff0a425edf28bc84c67a622f7c725c07fd31d178f0863f45b5",
+  "audio": false,
+  "referenceVideoPixels": false
+}
