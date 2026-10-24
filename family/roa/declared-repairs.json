@@ -7,7 +7,60 @@
       "regenerated": {
         "vertices": 183,
         "triangles": 298,
-        "sha256": "9913e28c8a6590ca6fbe5a83d4f66beef317643ff5cb1dc43d7cac32e3c4729a"
+        "sha256": "9913e28c8a6590ca6fbe5a83d4f66beef317643ff5cb1dc43d7cac32e3c4729a",
+        "meshConfig": {
+          "grid": 57,
+          "r": 15,
+          "segments": [
+            [
+              "hip",
+              [
+                201,
+                868
+              ],
+              [
+                519,
+                868
+              ]
+            ],
+            [
+              "hip",
+              [
+                295,
+                880
+              ],
+              [
+                295,
+                1520
+              ]
+            ],
+            [
+              "hip",
+              [
+                352,
+                880
+              ],
+              [
+                352,
+                1520
+              ]
+            ],
+            [
+              "hip",
+              [
+                415,
+                880
+              ],
+              [
+                415,
+                1520
+              ]
+            ],
+            "skirt_r",
+            "skirt_c",
+            "skirt_l"
+          ]
+        }
       },
       "repaired": {
         "vertices": 319,
@@ -9082,7 +9135,64 @@
       "regenerated": {
         "vertices": 500,
         "triangles": 883,
-        "sha256": "ece4cc4a1ad7045830d12d88f9a2fe1141b09507469c9bef9aac22e0f467fb07"
+        "sha256": "ece4cc4a1ad7045830d12d88f9a2fe1141b09507469c9bef9aac22e0f467fb07",
+        "meshConfig": {
+          "contour": {
+            "tolerance": 2,
+            "margin": 2,
+            "spacing": 36,
+            "maxEdge": 64,
+            "stray": 400,
+            "bridges": true,
+            "regions": [
+              {
+                "name": "bust_r",
+                "shape": "circle",
+                "cx": 295,
+                "cy": 665,
+                "r": 21,
+                "bone": "boob_r",
+                "spacing": 14,
+                "band": 83
+              },
+              {
+                "name": "bust_l",
+                "shape": "circle",
+                "cx": 496,
+                "cy": 661,
+                "r": 20,
+                "bone": "boob_l",
+                "spacing": 14,
+                "band": 71
+              }
+            ]
+          },
+          "r": 15,
+          "segments": [
+            [
+              "chest",
+              [
+                360,
+                427
+              ],
+              [
+                360,
+                843
+              ]
+            ],
+            [
+              "hip",
+              [
+                360,
+                843
+              ],
+              [
+                360,
+                963
+              ]
+            ]
+          ]
+        }
       },
       "repaired": {
         "vertices": 500,
@@ -20390,7 +20500,27 @@
       "regenerated": {
         "vertices": 20,
         "triangles": 24,
-        "sha256": "faa78b98ad6cdb02307c110e949919bf5d882aaa4cace916c665dfb37ae3353c"
+        "sha256": "faa78b98ad6cdb02307c110e949919bf5d882aaa4cace916c665dfb37ae3353c",
+        "meshConfig": {
+          "grid": 57,
+          "r": 7,
+          "segments": [
+            [
+              "head",
+              [
+                365,
+                394
+              ],
+              [
+                365,
+                167
+              ]
+            ],
+            "bang_r",
+            "bang_c",
+            "bang_l"
+          ]
+        }
       },
       "repaired": {
         "vertices": 84,

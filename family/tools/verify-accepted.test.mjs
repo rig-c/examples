@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -13,6 +14,8 @@ import { measureUniformHair } from './verify-uniform-hair.mjs';
 import {
   applyDeclaredRepairsToRig,
   officeBaselineForOutfits,
+  officeModelBaselineForOutfits,
+  toMaterialProfilePreimage,
   CHARACTERS,
   OUTFITS,
   rigPaths,
@@ -353,8 +356,9 @@ test('declared office profile passes the unchanged full constraint repair guard 
   for (const character of CHARACTERS) {
     const baseline = officeBaselineForOutfits(family, character);
     const current = JSON.parse(readFileSync(join(family, character, 'out/rig/rig.json')));
+    const currentDeclared = JSON.parse(readFileSync(join(family, character, 'declared-repairs.json')));
     assert.notDeepEqual(baseline.constraints, current.constraints);
-    assert.deepEqual(baseline.skins, current.skins);
+    assert.deepEqual(baseline.skins, toMaterialProfilePreimage(current, currentDeclared).skins);
     assert.deepEqual(baseline.bones, current.bones);
   }
 });
@@ -419,43 +423,167 @@ test('both outfit inventories reproduce every actual shared pose and bind viewed
   }
 });
 
-test('roa office config states explicit mesh payloads for bottomwear, topwear, and hair_front and refuses explicit report drift', () => {
-  const sha = bytes => createHash('sha256').update(bytes).digest('hex');
-  const cfg = JSON.parse(readFileSync(join(family, 'roa/config.json'), 'utf8'));
-  const rig = JSON.parse(readFileSync(join(family, 'roa/out/rig/rig.json'), 'utf8'));
-  const report = JSON.parse(readFileSync(join(family, 'roa/out/rig/mesh_report.json'), 'utf8'));
-  const declared = JSON.parse(readFileSync(join(family, 'roa/declared-repairs.json'), 'utf8'));
+test('roa, luna, naru, and nova office configs state explicit mesh payloads and refuse explicit report drift', () => {
+  const explicitByChar = {
+    roa: ['bottomwear', 'topwear', 'hair_front'],
+    luna: ['handwear_l', 'topwear', 'handwear_r', 'hair_front'],
+    naru: ['hair_back', 'bottomwear', 'hair_front'],
+    nova: ['hair_back', 'hair_front'],
+  };
 
-  for (const part of ['bottomwear', 'topwear', 'hair_front']) {
-    const exp = cfg.meshes[part]?.explicit;
-    assert.ok(exp, `missing explicit mesh payload for ${part}`);
-    const att = rig.skins.default[part][part];
-    const rep = report.find(r => r.part === part);
-    assert.match(exp.image_sha256, /^[a-f0-9]{64}$/);
-    assert.match(exp.region_sha256, /^[a-f0-9]{64}$/);
-    assert.deepEqual(exp.uvs, att.uvs);
-    assert.deepEqual(exp.triangles, att.triangles);
-    assert.equal(exp.hull, att.hull);
-    assert.deepEqual(exp.weights, att.weights);
-    assert.equal(rep.mode, 'explicit');
-    assert.equal(rep.image_sha256, exp.image_sha256);
-    assert.equal(rep.region_sha256, exp.region_sha256);
+  for (const [character, parts] of Object.entries(explicitByChar)) {
+    const cfg = JSON.parse(readFileSync(join(family, `${character}/config.json`), 'utf8'));
+    const rig = JSON.parse(readFileSync(join(family, `${character}/out/rig/rig.json`), 'utf8'));
+    const report = JSON.parse(readFileSync(join(family, `${character}/out/rig/mesh_report.json`), 'utf8'));
+    const declared = JSON.parse(readFileSync(join(family, `${character}/declared-repairs.json`), 'utf8'));
+
+    for (const part of parts) {
+      const exp = cfg.meshes[part]?.explicit;
+      assert.ok(exp, `missing explicit mesh payload for ${character}/${part}`);
+      const att = rig.skins.default[part][part];
+      const rep = report.find(r => r.part === part);
+      assert.match(exp.image_sha256, /^[a-f0-9]{64}$/);
+      assert.match(exp.region_sha256, /^[a-f0-9]{64}$/);
+      assert.deepEqual(exp.uvs, att.uvs);
+      assert.deepEqual(exp.triangles, att.triangles);
+      assert.equal(exp.hull, att.hull);
+      assert.deepEqual(exp.weights, att.weights);
+      assert.equal(rep.mode, 'explicit');
+      assert.equal(rep.image_sha256, exp.image_sha256);
+      assert.equal(rep.region_sha256, exp.region_sha256);
+      assert.ok(declared.parts?.[part]?.regenerated?.meshConfig, `missing regenerated.meshConfig for ${character}/${part}`);
+    }
+
+    const applied = applyDeclaredRepairsToRig({
+      character,
+      outfit: 'office',
+      rawRig: rig,
+      rawReport: report,
+      declared,
+    });
+    assert.deepEqual(applied.rig, rig);
+    assert.deepEqual(applied.report, report);
+
+    const probePart = parts[0];
+    const badReport = structuredClone(report);
+    badReport.find(r => r.part === probePart).mode = 'contour';
+    assert.throws(
+      () => applyDeclaredRepairsToRig({ character, outfit: 'office', rawRig: rig, rawReport: badReport, declared }),
+      new RegExp(`REPRODUCIBILITY_REPORT_DRIFT ${character}\\/office\\/${probePart}`),
+    );
   }
 
-  const applied = applyDeclaredRepairsToRig({
-    character: 'roa',
-    outfit: 'office',
-    rawRig: rig,
-    rawReport: report,
-    declared,
-  });
-  assert.deepEqual(applied.rig, rig);
-  assert.deepEqual(applied.report, report);
-
-  const badReport = structuredClone(report);
-  badReport.find(r => r.part === 'topwear').mode = 'contour';
-  assert.throws(
-    () => applyDeclaredRepairsToRig({ character: 'roa', outfit: 'office', rawRig: rig, rawReport: badReport, declared }),
-    /REPRODUCIBILITY_REPORT_DRIFT roa\/office\/topwear/,
+  // naru hair_back adopts _d bindings on hairback_r0..2 and hairback_l0..2 in both rig and compiled model
+  const naruModel = JSON.parse(readFileSync(join(family, 'naru/out/check/build/skeleton.model.json'), 'utf8'));
+  assert.deepEqual(
+    naruModel.rig.meshDeclaredBones.hair_back,
+    ['head', 'hairback_r0_d', 'hairback_l0_d', 'hairback_l1_d', 'hairback_l2_d', 'hairback_r2_d', 'hairback_r1_d'],
   );
+  const naruBaselineModel = JSON.parse(officeModelBaselineForOutfits(family, 'naru/out/check/build/skeleton.model.json'));
+  assert.deepEqual(
+    naruBaselineModel.rig.meshDeclaredBones.hair_back,
+    ['head', 'hairback_r0', 'hairback_l0', 'hairback_l1', 'hairback_l2', 'hairback_r2', 'hairback_r1'],
+  );
+
+  // nova config constraints match nova/out/rig/rig.json (no cuff_*_phys constraints)
+  const novaCfg = JSON.parse(readFileSync(join(family, 'nova/config.json'), 'utf8'));
+  const novaRig = JSON.parse(readFileSync(join(family, 'nova/out/rig/rig.json'), 'utf8'));
+  assert.deepEqual(novaCfg.constraints, novaRig.constraints);
+  assert.equal(novaCfg.constraints.some(c => /^cuff_/.test(c.name)), false);
+
+  // Explicit-aware contour readers: bust-region-rebuild.py --action get returns non-empty regions for roa/office and luna/office
+  const getRes = spawnSync('python3', [join(family, 'tools/bust-region-rebuild.py'), '--action', 'get'], { encoding: 'utf8' });
+  assert.equal(getRes.status, 0, getRes.stderr);
+  const allRegions = JSON.parse(getRes.stdout);
+  for (const ch of CHARACTERS) {
+    for (const outfit of OUTFITS) {
+      const regs = allRegions[ch]?.outfits?.[outfit];
+      assert.ok(regs?.bust_r && regs?.bust_l, `missing bust_r/bust_l for ${ch}/${outfit}`);
+      for (const side of ['bust_r', 'bust_l']) {
+        for (const k of ['cx', 'cy', 'r', 'band']) {
+          assert.equal(Number.isFinite(regs[side][k]), true, `non-finite ${ch}/${outfit}/${side}.${k}`);
+        }
+      }
+    }
+  }
+  assert.deepEqual(allRegions.roa.outfits.office, {
+    bust_r: { cx: 295, cy: 665, r: 21, band: 83 },
+    bust_l: { cx: 496, cy: 661, r: 20, band: 71 },
+  });
+  assert.deepEqual(allRegions.luna.outfits.office, {
+    bust_r: { cx: 319, cy: 769, r: 19, band: 60 },
+    bust_l: { cx: 477, cy: 768, r: 22, band: 52 },
+  });
+
+  // Explicit-aware contour rebuild refuses by name and states what to edit instead
+  for (const ch of ['roa', 'luna']) {
+    const setRes = spawnSync(
+      'python3',
+      [
+        join(family, 'tools/bust-region-rebuild.py'),
+        '--action', 'set',
+        '--character', ch,
+        '--bust-r', '295,665,21,83',
+        '--bust-l', '496,661,20,71',
+      ],
+      { encoding: 'utf8' },
+    );
+    assert.notEqual(setRes.status, 0);
+    assert.doesNotMatch(setRes.stderr + setRes.stdout, /KeyError/);
+    assert.match(
+      setRes.stderr + setRes.stdout,
+      new RegExp(`FAMILY_EXPLICIT_MESH_REFUSED: ${ch}/office/topwear declares meshes\\.topwear\\.explicit.*Edit meshes\\.topwear\\.explicit\\.weights`),
+    );
+  }
+
+  // Viewer path: activeBustRegions and syncBustEditorInputs do not crash when office (or all outfits) has empty {} regions
+  const viewerHtml = readFileSync(join(family, 'viewer/index.html'), 'utf8');
+  const fnMatch = /function hasValidBustPair\(regs\)[\s\S]*?function syncBustEditorInputs\(\) \{[\s\S]*?\n    \}/.exec(viewerHtml);
+  assert.ok(fnMatch, 'viewer bust region helpers must exist in viewer/index.html');
+  const makeInput = () => ({ value: 'init' });
+  const inputs = {
+    bustCharSelect: makeInput(),
+    bustRX: makeInput(), bustRY: makeInput(), bustRR: makeInput(), bustRB: makeInput(),
+    bustLX: makeInput(), bustLY: makeInput(), bustLR: makeInput(), bustLB: makeInput(),
+  };
+  const runViewerBustSync = (bustDataFixture, activeOutfit = 'office') => {
+    const fn = new Function(
+      'bustData', 'activeBustOutfit', 'CHARACTER_LABELS', 'ui', 'outfitTarget', 'activeBustChar',
+      'bustCharSelect', 'bustRX', 'bustRY', 'bustRR', 'bustRB', 'bustLX', 'bustLY', 'bustLR', 'bustLB',
+      `${fnMatch[0]}; syncBustEditorInputs(); return activeBustRegions(activeBustChar);`,
+    );
+    return fn(
+      bustDataFixture,
+      () => activeOutfit,
+      { roa: '로아', luna: '루나' },
+      { character: 'roa' },
+      'roa',
+      'roa',
+      inputs.bustCharSelect,
+      inputs.bustRX, inputs.bustRY, inputs.bustRR, inputs.bustRB,
+      inputs.bustLX, inputs.bustLY, inputs.bustLR, inputs.bustLB,
+    );
+  };
+  // Case A: office is {} (missing region), swimwear has valid regions -> falls back without crashing
+  const fallbackRegs = runViewerBustSync({
+    roa: {
+      chest: [360, 657],
+      outfits: {
+        office: {},
+        swimwear: { bust_r: { cx: 295, cy: 665, r: 21, band: 83 }, bust_l: { cx: 496, cy: 661, r: 20, band: 71 } },
+      },
+    },
+  }, 'office');
+  assert.deepEqual(fallbackRegs, {
+    bust_r: { cx: 295, cy: 665, r: 21, band: 83 },
+    bust_l: { cx: 496, cy: 661, r: 20, band: 71 },
+  });
+  assert.equal(inputs.bustRX.value, '295');
+  assert.equal(inputs.bustLX.value, '496');
+
+  // Case B: every outfit is {} -> returns null and does not throw TypeError
+  const emptyRegs = runViewerBustSync({
+    roa: { chest: [360, 657], outfits: { office: {}, homewear: {}, swimwear: {}, uniform: {} } },
+  }, 'office');
+  assert.equal(emptyRegs, null);
 });

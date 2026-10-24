@@ -290,7 +290,26 @@
       "regenerated": {
         "vertices": 78,
         "triangles": 120,
-        "sha256": "6bd75310b585e20ff37cecf615000a5bee5bdcbb4bc14ca7e3612544fc1a9c6f"
+        "sha256": "6bd75310b585e20ff37cecf615000a5bee5bdcbb4bc14ca7e3612544fc1a9c6f",
+        "meshConfig": {
+          "grid": 57,
+          "r": 15,
+          "segments": [
+            [
+              "head",
+              [
+                435,
+                510
+              ],
+              [
+                435,
+                265
+              ]
+            ],
+            "hairback_r",
+            "hairback_l"
+          ]
+        }
       },
       "repaired": {
         "vertices": 193,
@@ -6496,53 +6515,74 @@
           "vertices": 193,
           "triangles": 234,
           "hull": 150,
-          "mode": "authored-field-clip",
-          "sourceGenerator": {
-            "part": "hair_back",
-            "vertices": 78,
-            "triangles": 120,
-            "hull": 34,
-            "bones": [
-              "hairback_l0",
-              "hairback_l1",
-              "hairback_l2",
-              "hairback_r0",
-              "hairback_r1",
-              "hairback_r2",
-              "head"
-            ],
-            "max_influences": 4,
-            "mean_influences": 3.68,
-            "art_coverage": 1,
-            "grid": 57
-          },
-          "pieces": [
-            {
-              "slot": "hair_back",
-              "vertices": 193,
-              "triangles": 234,
-              "hull": 150,
-              "sourceImage": "hair_back.png",
-              "sourcePath": "hair_back"
-            }
+          "bones": [
+            "hairback_l0_d",
+            "hairback_l1_d",
+            "hairback_l2_d",
+            "hairback_r0_d",
+            "hairback_r1_d",
+            "hairback_r2_d",
+            "head"
           ],
-          "proof": {
-            "alphaThreshold": 1,
-            "pixelTest": "every source pixel center",
-            "art": 134620,
-            "missingBefore": 0,
-            "missingAfter": 0,
-            "newMissing": 0,
-            "multiplyDrawn": 0,
-            "originalCellPartitionTriangles": 234,
-            "maxFieldResidual": 3.601954290388676e-10
-          },
-          "params": {
-            "alphaThreshold": 1,
-            "dilationChebyshevPixels": 4,
-            "tolerance": 3,
-            "derivedMaskPinchPixelsAdded": 2
+          "max_influences": 6,
+          "mean_influences": 4.06,
+          "art_coverage": 1,
+          "mode": "explicit",
+          "image_sha256": "03e6b22a08e35c5fb7290273d05cdb48e27d0c489ee704423d7503574f03994e",
+          "region_sha256": "e91ab3c925b58977b7a726ba1f5a8843cce90b059137593dde68c83992d2b5ed"
+        }
+      },
+      "outfitBaselineMeshReport": {
+        "part": "hair_back",
+        "vertices": 193,
+        "triangles": 234,
+        "hull": 150,
+        "mode": "authored-field-clip",
+        "sourceGenerator": {
+          "part": "hair_back",
+          "vertices": 78,
+          "triangles": 120,
+          "hull": 34,
+          "bones": [
+            "hairback_l0",
+            "hairback_l1",
+            "hairback_l2",
+            "hairback_r0",
+            "hairback_r1",
+            "hairback_r2",
+            "head"
+          ],
+          "max_influences": 4,
+          "mean_influences": 3.68,
+          "art_coverage": 1,
+          "grid": 57
+        },
+        "pieces": [
+          {
+            "slot": "hair_back",
+            "vertices": 193,
+            "triangles": 234,
+            "hull": 150,
+            "sourceImage": "hair_back.png",
+            "sourcePath": "hair_back"
           }
+        ],
+        "proof": {
+          "alphaThreshold": 1,
+          "pixelTest": "every source pixel center",
+          "art": 134620,
+          "missingBefore": 0,
+          "missingAfter": 0,
+          "newMissing": 0,
+          "multiplyDrawn": 0,
+          "originalCellPartitionTriangles": 234,
+          "maxFieldResidual": 3.601954290388676e-10
+        },
+        "params": {
+          "alphaThreshold": 1,
+          "dilationChebyshevPixels": 4,
+          "tolerance": 3,
+          "derivedMaskPinchPixelsAdded": 2
         }
       }
     },
@@ -6550,7 +6590,28 @@
       "regenerated": {
         "vertices": 56,
         "triangles": 80,
-        "sha256": "ef79f0f10468d906bef70bea92e796170cf364138520f36a7f55dd7de64a5405"
+        "sha256": "ef79f0f10468d906bef70bea92e796170cf364138520f36a7f55dd7de64a5405",
+        "meshConfig": {
+          "grid": 57,
+          "r": 10,
+          "segments": [
+            [
+              "head",
+              [
+                435,
+                510
+              ],
+              [
+                435,
+                265
+              ]
+            ],
+            "bang_r",
+            "bang_c",
+            "bang_l",
+            "hair_l"
+          ]
+        }
       },
       "repaired": {
         "vertices": 202,
@@ -13719,56 +13780,80 @@
           "vertices": 202,
           "triangles": 221,
           "hull": 181,
-          "mode": "authored-field-clip",
-          "sourceGenerator": {
-            "part": "hair_front",
-            "vertices": 56,
-            "triangles": 80,
-            "hull": 30,
-            "bones": [
-              "bang_c0",
-              "bang_c1",
-              "bang_l0",
-              "bang_l1",
-              "bang_r0",
-              "bang_r1",
-              "hair_l0",
-              "hair_l1",
-              "hair_l2",
-              "head"
-            ],
-            "max_influences": 4,
-            "mean_influences": 3.88,
-            "art_coverage": 1,
-            "grid": 57
-          },
-          "pieces": [
-            {
-              "slot": "hair_front",
-              "vertices": 202,
-              "triangles": 221,
-              "hull": 181,
-              "sourceImage": "hair_front.png",
-              "sourcePath": "hair_front"
-            }
+          "bones": [
+            "bang_c0",
+            "bang_c1",
+            "bang_l0",
+            "bang_l1",
+            "bang_r0",
+            "bang_r1",
+            "hair_l0_d",
+            "hair_l1_d",
+            "hair_l2_d",
+            "head"
           ],
-          "proof": {
-            "alphaThreshold": 1,
-            "pixelTest": "every source pixel center",
-            "art": 62829,
-            "missingBefore": 0,
-            "missingAfter": 0,
-            "newMissing": 0,
-            "multiplyDrawn": 0,
-            "originalCellPartitionTriangles": 221,
-            "maxFieldResidual": 7.349844774314422e-10
-          },
-          "params": {
-            "alphaThreshold": 1,
-            "dilationChebyshevPixels": 4,
-            "tolerance": 3,
-            "derivedMaskPinchPixelsAdded": 2
+          "max_influences": 7,
+          "mean_influences": 4.68,
+          "art_coverage": 1,
+          "mode": "explicit",
+          "image_sha256": "779ea2ad5109382a4455865b034a00eddd6ab65751aff3bf1b853b8352c8f47a",
+          "region_sha256": "b2f876995ac62f87b90cbb2a26c343c9758bd599f5ebf5ea232dd62059f9c356"
+        }
+      },
+      "outfitBaselineMeshReport": {
+        "part": "hair_front",
+        "vertices": 202,
+        "triangles": 221,
+        "hull": 181,
+        "mode": "authored-field-clip",
+        "sourceGenerator": {
+          "part": "hair_front",
+          "vertices": 56,
+          "triangles": 80,
+          "hull": 30,
+          "bones": [
+            "bang_c0",
+            "bang_c1",
+            "bang_l0",
+            "bang_l1",
+            "bang_r0",
+            "bang_r1",
+            "hair_l0",
+            "hair_l1",
+            "hair_l2",
+            "head"
+          ],
+          "max_influences": 4,
+          "mean_influences": 3.88,
+          "art_coverage": 1,
+          "grid": 57
+        },
+        "pieces": [
+          {
+            "slot": "hair_front",
+            "vertices": 202,
+            "triangles": 221,
+            "hull": 181,
+            "sourceImage": "hair_front.png",
+            "sourcePath": "hair_front"
           }
+        ],
+        "proof": {
+          "alphaThreshold": 1,
+          "pixelTest": "every source pixel center",
+          "art": 62829,
+          "missingBefore": 0,
+          "missingAfter": 0,
+          "newMissing": 0,
+          "multiplyDrawn": 0,
+          "originalCellPartitionTriangles": 221,
+          "maxFieldResidual": 7.349844774314422e-10
+        },
+        "params": {
+          "alphaThreshold": 1,
+          "dilationChebyshevPixels": 4,
+          "tolerance": 3,
+          "derivedMaskPinchPixelsAdded": 2
         }
       }
     }
@@ -13778,7 +13863,7 @@
       "vertices": 193,
       "triangles": 234,
       "rigSHA256": "e8b4d1cc56b4647d808938abbe4cdb063396f38a980c84dea607035e602b33fc",
-      "reportSHA256": "90d4e4dd71763002737bfe99934d81beadc9f593ab8de1c3dd40bf78a200e927",
+      "reportSHA256": "1f9724ba32c0a5699f9fa0903909aa3bb6e47177aeb1759b78c8573dbe0672ed",
       "modelSHA256": "8627021cbd539c522f3e4f37d4c86f90ccf825df2abd1be231b0d98d5da405b8"
     },
     "shoes": {
@@ -13793,7 +13878,7 @@
       "vertices": 364,
       "triangles": 576,
       "rigSHA256": "538dca5082ec264f9cc166d863825e86151028173197fde74e77d848ccca7e32",
-      "reportSHA256": "2ca856cb0baa180fbc729b3f48bb7f9c8240734e78c11444f6eb854c27cc0534",
+      "reportSHA256": "656e8c612c4791e2aba9aabde720b96c24dd5e8ad6c6e9b29af44fbf60d9b25d",
       "modelSHA256": "b83082e89305253af959ad679ce0de5274065f4f12c46aba6d0649776a1d3e90"
     },
     "neck": {
@@ -13910,7 +13995,7 @@
       "vertices": 202,
       "triangles": 221,
       "rigSHA256": "dc3a64b69b32d2e19b6f13ee841944dd70da2183fd5df7858fc57822044e3255",
-      "reportSHA256": "d4c2ecd0178ad1764240429859391d99b08b67e4b1e52593f4f6e2cb00744ae6",
+      "reportSHA256": "696f2b382e5aef98410437acdeff690955c6fab0f9a28cb4d8fe2606385bc480",
       "modelSHA256": "62e4d16c1e86b56f0d6c1f029f3811982caffba4b6d77a62d79874fa87e014c1"
     }
   },
@@ -13941,112 +14026,6 @@
     "topwear",
     "hair_front"
   ],
-  "reportOverrides": {
-    "bottomwear": {
-      "regeneratedSHA256": "656e8c612c4791e2aba9aabde720b96c24dd5e8ad6c6e9b29af44fbf60d9b25d",
-      "repairedSHA256": "2ca856cb0baa180fbc729b3f48bb7f9c8240734e78c11444f6eb854c27cc0534",
-      "meshReport": {
-        "part": "bottomwear",
-        "vertices": 364,
-        "triangles": 576,
-        "hull": 150,
-        "mode": "retained-source-topology-quality-repair",
-        "sourceGenerator": {
-          "part": "bottomwear",
-          "vertices": 214,
-          "triangles": 276,
-          "hull": 150,
-          "mode": "public-reduceMesh-rigid-interior",
-          "sourceGenerator": {
-            "part": "bottomwear",
-            "vertices": 364,
-            "triangles": 576,
-            "hull": 150,
-            "bones": [
-              "cuff_l0",
-              "cuff_l1",
-              "cuff_r0",
-              "cuff_r1",
-              "hip"
-            ],
-            "max_influences": 4,
-            "mean_influences": 1.55,
-            "art_coverage": 1,
-            "mode": "contour",
-            "params": {
-              "tolerance": 2,
-              "margin": 2,
-              "spacing": 36,
-              "maxEdge": 48,
-              "budget": null,
-              "stray": 0,
-              "bridges": true
-            },
-            "contour": {
-              "boundaryVertices": 150,
-              "interiorVertices": 214,
-              "interiorBySource": [
-                {
-                  "source": "region \"fixed_upper_and_support\"",
-                  "vertices": 206
-                },
-                {
-                  "source": "background",
-                  "vertices": 8
-                }
-              ],
-              "triangles": 576,
-              "tracedVertices": 3204,
-              "artPixels": 276830,
-              "coveredArtPixels": 276830,
-              "coverage": 1,
-              "overshoot": 4,
-              "overshootBound": 5,
-              "meshArea": 292534.5,
-              "enclosedTransparentArea": 15704.5,
-              "filledHolePixels": 10388,
-              "smallestAngle": {
-                "triangle": 77,
-                "value": 4.842329
-              },
-              "largestEdgeRatio": {
-                "triangle": 136,
-                "value": 11.652005
-              },
-              "nonDelaunayEdges": 0,
-              "strayIslands": 0,
-              "strayPixels": 0,
-              "grownPixels": 5554,
-              "pinchFilledPixels": 0,
-              "grownHolePixels": 0,
-              "outlineCut": 17,
-              "bridges": {
-                "islands": [
-                  276830
-                ],
-                "units": [
-                  [
-                    276830
-                  ]
-                ],
-                "joins": []
-              }
-            },
-            "regions": [
-              {
-                "name": "fixed_upper_and_support",
-                "bone": "hip",
-                "reached": 305,
-                "whole": 282
-              }
-            ]
-          },
-          "provenance": "nova-rigid-interior.provenance.json"
-        },
-        "provenance": "nova-rigid-interior.provenance.json"
-      }
-    }
-  },
   "materialProfile": {
     "spec": "family-material-profile/1",
     "character": "nova",

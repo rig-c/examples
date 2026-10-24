@@ -369,11 +369,18 @@
       const entry = players.find(p => p.key === charKey);
       return entry?.outfit ?? ui.outfits[charKey] ?? 'swimwear';
     }
+    function hasValidBustPair(regs) {
+      return Boolean(regs?.bust_r && regs?.bust_l);
+    }
     function activeBustRegions(charKey = activeBustChar) {
       const ch = bustData[charKey];
-      if (!ch) return null;
+      if (!ch?.outfits) return null;
       const outfit = activeBustOutfit(charKey);
-      if (!ch.outfits[outfit]) ch.outfits[outfit] = { bust_r: { ...ch.outfits.office.bust_r }, bust_l: { ...ch.outfits.office.bust_l } };
+      const current = ch.outfits[outfit];
+      if (hasValidBustPair(current)) return current;
+      const fallback = Object.values(ch.outfits).find(hasValidBustPair);
+      if (!fallback) return null;
+      ch.outfits[outfit] = { bust_r: { ...fallback.bust_r }, bust_l: { ...fallback.bust_l } };
       return ch.outfits[outfit];
     }
     function syncBustEditorInputs() {
@@ -381,7 +388,7 @@
       else if (outfitTarget !== 'all' && CHARACTER_LABELS[outfitTarget]) activeBustChar = outfitTarget;
       bustCharSelect.value = activeBustChar;
       const regs = activeBustRegions(activeBustChar);
-      if (!regs) return;
+      if (!hasValidBustPair(regs)) return;
       bustRX.value = String(Math.round(regs.bust_r.cx));
       bustRY.value = String(Math.round(regs.bust_r.cy));
       bustRR.value = String(Math.round(regs.bust_r.r));
@@ -393,7 +400,17 @@
     }
     if (typeof globalThis.fetch === 'function') {
       globalThis.fetch('/api/bust-regions').then(r => r.ok ? r.json() : null).then(data => {
-        if (data && data.jinni) { bustData = data; syncBustEditorInputs(); redrawOverlay(); }
+        if (data && data.jinni) {
+          for (const [charKey, incoming] of Object.entries(data)) {
+            if (!bustData[charKey]) { bustData[charKey] = incoming; continue; }
+            if (Array.isArray(incoming?.chest)) bustData[charKey].chest = incoming.chest;
+            for (const [outfitKey, regs] of Object.entries(incoming?.outfits ?? {})) {
+              if (hasValidBustPair(regs)) bustData[charKey].outfits[outfitKey] = regs;
+            }
+          }
+          syncBustEditorInputs();
+          redrawOverlay();
+        }
       }).catch(() => {});
     }
     const windControls = createWindControls();
@@ -997,7 +1014,7 @@
     bustCharSelect.addEventListener('change', () => {
       activeBustChar = bustCharSelect.value;
       const regs = activeBustRegions(activeBustChar);
-      if (regs) {
+      if (hasValidBustPair(regs)) {
         bustRX.value = String(Math.round(regs.bust_r.cx));
         bustRY.value = String(Math.round(regs.bust_r.cy));
         bustRR.value = String(Math.round(regs.bust_r.r));
@@ -1016,7 +1033,7 @@
       el.addEventListener('input', () => {
         const v = Number(el.value);
         const regs = activeBustRegions(activeBustChar);
-        if (regs && Number.isFinite(v)) {
+        if (hasValidBustPair(regs) && Number.isFinite(v)) {
           regs[side][field] = Math.round(v);
           redrawOverlay();
         }
@@ -1024,7 +1041,7 @@
     }
     bustSymBtn.addEventListener('click', () => {
       const regs = activeBustRegions(activeBustChar);
-      if (!regs) return;
+      if (!hasValidBustPair(regs)) return;
       regs.bust_l.cy = regs.bust_r.cy;
       regs.bust_l.r = regs.bust_r.r;
       regs.bust_l.band = regs.bust_r.band;
@@ -1035,8 +1052,9 @@
       if (typeof globalThis.fetch !== 'function') return;
       const targetChar = bustCharSelect.value || activeBustChar;
       const currentOutfit = activeBustOutfit(targetChar);
-      const regs = bustData[targetChar]?.outfits?.[currentOutfit] ?? activeBustRegions(targetChar);
-      if (!regs) return;
+      const candidate = bustData[targetChar]?.outfits?.[currentOutfit];
+      const regs = hasValidBustPair(candidate) ? candidate : activeBustRegions(targetChar);
+      if (!hasValidBustPair(regs)) return;
       bustApplyBtn.disabled = true;
       bustApplyBtn.textContent = '리빌드 중…';
       stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 전 의상(오피스·홈웨어·수영복·교복) 가슴 영역 리빌드 중…`;
@@ -1076,7 +1094,7 @@
     bustCopyBtn.addEventListener('click', () => {
       const targetChar = bustCharSelect.value || activeBustChar;
       const regs = activeBustRegions(targetChar);
-      if (!regs) return;
+      if (!hasValidBustPair(regs)) return;
       const text = JSON.stringify({ character: targetChar, outfit: activeBustOutfit(targetChar), bust_r: regs.bust_r, bust_l: regs.bust_l }, null, 2);
       globalThis.navigator?.clipboard?.writeText(text);
       stats.textContent = `${CHARACTER_LABELS[targetChar] ?? targetChar} 가슴 영역 JSON 복사됨: ${text.replace(/\s+/g, ' ')}`;

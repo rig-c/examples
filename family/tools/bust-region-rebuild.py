@@ -46,6 +46,58 @@ def out_dir_for(family: pathlib.Path, char: str, outfit: str) -> pathlib.Path:
     return family / "outfits" / outfit / char / "out"
 
 
+def resolve_mesh_contour(
+    family: pathlib.Path,
+    cfg_path: pathlib.Path,
+    cfg: dict,
+    part_name: str = "topwear",
+    char: str | None = None,
+) -> dict:
+    mesh = cfg.get("meshes", {}).get(part_name, {})
+    contour = mesh.get("contour")
+    if isinstance(contour, dict) and contour.get("regions"):
+        return contour
+
+    rep_ref = cfg.get("x-repairs") or cfg.get("repairs") or {}
+    rep_rel = rep_ref.get("file", "declared-repairs.json") if isinstance(rep_ref, dict) else "declared-repairs.json"
+    rep_path = (cfg_path.parent / rep_rel).resolve()
+    if rep_path.is_file():
+        rep_doc = json.loads(rep_path.read_text())
+        reg_info = rep_doc.get("parts", {}).get(part_name, {}).get("regenerated", {})
+        mc_contour = reg_info.get("meshConfig", {}).get("contour")
+        if isinstance(mc_contour, dict) and mc_contour.get("regions"):
+            return mc_contour
+        direct_contour = reg_info.get("contour")
+        if isinstance(direct_contour, dict) and direct_contour.get("regions"):
+            return direct_contour
+
+    if char:
+        for alt_outfit in ("homewear", "swimwear", "uniform"):
+            alt_path = config_path_for(family, char, alt_outfit)
+            if alt_path.is_file():
+                alt_cfg = json.loads(alt_path.read_text())
+                alt_contour = alt_cfg.get("meshes", {}).get(part_name, {}).get("contour")
+                if isinstance(alt_contour, dict) and alt_contour.get("regions"):
+                    return alt_contour
+
+    return contour if isinstance(contour, dict) else {}
+
+
+def assert_contour_editable(cfg_path: pathlib.Path, cfg: dict, char: str, outfit: str, part_name: str) -> None:
+    pmesh = cfg.get("meshes", {}).get(part_name, {})
+    if "explicit" in pmesh or not isinstance(pmesh.get("contour"), dict):
+        mode = "explicit" if "explicit" in pmesh else ("grid" if "grid" in pmesh else "non-contour")
+        rep_ref = cfg.get("x-repairs") or cfg.get("repairs") or {}
+        rep_rel = rep_ref.get("file", "declared-repairs.json") if isinstance(rep_ref, dict) else "declared-repairs.json"
+        rep_path = (cfg_path.parent / rep_rel).resolve()
+        raise RuntimeError(
+            f"FAMILY_EXPLICIT_MESH_REFUSED: {char}/{outfit}/{part_name} declares meshes.{part_name}.{mode} in {cfg_path}; "
+            f"contour region rebuild cannot edit an explicit mesh payload. "
+            f"Edit meshes.{part_name}.explicit.weights in {cfg_path} "
+            f"(or restore meshes.{part_name}.contour from {rep_path} parts.{part_name}.regenerated.meshConfig) instead."
+        )
+
+
 def read_all_regions(family: pathlib.Path) -> dict:
     result = {}
     for ch in CHARACTERS:
@@ -57,7 +109,8 @@ def read_all_regions(family: pathlib.Path) -> dict:
             if not cpath.is_file():
                 cpath = family / ch / "config.json"
             cfg = json.loads(cpath.read_text())
-            regs = cfg.get("meshes", {}).get("topwear", {}).get("contour", {}).get("regions", [])
+            contour = resolve_mesh_contour(family, cpath, cfg, "topwear", ch)
+            regs = contour.get("regions", [])
             by_name = {}
             for r in regs:
                 if r.get("name") in ("bust_r", "bust_l"):
@@ -122,6 +175,7 @@ def rebuild_single_outfit_topwear(
     target_parts = ["topwear", "cardigan"] if has_cardigan else ["topwear"]
 
     for pname in target_parts:
+        assert_contour_editable(cfg_path, cfg_init, char, outfit, pname)
         require_file(out_dir / f"parts/{pname}.png")
     rig_parts_bin = tool_binary("RIG_PARTS_BIN", "rig-parts")
     rigc_bin = tool_binary("RIGC_BIN", "rigc")
@@ -536,6 +590,18 @@ def rebuild_all_outfits_for_character(
     target_outfit: str = "swimwear",
 ) -> dict:
     r_clean, l_clean, clamped = clamp_non_overlapping(bust_r, bust_l, margin=2.0)
+    for outfit in OUTFITS:
+        cpath = config_path_for(family, char, outfit)
+        odir = out_dir_for(family, char, outfit)
+        if not cpath.is_file() or not (odir / "rig/rig.json").is_file():
+            continue
+        cfg_init = json.loads(cpath.read_text())
+        parts_doc = json.loads(require_file(odir / "parts.json").read_text())
+        has_cardigan = "cardigan" in cfg_init.get("meshes", {}) and any(
+            p["name"] == "cardigan" for p in parts_doc["parts"]
+        )
+        for pname in (["topwear", "cardigan"] if has_cardigan else ["topwear"]):
+            assert_contour_editable(cpath, cfg_init, char, outfit, pname)
     rebuilt_outfits = []
     final_r, final_l = r_clean, l_clean
     for outfit in OUTFITS:
