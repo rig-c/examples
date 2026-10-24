@@ -5,6 +5,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { assertSharedDrawsEqual } from './uniform-hair-contract.mjs';
+import { officeModelBaselineForOutfits } from './verify-reproducibility.mjs';
 
 const family = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -31,7 +32,7 @@ export function measureOutfitHair(root = family, { frames = false, modelText } =
     const t = (u - .46) / .54; return 1 - t * t * (3 - 2 * t);
   }
   function open(relative, index, phase) {
-    const text = modelText ? modelText(relative) : readFileSync(join(root, relative), 'utf8'); sources[relative] = sha(text);
+    const text = modelText ? modelText(relative) : officeModelBaselineForOutfits(root, relative); sources[relative] = sha(text);
     const read = api.read(text, relative), view = api.view(read.doc);
     const track = api.open(view, 'idle', { loop: true, reset: 'animation', clock: api.clock, adjust(pose) {
       if (!pose.names.includes('eye_r') || !pose.names.includes('eye_l')) return;

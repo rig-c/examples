@@ -138,6 +138,35 @@ export function loadAndVerifyDeclaredRepairs(root, character, outfit) {
   return { cfg, declared, repairPath };
 }
 
+export function toMaterialProfilePreimage(rig, declared) {
+  const out = structuredClone(rig);
+  if (!declared) return out;
+  for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
+    if (entry.outfitBaselineSlots) {
+      if (sha(JSON.stringify(entry.outfitBaselineSlots)) !== entry.outfitBaselineSHA256) {
+        fail(`REPRODUCIBILITY_REPAIRED_PAYLOAD_CORRUPT ${declared.character}/${declared.outfit}/${partName}`);
+      }
+      if (sha(JSON.stringify(slotsForPart(out.skins?.default, partName))) === entry.repaired.sha256) {
+        for (const k of Object.keys(slotsForPart(out.skins.default, partName))) delete out.skins.default[k];
+        for (const [slotName, slotMap] of Object.entries(entry.outfitBaselineSlots)) {
+          out.skins.default[slotName] = structuredClone(slotMap);
+        }
+      }
+    }
+  }
+  if (declared.skinSlotOrder && out.skins?.default) {
+    const ordered = {};
+    for (const name of declared.skinSlotOrder) {
+      if (out.skins.default[name]) ordered[name] = out.skins.default[name];
+    }
+    for (const [k, v] of Object.entries(out.skins.default)) {
+      if (!ordered[k]) ordered[k] = v;
+    }
+    out.skins.default = ordered;
+  }
+  return out;
+}
+
 export function applyDeclaredRepairsToRig({
   character,
   outfit,
@@ -153,16 +182,34 @@ export function applyDeclaredRepairsToRig({
     return { rig, report };
   }
 
+  const explicitPartsAlreadyInRaw = Object.keys(declared.parts ?? {}).length > 0 &&
+    Object.entries(declared.parts).every(([partName, entry]) =>
+      sha(JSON.stringify(slotsForPart(rig.skins.default, partName))) === entry.repaired.sha256,
+    );
+
   if (declared.materialProfile) {
     validateMaterialProfile(declared.materialProfile, character, outfit);
-    rig = materialProfileRig(rig, declared.materialProfile, 'raw', 'reverse');
+    if (explicitPartsAlreadyInRaw) {
+      rig = materialProfileRig(toMaterialProfilePreimage(rig, declared), declared.materialProfile, 'repaired', 'reverse');
+      for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
+        if (entry.outfitBaselineSlots) {
+          for (const k of Object.keys(slotsForPart(rig.skins.default, partName))) delete rig.skins.default[k];
+          for (const [slotName, slotMap] of Object.entries(entry.repaired.slots)) {
+            rig.skins.default[slotName] = structuredClone(slotMap);
+          }
+        }
+      }
+    } else {
+      rig = materialProfileRig(rig, declared.materialProfile, 'raw', 'reverse');
+    }
   }
 
   for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
     const currentSlots = slotsForPart(rig.skins.default, partName);
     const currentSha = sha(JSON.stringify(currentSlots));
-    if (currentSha !== entry.regenerated.sha256) {
-      fail(`REPRODUCIBILITY_REGENERATED_DRIFT ${character}/${outfit}/${partName} expected=${entry.regenerated.sha256} actual=${currentSha}`);
+    const expectedSha = explicitPartsAlreadyInRaw ? entry.repaired.sha256 : entry.regenerated.sha256;
+    if (currentSha !== expectedSha) {
+      fail(`REPRODUCIBILITY_REGENERATED_DRIFT ${character}/${outfit}/${partName} expected=${expectedSha} actual=${currentSha}`);
     }
     const repairedSha = sha(JSON.stringify(entry.repaired.slots));
     if (repairedSha !== entry.repaired.sha256) {
@@ -176,13 +223,17 @@ export function applyDeclaredRepairsToRig({
     }
     if (entry.repaired.meshReport) {
       const idx = report.findIndex(r => r.part === partName);
+      if (explicitPartsAlreadyInRaw && idx >= 0 && sha(JSON.stringify(report[idx])) !== sha(JSON.stringify(entry.repaired.meshReport))) {
+        fail(`REPRODUCIBILITY_REPORT_DRIFT ${character}/${outfit}/${partName}`);
+      }
       if (idx >= 0) report[idx] = structuredClone(entry.repaired.meshReport);
       else report.push(structuredClone(entry.repaired.meshReport));
     }
   }
 
   if (declared.slots) {
-    if (sha(JSON.stringify(rig.slots)) !== declared.slots.regeneratedSHA256) {
+    const expectedSlotsSha = explicitPartsAlreadyInRaw ? declared.slots.repairedSHA256 : declared.slots.regeneratedSHA256;
+    if (sha(JSON.stringify(rig.slots)) !== expectedSlotsSha) {
       fail(`REPRODUCIBILITY_SLOTS_DRIFT ${character}/${outfit}`);
     }
     if (sha(JSON.stringify(declared.slots.slots)) !== declared.slots.repairedSHA256) {
@@ -192,7 +243,8 @@ export function applyDeclaredRepairsToRig({
   }
 
   if (declared.constraints) {
-    if (sha(JSON.stringify(rig.constraints)) !== declared.constraints.regeneratedSHA256) {
+    const expectedConstraintsSha = explicitPartsAlreadyInRaw ? declared.constraints.repairedSHA256 : declared.constraints.regeneratedSHA256;
+    if (sha(JSON.stringify(rig.constraints)) !== expectedConstraintsSha) {
       fail(`REPRODUCIBILITY_CONSTRAINTS_DRIFT ${character}/${outfit}`);
     }
     if (sha(JSON.stringify(declared.constraints.constraints)) !== declared.constraints.repairedSHA256) {
@@ -231,8 +283,35 @@ export function applyDeclaredRepairsToRig({
     report = declared.reportPartOrder.map(p => byPart[p]).filter(Boolean);
   }
 
-  const baselineRig = structuredClone(rig);
-  if (declared.materialProfile) rig = materialProfileRig(rig, declared.materialProfile, 'repaired', 'forward');
+  const baselineRig = toMaterialProfilePreimage(rig, declared);
+  const baselineReport = structuredClone(report);
+  for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
+    if (entry.outfitBaselineMeshReport) {
+      const idx = baselineReport.findIndex(r => r.part === partName);
+      if (idx >= 0) baselineReport[idx] = structuredClone(entry.outfitBaselineMeshReport);
+    }
+  }
+  if (declared.materialProfile) {
+    rig = materialProfileRig(toMaterialProfilePreimage(rig, declared), declared.materialProfile, 'repaired', 'forward');
+    for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
+      if (entry.outfitBaselineSlots) {
+        for (const k of Object.keys(slotsForPart(rig.skins.default, partName))) delete rig.skins.default[k];
+        for (const [slotName, slotMap] of Object.entries(entry.repaired.slots)) {
+          rig.skins.default[slotName] = structuredClone(slotMap);
+        }
+      }
+    }
+    if (explicitPartsAlreadyInRaw) {
+      const canonicalDefault = {};
+      for (const s of rig.slots) {
+        if (rig.skins.default[s.name]) canonicalDefault[s.name] = rig.skins.default[s.name];
+      }
+      for (const [k, v] of Object.entries(rig.skins.default)) {
+        if (!canonicalDefault[k]) canonicalDefault[k] = v;
+      }
+      rig.skins.default = canonicalDefault;
+    }
+  }
   if (declared.uniformHairProfile) {
     validateUniformHairProfile(declared.uniformHairProfile, officeProfile, character, outfit);
     rig = uniformHairProfileRig(rig, declared.uniformHairProfile, officeProfile, 'forward');
@@ -241,14 +320,67 @@ export function applyDeclaredRepairsToRig({
     validateOutfitHairProfile(declared.outfitHairProfile, officeProfile, character, outfit);
     rig = outfitHairProfileRig(rig, declared.outfitHairProfile, officeProfile, 'forward');
   }
-  return { rig, report, baselineRig };
+  return { rig, report, baselineRig, baselineReport };
 }
 
 /** Outfit profiles were not retuned by #32; preserve their declared office preimage. */
 export function officeBaselineForOutfits(root, character) {
   const rig = json(join(root, character, 'out/rig/rig.json'));
   const { declared } = loadAndVerifyDeclaredRepairs(root, character, 'office');
-  return declared.materialProfile ? materialProfileRig(rig, declared.materialProfile, 'repaired', 'reverse') : rig;
+  const preimage = toMaterialProfilePreimage(rig, declared);
+  return declared.materialProfile ? materialProfileRig(preimage, declared.materialProfile, 'repaired', 'reverse') : preimage;
+}
+
+export function officeModelBaselineForOutfits(root, relative) {
+  const text = readFileSync(join(root, relative), 'utf8');
+  const match = /^([a-z]+)\/out\/check\/build\/skeleton\.model\.json$/.exec(relative);
+  if (!match) return text;
+  const character = match[1];
+  const { declared } = loadAndVerifyDeclaredRepairs(root, character, 'office');
+  let current = text;
+  for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
+    const m = entry.outfitBaselineModel;
+    if (!m) continue;
+    if (sha(current) !== m.afterSHA256) fail(`REPRODUCIBILITY_MODEL_BASELINE_DRIFT ${character}/office/${partName}`);
+    if (m.afterSpineSHA256) {
+      const spinePath = join(root, character, 'out/check/build/skeleton.json');
+      if (sha(readFileSync(spinePath)) !== m.afterSpineSHA256) fail(`REPRODUCIBILITY_SPINE_BASELINE_DRIFT ${character}/office/${partName}`);
+    }
+    const doc = JSON.parse(current);
+    if (Array.isArray(m.boneChanges)) {
+      const map = new Map(m.boneChanges.map(c => [c.after, c.before]));
+      const revertBone = b => map.get(b) ?? b;
+      for (const v of doc.skins?.[0]?.attachments?.[partName]?.[partName]?.vertices?.bindings ?? []) {
+        for (const b of v) b.bone = revertBone(b.bone);
+      }
+      if (Array.isArray(doc.meshBones)) doc.meshBones = doc.meshBones.map(revertBone);
+      const meshEntry = (doc.meshes ?? []).find(x => x.slot === partName);
+      if (meshEntry && Array.isArray(meshEntry.bones)) meshEntry.bones = meshEntry.bones.map(revertBone);
+      if (Array.isArray(doc.rig?.meshDeclaredBones?.[partName])) {
+        doc.rig.meshDeclaredBones[partName] = doc.rig.meshDeclaredBones[partName].map(revertBone);
+      }
+    }
+    if (Array.isArray(m.imageOrder) && Array.isArray(doc.images)) {
+      const byRegion = Object.fromEntries(doc.images.map(img => [img.region, img]));
+      doc.images = m.imageOrder.map(r => byRegion[r]).filter(Boolean);
+    }
+    if (m.beforeSpineSHA256 && doc.spine) doc.spine.sha256 = m.beforeSpineSHA256;
+    current = `${JSON.stringify(doc, null, 2)}\n`;
+    if (sha(current) !== m.beforeSHA256) fail(`REPRODUCIBILITY_MODEL_BASELINE_CORRUPT ${character}/office/${partName}`);
+  }
+  return current;
+}
+
+export function officeReportBaselineForOutfits(root, character) {
+  const report = json(join(root, character, 'out/rig/mesh_report.json'));
+  const { declared } = loadAndVerifyDeclaredRepairs(root, character, 'office');
+  for (const [partName, entry] of Object.entries(declared.parts ?? {})) {
+    if (entry.outfitBaselineMeshReport) {
+      const idx = report.findIndex(r => r.part === partName);
+      if (idx >= 0) report[idx] = structuredClone(entry.outfitBaselineMeshReport);
+    }
+  }
+  return report;
 }
 
 export function mergeOutfitWithOfficeBaseline({
@@ -386,7 +518,7 @@ export function verifyDeclaredReproducibility(root = defaultFamily, { ignoreRepa
       const { declared } = loadAndVerifyDeclaredRepairs(root, character, outfit);
       const deliveredRig = json(join(outDir, 'rig/rig.json'));
       if (declared.materialProfile) {
-        materialProfileRig(deliveredRig, declared.materialProfile, 'repaired', 'reverse');
+        materialProfileRig(toMaterialProfilePreimage(deliveredRig, declared), declared.materialProfile, 'repaired', 'reverse');
         const provenancePath = join(outDir, 'rig/material-profile.provenance.json');
         if (!existsSync(provenancePath)) fail(`REPRODUCIBILITY_PROFILE_PROVENANCE_MISSING ${character}`);
         const provenance = json(provenancePath);
@@ -522,7 +654,7 @@ export function rebuildAndVerifyAll({
       if (outfit !== 'office') {
         const officeData = rebuiltOfficeByChar[character] ?? {
           rig: officeBaselineForOutfits(root, character),
-          report: json(join(root, character, 'out/rig/mesh_report.json')),
+          report: officeReportBaselineForOutfits(root, character),
           imagesDir: join(root, character, 'out/rig/images'),
         };
         const assembly = json(resolve(configDir, declared.baseline.assemblyFile));
@@ -537,7 +669,7 @@ export function rebuildAndVerifyAll({
         baseRawReport = merged.report;
       }
 
-      const { rig: finalRig, report: finalReport, baselineRig } = applyDeclaredRepairsToRig({
+      const { rig: finalRig, report: finalReport, baselineRig, baselineReport } = applyDeclaredRepairsToRig({
         character,
         outfit,
         rawRig: baseRawRig,
@@ -572,13 +704,21 @@ export function rebuildAndVerifyAll({
         ? join(rawRigDir, 'motion.json')
         : join(rebuiltOfficeByChar[character]?.compileRigDir ?? join(root, character, 'out/rig'), 'motion.json');
       cpSync(motionPath, join(compileRigDir, 'motion.json'));
-      writeFileSync(join(compileRigDir, 'rig.json'), `${JSON.stringify(finalRig, null, 2)}\n`);
-      writeFileSync(join(compileRigDir, 'mesh_report.json'), `${JSON.stringify(finalReport, null, 2)}\n`);
+      if (outfit === 'office' && !ignoreRepairs && JSON.stringify(finalRig) === JSON.stringify(baseRawRig)) {
+        cpSync(join(rawRigDir, 'rig.json'), join(compileRigDir, 'rig.json'));
+      } else {
+        writeFileSync(join(compileRigDir, 'rig.json'), `${JSON.stringify(finalRig, null, 2)}\n`);
+      }
+      if (outfit === 'office' && !ignoreRepairs && JSON.stringify(finalReport) === JSON.stringify(baseRawReport)) {
+        cpSync(join(rawRigDir, 'mesh_report.json'), join(compileRigDir, 'mesh_report.json'));
+      } else {
+        writeFileSync(join(compileRigDir, 'mesh_report.json'), `${JSON.stringify(finalReport, null, 2)}\n`);
+      }
 
       if (outfit === 'office') {
         rebuiltOfficeByChar[character] = {
           rig: baselineRig ?? finalRig,
-          report: finalReport,
+          report: baselineReport ?? finalReport,
           imagesDir: join(compileRigDir, 'images'),
           compileRigDir,
         };

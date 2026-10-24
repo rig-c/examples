@@ -156,10 +156,482 @@
    "in": "rig.json"
   }
  ],
- "seam_mean": 0.136,
+ "seam_mean": 0,
  "seam_px_over_40": 0,
  "seam_px_over_80": 0,
- "seam_frame_scale": 1.08452,
+ "seam_frame_scale": 1,
+ "seam_scope": {
+  "mode": "source-grid/base",
+  "domain": {
+   "viewport": {
+    "x": -400,
+    "y": 0,
+    "width": 800,
+    "height": 2284,
+    "scale": 1,
+    "pixelWidth": 800,
+    "pixelHeight": 2284
+   },
+   "authored": {
+    "x": -400,
+    "y": 0,
+    "width": 800,
+    "height": 2284
+   },
+   "numerator": "whole-union",
+   "states": [
+    {
+     "state": "base",
+     "frames": 2,
+     "pieces": 40,
+     "bounds": {
+      "minX": -240.00002770257353,
+      "minY": 17.999999999999996,
+      "maxX": 244.99997927219903,
+      "maxY": 1968.0000074143977
+     },
+     "pose_sha256": "d0ec23e2426e461456c441a2724008e410b9aa4b473f31bdc36cfee12f231715"
+    }
+   ]
+  },
+  "denominator_px": 1827200,
+  "auto_frame_raw": {
+   "mean": 0.13633228193331937,
+   "display_mean": 0.136,
+   "denominator_px": 1587380,
+   "px_over_40": 0,
+   "px_over_80": 0,
+   "frame_scale": 1.0845204137301276,
+   "viewport": {
+    "x": -318.00002799914944,
+    "y": -60.000000296575905,
+    "width": 641.0000075679244,
+    "height": 2106.0000080075497,
+    "scale": 1.0845204137301276,
+    "pixelWidth": 695,
+    "pixelHeight": 2284
+   }
+  },
+  "whole": {
+   "mean": 0.00015871278458844134,
+   "display_mean": 0,
+   "denominator_px": 1827200,
+   "px_over_40": 0,
+   "px_over_80": 0,
+   "frame_scale": 1,
+   "viewport": {
+    "x": -400,
+    "y": 0,
+    "width": 800,
+    "height": 2284,
+    "scale": 1,
+    "pixelWidth": 800,
+    "pixelHeight": 2284
+   }
+  },
+  "population": {
+   "basis": "reference-alpha/top-two-of-2x2",
+   "measured_sample_px": 1827200,
+   "pair_count": 39,
+   "pairs": [
+    {
+     "parts": [
+      "shoes",
+      "legwear"
+     ],
+     "whole_sample_px": 14357,
+     "scope_sample_px": 14357,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "legwear",
+      "bottomwear"
+     ],
+     "whole_sample_px": 101840,
+     "scope_sample_px": 101840,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "hair_back",
+      "neck"
+     ],
+     "whole_sample_px": 4473,
+     "scope_sample_px": 4473,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "hair_back",
+      "topwear"
+     ],
+     "whole_sample_px": 3648,
+     "scope_sample_px": 3648,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "bottomwear",
+      "topwear"
+     ],
+     "whole_sample_px": 7639,
+     "scope_sample_px": 7639,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "neck",
+      "topwear"
+     ],
+     "whole_sample_px": 4108,
+     "scope_sample_px": 4108,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "hair_back",
+      "ear_r"
+     ],
+     "whole_sample_px": 332,
+     "scope_sample_px": 332,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "hair_back",
+      "ear_l"
+     ],
+     "whole_sample_px": 524,
+     "scope_sample_px": 524,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "hair_back",
+      "face"
+     ],
+     "whole_sample_px": 6986,
+     "scope_sample_px": 6986,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "neck",
+      "face"
+     ],
+     "whole_sample_px": 2020,
+     "scope_sample_px": 2020,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "ear_r",
+      "face"
+     ],
+     "whole_sample_px": 312,
+     "scope_sample_px": 312,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "ear_l",
+      "face"
+     ],
+     "whole_sample_px": 10,
+     "scope_sample_px": 10,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "face",
+      "eyewhite_r"
+     ],
+     "whole_sample_px": 103,
+     "scope_sample_px": 103,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "face",
+      "eyewhite_l"
+     ],
+     "whole_sample_px": 138,
+     "scope_sample_px": 138,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "eyewhite_r",
+      "iris_r"
+     ],
+     "whole_sample_px": 381,
+     "scope_sample_px": 381,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "eyewhite_l",
+      "iris_l"
+     ],
+     "whole_sample_px": 478,
+     "scope_sample_px": 478,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "face",
+      "nose"
+     ],
+     "whole_sample_px": 285,
+     "scope_sample_px": 285,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "face",
+      "mouth"
+     ],
+     "whole_sample_px": 589,
+     "scope_sample_px": 589,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "ear_r",
+      "lash_r"
+     ],
+     "whole_sample_px": 1,
+     "scope_sample_px": 1,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "face",
+      "lash_r"
+     ],
+     "whole_sample_px": 489,
+     "scope_sample_px": 489,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "eyewhite_r",
+      "lash_r"
+     ],
+     "whole_sample_px": 318,
+     "scope_sample_px": 318,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "iris_r",
+      "lash_r"
+     ],
+     "whole_sample_px": 181,
+     "scope_sample_px": 181,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "face",
+      "lash_l"
+     ],
+     "whole_sample_px": 361,
+     "scope_sample_px": 361,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "eyewhite_l",
+      "lash_l"
+     ],
+     "whole_sample_px": 422,
+     "scope_sample_px": 422,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "iris_l",
+      "lash_l"
+     ],
+     "whole_sample_px": 180,
+     "scope_sample_px": 180,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "face",
+      "brow_r"
+     ],
+     "whole_sample_px": 112,
+     "scope_sample_px": 112,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "lash_r",
+      "brow_r"
+     ],
+     "whole_sample_px": 21,
+     "scope_sample_px": 21,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "face",
+      "brow_l"
+     ],
+     "whole_sample_px": 150,
+     "scope_sample_px": 150,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "lash_l",
+      "brow_l"
+     ],
+     "whole_sample_px": 1,
+     "scope_sample_px": 1,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "hair_back",
+      "hair_front"
+     ],
+     "whole_sample_px": 23583,
+     "scope_sample_px": 23583,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "neck",
+      "hair_front"
+     ],
+     "whole_sample_px": 312,
+     "scope_sample_px": 312,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "topwear",
+      "hair_front"
+     ],
+     "whole_sample_px": 1967,
+     "scope_sample_px": 1967,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "ear_r",
+      "hair_front"
+     ],
+     "whole_sample_px": 515,
+     "scope_sample_px": 515,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "ear_l",
+      "hair_front"
+     ],
+     "whole_sample_px": 570,
+     "scope_sample_px": 570,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "face",
+      "hair_front"
+     ],
+     "whole_sample_px": 16041,
+     "scope_sample_px": 16041,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "lash_r",
+      "hair_front"
+     ],
+     "whole_sample_px": 341,
+     "scope_sample_px": 341,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "lash_l",
+      "hair_front"
+     ],
+     "whole_sample_px": 390,
+     "scope_sample_px": 390,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "brow_r",
+      "hair_front"
+     ],
+     "whole_sample_px": 316,
+     "scope_sample_px": 316,
+     "inherited_sample_px": 0
+    },
+    {
+     "parts": [
+      "brow_l",
+      "hair_front"
+     ],
+     "whole_sample_px": 386,
+     "scope_sample_px": 386,
+     "inherited_sample_px": 0
+    }
+   ],
+   "single_art": [
+    {
+     "part": "hair_back",
+     "whole_sample_px": 18849,
+     "scope_sample_px": 18849,
+     "inherited_sample_px": 0
+    },
+    {
+     "part": "shoes",
+     "whole_sample_px": 3660,
+     "scope_sample_px": 3660,
+     "inherited_sample_px": 0
+    },
+    {
+     "part": "legwear",
+     "whole_sample_px": 34391,
+     "scope_sample_px": 34391,
+     "inherited_sample_px": 0
+    },
+    {
+     "part": "bottomwear",
+     "whole_sample_px": 164241,
+     "scope_sample_px": 164241,
+     "inherited_sample_px": 0
+    },
+    {
+     "part": "neck",
+     "whole_sample_px": 901,
+     "scope_sample_px": 901,
+     "inherited_sample_px": 0
+    },
+    {
+     "part": "topwear",
+     "whole_sample_px": 131174,
+     "scope_sample_px": 131174,
+     "inherited_sample_px": 0
+    }
+   ],
+   "no_reference_art": {
+    "whole_sample_px": 1279104,
+    "scope_sample_px": 1279104,
+    "inherited_sample_px": 0
+   }
+  },
+  "whole_pairs": []
+ },
  "seam_pairs": [],
  "BREATH_VISIBLE": {
   "status": "PASS",
@@ -371,6 +843,234 @@
   "folding_undeclared": 0,
   "declared_not_folding": [],
   "bar": 0
+ },
+ "CLOTH_SETTLES": {
+  "status": "CLEAR",
+  "fps": 12,
+  "frames": 41,
+  "duration": 3.333,
+  "floor_rig_px_per_s": 0.01694,
+  "floor": "a chain settles at the first frame from which its tip moves slower than 0.01694 rig px/s to the idle's last frame — half the slowest tip an idle key drives on the public examples (scarf's skirt_l2, 0.03388 rig px/s)",
+  "levers": "a chain at rest moves again when the world or the body does: an environment at render (rigc render --environment, wind and gravity in time; AUTHORING §3, What moves them, has a worked schedule) or a consumer's animation that moves the bone it hangs from; the drafted idle keys no hip (rig-c/parts#502)",
+  "warnings": 0,
+  "rows": [
+   {
+    "tip": "boob_r",
+    "root": "boob_r",
+    "links": 1,
+    "point": "origin",
+    "settles_at": null,
+    "max_rig_px_per_s": 11.07,
+    "min_rig_px_per_s": 0.08854
+   },
+   {
+    "tip": "boob_l",
+    "root": "boob_l",
+    "links": 1,
+    "point": "origin",
+    "settles_at": null,
+    "max_rig_px_per_s": 11.19,
+    "min_rig_px_per_s": 0.05978
+   },
+   {
+    "tip": "hairback_r0",
+    "root": "hairback_r0",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 6.677,
+    "min_rig_px_per_s": 1.532
+   },
+   {
+    "tip": "hairback_r1",
+    "root": "hairback_r1",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 14.68,
+    "min_rig_px_per_s": 2.258
+   },
+   {
+    "tip": "hairback_r2",
+    "root": "hairback_r2",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 23.56,
+    "min_rig_px_per_s": 1.278
+   },
+   {
+    "tip": "hairback_l0",
+    "root": "hairback_l0",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 15.45,
+    "min_rig_px_per_s": 0.1377
+   },
+   {
+    "tip": "hairback_l1",
+    "root": "hairback_l1",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 22.59,
+    "min_rig_px_per_s": 3.716
+   },
+   {
+    "tip": "hairback_l2",
+    "root": "hairback_l2",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 29.8,
+    "min_rig_px_per_s": 9.427
+   },
+   {
+    "tip": "hair_r0",
+    "root": "hair_r0",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 7.332,
+    "min_rig_px_per_s": 0.582
+   },
+   {
+    "tip": "hair_r1",
+    "root": "hair_r1",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 17.4,
+    "min_rig_px_per_s": 3.43
+   },
+   {
+    "tip": "hair_r2",
+    "root": "hair_r2",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 28.51,
+    "min_rig_px_per_s": 2.879
+   },
+   {
+    "tip": "hair_l0",
+    "root": "hair_l0",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 13.59,
+    "min_rig_px_per_s": 0.74
+   },
+   {
+    "tip": "hair_l1",
+    "root": "hair_l1",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 21.2,
+    "min_rig_px_per_s": 4.505
+   },
+   {
+    "tip": "hair_l2",
+    "root": "hair_l2",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 30.86,
+    "min_rig_px_per_s": 9.474
+   },
+   {
+    "tip": "bang_r1",
+    "root": "bang_r1",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 8.157,
+    "min_rig_px_per_s": 0.1762
+   },
+   {
+    "tip": "bang_c1",
+    "root": "bang_c1",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 9.404,
+    "min_rig_px_per_s": 0.206
+   },
+   {
+    "tip": "bang_l1",
+    "root": "bang_l1",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 11.78,
+    "min_rig_px_per_s": 0.7783
+   },
+   {
+    "tip": "skirt_r0",
+    "root": "skirt_r0",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 1.06,
+    "min_rig_px_per_s": 0.03286
+   },
+   {
+    "tip": "skirt_r1",
+    "root": "skirt_r1",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 3.217,
+    "min_rig_px_per_s": 0.1142
+   },
+   {
+    "tip": "skirt_r2",
+    "root": "skirt_r2",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 5.406,
+    "min_rig_px_per_s": 0.129
+   },
+   {
+    "tip": "skirt_c2",
+    "root": "skirt_c2",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 4.762,
+    "min_rig_px_per_s": 0.2162
+   },
+   {
+    "tip": "skirt_l0",
+    "root": "skirt_l0",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 0.9066,
+    "min_rig_px_per_s": 0.003462
+   },
+   {
+    "tip": "skirt_l1",
+    "root": "skirt_l1",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 2.586,
+    "min_rig_px_per_s": 0.1272
+   },
+   {
+    "tip": "skirt_l2",
+    "root": "skirt_l2",
+    "links": 1,
+    "point": "end",
+    "settles_at": null,
+    "max_rig_px_per_s": 5.438,
+    "min_rig_px_per_s": 0.2452
+   }
+  ]
  },
  "RECOMPOSITE_HOLES": {
   "status": "REPORTED",

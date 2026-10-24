@@ -42,7 +42,22 @@ for side in ["r", "l"]:
         "bone": "cardigan_hem_" + side, "rotate": 1, "inertia": .15,
         "strength": 240, "damping": .92, "mass": 1, "wind": .15,
         "gravity": .06, "mix": 1})
-top = json.loads(json.dumps(cfg["meshes"]["topwear"]))
+def resolve_generator_mesh(part_name: str) -> dict:
+    m = cfg.get("meshes", {}).get(part_name, {})
+    if isinstance(m.get("contour"), dict):
+        return json.loads(json.dumps(m))
+    rep_path = family / "naru/declared-repairs.json"
+    if rep_path.is_file():
+        rep_doc = json.loads(rep_path.read_text())
+        mc = rep_doc.get("parts", {}).get(part_name, {}).get("regenerated", {}).get("meshConfig", {})
+        if isinstance(mc.get("contour"), dict):
+            return json.loads(json.dumps(mc))
+    raise RuntimeError(
+        f"FAMILY_EXPLICIT_MESH_REFUSED: naru/office/{part_name} declares meshes.{part_name}.explicit without "
+        f"parts.{part_name}.regenerated.meshConfig.contour in {rep_path}; edit {author / 'config.json'} directly instead."
+    )
+
+top = resolve_generator_mesh("topwear")
 top["contour"]["tolerance"] = 1
 top["contour"]["margin"] = 3
 top["segments"] = [
@@ -54,7 +69,7 @@ top["segments"] = [
     "cardigan_hem_r",
     "cardigan_hem_l",
 ]
-neck = json.loads(json.dumps(cfg["meshes"]["neck"]))
+neck = resolve_generator_mesh("neck")
 cfg["meshes"] = {
     "neck": neck,
     "topwear": top,
