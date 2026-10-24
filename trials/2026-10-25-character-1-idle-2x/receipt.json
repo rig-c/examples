@@ -1,0 +1,1172 @@
+{
+  "sourceCommit": "40db33d91e4aacbe4cd31ac9f3cc557973b4a1d4",
+  "source": "family/roa/out/check/build",
+  "rigc": "2.68.0",
+  "bun": "1.4.2",
+  "ffmpeg": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+  "frames": 41,
+  "sampledFPS": 12,
+  "dimensions": {
+    "width": 492,
+    "height": 1290
+  },
+  "animationDurationSeconds": 3.333333333333333,
+  "encodedDurationSeconds": 3.4166666666666665,
+  "frameDelays": [
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    },
+    {
+      "numerator": 1,
+      "denominator": 12
+    }
+  ],
+  "plays": 0,
+  "pixelsLossless": true,
+  "concatPNGBytesSHA256": "85e0d85756b3efc384a01a235e38a2e9dc3f178dae626937cd3f511c407ec8d9",
+  "encodedSHA256": "bd31ad5b7d952733417a8ac830c40e73719f95ef0cdb8569e092c2bde3161f0e",
+  "bytes": 11351964,
+  "endpoint": {
+    "max": 212,
+    "mae": 0.44359887397323583,
+    "pixelsOver40": 1917
+  },
+  "maxAdjacentMAE": 0.7597497951723703,
+  "wrapMAE": 0.44359887397323583,
+  "smoothWrap": true,
+  "exactEndpoints": false,
+  "physics": {
+    "stepped": 23,
+    "fps": 12
+  },
+  "verdict": "PASS under HQ owner-adopted measured-wrap bar: wrapMAE 0.44359887397323583 <= max adjacent 0.7597497951723703; all size/frame/timing/infinite/lossless bars pass. Exact endpoint equality is not a bar.",
+  "sourceInputHashes": {
+    "skeleton.json": {
+      "sha256": "be888884043311d976152070ae63e6dd4063b0cf8d3322f953be106b24b41c92",
+      "bytes": 623412
+    },
+    "skeleton.model.json": {
+      "sha256": "b9b61d55614805e468b27f9fb2dbaba65a50a0ce56b32ffef04f8cacd2570632",
+      "bytes": 990791
+    },
+    "skeleton.atlas": {
+      "sha256": "fc4cb05f341664e05a181847f6714321ee6ea3826f7a4f9cf3c85fc669014461",
+      "bytes": 1183
+    },
+    "skeleton.png": {
+      "sha256": "84cbd1b50458090896ad1cc55537df3565e3c1296b47996572efc77a9d8eb6e0",
+      "bytes": 1422720
+    }
+  },
+  "sourceManifestSHA256": "89aa3714b3f4a0442b729c3f1643bd07c8e24dbf9565c21150f88daf47da623c",
+  "renderCommand": [
+    "rigc",
+    "render",
+    "--candidate",
+    "family/roa/out/check/build",
+    "--animation",
+    "idle",
+    "--fps",
+    "12",
+    "--max",
+    "1290",
+    "--poser",
+    "core",
+    "--out",
+    "<new-frames-directory>"
+  ],
+  "encodeCommand": [
+    "bun",
+    "encode.mjs",
+    "encode",
+    "<new-frames-directory>",
+    "<isolated-toolchain-directory>",
+    "<reference.apng>"
+  ],
+  "encoderScriptSHA256": "fae6a49d24aa45d3ccdb561e9720b8edc933e753ebcf2d9429ba74a35538e686",
+  "controls": {
+    "constantFrame": {
+      "max": 0,
+      "mae": 0
+    },
+    "blackToWhiteDefect": {
+      "max": 255,
+      "mae": 255,
+      "pixelsOver40": 1
+    },
+    "zeroMotionEdge": "zero endpoint MAE <= zero max adjacent MAE is true; no division by a zero step"
+  },
+  "barFixedBeforeMeasurement": true,
+  "sheet": {
+    "file": "sheet.png",
+    "sha256": "e3fed75798dc68b71e6064092904defdabab923dd77635d05e8227a8ee930ed7",
+    "verdict": "All 41 labelled tiles visible with the figure contained in the viewport; no missing tile observed. Small-sheet inspection does not prove exact endpoints."
+  },
+  "rejected1280Producer": {
+    "dimensions": {
+      "width": 488,
+      "height": 1280
+    },
+    "concatPNGBytesSHA256": "2fa8b2b905dd788a3653aec38edff10bda4bddc3740439da7803d5e849459dd3",
+    "reason": "width below the predeclared 492 minimum"
+  },
+  "toolchain": {
+    "packageJSON": {
+      "name": "examples-idle-2x-tools",
+      "private": true,
+      "type": "module",
+      "dependencies": {
+        "rig-c": "2.68.0",
+        "@esotericsoftware/spine-core": "4.3.13"
+      }
+    },
+    "bunLock": "{\n  \"lockfileVersion\": 2,\n  \"configVersion\": 1,\n  \"workspaces\": {\n    \"\": {\n      \"name\": \"examples-idle-2x-tools\",\n      \"dependencies\": {\n        \"@esotericsoftware/spine-core\": \"4.3.13\",\n        \"rig-c\": \"2.68.0\",\n      },\n    },\n  },\n  \"packages\": {\n    \"@esotericsoftware/spine-core\": [\"@esotericsoftware/spine-core@4.3.13\", \"\", {}, \"sha512-iGs/40qOWSQYicABebDzFSwFOS1Nsm0dCCS8sGqbpVuThRKdLYeI1cVJpmATSpEmtcetEABTmh97NoBnt7XLDw==\"],\n\n    \"rig-c\": [\"rig-c@2.68.0\", \"\", { \"bin\": { \"rigc\": \"bin/rigc.cjs\" } }, \"sha512-8AIFb38iU4oJK43R2X1iWQo+MiT9/55a5SiRbqAhP4YCw7pjDfYOcN9LEe6e7DQW+DKxhG6+3QDYKBnStxw00A==\"],\n  }\n}\n",
+    "bunLockSHA256": "0b81a866c218fec1728e56e8dff649c5679837722bdc8455fc090d5c03c0d465"
+  },
+  "novaJobs": [
+    "20261024T163053Z-a93effd31f28457baddfd45a19251c95",
+    "20261024T163209Z-c2f66be166854201a3aa38aa82035b50",
+    "20261024T163345Z-ec3a19af810f4d49a0b7749114700ef5",
+    "20261024T163538Z-ee335480381240dab28554ff2ee84045"
+  ],
+  "rigModelMotionArtworkChanged": false,
+  "framesRetainedInRepository": false,
+  "frameCleanup": {
+    "totalFramesDeleted": 82,
+    "bothConcatenatedDigestsVerifiedBeforeDeletion": true,
+    "originalCorpusTouched": false,
+    "producerFramesRetained": false
+  },
+  "unoptimizedReference": {
+    "file": "full-frame-reference.apng",
+    "bytes": 17453151,
+    "sha256": "462044902d2c1ac080d964238d3d05dab7eddafbe2c0940657cba8bf460c4ff7"
+  },
+  "closureDefinition": "rigc emits no closure verdict; this is the measured wrap",
+  "nativeRendererLoopLine": null,
+  "nativeClosure": "UNAVAILABLE: rigc render 2.68.0 emits no closure verdict",
+  "hqDisposition": {
+    "measuredWrapBarAdopted": true,
+    "criterion": "wrapMAE <= maxAdjacentMAE",
+    "result": "PASS",
+    "exactEndpointEqualityIsBar": false,
+    "smoothWrapAsNativeVerdict": false
+  },
+  "supportingSeamLine": "measured wrap: idle 41 frame(s) at 12 fps, f0000 vs f0040: max |d| 212; wrap MAE 0.44359887397323583 vs max adjacent 0.7597497951723703 \u2014 PASS smooth wrap; different endpoints",
+  "nativeRendererEvidence": {
+    "rigc": "2.68.0",
+    "actualPrintedPhysicsLine": "  ..    physics: 23 constraint(s) stepped at 12 fps",
+    "loopColonOccurrencesInProducerLog": 0,
+    "producerLogSHA256": "9969117f1081a8b7c2bbc64dd5db7a9804d45030aa4f8da7a3ea675bff1caad3",
+    "source": "rig-c@2.68.0/src/cli/core_commands.ts:1030-1092,1117-1130",
+    "sourceSHA256": "15f34cbf335e81a4c704c660896701dc989892444bb53d431f4687ca466739b7",
+    "definition": "render prints frame count/duration, physics stepped and frames.json; no closure metric or loop check flag"
+  },
+  "optimization": {
+    "reference": {
+      "file": "full-frame-reference.apng",
+      "bytes": 17453151,
+      "sha256": "462044902d2c1ac080d964238d3d05dab7eddafbe2c0940657cba8bf460c4ff7"
+    },
+    "preflightJob": "20261024T164354Z-ca8fa850a810460797563a2952311be5",
+    "measurementJob": "20261024T164502Z-48352c7770aa49189a0445bc3f2d7819",
+    "candidates": [
+      {
+        "file": "predictor-lossless.apng",
+        "bytes": 11351964,
+        "sha256": "bd31ad5b7d952733417a8ac830c40e73719f95ef0cdb8569e092c2bde3161f0e",
+        "format": "APNG",
+        "dimensions": [
+          492,
+          1290
+        ],
+        "frames": 41,
+        "delays": [
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ]
+        ],
+        "infinite": true,
+        "plays": 0,
+        "decodedRGBAEqual": true,
+        "maxRGBAError": 0,
+        "decodedFrames": 41,
+        "exact12fpsDelay": true,
+        "seconds": 55.742,
+        "eligible": true
+      },
+      {
+        "file": "palette.apng",
+        "bytes": 2638904,
+        "sha256": "99cd3bfec63a1ea622ead43a545ef3ffa156a802ebc36a259e11ee370f53fff7",
+        "format": "APNG",
+        "dimensions": [
+          492,
+          1290
+        ],
+        "frames": 41,
+        "delays": [
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ],
+          [
+            1,
+            12
+          ]
+        ],
+        "infinite": true,
+        "plays": 0,
+        "decodedRGBAEqual": false,
+        "maxRGBAError": 66,
+        "decodedFrames": 41,
+        "exact12fpsDelay": true,
+        "seconds": 17.899,
+        "eligible": false
+      },
+      {
+        "file": "palette.gif",
+        "bytes": 2253537,
+        "sha256": "7b67f6eb610533eb17cde80b65ec6823a013a22a3b6b7557d21ed3d3336a5730",
+        "format": "GIF",
+        "dimensions": [
+          492,
+          1290
+        ],
+        "frames": 41,
+        "delays": [
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            9,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ],
+          [
+            8,
+            100
+          ]
+        ],
+        "infinite": true,
+        "plays": 0,
+        "decodedRGBAEqual": false,
+        "maxRGBAError": 66,
+        "decodedFrames": 41,
+        "exact12fpsDelay": false,
+        "seconds": 3.027,
+        "eligible": false
+      }
+    ],
+    "selected": "predictor-lossless.apng",
+    "selection": "Smallest measured candidate with max RGBA error 0 and the same 41-frame, exact-delay, 492x1290, infinite-play bars. Palette error 66 rejected; GIF also fails exact timing.",
+    "measuredCommands": [
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-threads",
+          "1",
+          "-filter_threads",
+          "1",
+          "-filter_complex_threads",
+          "1",
+          "-ignore_loop",
+          "1",
+          "-i",
+          "<reference.apng>",
+          "-frames:v",
+          "41",
+          "-f",
+          "null",
+          "-"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-threads",
+          "1",
+          "-filter_threads",
+          "1",
+          "-filter_complex_threads",
+          "1",
+          "-ignore_loop",
+          "1",
+          "-i",
+          "<reference.apng>",
+          "-filter_complex",
+          "[0:v]split[a][b];[a]palettegen=stats_mode=full[p];[b][p]paletteuse=dither=none",
+          "-frames:v",
+          "41",
+          "-f",
+          "null",
+          "-"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-h",
+          "encoder=apng"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-h",
+          "encoder=gif"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-threads",
+          "1",
+          "-filter_threads",
+          "1",
+          "-filter_complex_threads",
+          "1",
+          "-ignore_loop",
+          "1",
+          "-i",
+          "<reference.apng>",
+          "-frames:v",
+          "41",
+          "-pix_fmt",
+          "rgba",
+          "-fps_mode",
+          "passthrough",
+          "-f",
+          "rawvideo",
+          "-"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-threads",
+          "1",
+          "-filter_threads",
+          "1",
+          "-filter_complex_threads",
+          "1",
+          "-ignore_loop",
+          "1",
+          "-i",
+          "<reference.apng>",
+          "-frames:v",
+          "41",
+          "-fps_mode",
+          "passthrough",
+          "-pix_fmt",
+          "rgba",
+          "-plays",
+          "0",
+          "-compression_level",
+          "9",
+          "-pred",
+          "mixed",
+          "-f",
+          "apng",
+          "<predictor-lossless.apng>"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-threads",
+          "1",
+          "-ignore_loop",
+          "1",
+          "-i",
+          "<predictor-lossless.apng>",
+          "-frames:v",
+          "41",
+          "-pix_fmt",
+          "rgba",
+          "-fps_mode",
+          "passthrough",
+          "-f",
+          "rawvideo",
+          "-"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-threads",
+          "1",
+          "-filter_threads",
+          "1",
+          "-filter_complex_threads",
+          "1",
+          "-ignore_loop",
+          "1",
+          "-i",
+          "<reference.apng>",
+          "-frames:v",
+          "41",
+          "-fps_mode",
+          "passthrough",
+          "-filter_complex",
+          "[0:v]split[a][b];[a]palettegen=stats_mode=full[p];[b][p]paletteuse=dither=none",
+          "-plays",
+          "0",
+          "-compression_level",
+          "9",
+          "-pred",
+          "mixed",
+          "-f",
+          "apng",
+          "<palette.apng>"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-threads",
+          "1",
+          "-ignore_loop",
+          "1",
+          "-i",
+          "<palette.apng>",
+          "-frames:v",
+          "41",
+          "-pix_fmt",
+          "rgba",
+          "-fps_mode",
+          "passthrough",
+          "-f",
+          "rawvideo",
+          "-"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-threads",
+          "1",
+          "-filter_threads",
+          "1",
+          "-filter_complex_threads",
+          "1",
+          "-ignore_loop",
+          "1",
+          "-i",
+          "<reference.apng>",
+          "-frames:v",
+          "41",
+          "-fps_mode",
+          "passthrough",
+          "-filter_complex",
+          "[0:v]split[a][b];[a]palettegen=stats_mode=full[p];[b][p]paletteuse=dither=none",
+          "-loop",
+          "0",
+          "-f",
+          "gif",
+          "<palette.gif>"
+        ],
+        "exit": 0
+      },
+      {
+        "command": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-threads",
+          "1",
+          "-ignore_loop",
+          "1",
+          "-i",
+          "<palette.gif>",
+          "-frames:v",
+          "41",
+          "-pix_fmt",
+          "rgba",
+          "-fps_mode",
+          "passthrough",
+          "-f",
+          "rawvideo",
+          "-"
+        ],
+        "exit": 0
+      }
+    ],
+    "referencePreservedRemotely": true,
+    "temporaryDecodedFrameFilesCreated": false,
+    "temporaryWorkspaceCleaned": true,
+    "rerendered": false
+  },
+  "aiReviewFix": {
+    "finding": "https://github.com/rig-c/examples/pull/64#discussion_r4367769592",
+    "headReviewed": "b8422d447d7ae91586a61e849fc9b76d9dd1ee4f",
+    "fix": "Absolute TRIAL from current trial-containing checkout; separate INPUT_ROOT verified against four source hashes. Do not check out the historical input commit alone.",
+    "extractedReadmeSetupExecuted": true,
+    "frozenInstallExit": 0,
+    "actualRendererLoaderExit": 0,
+    "rerendered": false
+  },
+  "compressionCommand": [
+    "bun",
+    "encode.mjs",
+    "compress",
+    "<reference.apng>",
+    "<isolated-toolchain-directory>",
+    "<out.apng>"
+  ]
+}
