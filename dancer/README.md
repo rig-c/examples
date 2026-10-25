@@ -2,14 +2,14 @@
 
 **Current producer mesh declaration:** `config.json` carries the owner-selected smear50 bottomwear as an explicit payload at parts 1.64.0, with `bottomwear` still in `turn.depths`. Its setup seam is zero. This is separate from the immutable accepted dance replay below. Producer reproduction and the remaining motion/preservation blockers are recorded under `provenance/smear50-producer.json`.
 
-**Current accepted dance: owner v3, 2026-10-24.** Run `sh build-accepted-dance.sh` from this directory. The corpus stores the accepted rig/motion once and replays them with released core; no trial checkout, acquisition, generation, retarget or hand authoring is needed. [V3 source and commands](accepted-dance/v3/README.md) and `declared-repairs-v3.json` bind the exact native-frame target. The setup keeper below is separate base provenance. The corpus-only v3 default replay exited 0: all three compiled hashes and native 391-PNG concatenation `b75fc5696ac468f3ea9f58cc892d79389d66bf6ce7aeb31428f95350b9121029` match the accepted target exactly; gate 23 PASS / 0 FAIL / 13 SKIP / 14 excluded. [Actual v3 proof](accepted-dance/v3/reproduction-evidence.json).
+**Current accepted dance: owner v4, 2026-10-25.** Run `sh build-accepted-dance.sh` from this directory. The owner's eye verdict was "v4 looks good, merge it" ([#73](https://github.com/rig-c/examples/issues/73)). V4 replays the mesh-only smear50 rig with released core; motion and every other rig subtree are unchanged from v3. [V4 source, commands and measured evidence](accepted-dance/v4/README.md). The setup producer is separate provenance. V3 remains immutable and explicitly selectable with `sh build-accepted-dance.sh --version v3 work/accepted-v3`; its versioned records describe its earlier acceptance/default, not the current selection. [Historical v3 proof](accepted-dance/v3/reproduction-evidence.json).
 
 | Dance version | Source date | Record / selection |
 | --- | --- | --- |
 | v1 | 2026-10-24 | Accepted R3/v5, [trial #52](https://github.com/rig-c/examples/pull/52) and [corpus #53](https://github.com/rig-c/examples/pull/53); original declarations/evidence retained; explicit `sh build-accepted-dance.sh --version v1 work/accepted-v1` |
 | v2 | 2026-10-24 | Intermediate generated holds and lifted-jacket strip, [#38](https://github.com/rig-c/examples/issues/38); recorded, not promoted |
-| v3 | 2026-10-24 | Owner-named final, [#56](https://github.com/rig-c/examples/issues/56), [trial #57](https://github.com/rig-c/examples/pull/57); permanent hip waist, generated chest holds, compensated +17u chest lift and front-slot lowering; current default |
-| v4 | 2026-10-25 | Explicit smear50 mesh-only candidate, [#71](https://github.com/rig-c/examples/issues/71); original eval 20/4, bottomwear folds 0; [source, reproduction and evidence](accepted-dance/v4/README.md); opt in with `sh build-accepted-dance.sh --version v4 work/accepted-v4`; owner eye acceptance pending |
+| v3 | 2026-10-24 | Owner-named final, [#56](https://github.com/rig-c/examples/issues/56), [trial #57](https://github.com/rig-c/examples/pull/57); permanent hip waist, generated chest holds, compensated +17u chest lift and front-slot lowering; historical accepted version, explicitly selectable |
+| v4 | 2026-10-25 | Owner-accepted smear50 mesh-only replay, [#71](https://github.com/rig-c/examples/issues/71); original eval 20/4, bottomwear folds 0; [source, reproduction and evidence](accepted-dance/v4/README.md); current default; explicit `sh build-accepted-dance.sh --version v4 work/accepted-v4` also remains available |
 
 Generated painting and saved rig inputs accepted on 2026-10-22. Origin:
 accepted dance-skirt v3/v5; original painting and See-through runs, 2026-10-13.
@@ -38,7 +38,7 @@ Each input's origin is recorded in `source-manifest.json`.
   separate artifacts; config-only output is not claimed to recreate that rig.
 
 No reference video, audio, picture-in-picture, installed dependency tree or private raw
-log is included. The current accepted dance payload is explicitly stored once under accepted-dance/v3/. Generation model names are source records; model binary hashes
+log is included. The current accepted dance payload is stored under accepted-dance/v4/; immutable v3 remains beside it. Generation model names are source records; model binary hashes
 are not available in those records.
 
 ## Reproduce the current producer build
