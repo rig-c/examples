@@ -1,5 +1,7 @@
 # The dancer
 
+**Current producer mesh declaration:** `config.json` carries the owner-selected smear50 bottomwear as an explicit payload at parts 1.64.0, with `bottomwear` still in `turn.depths`. Its setup seam is zero. This is separate from the immutable accepted dance replay below. Producer reproduction and the remaining motion/preservation blockers are recorded under `provenance/smear50-producer.json`.
+
 **Current accepted dance: owner v3, 2026-10-24.** Run `sh build-accepted-dance.sh` from this directory. The corpus stores the accepted rig/motion once and replays them with released core; no trial checkout, acquisition, generation, retarget or hand authoring is needed. [V3 source and commands](accepted-dance/v3/README.md) and `declared-repairs-v3.json` bind the exact native-frame target. The setup keeper below is separate base provenance. The corpus-only v3 default replay exited 0: all three compiled hashes and native 391-PNG concatenation `b75fc5696ac468f3ea9f58cc892d79389d66bf6ce7aeb31428f95350b9121029` match the accepted target exactly; gate 23 PASS / 0 FAIL / 13 SKIP / 14 excluded. [Actual v3 proof](accepted-dance/v3/reproduction-evidence.json).
 
 | Dance version | Source date | Record / selection |
@@ -7,6 +9,7 @@
 | v1 | 2026-10-24 | Accepted R3/v5, [trial #52](https://github.com/rig-c/examples/pull/52) and [corpus #53](https://github.com/rig-c/examples/pull/53); original declarations/evidence retained; explicit `sh build-accepted-dance.sh --version v1 work/accepted-v1` |
 | v2 | 2026-10-24 | Intermediate generated holds and lifted-jacket strip, [#38](https://github.com/rig-c/examples/issues/38); recorded, not promoted |
 | v3 | 2026-10-24 | Owner-named final, [#56](https://github.com/rig-c/examples/issues/56), [trial #57](https://github.com/rig-c/examples/pull/57); permanent hip waist, generated chest holds, compensated +17u chest lift and front-slot lowering; current default |
+| v4 | 2026-10-25 | Explicit smear50 mesh-only candidate, [#71](https://github.com/rig-c/examples/issues/71); original eval 20/4, bottomwear folds 0; [source, reproduction and evidence](accepted-dance/v4/README.md); opt in with `sh build-accepted-dance.sh --version v4 work/accepted-v4`; owner eye acceptance pending |
 
 Generated painting and saved rig inputs accepted on 2026-10-22. Origin:
 accepted dance-skirt v3/v5; original painting and See-through runs, 2026-10-13.
@@ -20,7 +23,7 @@ Each input's origin is recorded in `source-manifest.json`.
   `layers/full/` and `layers/head/` each contain 29 tagged parts and saved
   metadata. Each `layers.json` retains original server filename/depth
   provenance; exported parts are addressed by `parts/<tag>.png`.
-- `config.json` preserves the v3 keeper producer values with 11 physics constraints; its added `x-repairs` metadata pins the declared hand record.
+- `config.json` states the explicit smear50 producer mesh with the original 11 physics declarations. `provenance/keeper-config-before-smear50.json` preserves the exact previous keeper for historical replay. `x-repairs` still pins the unchanged historical hand record.
   `config-base.json` is the historical 9-constraint input, not the active
   keeper. `under/`, `stress.json` and `requirements.json` close the declared
   build dependencies.
@@ -38,7 +41,7 @@ No reference video, audio, picture-in-picture, installed dependency tree or priv
 log is included. The current accepted dance payload is explicitly stored once under accepted-dance/v3/. Generation model names are source records; model binary hashes
 are not available in those records.
 
-## Reproduce the keeper-config build
+## Reproduce the current producer build
 
 From this directory, with Bun and Python 3:
 
@@ -46,16 +49,20 @@ From this directory, with Bun and Python 3:
 sh build.sh
 ```
 
-This command builds `config.json`; it does not build `accepted/rig.json`.
-**It may exit 1: the recorded current run below did so at the seam check.**
-Output is ignored under `work/`. The accepted rig has the separate core build described below.
+This command builds `config.json`; the explicit producer passes the unchanged setup seam at mean 0 and 0 pixels over 40. Output is ignored under `work/`. The saved accepted rig has the separate core build described below.
 
-Direct package pins are `@rig-c/parts` 1.60.0, `rig-c` 2.67.2 and the official
-round-trip runtime `@esotericsoftware/spine-core` 4.3.13. The recorded Nova run
-used Bun 1.4.2, Node v24.21.0 and Python 3.12.3. `check-inputs.py` checks file
+The adopted canonical producer bytes are in `producer/rig/`. A fresh rebuild and byte/RGBA inventory comparison runs as:
+
+```sh
+bun tools/verify-producer.mjs --out work/fresh-producer
+```
+
+Choose a new output directory for each rebuild. The verifier refuses changed/missing files, changed decoded PNG pixels, a red check, or changed active config/package pins. It verifies all 31 producer files; it does not claim the original accepted dance can be played on this different producer rig.
+
+The current frozen producer install pins `@rig-c/parts` 1.64.0, direct `rig-c` 2.67.2 and official `@esotericsoftware/spine-core` 4.3.13. Parts resolves its own compatible rig-c 2.70.0, recorded in `bun.lock`; that is the compiler its build/check invokes. The new Nova producer runs use Bun 1.4.4. Historical dance replay keeps its separate frozen package pins. `check-inputs.py` checks file
 hashes and config/map closure; it does not render or establish rig correctness.
 
-## Recorded current build, 2026-10-23
+## Historical keeper-config build, 2026-10-23
 
 One targeted closure and keeper-config build ran on Nova. Inputs were unchanged
 through the run. No fallback build or rig modification was performed.
@@ -80,15 +87,14 @@ The documented diagnostic is to inspect the `seam pair` lines and
 No corrective config, art, geometry, limit or gate changes were made. This
 config-build refusal does not establish a regression or a failure of the
 separate accepted hand-built rig. The config gap is recorded for a separate parts issue and does not block use
-of the saved accepted rig. No producer fix is included.
+of the saved accepted rig. This historical refusal is retained as provenance; the current explicit producer above resolves its setup seam.
 
 ## Input integrity
 
 `source-manifest.json` lists repository-relative input paths, byte counts,
 SHA-256 hashes, source hashes and origins. `path-normalization.json` records the
-two See-through metadata image-path changes. Keeper producer values and historical base config bytes are preserved exactly.
-The keeper adds only `x-repairs` metadata; removing that field and writing
-two-space JSON with one trailing LF recovers its original recorded hash.
+two See-through metadata image-path changes. Historical base config bytes and the archived pre-smear50 keeper are preserved exactly.
+Removing only `x-repairs` from the archived keeper and writing two-space JSON with one trailing LF recovers its original recorded hash. The active config additionally declares the explicit skirt; its canonical producer inventory has a separate config hash.
 Accepted image bytes and map values are preserved.
 
 ## Build the accepted rig
@@ -97,7 +103,7 @@ The accepted v3 source is the hand-built transplant recorded by
 `replace_shins.py`, using the weighted-shins output from the parts 1.57 source
 build. `port_config.py` writes the keeper producer-input config and port ledger;
 it does not write the accepted rig. Its external historical dependencies were
-not followed or executed for this package. Keeper geometry and producer values remain unchanged; only the declared-record metadata pin is added.
+not followed or executed for this package. The archived keeper geometry and producer values remain unchanged. Historical replay readers explicitly use that archive for their original config preimage; they do not substitute the new active producer mesh.
 
 From this directory:
 

@@ -1,0 +1,123 @@
+[
+ {
+  "part": "hair_back",
+  "vertices": 47,
+  "triangles": 66,
+  "hull": 26,
+  "bones": [
+   "turn_hair_back_bun",
+   "turn_hair_back_head"
+  ],
+  "max_influences": 2,
+  "mean_influences": 2,
+  "art_coverage": 1,
+  "grid": 29
+ },
+ {
+  "part": "shins",
+  "vertices": 288,
+  "triangles": 448,
+  "hull": 126,
+  "bones": [
+   "leg_l1",
+   "leg_r1"
+  ],
+  "max_influences": 1,
+  "mean_influences": 1,
+  "art_coverage": 1,
+  "grid": 12,
+  "influences": {
+   "maxInfluences": 1
+  }
+ },
+ {
+  "part": "neck",
+  "vertices": 12,
+  "triangles": 12,
+  "hull": 10,
+  "bones": [
+   "turn_neck_chest",
+   "turn_neck_head"
+  ],
+  "max_influences": 2,
+  "mean_influences": 1.83,
+  "art_coverage": 1,
+  "grid": 29
+ },
+ {
+  "part": "bottomwear",
+  "vertices": 123,
+  "triangles": 200,
+  "hull": 44,
+  "bones": [
+   "turn_bottomwear_hip",
+   "turn_bottomwear_skirt_c0_d",
+   "turn_bottomwear_skirt_c1_d",
+   "turn_bottomwear_skirt_c2_d",
+   "turn_bottomwear_skirt_l0_d",
+   "turn_bottomwear_skirt_l1_d",
+   "turn_bottomwear_skirt_l2_d",
+   "turn_bottomwear_skirt_lm0_d",
+   "turn_bottomwear_skirt_lm1_d",
+   "turn_bottomwear_skirt_lm2_d",
+   "turn_bottomwear_skirt_r0_d",
+   "turn_bottomwear_skirt_r1_d",
+   "turn_bottomwear_skirt_r2_d",
+   "turn_bottomwear_skirt_rm0_d",
+   "turn_bottomwear_skirt_rm1_d",
+   "turn_bottomwear_skirt_rm2_d"
+  ],
+  "max_influences": 7,
+  "mean_influences": 5.43,
+  "art_coverage": 1,
+  "mode": "explicit",
+  "image_sha256": "bf18e918b65b666d6ea8f90fa4770e9a5a9f59f144e9172a05e9a68694c0d963",
+  "region_sha256": "ff34e2096b321fec1a6bf44039beaf6b91e0cac5f0d30348b138156a306900e6"
+ },
+ {
+  "part": "topwear",
+  "vertices": 54,
+  "triangles": 80,
+  "hull": 26,
+  "bones": [
+   "turn_topwear_chest",
+   "turn_topwear_hip"
+  ],
+  "max_influences": 2,
+  "mean_influences": 1.78,
+  "art_coverage": 1,
+  "grid": 29
+ },
+ {
+  "part": "hairpin",
+  "vertices": 12,
+  "triangles": 12,
+  "hull": 10,
+  "bones": [
+   "turn_hairpin_hairpin"
+  ],
+  "max_influences": 1,
+  "mean_influences": 1,
+  "art_coverage": 1,
+  "grid": 29
+ },
+ {
+  "part": "hair_front",
+  "vertices": 50,
+  "triangles": 64,
+  "hull": 34,
+  "bones": [
+   "turn_hair_front_bang_c0",
+   "turn_hair_front_bang_c1",
+   "turn_hair_front_bang_l0",
+   "turn_hair_front_bang_l1",
+   "turn_hair_front_bang_r0",
+   "turn_hair_front_bang_r1",
+   "turn_hair_front_head"
+  ],
+  "max_influences": 4,
+  "mean_influences": 3.96,
+  "art_coverage": 1,
+  "grid": 29
+ }
+]

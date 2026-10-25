@@ -1,0 +1,78 @@
+{
+  "spec": "dancer-smear50-producer/1",
+  "issue": "https://github.com/rig-c/examples/issues/71",
+  "pins": {
+    "parts": "1.64.0",
+    "directCore": "2.67.2",
+    "partsCore": "2.70.0",
+    "spineCore": "4.3.13",
+    "bun": "1.4.4"
+  },
+  "payloadSHA256": "66a58430f46c1142d91778331290882291f5e057861144e2b9ee5421b3a62d86",
+  "mesh": {
+    "vertices": 123,
+    "triangles": 200
+  },
+  "baseline": {
+    "configSHA256": "9e73777e0cfdf0b1fcc4c4e55f06bd47694cf787708d3d0142b100a1d44d3c8a",
+    "rigSHA256": "151b1c130143fcb2b779443012f4e961dd256e8bcac66971813d881d5412e08a",
+    "setupSeamMean": 0.962,
+    "pixelsOver40": 5052,
+    "checkExit": 1
+  },
+  "candidate": {
+    "rigSHA256": "037cea0fc96ab247286c985e8336b5d06519d9a1a069e78dd800a12b2a180fbf",
+    "setupSeamMean": 0,
+    "pixelsOver40": 0,
+    "checkExit": 0,
+    "measuredBars": 11,
+    "totalBars": 12,
+    "skip": [
+      "STRESS_OFF_CHAIN"
+    ],
+    "warnings": [
+      "CLOTH_SETTLES"
+    ]
+  },
+  "freshReproduction": {
+    "exit": 0,
+    "files": 31,
+    "bytesIdentical": true,
+    "decodedRGBAIdentical": true
+  },
+  "preservation": {
+    "boneCount": 137,
+    "bonesIdenticalByName": true,
+    "rawBoneArrayIdentical": false,
+    "rawBoneOrderChanges": [
+      {
+        "index": 109,
+        "before": "turn_bottomwear_skirt_rm2_d",
+        "after": "turn_bottomwear_skirt_c1_d"
+      },
+      {
+        "index": 110,
+        "before": "turn_bottomwear_skirt_c1_d",
+        "after": "turn_bottomwear_skirt_rm2_d"
+      }
+    ],
+    "physicsIdentical": true,
+    "motionBytesIdentical": true,
+    "motionSHA256": "4a19cf872642cf00b28bab3807a5b597da30c866fcdf3b52619cdb43ce3f54ed",
+    "turnBoneListOrderChanged": true
+  },
+  "danceOnProducer": {
+    "applicable": false,
+    "readerRefusals": [
+      "forearm_l_back in set_K1",
+      "yaw_dial in dance-only motion"
+    ],
+    "reason": "Producer lacks the accepted dance alternate/control bones. No alias or track removal is applied."
+  },
+  "runs": {
+    "baseline": "20261025T074614Z-fad6660d22344c6283f918c186ffe722",
+    "candidate": "20261025T074924Z-a3ffdc361c3846e3855f3d7990837ef4",
+    "freshReproduction": "20261025T075239Z-811fa54e1130468f83fd45cecb0b2894"
+  },
+  "nativeEditorReceipt": "explicit-turn-editor-roundtrip.json"
+}

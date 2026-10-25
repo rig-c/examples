@@ -1,0 +1,38 @@
+{
+  "spec": "dancer-smear50-video/1",
+  "window": [
+    240,
+    290
+  ],
+  "fps": 30,
+  "left": "v3",
+  "right": "v4",
+  "cropBoxes": {
+    "left": [
+      220,
+      380,
+      420,
+      580
+    ],
+    "right": [
+      420,
+      380,
+      620,
+      580
+    ]
+  },
+  "scale": 4,
+  "filter": "nearest",
+  "stream": {
+    "codec_name": "h264",
+    "width": 3072,
+    "height": 1600,
+    "sample_aspect_ratio": "1:1",
+    "duration": "1.700000",
+    "nb_frames": "51"
+  },
+  "bytes": 1367689,
+  "sha256": "47660797dcc7f765e8fc22cbc978db627fa7969f89b3ee25c9f391d4ffd53d35",
+  "ffmpeg": "ffmpeg version 8.0.1-essentials_build-www.gyan.dev Copyright (c) 2000-2025 the FFmpeg developers",
+  "captionSHA256": "d8fa309a95ced3e6fb9ac4716155b77f9d92040b53453898c5a89cad0e923158"
+}

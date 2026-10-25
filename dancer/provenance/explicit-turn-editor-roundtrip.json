@@ -1,0 +1,69 @@
+{
+  "spec": "dancer-explicit-editor-roundtrip/1",
+  "coreToolCommit": "14fb118312b691d3eec4dc0712d641640b06a736",
+  "coreToolSHA256": "e89e4ebbc9461c47ff4b24d6af8a30d2f13ae669219fd444199bf4589821b8e3",
+  "coreVersion": "2.69.0",
+  "editor": "Spine 4.3.26 Professional",
+  "memoryPressureLevelBefore": 1,
+  "novaLocalRun": "20261025T080304Z-6b37676c369947e9b23728cc900fa58c",
+  "exitCode": 0,
+  "steps": [
+    {
+      "step": 1,
+      "name": "import",
+      "exitCode": 0
+    },
+    {
+      "step": 2,
+      "name": "export",
+      "exitCode": 0
+    },
+    {
+      "step": 3,
+      "name": "validate spine",
+      "exitCode": 0
+    },
+    {
+      "step": 4,
+      "name": "diff",
+      "exitCode": 0
+    },
+    {
+      "step": 5,
+      "name": "render both and check export",
+      "exitCode": 0
+    },
+    {
+      "step": 6,
+      "name": "rewrite summary",
+      "exitCode": null,
+      "reason": "summary only; no child process"
+    }
+  ],
+  "refusals": [],
+  "reportedRewrites": [
+    "linear/stepped/bezier key-kind counts",
+    "bounds_box",
+    "skeleton.spine 4.3.13 to 4.3.26",
+    "skeleton.images changed to editor import location"
+  ],
+  "build": {
+    "skeleton.json": "e9814d6775809ce59e0b5c105bb2d5e4d89914503386ec61417d4e19c921cf70",
+    "skeleton.atlas": "d140b1ae80acdd334b18e1f57104f22afcfa6ba4e4691562662e1328407d892e",
+    "skeleton.model.json": "385189fee4942cf96212099563bee070ce4f322cd7dff37d2ada84bd0b3d29f2",
+    "skeleton.png": "cb57bdfae583b58f10113aac82bb29fbe847484b76c6e7c80415509aa02bedb4"
+  },
+  "freshPackedTargetIdentical": true,
+  "spineProcessesRemaining": 0,
+  "platformBoundary": "native macOS; Nova Linux descendant-quiescence proof unavailable",
+  "render-build": {
+    "frames": 1235,
+    "sha256": "5379011d7072f3d3d9031e0d50ba5ce3b0f16876277f9ea756a30d1e301a5e53",
+    "deleted": true
+  },
+  "render-export": {
+    "frames": 1235,
+    "sha256": "5db391a26275efec06be617161d06a9ea88e79333795d2ba5d91319203ff2774",
+    "deleted": true
+  }
+}

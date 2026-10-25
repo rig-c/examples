@@ -18,7 +18,8 @@ def sha(path):
 
 def preflight():
     record = json.loads((SOURCE / 'declared-repairs-v3.json').read_text())
-    config = json.loads((SOURCE / 'config.json').read_text())
+    # Historical replay binds the archived keeper, not the new active producer mesh.
+    config = json.loads((SOURCE / 'provenance/keeper-config-before-smear50.json').read_text())
     assert config.pop('x-repairs') == {'file': 'declared-repairs-v3.json', 'sha256': sha(SOURCE / 'declared-repairs-v3.json')}, 'REPAIRS_HASH: config.json'
     producer = (json.dumps(config, indent=2, ensure_ascii=False) + '\n').encode()
     assert hashlib.sha256(producer).hexdigest() == record['baseline']['config.json']['sha256'], 'PRODUCER_HASH: config.json excluding x-repairs'

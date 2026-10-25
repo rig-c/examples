@@ -1,0 +1,271 @@
+{
+  "spec": "dancer-producer/1",
+  "configSHA256": "3f59c4484e037b0e73c1023eaf8b989f20c01fc532e826e77e902c3576a58cf7",
+  "packageSHA256": "7dbfb6bdb3bc5a1479d69c5d157202bf7cf574ffe1a7240eb1fed94d9079781a",
+  "files": {
+    "rig/images/bottomwear.png": {
+      "bytes": 53567,
+      "sha256": "2c9aea3750d0cc5c8e769f0b3948ca7311cfef470b31fd2d698c722fc0ba5d79",
+      "rgba": {
+        "width": 217,
+        "height": 213,
+        "sha256": "533f44e5c7c76c842475981657d0ffd6fe3325fc7f1f954a758355363195dd3d"
+      }
+    },
+    "rig/images/brow_l.png": {
+      "bytes": 305,
+      "sha256": "58d8f5dd5b3b456e2279ffa53d4eb987632e5061f6a00c6fd5f54c8d867406c1",
+      "rgba": {
+        "width": 36,
+        "height": 12,
+        "sha256": "5615008c2d7fdf93b3ad4ec620ac9eeadfd77627d902bb423099ac657355c270"
+      }
+    },
+    "rig/images/brow_r.png": {
+      "bytes": 224,
+      "sha256": "dc0ebf85f202135fec40aae7f8d364724f9e3e9ef89c5832957a8815f92684ef",
+      "rgba": {
+        "width": 31,
+        "height": 13,
+        "sha256": "8ba207a181e279ca6907d3514afd2d8cc6621b592e88a985780369544b407722"
+      }
+    },
+    "rig/images/ear_l.png": {
+      "bytes": 1788,
+      "sha256": "9cf0a1ed9e4a4650622c625664a038923b4ec98bc79625a91ca17c256c1c366b",
+      "rgba": {
+        "width": 29,
+        "height": 42,
+        "sha256": "4e107dbb7513557a2164031103aed360b96ba67c8008bce4eb7aed9d1839c960"
+      }
+    },
+    "rig/images/ear_r.png": {
+      "bytes": 1901,
+      "sha256": "9136a74c08f1c615c48318f43ae1864c8d022cc1ede78989636c4c4fb1ab038d",
+      "rgba": {
+        "width": 30,
+        "height": 42,
+        "sha256": "603d5e3016dd24da33b0b80fda260f2c5656ea090491598d7f5ef9d335ce3f19"
+      }
+    },
+    "rig/images/eyewhite_l.png": {
+      "bytes": 1545,
+      "sha256": "62c542d0de59410cc9077d892c8138afb078a45dc01f74e1d20ccfcd89822a3a",
+      "rgba": {
+        "width": 40,
+        "height": 31,
+        "sha256": "fcfbbf43245c2a8fc961dfa21808ad154fa86de6d962ade612c098d43e9b43bf"
+      }
+    },
+    "rig/images/eyewhite_r.png": {
+      "bytes": 1509,
+      "sha256": "1a0a252b1859d5c91f8cbbaeb4dc41c165f84f0203b837bb8fbea95b47580560",
+      "rgba": {
+        "width": 37,
+        "height": 31,
+        "sha256": "e192f862c2e08d64c1a018ef3c86f6c0e7e3d3f9f4d4f8137806933163df2dd7"
+      }
+    },
+    "rig/images/face.png": {
+      "bytes": 16818,
+      "sha256": "0ab685b78a8b137476da28897658eefe4d1eea2472e433ccd5fc95eeb6f27930",
+      "rgba": {
+        "width": 114,
+        "height": 136,
+        "sha256": "cdd04ed65562f3d7db386ad338c92dcd6154af8a76b0d21f1d43c56c2a7f6d6c"
+      }
+    },
+    "rig/images/forearm_l.png": {
+      "bytes": 33609,
+      "sha256": "05a21d0189aab69a6e350296112449eab0872355be1c56a5574486dac6777c7f",
+      "rgba": {
+        "width": 170,
+        "height": 225,
+        "sha256": "e3879d256bc872d547439f8a48847a93fc198abcf78c85215c78f763cb8788b5"
+      }
+    },
+    "rig/images/forearm_r.png": {
+      "bytes": 36296,
+      "sha256": "19a6960f9e1479d89687d6538ac17131cc9b9acdabc94dd966627ef2abc3ef88",
+      "rgba": {
+        "width": 176,
+        "height": 235,
+        "sha256": "108a217c2863082ff449e64439d6efde25454a021736e6d4168e4ac19950000c"
+      }
+    },
+    "rig/images/hair_back.png": {
+      "bytes": 33152,
+      "sha256": "809652f89fa30abbf5b9afb8fa3bae421cff0d83f2cb12443943eb30928e8404",
+      "rgba": {
+        "width": 144,
+        "height": 210,
+        "sha256": "61f691a1f2cf5521934a3cfcce98d2cf189029d85b51e033a8388abcaaaa8f13"
+      }
+    },
+    "rig/images/hair_front.png": {
+      "bytes": 32475,
+      "sha256": "92ee31f2da01f1586759c3c57d5ca507cce3adc82e0949313dadd791fdbd825f",
+      "rgba": {
+        "width": 151,
+        "height": 195,
+        "sha256": "4f11c5090c41ad3ac6e7df994b5559c01dc0aa408a3ac38e3c0c4277af5a1279"
+      }
+    },
+    "rig/images/hairpin.png": {
+      "bytes": 6779,
+      "sha256": "62111a97a3f65abfde9ef073ff5803defdaa5caa5ca079d20f319d051d9424bb",
+      "rgba": {
+        "width": 91,
+        "height": 42,
+        "sha256": "78fc80deff8ea73eb623b2155de6c642453aefbff9a25e1e8eaf28166d7ecdf8"
+      }
+    },
+    "rig/images/iris_l.png": {
+      "bytes": 1400,
+      "sha256": "52fab7f7ab371840a8d30f7b4aa5ddce5e69d02c7ee5e59feee85b993e7eac54",
+      "rgba": {
+        "width": 27,
+        "height": 30,
+        "sha256": "d1145ed94e25253985790ef581cdad057dc6dbc6901e29a640db99f8a43e5bf6"
+      }
+    },
+    "rig/images/iris_r.png": {
+      "bytes": 1438,
+      "sha256": "0467eb19345073ef4b46823e345844225ad62ba579c9902f832557297ffce31f",
+      "rgba": {
+        "width": 29,
+        "height": 30,
+        "sha256": "1e2abde982e509e498c4e929642bae6bb6bf13598ae1cd1627d23476c4d45fe7"
+      }
+    },
+    "rig/images/lash_l.png": {
+      "bytes": 1329,
+      "sha256": "c7921184f10ea24039a8015ca6998fe6792311672a6fb1737b2038ef8ccf3d46",
+      "rgba": {
+        "width": 44,
+        "height": 35,
+        "sha256": "37ba2ca3e68c02b150dd1ef78e423cbd0a667e7103dd85bdc81cbc2dd6fa1ce6"
+      }
+    },
+    "rig/images/lash_r.png": {
+      "bytes": 1377,
+      "sha256": "7c0a70505472b3e5632616fee08473838ad4b0566f7476656fffbf4a991e4ddb",
+      "rgba": {
+        "width": 45,
+        "height": 39,
+        "sha256": "b426ac4119af377266434a3aa87d1933994f8ed4064fd4dfc6c52bfcff8b920e"
+      }
+    },
+    "rig/images/mouth.png": {
+      "bytes": 632,
+      "sha256": "1c0852dfb7e5ca16fc614dae74db94d6ed05abbcb02b7a19b49749822fd2fee2",
+      "rgba": {
+        "width": 166,
+        "height": 98,
+        "sha256": "10bc22d038e27bd7f03a8afb50d93febb6b2f267c7c6ad5b4c58b0a98b94c854"
+      }
+    },
+    "rig/images/neck.png": {
+      "bytes": 3733,
+      "sha256": "39a35dd5063c674fa99aac4d3fc7fd2a2eb702c6c83b103da7b7bdd752f6c98c",
+      "rgba": {
+        "width": 53,
+        "height": 79,
+        "sha256": "2f9d23200577d259da790dd015787eabb4744782b3bbbef619d05d1c0f421dff"
+      }
+    },
+    "rig/images/shins.png": {
+      "bytes": 56860,
+      "sha256": "f61e4fa37f0fa495c198f008c99d746f08d3014ae8ed29db853f073054c05a25",
+      "rgba": {
+        "width": 182,
+        "height": 292,
+        "sha256": "524d9db7a74cc3d0959cc855b526436378b94fb2f526b3b608a7aa7b156ccd56"
+      }
+    },
+    "rig/images/shoe_l.png": {
+      "bytes": 16974,
+      "sha256": "1000c93f4190e546965f5d44a1c8a56b5b33cda8901cc7ea583ab4d72f6de71b",
+      "rgba": {
+        "width": 74,
+        "height": 116,
+        "sha256": "8a0210acd2db75de4219ec39c50ee15727dba1cf037fc69fae2654fa1545386e"
+      }
+    },
+    "rig/images/shoe_r.png": {
+      "bytes": 16987,
+      "sha256": "8ee71530a0e09341098f250de31eca0238c3d336522721768511599cf18c566d",
+      "rgba": {
+        "width": 74,
+        "height": 115,
+        "sha256": "11891707f4d0a8009a18864f4848ddba7f151d110ceaccf7d6f7fec3175ca5b3"
+      }
+    },
+    "rig/images/sleevefront_l.png": {
+      "bytes": 3273,
+      "sha256": "908a53f78216b72d21367f1e3b54e2b0ac9ec7b512f4083cc9ef39eafab60f1e",
+      "rgba": {
+        "width": 27,
+        "height": 92,
+        "sha256": "8e0cbd26fed008788cbc6a8bb0295273d2702ebe2ad3c031968ea85214fdf7a3"
+      }
+    },
+    "rig/images/thigh_l.png": {
+      "bytes": 25705,
+      "sha256": "78bad7d68d12078bcc588f7290096629de078fc081cd215951bbdf0a52d5ce69",
+      "rgba": {
+        "width": 88,
+        "height": 241,
+        "sha256": "32da48ba403715ee44acb376069aabe0820ae11a539091426ed4a55527f62d57"
+      }
+    },
+    "rig/images/thigh_r.png": {
+      "bytes": 25711,
+      "sha256": "ed63d33c39719771352fe5fb77aa7a3679f1f52edf7ff60381ad2811e2afe4ca",
+      "rgba": {
+        "width": 91,
+        "height": 241,
+        "sha256": "990d0de952bb82c6ac3295141ad003f64b0734280856a61f5be62cab9b53d472"
+      }
+    },
+    "rig/images/topwear.png": {
+      "bytes": 65387,
+      "sha256": "d35407077aa7ab99264383dbb40d74aa7a52536943f508d009faca49dbbda571",
+      "rgba": {
+        "width": 168,
+        "height": 206,
+        "sha256": "05619631eca3cad5830558c55f9119a19def2d7dced416cb0d89035b278005dc"
+      }
+    },
+    "rig/images/upperarm_l.png": {
+      "bytes": 23482,
+      "sha256": "c11f83c8b61958af5f240ab07fe5b27ff0ffbf0dc159ac9db0fab148c05a3bbf",
+      "rgba": {
+        "width": 113,
+        "height": 175,
+        "sha256": "3b023c48b5e0b11eca7cc82fc3c9187e6d5e1d0d75d92f4aba54f1762a1d0e0d"
+      }
+    },
+    "rig/images/upperarm_r.png": {
+      "bytes": 23839,
+      "sha256": "1c2b32d343436c443526ab176fb23bee53a00cb738813616389970db14ecff1b",
+      "rgba": {
+        "width": 113,
+        "height": 164,
+        "sha256": "bebcf09960cda7944a4643f5004778aab48ab09bc194c625b4a15dd7cf68f5d4"
+      }
+    },
+    "rig/mesh_report.json": {
+      "bytes": 2417,
+      "sha256": "3b62c5c70e6cf1297097f4663b3fb0b0a19bf42a66f7630db5f13c36a46b237b"
+    },
+    "rig/motion.json": {
+      "bytes": 60378,
+      "sha256": "4a19cf872642cf00b28bab3807a5b597da30c866fcdf3b52619cdb43ce3f54ed"
+    },
+    "rig/rig.json": {
+      "bytes": 292180,
+      "sha256": "037cea0fc96ab247286c985e8336b5d06519d9a1a069e78dd800a12b2a180fbf"
+    }
+  }
+}

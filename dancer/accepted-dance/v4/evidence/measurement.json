@@ -1,0 +1,89 @@
+{
+  "spec": "dancer-smear50-measurement/1",
+  "scripts": {
+    "crops.py": "9dc426f90200d5e685f4ce79b9fdab4cdd3ec3220caf49c6dd11f98e247a398b",
+    "measure.py": "926889c5d0de5f95dafa31cbf49a9a223a33c4f137ec68c5ee50291fb763f509",
+    "meshlib.py": "caa05921a79905cdbcc0d9f5e430453889e08db879e1b830cf211b7c0ea77ded",
+    "stats.py": "b1307685be5a706d26cf19589f4635305c361f04e69f5cdfac01292b3280f69c",
+    "eval.py": "2aab0abce78e67ed498e428b6b9e485783a0cacd51cb32215041c28f4ad8b1c8",
+    "rawworld.py": "eee098da469935e36106ee3ecaac8a4da99fe5b10dfeab732d187fae794f4f20"
+  },
+  "Pillow": "12.2.0",
+  "v3": {
+    "left60": 31,
+    "right60": 13,
+    "maxL": [
+      0.978,
+      278
+    ],
+    "maxR": [
+      0.799,
+      266
+    ],
+    "f0": [
+      0.235,
+      0.101
+    ],
+    "f254L": 0.86,
+    "f266R": 0.799
+  },
+  "v4": {
+    "left60": 20,
+    "right60": 4,
+    "maxL": [
+      0.839,
+      278
+    ],
+    "maxR": [
+      0.678,
+      265
+    ],
+    "f0": [
+      0.2,
+      0.073
+    ],
+    "f254L": 0.745,
+    "f266R": 0.671
+  },
+  "bottomwearFoldFrames": {
+    "v3": 0,
+    "v4": 0
+  },
+  "v4Motion": {
+    "tipDevUnits": 0,
+    "tipDevFrame": 0,
+    "tipDevPx": 0.0,
+    "silDevPxMax": [
+      15.425045979525779,
+      279
+    ],
+    "silDevPxMean": 2.8935517237246833,
+    "f254dev": 14.665617879656104,
+    "f266dev": 13.067361493953495,
+    "peaks": {
+      "leftPeak": 253,
+      "rightPeak": 319,
+      "lowPeak": 230
+    },
+    "basePeaks": {
+      "leftPeak": 253,
+      "rightPeak": 319,
+      "lowPeak": 230
+    },
+    "setupShiftPx": 14.164224029640692,
+    "ampL": -79.80469511064244,
+    "baseAmpL": -65.2551616610527,
+    "ampR": 112.5421740000642,
+    "baseAmpR": 103.84880163626102
+  },
+  "bar3": true,
+  "framesDeletedAfterSheetReview": {
+    "v3": 391,
+    "v4": 391
+  },
+  "ownerVideoAcceptance": "pending; v3 remains default",
+  "knownShinsFoldFrames": {
+    "v3": 269,
+    "v4": 269
+  }
+}

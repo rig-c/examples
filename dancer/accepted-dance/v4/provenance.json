@@ -1,0 +1,39 @@
+{
+  "spec": "dancer-smear50-v4/1",
+  "source": {
+    "rig": "accepted-dance/v3/rig.json",
+    "rigSHA256": "a1860937f20890818a206a2b15318eaf2bf9e253d58584976b8aa9697f73e135",
+    "motion": "accepted-dance/v3/motion.json",
+    "motionSHA256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7"
+  },
+  "payloadSHA256": "66a58430f46c1142d91778331290882291f5e057861144e2b9ee5421b3a62d86",
+  "changed": [
+    "skins.default.bottomwear.bottomwear"
+  ],
+  "rigSHA256": "ac235acbddc1e9b37523cc9eaa5845f2cc95e7eed9fd66b241d677e9ce09dedb",
+  "motionSHA256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7",
+  "restrictedKeys": {
+    "bones": {
+      "v3": "8eebc301061d4030feb36626878a9b10aec6634c10fda6937138ce3e6df24913",
+      "v4": "8eebc301061d4030feb36626878a9b10aec6634c10fda6937138ce3e6df24913",
+      "equal": true
+    },
+    "constraints": {
+      "v3": "26b9b9dbf9c3c10ca46e0e227fcba6252c304272348502d9d0ae275dc1385555",
+      "v4": "26b9b9dbf9c3c10ca46e0e227fcba6252c304272348502d9d0ae275dc1385555",
+      "equal": true
+    },
+    "slots": {
+      "v3": "f8282e572bc19795e2e924e7bbd095690eb5ca063ecba5d186c1cbfefbf68399",
+      "v4": "f8282e572bc19795e2e924e7bbd095690eb5ca063ecba5d186c1cbfefbf68399",
+      "equal": true
+    },
+    "skeleton": {
+      "v3": "bc4f3f2d6b58306ac112495a7bb7934457c44e36649819a3de4d3a8582a812b7",
+      "v4": "bc4f3f2d6b58306ac112495a7bb7934457c44e36649819a3de4d3a8582a812b7",
+      "equal": true
+    }
+  },
+  "otherAttachmentsEqual": true,
+  "defaultSelection": "v3 remains unchanged; v4 is explicitly selected"
+}
