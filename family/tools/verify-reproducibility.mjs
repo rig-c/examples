@@ -303,8 +303,8 @@ export function applyDeclaredRepairsToRig({
     }
     if (explicitPartsAlreadyInRaw) {
       const canonicalDefault = {};
-      for (const s of rig.slots) {
-        if (rig.skins.default[s.name]) canonicalDefault[s.name] = rig.skins.default[s.name];
+      for (const name of Object.keys(rawRig.skins.default)) {
+        if (rig.skins.default[name]) canonicalDefault[name] = rig.skins.default[name];
       }
       for (const [k, v] of Object.entries(rig.skins.default)) {
         if (!canonicalDefault[k]) canonicalDefault[k] = v;

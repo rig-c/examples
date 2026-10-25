@@ -1,6 +1,8 @@
 # Jinni's behind-ear side strand
 
-The current Jinni authoring order is **frozen source → guarded outline-field-islands clip → guarded behind-ear strand binding/depth → normal official build/check**. The clipped intermediate alone is no longer the current Jinni output. This final stage changes only the disconnected side strand; the other four characters keep their existing final stages.
+> **Historical stage record (retired in `rig-c/parts-examples#69`):** `family/jinni/config.json` now declares `meshes.earring.explicit.islands` and `meshes.hair_front.explicit.islands` (`hair_front__island2` bound to `head` with `before: "ear_l"`) on `@rig-c/parts` `1.63.0`. `rig-parts rig` emits the island attachments and slot placement directly from `config.json`, retiring both `clip-field-islands-guarded.ts` and `apply-jinni-behind-ear-strand.ts` (no character uses either post-pass script anymore).
+
+The historical Jinni authoring order was **frozen source → guarded outline-field-islands clip → guarded behind-ear strand binding/depth → normal official build/check**. The clipped intermediate alone is no longer the current Jinni output. This final stage changes only the disconnected side strand; the other four characters keep their existing final stages.
 
 The source painting shows a side strand emerging **behind the ear**, following the left neck edge and curling onto the shoulder. The old separation upgrade explicitly reconstructed that curl in `head:front hair` (`scripts/upgrade_jinni_4x.py`, the block beginning `INCLUDE THE COMPLETE NECKLINE HAIR CURL`). Consequently the disconnected `hair_front__island2` inherited front-bang weights and was drawn last, above the ear and face. Gusts pulled its upper end into the cheek. Splitting its mesh islands had preserved this incorrect semantic ownership.
 

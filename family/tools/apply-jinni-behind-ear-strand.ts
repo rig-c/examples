@@ -1,3 +1,10 @@
+/**
+ * RETIRED post-pass script (rig-c/parts-examples#69).
+ * Jinni (family/jinni/config.json) now declares meshes.hair_front.explicit.islands
+ * with hair_front__island2 bound to `head` and placed `before: "ear_l"` on
+ * @rig-c/parts 1.63.0, so `rig-parts rig` emits the behind-ear strand slot in place.
+ * No character uses this post-pass script anymore.
+ */
 import{readFileSync,writeFileSync,existsSync,mkdirSync}from'node:fs';
 import{createHash}from'node:crypto';
 import{dirname,resolve}from'node:path';

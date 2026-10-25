@@ -5,7 +5,7 @@
     "": {
       "dependencies": {
         "@esotericsoftware/spine-core": "4.3.13",
-        "@rig-c/parts": "1.62.0",
+        "@rig-c/parts": "1.63.0",
         "polygon-clipping": "0.15.7",
         "rig-c": "2.68.0",
       },
@@ -14,7 +14,7 @@
   "packages": {
     "@esotericsoftware/spine-core": ["@esotericsoftware/spine-core@4.3.13", "", {}, "sha512-iGs/40qOWSQYicABebDzFSwFOS1Nsm0dCCS8sGqbpVuThRKdLYeI1cVJpmATSpEmtcetEABTmh97NoBnt7XLDw=="],
 
-    "@rig-c/parts": ["@rig-c/parts@1.62.0", "", { "dependencies": { "ag-psd": "^31.0.2", "rig-c": "^2.69.0" }, "bin": { "rig-parts": "bin/rig-parts.cjs", "spine-parts": "bin/rig-parts.cjs" } }, "sha512-9BUphP2daGt9NXlqzIFOH0N7xlG96rabj78KwVSvPiczxeXOPOH10DUalqdqlMrx3Q3EjC2U9Twt9Rm3Pt4Kzg=="],
+    "@rig-c/parts": ["@rig-c/parts@1.63.0", "", { "dependencies": { "ag-psd": "^31.0.2", "rig-c": "^2.69.0" }, "bin": { "rig-parts": "bin/rig-parts.cjs", "spine-parts": "bin/rig-parts.cjs" } }, "sha512-HDg5gQ/UvpKFMCmNc7/gOSNG65XM5i8O7RC0exrCLPK5L0qYZHPPKgjrAAoKHB6FO8SwTyYvidePu7fwwnjVrA=="],
 
     "ag-psd": ["ag-psd@31.0.3", "", { "dependencies": { "base64-js": "1.5.1", "pako": "2.1.0" } }, "sha512-THDYK+WK1F5GOH4G0l4wkQRc0Cyq5tnxIwBezACKwa6idKygphnGgMISr4lmW6n0Q89ceoqpdPZQF3Y7TL1pgg=="],
 

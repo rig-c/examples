@@ -8,7 +8,7 @@
 
 현재 Roa/Luna/Nova의 가슴 영역 및 Nova 바지 품질 교정은 [MESH_REGION_REPAIR.md](./MESH_REGION_REPAIR.md)의 마지막 authoring 단계를 따른다. 기존 `config.json`·upgrade 스크립트의 독립적인 재질 실험을 통째로 재빌드하지 않고, 고정된 머리 클리핑 입력을 재현한 뒤 가드된 attachment 교정을 적용하고 공식 build/check를 실행한다.
 
-지니의 현재 마지막 단계는 [귀 뒤 옆머리 바인딩·깊이 교정](./jinni/BEHIND_EAR_STRAND.md)이다. 동결 원본 → 기존 윤곽·섬 클리핑 → `apply-jinni-behind-ear-strand.ts`의 가드된 교정 → 공식 build/check 순서로 재현한다. 앞머리 본을 따라 볼·목 앞으로 나오던 별도 가닥만 `head`에 고정하고 귀·얼굴 뒤, 어깨 앞에 배치해 원화의 말린 끝을 보존한다. 원화 픽셀과 나머지 앞머리·가슴·다른 캐릭터는 이 단계에서 바꾸지 않는다.
+지니의 [귀 뒤 옆머리 바인딩·깊이 교정](./jinni/BEHIND_EAR_STRAND.md) 및 귀걸이·앞머리 멀티 아일랜드 분리(`earring` + `earring__island2`, `hair_front` + `hair_front__island2`)는 `@rig-c/parts` `1.63.0`부터 `family/jinni/config.json`의 `meshes.<part>.explicit.islands`(`hair_front__island2`는 `bone: "head"`, `before: "ear_l"`)로 직접 선언되어 `rig-parts rig`가 제자리에서 바로 생성하며, 사후 스크립트(`clip-field-islands-guarded.ts`, `apply-jinni-behind-ear-strand.ts`)는 전 캐릭터에서 은퇴했다. 앞머리 본을 따라 볼·목 앞으로 나오던 별도 가닥만 `head`에 고정하고 귀·얼굴 뒤, 어깨 앞에 배치해 원화의 말린 끝을 보존한다. 원화 픽셀과 나머지 앞머리·가슴·다른 캐릭터는 이 단계에서 바꾸지 않는다.
 
 나루의 뒷머리 마지막 단계는 [생성형 숨김 영역 완성](./naru/BACKHAIR_REGENERATION.md)이다. 원래 가닥 틈은 유지하고 셔츠 경계에서 잘린 끝과 피부색 잔상을 새 갈색 머릿결로 완성한다. 이 명시적인 최종 단계는 앞의 See-through 숨김 픽셀 100% 보존 설명의 예외이며, 생성 원본·허용된 크기 변환·공개 contour payload·일상 48/96 돌풍 검증과 남은 ±200 stress 관찰을 별도로 기록한다.
 
