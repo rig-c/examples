@@ -1,4 +1,10 @@
-/** Consumer extension of immutable tol3 clip: derived-mask diagonal closure and contiguous multi-island slots. */
+/**
+ * RETIRED post-pass script (rig-c/parts-examples#69).
+ * Luna (hair_front), Nova (hair_back, hair_front), and Jinni (earring, hair_front)
+ * now declare meshes.<part>.explicit / meshes.<part>.explicit.islands directly in
+ * their config.json on @rig-c/parts 1.63.0, so `rig-parts rig` emits all single-attachment
+ * and multi-island slots in place. No character uses this post-pass script anymore.
+ */
 import{readFileSync,writeFileSync,mkdirSync,existsSync}from'node:fs';import{dirname,resolve}from'node:path';import{fileURLToPath}from'node:url';import{createHash}from'node:crypto';
 import{proveClip}from'./clip-field-coverage.ts';
 import polyclip from'polygon-clipping';import{traceAlphaOutline,simplifyClosedPolygon,offsetPolygon,findSelfIntersection,earClip,traceOutline}from'rig-c/mesh';import{readPng}from'@rig-c/parts/src/raster/png.ts';

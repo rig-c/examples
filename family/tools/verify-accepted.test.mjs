@@ -198,6 +198,8 @@ test('reproducibility gate checks all 5 characters × 4 outfits, goes red withou
       assert.match(err.message, /REPRODUCIBILITY_MISMATCH/);
       assert.match(err.message, /luna\/office\/topwear/);
       assert.match(err.message, /luna\/office\/hair_front \(delivered=156v\/174t rebuilt=52v\/74t\)/);
+      assert.match(err.message, /jinni\/office\/earring \(delivered=29v\/26t rebuilt=13v\/12t\)/);
+      assert.match(err.message, /jinni\/office\/hair_front \(delivered=105v\/112t rebuilt=41v\/50t\)/);
       assert.match(err.message, /roa\/office\/bottomwear \(delivered=319v\/422t rebuilt=183v\/298t\)/);
       assert.match(err.message, /roa\/office\/hair_front \(delivered=84v\/88t rebuilt=20v\/24t\)/);
       return true;
@@ -423,10 +425,11 @@ test('both outfit inventories reproduce every actual shared pose and bind viewed
   }
 });
 
-test('roa, luna, naru, and nova office configs state explicit mesh payloads and refuse explicit report drift', () => {
+test('roa, luna, jinni, naru, and nova office configs state explicit mesh payloads and refuse explicit report drift', () => {
   const explicitByChar = {
     roa: ['bottomwear', 'topwear', 'hair_front'],
     luna: ['handwear_l', 'topwear', 'handwear_r', 'hair_front'],
+    jinni: ['earring', 'hair_front'],
     naru: ['hair_back', 'bottomwear', 'hair_front'],
     nova: ['hair_back', 'hair_front'],
   };
@@ -440,14 +443,43 @@ test('roa, luna, naru, and nova office configs state explicit mesh payloads and 
     for (const part of parts) {
       const exp = cfg.meshes[part]?.explicit;
       assert.ok(exp, `missing explicit mesh payload for ${character}/${part}`);
-      const att = rig.skins.default[part][part];
       const rep = report.find(r => r.part === part);
       assert.match(exp.image_sha256, /^[a-f0-9]{64}$/);
       assert.match(exp.region_sha256, /^[a-f0-9]{64}$/);
-      assert.deepEqual(exp.uvs, att.uvs);
-      assert.deepEqual(exp.triangles, att.triangles);
-      assert.equal(exp.hull, att.hull);
-      assert.deepEqual(exp.weights, att.weights);
+      if (Array.isArray(exp.islands)) {
+        assert.equal(exp.islands.length, 2);
+        let totalV = 0;
+        let totalT = 0;
+        let totalHull = 0;
+        for (const island of exp.islands) {
+          const att = rig.skins.default[island.slot]?.[island.slot];
+          assert.ok(att, `missing island attachment ${character}/${part}/${island.slot}`);
+          const slotEntry = rig.slots.find(s => s.name === island.slot);
+          assert.ok(slotEntry, `missing slot entry ${character}/${part}/${island.slot}`);
+          assert.equal(slotEntry.bone, island.bone ?? cfg.meshes[part].segments[0]);
+          if (island.before) {
+            const slotIdx = rig.slots.findIndex(s => s.name === island.slot);
+            const beforeIdx = rig.slots.findIndex(s => s.name === island.before);
+            assert.equal(slotIdx + 1, beforeIdx, `${island.slot} must precede ${island.before}`);
+          }
+          assert.deepEqual(island.uvs, att.uvs);
+          assert.deepEqual(island.triangles, att.triangles);
+          assert.equal(island.hull, att.hull);
+          assert.deepEqual(island.weights, att.weights);
+          totalV += island.uvs.length / 2;
+          totalT += island.triangles.length / 3;
+          totalHull += island.hull;
+        }
+        assert.equal(rep.vertices, totalV);
+        assert.equal(rep.triangles, totalT);
+        assert.equal(rep.hull, totalHull);
+      } else {
+        const att = rig.skins.default[part][part];
+        assert.deepEqual(exp.uvs, att.uvs);
+        assert.deepEqual(exp.triangles, att.triangles);
+        assert.equal(exp.hull, att.hull);
+        assert.deepEqual(exp.weights, att.weights);
+      }
       assert.equal(rep.mode, 'explicit');
       assert.equal(rep.image_sha256, exp.image_sha256);
       assert.equal(rep.region_sha256, exp.region_sha256);

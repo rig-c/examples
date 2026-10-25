@@ -106,7 +106,7 @@ async function main() {
   const toolRoot = join(family, 'tools/outline-field-islands');
   const modules = join(toolRoot, 'node_modules');
   const versions = {};
-  for (const [name, expected] of [['@rig-c/parts', '1.62.0'], ['rig-c', '2.68.0'], ['@esotericsoftware/spine-core', '4.3.13']]) {
+  for (const [name, expected] of [['@rig-c/parts', '1.63.0'], ['rig-c', '2.68.0'], ['@esotericsoftware/spine-core', '4.3.13']]) {
     const actual = json(join(modules, name, 'package.json')).version;
     if (actual !== expected) fail(`ACCEPTED_PACKAGE_VERSION ${name} found=${actual} required=${expected}`);
     versions[name] = actual;
