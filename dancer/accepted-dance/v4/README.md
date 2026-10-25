@@ -1,13 +1,16 @@
-# Mesh-only dance candidate v4
+# Current accepted dance: v4, 2026-10-25
 
 V4 replaces only `skins.default.bottomwear.bottomwear` in immutable v3 with the
 owner-selected smear50 payload. Motion bytes, all other attachments, bones,
 constraints, slots and skeleton remain identical. `provenance.json` binds the
-sources and payload. V3 remains the default pending owner video acceptance.
+sources and payload. The owner accepted v4 after video review: "v4 looks good,
+merge it" ([#73](https://github.com/rig-c/examples/issues/73)). V4 is now the
+default; v3 remains unchanged and selectable by name.
 
-From `dancer/`, select this replay explicitly:
+From `dancer/`, run the default replay (or select v4 explicitly):
 
 ```sh
+sh build-accepted-dance.sh
 sh build-accepted-dance.sh --version v4 work/accepted-v4
 ```
 
@@ -54,4 +57,4 @@ SAR 1:1, 1,367,689 bytes. The stream and SHA-256 are in the video receipt.
 provide Pillow and explicit ffmpeg/ffprobe executables. Original PNGs were
 hash-checked and deleted after the sheet was read (391 per version). The small
 sheet, video receipt and native render receipts remain. Owner eye acceptance is
-pending; this record does not promote v4 or change the default.
+recorded in #73; the measured receipts preserve their pre-verdict context.

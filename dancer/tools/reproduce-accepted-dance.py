@@ -2,7 +2,7 @@
 from pathlib import Path
 import argparse,hashlib,json,os,shutil,subprocess,sys
 source=Path(__file__).resolve().parent.parent
-p=argparse.ArgumentParser();p.add_argument('--out',default='work/accepted-dance');p.add_argument('--version',choices=['v1','v3','v4'],default='v3');p.add_argument('--preflight',action='store_true');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--out',default='work/accepted-dance');p.add_argument('--version',choices=['v1','v3','v4'],default='v4');p.add_argument('--preflight',action='store_true');a=p.parse_args()
 if a.version=='v4':
  args=[sys.executable,str(source/'tools/reproduce-smear50.py'),'--version','v4','--out',a.out]
  if a.preflight:args.append('--preflight')
