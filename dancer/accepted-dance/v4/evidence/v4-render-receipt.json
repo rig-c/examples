@@ -1,0 +1,81 @@
+{
+  "spec": "dancer-smear50-render/1",
+  "version": "v4",
+  "sourceRigSHA256": "ac235acbddc1e9b37523cc9eaa5845f2cc95e7eed9fd66b241d677e9ce09dedb",
+  "sourceMotionSHA256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7",
+  "build": {
+    "skeleton.json": "b3c6013e8b593d7a569df265a1c13d66671f13f884c2e9e8c60a628a97f47c7c",
+    "skeleton.atlas": "bd9d9414f016e94407a61685455888a7aad6781acdd9d634a0a9f3c0c432cdf1",
+    "skeleton.model.json": "05fb4074aee45ded4f263a193be2e53c759a36e188708e4a14f15464eda6da27"
+  },
+  "commands": [
+    {
+      "label": "readers",
+      "command": [
+        "bun",
+        "<corpus>/tools/read-smear50.ts",
+        "<corpus>/node_modules/rig-c",
+        "<workspace>/hand/v4/rig.json",
+        "<workspace>/hand/v4/motion.json",
+        "<workspace>/build"
+      ]
+    },
+    {
+      "label": "build",
+      "command": [
+        "bun",
+        "<corpus>/node_modules/rig-c/cli.ts",
+        "build",
+        "--rig",
+        "hand/v4/rig.json",
+        "--motion",
+        "hand/v4/motion.json",
+        "--out",
+        "build",
+        "--profile",
+        "spine"
+      ]
+    },
+    {
+      "label": "render",
+      "command": [
+        "bun",
+        "<corpus>/node_modules/rig-c/cli.ts",
+        "render",
+        "--candidate",
+        "build",
+        "--animation",
+        "zero-two-r3-hand",
+        "--fps",
+        "30",
+        "--viewport-from",
+        "<corpus>/accepted-dance/viewport.json",
+        "--geometry",
+        "--folds",
+        "--out",
+        "render"
+      ]
+    }
+  ],
+  "frames": 391,
+  "fps": 30,
+  "viewport": {
+    "x": -575.1001332056925,
+    "y": -22.832002283065037,
+    "width": 1038.3634465496543,
+    "height": 1353.8478314199037,
+    "scale": 0.7090900304454161,
+    "pixelWidth": 736,
+    "pixelHeight": 960
+  },
+  "background": [
+    232,
+    232,
+    232,
+    255
+  ],
+  "sha256": "17543355f8b5cfd8398e8f321dc7ae4f0da95b9c50ccee967ea51f7d604467c7",
+  "deleted": false,
+  "geometrySHA256": "03b6368979f1d6c16fd86125b5de65163eec25f6c8cbaf86d208ab34b0c47ac4",
+  "foldsSHA256": "97ea4e833e339c14a1a58f3aca85343e2e75c15ac2c0a5b30462498e460bde7f"
+}

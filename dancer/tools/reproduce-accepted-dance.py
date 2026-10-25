@@ -2,7 +2,11 @@
 from pathlib import Path
 import argparse,hashlib,json,os,shutil,subprocess,sys
 source=Path(__file__).resolve().parent.parent
-p=argparse.ArgumentParser();p.add_argument('--out',default='work/accepted-dance');p.add_argument('--version',choices=['v1','v3'],default='v3');p.add_argument('--preflight',action='store_true');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--out',default='work/accepted-dance');p.add_argument('--version',choices=['v1','v3','v4'],default='v3');p.add_argument('--preflight',action='store_true');a=p.parse_args()
+if a.version=='v4':
+ args=[sys.executable,str(source/'tools/reproduce-smear50.py'),'--version','v4','--out',a.out]
+ if a.preflight:args.append('--preflight')
+ os.execv(sys.executable,args)
 if a.version=='v3':
  args=[sys.executable,str(source/'tools/reproduce-accepted-dance-v3.py'),'--out',a.out]
  if a.preflight:args.append('--preflight')
@@ -12,7 +16,8 @@ if workspace.exists():raise SystemExit('OUTPUT_EXISTS: choose a new output direc
 record=json.loads((source/'declared-repairs.json').read_text())
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def baseline_sha(row):
- path=source/row['file']
+ # The historical keeper is archived when the active producer mesh is adopted.
+ path=source/('provenance/keeper-config-before-smear50.json' if row['file']=='config.json' else row['file'])
  if row.get('hashMode')=='json-indent2-lf-without-x-repairs':
   config=json.loads(path.read_text());config.pop('x-repairs',None)
   return hashlib.sha256((json.dumps(config,indent=2,ensure_ascii=False)+'\n').encode()).hexdigest()

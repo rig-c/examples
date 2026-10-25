@@ -1,0 +1,29 @@
+{
+  "lockfileVersion": 2,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "dancer-corpus-build",
+      "dependencies": {
+        "@esotericsoftware/spine-core": "4.3.13",
+        "@rig-c/parts": "1.64.0",
+        "rig-c": "2.67.2",
+      },
+    },
+  },
+  "packages": {
+    "@esotericsoftware/spine-core": ["@esotericsoftware/spine-core@4.3.13", "", {}, "sha512-iGs/40qOWSQYicABebDzFSwFOS1Nsm0dCCS8sGqbpVuThRKdLYeI1cVJpmATSpEmtcetEABTmh97NoBnt7XLDw=="],
+
+    "@rig-c/parts": ["@rig-c/parts@1.64.0", "", { "dependencies": { "ag-psd": "^31.0.2", "rig-c": "^2.69.0" }, "bin": { "rig-parts": "bin/rig-parts.cjs", "spine-parts": "bin/rig-parts.cjs" } }, "sha512-xSaso/Fg00YjSUeloulqjLt0xN/B3c1LR+7dbFFCeWZC+Phe3uf1HrN4gOGohLWBtF8igzoRzYsvc6pzezN62w=="],
+
+    "ag-psd": ["ag-psd@31.0.3", "", { "dependencies": { "base64-js": "1.5.1", "pako": "2.1.0" } }, "sha512-THDYK+WK1F5GOH4G0l4wkQRc0Cyq5tnxIwBezACKwa6idKygphnGgMISr4lmW6n0Q89ceoqpdPZQF3Y7TL1pgg=="],
+
+    "base64-js": ["base64-js@1.5.1", "", {}, "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA=="],
+
+    "pako": ["pako@2.1.0", "", {}, "sha512-w+eufiZ1WuJYgPXbV/PO3NCMEc3xqylkKHzp8bxp1uW4qaSNQUkwmLLEc3kKsfz8lpV1F8Ht3U1Cm+9Srog2ug=="],
+
+    "rig-c": ["rig-c@2.67.2", "", { "bin": { "rigc": "bin/rigc.cjs" } }, "sha512-l5r/GALgu24e1WeLiASkOkycSP42v6lzo2b0lULUSHUMlrALlM7BPGFIM2wpcl7LPXTzE8an9m3mIhf7hES/TA=="],
+
+    "@rig-c/parts/rig-c": ["rig-c@2.70.0", "", { "bin": { "rigc": "bin/rigc.cjs" } }, "sha512-y98Tabf8Cvo7sZnzrCf/Mj0Kyh2SG6Lt/5P5zZpB9yEpH3E2XzQM/ESIvNEdZbSatQjriSLjQZOgBNPtdQvahQ=="],
+  }
+}

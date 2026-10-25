@@ -12,12 +12,464 @@
     },
     {
       "path": "README.md",
-      "bytes": 13128,
-      "sha256": "4740c3709acf23594af59dec1b77bd6193a8c84b189544b56465824de1c82366",
+      "bytes": 14903,
+      "sha256": "f72beb349cfdd29205d3905be64d7e7091f089f4cac494603df88846dbcb412c",
       "sourceSHA256": "4740c3709acf23594af59dec1b77bd6193a8c84b189544b56465824de1c82366",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
       "contentIdentical": false
+    },
+    {
+      "path": "accepted-dance/bun.lock",
+      "bytes": 1870,
+      "sha256": "06c5576d4acb9c9a265bce6eb4316ff2e220709e4945f3eb17031bba7c60f360",
+      "sourceSHA256": "06c5576d4acb9c9a265bce6eb4316ff2e220709e4945f3eb17031bba7c60f360",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/package.json",
+      "bytes": 250,
+      "sha256": "07cc68a5cb0919e864178109b6b709136e0af94aaecf5f123fab92199ef6d104",
+      "sourceSHA256": "07cc68a5cb0919e864178109b6b709136e0af94aaecf5f123fab92199ef6d104",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/reproduction-evidence.json",
+      "bytes": 11085,
+      "sha256": "cab44bb565b16ac530d86c4aa1b48a5e8d807e1a164dd918e86f42e234986808",
+      "sourceSHA256": "cab44bb565b16ac530d86c4aa1b48a5e8d807e1a164dd918e86f42e234986808",
+      "origin": "Corpus-only Nova replay, 2026-10-24; owner-accepted trial PR52 generation",
+      "role": "Actual command, hash, gate and full-geometry reproduction evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/README.md",
+      "bytes": 6156,
+      "sha256": "4caf365a2a8b5a0bb7704662501a95c747a72802d293ddb2d42cf737208dbbee",
+      "sourceSHA256": "127566c9c11028243df6fc84b4a66dd314487a4e25d4bdbe15533b46484b5fb7",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": false,
+      "change": "Corpus-relative prose references only; source art, generator parameters and keys unchanged."
+    },
+    {
+      "path": "accepted-dance/v3/accepted-render.json",
+      "bytes": 1332,
+      "sha256": "55b49ab1f9f59d011e10f10ed7fb2c70ccfeaa9ec39db871d8dcaee4680a56c8",
+      "sourceSHA256": "55b49ab1f9f59d011e10f10ed7fb2c70ccfeaa9ec39db871d8dcaee4680a56c8",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/README.md",
+      "bytes": 4367,
+      "sha256": "42552c740d7d6681f9d3c1c4c3a27c4fafffea0a5a207222d2d602d6d6af71c4",
+      "sourceSHA256": "a3d183dc938b443d98fc4ef428b5d16f97a33f069581558d13588ebc0079a3f1",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": false,
+      "change": "Corpus-relative prose references only; source art, generator parameters and keys unchanged."
+    },
+    {
+      "path": "accepted-dance/v3/generation/alts/seethrough_config.json",
+      "bytes": 19762,
+      "sha256": "d8d603789d62facbd0d47b7594807ff0bb99cda0d9f1bada8a8e93d346457380",
+      "sourceSHA256": "d8d603789d62facbd0d47b7594807ff0bb99cda0d9f1bada8a8e93d346457380",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/config.json",
+      "bytes": 1970,
+      "sha256": "78abcfebc915c17170836f9d2fe7948d04a6561deb35947fde7089469ddd5e1a",
+      "sourceSHA256": "78abcfebc915c17170836f9d2fe7948d04a6561deb35947fde7089469ddd5e1a",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys/config_H1m_hold_head.json",
+      "bytes": 2111,
+      "sha256": "ee323df49f8d209cac1af2380274f20935e2f13afbfa1ff9089b9ec6284db043",
+      "sourceSHA256": "ee323df49f8d209cac1af2380274f20935e2f13afbfa1ff9089b9ec6284db043",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys/config_H2z_hold_low.json",
+      "bytes": 2434,
+      "sha256": "0850f022917ff29ff75bb3b13179c4bc4323e317552549aa7111cf9fe278d2bc",
+      "sourceSHA256": "0850f022917ff29ff75bb3b13179c4bc4323e317552549aa7111cf9fe278d2bc",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys2/masks.py",
+      "bytes": 5573,
+      "sha256": "d8582b6d1d85d9301fb9e24107ba841febfeee2045499484b988b9588a5c7573",
+      "sourceSHA256": "d8582b6d1d85d9301fb9e24107ba841febfeee2045499484b988b9588a5c7573",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/H1_hold_head.json",
+      "bytes": 740,
+      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c",
+      "sourceSHA256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/H1m_hold_head.json",
+      "bytes": 740,
+      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c",
+      "sourceSHA256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/H2z_hold_low.json",
+      "bytes": 740,
+      "sha256": "89097b508fe7bcc66bc9fb3dcd10701a2381a80765cb885afc36b97ccd317099",
+      "sourceSHA256": "89097b508fe7bcc66bc9fb3dcd10701a2381a80765cb885afc36b97ccd317099",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/inpaint2.py",
+      "bytes": 10887,
+      "sha256": "d3bb0789c1bdaca2a350b581d19f73c9cc9d1b9bc0542f941af6664880564f5d",
+      "sourceSHA256": "d3bb0789c1bdaca2a350b581d19f73c9cc9d1b9bc0542f941af6664880564f5d",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/inpaint_H1_hold_head/prewarp.json",
+      "bytes": 253,
+      "sha256": "04139a15bccc24ff2c6d8b536f023dc33fd4b5b3d742df74857ee42035544510",
+      "sourceSHA256": "04139a15bccc24ff2c6d8b536f023dc33fd4b5b3d742df74857ee42035544510",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/inpaint_H1_hold_head/warp_s1.json",
+      "bytes": 2579,
+      "sha256": "0b85478394294b12a05114d8cde4a52cf5ffd186e01a56067e6b35b3075e2b8c",
+      "sourceSHA256": "0b85478394294b12a05114d8cde4a52cf5ffd186e01a56067e6b35b3075e2b8c",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/inpaint_H1m_hold_head/prewarp.json",
+      "bytes": 253,
+      "sha256": "0ed3846753ce85e2f08140eb481118385265769dee4b0dd5866d0396de772c3e",
+      "sourceSHA256": "0ed3846753ce85e2f08140eb481118385265769dee4b0dd5866d0396de772c3e",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/inpaint_H1m_hold_head/warp_s62.json",
+      "bytes": 2783,
+      "sha256": "26831a4cc330b0c33103265eaedf3bd37278eb54229024b34ce174432b12eb2f",
+      "sourceSHA256": "26831a4cc330b0c33103265eaedf3bd37278eb54229024b34ce174432b12eb2f",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/inpaint_H2z_hold_low/prewarp.json",
+      "bytes": 253,
+      "sha256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377",
+      "sourceSHA256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/inpaint_H2z_hold_low/warp_s53.json",
+      "bytes": 3059,
+      "sha256": "d48d1798e21a244c18509fbc763f328b803c44f6ee023e5d4091c2c75323cf55",
+      "sourceSHA256": "d48d1798e21a244c18509fbc763f328b803c44f6ee023e5d4091c2c75323cf55",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/keys.json",
+      "bytes": 3346,
+      "sha256": "d3184854e846a49e7abe781944bb224bfa02d8dbe0bb81edbdefec66451004e5",
+      "sourceSHA256": "d3184854e846a49e7abe781944bb224bfa02d8dbe0bb81edbdefec66451004e5",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/masks.py",
+      "bytes": 5596,
+      "sha256": "b30e93b5820346ba4758fb01cb07a747c566af758c2b813e06056284707cf73e",
+      "sourceSHA256": "b30e93b5820346ba4758fb01cb07a747c566af758c2b813e06056284707cf73e",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/midriff_prep.py",
+      "bytes": 1822,
+      "sha256": "b1b7c69f75abf978c0fe2dc137e6d6be63306c359b2606cd7e6310c506b09a9c",
+      "sourceSHA256": "b1b7c69f75abf978c0fe2dc137e6d6be63306c359b2606cd7e6310c506b09a9c",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/pieces/arms_hold_front_z0.json",
+      "bytes": 309,
+      "sha256": "41ade91fe116dc1bd09cbb1712bb2403c376304a77f08f5b4b9a67011de3d98a",
+      "sourceSHA256": "41ade91fe116dc1bd09cbb1712bb2403c376304a77f08f5b4b9a67011de3d98a",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/pieces/arms_hold_head.json",
+      "bytes": 293,
+      "sha256": "778efca8391574be46473c950b908aa5b259535e5f958ca3e05c282023686d0f",
+      "sourceSHA256": "778efca8391574be46473c950b908aa5b259535e5f958ca3e05c282023686d0f",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/pieces/h1m_midriff.json",
+      "bytes": 140,
+      "sha256": "8fa2ce987dac762368476a7f85cba6e3cbbabff8e97c83c847d11b31bf73032d",
+      "sourceSHA256": "8fa2ce987dac762368476a7f85cba6e3cbbabff8e97c83c847d11b31bf73032d",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/prewarp.py",
+      "bytes": 18289,
+      "sha256": "d1bcf8c9211dfa54b20d3eb41303f653512d44a58d51bcef04fce54007f6633a",
+      "sourceSHA256": "d1bcf8c9211dfa54b20d3eb41303f653512d44a58d51bcef04fce54007f6633a",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/run_seethrough.sh",
+      "bytes": 1085,
+      "sha256": "498a0b5911e76a41d35288d957b46061a2ff7ca48af5b06d219a6c4396788a9c",
+      "sourceSHA256": "498a0b5911e76a41d35288d957b46061a2ff7ca48af5b06d219a6c4396788a9c",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/set_H1_hold_head/layers_full/meta.json",
+      "bytes": 961,
+      "sha256": "6b6559e8083dede2f33a4fe62e9849032a423806eff2da5a50f221e6761d4db8",
+      "sourceSHA256": "6b6559e8083dede2f33a4fe62e9849032a423806eff2da5a50f221e6761d4db8",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/set_H1m_hold_head/layers_full/meta.json",
+      "bytes": 963,
+      "sha256": "df3f86e8ad4ea643bd47575051a40065969a430bee1fa75e1fd21b0e5036771b",
+      "sourceSHA256": "df3f86e8ad4ea643bd47575051a40065969a430bee1fa75e1fd21b0e5036771b",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/keys3/set_H2z_hold_low/layers_full/meta.json",
+      "bytes": 961,
+      "sha256": "5a8eebcaca6c5ec649205e42a62198c79cda2f178e92416df081b8d71f534e9a",
+      "sourceSHA256": "5a8eebcaca6c5ec649205e42a62198c79cda2f178e92416df081b8d71f534e9a",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/scripts/assemble_hold.py",
+      "bytes": 6309,
+      "sha256": "8a23f099157626ca1fb85128e9d3c59847a7274d322b6fc8de7ec69c53e30834",
+      "sourceSHA256": "8a23f099157626ca1fb85128e9d3c59847a7274d322b6fc8de7ec69c53e30834",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/scripts/cut_jacket.py",
+      "bytes": 4160,
+      "sha256": "24d8283c5cd3fa73148d02f337ed739c3f51c88001acad56752e137c8ff1d6e9",
+      "sourceSHA256": "24d8283c5cd3fa73148d02f337ed739c3f51c88001acad56752e137c8ff1d6e9",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/scripts/cut_piece.py",
+      "bytes": 4680,
+      "sha256": "ac304ae52547df2b17b03284093c4b28ff609d6c783278b9848a14b5d5ceb16b",
+      "sourceSHA256": "ac304ae52547df2b17b03284093c4b28ff609d6c783278b9848a14b5d5ceb16b",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/scripts/v3_waist.py",
+      "bytes": 3533,
+      "sha256": "d0b7c840f9caeac3ebf38713fa9a8472191ccd7ae2f30cb8bb935b1810c4694b",
+      "sourceSHA256": "d0b7c840f9caeac3ebf38713fa9a8472191ccd7ae2f30cb8bb935b1810c4694b",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/generation/source-files.json",
+      "bytes": 66367,
+      "sha256": "158e01f403cc5420988ab8fa470b0615720902cd6a17b2080d24733660831ac7",
+      "sourceSHA256": "158e01f403cc5420988ab8fa470b0615720902cd6a17b2080d24733660831ac7",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/motion.json",
+      "bytes": 1109631,
+      "sha256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7",
+      "sourceSHA256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v3/reproduction-evidence.json",
+      "bytes": 65342,
+      "sha256": "9f12a75ebd757cf73d393a33267882618c7adad5216fd8ef6836dd517569aaa5",
+      "sourceSHA256": "9f12a75ebd757cf73d393a33267882618c7adad5216fd8ef6836dd517569aaa5",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Corpus-only v3 declaration, replay or measured evidence",
+      "contentIdentical": false
+    },
+    {
+      "path": "accepted-dance/v3/rig.json",
+      "bytes": 1490283,
+      "sha256": "a1860937f20890818a206a2b15318eaf2bf9e253d58584976b8aa9697f73e135",
+      "sourceSHA256": "a1860937f20890818a206a2b15318eaf2bf9e253d58584976b8aa9697f73e135",
+      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
+      "role": "Canonical accepted payload / generated part / generation provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v4/README.md",
+      "bytes": 3127,
+      "sha256": "fbe6a7dc50906ac56c95c2d4b8b50982244e61f2a1d63b623f56c2a5af913fe0",
+      "sourceSHA256": "fbe6a7dc50906ac56c95c2d4b8b50982244e61f2a1d63b623f56c2a5af913fe0",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v4/evidence/measurement.json",
+      "bytes": 1919,
+      "sha256": "1e6a7085bc19c41044e6ab5807cba294a470e624a1c0e2ac71577b8501924082",
+      "sourceSHA256": "1e6a7085bc19c41044e6ab5807cba294a470e624a1c0e2ac71577b8501924082",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v4/evidence/smear50-f254-f266.jpg",
+      "bytes": 200048,
+      "sha256": "f92a2a0eb15ca3ca87a8ec996c181504dcf663e2e7f9e37d33856397e8d14e0d",
+      "sourceSHA256": "f92a2a0eb15ca3ca87a8ec996c181504dcf663e2e7f9e37d33856397e8d14e0d",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v4/evidence/smear50-v3-v4-f240-290.receipt.json",
+      "bytes": 775,
+      "sha256": "07463d2a7940104d209a0903c4fa09101cb893c6ce2f366df1585e7b7aa15c65",
+      "sourceSHA256": "07463d2a7940104d209a0903c4fa09101cb893c6ce2f366df1585e7b7aa15c65",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v4/evidence/v3-render-receipt.json",
+      "bytes": 2137,
+      "sha256": "4b407b37df0d963a664ccbc5b86cbc63edd44d0a52239d0faadcb4b5fc6e5e2f",
+      "sourceSHA256": "4b407b37df0d963a664ccbc5b86cbc63edd44d0a52239d0faadcb4b5fc6e5e2f",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v4/evidence/v4-render-receipt.json",
+      "bytes": 2137,
+      "sha256": "2a3eb45b4e3a39dd00a1bbf0a2fe3c53ea19e12077cf38623643eceb293512f1",
+      "sourceSHA256": "2a3eb45b4e3a39dd00a1bbf0a2fe3c53ea19e12077cf38623643eceb293512f1",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v4/motion.json",
+      "bytes": 1109631,
+      "sha256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7",
+      "sourceSHA256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v4/provenance.json",
+      "bytes": 1582,
+      "sha256": "502096dc75ccaffe598dfee0e7673fbce063a5810309d28c156d31e3281f5c8a",
+      "sourceSHA256": "502096dc75ccaffe598dfee0e7673fbce063a5810309d28c156d31e3281f5c8a",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/v4/rig.json",
+      "bytes": 1142828,
+      "sha256": "ac235acbddc1e9b37523cc9eaa5845f2cc95e7eed9fd66b241d677e9ce09dedb",
+      "sourceSHA256": "ac235acbddc1e9b37523cc9eaa5845f2cc95e7eed9fd66b241d677e9ce09dedb",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "accepted-dance/viewport.json",
+      "bytes": 635,
+      "sha256": "8a0f07c4304419d64125314d773b3b0f62bacdd0229a40cc0cbdffa57545a13c",
+      "sourceSHA256": "8a0f07c4304419d64125314d773b3b0f62bacdd0229a40cc0cbdffa57545a13c",
+      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
+      "role": "declared hand corrections / standalone reproducibility input",
+      "contentIdentical": true
     },
     {
       "path": "accepted/images/K0_forearm_l.png",
@@ -578,377 +1030,6 @@
       "contentIdentical": true
     },
     {
-      "path": "accepted-dance/bun.lock",
-      "bytes": 1870,
-      "sha256": "06c5576d4acb9c9a265bce6eb4316ff2e220709e4945f3eb17031bba7c60f360",
-      "sourceSHA256": "06c5576d4acb9c9a265bce6eb4316ff2e220709e4945f3eb17031bba7c60f360",
-      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
-      "role": "declared hand corrections / standalone reproducibility input",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/package.json",
-      "bytes": 250,
-      "sha256": "07cc68a5cb0919e864178109b6b709136e0af94aaecf5f123fab92199ef6d104",
-      "sourceSHA256": "07cc68a5cb0919e864178109b6b709136e0af94aaecf5f123fab92199ef6d104",
-      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
-      "role": "declared hand corrections / standalone reproducibility input",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/reproduction-evidence.json",
-      "bytes": 11085,
-      "sha256": "cab44bb565b16ac530d86c4aa1b48a5e8d807e1a164dd918e86f42e234986808",
-      "sourceSHA256": "cab44bb565b16ac530d86c4aa1b48a5e8d807e1a164dd918e86f42e234986808",
-      "origin": "Corpus-only Nova replay, 2026-10-24; owner-accepted trial PR52 generation",
-      "role": "Actual command, hash, gate and full-geometry reproduction evidence",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/README.md",
-      "bytes": 6156,
-      "sha256": "4caf365a2a8b5a0bb7704662501a95c747a72802d293ddb2d42cf737208dbbee",
-      "sourceSHA256": "127566c9c11028243df6fc84b4a66dd314487a4e25d4bdbe15533b46484b5fb7",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": false,
-      "change": "Corpus-relative prose references only; source art, generator parameters and keys unchanged."
-    },
-    {
-      "path": "accepted-dance/v3/accepted-render.json",
-      "bytes": 1332,
-      "sha256": "55b49ab1f9f59d011e10f10ed7fb2c70ccfeaa9ec39db871d8dcaee4680a56c8",
-      "sourceSHA256": "55b49ab1f9f59d011e10f10ed7fb2c70ccfeaa9ec39db871d8dcaee4680a56c8",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/README.md",
-      "bytes": 4367,
-      "sha256": "42552c740d7d6681f9d3c1c4c3a27c4fafffea0a5a207222d2d602d6d6af71c4",
-      "sourceSHA256": "a3d183dc938b443d98fc4ef428b5d16f97a33f069581558d13588ebc0079a3f1",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": false,
-      "change": "Corpus-relative prose references only; source art, generator parameters and keys unchanged."
-    },
-    {
-      "path": "accepted-dance/v3/generation/alts/seethrough_config.json",
-      "bytes": 19762,
-      "sha256": "d8d603789d62facbd0d47b7594807ff0bb99cda0d9f1bada8a8e93d346457380",
-      "sourceSHA256": "d8d603789d62facbd0d47b7594807ff0bb99cda0d9f1bada8a8e93d346457380",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/config.json",
-      "bytes": 1970,
-      "sha256": "78abcfebc915c17170836f9d2fe7948d04a6561deb35947fde7089469ddd5e1a",
-      "sourceSHA256": "78abcfebc915c17170836f9d2fe7948d04a6561deb35947fde7089469ddd5e1a",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys/config_H1m_hold_head.json",
-      "bytes": 2111,
-      "sha256": "ee323df49f8d209cac1af2380274f20935e2f13afbfa1ff9089b9ec6284db043",
-      "sourceSHA256": "ee323df49f8d209cac1af2380274f20935e2f13afbfa1ff9089b9ec6284db043",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys/config_H2z_hold_low.json",
-      "bytes": 2434,
-      "sha256": "0850f022917ff29ff75bb3b13179c4bc4323e317552549aa7111cf9fe278d2bc",
-      "sourceSHA256": "0850f022917ff29ff75bb3b13179c4bc4323e317552549aa7111cf9fe278d2bc",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys2/masks.py",
-      "bytes": 5573,
-      "sha256": "d8582b6d1d85d9301fb9e24107ba841febfeee2045499484b988b9588a5c7573",
-      "sourceSHA256": "d8582b6d1d85d9301fb9e24107ba841febfeee2045499484b988b9588a5c7573",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/H1_hold_head.json",
-      "bytes": 740,
-      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c",
-      "sourceSHA256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/H1m_hold_head.json",
-      "bytes": 740,
-      "sha256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c",
-      "sourceSHA256": "30856bb3d777ae462553de9e15d71c2f991e7d1457fbcb9f61f4a5edaeab9f8c",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/H2z_hold_low.json",
-      "bytes": 740,
-      "sha256": "89097b508fe7bcc66bc9fb3dcd10701a2381a80765cb885afc36b97ccd317099",
-      "sourceSHA256": "89097b508fe7bcc66bc9fb3dcd10701a2381a80765cb885afc36b97ccd317099",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/inpaint2.py",
-      "bytes": 10887,
-      "sha256": "d3bb0789c1bdaca2a350b581d19f73c9cc9d1b9bc0542f941af6664880564f5d",
-      "sourceSHA256": "d3bb0789c1bdaca2a350b581d19f73c9cc9d1b9bc0542f941af6664880564f5d",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/inpaint_H1_hold_head/prewarp.json",
-      "bytes": 253,
-      "sha256": "04139a15bccc24ff2c6d8b536f023dc33fd4b5b3d742df74857ee42035544510",
-      "sourceSHA256": "04139a15bccc24ff2c6d8b536f023dc33fd4b5b3d742df74857ee42035544510",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/inpaint_H1_hold_head/warp_s1.json",
-      "bytes": 2579,
-      "sha256": "0b85478394294b12a05114d8cde4a52cf5ffd186e01a56067e6b35b3075e2b8c",
-      "sourceSHA256": "0b85478394294b12a05114d8cde4a52cf5ffd186e01a56067e6b35b3075e2b8c",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/inpaint_H1m_hold_head/prewarp.json",
-      "bytes": 253,
-      "sha256": "0ed3846753ce85e2f08140eb481118385265769dee4b0dd5866d0396de772c3e",
-      "sourceSHA256": "0ed3846753ce85e2f08140eb481118385265769dee4b0dd5866d0396de772c3e",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/inpaint_H1m_hold_head/warp_s62.json",
-      "bytes": 2783,
-      "sha256": "26831a4cc330b0c33103265eaedf3bd37278eb54229024b34ce174432b12eb2f",
-      "sourceSHA256": "26831a4cc330b0c33103265eaedf3bd37278eb54229024b34ce174432b12eb2f",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/inpaint_H2z_hold_low/prewarp.json",
-      "bytes": 253,
-      "sha256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377",
-      "sourceSHA256": "392c5a05ded1ee06ebd5792d5713cc172bb8671185730fbd760749133e45e377",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/inpaint_H2z_hold_low/warp_s53.json",
-      "bytes": 3059,
-      "sha256": "d48d1798e21a244c18509fbc763f328b803c44f6ee023e5d4091c2c75323cf55",
-      "sourceSHA256": "d48d1798e21a244c18509fbc763f328b803c44f6ee023e5d4091c2c75323cf55",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/keys.json",
-      "bytes": 3346,
-      "sha256": "d3184854e846a49e7abe781944bb224bfa02d8dbe0bb81edbdefec66451004e5",
-      "sourceSHA256": "d3184854e846a49e7abe781944bb224bfa02d8dbe0bb81edbdefec66451004e5",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/masks.py",
-      "bytes": 5596,
-      "sha256": "b30e93b5820346ba4758fb01cb07a747c566af758c2b813e06056284707cf73e",
-      "sourceSHA256": "b30e93b5820346ba4758fb01cb07a747c566af758c2b813e06056284707cf73e",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/midriff_prep.py",
-      "bytes": 1822,
-      "sha256": "b1b7c69f75abf978c0fe2dc137e6d6be63306c359b2606cd7e6310c506b09a9c",
-      "sourceSHA256": "b1b7c69f75abf978c0fe2dc137e6d6be63306c359b2606cd7e6310c506b09a9c",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/pieces/arms_hold_front_z0.json",
-      "bytes": 309,
-      "sha256": "41ade91fe116dc1bd09cbb1712bb2403c376304a77f08f5b4b9a67011de3d98a",
-      "sourceSHA256": "41ade91fe116dc1bd09cbb1712bb2403c376304a77f08f5b4b9a67011de3d98a",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/pieces/arms_hold_head.json",
-      "bytes": 293,
-      "sha256": "778efca8391574be46473c950b908aa5b259535e5f958ca3e05c282023686d0f",
-      "sourceSHA256": "778efca8391574be46473c950b908aa5b259535e5f958ca3e05c282023686d0f",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/pieces/h1m_midriff.json",
-      "bytes": 140,
-      "sha256": "8fa2ce987dac762368476a7f85cba6e3cbbabff8e97c83c847d11b31bf73032d",
-      "sourceSHA256": "8fa2ce987dac762368476a7f85cba6e3cbbabff8e97c83c847d11b31bf73032d",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/prewarp.py",
-      "bytes": 18289,
-      "sha256": "d1bcf8c9211dfa54b20d3eb41303f653512d44a58d51bcef04fce54007f6633a",
-      "sourceSHA256": "d1bcf8c9211dfa54b20d3eb41303f653512d44a58d51bcef04fce54007f6633a",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/run_seethrough.sh",
-      "bytes": 1085,
-      "sha256": "498a0b5911e76a41d35288d957b46061a2ff7ca48af5b06d219a6c4396788a9c",
-      "sourceSHA256": "498a0b5911e76a41d35288d957b46061a2ff7ca48af5b06d219a6c4396788a9c",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/set_H1_hold_head/layers_full/meta.json",
-      "bytes": 961,
-      "sha256": "6b6559e8083dede2f33a4fe62e9849032a423806eff2da5a50f221e6761d4db8",
-      "sourceSHA256": "6b6559e8083dede2f33a4fe62e9849032a423806eff2da5a50f221e6761d4db8",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/set_H1m_hold_head/layers_full/meta.json",
-      "bytes": 963,
-      "sha256": "df3f86e8ad4ea643bd47575051a40065969a430bee1fa75e1fd21b0e5036771b",
-      "sourceSHA256": "df3f86e8ad4ea643bd47575051a40065969a430bee1fa75e1fd21b0e5036771b",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/keys3/set_H2z_hold_low/layers_full/meta.json",
-      "bytes": 961,
-      "sha256": "5a8eebcaca6c5ec649205e42a62198c79cda2f178e92416df081b8d71f534e9a",
-      "sourceSHA256": "5a8eebcaca6c5ec649205e42a62198c79cda2f178e92416df081b8d71f534e9a",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/scripts/assemble_hold.py",
-      "bytes": 6309,
-      "sha256": "8a23f099157626ca1fb85128e9d3c59847a7274d322b6fc8de7ec69c53e30834",
-      "sourceSHA256": "8a23f099157626ca1fb85128e9d3c59847a7274d322b6fc8de7ec69c53e30834",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/scripts/cut_jacket.py",
-      "bytes": 4160,
-      "sha256": "24d8283c5cd3fa73148d02f337ed739c3f51c88001acad56752e137c8ff1d6e9",
-      "sourceSHA256": "24d8283c5cd3fa73148d02f337ed739c3f51c88001acad56752e137c8ff1d6e9",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/scripts/cut_piece.py",
-      "bytes": 4680,
-      "sha256": "ac304ae52547df2b17b03284093c4b28ff609d6c783278b9848a14b5d5ceb16b",
-      "sourceSHA256": "ac304ae52547df2b17b03284093c4b28ff609d6c783278b9848a14b5d5ceb16b",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/scripts/v3_waist.py",
-      "bytes": 3533,
-      "sha256": "d0b7c840f9caeac3ebf38713fa9a8472191ccd7ae2f30cb8bb935b1810c4694b",
-      "sourceSHA256": "d0b7c840f9caeac3ebf38713fa9a8472191ccd7ae2f30cb8bb935b1810c4694b",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/generation/source-files.json",
-      "bytes": 66367,
-      "sha256": "158e01f403cc5420988ab8fa470b0615720902cd6a17b2080d24733660831ac7",
-      "sourceSHA256": "158e01f403cc5420988ab8fa470b0615720902cd6a17b2080d24733660831ac7",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/motion.json",
-      "bytes": 1109631,
-      "sha256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7",
-      "sourceSHA256": "46189464040b3ef8b42357399e1c8b0c1c4cbf6feedeabb24927eb09242f5aa7",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/v3/reproduction-evidence.json",
-      "bytes": 65342,
-      "sha256": "9f12a75ebd757cf73d393a33267882618c7adad5216fd8ef6836dd517569aaa5",
-      "sourceSHA256": "9f12a75ebd757cf73d393a33267882618c7adad5216fd8ef6836dd517569aaa5",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Corpus-only v3 declaration, replay or measured evidence",
-      "contentIdentical": false
-    },
-    {
-      "path": "accepted-dance/v3/rig.json",
-      "bytes": 1490283,
-      "sha256": "a1860937f20890818a206a2b15318eaf2bf9e253d58584976b8aa9697f73e135",
-      "sourceSHA256": "a1860937f20890818a206a2b15318eaf2bf9e253d58584976b8aa9697f73e135",
-      "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
-      "role": "Canonical accepted payload / generated part / generation provenance",
-      "contentIdentical": true
-    },
-    {
-      "path": "accepted-dance/viewport.json",
-      "bytes": 635,
-      "sha256": "8a0f07c4304419d64125314d773b3b0f62bacdd0229a40cc0cbdffa57545a13c",
-      "sourceSHA256": "8a0f07c4304419d64125314d773b3b0f62bacdd0229a40cc0cbdffa57545a13c",
-      "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
-      "role": "declared hand corrections / standalone reproducibility input",
-      "contentIdentical": true
-    },
-    {
       "path": "build-accepted-dance.sh",
       "bytes": 412,
       "sha256": "52fa862fa989b79edd02ba0f98ab5e36958dbef164257debbfca0df06314cf41",
@@ -978,21 +1059,32 @@
     },
     {
       "path": "build.sh",
-      "bytes": 397,
-      "sha256": "d38e00ec57c13cb0662c21788d12b0a0a01ce8164a1ae71649eda547cd7d18c2",
+      "bytes": 353,
+      "sha256": "2474beb777090687366c18dfdeefbb7f06797eba9a0cd68e241b495c9ccf54c8",
       "sourceSHA256": "d38e00ec57c13cb0662c21788d12b0a0a01ce8164a1ae71649eda547cd7d18c2",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
-      "contentIdentical": false
+      "contentIdentical": false,
+      "change": "Explicit producer adoption and preserved historical replay, issue 71."
+    },
+    {
+      "path": "bun.lock",
+      "bytes": 1613,
+      "sha256": "ebc886d115700c12288348d24ae49e11df4d2fb0b40371679b022608c40ecf7d",
+      "sourceSHA256": "ebc886d115700c12288348d24ae49e11df4d2fb0b40371679b022608c40ecf7d",
+      "origin": "Explicit producer adoption, issue 71",
+      "role": "Producer replay and verification",
+      "contentIdentical": true
     },
     {
       "path": "check-inputs.py",
-      "bytes": 3233,
-      "sha256": "584b80f031cdaf791615d3394e4e05539002d847730b49d4ea6549ec9142af2f",
+      "bytes": 4029,
+      "sha256": "6bd139c5997516c5637e3aebda8622a48d3c0429202033fa2f951d16ba8e3ef4",
       "sourceSHA256": "584b80f031cdaf791615d3394e4e05539002d847730b49d4ea6549ec9142af2f",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
-      "contentIdentical": false
+      "contentIdentical": false,
+      "change": "Explicit producer adoption and preserved historical replay, issue 71."
     },
     {
       "path": "config-base.json",
@@ -1005,14 +1097,14 @@
     },
     {
       "path": "config.json",
-      "bytes": 46184,
-      "sha256": "9e73777e0cfdf0b1fcc4c4e55f06bd47694cf787708d3d0142b100a1d44d3c8a",
+      "bytes": 165044,
+      "sha256": "3f59c4484e037b0e73c1023eaf8b989f20c01fc532e826e77e902c3576a58cf7",
       "sourceSHA256": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
       "origin": "accepted dance-skirt v3/v5, 2026-10-22",
       "role": "active keeper config",
       "contentIdentical": false,
-      "normalization": "Only x-repairs metadata pins the declared record; producer values unchanged.",
-      "change": "Owner-accepted v3 corpus transfer; original sourceSHA256/origin retained. Producer fields unchanged except x-repairs metadata."
+      "normalization": "Active bottomwear now declares the accepted explicit payload; the exact pre-change keeper is archived under provenance.",
+      "change": "Explicit smear50 producer adoption, issue 71; historical accepted rig/motion and archived keeper values preserved."
     },
     {
       "path": "declared-repairs-v3.json",
@@ -1676,18 +1768,19 @@
       "bytes": 9285,
       "sha256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
       "sourceSHA256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
-      "origin": "the accepted dance’s map, 2026-10-22",
+      "origin": "the accepted dance\u2019s map, 2026-10-22",
       "role": "accepted body/alternate map",
       "contentIdentical": true
     },
     {
       "path": "package.json",
       "bytes": 198,
-      "sha256": "9ad6f6bc815512c4dec1abf8d849037d3d4b2f041a41a83c64ebbe684c2fcb46",
+      "sha256": "7dbfb6bdb3bc5a1479d69c5d157202bf7cf574ffe1a7240eb1fed94d9079781a",
       "sourceSHA256": "9ad6f6bc815512c4dec1abf8d849037d3d4b2f041a41a83c64ebbe684c2fcb46",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
-      "contentIdentical": false
+      "contentIdentical": false,
+      "change": "Pin the released producer required for explicit meshes composed with turn; examples issue 71."
     },
     {
       "path": "painting.png",
@@ -1726,6 +1819,294 @@
       "contentIdentical": true
     },
     {
+      "path": "producer-manifest.json",
+      "bytes": 8969,
+      "sha256": "1514d846e0352f6ac02506a551f23519dc39d12178d6b933045c629fd4db1fde",
+      "sourceSHA256": "1514d846e0352f6ac02506a551f23519dc39d12178d6b933045c629fd4db1fde",
+      "origin": "Explicit producer adoption, issue 71",
+      "role": "Producer replay and verification",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/bottomwear.png",
+      "bytes": 53567,
+      "sha256": "2c9aea3750d0cc5c8e769f0b3948ca7311cfef470b31fd2d698c722fc0ba5d79",
+      "sourceSHA256": "2c9aea3750d0cc5c8e769f0b3948ca7311cfef470b31fd2d698c722fc0ba5d79",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/brow_l.png",
+      "bytes": 305,
+      "sha256": "58d8f5dd5b3b456e2279ffa53d4eb987632e5061f6a00c6fd5f54c8d867406c1",
+      "sourceSHA256": "58d8f5dd5b3b456e2279ffa53d4eb987632e5061f6a00c6fd5f54c8d867406c1",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/brow_r.png",
+      "bytes": 224,
+      "sha256": "dc0ebf85f202135fec40aae7f8d364724f9e3e9ef89c5832957a8815f92684ef",
+      "sourceSHA256": "dc0ebf85f202135fec40aae7f8d364724f9e3e9ef89c5832957a8815f92684ef",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/ear_l.png",
+      "bytes": 1788,
+      "sha256": "9cf0a1ed9e4a4650622c625664a038923b4ec98bc79625a91ca17c256c1c366b",
+      "sourceSHA256": "9cf0a1ed9e4a4650622c625664a038923b4ec98bc79625a91ca17c256c1c366b",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/ear_r.png",
+      "bytes": 1901,
+      "sha256": "9136a74c08f1c615c48318f43ae1864c8d022cc1ede78989636c4c4fb1ab038d",
+      "sourceSHA256": "9136a74c08f1c615c48318f43ae1864c8d022cc1ede78989636c4c4fb1ab038d",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/eyewhite_l.png",
+      "bytes": 1545,
+      "sha256": "62c542d0de59410cc9077d892c8138afb078a45dc01f74e1d20ccfcd89822a3a",
+      "sourceSHA256": "62c542d0de59410cc9077d892c8138afb078a45dc01f74e1d20ccfcd89822a3a",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/eyewhite_r.png",
+      "bytes": 1509,
+      "sha256": "1a0a252b1859d5c91f8cbbaeb4dc41c165f84f0203b837bb8fbea95b47580560",
+      "sourceSHA256": "1a0a252b1859d5c91f8cbbaeb4dc41c165f84f0203b837bb8fbea95b47580560",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/face.png",
+      "bytes": 16818,
+      "sha256": "0ab685b78a8b137476da28897658eefe4d1eea2472e433ccd5fc95eeb6f27930",
+      "sourceSHA256": "0ab685b78a8b137476da28897658eefe4d1eea2472e433ccd5fc95eeb6f27930",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/forearm_l.png",
+      "bytes": 33609,
+      "sha256": "05a21d0189aab69a6e350296112449eab0872355be1c56a5574486dac6777c7f",
+      "sourceSHA256": "05a21d0189aab69a6e350296112449eab0872355be1c56a5574486dac6777c7f",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/forearm_r.png",
+      "bytes": 36296,
+      "sha256": "19a6960f9e1479d89687d6538ac17131cc9b9acdabc94dd966627ef2abc3ef88",
+      "sourceSHA256": "19a6960f9e1479d89687d6538ac17131cc9b9acdabc94dd966627ef2abc3ef88",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/hair_back.png",
+      "bytes": 33152,
+      "sha256": "809652f89fa30abbf5b9afb8fa3bae421cff0d83f2cb12443943eb30928e8404",
+      "sourceSHA256": "809652f89fa30abbf5b9afb8fa3bae421cff0d83f2cb12443943eb30928e8404",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/hair_front.png",
+      "bytes": 32475,
+      "sha256": "92ee31f2da01f1586759c3c57d5ca507cce3adc82e0949313dadd791fdbd825f",
+      "sourceSHA256": "92ee31f2da01f1586759c3c57d5ca507cce3adc82e0949313dadd791fdbd825f",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/hairpin.png",
+      "bytes": 6779,
+      "sha256": "62111a97a3f65abfde9ef073ff5803defdaa5caa5ca079d20f319d051d9424bb",
+      "sourceSHA256": "62111a97a3f65abfde9ef073ff5803defdaa5caa5ca079d20f319d051d9424bb",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/iris_l.png",
+      "bytes": 1400,
+      "sha256": "52fab7f7ab371840a8d30f7b4aa5ddce5e69d02c7ee5e59feee85b993e7eac54",
+      "sourceSHA256": "52fab7f7ab371840a8d30f7b4aa5ddce5e69d02c7ee5e59feee85b993e7eac54",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/iris_r.png",
+      "bytes": 1438,
+      "sha256": "0467eb19345073ef4b46823e345844225ad62ba579c9902f832557297ffce31f",
+      "sourceSHA256": "0467eb19345073ef4b46823e345844225ad62ba579c9902f832557297ffce31f",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/lash_l.png",
+      "bytes": 1329,
+      "sha256": "c7921184f10ea24039a8015ca6998fe6792311672a6fb1737b2038ef8ccf3d46",
+      "sourceSHA256": "c7921184f10ea24039a8015ca6998fe6792311672a6fb1737b2038ef8ccf3d46",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/lash_r.png",
+      "bytes": 1377,
+      "sha256": "7c0a70505472b3e5632616fee08473838ad4b0566f7476656fffbf4a991e4ddb",
+      "sourceSHA256": "7c0a70505472b3e5632616fee08473838ad4b0566f7476656fffbf4a991e4ddb",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/mouth.png",
+      "bytes": 632,
+      "sha256": "1c0852dfb7e5ca16fc614dae74db94d6ed05abbcb02b7a19b49749822fd2fee2",
+      "sourceSHA256": "1c0852dfb7e5ca16fc614dae74db94d6ed05abbcb02b7a19b49749822fd2fee2",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/neck.png",
+      "bytes": 3733,
+      "sha256": "39a35dd5063c674fa99aac4d3fc7fd2a2eb702c6c83b103da7b7bdd752f6c98c",
+      "sourceSHA256": "39a35dd5063c674fa99aac4d3fc7fd2a2eb702c6c83b103da7b7bdd752f6c98c",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/shins.png",
+      "bytes": 56860,
+      "sha256": "f61e4fa37f0fa495c198f008c99d746f08d3014ae8ed29db853f073054c05a25",
+      "sourceSHA256": "f61e4fa37f0fa495c198f008c99d746f08d3014ae8ed29db853f073054c05a25",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/shoe_l.png",
+      "bytes": 16974,
+      "sha256": "1000c93f4190e546965f5d44a1c8a56b5b33cda8901cc7ea583ab4d72f6de71b",
+      "sourceSHA256": "1000c93f4190e546965f5d44a1c8a56b5b33cda8901cc7ea583ab4d72f6de71b",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/shoe_r.png",
+      "bytes": 16987,
+      "sha256": "8ee71530a0e09341098f250de31eca0238c3d336522721768511599cf18c566d",
+      "sourceSHA256": "8ee71530a0e09341098f250de31eca0238c3d336522721768511599cf18c566d",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/sleevefront_l.png",
+      "bytes": 3273,
+      "sha256": "908a53f78216b72d21367f1e3b54e2b0ac9ec7b512f4083cc9ef39eafab60f1e",
+      "sourceSHA256": "908a53f78216b72d21367f1e3b54e2b0ac9ec7b512f4083cc9ef39eafab60f1e",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/thigh_l.png",
+      "bytes": 25705,
+      "sha256": "78bad7d68d12078bcc588f7290096629de078fc081cd215951bbdf0a52d5ce69",
+      "sourceSHA256": "78bad7d68d12078bcc588f7290096629de078fc081cd215951bbdf0a52d5ce69",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/thigh_r.png",
+      "bytes": 25711,
+      "sha256": "ed63d33c39719771352fe5fb77aa7a3679f1f52edf7ff60381ad2811e2afe4ca",
+      "sourceSHA256": "ed63d33c39719771352fe5fb77aa7a3679f1f52edf7ff60381ad2811e2afe4ca",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/topwear.png",
+      "bytes": 65387,
+      "sha256": "d35407077aa7ab99264383dbb40d74aa7a52536943f508d009faca49dbbda571",
+      "sourceSHA256": "d35407077aa7ab99264383dbb40d74aa7a52536943f508d009faca49dbbda571",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/upperarm_l.png",
+      "bytes": 23482,
+      "sha256": "c11f83c8b61958af5f240ab07fe5b27ff0ffbf0dc159ac9db0fab148c05a3bbf",
+      "sourceSHA256": "c11f83c8b61958af5f240ab07fe5b27ff0ffbf0dc159ac9db0fab148c05a3bbf",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/images/upperarm_r.png",
+      "bytes": 23839,
+      "sha256": "1c2b32d343436c443526ab176fb23bee53a00cb738813616389970db14ecff1b",
+      "sourceSHA256": "1c2b32d343436c443526ab176fb23bee53a00cb738813616389970db14ecff1b",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/mesh_report.json",
+      "bytes": 2417,
+      "sha256": "3b62c5c70e6cf1297097f4663b3fb0b0a19bf42a66f7630db5f13c36a46b237b",
+      "sourceSHA256": "3b62c5c70e6cf1297097f4663b3fb0b0a19bf42a66f7630db5f13c36a46b237b",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/motion.json",
+      "bytes": 60378,
+      "sha256": "4a19cf872642cf00b28bab3807a5b597da30c866fcdf3b52619cdb43ce3f54ed",
+      "sourceSHA256": "4a19cf872642cf00b28bab3807a5b597da30c866fcdf3b52619cdb43ce3f54ed",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/rig/rig.json",
+      "bytes": 292180,
+      "sha256": "037cea0fc96ab247286c985e8336b5d06519d9a1a069e78dd800a12b2a180fbf",
+      "sourceSHA256": "037cea0fc96ab247286c985e8336b5d06519d9a1a069e78dd800a12b2a180fbf",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
       "path": "provenance/bridge-triangle-alpha.json",
       "bytes": 169,
       "sha256": "37baedaa53b181bdac8f96729e29638368553eb4109e8823d5c99cef78d188c3",
@@ -1744,6 +2125,15 @@
       "contentIdentical": false
     },
     {
+      "path": "provenance/explicit-turn-editor-roundtrip.json",
+      "bytes": 1983,
+      "sha256": "7a0ca39b8834634cf8305540543e357310762fd335571f6b2c147029152ded94",
+      "sourceSHA256": "7a0ca39b8834634cf8305540543e357310762fd335571f6b2c147029152ded94",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
       "path": "provenance/hand-port.json",
       "bytes": 1686,
       "sha256": "58d00989dbecfd5afcf05dc3c83b6219fd2122dc23a211cbd2178f7f6eb7872a",
@@ -1753,6 +2143,15 @@
       "contentIdentical": false
     },
     {
+      "path": "provenance/keeper-config-before-smear50.json",
+      "bytes": 46184,
+      "sha256": "9e73777e0cfdf0b1fcc4c4e55f06bd47694cf787708d3d0142b100a1d44d3c8a",
+      "sourceSHA256": "9e73777e0cfdf0b1fcc4c4e55f06bd47694cf787708d3d0142b100a1d44d3c8a",
+      "origin": "dancer/config.json at 9ce02ce8 before issue 71",
+      "role": "Immutable historical keeper for accepted replay and producer baseline",
+      "contentIdentical": true
+    },
+    {
       "path": "provenance/port-diff.json",
       "bytes": 29734,
       "sha256": "861882fbe246bf2176285d1e27e4fbd7ae197f6d70711213148c7963b8d30df1",
@@ -1760,6 +2159,15 @@
       "origin": "accepted dance-skirt v3/v5, 2026-10-22",
       "role": "saved hand-port value ledger",
       "contentIdentical": false
+    },
+    {
+      "path": "provenance/smear50-producer.json",
+      "bytes": 2263,
+      "sha256": "92656ed7b4cc698e951e2b3a809e20a03433f62eda49662b3211720a02b24bf6",
+      "sourceSHA256": "92656ed7b4cc698e951e2b3a809e20a03433f62eda49662b3211720a02b24bf6",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
     },
     {
       "path": "provenance/weighted-shins-diff.json",
@@ -1816,6 +2224,24 @@
       "contentIdentical": false
     },
     {
+      "path": "tools/ensure-runtime.sh",
+      "bytes": 227,
+      "sha256": "8b3c99aed0bdf578c187e06138ec5bd91b20c5bfd686edbe6e14fd46488d0589",
+      "sourceSHA256": "8b3c99aed0bdf578c187e06138ec5bd91b20c5bfd686edbe6e14fd46488d0589",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "tools/frame-receipt.py",
+      "bytes": 1390,
+      "sha256": "2ff0972bfe24e757e04369f36cbb0caecd42ece65a82d979267616eafa1caf6b",
+      "sourceSHA256": "2ff0972bfe24e757e04369f36cbb0caecd42ece65a82d979267616eafa1caf6b",
+      "origin": "Explicit producer adoption, issue 71",
+      "role": "Producer replay and verification",
+      "contentIdentical": true
+    },
+    {
       "path": "tools/read-accepted-inputs.ts",
       "bytes": 1604,
       "sha256": "a640f595f484db4ebd3d54635036e5032924d909c04194ede5732802ff627dae",
@@ -1825,23 +2251,78 @@
       "contentIdentical": true
     },
     {
+      "path": "tools/read-smear50-render.ts",
+      "bytes": 912,
+      "sha256": "52bd33cd4eac5c4c5aa1408ea4f6a8f0d2fbe4fc3f001a1d525dca1a74686d37",
+      "sourceSHA256": "52bd33cd4eac5c4c5aa1408ea4f6a8f0d2fbe4fc3f001a1d525dca1a74686d37",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "tools/read-smear50.ts",
+      "bytes": 573,
+      "sha256": "85e0e809700acea74b8d1c26573a945fb93c7ba0c587f68de38caf10812b8b59",
+      "sourceSHA256": "85e0e809700acea74b8d1c26573a945fb93c7ba0c587f68de38caf10812b8b59",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
       "path": "tools/reproduce-accepted-dance-v3.py",
-      "bytes": 7734,
-      "sha256": "f43c32e6c721e66c5ad6bbc7f4adfa1088480c48c79ed7c86d2e5182f37909ec",
+      "bytes": 7852,
+      "sha256": "d3b0ce5fe922944e1a184cccf1ab7989f2ae56758b0b27aa10c5010c28a19181",
       "sourceSHA256": "f43c32e6c721e66c5ad6bbc7f4adfa1088480c48c79ed7c86d2e5182f37909ec",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
-      "contentIdentical": false
+      "contentIdentical": false,
+      "change": "Explicit smear50 producer adoption, issue 71; historical accepted rig/motion and archived keeper values preserved."
     },
     {
       "path": "tools/reproduce-accepted-dance.py",
-      "bytes": 5579,
-      "sha256": "b12df59c29e0d1d2bb472d9bc04a485d1de44677ca9f2a5c1771036e97881851",
+      "bytes": 5936,
+      "sha256": "dd9f63a5aab31b8f6f604bffa06ed4c1d59381c56813edb49bd18b049eada0e7",
       "sourceSHA256": "53471aa6d0904b6efec0bc0f5495551b5a8eea809b33e2419d60633eca046cdd",
       "origin": "owner-accepted dance record and standalone replay,2026-10-24; trial PR52",
       "role": "declared hand corrections / standalone reproducibility input",
       "contentIdentical": false,
-      "change": "Owner-accepted v3 corpus replay, closure and current-version documentation; historical values retained."
+      "change": "Explicit smear50 producer adoption, issue 71; historical accepted rig/motion and archived keeper values preserved."
+    },
+    {
+      "path": "tools/reproduce-smear50.py",
+      "bytes": 6347,
+      "sha256": "a843f311c1632298476869e492a3edcfbc983b4faff91eb6ea56f3e40f28085a",
+      "sourceSHA256": "a278b134e47b0c29dad605520389dc7f019de8a39429af1417aa7cbf8d5a5566",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": false
+    },
+    {
+      "path": "tools/smear50-preview.py",
+      "bytes": 3103,
+      "sha256": "db8853fd7b57b2779f2afe23f477071a3e33cd38ffefcfffefa1bedb956a596f",
+      "sourceSHA256": "db8853fd7b57b2779f2afe23f477071a3e33cd38ffefcfffefa1bedb956a596f",
+      "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "tools/verify-producer.mjs",
+      "bytes": 4145,
+      "sha256": "f431cad9bdc7b7b3dddbcdb322de9e8cc4a434f8d3c3c132f2fef41bd3bc3650",
+      "sourceSHA256": "67279cfd9fda7194f68e375ee0076864a480030fb67ab848bc5283a56ffe7bb3",
+      "origin": "Explicit producer adoption, issue 71",
+      "role": "Producer replay and verification",
+      "contentIdentical": false
+    },
+    {
+      "path": "tools/verify-producer.test.mjs",
+      "bytes": 968,
+      "sha256": "ea807d80569bd36eb8658b098972d960679286051efc7b59d5545bf45901040e",
+      "sourceSHA256": "ea807d80569bd36eb8658b098972d960679286051efc7b59d5545bf45901040e",
+      "origin": "Explicit producer adoption, issue 71",
+      "role": "Producer replay and verification",
+      "contentIdentical": true
     },
     {
       "path": "under/elbow_l.png",

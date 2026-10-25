@@ -45,3 +45,15 @@ assert [s['name'] for s in v3rig['slots']]==v3['slotOrder'], 'V3_SLOT_ORDER'
 assert sum(c.get('type')=='physics' for c in v3rig['constraints'])==11, 'V3_PHYSICS_PRESERVED'
 print('CLOSURE PASS: source hashes; full/head29+29; under/stress;11physics config; accepted-map bones/slots/attachments/images.')
 print('V3 CLOSURE PASS: canonical accepted bytes; 3 new parts; metadata and prior-v1 pins; exact slot order; 11 physics.')
+
+# Current producer adoption is separate from the immutable accepted dance history.
+producer_manifest=Path('producer-manifest.json')
+if producer_manifest.exists():
+    current=json.loads(producer_manifest.read_text())
+    assert current['spec']=='dancer-producer/1', 'PRODUCER_SCHEMA'
+    for file,key in [('config.json','configSHA256'),('package.json','packageSHA256')]:
+        assert hashlib.sha256(Path(file).read_bytes()).hexdigest()==current[key], 'PRODUCER_INPUT_HASH: '+file
+    for file,row in current['files'].items():
+        data=(Path('producer')/file).read_bytes()
+        assert len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256'], 'PRODUCER_FILE_HASH: '+file
+    print('PRODUCER CLOSURE PASS: canonical adopted file bytes and active config/package pins.')
