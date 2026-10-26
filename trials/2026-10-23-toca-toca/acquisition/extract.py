@@ -129,7 +129,7 @@ cap.release()
 doc = {'spec': 'rig-c-pose-frames/0',
        'space': {'units': 'painting-px', 'origin': 'top-left', 'y': 'down'},
        'width': W, 'height': H, 'fps': fps,
-       'source': "Toca Toca; YouTube Shorts HSug-0AAp3k; creator not identified; original video withheld; "
+       'source': "Toca Toca; YouTube Shorts video (link withheld); creator not identified; original video withheld; "
                  "RTMPose Wholebody balanced, rtmw-dw-x-l, rtmlib/onnxruntime CPU; "
                  "largest body-17 vertical extent among candidates with five joints at score >= 0.3; "
                  "body-18 names, neck = shoulders' midpoint; model and video digests in pins.json",

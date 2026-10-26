@@ -2,7 +2,7 @@
 import hashlib,json,os,shutil,subprocess,sys
 from pathlib import Path
 
-assert hashlib.sha256(Path('acquisition/pose.json').read_bytes()).hexdigest() == 'fe3327cb0f8772f51d3b656889e60fe7a613156391f9dbcff5f40e3141fb9ff1'
+assert hashlib.sha256(Path('acquisition/pose.json').read_bytes()).hexdigest() == 'b862bb09226c7b294b006f2bde6a799bab1f80b84fb432361e43e7df6a95de96'
 commands=[]
 def run(label, command, cwd=None):
     guard=os.environ.get('TRIAL_GUARD')

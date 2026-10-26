@@ -77,7 +77,7 @@ warp/control/layer hash references. Historical model binary digests and custom
 node revisions were not recorded; generative byte identity is not claimed.
 
 This is a non-looping 13-second take, including both sampled endpoints. Origin:
-Zero Two challenge, [YouTube Shorts BGyjsZsWndA](https://www.youtube.com/shorts/BGyjsZsWndA),
+Zero Two challenge, a YouTube Shorts video (link withheld),
 creator not identified. Source footage, audio and promo/PiP pixels are withheld.
 The original retarget LAND20/20 and posthoc foot-goal residual belong to their
 historical stages. Shins FOLD269/391 remains the historical known limit; a

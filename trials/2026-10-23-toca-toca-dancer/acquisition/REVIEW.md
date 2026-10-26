@@ -16,7 +16,7 @@ Reviewed changes, recorded before inference:
 | Exact local ONNX files and SHA-256 checks | Keep the existing balanced model choice and refuse changed weights |
 | Headless OpenCV only; rtmlib installed without automatic dependencies | Avoid three overlapping OpenCV distributions; CPU inference APIs are unchanged |
 | Four ONNX intra-op threads, one inter-op thread, sequential execution | Respect the shared job's four-worker budget without editing package files |
-| Correct Toca Toca / YouTube Shorts HSug-0AAp3k source | Fresh output identifies its actual source; creator not identified |
+| Correct Toca Toca / YouTube Shorts video (link withheld) source | Fresh output identifies its actual source; creator not identified |
 | Parameterised video, model and output paths | No private path in the published recipe |
 | Files instead of JSON console markers; progress every 30 frames | Preserve structured artifacts without flooding the raw log |
 | Three-frame precheck and explicit input/count assertions | Refuse a wrong input or ineligible person before the full extraction |

@@ -16,7 +16,7 @@ frozen here; the old README did not state its interpolation/encoding settings.
 The reported coordinates are in the resulting 1080x1920 picture space.
 
 Reviewed changes from the first recipe: parameterized paths; correct source
-credit (ZeroTwo / YouTube Shorts BGyjsZsWndA, creator not identified); pinned
+credit (ZeroTwo / YouTube Shorts video (link withheld), creator not identified); pinned
 packages and checkpoint digests; CPU provider/thread limits; finite point
 checks; frozen source hash/identity; three-frame precheck; structured outputs
 and progress. No detector value is manually edited. No reference pixels are

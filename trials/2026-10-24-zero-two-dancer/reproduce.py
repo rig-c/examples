@@ -3,7 +3,7 @@ import hashlib,json,os,shutil,subprocess,sys
 from pathlib import Path
 
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
-assert sha('acquisition/pose.json')=='997fb8433f1c403ad4c9405dd3c0bad07af83938276dcbcdd33ededd8e8193b1'
+assert sha('acquisition/pose.json')=='228dc7f3ffdf52932512243dbbcc09eb3c1ce4fb94ed52578622b4b8c445657f'
 assert sha('source-map.json')=='9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096'
 original=json.loads(Path('source-map.json').read_text());derived=json.loads(Path('map.json').read_text())
 for chain in original['chains']:
@@ -28,7 +28,7 @@ run('install',['bun','install','--frozen-lockfile'],cwd='work/runtime')
 binpath=Path('work/runtime/node_modules/.bin')
 def cli(tool,*args): return ['bun','--bun','run',str(binpath/tool),*args]
 run('clean',cli('rig-pose','clean','--pose','acquisition/pose.json','--out','work/cleanedpose.json','--legs','5','--rest','7'))
-assert sha('work/cleanedpose.json')=='139664b16ee0989a9385dca1d0d36ece27592308c6c37554eb8139c17d277234'
+assert sha('work/cleanedpose.json')=='8a45320006253d8bff0e14366659afff89877dced434b5a90f3e34c39332f903'
 run('retarget',cli('rig-pose','retarget','--rig','work/corpus/dancer/accepted','--map','map.json','--sequence','work/cleanedpose.json','--out','work/motion.json','--animation','zero-two','--plant-feet','--profile','spine','--reference','withheld/orig.webm','--report','work/report.json','--build','work/build'))
 site=Path('work/site');site.mkdir(exist_ok=True)
 shutil.copy2('play.html',site/'index.html')

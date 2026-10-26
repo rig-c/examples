@@ -22,7 +22,7 @@ SHA-256 `8713172431674a57caa8d7c3f452a05bf46ec8079ca368bb4cd9df7952c2edfd`,
 already in those values. Neither is reapplied. The animation is `zero-two-r3-hand`,
 13 seconds, rendered non-looping at 30 fps including both endpoints (391 frames).
 
-Origin: Zero Two challenge, [YouTube Shorts BGyjsZsWndA](https://www.youtube.com/shorts/BGyjsZsWndA),
+Origin: Zero Two challenge, a YouTube Shorts video (link withheld),
 creator not identified. Reference footage, audio, picture-in-picture and promo
 cards are absent. The accepted digest is of native dance PNG bytes, not a promo
 container, encoded video, pixel-only digest or text list of hashes.

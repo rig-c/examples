@@ -148,7 +148,7 @@ if decode_exit:
 doc = {'spec': 'rig-c-pose-frames/0',
        'space': {'units': 'painting-px', 'origin': 'top-left', 'y': 'down'},
        'width': W, 'height': H, 'fps': fps,
-       'source': "ZeroTwo; YouTube Shorts BGyjsZsWndA; creator not identified; original video withheld; "
+       'source': "ZeroTwo; YouTube Shorts video (link withheld); creator not identified; original video withheld; "
                  "RTMPose Wholebody balanced, rtmw-dw-x-l, rtmlib/onnxruntime CPU; "
                  "highest mean body-17 confidence per frame; original decoded and resized to 1080x1920 with OpenCV INTER_AREA; "
                  "body-18 names, neck = shoulders' midpoint; model and video digests in pins.json",

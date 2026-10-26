@@ -28,3 +28,19 @@ jobs:
             fi
           fi
           echo "no local home paths"
+      - name: No source-video links in tracked files
+        run: |
+          set -eu
+          # Source videos are withheld: the corpus records that a pose came from
+          # a video, never which one (2026-10-26: two Shorts IDs were public in
+          # 13 files). Refused by name so it cannot come back.
+          if git grep -I -n -i -E '(youtube\.com/(shorts|watch)|youtu\.be/|tiktok\.com/|instagram\.com/(reel|p)/|douyin\.com/|bilibili\.com/video)' -- . ; then
+            echo "::error::a source-video link is committed; source videos are withheld - describe the source without its link or ID"
+            exit 1
+          else
+            status=$?
+            if [ "$status" -ne 1 ]; then
+              exit "$status"
+            fi
+          fi
+          echo "no source-video links"
