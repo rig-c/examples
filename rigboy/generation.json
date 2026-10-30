@@ -1,0 +1,105 @@
+{
+  "key": "rigboy",
+  "status": "Original source and See-through retained; v1 seven-motion sample with modest amplitudes",
+  "painting": "painting.png",
+  "painting_sha256": "fe60f56c263a5f8f79efb3ad4c551ac9a99ba8dec77fd8cc6ecc26fd0a5211d9",
+  "seed": 781301,
+  "checkpoint": "hassakuXLIllustrious_v13StyleA.safetensors",
+  "checkpoint_source": "https://civitai.com/models/140272?modelVersionId=1240288",
+  "checkpoint_sha256_advertised": "79408e8b5a794bdb4b0786e05d4a77e3610b1a242226ed063fb45d6075ae4d60",
+  "checkpoint_weights_hashed_on_host": false,
+  "credit": "Hassaku XL (Illustrious) v1.3 Style A by Ikena.",
+  "license_evidence": {
+    "publisher": "https://civitai.com/models/140272?modelVersionId=1240288",
+    "model_terms": "Fair AI Public License 1.0-SD; publisher credit retained; checkpoint not redistributed",
+    "repository_terms": "../LICENSE"
+  },
+  "loras": [],
+  "reference_images": [],
+  "positive": "rating_safe, source_cartoon, solo, boy, chibi, super-deformed, big head, short body, short limbs, short purple hair, turquoise jacket over shirt, dark trousers, orange boots, full body, upright side profile facing right, planted stride, far leg visible, two-handed grip on chunky sci-fi toy blaster held forward at chest height, near arm in front, far forearm visible reaching past near hand, cel-shaded sprite, plain white background",
+  "negative": "multiple heads, extra faces, extra figures, multiview, reference sheet, figurine, pedestal, extra limbs, fused arms, hidden arm, long body, long limbs, long neck, long hair, leaning, front view, three-quarter view, facing left, realistic weapon, extra weapon, firing, emission, muzzle flash, beam, smoke, floor, ground shadow, gradient, text, logo",
+  "clip_stop": -2,
+  "sampler": {
+    "steps": 30,
+    "cfg": 6.0,
+    "sampler_name": "euler_ancestral",
+    "scheduler": "normal",
+    "denoise": 1.0
+  },
+  "latent": [
+    832,
+    1216
+  ],
+  "size": [
+    1664,
+    2432
+  ],
+  "upscale": {
+    "model": "4x-AnimeSharp.pth",
+    "then": "lanczos x0.5"
+  },
+  "control": {
+    "image": "generation/control.png",
+    "points": "generation/pose.json",
+    "model": "controlnet-openpose-sdxl-1.0.safetensors",
+    "strength": 0.85,
+    "end_percent": 0.7,
+    "image_sha256": "9507394246fd4b1867248b79fc33a9e0152449bbfef509dd57b3108053bfc13b",
+    "points_sha256": "94621d043e2e41a52f64ad74b292e1dba5aeecda3147815700890ded82845666"
+  },
+  "prompt_id": "2cae9e6d-25aa-430d-b71b-cc3064b87716",
+  "graph_sha256": "770b8be07659b99e4bfbe0112c1eeaf80f005f440fb0d7a5eaf50d608302cfa3",
+  "selection": {
+    "selected": true,
+    "rationale": "Original short-haired side-profile design with separated leg silhouettes and a two-handed toy grip. Natural far-upper-arm occlusion is retained; the far cuff/hand stays attached to the toy throughout the motion range.",
+    "four_independent_closed_limbs_claimed": false
+  },
+  "hand_detailer": false,
+  "source_scissor_repairs": false,
+  "rig_validation": "Retained scoped parts check: PASS, 8 of 12 scoped checks measured and 4 skipped. See README.md for limits. No claim of pixel-perfect recomposition or unseen-side support.",
+  "seethrough": {
+    "parts_version": "1.79.1",
+    "full": "layers/full",
+    "head": "layers/head",
+    "resolution": 768,
+    "resolution_depth": 512,
+    "steps": 30,
+    "seed": 42,
+    "quant": "none",
+    "offload": true,
+    "auto_download": false,
+    "lama": false,
+    "full_prompt_id": "b3c9deab-5173-46d3-991e-65cc1fda97f7",
+    "head_prompt_id": "750b1854-520c-4d7d-b644-8680fd9d1c5b",
+    "reader_geometry": "passed actual readers and both 768px canvases",
+    "review": "Raw full/head layers retained. Handwear-r supplies the arm pieces, legwear both trousers, footwear both boots. Structural separations keep the painted garment ownership; no hand detailer or painted fill."
+  },
+  "structural_separations": {
+    "legwear": "near leg, far leg, shirt hem retained on chest",
+    "footwear": "near and far boots",
+    "handwear-r": "near sleeve/forearm and far cuff/hand; no far upper-arm artwork added",
+    "fill_pixels": 0,
+    "source_pixels_repainted": 0
+  },
+  "toolchain": {
+    "parts": "1.79.1",
+    "core": "2.81.1",
+    "play": "1.21.2"
+  },
+  "motions": [
+    "idle",
+    "walk",
+    "run",
+    "jump",
+    "aim",
+    "shoot",
+    "hit"
+  ],
+  "look": "omitted: full profile lacks hidden facial side",
+  "generation_graph": {
+    "path": "generation/graph.json",
+    "file_sha256": "b76c0aa17d5988405456c89566112137cd5cc38b5c33642155c0f22bfb037410",
+    "control_image_binding": "LoadImage node 5 uses control.png beside the graph; submission changes only that value to the uploaded basename.",
+    "submitted_graph_sha256": "770b8be07659b99e4bfbe0112c1eeaf80f005f440fb0d7a5eaf50d608302cfa3"
+  }
+}

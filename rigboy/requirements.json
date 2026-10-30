@@ -1,0 +1,27 @@
+{
+  "spec": "spine-parts-requirements/1",
+  "fps": 12,
+  "requirements": [
+    {
+      "kind": "range",
+      "name": "near_hip_walk_25",
+      "animation": "walk",
+      "bone": "near_hip",
+      "lo_degrees": -25,
+      "hi_degrees": 25
+    },
+    {
+      "kind": "range",
+      "name": "far_hip_walk_25",
+      "animation": "walk",
+      "bone": "far_hip",
+      "lo_degrees": -25,
+      "hi_degrees": 25
+    }
+  ],
+  "not_swinging": [
+    "arm_near",
+    "hand_far"
+  ],
+  "note": "Legs are actively keyed locomotion meshes, not passive hanging cloth. Hands hold the toy throughout. No idle footwear planting exemption. Contact/flight and loop readings are recorded from native geometry and actual player root advance, with predeclared limits."
+}

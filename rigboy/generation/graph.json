@@ -1,0 +1,162 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "hassakuXLIllustrious_v13StyleA.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "rating_safe, source_cartoon, solo, boy, chibi, super-deformed, big head, short body, short limbs, short purple hair, turquoise jacket over shirt, dark trousers, orange boots, full body, upright side profile facing right, planted stride, far leg visible, two-handed grip on chunky sci-fi toy blaster held forward at chest height, near arm in front, far forearm visible reaching past near hand, cel-shaded sprite, plain white background",
+      "clip": [
+        "14",
+        0
+      ]
+    }
+  },
+  "3": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "multiple heads, extra faces, extra figures, multiview, reference sheet, figurine, pedestal, extra limbs, fused arms, hidden arm, long body, long limbs, long neck, long hair, leaning, front view, three-quarter view, facing left, realistic weapon, extra weapon, firing, emission, muzzle flash, beam, smoke, floor, ground shadow, gradient, text, logo",
+      "clip": [
+        "14",
+        0
+      ]
+    }
+  },
+  "4": {
+    "class_type": "EmptyLatentImage",
+    "inputs": {
+      "width": 832,
+      "height": 1216,
+      "batch_size": 1
+    }
+  },
+  "5": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "control.png"
+    }
+  },
+  "6": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "controlnet-openpose-sdxl-1.0.safetensors"
+    }
+  },
+  "7": {
+    "class_type": "ControlNetApplyAdvanced",
+    "inputs": {
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "control_net": [
+        "6",
+        0
+      ],
+      "image": [
+        "5",
+        0
+      ],
+      "strength": 0.85,
+      "start_percent": 0.0,
+      "end_percent": 0.7
+    }
+  },
+  "8": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "7",
+        0
+      ],
+      "negative": [
+        "7",
+        1
+      ],
+      "latent_image": [
+        "4",
+        0
+      ],
+      "seed": 781301,
+      "steps": 30,
+      "cfg": 6.0,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1.0
+    }
+  },
+  "9": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "8",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    }
+  },
+  "10": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "4x-AnimeSharp.pth"
+    }
+  },
+  "11": {
+    "class_type": "ImageUpscaleWithModel",
+    "inputs": {
+      "upscale_model": [
+        "10",
+        0
+      ],
+      "image": [
+        "9",
+        0
+      ]
+    }
+  },
+  "12": {
+    "class_type": "ImageScaleBy",
+    "inputs": {
+      "image": [
+        "11",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "scale_by": 0.5
+    }
+  },
+  "13": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "12",
+        0
+      ],
+      "filename_prefix": "rigboy/phase1d_r3_A1_781301"
+    }
+  },
+  "14": {
+    "class_type": "CLIPSetLastLayer",
+    "inputs": {
+      "clip": [
+        "1",
+        1
+      ],
+      "stop_at_clip_layer": -2
+    }
+  }
+}

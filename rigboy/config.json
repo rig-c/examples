@@ -1,0 +1,715 @@
+{
+  "key": "rigboy",
+  "seethrough": {
+    "resolution": 768,
+    "steps": 30,
+    "seed": 42,
+    "offload": true,
+    "head_box": [
+      250,
+      200,
+      1350,
+      1300
+    ]
+  },
+  "assemble": {
+    "rig_scale": 0.5,
+    "plan": [
+      [
+        "boot_far",
+        "full",
+        "footwear"
+      ],
+      [
+        "hem_ownership",
+        "full",
+        "legwear"
+      ],
+      [
+        "body",
+        "full",
+        "topwear"
+      ],
+      [
+        "face",
+        "full",
+        "face"
+      ],
+      [
+        "hair_back",
+        "full",
+        "back hair"
+      ],
+      [
+        "ear",
+        "full",
+        "ears-r"
+      ],
+      [
+        "eye_white",
+        "full",
+        "eyewhite-r"
+      ],
+      [
+        "iris",
+        "full",
+        "irides-r"
+      ],
+      [
+        "lash",
+        "full",
+        "eyelash-r"
+      ],
+      [
+        "brow",
+        "full",
+        "eyebrow-r"
+      ],
+      [
+        "nose",
+        "full",
+        "nose"
+      ],
+      [
+        "mouth",
+        "full",
+        "mouth"
+      ],
+      [
+        "hair_front",
+        "full",
+        "front hair"
+      ],
+      [
+        "arm_near",
+        "full",
+        "handwear-r"
+      ],
+      [
+        "toy",
+        "full",
+        "objects"
+      ]
+    ],
+    "cuts": [
+      {
+        "from": "hem_ownership",
+        "into": "leg_far",
+        "polygon": [
+          [
+            250,
+            773
+          ],
+          [
+            331,
+            773
+          ],
+          [
+            360,
+            783
+          ],
+          [
+            360,
+            805
+          ],
+          [
+            374,
+            846
+          ],
+          [
+            394,
+            899
+          ],
+          [
+            410,
+            1056
+          ],
+          [
+            250,
+            1056
+          ]
+        ],
+        "draw": {
+          "before": "hem_ownership"
+        },
+        "overlap": 0
+      },
+      {
+        "from": "hem_ownership",
+        "into": "leg_near",
+        "polygon": [
+          [
+            360,
+            783
+          ],
+          [
+            485,
+            822
+          ],
+          [
+            525,
+            1056
+          ],
+          [
+            410,
+            1056
+          ],
+          [
+            394,
+            899
+          ],
+          [
+            374,
+            846
+          ],
+          [
+            360,
+            805
+          ]
+        ],
+        "draw": {
+          "before": "hem_ownership"
+        },
+        "overlap": 0
+      },
+      {
+        "from": "boot_far",
+        "into": "boot_near",
+        "polygon": [
+          [
+            400,
+            980
+          ],
+          [
+            610,
+            980
+          ],
+          [
+            610,
+            1145
+          ],
+          [
+            400,
+            1145
+          ]
+        ],
+        "draw": {
+          "before": "hem_ownership"
+        },
+        "overlap": 0
+      },
+      {
+        "from": "arm_near",
+        "into": "hand_far",
+        "polygon": [
+          [
+            500,
+            586
+          ],
+          [
+            705,
+            586
+          ],
+          [
+            705,
+            668
+          ],
+          [
+            680,
+            668
+          ],
+          [
+            680,
+            617
+          ],
+          [
+            594,
+            622
+          ],
+          [
+            582,
+            640
+          ],
+          [
+            563,
+            637
+          ],
+          [
+            551,
+            622
+          ],
+          [
+            520,
+            616
+          ],
+          [
+            501,
+            608
+          ]
+        ],
+        "draw": {
+          "before": "arm_near"
+        },
+        "overlap": 1
+      }
+    ]
+  },
+  "bones": [
+    {
+      "name": "hip",
+      "parent": "root",
+      "at": [
+        388,
+        794
+      ]
+    },
+    {
+      "name": "chest",
+      "parent": "hip",
+      "at": [
+        390,
+        730
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "chest",
+      "at": [
+        446,
+        529
+      ]
+    },
+    {
+      "name": "near_hip",
+      "parent": "hip",
+      "at": [
+        407,
+        791
+      ],
+      "tip": [
+        449,
+        940
+      ]
+    },
+    {
+      "name": "near_knee",
+      "parent": "near_hip",
+      "at": [
+        449,
+        940
+      ],
+      "tip": [
+        469,
+        1022
+      ]
+    },
+    {
+      "name": "far_hip",
+      "parent": "hip",
+      "at": [
+        350,
+        777
+      ],
+      "tip": [
+        324,
+        926
+      ]
+    },
+    {
+      "name": "far_knee",
+      "parent": "far_hip",
+      "at": [
+        324,
+        926
+      ],
+      "tip": [
+        300,
+        1009
+      ]
+    },
+    {
+      "name": "near_arm",
+      "parent": "chest",
+      "at": [
+        425,
+        577
+      ],
+      "tip": [
+        579,
+        658
+      ]
+    },
+    {
+      "name": "toy",
+      "parent": "near_arm",
+      "at": [
+        624,
+        627
+      ],
+      "tip": [
+        624,
+        530
+      ]
+    },
+    {
+      "name": "far_hand",
+      "parent": "toy",
+      "at": [
+        663,
+        630
+      ]
+    },
+    {
+      "name": "fringe",
+      "parent": "head",
+      "at": [
+        482,
+        247
+      ],
+      "tip": [
+        520,
+        448
+      ]
+    },
+    {
+      "name": "near_foot",
+      "parent": "near_knee",
+      "at": [
+        469,
+        1022
+      ],
+      "tip": [
+        529,
+        1022
+      ],
+      "inherit": "onlyTranslation"
+    },
+    {
+      "name": "far_foot",
+      "parent": "far_knee",
+      "at": [
+        300,
+        1009
+      ],
+      "tip": [
+        360,
+        1009
+      ],
+      "inherit": "onlyTranslation"
+    },
+    {
+      "name": "aim_control",
+      "parent": "root",
+      "at": [
+        425,
+        577
+      ]
+    }
+  ],
+  "meshes": {
+    "leg_near": {
+      "contour": {
+        "tolerance": 0.5,
+        "margin": 0,
+        "spacing": 16,
+        "maxEdge": 12,
+        "budget": 1200,
+        "regions": [
+          {
+            "name": "pelvis_rim",
+            "shape": "polygon",
+            "points": [
+              [
+                200,
+                730
+              ],
+              [
+                600,
+                730
+              ],
+              [
+                600,
+                840
+              ],
+              [
+                200,
+                840
+              ]
+            ],
+            "spacing": 8,
+            "band": 80,
+            "bone": "hip"
+          },
+          {
+            "name": "foot_cuff",
+            "shape": "polygon",
+            "points": [
+              [
+                200,
+                980
+              ],
+              [
+                600,
+                980
+              ],
+              [
+                600,
+                1140
+              ],
+              [
+                200,
+                1140
+              ]
+            ],
+            "spacing": 8,
+            "band": 50,
+            "bone": "near_foot"
+          }
+        ]
+      },
+      "r": 8,
+      "segments": [
+        "near_hip",
+        "near_knee"
+      ],
+      "exponent": 2,
+      "rule": "distance",
+      "influences": {
+        "maxInfluences": 3,
+        "floor": "continuous"
+      }
+    },
+    "leg_far": {
+      "contour": {
+        "tolerance": 0.5,
+        "margin": 0,
+        "spacing": 16,
+        "maxEdge": 12,
+        "budget": 1200,
+        "regions": [
+          {
+            "name": "pelvis_rim",
+            "shape": "polygon",
+            "points": [
+              [
+                200,
+                730
+              ],
+              [
+                600,
+                730
+              ],
+              [
+                600,
+                840
+              ],
+              [
+                200,
+                840
+              ]
+            ],
+            "spacing": 8,
+            "band": 80,
+            "bone": "hip"
+          },
+          {
+            "name": "foot_cuff",
+            "shape": "polygon",
+            "points": [
+              [
+                200,
+                980
+              ],
+              [
+                600,
+                980
+              ],
+              [
+                600,
+                1140
+              ],
+              [
+                200,
+                1140
+              ]
+            ],
+            "spacing": 8,
+            "band": 50,
+            "bone": "far_foot"
+          }
+        ],
+        "stray": 1
+      },
+      "r": 8,
+      "segments": [
+        "far_hip",
+        "far_knee"
+      ],
+      "exponent": 2,
+      "rule": "distance",
+      "influences": {
+        "maxInfluences": 3,
+        "floor": "continuous"
+      }
+    },
+    "arm_near": {
+      "contour": {
+        "tolerance": 0.5,
+        "margin": 0,
+        "spacing": 14,
+        "maxEdge": 10,
+        "budget": 1200,
+        "bridges": true,
+        "regions": [
+          {
+            "name": "shoulder_rim",
+            "shape": "polygon",
+            "points": [
+              [
+                350,
+                520
+              ],
+              [
+                470,
+                520
+              ],
+              [
+                470,
+                610
+              ],
+              [
+                350,
+                610
+              ]
+            ],
+            "spacing": 8,
+            "band": 30,
+            "bone": "chest"
+          }
+        ]
+      },
+      "r": 8,
+      "segments": [
+        "near_arm"
+      ],
+      "rule": "distance",
+      "exponent": 2,
+      "influences": {
+        "maxInfluences": 2,
+        "floor": "continuous"
+      }
+    }
+  },
+  "regions": {
+    "boot_far": "far_foot",
+    "hem_ownership": "chest",
+    "body": "chest",
+    "face": "head",
+    "hair_back": "head",
+    "ear": "head",
+    "eye_white": "head",
+    "iris": "head",
+    "lash": "head",
+    "brow": "head",
+    "nose": "head",
+    "mouth": "head",
+    "hair_front": "fringe",
+    "toy": "toy",
+    "boot_near": "near_foot",
+    "hand_far": "far_hand"
+  },
+  "motion": {
+    "duration": 2.5,
+    "tracks": [
+      {
+        "bone": "chest",
+        "prop": "translatey",
+        "amp": 3.5,
+        "period": 2.5,
+        "phase": 0
+      },
+      {
+        "bone": "head",
+        "prop": "rotate",
+        "amp": 0.3,
+        "period": 2.5,
+        "phase": 0.25
+      }
+    ],
+    "animations_from": "motions.json"
+  },
+  "constraints": [
+    {
+      "type": "physics",
+      "name": "fringe_response",
+      "bone": "fringe",
+      "rotate": 0.7,
+      "limit": 0.7,
+      "fps": 60,
+      "inertia": 0.2,
+      "strength": 30,
+      "damping": 0.9,
+      "mass": 1,
+      "wind": 0,
+      "gravity": 0,
+      "mix": 0.7
+    },
+    {
+      "type": "physics",
+      "name": "arm_settle",
+      "bone": "near_arm",
+      "rotate": 0.2,
+      "limit": 2,
+      "fps": 60,
+      "inertia": 0.2,
+      "strength": 60,
+      "damping": 0.9,
+      "mass": 1,
+      "wind": 0,
+      "gravity": 0,
+      "mix": 0.5
+    },
+    {
+      "type": "slider",
+      "name": "aim_dial",
+      "animation": "aim",
+      "bone": "aim_control",
+      "property": "rotate",
+      "local": true,
+      "from": -8,
+      "to": 0,
+      "scale": 0.0625,
+      "max": 16,
+      "mix": 1,
+      "additive": true,
+      "loop": false
+    }
+  ],
+  "motion_seams": [
+    {
+      "part": "body",
+      "neighbour": "leg_far"
+    },
+    {
+      "part": "body",
+      "neighbour": "leg_near"
+    },
+    {
+      "part": "hem_ownership",
+      "neighbour": "leg_far"
+    },
+    {
+      "part": "hem_ownership",
+      "neighbour": "leg_near"
+    },
+    {
+      "part": "arm_near",
+      "neighbour": "hand_far"
+    },
+    {
+      "part": "arm_near",
+      "neighbour": "body"
+    }
+  ],
+  "note": "Original side-profile character; seven motion/control samples. Aim is a property-driven slider; look omitted because the profile supplies no hidden facial side."
+}
