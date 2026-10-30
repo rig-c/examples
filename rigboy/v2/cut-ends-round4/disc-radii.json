@@ -1,0 +1,154 @@
+{
+ "near shoulder": {
+  "tube": "front-upper-arm",
+  "bone": "front-upper-arm",
+  "J": [
+   216.65,
+   324.7
+  ],
+  "fitted": true,
+  "reasons": [],
+  "width": 23.23,
+  "R": 11.62
+ },
+ "near elbow": {
+  "tube": "front-upper-arm",
+  "bone": "front-bracer",
+  "J": [
+   259.3,
+   369.6
+  ],
+  "fitted": true,
+  "reasons": [],
+  "width": 27.3,
+  "R": 13.65
+ },
+ "near wrist": {
+  "tube": "front-bracer",
+  "bone": "front-fist",
+  "J": [
+   301.95,
+   399.9
+  ],
+  "fitted": true,
+  "reasons": [],
+  "width": 36.41,
+  "R": 18.2
+ },
+ "far shoulder": {
+  "tube": "rear-upper-arm",
+  "bone": "rear-upper-arm",
+  "J": [
+   187.45,
+   325.8
+  ],
+  "fitted": false,
+  "reasons": [
+   "R: inliers stop at t=-12, 12 px short of the joint (limit 11.2)"
+  ],
+  "width": 25.61,
+  "R": 12.81
+ },
+ "far elbow": {
+  "tube": "rear-upper-arm",
+  "bone": "rear-bracer",
+  "J": [
+   156.0,
+   357.25
+  ],
+  "fitted": true,
+  "reasons": [],
+  "width": 23.05,
+  "R": 11.52
+ },
+ "far wrist": {
+  "tube": "rear-bracer",
+  "bone": "gun",
+  "J": [
+   132.45,
+   379.7
+  ],
+  "fitted": true,
+  "reasons": [],
+  "width": 26.64,
+  "R": 13.32
+ },
+ "near hip": {
+  "tube": "front-thigh",
+  "bone": "front-thigh",
+  "J": [
+   207.65,
+   423.5
+  ],
+  "fitted": false,
+  "reasons": [
+   "R: inliers stop at t=-18, 18 px short of the joint (limit 17.5)"
+  ],
+  "width": 24.35,
+  "R": 12.17
+ },
+ "near knee": {
+  "tube": "front-thigh",
+  "bone": "front-shin",
+  "J": [
+   246.95,
+   484.1
+  ],
+  "fitted": true,
+  "reasons": [],
+  "width": 28.52,
+  "R": 14.26
+ },
+ "near ankle": {
+  "tube": "front-shin",
+  "bone": "front-foot",
+  "J": [
+   280.6,
+   535.75
+  ],
+  "fitted": true,
+  "reasons": [],
+  "width": 41.31,
+  "R": 20.65
+ },
+ "far hip": {
+  "tube": "rear-thigh",
+  "bone": "rear-thigh",
+  "J": [
+   190.8,
+   422.35
+  ],
+  "fitted": false,
+  "reasons": [
+   "L: no line",
+   "R: no line",
+   "width from the same tube at the far knee"
+  ],
+  "width": 24.8,
+  "R": 12.4
+ },
+ "far knee": {
+  "tube": "rear-thigh",
+  "bone": "rear-shin",
+  "J": [
+   178.45,
+   491.95
+  ],
+  "fitted": true,
+  "reasons": [],
+  "width": 24.8,
+  "R": 12.4
+ },
+ "far ankle": {
+  "tube": "rear-shin",
+  "bone": "rear-foot",
+  "J": [
+   135.8,
+   520.05
+  ],
+  "fitted": true,
+  "reasons": [],
+  "width": 40.2,
+  "R": 20.1
+ }
+}

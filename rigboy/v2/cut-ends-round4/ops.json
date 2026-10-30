@@ -2,15 +2,17 @@
  "near-elbow": {
   "over_removed_px": 113,
   "over_added_layer_px": 0,
+  "joint_offset_px": 0.43,
+  "warm_fill_px": 0,
   "fitted": true,
   "fit_reasons": [],
   "over_fitted": true,
   "R": 12.23,
   "width": 27.3,
   "line_px": 2.828,
-  "drawn_px": 360,
+  "drawn_px": 404,
   "trimmed_px": 0,
-  "hidden_filled_px": 364,
+  "hidden_filled_px": 391,
   "J": [
    259.3,
    369.6
@@ -19,15 +21,17 @@
  "near-wrist": {
   "over_removed_px": 111,
   "over_added_layer_px": 0,
+  "joint_offset_px": 0.12,
+  "warm_fill_px": 83,
   "fitted": true,
   "fit_reasons": [],
   "over_fitted": false,
   "R": 16.75,
   "width": 36.41,
   "line_px": 3.0,
-  "drawn_px": 625,
+  "drawn_px": 651,
   "trimmed_px": 0,
-  "hidden_filled_px": 736,
+  "hidden_filled_px": 765,
   "J": [
    301.95,
    399.9
@@ -36,15 +40,17 @@
  "far-elbow": {
   "over_removed_px": 121,
   "over_added_layer_px": 0,
+  "joint_offset_px": 0.0,
+  "warm_fill_px": 0,
   "fitted": true,
   "fit_reasons": [],
   "over_fitted": true,
   "R": 10.07,
   "width": 23.05,
   "line_px": 2.828,
-  "drawn_px": 292,
+  "drawn_px": 318,
   "trimmed_px": 0,
-  "hidden_filled_px": 241,
+  "hidden_filled_px": 253,
   "J": [
    156.0,
    357.25
@@ -53,45 +59,51 @@
  "far-wrist": {
   "over_removed_px": 208,
   "over_added_layer_px": 0,
+  "joint_offset_px": 0.28,
+  "warm_fill_px": 129,
   "fitted": true,
   "fit_reasons": [],
   "over_fitted": true,
   "R": 11.83,
   "width": 26.77,
   "line_px": 2.828,
-  "drawn_px": 402,
+  "drawn_px": 428,
   "trimmed_px": 49,
-  "hidden_filled_px": 351,
+  "hidden_filled_px": 370,
   "J": [
    132.45,
    379.7
   ]
  },
  "near-knee": {
+  "joint_offset_px": 1.0,
+  "warm_fill_px": 0,
   "fitted": true,
   "fit_reasons": [],
   "over_fitted": false,
   "R": 13.06,
   "width": 28.52,
   "line_px": 2.828,
-  "drawn_px": 442,
+  "drawn_px": 500,
   "trimmed_px": 5,
-  "hidden_filled_px": 278,
+  "hidden_filled_px": 326,
   "J": [
    246.95,
    484.1
   ]
  },
  "far-knee": {
+  "joint_offset_px": 0.82,
+  "warm_fill_px": 0,
   "fitted": true,
   "fit_reasons": [],
   "over_fitted": true,
   "R": 11.15,
   "width": 24.8,
   "line_px": 2.693,
-  "drawn_px": 563,
+  "drawn_px": 617,
   "trimmed_px": 0,
-  "hidden_filled_px": 317,
+  "hidden_filled_px": 359,
   "J": [
    178.45,
    491.95
@@ -100,15 +112,17 @@
  "near-ankle": {
   "over_removed_px": 213,
   "over_added_layer_px": 0,
+  "joint_offset_px": 0.21,
+  "warm_fill_px": 0,
   "fitted": true,
   "fit_reasons": [],
   "over_fitted": false,
   "R": 19.2,
   "width": 41.31,
   "line_px": 3.041,
-  "drawn_px": 869,
-  "trimmed_px": 2,
-  "hidden_filled_px": 1007,
+  "drawn_px": 922,
+  "trimmed_px": 0,
+  "hidden_filled_px": 1040,
   "J": [
    280.6,
    535.75
@@ -117,15 +131,17 @@
  "far-ankle": {
   "over_removed_px": 378,
   "over_added_layer_px": 0,
+  "joint_offset_px": 0.47,
+  "warm_fill_px": 1,
   "fitted": true,
   "fit_reasons": [],
   "over_fitted": true,
   "R": 18.5,
   "width": 40.2,
   "line_px": 3.0,
-  "drawn_px": 769,
-  "trimmed_px": 18,
-  "hidden_filled_px": 908,
+  "drawn_px": 833,
+  "trimmed_px": 13,
+  "hidden_filled_px": 953,
   "J": [
    135.8,
    520.05
@@ -156,7 +172,12 @@
    216.65,
    324.7
   ],
-  "over_added_torso_px": 480,
+  "over_added_torso_px": 481,
   "hidden_filled_px": 1784
+ },
+ "warm_residue": {
+  "rear-shin": 2,
+  "torso": 44,
+  "front-upper-arm": 4
  }
 }

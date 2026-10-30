@@ -10,4 +10,6 @@ Changes that are not round ends:
 - Skirt and pelvis moved to `torso`.
 - The whole pauldron moved to `front-upper-arm`; the torso under it takes fill.
 
-Walk, 31 samples, core 2.83.0's seam reader: six of 16 mapped rows are above 0, all of them background beside the limbs and at least 11.0 px from the pivot.
+The cap's disc on the pivot reaches half the limb's width + .25 + the joint's registration offset, so it stays put under rotation. A fill never invents gold, and a warm component under 30 px is residue.
+
+Walk, 31 samples, joint disc of half the limb's fitted width (`disc-radii.json`): 0 background pixels at 11 of 12 joints. The far shoulder reads 14 frames, 37 px, at the torso's back edge, where the painted silhouette itself reads 14 px. Stripping the drawn end from one knee and one elbow reads 1161 and 250 px, so the disc fires.
