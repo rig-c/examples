@@ -1,6 +1,7 @@
 #!/bin/sh
-# From dancer/. Fresh output is optional; runtime and dependencies are frozen.
+# From dancer/. The normal producer preserves approved projected art before applying setup order.
 set -eu
 python3 check-inputs.py
-sh tools/ensure-runtime.sh
-exec bun --bun run work/runtime/node_modules/.bin/rig-parts build --config config.json --source painting.png --full layers/full --head layers/head --requirements requirements.json --out "${1:-work/build}"
+out=${1:-work/build}
+sh build-setup-order-candidate.sh "$out"
+exec bun --bun run work/runtime/node_modules/.bin/rig-parts check --rig "$out/rig" --parts "$out/assemble/rig" --requirements requirements.json --out "$out/check"

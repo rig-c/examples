@@ -1,6 +1,6 @@
 {
   "spec": "dancer-producer/1",
-  "configSHA256": "3f59c4484e037b0e73c1023eaf8b989f20c01fc532e826e77e902c3576a58cf7",
+  "configSHA256": "cd2698b0b2729765fbc647f4ad3848a8986dfc98e900d0825f5b085ee8b1d7c8",
   "packageSHA256": "7dbfb6bdb3bc5a1479d69c5d157202bf7cf574ffe1a7240eb1fed94d9079781a",
   "files": {
     "rig/images/bottomwear.png": {
@@ -260,12 +260,27 @@
       "sha256": "3b62c5c70e6cf1297097f4663b3fb0b0a19bf42a66f7630db5f13c36a46b237b"
     },
     "rig/motion.json": {
-      "bytes": 60378,
-      "sha256": "4a19cf872642cf00b28bab3807a5b597da30c866fcdf3b52619cdb43ce3f54ed"
+      "bytes": 61420,
+      "sha256": "56877c418a3286e65fe4f90094655c44b64a6fc27a29dc276014f76df5d50586"
     },
     "rig/rig.json": {
       "bytes": 292180,
-      "sha256": "037cea0fc96ab247286c985e8336b5d06519d9a1a069e78dd800a12b2a180fbf"
+      "sha256": "16037979846dd02ce3cbb85b30a2ae6e682e7b46b91fac76a9def5f2787808c3"
+    }
+  },
+  "recipe": {
+    "entry": "build.sh",
+    "producer": "build-setup-order-candidate.sh",
+    "artConfig": "config-before-setup-order.json",
+    "orderHelper": "tools/reorder-setup.ts",
+    "motionSource": "stress.json",
+    "provenance": "provenance/setup-order.json",
+    "sourceSHA256": {
+      "config.json": "cd2698b0b2729765fbc647f4ad3848a8986dfc98e900d0825f5b085ee8b1d7c8",
+      "stress.json": "da6f59f49006aa354680db50555c96bdf806db028610fa39450617e42d02df58",
+      "config-before-setup-order.json": "3f59c4484e037b0e73c1023eaf8b989f20c01fc532e826e77e902c3576a58cf7",
+      "tools/reorder-setup.ts": "74f45efd702c87c0303b3fda81557577b7f1ebda20d1418146b933bec0df81b3",
+      "build-setup-order-candidate.sh": "1d8b1024fc1b8547e66af3c85d94bc3a762b0285a0c1859ec4d4aac80d6add90"
     }
   }
 }

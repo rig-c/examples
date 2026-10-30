@@ -12,12 +12,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 14919,
-      "sha256": "cd08bd000567b84b3c148ebb334cbd238048191603686b4d8289a56fde47ef91",
+      "bytes": 15438,
+      "sha256": "24e246eec67bff7f99f6c47d083d622d91b35c70cb44300f7630107b36f8f6be",
       "sourceSHA256": "4740c3709acf23594af59dec1b77bd6193a8c84b189544b56465824de1c82366",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
-      "contentIdentical": false
+      "contentIdentical": false,
+      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
     },
     {
       "path": "accepted-dance/bun.lock",
@@ -1059,13 +1060,13 @@
     },
     {
       "path": "build.sh",
-      "bytes": 353,
-      "sha256": "2474beb777090687366c18dfdeefbb7f06797eba9a0cd68e241b495c9ccf54c8",
+      "bytes": 365,
+      "sha256": "5296cdf06025d056e3f568652652242186d49b492e0efe0ebe010bf0786f481c",
       "sourceSHA256": "d38e00ec57c13cb0662c21788d12b0a0a01ce8164a1ae71649eda547cd7d18c2",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
       "contentIdentical": false,
-      "change": "Explicit producer adoption and preserved historical replay, issue 71."
+      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
     },
     {
       "path": "bun.lock",
@@ -1097,14 +1098,14 @@
     },
     {
       "path": "config.json",
-      "bytes": 165044,
-      "sha256": "3f59c4484e037b0e73c1023eaf8b989f20c01fc532e826e77e902c3576a58cf7",
+      "bytes": 165040,
+      "sha256": "cd2698b0b2729765fbc647f4ad3848a8986dfc98e900d0825f5b085ee8b1d7c8",
       "sourceSHA256": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
       "origin": "accepted dance-skirt v3/v5, 2026-10-22",
       "role": "active keeper config",
       "contentIdentical": false,
       "normalization": "Active bottomwear now declares the accepted explicit payload; the exact pre-change keeper is archived under provenance.",
-      "change": "Explicit smear50 producer adoption, issue 71; historical accepted rig/motion and archived keeper values preserved."
+      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
     },
     {
       "path": "declared-repairs-v3.json",
@@ -1820,12 +1821,13 @@
     },
     {
       "path": "producer-manifest.json",
-      "bytes": 8969,
-      "sha256": "1514d846e0352f6ac02506a551f23519dc39d12178d6b933045c629fd4db1fde",
+      "bytes": 9764,
+      "sha256": "8507a54d2ea62aa4a0e2e360ca270ee3c94337c7c8e265371efcce321652d00d",
       "sourceSHA256": "1514d846e0352f6ac02506a551f23519dc39d12178d6b933045c629fd4db1fde",
       "origin": "Explicit producer adoption, issue 71",
       "role": "Producer replay and verification",
-      "contentIdentical": true
+      "contentIdentical": false,
+      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
     },
     {
       "path": "producer/rig/images/bottomwear.png",
@@ -2090,21 +2092,23 @@
     },
     {
       "path": "producer/rig/motion.json",
-      "bytes": 60378,
-      "sha256": "4a19cf872642cf00b28bab3807a5b597da30c866fcdf3b52619cdb43ce3f54ed",
+      "bytes": 61420,
+      "sha256": "56877c418a3286e65fe4f90094655c44b64a6fc27a29dc276014f76df5d50586",
       "sourceSHA256": "4a19cf872642cf00b28bab3807a5b597da30c866fcdf3b52619cdb43ce3f54ed",
       "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
       "role": "Corpus-owned reproducible source or measured evidence",
-      "contentIdentical": true
+      "contentIdentical": false,
+      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
     },
     {
       "path": "producer/rig/rig.json",
       "bytes": 292180,
-      "sha256": "037cea0fc96ab247286c985e8336b5d06519d9a1a069e78dd800a12b2a180fbf",
+      "sha256": "16037979846dd02ce3cbb85b30a2ae6e682e7b46b91fac76a9def5f2787808c3",
       "sourceSHA256": "037cea0fc96ab247286c985e8336b5d06519d9a1a069e78dd800a12b2a180fbf",
       "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
       "role": "Corpus-owned reproducible source or measured evidence",
-      "contentIdentical": true
+      "contentIdentical": false,
+      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
     },
     {
       "path": "provenance/bridge-triangle-alpha.json",
@@ -2207,12 +2211,13 @@
     },
     {
       "path": "stress.json",
-      "bytes": 12458,
-      "sha256": "1b55c3428dc3b1baeb16cdbfccadff286387ea6f95125a0b8edf79447f897ecb",
+      "bytes": 13501,
+      "sha256": "da6f59f49006aa354680db50555c96bdf806db028610fa39450617e42d02df58",
       "sourceSHA256": "1b55c3428dc3b1baeb16cdbfccadff286387ea6f95125a0b8edf79447f897ecb",
       "origin": "accepted dance-skirt v3/v5, 2026-10-22",
       "role": "declared config dependency",
-      "contentIdentical": true
+      "contentIdentical": false,
+      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
     },
     {
       "path": "tools/apply-accepted-dance.py",
@@ -2358,6 +2363,42 @@
       "sourceSHA256": "f2d09ab0c2f387658f36ae8ba1a4acd1dea19fdca56e2cb3ce60e8e9ecf775f5",
       "origin": "accepted dance-skirt v3/v5, 2026-10-22",
       "role": "declared joint-under image",
+      "contentIdentical": true
+    },
+    {
+      "path": "config-before-setup-order.json",
+      "bytes": 165044,
+      "sha256": "3f59c4484e037b0e73c1023eaf8b989f20c01fc532e826e77e902c3576a58cf7",
+      "sourceSHA256": "3f59c4484e037b0e73c1023eaf8b989f20c01fc532e826e77e902c3576a58cf7",
+      "origin": "Approved setup-order producer adoption, issue82",
+      "role": "Staged order-only producer source or measured adoption provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "build-setup-order-candidate.sh",
+      "bytes": 959,
+      "sha256": "1d8b1024fc1b8547e66af3c85d94bc3a762b0285a0c1859ec4d4aac80d6add90",
+      "sourceSHA256": "1d8b1024fc1b8547e66af3c85d94bc3a762b0285a0c1859ec4d4aac80d6add90",
+      "origin": "Approved setup-order producer adoption, issue82",
+      "role": "Staged order-only producer source or measured adoption provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "tools/reorder-setup.ts",
+      "bytes": 2703,
+      "sha256": "74f45efd702c87c0303b3fda81557577b7f1ebda20d1418146b933bec0df81b3",
+      "sourceSHA256": "74f45efd702c87c0303b3fda81557577b7f1ebda20d1418146b933bec0df81b3",
+      "origin": "Approved setup-order producer adoption, issue82",
+      "role": "Staged order-only producer source or measured adoption provenance",
+      "contentIdentical": true
+    },
+    {
+      "path": "provenance/setup-order.json",
+      "bytes": 8886,
+      "sha256": "2f473e9aff5a771eb2d16643e0b44280e54800f18104aba9299abc12548adbe7",
+      "sourceSHA256": "2f473e9aff5a771eb2d16643e0b44280e54800f18104aba9299abc12548adbe7",
+      "origin": "Approved setup-order producer adoption, issue82",
+      "role": "Staged order-only producer source or measured adoption provenance",
       "contentIdentical": true
     }
   ]
