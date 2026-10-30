@@ -41,6 +41,11 @@
         "bottomwear"
       ],
       [
+        "forearm_l",
+        "full",
+        "handwear-l"
+      ],
+      [
         "topwear",
         "full",
         "topwear"
@@ -49,11 +54,6 @@
         "forearm_r",
         "full",
         "handwear-r"
-      ],
-      [
-        "forearm_l",
-        "full",
-        "handwear-l"
       ],
       [
         "ear_l",
@@ -180,7 +180,7 @@
           ]
         ],
         "draw": {
-          "before": "forearm_r"
+          "before": "topwear"
         },
         "overlap": 0,
         "note": "the strip of handwear-l left of the jacket side seam (over the chest, holding half the badge); it rides chest so the badge stays on the chest when the arm moves, and is drawn right after topwear, behind both arms, as the torso it is"
@@ -207,7 +207,7 @@
           ]
         ],
         "draw": {
-          "before": "forearm_l"
+          "before": "ear_l"
         },
         "overlap": 0,
         "under": "under/elbow_r.png",
@@ -283,7 +283,7 @@
           ]
         ],
         "draw": {
-          "before": "ear_l"
+          "before": "topwear"
         },
         "overlap": 0,
         "under": "under/elbow_l.png",

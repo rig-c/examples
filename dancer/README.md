@@ -1,6 +1,6 @@
 # The dancer
 
-**Current producer mesh declaration:** `config.json` carries the owner-selected smear50 bottomwear as an explicit payload at parts 1.64.0, with `bottomwear` still in `turn.depths`. Its setup seam is zero. This is separate from the immutable accepted dance replay below. Producer reproduction and the remaining motion/preservation blockers are recorded under `provenance/smear50-producer.json`.
+**Current producer:** the approved setup order puts the left sleeve parts behind `topwear`; five authored draw-order timelines preserve the accepted arm crossings. Original projected art and the explicit smear50 skirt are unchanged. `build.sh` uses the staged order-only recipe below; [source, pose equality and adoption](provenance/setup-order.json). The immutable accepted dance replay remains separate.
 
 **Current accepted dance: owner v4, 2026-10-25.** Run `sh build-accepted-dance.sh` from this directory. The owner's eye verdict was "v4 looks good, merge it" ([#73](https://github.com/rig-c/examples/issues/73)). V4 replays the mesh-only smear50 rig with released core; motion and every other rig subtree are unchanged from v3. [V4 source, commands and measured evidence](accepted-dance/v4/README.md). The setup producer is separate provenance. V3 remains immutable and explicitly selectable with `sh build-accepted-dance.sh --version v3 work/accepted-v3`; its versioned records describe its earlier acceptance/default, not the current selection. [Historical v3 proof](accepted-dance/v3/reproduction-evidence.json).
 
@@ -49,7 +49,7 @@ From this directory, with Bun and Python 3:
 sh build.sh
 ```
 
-This command builds `config.json`; the explicit producer passes the unchanged setup seam at mean 0 and 0 pixels over 40. Output is ignored under `work/`. The saved accepted rig has the separate core build described below.
+This command assembles art with the byte-preserved `config-before-setup-order.json`, then uses `@rig-c/parts` 1.64.0's `src/assemble.ts:drawOrder` to apply the active `config.json` setup order to the intermediate parts list. It remeasures that flat stack, generates rig/motion from the active config and `stress.json`, and runs the ordinary parts check. It never reassembles the active order into different projected art or patches emitted rig/motion. Output is ignored under `work/`. The saved accepted rig has the separate core build described below.
 
 The adopted canonical producer bytes are in `producer/rig/`. A fresh rebuild and byte/RGBA inventory comparison runs as:
 
@@ -94,7 +94,7 @@ of the saved accepted rig. This historical refusal is retained as provenance; th
 `source-manifest.json` lists repository-relative input paths, byte counts,
 SHA-256 hashes, source hashes and origins. `path-normalization.json` records the
 two See-through metadata image-path changes. Historical base config bytes and the archived pre-smear50 keeper are preserved exactly.
-Removing only `x-repairs` from the archived keeper and writing two-space JSON with one trailing LF recovers its original recorded hash. The active config additionally declares the explicit skirt; its canonical producer inventory has a separate config hash.
+Removing only `x-repairs` from the archived keeper and writing two-space JSON with one trailing LF recovers its original recorded hash. The active config additionally declares the explicit skirt and approved setup order; the archived `config-before-setup-order.json` preserves the exact pre-order producer input for projected-art generation. Their separate hashes and the staged recipe are bound in the canonical producer inventory.
 Accepted image bytes and map values are preserved.
 
 ## Build the accepted rig

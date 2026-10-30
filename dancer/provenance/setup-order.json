@@ -1,0 +1,244 @@
+{
+  "spec": "dancer-setup-order/1",
+  "issue": "https://github.com/rig-c/examples/issues/82",
+  "baselineCommit": "8aa220713b1c8216ea535a8a14a8a34f65ee5a2a",
+  "approvedRecipe": {
+    "entry": "build.sh",
+    "producer": "build-setup-order-candidate.sh",
+    "artConfig": "config-before-setup-order.json",
+    "setupRigConfig": "config.json",
+    "motionSource": "stress.json",
+    "intermediateOrder": "tools/reorder-setup.ts",
+    "export": "@rig-c/parts@1.64.0/src/assemble.ts:drawOrder",
+    "steps": [
+      "assemble original projected art",
+      "reorder intermediate part records and remeasure flat stack",
+      "generate rig/motion normally through Core gate",
+      "ordinary parts check"
+    ]
+  },
+  "frozenSourceSHA256": {
+    "config.json": "cd2698b0b2729765fbc647f4ad3848a8986dfc98e900d0825f5b085ee8b1d7c8",
+    "stress.json": "da6f59f49006aa354680db50555c96bdf806db028610fa39450617e42d02df58",
+    "config-before-setup-order.json": "3f59c4484e037b0e73c1023eaf8b989f20c01fc532e826e77e902c3576a58cf7",
+    "tools/reorder-setup.ts": "74f45efd702c87c0303b3fda81557577b7f1ebda20d1418146b933bec0df81b3",
+    "build-setup-order-candidate.sh": "1d8b1024fc1b8547e66af3c85d94bc3a762b0285a0c1859ec4d4aac80d6add90"
+  },
+  "actualPoseEquality": {
+    "status": "PASS",
+    "tolerance": 1e-06,
+    "components": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "worldX",
+      "worldY"
+    ],
+    "animations": 19,
+    "framePairs": 1235,
+    "bonesPerFrame": 137,
+    "boneFramePairs": 169195,
+    "scalarComparisons": 1015170,
+    "max": 0,
+    "matrixMax": 0,
+    "translationMax": 0,
+    "firstOver": null,
+    "controlsPassed": 13
+  },
+  "physics": {
+    "backend": "Core2.82.0 forced core; all137 active under same no-skin state",
+    "warmup": 0,
+    "reset": "fresh official animation walk and freshStepContext per clip; t0 animation reset",
+    "fps": 12,
+    "dt": 0.08333333333333333,
+    "physicsDt": 0.08333333341094354,
+    "PHYSICS_CLOCK_LEAD": 9.313225746154785e-10,
+    "declaredPhysicsNames": [
+      "skirt_c1_phys",
+      "skirt_c2_phys",
+      "skirt_l1_phys",
+      "skirt_l2_phys",
+      "skirt_lm1_phys",
+      "skirt_lm2_phys",
+      "skirt_r1_phys",
+      "skirt_r2_phys",
+      "skirt_rm1_phys",
+      "skirt_rm2_phys",
+      "skirt_swing_phys"
+    ],
+    "allRostersAndStepsMatched": true,
+    "perClipPhysicsDigests": [
+      {
+        "animation": "idle",
+        "accepted": "1d32320c7fc328ec1a88d0b81e2bfc4afa742a2fb515b70bd6d904d14b083c92",
+        "candidate": "1d32320c7fc328ec1a88d0b81e2bfc4afa742a2fb515b70bd6d904d14b083c92"
+      },
+      {
+        "animation": "pose_arms_up",
+        "accepted": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c",
+        "candidate": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c"
+      },
+      {
+        "animation": "pose_hands_behind_head",
+        "accepted": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c",
+        "candidate": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c"
+      },
+      {
+        "animation": "pose_hand_on_hip",
+        "accepted": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c",
+        "candidate": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c"
+      },
+      {
+        "animation": "pose_arms_crossed",
+        "accepted": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c",
+        "candidate": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c"
+      },
+      {
+        "animation": "pose_legs_apart",
+        "accepted": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c",
+        "candidate": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c"
+      },
+      {
+        "animation": "pose_hip_tilt_pos",
+        "accepted": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c",
+        "candidate": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c"
+      },
+      {
+        "animation": "pose_hip_tilt_neg",
+        "accepted": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c",
+        "candidate": "a6cb7985cde3a9d9a3772b9bad5c4aaec8ca00738ededad47d4335c58c820d6c"
+      },
+      {
+        "animation": "sweep_elbow_r_pos",
+        "accepted": "c8fea234b263817fe13c985a2e84feef994071b69bd112fce15f3aee76839dd8",
+        "candidate": "c8fea234b263817fe13c985a2e84feef994071b69bd112fce15f3aee76839dd8"
+      },
+      {
+        "animation": "sweep_elbow_r_neg",
+        "accepted": "c8fea234b263817fe13c985a2e84feef994071b69bd112fce15f3aee76839dd8",
+        "candidate": "c8fea234b263817fe13c985a2e84feef994071b69bd112fce15f3aee76839dd8"
+      },
+      {
+        "animation": "sweep_knee_r_pos",
+        "accepted": "9a0147d7ac29fbffa7dc845a1b4294cf74eb3d9d13d5a0e292ce09611161fe72",
+        "candidate": "9a0147d7ac29fbffa7dc845a1b4294cf74eb3d9d13d5a0e292ce09611161fe72"
+      },
+      {
+        "animation": "sweep_knee_r_neg",
+        "accepted": "9a0147d7ac29fbffa7dc845a1b4294cf74eb3d9d13d5a0e292ce09611161fe72",
+        "candidate": "9a0147d7ac29fbffa7dc845a1b4294cf74eb3d9d13d5a0e292ce09611161fe72"
+      },
+      {
+        "animation": "sweep_shoulder_r_out",
+        "accepted": "70a28602d95a29342ef48eb1f2eda1cc6b8b9de24e5e939c58791c58a0e4cd2f",
+        "candidate": "70a28602d95a29342ef48eb1f2eda1cc6b8b9de24e5e939c58791c58a0e4cd2f"
+      },
+      {
+        "animation": "sweep_shoulder_r_in",
+        "accepted": "dc4c07fc110efd41019fb66085c4a9bc5dee410aaec3a18486f35e93f7bc4e39",
+        "candidate": "dc4c07fc110efd41019fb66085c4a9bc5dee410aaec3a18486f35e93f7bc4e39"
+      },
+      {
+        "animation": "sweep_hip_tilt_pos",
+        "accepted": "23b8e8876850de9ceca464106d6ee6c4c29204c63f1f92a3156bf978fc28e421",
+        "candidate": "23b8e8876850de9ceca464106d6ee6c4c29204c63f1f92a3156bf978fc28e421"
+      },
+      {
+        "animation": "sweep_hip_tilt_neg",
+        "accepted": "23b8e8876850de9ceca464106d6ee6c4c29204c63f1f92a3156bf978fc28e421",
+        "candidate": "23b8e8876850de9ceca464106d6ee6c4c29204c63f1f92a3156bf978fc28e421"
+      },
+      {
+        "animation": "sweep_thigh_r_out",
+        "accepted": "dc4c07fc110efd41019fb66085c4a9bc5dee410aaec3a18486f35e93f7bc4e39",
+        "candidate": "dc4c07fc110efd41019fb66085c4a9bc5dee410aaec3a18486f35e93f7bc4e39"
+      },
+      {
+        "animation": "sweep_thigh_r_in",
+        "accepted": "23b8e8876850de9ceca464106d6ee6c4c29204c63f1f92a3156bf978fc28e421",
+        "candidate": "23b8e8876850de9ceca464106d6ee6c4c29204c63f1f92a3156bf978fc28e421"
+      },
+      {
+        "animation": "sway",
+        "accepted": "6bda9ea01402be9786493d10b6c4ab1a42b0b099a5f8a13b12f6043beba2dee4",
+        "candidate": "6bda9ea01402be9786493d10b6c4ab1a42b0b099a5f8a13b12f6043beba2dee4"
+      }
+    ]
+  },
+  "preservation": {
+    "all28ImageBytesIdentical": true,
+    "skinsGeometrySHA256": "36e9b1c0d84be3d3583f653adfa367bbbdb40d83a9a63bca1837e08a1aa14416",
+    "declarationOrder": "3 bone declarations and2 constraint declarations permute; actual pose equality, not declaration-array equality, is the acceptance bar"
+  },
+  "setupPaintingObservation": {
+    "accepted": 508,
+    "adopted": 562,
+    "net": 54,
+    "rgbTolerance": 60,
+    "box": [
+      410,
+      275,
+      160,
+      215
+    ],
+    "perSlot": [
+      {
+        "slot": "(uncovered)",
+        "accepted": 8,
+        "candidate": 8,
+        "net": 0
+      },
+      {
+        "slot": "bottomwear",
+        "accepted": 19,
+        "candidate": 19,
+        "net": 0
+      },
+      {
+        "slot": "face",
+        "accepted": 23,
+        "candidate": 23,
+        "net": 0
+      },
+      {
+        "slot": "forearm_l",
+        "accepted": 16,
+        "candidate": 16,
+        "net": 0
+      },
+      {
+        "slot": "hair_front",
+        "accepted": 102,
+        "candidate": 102,
+        "net": 0
+      },
+      {
+        "slot": "sleevefront_l",
+        "accepted": 46,
+        "candidate": 0,
+        "net": -46
+      },
+      {
+        "slot": "topwear",
+        "accepted": 124,
+        "candidate": 264,
+        "net": 140
+      },
+      {
+        "slot": "upperarm_l",
+        "accepted": 170,
+        "candidate": 130,
+        "net": -40
+      }
+    ],
+    "pixelTransitions": "Unavailable from retained aggregate metric rows; net54 is not a unique-changed-pixel count.",
+    "acceptance": "Informational only. Previous546 threshold was withdrawn because it compared different art."
+  },
+  "visualAcceptance": {
+    "setupAndCrossings": "HQ eye bars passed",
+    "sweepKeyBoundaryPop": "Recorded observation, nonblocker; keyed sweep state no worse than accepted",
+    "widerThighOutDiagnostic": "Out of scope; no additional render"
+  },
+  "scope": "Original art, meshes, constraints and keyed motion values preserved; only setup/draw-order declarations change. Source arrays can permute as disclosed above."
+}

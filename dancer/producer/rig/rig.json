@@ -852,6 +852,12 @@
    "y": 0
   },
   {
+   "name": "turn_sleevefront_l_chest",
+   "parent": "chest",
+   "x": 0,
+   "y": 0
+  },
+  {
    "name": "turn_topwear_chest",
    "parent": "chest",
    "x": 0,
@@ -860,12 +866,6 @@
   {
    "name": "turn_topwear_hip",
    "parent": "hip",
-   "x": 0,
-   "y": 0
-  },
-  {
-   "name": "turn_sleevefront_l_chest",
-   "parent": "chest",
    "x": 0,
    "y": 0
   },
@@ -1032,14 +1032,24 @@
    "attachment": "bottomwear"
   },
   {
-   "name": "topwear",
-   "bone": "turn_topwear_chest",
-   "attachment": "topwear"
+   "name": "forearm_l",
+   "bone": "sleeve_l1",
+   "attachment": "forearm_l"
   },
   {
    "name": "sleevefront_l",
    "bone": "turn_sleevefront_l_chest",
    "attachment": "sleevefront_l"
+  },
+  {
+   "name": "upperarm_l",
+   "bone": "sleeve_l0",
+   "attachment": "upperarm_l"
+  },
+  {
+   "name": "topwear",
+   "bone": "turn_topwear_chest",
+   "attachment": "topwear"
   },
   {
    "name": "forearm_r",
@@ -1050,16 +1060,6 @@
    "name": "upperarm_r",
    "bone": "sleeve_r0",
    "attachment": "upperarm_r"
-  },
-  {
-   "name": "forearm_l",
-   "bone": "sleeve_l1",
-   "attachment": "forearm_l"
-  },
-  {
-   "name": "upperarm_l",
-   "bone": "sleeve_l0",
-   "attachment": "upperarm_l"
   },
   {
    "name": "ear_l",
@@ -11714,6 +11714,29 @@
      ]
     }
    },
+   "forearm_l": {
+    "forearm_l": {
+     "image": "forearm_l.png",
+     "x": 78.703882,
+     "y": 5.449675,
+     "rotation": 63.495451
+    }
+   },
+   "sleevefront_l": {
+    "sleevefront_l": {
+     "image": "sleevefront_l.png",
+     "x": 43.5,
+     "y": 72
+    }
+   },
+   "upperarm_l": {
+    "upperarm_l": {
+     "image": "upperarm_l.png",
+     "x": 67.358784,
+     "y": 8.731222,
+     "rotation": 67.347803
+    }
+   },
    "topwear": {
     "topwear": {
      "type": "mesh",
@@ -12761,13 +12784,6 @@
      ]
     }
    },
-   "sleevefront_l": {
-    "sleevefront_l": {
-     "image": "sleevefront_l.png",
-     "x": 43.5,
-     "y": 72
-    }
-   },
    "forearm_r": {
     "forearm_r": {
      "image": "forearm_r.png",
@@ -12782,22 +12798,6 @@
      "x": 62.786106,
      "y": -6.426884,
      "rotation": 113.15717
-    }
-   },
-   "forearm_l": {
-    "forearm_l": {
-     "image": "forearm_l.png",
-     "x": 78.703882,
-     "y": 5.449675,
-     "rotation": 63.495451
-    }
-   },
-   "upperarm_l": {
-    "upperarm_l": {
-     "image": "upperarm_l.png",
-     "x": 67.358784,
-     "y": 8.731222,
-     "rotation": 67.347803
     }
    },
    "ear_l": {
@@ -15434,6 +15434,25 @@
   },
   {
    "type": "transform",
+   "name": "turn_sleevefront_l",
+   "bones": [
+    "turn_sleevefront_l_chest"
+   ],
+   "source": "turn",
+   "localSource": true,
+   "additive": true,
+   "properties": {
+    "x": {
+     "to": {
+      "x": {
+       "scale": -0.109235
+      }
+     }
+    }
+   }
+  },
+  {
+   "type": "transform",
    "name": "turn_topwear",
    "bones": [
     "turn_topwear_chest",
@@ -15447,25 +15466,6 @@
      "to": {
       "x": {
        "scale": 0.060021
-      }
-     }
-    }
-   }
-  },
-  {
-   "type": "transform",
-   "name": "turn_sleevefront_l",
-   "bones": [
-    "turn_sleevefront_l_chest"
-   ],
-   "source": "turn",
-   "localSource": true,
-   "additive": true,
-   "properties": {
-    "x": {
-     "to": {
-      "x": {
-       "scale": -0.109235
       }
      }
     }
@@ -15988,6 +15988,11 @@
    },
    {
     "bone": "turn",
+    "notUnder": "turn_sleevefront_l_chest",
+    "why": "rig-parts: \"turn\" is the source of transform constraint \"turn_sleevefront_l\" (config.turn, issue #251), and \"turn_sleevefront_l_chest\" is a bone it drives; under it, driving it would move what it follows"
+   },
+   {
+    "bone": "turn",
     "notUnder": "turn_topwear_chest",
     "why": "rig-parts: \"turn\" is the source of transform constraint \"turn_topwear\" (config.turn, issue #251), and \"turn_topwear_chest\" is a bone it drives; under it, driving it would move what it follows"
    },
@@ -15995,11 +16000,6 @@
     "bone": "turn",
     "notUnder": "turn_topwear_hip",
     "why": "rig-parts: \"turn\" is the source of transform constraint \"turn_topwear\" (config.turn, issue #251), and \"turn_topwear_hip\" is a bone it drives; under it, driving it would move what it follows"
-   },
-   {
-    "bone": "turn",
-    "notUnder": "turn_sleevefront_l_chest",
-    "why": "rig-parts: \"turn\" is the source of transform constraint \"turn_sleevefront_l\" (config.turn, issue #251), and \"turn_sleevefront_l_chest\" is a bone it drives; under it, driving it would move what it follows"
    },
    {
     "bone": "turn",
