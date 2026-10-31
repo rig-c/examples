@@ -1,0 +1,98 @@
+[
+ {
+  "slot": "under-rear-wrist",
+  "bone": "gun",
+  "carrier_slot": "rigboy-rear-gauntlet",
+  "donor_slot": "rear-bracer",
+  "seam": [
+   "rear-bracer",
+   "rigboy-rear-gauntlet"
+  ],
+  "inserted_directly_below": "rear-bracer",
+  "hull_points": 10,
+  "margin_px": 2.0,
+  "pixels": 20,
+  "local": {
+   "path": "under-rear-wrist",
+   "image": "under-rear-wrist.png",
+   "width": 416,
+   "height": 624,
+   "x": -101.179793,
+   "y": -6.898522,
+   "rotation": 141.797587
+  },
+  "sha256": "82d2dddd342a4f71c95a2599398679603c567dcb075147686e64a98224b28750"
+ },
+ {
+  "slot": "under-rear-hip",
+  "bone": "torso",
+  "carrier_slot": "torso",
+  "donor_slot": "rear-thigh",
+  "seam": [
+   "torso",
+   "rear-thigh"
+  ],
+  "inserted_directly_below": "rear-thigh",
+  "hull_points": 518,
+  "margin_px": 2.0,
+  "pixels": 207,
+  "local": {
+   "path": "under-rear-hip",
+   "image": "under-rear-hip.png",
+   "width": 416,
+   "height": 624,
+   "x": 112.42974,
+   "y": 9.164723,
+   "rotation": -81.06119
+  },
+  "sha256": "e67268d4a8d9f1fdaca95df312178507e2bbbe413fe6dd4a110d1a881fd1f1c2"
+ },
+ {
+  "slot": "under-rear-knee",
+  "bone": "rear-shin",
+  "carrier_slot": "rear-shin",
+  "donor_slot": "rear-thigh",
+  "seam": [
+   "rear-thigh",
+   "rear-shin"
+  ],
+  "inserted_directly_below": "rear-thigh",
+  "hull_points": 59,
+  "margin_px": 2.0,
+  "pixels": 66,
+  "local": {
+   "path": "under-rear-knee",
+   "image": "under-rear-knee.png",
+   "width": 416,
+   "height": 624,
+   "x": -182.708281,
+   "y": -4.229928,
+   "rotation": 100.72988
+  },
+  "sha256": "fe2983b4945db432def51d1084e97097448a26848c26f45f1b3539216b6d6c18"
+ },
+ {
+  "slot": "under-groin",
+  "bone": "torso",
+  "carrier_slot": "torso",
+  "donor_slot": "front-thigh",
+  "seam": [
+   "torso",
+   "front-thigh"
+  ],
+  "inserted_directly_below": "torso",
+  "hull_points": 1,
+  "margin_px": 2.0,
+  "pixels": 14,
+  "local": {
+   "path": "under-groin",
+   "image": "under-groin.png",
+   "width": 416,
+   "height": 624,
+   "x": 60.287335,
+   "y": -102.615704,
+   "rotation": -147.308894
+  },
+  "sha256": "e010cbb2f36d7ef6a57a16bef82c7db7cbeea2b1a1246344e0b4dd46092daf7c"
+ }
+]

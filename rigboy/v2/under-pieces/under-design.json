@@ -1,0 +1,159 @@
+[
+ {
+  "slot": "under-rear-wrist-bracer",
+  "bone": "rear-bracer",
+  "carrier_slot": "rear-bracer",
+  "donor_slot": "rigboy-rear-gauntlet",
+  "seam": [
+   "rear-bracer",
+   "rigboy-rear-gauntlet"
+  ],
+  "inserted_directly_below": "rear-bracer",
+  "hull_frames": [
+   0,
+   1,
+   29,
+   30
+  ],
+  "hull_points": 8,
+  "margin_px": 2.0,
+  "pixels": 24,
+  "scale": [
+   1.000000035844357,
+   0.9999999641556423
+  ],
+  "local": {
+   "path": "under-rear-wrist-bracer",
+   "image": "under-rear-wrist-bracer.png",
+   "width": 416,
+   "height": 624,
+   "x": -67.918444,
+   "y": -14.169298,
+   "rotation": 145.608603
+  },
+  "rest_residual_max_px": 2.7267540097462246e-05,
+  "sha256": "a304e21c5b3bf9735af829b5d36fcd9933edbdfc81101591dd88e5fb96fbe5d0"
+ },
+ {
+  "slot": "under-rear-wrist-gun",
+  "bone": "gun",
+  "carrier_slot": "rigboy-rear-gauntlet",
+  "donor_slot": "rear-bracer",
+  "seam": [
+   "rear-bracer",
+   "rigboy-rear-gauntlet"
+  ],
+  "inserted_directly_below": "rear-bracer",
+  "hull_frames": [
+   7
+  ],
+  "hull_points": 2,
+  "margin_px": 2.0,
+  "pixels": 15,
+  "scale": [
+   1.0000000414434123,
+   0.9999999585565884
+  ],
+  "local": {
+   "path": "under-rear-wrist-gun",
+   "image": "under-rear-wrist-gun.png",
+   "width": 416,
+   "height": 624,
+   "x": -101.179793,
+   "y": -6.898522,
+   "rotation": 141.797587
+  },
+  "rest_residual_max_px": 1.6514153741638094e-05,
+  "sha256": "e8c9a77411e44e824f5d924fb295fc4ff30a07c5cb0bf1907268f6ab22d17553"
+ },
+ {
+  "slot": "under-rear-knee",
+  "bone": "rear-shin",
+  "carrier_slot": "rear-shin",
+  "donor_slot": "rear-thigh",
+  "seam": [
+   "rear-thigh",
+   "rear-shin"
+  ],
+  "inserted_directly_below": "rear-thigh",
+  "hull_frames": "all open frames",
+  "hull_points": 23,
+  "margin_px": 2.0,
+  "pixels": 47,
+  "scale": [
+   1.0000000021738311,
+   0.9999999978261681
+  ],
+  "local": {
+   "path": "under-rear-knee",
+   "image": "under-rear-knee.png",
+   "width": 416,
+   "height": 624,
+   "x": -182.708281,
+   "y": -4.229928,
+   "rotation": 100.72988
+  },
+  "rest_residual_max_px": 7.657132154455144e-06,
+  "sha256": "9868a39548ca5a1e803c83fb1936adb88f7e96d2b6bd1a00e849720f5bdec8f5"
+ },
+ {
+  "slot": "under-groin",
+  "bone": "front-thigh",
+  "carrier_slot": "front-thigh",
+  "donor_slot": "torso",
+  "seam": [
+   "torso",
+   "front-thigh"
+  ],
+  "inserted_directly_below": "torso",
+  "hull_frames": "all open frames",
+  "hull_points": 8,
+  "margin_px": 2.0,
+  "pixels": 39,
+  "scale": [
+   1.0000000080174063,
+   0.999999991982593
+  ],
+  "local": {
+   "path": "under-groin",
+   "image": "under-groin.png",
+   "width": 416,
+   "height": 624,
+   "x": -120.463398,
+   "y": 1.313761,
+   "rotation": 99.178868
+  },
+  "rest_residual_max_px": 8.312497841229935e-06,
+  "sha256": "c0fa50aa26be4caf31106d55ef180812e37f17c73fadc16286ddd38c7a6bcfbc"
+ },
+ {
+  "slot": "under-front-ankle",
+  "bone": "front-foot",
+  "carrier_slot": "front-foot",
+  "donor_slot": "front-shin",
+  "seam": [
+   "front-shin",
+   "front-foot"
+  ],
+  "inserted_directly_below": "front-foot",
+  "hull_frames": "all open frames",
+  "hull_points": 3,
+  "margin_px": 2.0,
+  "pixels": 17,
+  "scale": [
+   0.9999999939856572,
+   0.9999999460143413
+  ],
+  "local": {
+   "path": "under-front-ankle",
+   "image": "under-front-ankle.png",
+   "width": 416,
+   "height": 624,
+   "x": -30.197446,
+   "y": 233.977493,
+   "rotation": -10.651172
+  },
+  "rest_residual_max_px": 4.57028506546321e-06,
+  "sha256": "8b1fad234f5a6cb999ccd282f3bc136f6c8af810255d2c74b7715448535fe4ca"
+ }
+]
