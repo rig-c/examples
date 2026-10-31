@@ -1,6 +1,6 @@
 # Round 6: ankle motion
 
-Images are round 5's, byte for byte. Only `rig.json` and `motion.json` changed, and each limb part stays on one bone.
+Images are round 5's, byte for byte, and the full set is in `../images/`, where `rig.json` reads it. Only `rig.json` and `motion.json` changed, and each limb part stays on one bone.
 
 The leg is 134 long on a hip 142 high, against 204 on 247 in the source, and its shin is shorter than its thigh where the source's is longer. So the same foot path bent the knee further and laid the shin back, which read as a hinged boot.
 
