@@ -46,14 +46,14 @@
         "handwear-l"
       ],
       [
-        "topwear",
-        "full",
-        "topwear"
-      ],
-      [
         "forearm_r",
         "full",
         "handwear-r"
+      ],
+      [
+        "topwear",
+        "full",
+        "topwear"
       ],
       [
         "ear_l",
@@ -207,7 +207,7 @@
           ]
         ],
         "draw": {
-          "before": "ear_l"
+          "before": "topwear"
         },
         "overlap": 0,
         "under": "under/elbow_r.png",

@@ -12,13 +12,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 15438,
-      "sha256": "24e246eec67bff7f99f6c47d083d622d91b35c70cb44300f7630107b36f8f6be",
+      "bytes": 16516,
+      "sha256": "06f0283ba49ae8fd954e710ff1ee275c7af5be2fb176dd89f64775ea7db4d894",
       "sourceSHA256": "4740c3709acf23594af59dec1b77bd6193a8c84b189544b56465824de1c82366",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
       "contentIdentical": false,
-      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
+      "change": "Issue84 amended whole-arm draw-order keys; frozen setup and original PNG bytes preserved. Same-arm and opposite-arm contributors audited independently."
     },
     {
       "path": "accepted-dance/bun.lock",
@@ -1098,14 +1098,14 @@
     },
     {
       "path": "config.json",
-      "bytes": 165040,
-      "sha256": "cd2698b0b2729765fbc647f4ad3848a8986dfc98e900d0825f5b085ee8b1d7c8",
+      "bytes": 165042,
+      "sha256": "d53c0670a92ce1cce883aa18eae230b1fb8af3f35d6531d92d6063826fa7e093",
       "sourceSHA256": "21a629980c5b7ba15157f4d9cd4aac17fdade166053788e4a6c281d236e2f26a",
       "origin": "accepted dance-skirt v3/v5, 2026-10-22",
       "role": "active keeper config",
       "contentIdentical": false,
       "normalization": "Active bottomwear now declares the accepted explicit payload; the exact pre-change keeper is archived under provenance.",
-      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
+      "change": "Issue84 both-sleeve setup order, first-lost-frame authored keys and normally generated producer; original PNG bytes preserved."
     },
     {
       "path": "declared-repairs-v3.json",
@@ -1822,12 +1822,12 @@
     {
       "path": "producer-manifest.json",
       "bytes": 9764,
-      "sha256": "8507a54d2ea62aa4a0e2e360ca270ee3c94337c7c8e265371efcce321652d00d",
+      "sha256": "d07590d45c02e075d6a0ba1435ec0f6dff418e5166c30db0e2f4fcc3135339f1",
       "sourceSHA256": "1514d846e0352f6ac02506a551f23519dc39d12178d6b933045c629fd4db1fde",
       "origin": "Explicit producer adoption, issue 71",
       "role": "Producer replay and verification",
       "contentIdentical": false,
-      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
+      "change": "Issue84 amended whole-arm draw-order keys; frozen setup and original PNG bytes preserved. Same-arm and opposite-arm contributors audited independently."
     },
     {
       "path": "producer/rig/images/bottomwear.png",
@@ -2092,23 +2092,23 @@
     },
     {
       "path": "producer/rig/motion.json",
-      "bytes": 61420,
-      "sha256": "56877c418a3286e65fe4f90094655c44b64a6fc27a29dc276014f76df5d50586",
+      "bytes": 62199,
+      "sha256": "23c2329c6b568c54d783a1807ba7943d3877a082c45ca56f538bd7cd21825e8f",
       "sourceSHA256": "4a19cf872642cf00b28bab3807a5b597da30c866fcdf3b52619cdb43ce3f54ed",
       "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
       "role": "Corpus-owned reproducible source or measured evidence",
       "contentIdentical": false,
-      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
+      "change": "Issue84 amended whole-arm draw-order keys; frozen setup and original PNG bytes preserved. Same-arm and opposite-arm contributors audited independently."
     },
     {
       "path": "producer/rig/rig.json",
       "bytes": 292180,
-      "sha256": "16037979846dd02ce3cbb85b30a2ae6e682e7b46b91fac76a9def5f2787808c3",
+      "sha256": "7e0cee44e85a9efdef1c5f34ea5209dae18dd9071bf28f0876bd08e171abbe05",
       "sourceSHA256": "037cea0fc96ab247286c985e8336b5d06519d9a1a069e78dd800a12b2a180fbf",
       "origin": "Issue #71 explicit producer and mesh-only v4 transfer, 2026-10-25",
       "role": "Corpus-owned reproducible source or measured evidence",
       "contentIdentical": false,
-      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
+      "change": "Issue84 both-sleeve setup order, first-lost-frame authored keys and normally generated producer; original PNG bytes preserved."
     },
     {
       "path": "provenance/bridge-triangle-alpha.json",
@@ -2211,13 +2211,13 @@
     },
     {
       "path": "stress.json",
-      "bytes": 13501,
-      "sha256": "da6f59f49006aa354680db50555c96bdf806db028610fa39450617e42d02df58",
+      "bytes": 21058,
+      "sha256": "d33d55f05886eb3cdc30b98c1247b01afd3c45a32d346a046e9819fadf18aaf1",
       "sourceSHA256": "1b55c3428dc3b1baeb16cdbfccadff286387ea6f95125a0b8edf79447f897ecb",
       "origin": "accepted dance-skirt v3/v5, 2026-10-22",
       "role": "declared config dependency",
       "contentIdentical": false,
-      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
+      "change": "Issue84 amended whole-arm draw-order keys; frozen setup and original PNG bytes preserved. Same-arm and opposite-arm contributors audited independently."
     },
     {
       "path": "tools/apply-accepted-dance.py",
@@ -2400,6 +2400,16 @@
       "origin": "Approved setup-order producer adoption, issue82",
       "role": "Staged order-only producer source or measured adoption provenance",
       "contentIdentical": true
+    },
+    {
+      "path": "provenance/both-shoulder-order.json",
+      "bytes": 22964,
+      "sha256": "84b931302a13f67aaa98e97e290023a7b1820e274814f30b4794428d0eec4c3b",
+      "sourceSHA256": "f436014c3339269adede2c949ccd93050ed19bcf9ba2d3b4770fe3743ba0792b",
+      "origin": "Issue84 both-shoulder order measurement",
+      "role": "Current order-only recipe and sampled evidence",
+      "contentIdentical": false,
+      "change": "Issue84 amended whole-arm draw-order keys; frozen setup and original PNG bytes preserved. Same-arm and opposite-arm contributors audited independently."
     }
   ]
 }

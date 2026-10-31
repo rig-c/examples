@@ -3448,7 +3448,7 @@
       },
       {
        "slot": "upperarm_l",
-       "offset": 3
+       "offset": 1
       }
      ]
     }
@@ -3540,7 +3540,7 @@
       },
       {
        "slot": "upperarm_l",
-       "offset": 3
+       "offset": 1
       }
      ]
     }
@@ -3672,8 +3672,16 @@
        "offset": 4
       },
       {
+       "slot": "forearm_r",
+       "offset": 1
+      },
+      {
+       "slot": "upperarm_r",
+       "offset": 0
+      },
+      {
        "slot": "upperarm_l",
-       "offset": 3
+       "offset": 1
       }
      ]
     }
@@ -3898,6 +3906,19 @@
    ],
    "drawOrder": [
     {
+     "t": 3.8333333333333335,
+     "offsets": [
+      {
+       "slot": "forearm_r",
+       "offset": 3
+      },
+      {
+       "slot": "upperarm_r",
+       "offset": 2
+      }
+     ]
+    },
+    {
      "t": 9.833333333333334,
      "offsets": [
       {
@@ -3905,8 +3926,16 @@
        "offset": 4
       },
       {
+       "slot": "forearm_r",
+       "offset": 1
+      },
+      {
+       "slot": "upperarm_r",
+       "offset": 0
+      },
+      {
        "slot": "upperarm_l",
-       "offset": 3
+       "offset": 1
       }
      ]
     }
@@ -4028,6 +4057,19 @@
    ],
    "drawOrder": [
     {
+     "t": 0.6666666666666666,
+     "offsets": [
+      {
+       "slot": "forearm_r",
+       "offset": 3
+      },
+      {
+       "slot": "upperarm_r",
+       "offset": 2
+      }
+     ]
+    },
+    {
      "t": 5.583333333333333,
      "offsets": [
       {
@@ -4035,8 +4077,16 @@
        "offset": 4
       },
       {
+       "slot": "forearm_r",
+       "offset": 1
+      },
+      {
+       "slot": "upperarm_r",
+       "offset": 0
+      },
+      {
        "slot": "upperarm_l",
-       "offset": 3
+       "offset": 1
       }
      ]
     }

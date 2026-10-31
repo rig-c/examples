@@ -1,0 +1,830 @@
+{
+  "spec": "dancer-both-shoulder-order/1",
+  "issue": "https://github.com/rig-c/examples/issues/84",
+  "baselineCommit": "a708b5e3b7b6734c88a3c4a36c73d426edae18fe",
+  "previousOrderProvenance": "setup-order.json",
+  "recipe": {
+    "entry": "build.sh",
+    "originalArtConfig": "config-before-setup-order.json",
+    "activeOrder": "config.json",
+    "intermediateOrder": "tools/reorder-setup.ts",
+    "motionSource": "stress.json",
+    "producerPins": "package.json and bun.lock unchanged",
+    "setup": "Frozen issue84 setup: both sleeve pairs behind topwear. Right-active keys lift forearm_r and upperarm_r together, forearm directly under upperarm, in accepted order.",
+    "noHandPatch": true
+  },
+  "diagnosis": {
+    "responsibleSlot": "upperarm_r",
+    "forearmOnlyOwnerChanges": 0,
+    "bothRightBehindOwnerChanges": 3467,
+    "transition": "upperarm_r -> topwear",
+    "paintingSHA256": "54f5ee3c60725c1a7fd3e13ab479199797a7a74040989bc3b76b4d28d65208f1"
+  },
+  "firstLostForearmPixels": {
+    "definition": "accepted forearm_r last textured contributor replaced by topwear; alpha>0, native integer grid",
+    "pose_arms_crossed": {
+      "frame": 0,
+      "pixels": 1210
+    },
+    "sweep_elbow_r_pos": {
+      "frame": 46,
+      "time": 3.8333333333333335,
+      "pixels": 1
+    },
+    "sweep_shoulder_r_in": {
+      "frame": 8,
+      "time": 0.6666666666666666,
+      "pixels": 1
+    }
+  },
+  "authoredKeys": {
+    "pose_arms_up": [
+      {
+        "t": 0,
+        "offsets": [
+          {
+            "slot": "forearm_l",
+            "offset": 4
+          },
+          {
+            "slot": "upperarm_l",
+            "offset": 1
+          }
+        ]
+      }
+    ],
+    "pose_hands_behind_head": [
+      {
+        "t": 0,
+        "offsets": [
+          {
+            "slot": "forearm_l",
+            "offset": 4
+          },
+          {
+            "slot": "upperarm_l",
+            "offset": 1
+          }
+        ]
+      }
+    ],
+    "pose_arms_crossed": [
+      {
+        "t": 0,
+        "offsets": [
+          {
+            "slot": "forearm_l",
+            "offset": 4
+          },
+          {
+            "slot": "forearm_r",
+            "offset": 1
+          },
+          {
+            "slot": "upperarm_r",
+            "offset": 0
+          },
+          {
+            "slot": "upperarm_l",
+            "offset": 1
+          }
+        ]
+      }
+    ],
+    "sweep_elbow_r_pos": [
+      {
+        "t": 3.8333333333333335,
+        "offsets": [
+          {
+            "slot": "forearm_r",
+            "offset": 3
+          },
+          {
+            "slot": "upperarm_r",
+            "offset": 2
+          }
+        ]
+      },
+      {
+        "t": 9.833333333333334,
+        "offsets": [
+          {
+            "slot": "forearm_l",
+            "offset": 4
+          },
+          {
+            "slot": "forearm_r",
+            "offset": 1
+          },
+          {
+            "slot": "upperarm_r",
+            "offset": 0
+          },
+          {
+            "slot": "upperarm_l",
+            "offset": 1
+          }
+        ]
+      }
+    ],
+    "sweep_shoulder_r_in": [
+      {
+        "t": 0.6666666666666666,
+        "offsets": [
+          {
+            "slot": "forearm_r",
+            "offset": 3
+          },
+          {
+            "slot": "upperarm_r",
+            "offset": 2
+          }
+        ]
+      },
+      {
+        "t": 5.583333333333333,
+        "offsets": [
+          {
+            "slot": "forearm_l",
+            "offset": 4
+          },
+          {
+            "slot": "forearm_r",
+            "offset": 1
+          },
+          {
+            "slot": "upperarm_r",
+            "offset": 0
+          },
+          {
+            "slot": "upperarm_l",
+            "offset": 1
+          }
+        ]
+      }
+    ]
+  },
+  "sourceSHA256": {
+    "config.json": "d53c0670a92ce1cce883aa18eae230b1fb8af3f35d6531d92d6063826fa7e093",
+    "stress.json": "d33d55f05886eb3cdc30b98c1247b01afd3c45a32d346a046e9819fadf18aaf1",
+    "config-before-setup-order.json": "3f59c4484e037b0e73c1023eaf8b989f20c01fc532e826e77e902c3576a58cf7",
+    "tools/reorder-setup.ts": "74f45efd702c87c0303b3fda81557577b7f1ebda20d1418146b933bec0df81b3",
+    "build-setup-order-candidate.sh": "1d8b1024fc1b8547e66af3c85d94bc3a762b0285a0c1859ec4d4aac80d6add90"
+  },
+  "actualPoseEquality": {
+    "status": "PASS",
+    "tolerance": 1e-06,
+    "animations": 19,
+    "framePairs": 1235,
+    "bonesPerFrame": 137,
+    "boneFramePairs": 169195,
+    "scalarComparisons": 1015170,
+    "max": 0,
+    "matrixMax": 0,
+    "translationMax": 0,
+    "firstOver": null,
+    "controlsPassed": 13
+  },
+  "otherArmLoss": {
+    "fps": 12,
+    "frames": 1235,
+    "leftSlots": [
+      "forearm_l",
+      "upperarm_l",
+      "sleevefront_l"
+    ],
+    "rightSlots": [
+      "forearm_r",
+      "upperarm_r"
+    ],
+    "leftToRightMaximum": 0,
+    "rightToLeftMaximum": 0,
+    "definition": "Actual last alpha>0 textured contributors; other L->R and R->L plus EVERY distinct ordered same-arm slot pair within L3/R2 (8directions). All other slots participate. Unbounded native integer-grid union of all arm pair bbox intersections, no stage clipping. Not anatomical inference."
+  },
+  "setupPainting": {
+    "status": "INFORMATIONAL ONLY",
+    "accepted": [
+      {
+        "name": "shoulder_r",
+        "box": [
+          262,
+          275,
+          160,
+          215
+        ],
+        "rgbTolerance": 60,
+        "total": 422,
+        "slots": {
+          "hair_front": 8,
+          "neck": 1,
+          "topwear": 113,
+          "face": 13,
+          "upperarm_r": 250,
+          "forearm_r": 23,
+          "(uncovered)": 6,
+          "bottomwear": 8
+        },
+        "status": "INFORMATIONAL ONLY; no limit"
+      },
+      {
+        "name": "shoulder_l",
+        "box": [
+          410,
+          275,
+          160,
+          215
+        ],
+        "rgbTolerance": 60,
+        "total": 562,
+        "slots": {
+          "face": 23,
+          "hair_front": 102,
+          "(uncovered)": 8,
+          "topwear": 264,
+          "upperarm_l": 130,
+          "forearm_l": 16,
+          "bottomwear": 19
+        },
+        "status": "INFORMATIONAL ONLY; no limit"
+      }
+    ],
+    "candidate": [
+      {
+        "name": "shoulder_r",
+        "box": [
+          262,
+          275,
+          160,
+          215
+        ],
+        "rgbTolerance": 60,
+        "total": 378,
+        "slots": {
+          "hair_front": 8,
+          "neck": 1,
+          "topwear": 186,
+          "face": 13,
+          "upperarm_r": 133,
+          "forearm_r": 23,
+          "(uncovered)": 6,
+          "bottomwear": 8
+        },
+        "status": "INFORMATIONAL ONLY; no limit"
+      },
+      {
+        "name": "shoulder_l",
+        "box": [
+          410,
+          275,
+          160,
+          215
+        ],
+        "rgbTolerance": 60,
+        "total": 562,
+        "slots": {
+          "face": 23,
+          "hair_front": 102,
+          "(uncovered)": 8,
+          "topwear": 264,
+          "upperarm_l": 130,
+          "forearm_l": 16,
+          "bottomwear": 19
+        },
+        "status": "INFORMATIONAL ONLY; no limit"
+      }
+    ]
+  },
+  "preservation": {
+    "allOriginalPNGBytesUnchanged": true,
+    "allProducerImageBytesUnchanged": true,
+    "geometryAndKeyedPoseValuesUnchanged": true,
+    "sourceArrayOrder": "May permute with part order; actual world-state equality is measured by name."
+  },
+  "visualLimits": {
+    "inheritedSweepKeyBoundaryPops": "Two sleeve/chest boundary pops from issue82 remain disclosed HQ nonblockers.",
+    "thighOutViewportClipping": "Inherited, out of scope.",
+    "sampledOnly": "19 animations at12fps including endpoints, not continuous-time proof.",
+    "rightKeyContour": "Contour returns only on whole-arm key intervals; all five right-key at-frames equal the accepted rendered RGB image. No added filled sleeve patch observed at the inspected key boundaries.",
+    "postLandingBodyTurn": "The separate depth body_turn recipe is outside the 19 stress clips. Its endpoints remain a post-landing rebuild and HQ eye check; no pre-landing depth diagnostic."
+  },
+  "amendment": "https://github.com/rig-c/examples/issues/84#issuecomment-6536452030",
+  "sameArmReassignment": {
+    "fps": 12,
+    "directions": {
+      "forearm_l -> upperarm_l": 0,
+      "forearm_l -> sleevefront_l": 0,
+      "upperarm_l -> forearm_l": 0,
+      "upperarm_l -> sleevefront_l": 0,
+      "sleevefront_l -> forearm_l": 0,
+      "sleevefront_l -> upperarm_l": 0,
+      "forearm_r -> upperarm_r": 0,
+      "upperarm_r -> forearm_r": 0
+    },
+    "allEmittedOrdersKeepAcceptedSameArmOrder": true,
+    "rightForearmDirectlyUnderUpperarmAboveTorso": true,
+    "rightActiveSampledOrderDiffsFromAccepted": 0,
+    "comparison": "Accepted versus current at the same time/frame, not temporal before-to-at movement."
+  },
+  "rightKeyHolds": [
+    {
+      "animation": "idle",
+      "duration": 3.3333333333333335,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "pose_arms_up",
+      "duration": 1,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "pose_hands_behind_head",
+      "duration": 1,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "pose_hand_on_hip",
+      "duration": 1,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "pose_arms_crossed",
+      "duration": 1,
+      "rightKeyIntervals": [
+        {
+          "start": 0,
+          "end": 1,
+          "duration": 1,
+          "kind": "combined",
+          "order": [
+            "hair_back",
+            "shins",
+            "thigh_r",
+            "thigh_l",
+            "shoe_l",
+            "shoe_r",
+            "neck",
+            "bottomwear",
+            "sleevefront_l",
+            "topwear",
+            "forearm_r",
+            "upperarm_r",
+            "forearm_l",
+            "upperarm_l",
+            "ear_l",
+            "ear_r",
+            "face",
+            "mouth",
+            "brow_r",
+            "brow_l",
+            "eyewhite_r",
+            "eyewhite_l",
+            "iris_r",
+            "iris_l",
+            "lash_r",
+            "hairpin",
+            "lash_l",
+            "hair_front"
+          ]
+        }
+      ],
+      "totalRightHold": 1,
+      "rightActiveSampledFrames": 13,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "pose_legs_apart",
+      "duration": 1,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "pose_hip_tilt_pos",
+      "duration": 1,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "pose_hip_tilt_neg",
+      "duration": 1,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_elbow_r_pos",
+      "duration": 15,
+      "rightKeyIntervals": [
+        {
+          "start": 3.8333333333333335,
+          "end": 9.833333333333334,
+          "duration": 6,
+          "kind": "right-only",
+          "order": [
+            "hair_back",
+            "shins",
+            "thigh_r",
+            "thigh_l",
+            "shoe_l",
+            "shoe_r",
+            "neck",
+            "bottomwear",
+            "forearm_l",
+            "sleevefront_l",
+            "upperarm_l",
+            "topwear",
+            "forearm_r",
+            "upperarm_r",
+            "ear_l",
+            "ear_r",
+            "face",
+            "mouth",
+            "brow_r",
+            "brow_l",
+            "eyewhite_r",
+            "eyewhite_l",
+            "iris_r",
+            "iris_l",
+            "lash_r",
+            "hairpin",
+            "lash_l",
+            "hair_front"
+          ]
+        },
+        {
+          "start": 9.833333333333334,
+          "end": 15,
+          "duration": 5.166666666666666,
+          "kind": "combined",
+          "order": [
+            "hair_back",
+            "shins",
+            "thigh_r",
+            "thigh_l",
+            "shoe_l",
+            "shoe_r",
+            "neck",
+            "bottomwear",
+            "sleevefront_l",
+            "topwear",
+            "forearm_r",
+            "upperarm_r",
+            "forearm_l",
+            "upperarm_l",
+            "ear_l",
+            "ear_r",
+            "face",
+            "mouth",
+            "brow_r",
+            "brow_l",
+            "eyewhite_r",
+            "eyewhite_l",
+            "iris_r",
+            "iris_l",
+            "lash_r",
+            "hairpin",
+            "lash_l",
+            "hair_front"
+          ]
+        }
+      ],
+      "totalRightHold": 11.166666666666666,
+      "rightActiveSampledFrames": 135,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_elbow_r_neg",
+      "duration": 15,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_knee_r_pos",
+      "duration": 9,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_knee_r_neg",
+      "duration": 9,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_shoulder_r_out",
+      "duration": 18,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_shoulder_r_in",
+      "duration": 6,
+      "rightKeyIntervals": [
+        {
+          "start": 0.6666666666666666,
+          "end": 5.583333333333333,
+          "duration": 4.916666666666666,
+          "kind": "right-only",
+          "order": [
+            "hair_back",
+            "shins",
+            "thigh_r",
+            "thigh_l",
+            "shoe_l",
+            "shoe_r",
+            "neck",
+            "bottomwear",
+            "forearm_l",
+            "sleevefront_l",
+            "upperarm_l",
+            "topwear",
+            "forearm_r",
+            "upperarm_r",
+            "ear_l",
+            "ear_r",
+            "face",
+            "mouth",
+            "brow_r",
+            "brow_l",
+            "eyewhite_r",
+            "eyewhite_l",
+            "iris_r",
+            "iris_l",
+            "lash_r",
+            "hairpin",
+            "lash_l",
+            "hair_front"
+          ]
+        },
+        {
+          "start": 5.583333333333333,
+          "end": 6,
+          "duration": 0.41666666666666696,
+          "kind": "combined",
+          "order": [
+            "hair_back",
+            "shins",
+            "thigh_r",
+            "thigh_l",
+            "shoe_l",
+            "shoe_r",
+            "neck",
+            "bottomwear",
+            "sleevefront_l",
+            "topwear",
+            "forearm_r",
+            "upperarm_r",
+            "forearm_l",
+            "upperarm_l",
+            "ear_l",
+            "ear_r",
+            "face",
+            "mouth",
+            "brow_r",
+            "brow_l",
+            "eyewhite_r",
+            "eyewhite_l",
+            "iris_r",
+            "iris_l",
+            "lash_r",
+            "hairpin",
+            "lash_l",
+            "hair_front"
+          ]
+        }
+      ],
+      "totalRightHold": 5.333333333333333,
+      "rightActiveSampledFrames": 65,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_hip_tilt_pos",
+      "duration": 3,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_hip_tilt_neg",
+      "duration": 3,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_thigh_r_out",
+      "duration": 6,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sweep_thigh_r_in",
+      "duration": 3,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    },
+    {
+      "animation": "sway",
+      "duration": 4,
+      "rightKeyIntervals": [],
+      "totalRightHold": 0,
+      "rightActiveSampledFrames": 0,
+      "sampledRightOrderDiffersFromAccepted": 0
+    }
+  ],
+  "keyBoundaryObservation": [
+    {
+      "animation": "pose_arms_up",
+      "time": 0,
+      "rightKey": false,
+      "acceptedVsCurrentAtKeyRGBPixels": 2381,
+      "isolatedOrderOwnerTransitions": {
+        "forearm_r -> forearm_l": 986,
+        "topwear -> upperarm_l": 2303
+      },
+      "actualBeforeToAtOwnerTransitions": {
+        "(uncovered) -> forearm_r": 3293,
+        "(uncovered) -> forearm_l": 3999,
+        "hair_back -> forearm_r": 1556,
+        "hair_back -> forearm_l": 1452,
+        "(uncovered) -> upperarm_l": 3703,
+        "(uncovered) -> upperarm_r": 3936,
+        "hair_back -> upperarm_l": 34,
+        "topwear -> upperarm_l": 2303,
+        "upperarm_l -> (uncovered)": 6212,
+        "upperarm_r -> (uncovered)": 5164,
+        "forearm_r -> (uncovered)": 10927,
+        "forearm_l -> (uncovered)": 9814
+      }
+    },
+    {
+      "animation": "pose_hands_behind_head",
+      "time": 0,
+      "rightKey": false,
+      "acceptedVsCurrentAtKeyRGBPixels": 1756,
+      "isolatedOrderOwnerTransitions": {
+        "topwear -> upperarm_l": 1606
+      },
+      "actualBeforeToAtOwnerTransitions": {
+        "(uncovered) -> forearm_l": 6777,
+        "(uncovered) -> forearm_r": 6947,
+        "(uncovered) -> upperarm_l": 7315,
+        "(uncovered) -> upperarm_r": 6842,
+        "hair_back -> forearm_r": 17,
+        "topwear -> upperarm_l": 1606,
+        "upperarm_l -> (uncovered)": 6000,
+        "upperarm_r -> (uncovered)": 4869,
+        "forearm_r -> (uncovered)": 10927,
+        "forearm_l -> (uncovered)": 9814
+      }
+    },
+    {
+      "animation": "pose_arms_crossed",
+      "time": 0,
+      "rightKey": true,
+      "acceptedVsCurrentAtKeyRGBPixels": 0,
+      "isolatedOrderOwnerTransitions": {
+        "topwear -> upperarm_r": 4546,
+        "topwear -> upperarm_l": 4039,
+        "topwear -> forearm_r": 1210,
+        "upperarm_r -> forearm_l": 959,
+        "topwear -> forearm_l": 4086,
+        "forearm_r -> forearm_l": 618
+      },
+      "actualBeforeToAtOwnerTransitions": {
+        "topwear -> upperarm_r": 4546,
+        "upperarm_r -> (uncovered)": 1601,
+        "topwear -> upperarm_l": 4039,
+        "(uncovered) -> upperarm_l": 363,
+        "(uncovered) -> upperarm_r": 89,
+        "upperarm_l -> (uncovered)": 912,
+        "topwear -> forearm_r": 1210,
+        "upperarm_l -> forearm_r": 502,
+        "upperarm_r -> forearm_l": 956,
+        "topwear -> forearm_l": 4086,
+        "(uncovered) -> forearm_r": 794,
+        "upperarm_r -> forearm_r": 146,
+        "forearm_r -> (uncovered)": 9489,
+        "upperarm_l -> forearm_l": 113,
+        "forearm_l -> (uncovered)": 7983,
+        "forearm_r -> upperarm_r": 42,
+        "forearm_r -> forearm_l": 4,
+        "forearm_l -> upperarm_l": 49,
+        "bottomwear -> forearm_l": 1718,
+        "bottomwear -> forearm_r": 925,
+        "bottomwear -> upperarm_r": 6,
+        "(uncovered) -> forearm_l": 668
+      }
+    },
+    {
+      "animation": "sweep_elbow_r_pos",
+      "time": 3.8333333333333335,
+      "rightKey": true,
+      "acceptedVsCurrentAtKeyRGBPixels": 0,
+      "isolatedOrderOwnerTransitions": {
+        "topwear -> upperarm_r": 3467,
+        "topwear -> forearm_r": 1
+      },
+      "actualBeforeToAtOwnerTransitions": {
+        "topwear -> upperarm_r": 3467,
+        "(uncovered) -> forearm_r": 6,
+        "forearm_r -> (uncovered)": 34,
+        "topwear -> forearm_r": 1,
+        "bottomwear -> forearm_r": 37,
+        "forearm_r -> bottomwear": 15,
+        "forearm_r -> thigh_r": 2,
+        "thigh_r -> forearm_r": 3
+      }
+    },
+    {
+      "animation": "sweep_elbow_r_pos",
+      "time": 9.833333333333334,
+      "rightKey": true,
+      "acceptedVsCurrentAtKeyRGBPixels": 0,
+      "isolatedOrderOwnerTransitions": {
+        "topwear -> upperarm_l": 2657
+      },
+      "actualBeforeToAtOwnerTransitions": {
+        "topwear -> upperarm_l": 2657,
+        "topwear -> forearm_r": 7,
+        "(uncovered) -> forearm_r": 19,
+        "forearm_r -> (uncovered)": 14,
+        "bottomwear -> forearm_r": 11,
+        "forearm_r -> bottomwear": 34
+      }
+    },
+    {
+      "animation": "sweep_shoulder_r_in",
+      "time": 0.6666666666666666,
+      "rightKey": true,
+      "acceptedVsCurrentAtKeyRGBPixels": 0,
+      "isolatedOrderOwnerTransitions": {
+        "topwear -> upperarm_r": 4506,
+        "topwear -> forearm_r": 1
+      },
+      "actualBeforeToAtOwnerTransitions": {
+        "topwear -> upperarm_r": 4506,
+        "upperarm_r -> (uncovered)": 12,
+        "forearm_r -> (uncovered)": 97,
+        "forearm_r -> upperarm_r": 5,
+        "upperarm_r -> forearm_r": 5,
+        "topwear -> forearm_r": 1,
+        "(uncovered) -> forearm_r": 94
+      }
+    },
+    {
+      "animation": "sweep_shoulder_r_in",
+      "time": 5.583333333333333,
+      "rightKey": true,
+      "acceptedVsCurrentAtKeyRGBPixels": 0,
+      "isolatedOrderOwnerTransitions": {
+        "topwear -> upperarm_l": 2657
+      },
+      "actualBeforeToAtOwnerTransitions": {
+        "topwear -> upperarm_l": 2657,
+        "topwear -> upperarm_r": 19,
+        "upperarm_r -> (uncovered)": 1,
+        "upperarm_r -> topwear": 10,
+        "topwear -> forearm_r": 6,
+        "upperarm_r -> forearm_r": 2,
+        "forearm_r -> upperarm_r": 3,
+        "(uncovered) -> forearm_r": 61,
+        "forearm_r -> bottomwear": 77,
+        "forearm_r -> (uncovered)": 9,
+        "bottomwear -> forearm_r": 8
+      }
+    }
+  ],
+  "scopeCorrection": "Keeping the upper arm behind topwear while the forearm is front was not required during right-key holds. Whole-arm lift preserves the accepted internal arm order.",
+  "keyBoundaryObservationSemantics": "Actual before-to-at includes geometric motion and at time0 includes setup-to-authored-pose; isolatedOrder holds the at-key pose fixed. Zero-reassignment bars compare accepted/current at matching frames."
+}

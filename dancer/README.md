@@ -1,6 +1,6 @@
 # The dancer
 
-**Current producer:** the approved setup order puts the left sleeve parts behind `topwear`; five authored draw-order timelines preserve the accepted arm crossings. Original projected art and the explicit smear50 skirt are unchanged. `build.sh` uses the staged order-only recipe below; [source, pose equality and adoption](provenance/setup-order.json). The immutable accepted dance replay remains separate.
+**Current producer:** the setup order puts both sleeves behind `topwear`; seven authored draw-order keys preserve arm crossings and lift the whole right sleeve at its first lost frame. Original projected art and the explicit smear50 skirt are unchanged. `build.sh` uses the staged order-only recipe below; [current source and sampled pose evidence](provenance/both-shoulder-order.json); [previous left-sleeve adoption](provenance/setup-order.json). The immutable accepted dance replay remains separate.
 
 **Current accepted dance: owner v4, 2026-10-25.** Run `sh build-accepted-dance.sh` from this directory. The owner's eye verdict was "v4 looks good, merge it" ([#73](https://github.com/rig-c/examples/issues/73)). V4 replays the mesh-only smear50 rig with released core; motion and every other rig subtree are unchanged from v3. [V4 source, commands and measured evidence](accepted-dance/v4/README.md). The setup producer is separate provenance. V3 remains immutable and explicitly selectable with `sh build-accepted-dance.sh --version v3 work/accepted-v3`; its versioned records describe its earlier acceptance/default, not the current selection. [Historical v3 proof](accepted-dance/v3/reproduction-evidence.json).
 
@@ -50,6 +50,8 @@ sh build.sh
 ```
 
 This command assembles art with the byte-preserved `config-before-setup-order.json`, then uses `@rig-c/parts` 1.64.0's `src/assemble.ts:drawOrder` to apply the active `config.json` setup order to the intermediate parts list. It remeasures that flat stack, generates rig/motion from the active config and `stress.json`, and runs the ordinary parts check. It never reassembles the active order into different projected art or patches emitted rig/motion. Output is ignored under `work/`. The saved accepted rig has the separate core build described below.
+
+Both shoulders are compared to the same painting without changing PNG bytes. The right upper-arm part carries the extra contour and stays behind the torso at setup. Whole-right-arm keys start at crossed frame 0, elbow-positive frame 46 and shoulder-in frame 8 on the 12 fps grid, with the forearm directly under the upper arm. During those holds the contour returns in the accepted order; lifting the forearm alone was rejected for introducing a filled sleeve patch. The five earlier left-front key times remain; all offsets are recomputed for the frozen setup order. Both opposite-arm contributor loss and each same-arm contributor reassignment measure zero against the accepted build at matching frames over all 19 clips at 12 fps. The two earlier sleeve/chest key-boundary pops remain recorded nonblockers, and thigh-out viewport clipping remains out of scope. Setup-painting readings for each shoulder are informational, with per-slot values in the current provenance record.
 
 The adopted canonical producer bytes are in `producer/rig/`. A fresh rebuild and byte/RGBA inventory comparison runs as:
 

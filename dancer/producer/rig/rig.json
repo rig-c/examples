@@ -1037,9 +1037,19 @@
    "attachment": "forearm_l"
   },
   {
+   "name": "forearm_r",
+   "bone": "sleeve_r1",
+   "attachment": "forearm_r"
+  },
+  {
    "name": "sleevefront_l",
    "bone": "turn_sleevefront_l_chest",
    "attachment": "sleevefront_l"
+  },
+  {
+   "name": "upperarm_r",
+   "bone": "sleeve_r0",
+   "attachment": "upperarm_r"
   },
   {
    "name": "upperarm_l",
@@ -1050,16 +1060,6 @@
    "name": "topwear",
    "bone": "turn_topwear_chest",
    "attachment": "topwear"
-  },
-  {
-   "name": "forearm_r",
-   "bone": "sleeve_r1",
-   "attachment": "forearm_r"
-  },
-  {
-   "name": "upperarm_r",
-   "bone": "sleeve_r0",
-   "attachment": "upperarm_r"
   },
   {
    "name": "ear_l",
@@ -11722,11 +11722,27 @@
      "rotation": 63.495451
     }
    },
+   "forearm_r": {
+    "forearm_r": {
+     "image": "forearm_r.png",
+     "x": 85.881078,
+     "y": -3.961111,
+     "rotation": 118.220098
+    }
+   },
    "sleevefront_l": {
     "sleevefront_l": {
      "image": "sleevefront_l.png",
      "x": 43.5,
      "y": 72
+    }
+   },
+   "upperarm_r": {
+    "upperarm_r": {
+     "image": "upperarm_r.png",
+     "x": 62.786106,
+     "y": -6.426884,
+     "rotation": 113.15717
     }
    },
    "upperarm_l": {
@@ -12782,22 +12798,6 @@
        }
       ]
      ]
-    }
-   },
-   "forearm_r": {
-    "forearm_r": {
-     "image": "forearm_r.png",
-     "x": 85.881078,
-     "y": -3.961111,
-     "rotation": 118.220098
-    }
-   },
-   "upperarm_r": {
-    "upperarm_r": {
-     "image": "upperarm_r.png",
-     "x": 62.786106,
-     "y": -6.426884,
-     "rotation": 113.15717
     }
    },
    "ear_l": {
