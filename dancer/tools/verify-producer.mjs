@@ -25,12 +25,14 @@ export async function inventory(root) {
     const file = join(dir, name);
     return statSync(file).isDirectory() ? walk(file) : [file];
   });
+  if (!existsSync(join(root, 'parts.json')) || !existsSync(join(root, 'parts'))) refuse('PRODUCER_PARTS: no producer-written parts');
   if (!existsSync(join(root, 'rig/rig.json'))) refuse('PRODUCER_RIG: no producer-written rig');
   const install = spawnSync('sh', ['tools/ensure-runtime.sh'], { cwd: dancer, stdio: 'inherit' });
   if (install.error || install.status !== 0) refuse('PRODUCER_RUNTIME: frozen install failed');
   const { readPlate } = await import(pathToFileURL(join(dancer, 'work/runtime/node_modules/rig-c/tools/plate.ts')).href);
   const files = {};
-  for (const file of walk(join(root, 'rig'))) {
+  const entries = [join(root, 'parts.json'), ...walk(join(root, 'parts')), ...walk(join(root, 'rig'))].sort();
+  for (const file of entries) {
     const data = readFileSync(file);
     const row = { bytes: data.length, sha256: sha(data) };
     if (file.endsWith('.png')) {
@@ -59,6 +61,8 @@ async function main() {
   if (args[0] === '--record') {
     if (existsSync(accepted) || existsSync(manifest)) refuse('PRODUCER_ALREADY_RECORDED: do not overwrite accepted bytes');
     mkdirSync(accepted);
+    cpSync(join(input, 'parts.json'), join(accepted, 'parts.json'));
+    cpSync(join(input, 'parts'), join(accepted, 'parts'), { recursive: true });
     cpSync(join(input, 'rig'), join(accepted, 'rig'), { recursive: true });
     writeFileSync(manifest, JSON.stringify({ spec: 'dancer-producer/1', configSHA256: sha(readFileSync(join(dancer, 'config.json'))), packageSHA256: sha(readFileSync(join(dancer, 'package.json'))), files: actual }, null, 2) + '\n');
   }

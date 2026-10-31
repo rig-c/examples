@@ -53,13 +53,21 @@ This command assembles art with the byte-preserved `config-before-setup-order.js
 
 Both shoulders are compared to the same painting without changing PNG bytes. The right upper-arm part carries the extra contour and stays behind the torso at setup. Whole-right-arm keys start at crossed frame 0, elbow-positive frame 46 and shoulder-in frame 8 on the 12 fps grid, with the forearm directly under the upper arm. During those holds the contour returns in the accepted order; lifting the forearm alone was rejected for introducing a filled sleeve patch. The five earlier left-front key times remain; all offsets are recomputed for the frozen setup order. Both opposite-arm contributor loss and each same-arm contributor reassignment measure zero against the accepted build at matching frames over all 19 clips at 12 fps. The two earlier sleeve/chest key-boundary pops remain recorded nonblockers, and thigh-out viewport clipping remains out of scope. Setup-painting readings for each shoulder are informational, with per-slot values in the current provenance record.
 
-The adopted canonical producer bytes are in `producer/rig/`. A fresh rebuild and byte/RGBA inventory comparison runs as:
+The adopted canonical producer bytes are in `producer/` (`parts.json` and 28 unpadded part PNGs under `producer/parts/`, plus `rig.json`, `motion.json`, `mesh_report.json` and 28 4 px-padded rig images under `producer/rig/`). Carrying `producer/parts.json` and `producer/parts/` allows the `rig` stage to be re-run directly from a clean checkout without re-assembling:
+
+```sh
+rig-parts rig --config dancer/config.json --parts dancer/producer --out work/rig
+```
+
+(`meshes.bottomwear.explicit.image_sha256` in `config.json` is `bf18e918b65b666d6ea8f90fa4770e9a5a9f59f144e9172a05e9a68694c0d963`, the SHA-256 of the unpadded `209x205` decoded RGBA buffer of `producer/parts/bottomwear.png`, where `@rig-c/parts@1.64.0`'s `pushBackFringe` cleared 19 fringe pixels over `thigh_r` (18 px) and `thigh_l` (1 px); `producer/rig/images/bottomwear.png` is the `217x213` 4 px-padded PNG written by `rig`, whose file SHA-256 is `2c9aea3750d0cc5c8e769f0b3948ca7311cfef470b31fd2d698c722fc0ba5d79` and whose interior `209x205` decoded RGBA buffer has the same `bf18e918b65b...` hash. Post-`rig-c/parts#791` assembly skips `pushBackFringe` across `turnMovingPartPair` physics-bound parts, leaving those 19 fringe pixels on `bottomwear` with decoded RGBA SHA-256 `a9faf2ac32a3dfd687816fda8a10bbed06eaa06bf3a35bc64a1687e9c37fa0ed`.)
+
+A fresh rebuild and byte/RGBA inventory comparison runs as:
 
 ```sh
 bun tools/verify-producer.mjs --out work/fresh-producer
 ```
 
-Choose a new output directory for each rebuild. The verifier refuses changed/missing files, changed decoded PNG pixels, a red check, or changed active config/package pins. It verifies all 31 producer files; it does not claim the original accepted dance can be played on this different producer rig.
+Choose a new output directory for each rebuild. The verifier refuses changed/missing files, changed decoded PNG pixels, a red check, or changed active config/package pins. It verifies all 60 producer files; it does not claim the original accepted dance can be played on this different producer rig.
 
 The current frozen producer install pins `@rig-c/parts` 1.64.0, direct `rig-c` 2.67.2 and official `@esotericsoftware/spine-core` 4.3.13. Parts resolves its own compatible rig-c 2.70.0, recorded in `bun.lock`; that is the compiler its build/check invokes. The new Nova producer runs use Bun 1.4.4. Historical dance replay keeps its separate frozen package pins. `check-inputs.py` checks file
 hashes and config/map closure; it does not render or establish rig correctness.

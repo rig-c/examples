@@ -56,4 +56,5 @@ if producer_manifest.exists():
     for file,row in current['files'].items():
         data=(Path('producer')/file).read_bytes()
         assert len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256'], 'PRODUCER_FILE_HASH: '+file
+    assert current['files']['parts/bottomwear.png']['rgba']['sha256']==json.loads(Path('config.json').read_text())['meshes']['bottomwear']['explicit']['image_sha256'], 'PRODUCER_EXPLICIT_PART_RGBA_HASH: bottomwear'
     print('PRODUCER CLOSURE PASS: canonical adopted file bytes and active config/package pins.')

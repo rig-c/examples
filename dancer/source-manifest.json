@@ -12,13 +12,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 16516,
-      "sha256": "06f0283ba49ae8fd954e710ff1ee275c7af5be2fb176dd89f64775ea7db4d894",
+      "bytes": 17769,
+      "sha256": "87f91dadff6c6cbbddb38185787036ae37f3d3dfcbc3795fbb17dd29b7139190",
       "sourceSHA256": "4740c3709acf23594af59dec1b77bd6193a8c84b189544b56465824de1c82366",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
       "contentIdentical": false,
-      "change": "Issue84 amended whole-arm draw-order keys; frozen setup and original PNG bytes preserved. Same-arm and opposite-arm contributors audited independently."
+      "change": "Issue #88: carry producer/parts.json and producer/parts/*.png so the rig stage is reproducible from the tree."
     },
     {
       "path": "accepted-dance/bun.lock",
@@ -1060,13 +1060,13 @@
     },
     {
       "path": "build.sh",
-      "bytes": 365,
-      "sha256": "5296cdf06025d056e3f568652652242186d49b492e0efe0ebe010bf0786f481c",
+      "bytes": 449,
+      "sha256": "fc22bd9d6f683050d1d3836ccb7cc936c07a1a2190c3c0c8acf2331b549cdad0",
       "sourceSHA256": "d38e00ec57c13cb0662c21788d12b0a0a01ce8164a1ae71649eda547cd7d18c2",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
       "contentIdentical": false,
-      "change": "Approved issue82 setup-order recipe, source draw-order keys and regenerated producer; original art bytes preserved."
+      "change": "Issue #88: carry producer/parts.json and producer/parts/*.png so the rig stage is reproducible from the tree."
     },
     {
       "path": "bun.lock",
@@ -1079,13 +1079,13 @@
     },
     {
       "path": "check-inputs.py",
-      "bytes": 4029,
-      "sha256": "6bd139c5997516c5637e3aebda8622a48d3c0429202033fa2f951d16ba8e3ef4",
+      "bytes": 4244,
+      "sha256": "8e6d6c53c543c24e949b86af3a3045c59c3fa49589c5fea3245f148523ee5fbb",
       "sourceSHA256": "584b80f031cdaf791615d3394e4e05539002d847730b49d4ea6549ec9142af2f",
       "origin": "Owner-accepted v3 transfer, 2026-10-24; trial PR57 source ee5ec1ad56b3d97e7af6fd85e1957cc0ff9ee7a4",
       "role": "Corpus-only v3 declaration, replay or measured evidence",
       "contentIdentical": false,
-      "change": "Explicit producer adoption and preserved historical replay, issue 71."
+      "change": "Issue #88: carry producer/parts.json and producer/parts/*.png so the rig stage is reproducible from the tree."
     },
     {
       "path": "config-base.json",
@@ -1769,7 +1769,7 @@
       "bytes": 9285,
       "sha256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
       "sourceSHA256": "9dca5394f6c0cf9cc72e2456b53b41adf898b963a6081d9f6f9b3c2ad6191096",
-      "origin": "the accepted dance\u2019s map, 2026-10-22",
+      "origin": "the accepted dance’s map, 2026-10-22",
       "role": "accepted body/alternate map",
       "contentIdentical": true
     },
@@ -1821,13 +1821,13 @@
     },
     {
       "path": "producer-manifest.json",
-      "bytes": 9764,
-      "sha256": "d07590d45c02e075d6a0ba1435ec0f6dff418e5166c30db0e2f4fcc3135339f1",
+      "bytes": 18086,
+      "sha256": "702a0ab2e51659c34d7cf3150f7259c19d46297365499abc896997780650df0a",
       "sourceSHA256": "1514d846e0352f6ac02506a551f23519dc39d12178d6b933045c629fd4db1fde",
       "origin": "Explicit producer adoption, issue 71",
       "role": "Producer replay and verification",
       "contentIdentical": false,
-      "change": "Issue84 amended whole-arm draw-order keys; frozen setup and original PNG bytes preserved. Same-arm and opposite-arm contributors audited independently."
+      "change": "Issue #88: carry producer/parts.json and producer/parts/*.png so the rig stage is reproducible from the tree."
     },
     {
       "path": "producer/rig/images/bottomwear.png",
@@ -2313,12 +2313,13 @@
     },
     {
       "path": "tools/verify-producer.mjs",
-      "bytes": 4145,
-      "sha256": "f431cad9bdc7b7b3dddbcdb322de9e8cc4a434f8d3c3c132f2fef41bd3bc3650",
+      "bytes": 4523,
+      "sha256": "7b2eda79ba3e74014ee3e746e8d68fe6297a964c1cc10c29a92d3e1b31205756",
       "sourceSHA256": "67279cfd9fda7194f68e375ee0076864a480030fb67ab848bc5283a56ffe7bb3",
       "origin": "Explicit producer adoption, issue 71",
       "role": "Producer replay and verification",
-      "contentIdentical": false
+      "contentIdentical": false,
+      "change": "Issue #88: carry producer/parts.json and producer/parts/*.png so the rig stage is reproducible from the tree."
     },
     {
       "path": "tools/verify-producer.test.mjs",
@@ -2410,6 +2411,267 @@
       "role": "Current order-only recipe and sampled evidence",
       "contentIdentical": false,
       "change": "Issue84 amended whole-arm draw-order keys; frozen setup and original PNG bytes preserved. Same-arm and opposite-arm contributors audited independently."
+    },
+    {
+      "path": "producer/parts.json",
+      "bytes": 16502,
+      "sha256": "4d1329716e1e1ca233e47e4fbb85fc692af3d9b13fdff08b0c53570f4ef71a96",
+      "sourceSHA256": "4d1329716e1e1ca233e47e4fbb85fc692af3d9b13fdff08b0c53570f4ef71a96",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/bottomwear.png",
+      "bytes": 53433,
+      "sha256": "9fc726f47c63b2ff9717a148d46e17c89fc2b95de47b73e9f6706af0d9c3c7eb",
+      "sourceSHA256": "9fc726f47c63b2ff9717a148d46e17c89fc2b95de47b73e9f6706af0d9c3c7eb",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/brow_l.png",
+      "bytes": 295,
+      "sha256": "ec9174cd2283ed0cedc6bcef2dbaebd2481fdaa544b91703887e244c910a506d",
+      "sourceSHA256": "ec9174cd2283ed0cedc6bcef2dbaebd2481fdaa544b91703887e244c910a506d",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/brow_r.png",
+      "bytes": 217,
+      "sha256": "7d840eb396f019bc0c14c7558f7544032ba1f13568049146e551b143e2e02441",
+      "sourceSHA256": "7d840eb396f019bc0c14c7558f7544032ba1f13568049146e551b143e2e02441",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/ear_l.png",
+      "bytes": 1775,
+      "sha256": "68b988b1ab9090426a66bff11ac8c87f8861ac9642641f42e2ca9350cd6a162d",
+      "sourceSHA256": "68b988b1ab9090426a66bff11ac8c87f8861ac9642641f42e2ca9350cd6a162d",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/ear_r.png",
+      "bytes": 1888,
+      "sha256": "e8919ba8e262878357f08bf538f1133a2cf416d079192b1791c200f7fd6f807a",
+      "sourceSHA256": "e8919ba8e262878357f08bf538f1133a2cf416d079192b1791c200f7fd6f807a",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/eyewhite_l.png",
+      "bytes": 1519,
+      "sha256": "74f1ba6a3565eacda6f6304668f475b1a040b5f90f3dbc69dadd8944edbee5b0",
+      "sourceSHA256": "74f1ba6a3565eacda6f6304668f475b1a040b5f90f3dbc69dadd8944edbee5b0",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/eyewhite_r.png",
+      "bytes": 1479,
+      "sha256": "db6145c620a6a2f1b3f747b2dc274ee5203eca86199de8239e3adf514bc6a505",
+      "sourceSHA256": "db6145c620a6a2f1b3f747b2dc274ee5203eca86199de8239e3adf514bc6a505",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/face.png",
+      "bytes": 16735,
+      "sha256": "d3613cc8c97267e629abb243ba1f4085a7b11f435b6aeb5e7ee6889982e4b549",
+      "sourceSHA256": "d3613cc8c97267e629abb243ba1f4085a7b11f435b6aeb5e7ee6889982e4b549",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/forearm_l.png",
+      "bytes": 33460,
+      "sha256": "f4c121b2b83cd66ac243572096dff312fa809fa2568e664d3d4f92e95571522d",
+      "sourceSHA256": "f4c121b2b83cd66ac243572096dff312fa809fa2568e664d3d4f92e95571522d",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/forearm_r.png",
+      "bytes": 36187,
+      "sha256": "056e030ee19ee7a70516310cbb38c29afab55237559a6da9ba49d2fc6c3b4c7e",
+      "sourceSHA256": "056e030ee19ee7a70516310cbb38c29afab55237559a6da9ba49d2fc6c3b4c7e",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/hair_back.png",
+      "bytes": 32985,
+      "sha256": "7add7a5339538a8e366339dfe50282360cca7508d9ed9191443b5fec9a08578e",
+      "sourceSHA256": "7add7a5339538a8e366339dfe50282360cca7508d9ed9191443b5fec9a08578e",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/hair_front.png",
+      "bytes": 32344,
+      "sha256": "983c6b7240fce7a0a5870dfb3611e3c9abc9f6fb07803f4d2082cadb53ce828c",
+      "sourceSHA256": "983c6b7240fce7a0a5870dfb3611e3c9abc9f6fb07803f4d2082cadb53ce828c",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/hairpin.png",
+      "bytes": 6736,
+      "sha256": "13f73a0b25dec14d090c0bea2efed8e70e77408e81208ea0a184d7d37716b19b",
+      "sourceSHA256": "13f73a0b25dec14d090c0bea2efed8e70e77408e81208ea0a184d7d37716b19b",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/iris_l.png",
+      "bytes": 1382,
+      "sha256": "a48c2573b57e71672fca5272ac2fd05d0233c0ae8fa6194adbe951ba2f53556d",
+      "sourceSHA256": "a48c2573b57e71672fca5272ac2fd05d0233c0ae8fa6194adbe951ba2f53556d",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/iris_r.png",
+      "bytes": 1426,
+      "sha256": "2af3a5485e5e5e39a31e377cad3ae480fecb6ae5046040c1265f4ef372a6c22f",
+      "sourceSHA256": "2af3a5485e5e5e39a31e377cad3ae480fecb6ae5046040c1265f4ef372a6c22f",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/lash_l.png",
+      "bytes": 1319,
+      "sha256": "978b195e316642497bc52559d2238e9fdb7387ae129293b6ff3e879e215285cf",
+      "sourceSHA256": "978b195e316642497bc52559d2238e9fdb7387ae129293b6ff3e879e215285cf",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/lash_r.png",
+      "bytes": 1362,
+      "sha256": "a230d8268a474213cec2b481f3d7809940d14722d8ad6325f29db6fed75d95a9",
+      "sourceSHA256": "a230d8268a474213cec2b481f3d7809940d14722d8ad6325f29db6fed75d95a9",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/mouth.png",
+      "bytes": 614,
+      "sha256": "721921c0c54af947ba8732c4e49235d11da70b2beedfe0e49c5ce8217c1adcf1",
+      "sourceSHA256": "721921c0c54af947ba8732c4e49235d11da70b2beedfe0e49c5ce8217c1adcf1",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/neck.png",
+      "bytes": 3676,
+      "sha256": "517cb2591329a061df6cfbf806d43d750ff07faf7579122dc21458df9b8b4edf",
+      "sourceSHA256": "517cb2591329a061df6cfbf806d43d750ff07faf7579122dc21458df9b8b4edf",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/shins.png",
+      "bytes": 56686,
+      "sha256": "b47ce22da3ea90aab5df1f3622c2ee122f98e196e42eaa8a1e0e8f72722e21b3",
+      "sourceSHA256": "b47ce22da3ea90aab5df1f3622c2ee122f98e196e42eaa8a1e0e8f72722e21b3",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/shoe_l.png",
+      "bytes": 16886,
+      "sha256": "f84a2fc0f31cc99a72d08f0c7d4ce4e7c2cf48ab56b5e93707035c5ddb2f8aa8",
+      "sourceSHA256": "f84a2fc0f31cc99a72d08f0c7d4ce4e7c2cf48ab56b5e93707035c5ddb2f8aa8",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/shoe_r.png",
+      "bytes": 16906,
+      "sha256": "07b881ffff56b07ca9e5ae26118082926676eac51bc865b3ac3b9501c185f898",
+      "sourceSHA256": "07b881ffff56b07ca9e5ae26118082926676eac51bc865b3ac3b9501c185f898",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/sleevefront_l.png",
+      "bytes": 3240,
+      "sha256": "810313dc87c6d5addd40338979683654bceef79cdfee1dabcdf87258d809dfea",
+      "sourceSHA256": "810313dc87c6d5addd40338979683654bceef79cdfee1dabcdf87258d809dfea",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/thigh_l.png",
+      "bytes": 25558,
+      "sha256": "4c24fb4213c1c9a47490f6deec8768fa9e7c3931e40a44c91391083655bb2aba",
+      "sourceSHA256": "4c24fb4213c1c9a47490f6deec8768fa9e7c3931e40a44c91391083655bb2aba",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/thigh_r.png",
+      "bytes": 25548,
+      "sha256": "f5e3d263167c871e36c20e855b69d1f7167d4cec6a8941fe576b571e091d76bd",
+      "sourceSHA256": "f5e3d263167c871e36c20e855b69d1f7167d4cec6a8941fe576b571e091d76bd",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/topwear.png",
+      "bytes": 65231,
+      "sha256": "e316e517d45eba3a36bcbbca9a95f4ed3fac2f7ae0b651d9a7e676b879a7e65a",
+      "sourceSHA256": "e316e517d45eba3a36bcbbca9a95f4ed3fac2f7ae0b651d9a7e676b879a7e65a",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/upperarm_l.png",
+      "bytes": 23372,
+      "sha256": "cda8d67951a4b730525f91337b382038a4321e5b1bc6b87119ec69a615afe14b",
+      "sourceSHA256": "cda8d67951a4b730525f91337b382038a4321e5b1bc6b87119ec69a615afe14b",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
+    },
+    {
+      "path": "producer/parts/upperarm_r.png",
+      "bytes": 23781,
+      "sha256": "6be8e4ba54ba505e6b1b27030fc93afdd9dfcd6acdaec806eb96743d93788865",
+      "sourceSHA256": "6be8e4ba54ba505e6b1b27030fc93afdd9dfcd6acdaec806eb96743d93788865",
+      "origin": "Issue #88: assembled producer parts carried for direct rig stage replay",
+      "role": "Corpus-owned reproducible source or measured evidence",
+      "contentIdentical": true
     }
   ]
 }
