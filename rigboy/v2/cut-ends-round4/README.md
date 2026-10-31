@@ -12,4 +12,6 @@ Changes that are not round ends:
 
 The cap's disc on the pivot reaches half the limb's width + .25 + the joint's registration offset, so it stays put under rotation. A fill never invents gold, and a warm component under 30 px is residue.
 
-Walk, 31 samples, joint disc of half the limb's fitted width (`disc-radii.json`): 0 background pixels at 11 of 12 joints. The far shoulder reads 14 frames, 37 px, at the torso's back edge, where the painted silhouette itself reads 14 px. Stripping the drawn end from one knee and one elbow reads 1161 and 250 px, so the disc fires.
+`gun.png` is 122×67, its drawn size, area-averaged on premultiplied pixels: the one region under 0.5 scale, which aliased at 730×400 with no mipmaps. Its width, height and scale stay in `rig.json`, so world size is unchanged (`downsampled.json`).
+
+Walk, 31 samples, joint disc of half the limb's fitted width, capped by the pivot's distance to the painted silhouette (`disc-radii.json`): 0 background pixels at all 12 joints. Stripping the drawn end from one knee and one elbow reads 1141 and 250 px, so the disc fires.

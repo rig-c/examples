@@ -9,7 +9,9 @@
   "fitted": true,
   "reasons": [],
   "width": 23.23,
-  "R": 11.62
+  "R": 11.62,
+  "R_width": 11.62,
+  "painted_edge": null
  },
  "near elbow": {
   "tube": "front-upper-arm",
@@ -21,7 +23,9 @@
   "fitted": true,
   "reasons": [],
   "width": 27.3,
-  "R": 13.65
+  "R": 13.65,
+  "R_width": 13.65,
+  "painted_edge": null
  },
  "near wrist": {
   "tube": "front-bracer",
@@ -33,7 +37,9 @@
   "fitted": true,
   "reasons": [],
   "width": 36.41,
-  "R": 18.2
+  "R": 17.76,
+  "R_width": 18.2,
+  "painted_edge": 17.76
  },
  "far shoulder": {
   "tube": "rear-upper-arm",
@@ -47,7 +53,9 @@
    "R: inliers stop at t=-12, 12 px short of the joint (limit 11.2)"
   ],
   "width": 25.61,
-  "R": 12.81
+  "R": 11.5,
+  "R_width": 12.81,
+  "painted_edge": 11.5
  },
  "far elbow": {
   "tube": "rear-upper-arm",
@@ -59,7 +67,9 @@
   "fitted": true,
   "reasons": [],
   "width": 23.05,
-  "R": 11.52
+  "R": 11.25,
+  "R_width": 11.52,
+  "painted_edge": 11.25
  },
  "far wrist": {
   "tube": "rear-bracer",
@@ -71,7 +81,9 @@
   "fitted": true,
   "reasons": [],
   "width": 26.64,
-  "R": 13.32
+  "R": 13.32,
+  "R_width": 13.32,
+  "painted_edge": null
  },
  "near hip": {
   "tube": "front-thigh",
@@ -85,7 +97,9 @@
    "R: inliers stop at t=-18, 18 px short of the joint (limit 17.5)"
   ],
   "width": 24.35,
-  "R": 12.17
+  "R": 12.17,
+  "R_width": 12.17,
+  "painted_edge": null
  },
  "near knee": {
   "tube": "front-thigh",
@@ -97,7 +111,9 @@
   "fitted": true,
   "reasons": [],
   "width": 28.52,
-  "R": 14.26
+  "R": 14.26,
+  "R_width": 14.26,
+  "painted_edge": null
  },
  "near ankle": {
   "tube": "front-shin",
@@ -109,7 +125,9 @@
   "fitted": true,
   "reasons": [],
   "width": 41.31,
-  "R": 20.65
+  "R": 20.61,
+  "R_width": 20.65,
+  "painted_edge": 20.61
  },
  "far hip": {
   "tube": "rear-thigh",
@@ -125,7 +143,9 @@
    "width from the same tube at the far knee"
   ],
   "width": 24.8,
-  "R": 12.4
+  "R": 12.4,
+  "R_width": 12.4,
+  "painted_edge": null
  },
  "far knee": {
   "tube": "rear-thigh",
@@ -137,7 +157,9 @@
   "fitted": true,
   "reasons": [],
   "width": 24.8,
-  "R": 12.4
+  "R": 12.4,
+  "R_width": 12.4,
+  "painted_edge": null
  },
  "far ankle": {
   "tube": "rear-shin",
@@ -149,6 +171,8 @@
   "fitted": true,
   "reasons": [],
   "width": 40.2,
-  "R": 20.1
+  "R": 20.1,
+  "R_width": 20.1,
+  "painted_edge": null
  }
 }
