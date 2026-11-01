@@ -10,7 +10,7 @@
   "images": "./images/",
   "audio": null
  },
- "images": "../images/",
+ "images": "../../images/",
  "bones": [
   {
    "name": "root",
@@ -19,7 +19,7 @@
   {
    "name": "hip",
    "parent": "root",
-   "y": 149.025947,
+   "y": 142.025947,
    "x": 1.126526
   },
   {
@@ -151,7 +151,7 @@
   {
    "name": "front-foot-target",
    "parent": "root",
-   "x": 21.588326991487747,
+   "x": -8.411673008512254,
    "y": 0.024959592825539653,
    "color": "ff3f00ff",
    "icon": "ik"

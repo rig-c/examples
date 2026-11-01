@@ -14,7 +14,7 @@ as source assets, standalone samples and trials:
   `scripts/fetch-examples.sh` copies files from a commit it pins, and
   `@rig-c/play`'s fixture pins a commit too, so a change to a corpus
   directory reaches a consumer only when that consumer moves its pin.
-- **Standalone samples** — [`rigboy`](rigboy/README.md), the first SD-style motion character rig here: an original full side-profile character with seven modest motion/control samples and a live aim dial. It is not added to a consumer’s pinned corpus by this example.
+- **Standalone samples** — [`rigboy`](rigboy/README.md) (v1 single-painting rig) and [`rigboy/v2`](rigboy/v2/README.md) (v2 articulated-piece rig mapped onto the public-domain Spineboy skeleton and nine human animations), the first SD-style motion character rigs here. Neither is added to a consumer’s pinned corpus by this example.
 - **The trials** — what was tried with the toolchain to answer "does this
   work?", kept whether it passed or failed, under `trials/` (see
   [Trials](#trials)).
@@ -97,9 +97,13 @@ rigboy/controls.js             player helpers for the aim dial and optional worl
 rigboy/config.json             the standalone character's mesh, bone and control authoring
 rigboy/motions.json            keyed motion clips and the aim dial's pose range
 rigboy/assembled/              structural pieces from the existing layer runs
-rigboy/rig/                    the rig and motion specs with their part images
-rigboy/build/                  the packed player model, atlas and page
-rigboy/preview.webp            a labeled montage of seven motion/control samples
+rigboy/rig/                    the rig and motion specs with their part images (v1)
+rigboy/build/                  the packed player model, atlas and page (v1)
+rigboy/preview.webp            a labeled montage of seven motion/control samples (v1)
+rigboy/v2/rig/                 the v2 Spineboy-mapped rig and motion specs (40 bones, 28 slots, 0 meshes, 9 animations)
+rigboy/v2/build/               the packed v2 player model, atlas and pages for @rig-c/play
+rigboy/v2/images/              the 20 articulated part PNGs with circular joint caps
+rigboy/v2/rounds/              the intermediate assembly and proportions rounds leading to the final v2 rig
 reference-demo/python-reference/  the reference implementation's rendered idle loop (gif, webp) and its two README images, kept for comparison with what rig-parts renders
 reference-demo/candidates.json  that character's eighteen measured candidates (figures only; the other images are not published)
 scarf/candidates.json           scarf's six measured seeds (figures only; the other images are not published)
@@ -125,7 +129,7 @@ The standalone paintings:
 | `reference-demo` | 71004 | 18 candidates over three prompt variants (`candidates.json`) | 29 full + 29 head | the reference implementation's twin-tail character with clasped hands; the README character until rig-parts issue #227 took it off display for its malformed fingers. Published as `demo` until then |
 | `three-quarter` | 250011 | 10 seeds in two batches under two pose wordings (`generation.json`), read by eye at the face | 29 full + 29 head | the head turned toward image left and tilted, painted to read rig-parts' head-frame turn figures against the frontal faces (rig-parts issue #250); inputs only, no rig-parts example reads it yet |
 | `wind` | 372108 | 24 seeds under three wordings (`candidates.json`), screened by `rig-parts painting`, the seven best re-read with eye-placed joints | 29 full + 29 head | a figure for wind interaction (rig-parts issue #372): very long twin tails wrapped in red ribbons and a wide two-layer skirt, arms and legs held apart so the painting passes `rig-parts painting` |
-| [`rigboy`](rigboy/README.md) | 781301 | paired public-checkpoint comparison, selected by source and layer review (`generation.json`) | 29 full + 29 head | original short-haired side-profile boy, jacket, trousers, orange boots and a two-handed sci-fi toy grip; built rig, seven modest motion/control samples and preview included; [source-specific limits](rigboy/README.md#measured-limits) |
+| [`rigboy`](rigboy/README.md) | 781301 (v1) / 805082 ([`v2`](rigboy/v2/README.md)) | paired public-checkpoint comparison, selected by source and layer review (`generation.json`) | 29 full + 29 head | original short-haired side-profile boy, jacket, trousers, orange boots and a two-handed sci-fi toy grip; v1 keeps single-painting meshes and seven modest samples ([limits](rigboy/README.md#measured-limits)); [`rigboy/v2`](rigboy/v2/README.md) replaces the meshes with 20 articulated region pieces on Spineboy's skeleton and nine human animations |
 
 `reference-demo` and `reference-sample` are the two characters the reference
 implementation ran: rig-parts keeps them as fixtures, compared against that
@@ -367,10 +371,19 @@ observed 2026-09-27: `allowCommercialUse` is `["Image", "RentCivit"]`,
 `allowDerivatives` is `true`, `allowDifferentLicense` is `false`. Those fields
 are the publisher's statement about the model, reproduced here as observed;
 they are not a licence this repository grants. The same holds for the
-Hassaku XL fields above. `rigboy` uses the credited v1.3 Style A version
+Hassaku XL fields above. `rigboy` (v1 and v2) uses the credited v1.3 Style A version
 ([publisher version](https://civitai.com/models/140272?modelVersionId=1240288));
 its generation record retains that provenance without claiming an unrestricted
 licence for the checkpoint.
+
+[`rigboy/v2`](rigboy/v2/README.md) derives its skeleton hierarchy, constraints
+and nine human animations from Esoteric Software LLC's Spineboy project file
+(`spineboy-pro.json`). Under the Spineboy project licence (`Copyright (c) 2013,
+Esoteric Software LLC`), the project file is released into the public domain
+and may be used as the basis for derivative work, whereas the Spineboy images
+may not be used for commercial use of any kind. `rigboy/v2` uses only the
+public-domain project file (`spineboy-pro.json`) and contains zero Spineboy
+images (verified by SHA-256 against all 42 Spineboy PNGs).
 
 See-through and its wrapper are not redistributed here, only their output.
 
