@@ -77,6 +77,7 @@ All bars are measured directly on the compiled rig (`rigboy/v2/build/`):
 3. **Joint-disc gaps (`rig/disc-radii.json`, 12 limb joints at `1528×1864`):** **PASS (`12 / 12` joints at `0` background pixels across all 9 clips, `108 / 108` joint-clip pairs).**
 4. **Ankle bend vs `spineboy-pro.json` (`|d| <= 15°`):** **PASS (`0` samples over `15°` on both front and rear ankles across all 9 clips at 241 samples/clip; max `|d| = 14.60°`).**
 5. **Painted sole angle & grounding (`<= 5°` vs Spineboy, `idle` sole within `2 px` of `y = 0`, planted toes `>= idle` min `y`):** **PASS (`idle` front `+1.90°` / `y = +1.05 px`, rear `+1.00°` / `y = +1.91 px`; `walk` planted max `|d| = 2.45°` front / `3.29°` rear; `run` planted max `|d| = 3.97°` front / `1.61°` rear).**
+6. **Gun attachment orientation, grip-in-fist read & hip-relative travel (`--slot gun`):** **PASS** — `gun/gun` is mirrored horizontally (`scaleX: -0.16743854, scaleY: 0.16743852, rotation: -2.85°, x: 50.0, y: 14.5`) so the yellow grip points down into the blue `rear_fist` (`rigboy-rear-gauntlet.png`, slot 3 over slot 2 `gun`), matching Spineboy's muzzle barrel angle within `0.02°` on `idle`, `shoot`, `aim`, and `jump`, while keeping hip-relative gun pixel-centre travel (`span_x`, `span_y`, `span_2d`, `max_step_2d`, `max_step_y`, `path_len_2d`) `<=` scaled Spineboy across all 9 clips.
 
 ### Per-clip summary (Round 6 baseline vs Final v2)
 
@@ -154,15 +155,15 @@ The uniform base scale factor from `spineboy-pro.json` to the `416×624` v2 canv
 
 | Animation | Duration | Timeline adjustments beyond uniform translation scale $S$ |
 | --- | ---: | --- |
-| `idle` | `1.6667 s` | None (`1.0 × S`) |
-| `walk` | `1.0000 s` | `front-foot-target.translate` & `rear-foot-target.translate` `x` scaled by `0.85 × S`; `rear-foot-target.translate` `x + 18 px` (preserving world trajectory under setup `rear-foot-target.x - 18`) |
-| `run` | `0.6667 s` | `front-foot-target.translate` scaled by `(0.85, 0.75) × S`; `rear-foot-target.translate` scaled by `(0.85, 0.75) × S` with `x + 8 px` |
-| `jump` | `1.3333 s` | `front-shoulder.translate` and `back-shoulder.translate` counter-translate `torso2`/`torso3` flexion so both shoulder discs stay inside the rigid `torso.png` silhouette |
-| `shoot` | `0.6333 s` | None (`1.0 × S`) |
-| `aim` | `0.0000 s` | None (`1.0 × S`) |
-| `idle-turn` | `0.2667 s` | None (`1.0 × S`) |
-| `run-to-idle` | `0.2667 s` | `rear-foot-target.translate` entry keys (`t = 0, 0.0667`) `x + 18 px` to transition from `run` into the `idle` stance |
-| `death` | `4.9333 s` | `front-shoulder.translate` (`t = 0..1.0 s`) counter-translates `torso2`/`torso3` forward flexion so `near shoulder` stays inside `torso.png` |
+| `idle` | `1.6667 s` | Rear-arm (`rear-upper-arm`, `rear-bracer`, `gun`) rotation amplitude damped (`0.75× / 0.85×`, offset `(-6°, 0°, +6°)`) so hip-relative gun travel stays below scaled Spineboy while preserving exact muzzle angle (`-28.96°` at `f0`) |
+| `walk` | `1.0000 s` | `front-foot-target.translate` & `rear-foot-target.translate` `x` scaled by `0.85 × S` (`rear-foot-target` `x + 18 px`); rear-arm rotation damped (`0.80× / 0.35×`, offset `(-10°, +5°, +5°)`) and `back-shoulder.translate` omitted to bound gun bobbing below scaled Spineboy |
+| `run` | `0.6667 s` | `front-foot-target.translate` & `rear-foot-target.translate` scaled by `(0.85, 0.75) × S` (`rear-foot-target` `x + 8 px`); rear-arm rotation damped (`0.85× / 0.55×`, offset `(-20°, 0°, +20°)`) and `back-shoulder.translate` omitted |
+| `jump` | `1.3333 s` | `front-shoulder.translate` counter-translates `torso2`/`torso3` flexion; rear-arm rotation damped (`0.60× / 0.45×`, offset `(-10°, -20°, +30°)` with landing `gun.rotate` key preserving `+0.42°` at `f40`) so gun clears both crotch and chin on takeoff/landing |
+| `shoot` | `0.6333 s` | `rear-upper-arm.rotate` (`+38°`), `rear-bracer.rotate` (`-19°`), and `gun.rotate` (`-19°` base, `0.85×` recoil peak with `f8` preserved at `-25.43°` barrel angle) bring `rear_fist` and gun grip forward in front of `torso.png` well above the pelvis |
+| `aim` | `0.0000 s` | `aim-ik` mix set to `0.01` with `rear-upper-arm.rotate` (`57.5°`), `rear-bracer.rotate` (`-20.0°`), `gun.rotate` (`30.72°`) matching Spineboy's `+30.82°` barrel angle and chest/head-level aim height |
+| `idle-turn` | `0.2667 s` | Rear-arm (`rear-upper-arm`, `rear-bracer`, `gun`) rotation solved via 2-bone IK (`0.75×..0.90×` blend) so `gun - hip` stays within `<= 22.9 px` of scaled Spineboy throughout the turn while matching `idle` `f0` (`(51.59, 45.10)`, `-33.78°`) at `f8` with `0.00 px` and `0.00°` seam error |
+| `run-to-idle` | `0.2667 s` | `rear-foot-target.translate` entry keys (`t = 0, 0.0667`) `x + 18 px`; rear-arm rotation anchored to `idle` `f0` (`0.75× / 0.65×`, offset `(-6°, 0°, +6°)`) so `f8` matches `idle` `f0` with `0.00 px` and `0.00°` seam error (`max dist = 24.1 px`) |
+| `death` | `4.9333 s` | `front-shoulder.translate` (`t = 0..1.0 s`) counter-translates `torso2`/`torso3` flexion; rear-arm rotation solved via 2-bone IK (`0.95×` position, `0.80×` unwrapped rotation) so `gun - hip` stays within `<= 19.8 px` (`median = 5.1 px`) of scaled Spineboy across all 149 frames |
 
 ---
 
