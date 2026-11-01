@@ -1,0 +1,784 @@
+{
+  "key": "look",
+  "seethrough": {
+    "resolution": 1280,
+    "steps": 30,
+    "seed": 42,
+    "offload": false,
+    "head_box": [
+      144,
+      132,
+      1527,
+      1515
+    ]
+  },
+  "assemble": {
+    "rig_scale": 0.5,
+    "plan": [
+      [
+        "hair_back",
+        "full",
+        "back hair"
+      ],
+      [
+        "hairpin",
+        "full",
+        "headwear"
+      ],
+      [
+        "neck",
+        "full",
+        "neck"
+      ],
+      [
+        "topwear",
+        "full",
+        "topwear"
+      ],
+      [
+        "ear_r",
+        "head",
+        "ears-r"
+      ],
+      [
+        "ear_l",
+        "head",
+        "ears-l"
+      ],
+      [
+        "face",
+        "full",
+        "face"
+      ],
+      [
+        "nose",
+        "head",
+        "nose"
+      ],
+      [
+        "mouth",
+        "head",
+        "mouth"
+      ],
+      [
+        "eyewhite_r",
+        "head",
+        "eyewhite-r"
+      ],
+      [
+        "eyewhite_l",
+        "head",
+        "eyewhite-l"
+      ],
+      [
+        "iris_r",
+        "head",
+        "irides-r"
+      ],
+      [
+        "iris_l",
+        "head",
+        "irides-l"
+      ],
+      [
+        "lash_r",
+        "head",
+        "eyelash-r"
+      ],
+      [
+        "lash_l",
+        "head",
+        "eyelash-l"
+      ],
+      [
+        "brow_l",
+        "head",
+        "eyebrow-l"
+      ],
+      [
+        "hair_front",
+        "head",
+        "front hair"
+      ],
+      [
+        "brow_r",
+        "head",
+        "eyebrow-r"
+      ]
+    ],
+    "cuts": [
+      {
+        "from": "topwear",
+        "into": "collar_back",
+        "polygon": [
+          [
+            354,
+            700
+          ],
+          [
+            478,
+            700
+          ],
+          [
+            432,
+            756
+          ],
+          [
+            400,
+            756
+          ]
+        ],
+        "overlap": 0,
+        "draw": {
+          "before": "neck"
+        }
+      }
+    ],
+    "keep_under_occluders": [
+      "neck",
+      "face"
+    ],
+    "yield_refused": true
+  },
+  "cloth": {
+    "back hair": {
+      "chains": 1,
+      "links": 3,
+      "wind": [
+        1,
+        8
+      ],
+      "gravity": [
+        4,
+        24
+      ]
+    },
+    "front hair": {
+      "chains": 1,
+      "links": 3,
+      "wind": [
+        1,
+        6
+      ],
+      "gravity": [
+        2,
+        12
+      ],
+      "translate": 0.2
+    }
+  },
+  "proposed_rig_scale": 0.5,
+  "bones": [
+    {
+      "name": "hip",
+      "parent": "root",
+      "at": [
+        422,
+        1180
+      ]
+    },
+    {
+      "name": "chest",
+      "parent": "hip",
+      "at": [
+        422,
+        957
+      ]
+    },
+    {
+      "name": "neck",
+      "parent": "chest",
+      "at": [
+        422,
+        734
+      ]
+    },
+    {
+      "name": "neck_part",
+      "parent": "chest",
+      "at": [
+        422,
+        734
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "neck",
+      "at": [
+        422,
+        646
+      ]
+    },
+    {
+      "name": "eye_r",
+      "parent": "head",
+      "at": [
+        312,
+        494
+      ]
+    },
+    {
+      "name": "eye_l",
+      "parent": "head",
+      "at": [
+        532,
+        492
+      ]
+    },
+    {
+      "name": "iris_r",
+      "parent": "eye_r",
+      "at": [
+        312,
+        494
+      ]
+    },
+    {
+      "name": "iris_l",
+      "parent": "eye_l",
+      "at": [
+        532,
+        492
+      ]
+    },
+    {
+      "name": "brow_r",
+      "parent": "head",
+      "at": [
+        304,
+        398
+      ]
+    },
+    {
+      "name": "brow_l",
+      "parent": "head",
+      "at": [
+        534,
+        396
+      ]
+    },
+    {
+      "name": "mouth",
+      "parent": "head",
+      "at": [
+        424,
+        628
+      ]
+    },
+    {
+      "name": "nose",
+      "parent": "head",
+      "at": [
+        422,
+        561
+      ]
+    },
+    {
+      "name": "ear_r",
+      "parent": "head",
+      "at": [
+        221,
+        510
+      ]
+    },
+    {
+      "name": "ear_l",
+      "parent": "head",
+      "at": [
+        621,
+        505
+      ]
+    },
+    {
+      "name": "roll_dial",
+      "parent": "root",
+      "at": [
+        422,
+        1180
+      ]
+    },
+    {
+      "name": "gaze_x_dial",
+      "parent": "root",
+      "at": [
+        422,
+        1180
+      ]
+    },
+    {
+      "name": "gaze_y_dial",
+      "parent": "root",
+      "at": [
+        422,
+        1180
+      ]
+    },
+    {
+      "chain": "hairback_r0_",
+      "parent": "head",
+      "points": [
+        [
+          259,
+          549
+        ],
+        [
+          236,
+          658
+        ],
+        [
+          202,
+          735
+        ]
+      ],
+      "tip": [
+        206,
+        790
+      ]
+    },
+    {
+      "chain": "hairback_l0_",
+      "parent": "head",
+      "points": [
+        [
+          579,
+          549
+        ],
+        [
+          635,
+          658
+        ],
+        [
+          647,
+          735
+        ]
+      ],
+      "tip": [
+        633,
+        790
+      ]
+    },
+    {
+      "chain": "bang_r",
+      "parent": "head",
+      "points": [
+        [
+          316,
+          152
+        ],
+        [
+          307,
+          282
+        ]
+      ],
+      "tip": [
+        300,
+        419
+      ]
+    },
+    {
+      "chain": "bang_c",
+      "parent": "head",
+      "points": [
+        [
+          420,
+          128
+        ],
+        [
+          421,
+          269
+        ]
+      ],
+      "tip": [
+        423,
+        418
+      ]
+    },
+    {
+      "chain": "bang_l",
+      "parent": "head",
+      "points": [
+        [
+          525,
+          148
+        ],
+        [
+          536,
+          279
+        ]
+      ],
+      "tip": [
+        546,
+        417
+      ]
+    }
+  ],
+  "meshes": {
+    "hair_back": {
+      "grid": 36,
+      "r": 15,
+      "segments": [
+        [
+          "head",
+          [
+            422,
+            646
+          ],
+          [
+            422,
+            54
+          ]
+        ],
+        "hairback_r0_",
+        "hairback_l0_"
+      ]
+    },
+    "hair_front": {
+      "grid": 36,
+      "r": 15,
+      "segments": [
+        [
+          "head",
+          [
+            422,
+            646
+          ],
+          [
+            422,
+            107
+          ]
+        ],
+        "bang_r",
+        "bang_c",
+        "bang_l"
+      ]
+    },
+    "hairpin": {
+      "grid": 32,
+      "r": 10,
+      "segments": [
+        [
+          "head",
+          [
+            422,
+            646
+          ],
+          [
+            422,
+            54
+          ]
+        ],
+        "hairback_r0_0",
+        "hairback_l0_0"
+      ]
+    },
+    "neck": {
+      "grid": 32,
+      "r": 5,
+      "segments": [
+        [
+          "neck_part",
+          [
+            422,
+            734
+          ],
+          [
+            422,
+            646
+          ]
+        ]
+      ]
+    }
+  },
+  "regions": {
+    "eyewhite_r": "eye_r",
+    "eyewhite_l": "eye_l",
+    "ear_r": "ear_r",
+    "ear_l": "ear_l",
+    "face": "head",
+    "nose": "nose",
+    "mouth": "mouth",
+    "iris_r": "iris_r",
+    "iris_l": "iris_l",
+    "lash_r": "eye_r",
+    "lash_l": "eye_l",
+    "brow_l": "brow_l",
+    "brow_r": "brow_r",
+    "collar_back": "chest",
+    "topwear": "chest"
+  },
+  "motion": {
+    "duration": 3.3333333333333335,
+    "tracks": [
+      {
+        "bone": "chest",
+        "prop": "translatey",
+        "amp": 3.96,
+        "period": 3.3333333333333335,
+        "phase": 0,
+        "base": 3.96
+      },
+      {
+        "bone": "chest",
+        "prop": "scalex",
+        "amp": 0.004,
+        "period": 3.3333333333333335,
+        "phase": 0,
+        "base": 1.004
+      },
+      {
+        "bone": "head",
+        "prop": "rotate",
+        "amp": 0.9,
+        "period": 3.3333333333333335,
+        "phase": 0.12
+      },
+      {
+        "bone": "neck",
+        "prop": "rotate",
+        "amp": 0.35,
+        "period": 3.3333333333333335,
+        "phase": 0.08
+      }
+    ],
+    "blink": {
+      "t": 2.3,
+      "eyes": [
+        "eye_r",
+        "eye_l"
+      ],
+      "brows": [
+        "brow_r",
+        "brow_l"
+      ],
+      "squash": 0.12,
+      "brow_drop": 1.2
+    },
+    "animations_from": "animations.json"
+  },
+  "constraints": [
+    {
+      "type": "physics",
+      "name": "hairback_r0_0_physics",
+      "bone": "hairback_r0_0",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 1,
+      "gravity": 4
+    },
+    {
+      "type": "physics",
+      "name": "hairback_r0_1_physics",
+      "bone": "hairback_r0_1",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 4.5,
+      "gravity": 14
+    },
+    {
+      "type": "physics",
+      "name": "hairback_r0_2_physics",
+      "bone": "hairback_r0_2",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 8,
+      "gravity": 24
+    },
+    {
+      "type": "physics",
+      "name": "hairback_l0_0_physics",
+      "bone": "hairback_l0_0",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 1,
+      "gravity": 4
+    },
+    {
+      "type": "physics",
+      "name": "hairback_l0_1_physics",
+      "bone": "hairback_l0_1",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 4.5,
+      "gravity": 14
+    },
+    {
+      "type": "physics",
+      "name": "hairback_l0_2_physics",
+      "bone": "hairback_l0_2",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 8,
+      "gravity": 24
+    },
+    {
+      "type": "physics",
+      "name": "bang_r0_physics",
+      "bone": "bang_r0",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 1,
+      "gravity": 2
+    },
+    {
+      "type": "physics",
+      "name": "bang_r1_physics",
+      "bone": "bang_r1",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 6,
+      "gravity": 12
+    },
+    {
+      "type": "physics",
+      "name": "bang_r1_translate",
+      "bone": "bang_r1",
+      "x": 0.2,
+      "y": 0.2,
+      "strength": 50
+    },
+    {
+      "type": "physics",
+      "name": "bang_c0_physics",
+      "bone": "bang_c0",
+      "rotate": 1,
+      "strength": 100,
+      "wind": 1,
+      "gravity": 2
+    },
+    {
+      "type": "physics",
+      "name": "bang_c1_physics",
+      "bone": "bang_c1",
+      "rotate": 1,
+      "strength": 100,
+      "wind": 6,
+      "gravity": 12
+    },
+    {
+      "type": "physics",
+      "name": "bang_c1_translate",
+      "bone": "bang_c1",
+      "x": 0.2,
+      "y": 0.2,
+      "strength": 100
+    },
+    {
+      "type": "physics",
+      "name": "bang_l0_physics",
+      "bone": "bang_l0",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 1,
+      "gravity": 2
+    },
+    {
+      "type": "physics",
+      "name": "bang_l1_physics",
+      "bone": "bang_l1",
+      "rotate": 1,
+      "strength": 50,
+      "wind": 6,
+      "gravity": 12
+    },
+    {
+      "type": "physics",
+      "name": "bang_l1_translate",
+      "bone": "bang_l1",
+      "x": 0.2,
+      "y": 0.2,
+      "strength": 50
+    },
+    {
+      "name": "roll",
+      "type": "slider",
+      "animation": "roll",
+      "bone": "roll_dial",
+      "property": "rotate",
+      "from": -8,
+      "to": 0,
+      "scale": 0.0625,
+      "max": 8,
+      "local": true,
+      "additive": true,
+      "mix": 1
+    },
+    {
+      "name": "gaze_x",
+      "type": "slider",
+      "animation": "gaze_x",
+      "bone": "gaze_x_dial",
+      "property": "rotate",
+      "from": -1,
+      "to": 0,
+      "scale": 1,
+      "max": 1,
+      "local": true,
+      "additive": true,
+      "mix": 1
+    },
+    {
+      "name": "gaze_y",
+      "type": "slider",
+      "animation": "gaze_y",
+      "bone": "gaze_y_dial",
+      "property": "rotate",
+      "from": -1,
+      "to": 0,
+      "scale": 1,
+      "max": 1,
+      "local": true,
+      "additive": true,
+      "mix": 1
+    }
+  ],
+  "turn": {
+    "pivot": 55,
+    "counter": 0.1,
+    "grid": [
+      13,
+      16
+    ],
+    "roles": {
+      "hair_back": "surface",
+      "hairpin": "surface",
+      "ear_r": "unit",
+      "ear_l": "unit",
+      "face": "surface",
+      "nose": "unit",
+      "mouth": "unit",
+      "eyewhite_r": "unit",
+      "eyewhite_l": "unit",
+      "iris_r": "unit",
+      "iris_l": "unit",
+      "lash_r": "unit",
+      "lash_l": "unit",
+      "brow_l": "unit",
+      "hair_front": "surface",
+      "brow_r": "unit"
+    },
+    "body": {
+      "pivot": 55,
+      "counter": 0.1,
+      "grid": [
+        13,
+        16
+      ],
+      "roles": {
+        "collar_back": "rear",
+        "topwear": "surface",
+        "neck": "unit"
+      },
+      "unitDepths": {
+        "neck": 47.6755
+      },
+      "slider": "body_dial"
+    },
+    "unitDepths": {
+      "ear_r": 53.2766,
+      "ear_l": 53.2766
+    }
+  },
+  "depth": {
+    "zScale": 109.86819166092819
+  }
+}
