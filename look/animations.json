@@ -1,0 +1,167 @@
+{
+  "spec": "rigc-motion/1",
+  "animations": {
+    "roll": {
+      "duration": 1,
+      "loop": false,
+      "tracks": [
+        {
+          "bone": "head_ctl",
+          "property": "rotate",
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -6
+              ]
+            },
+            {
+              "t": 0.5,
+              "v": [
+                0
+              ]
+            },
+            {
+              "t": 1,
+              "v": [
+                6
+              ]
+            }
+          ]
+        },
+        {
+          "bone": "neck",
+          "property": "rotate",
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -2
+              ]
+            },
+            {
+              "t": 0.5,
+              "v": [
+                0
+              ]
+            },
+            {
+              "t": 1,
+              "v": [
+                2
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "gaze_x": {
+      "duration": 2,
+      "loop": false,
+      "tracks": [
+        {
+          "bone": "iris_r",
+          "property": "translatex",
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -6
+              ]
+            },
+            {
+              "t": 1,
+              "v": [
+                0
+              ]
+            },
+            {
+              "t": 2,
+              "v": [
+                6
+              ]
+            }
+          ]
+        },
+        {
+          "bone": "iris_l",
+          "property": "translatex",
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -6
+              ]
+            },
+            {
+              "t": 1,
+              "v": [
+                0
+              ]
+            },
+            {
+              "t": 2,
+              "v": [
+                6
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "gaze_y": {
+      "duration": 2,
+      "loop": false,
+      "tracks": [
+        {
+          "bone": "iris_r",
+          "property": "translatey",
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -4
+              ]
+            },
+            {
+              "t": 1,
+              "v": [
+                0
+              ]
+            },
+            {
+              "t": 2,
+              "v": [
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "bone": "iris_l",
+          "property": "translatey",
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -4
+              ]
+            },
+            {
+              "t": 1,
+              "v": [
+                0
+              ]
+            },
+            {
+              "t": 2,
+              "v": [
+                4
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
