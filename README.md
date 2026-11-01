@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rig-c/examples/main/assets/banner.svg" alt="rig-c/examples — Source assets, standalone samples and trials for the rig-c toolchain" width="100%" />
+</p>
+
 # rig-c/examples
 
 The examples of the rig-c toolchain ([`@rig-c/core`](https://github.com/rig-c/core),
