@@ -16,7 +16,12 @@ Open `http://localhost:4568` (or the port set by `PORT`) in a browser.
 
 ## Before you open a pull request
 
-Every pull request must pass the hygiene check in [`.github/workflows/hygiene.yml`](.github/workflows/hygiene.yml), which refuses committed local home directory paths in any tracked text file.
+Every pull request must pass [`.github/workflows/hygiene.yml`](.github/workflows/hygiene.yml), which refuses committed local home directory paths in any tracked text file and checks top-level `README.md` against the repository's word cap, `##` heading allowlist, and dated-measurement rules (see [AGENTS.md](AGENTS.md)):
+
+```sh
+node scripts/check-readme.mjs
+node --test scripts/check-readme.test.mjs
+```
 
 Run the fast Family input inventory and viewer/tool unit tests from [`.github/workflows/family-demo.yml`](.github/workflows/family-demo.yml):
 
@@ -43,6 +48,7 @@ bun family/tools/verify-accepted.mjs --out <family-out-dir>
 ## Where further rules live
 
 - [README.md](README.md) — repository layout, corpus structure, and model licence credits.
+- [AGENTS.md](AGENTS.md) — top-level `README.md` word cap, `##` heading allowlist, and verification rules.
 - [family/README.md](family/README.md) — Family pipeline, repair stages, and verification contracts.
 - [trials/README.md](trials/README.md) and [trials/TEMPLATE.md](trials/TEMPLATE.md) — how trials are structured and recorded.
 - [LICENSE](LICENSE) — MIT licence terms.

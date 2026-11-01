@@ -14,7 +14,9 @@ as source assets, standalone samples and trials:
   `scripts/fetch-examples.sh` copies files from a commit it pins, and
   `@rig-c/play`'s fixture pins a commit too, so a change to a corpus
   directory reaches a consumer only when that consumer moves its pin.
-- **Standalone samples** — [`rigboy`](rigboy/README.md) (v1 single-painting rig) and [`rigboy/v2`](rigboy/v2/README.md) (v2 articulated-piece rig mapped onto the public-domain Spineboy skeleton and nine human animations), the first SD-style motion character rigs here. Neither is added to a consumer’s pinned corpus by this example.
+- **Standalone samples** — [`rigboy`](rigboy/README.md), the first SD-style
+  motion character rig here; not added to a consumer's pinned corpus by this
+  example.
 - **The trials** — what was tried with the toolchain to answer "does this
   work?", kept whether it passed or failed, under `trials/` (see
   [Trials](#trials)).
@@ -100,13 +102,9 @@ rigboy/controls.js             player helpers for the aim dial and optional worl
 rigboy/config.json             the standalone character's mesh, bone and control authoring
 rigboy/motions.json            keyed motion clips and the aim dial's pose range
 rigboy/assembled/              structural pieces from the existing layer runs
-rigboy/rig/                    the rig and motion specs with their part images (v1)
-rigboy/build/                  the packed player model, atlas and page (v1)
-rigboy/preview.webp            a labeled montage of seven motion/control samples (v1)
-rigboy/v2/rig/                 the v2 Spineboy-mapped rig and motion specs (40 bones, 28 slots, 0 meshes, 9 animations)
-rigboy/v2/build/               the packed v2 player model, atlas and pages for @rig-c/play
-rigboy/v2/images/              the 20 articulated part PNGs with circular joint caps
-rigboy/v2/rounds/              the intermediate assembly and proportions rounds leading to the final v2 rig
+rigboy/rig/                    the rig and motion specs with their part images
+rigboy/build/                  the packed player model, atlas and page
+rigboy/preview.webp            a labeled montage of seven motion/control samples
 reference-demo/python-reference/  the reference implementation's rendered idle loop (gif, webp) and its two README images, kept for comparison with what rig-parts renders
 reference-demo/candidates.json  that character's eighteen measured candidates (figures only; the other images are not published)
 scarf/candidates.json           scarf's six measured seeds (figures only; the other images are not published)
@@ -133,7 +131,8 @@ The standalone paintings:
 | `three-quarter` | 250011 | 10 seeds in two batches under two pose wordings (`generation.json`), read by eye at the face | 29 full + 29 head | the head turned toward image left and tilted, painted to read rig-parts' head-frame turn figures against the frontal faces (rig-parts issue #250); inputs only, no rig-parts example reads it yet |
 | `wind` | 372108 | 24 seeds under three wordings (`candidates.json`), screened by `rig-parts painting`, the seven best re-read with eye-placed joints | 29 full + 29 head | a figure for wind interaction (rig-parts issue #372): very long twin tails wrapped in red ribbons and a wide two-layer skirt, arms and legs held apart so the painting passes `rig-parts painting` |
 | `look` | 2 (design `C`) | 12 candidates over three short-hair designs (`generation.json`), screened by shoulder-clearance and frontal-pose bars | 29 full + 29 head (with 29 + 29 depth maps) | the pointer-driven head-turn bust demo (`@rig-c/adapters` issue #107): short high-tied twin tails that clear the shoulders, a dark navy sweater over a collared shirt and green tie, with `config.json` and `animations.json` |
-| [`rigboy`](rigboy/README.md) | 781301 (v1) / 805082 ([`v2`](rigboy/v2/README.md)) | paired public-checkpoint comparison, selected by source and layer review (`generation.json`) | 29 full + 29 head | original short-haired side-profile boy, jacket, trousers, orange boots and a two-handed sci-fi toy grip; v1 keeps single-painting meshes and seven modest samples ([limits](rigboy/README.md#measured-limits)); [`rigboy/v2`](rigboy/v2/README.md) replaces the meshes with 20 articulated region pieces on Spineboy's skeleton and nine human animations |
+| [`rigboy`](rigboy/README.md) | 781301 | paired public-checkpoint comparison, selected by source and layer review (`generation.json`) | 29 full + 29 head | original short-haired side-profile boy, jacket, trousers, orange boots and a two-handed sci-fi toy grip; a standalone sample with seven modest motion/control samples and [measured limits](rigboy/README.md#measured-limits) |
+| [`rigboy/v2`](rigboy/v2/README.md) | 805082 | articulated limb pieces and joint caps ([`rigboy/v2/README.md`](rigboy/v2/README.md)) | 20 region pieces (`rigboy/v2/images/`) | v2 articulated-piece rig (40 bones, 28 slots, 0 meshes) mapped onto the public-domain Spineboy skeleton and nine human animations |
 
 `reference-demo` and `reference-sample` are the two characters the reference
 implementation ran: rig-parts keeps them as fixtures, compared against that
@@ -144,232 +143,35 @@ reference's outputs name the skeleton after it).
 
 ## How they were made
 
-**Painting** (`reference-sample`, `reference-demo`, `scarf`). ComfyUI, checkpoint `ponyDiffusionV6XL_v6StartWithThisOne.safetensors`
-([Pony Diffusion V6 XL](https://civitai.com/models/257749), version "V6 (start with
-this one)"), no LoRA, no trigger word. Sampler `euler_ancestral` / `normal`, 30
-steps, cfg 6.0, latent 832x1216, then `4x-AnimeSharp.pth` and a lanczos x0.5
-downscale to 1664x2432. ControlNet `controlnet-openpose-sdxl-1.0.safetensors`
-on a `stand_clasp` skeleton (standing, hands clasped in front of the waist),
-strength 0.8, start 0.0, end 0.7. Each character's `generation.json` has
-the per-seed figures the seed was chosen on and the reason for the choice.
+Each standalone character's `<key>/generation.json` ([`demo`](demo/generation.json),
+[`scarf`](scarf/generation.json), [`reference-sample`](reference-sample/generation.json),
+[`reference-demo`](reference-demo/generation.json), [`three-quarter`](three-quarter/generation.json),
+[`wind`](wind/generation.json), [`look`](look/generation.json), [`rigboy`](rigboy/generation.json))
+records the checkpoint, sampler, steps, CFG, latent size, upscaler and downscale,
+ControlNet pose or txt2img settings, candidate screening, selection rule, and
+verbatim positive and negative prompts (`wind/generation.json` also splits the
+`POSITIVE_HEAD` and `NEGATIVE_HEAD` prefixes from `rig-parts` `src/graphs.ts`).
+Per-seed candidate measurements and alternate prompt variants live in
+`reference-demo/candidates.json`, `scarf/candidates.json`, `demo/candidates.json`
+and `wind/candidates.json`; OpenPose control skeletons live in `demo/pose.json`,
+`wind/pose.json` and `rigboy/generation/`; and `demo`'s second-pass hand detailer
+is recorded in `demo/detail_graph.json` and `demo/detail_mask.png`.
 
-`scarf` differs in three things. Its control skeleton is `stand_sides`
-(standing, arms relaxed at the sides) instead of `stand_clasp`, at the same
-strength 0.8, start 0.0 and end 0.7. It was painted by rig-parts' own
-`rig-parts comfy paint` rather than the reference implementation's
-generation script, so its pose words are the skeleton's own and its positive
-has no "feet visible, shoes". Its seed was chosen on a different test, written
-in its `generation.json`: refuse a painting with a border pixel whose minimum
-channel is 200 or less, then fewest `rig-parts layers` WARN lines, then most
-layers, then lowest seed. Checkpoint, sampler, steps, cfg, latent, upscaler
-and downscale are the same as above, read from the workflow embedded in its
-`painting.png`.
-
-**Painting** (`demo`). Painted by `rig-parts comfy paint` like `scarf`, on a
-different checkpoint and pose, then given a hand-detailer pass as a second
-step; `demo/generation.json` records both steps.
-
-- Checkpoint `hassakuXLIllustrious_v13StyleA.safetensors`
-  ([Hassaku XL (Illustrious)](https://civitai.com/models/140272), version
-  "v1.3 - Style A", CivitAI model 140272, version 1240288), no LoRA, no
-  trigger word. Sampler `euler_ancestral` / `normal`, 30 steps, cfg 6.0,
-  latent 832x1216, seed 71006, then `4x-AnimeSharp.pth` and a lanczos x0.5
-  downscale to 1664x2432.
-- ControlNet `controlnet-openpose-sdxl-1.0.safetensors`, strength 0.8, start
-  0.0, end 0.7, on the pose file `demo/pose.json` (rig-parts issue #198):
-  standing, arms held away from the body, the wrists at (206, 590) and
-  (626, 590) on the 832x1216 canvas, clear of the skirt. Its pose words ask
-  for the same: "arms away from body, hands apart away from skirt, open hands,
-  relaxed fingers".
-- Hand detailer: one ComfyUI graph (`demo/detail_graph.json`), Impact Pack
-  `MaskToSEGS` over `demo/detail_mask.png` — two 201x161 boxes, one per hand,
-  drawn by eye, because the box has no hand detector — then `DetailerForEach`
-  with the same checkpoint and prompts plus ", detailed hands, five fingers"
-  on the positive: seed 71006, 20 steps, cfg 6.0, `euler_ancestral` /
-  `normal`, denoise 0.45, guide size 512, max size 1024, feather 5. The
-  painting step's own output is not published; `comfy paint` reproduces it
-  from the record. `painting.png` carries the detailer's graph in its
-  `prompt` text chunk.
-- Chosen by reading each candidate's hands at full resolution
-  (`demo/candidates.json`, one line per image). The selection rule the other
-  characters record — fewest `layers` WARN lines — cannot see fingers, and no
-  figure was computed to choose.
-
-**Painting** (`three-quarter`). Painted by `rig-parts comfy paint` on demo's
-checkpoint, Hassaku XL (Illustrious) v1.3 Style A, with demo's sampler, steps,
-cfg, latent, upscaler and downscale, seed 250011, no LoRA, no trigger word and
-no control skeleton: an OpenPose body skeleton carries the face's points and
-would hold the face frontal, so the pose words alone turn the head. Its
-See-through inputs were cut with `rig-parts inputs`' geometry by a short
-script (the full input the painting at x 384 with 384 px of white either side,
-the head input a 540x540 crop at `[249, 0, 789, 540]`, the box `rig-parts
-propose --head-box` proposed after shifting it 24 px down), both RGB; its
-`generation.json` records the prompts, the ten seeds and how 250011 was chosen.
-
-**Painting** (`wind`). Painted by `rig-parts comfy paint` on demo's
-checkpoint, Hassaku XL (Illustrious) v1.3 Style A, with demo's sampler,
-steps, cfg, latent, upscaler and downscale, seed 372108, no LoRA, no trigger
-word and no detailer pass, to be a figure for wind interaction that passes
-`rig-parts painting` (rig-parts issue #372).
-
-- ControlNet `controlnet-openpose-sdxl-1.0.safetensors`, strength 0.8, start
-  0.0, end 0.7, on the pose file `wind/pose.json`: demo's pose file with the
-  head, neck and shoulders unchanged and the limbs moved apart, the wrists at
-  (168, 540) and (664, 540), 72 px above the hips' line, the knees 128 px
-  apart and the ankles 180 px apart on the 832x1216 canvas, so the arms, the
-  hands, the knees and the ankles each have background between them.
-- Twenty-four seeds under three wordings of the identity and costume
-  (`wind/candidates.json`), each screened by `rig-parts painting` on the pose
-  file's joints scaled to the painting: 15 passed. The seven best were re-read
-  with the wrists, knees and ankles placed by eye at full size, and all seven
-  passed; three of them carry a frill or a bow on the elbow, which the check
-  does not read.
-- 372108 was chosen from those seven for the wind figure: its ribbons wrap the
-  twin tails, where free ribbon arcs would become the rest shape a physics
-  constraint swings from; it has the widest two-layer skirt; its tails hang
-  behind the figure, not painted already swept out as if blown.
-  `wind/generation.json` records the reasons, the prompt heads `comfy
-  paint` puts in front of every prompt, and the eye-read `painting` output.
-- See-through inputs cut by `rig-parts inputs`' geometry: the full input is
-  the painting at x 384 with 384 px of white either side, the head input a
-  1014x1014 crop at `[310, 0, 1324, 1014]`, the box `rig-parts propose
-  --head-box` proposed (it ran 184 px above the top edge and was shifted down
-  at the same size). Both are RGBA with every alpha 255.
-
-**Painting** (`look`). Painted by a direct ComfyUI txt2img graph on checkpoint
-`novaAnimeXL_ilV80.safetensors`, sampler `euler_ancestral` / `normal`, 30
-steps, cfg 5.5, latent 832x1216, seed 2 (design `C`), no LoRA, no trigger
-word, no ControlNet and no detailer pass, then `4x-AnimeSharp.pth` and a
-lanczos x0.5 downscale to 1664x2432 (`look/generation.json`). Chosen from
-twelve candidates across three short-hair designs (`A`, `B`, `C` × seeds 1–4)
-screened for frontal symmetry (shoulder ratio ≥ 0.95, eye Δy ≤ 3 px), head
-fraction ≥ 1/3, and ≥ 20 px of vertical clearance between the lowest hair
-pixel and both shoulder joints (`C/2`: shoulder ratio 0.980, eye Δy 0.0 px on
-both body-keypoint and face-landmark readings, head fraction 0.544, left/right
-shoulder clearance 189.8 / 200.1 px). The script re-saved the server PNG
-through Pillow `Image.open(...).convert("RGB").save(...)`, so `look/painting.png`
-carries no PNG `tEXt` chunk; its parameters and `prompt_id` come from the run's
-sidecar JSON record.
-
-**Layers.** [See-through](https://github.com/shitagaki-lab/see-through), run
-through the [ComfyUI-See-through](https://github.com/jtydhr88/ComfyUI-See-through)
-wrapper at tag `0.5.0` (commit `98d754bf04f668647919ab750eccb0e0640faa81`, as
-installed on the machine that ran it; `meta.json` itself carries no wrapper
-version), resolution 1024, 30 steps, seed 42, offload on, LaMa off. Two runs
-per character: `full` on the white-padded painting, `head` on a square crop
-around the head. Each run's elapsed seconds are in its `meta.json`.
-
-`scarf`'s, `demo`'s, `three-quarter`'s and `wind`'s runs were queued by `rig-parts comfy seethrough` with the same
-settings (resolution 1024, 30 steps, seed 42, offload on, LaMa off, as each
-`meta.json` records); the wrapper version installed for them was not recorded.
-Its See-through inputs were cut by `rig-parts inputs`: the full input is the
-painting at x 384 with 384 px of white either side, the head input a 370x370
-crop at `[639, 144, 1009, 514]` (x0, y0, x1, y1 in painting pixels;
-`reference-demo`'s is 790x790). Both are RGBA with every alpha 255, where the
-two reference characters' are RGB. `demo`'s were cut the same way: the full
-input is the painting at x 384 with 384 px of white either side, the head
-input a 1125x1125 crop at `[268, 0, 1393, 1125]`, the box
-`rig-parts propose --head-box` proposed (it ran 269 px above the top edge and
-the command shifted it down at the same size). `look`'s two runs were executed
-at resolution 1280, 30 steps, seed 42, offload off, LaMa off, on the 2432x2432
-full input and the 1383x1383 head crop `[144, 132, 1527, 1515]`, and include
-the 29 + 29 scalar `*_depth.png` sheets alongside `parts/<tag>.png`.
-
-### Prompts, verbatim
-
-`demo`, seed 71006 — positive:
-
-```
-score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings, idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, arms away from body, hands apart away from skirt, open hands, relaxed fingers, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background
-```
-
-negative:
-
-```
-score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, microphone, holding microphone, stage, stage lights, flat color, cel shading, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet
-```
-
-`reference-sample`, seed 70011 — positive:
-
-```
-score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, long wavy chestnut hair, green eyes, soft smile, fair skin, simple cream blouse, navy pinafore dress, ankle-length skirt, flat brown shoes, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, hands clasped in front of waist, own hands together, relaxed pose, gentle smile, long robe to the ankles, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background
-```
-
-negative:
-
-```
-score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet
-```
-
-`reference-demo`, seed 71004 (variant `idol`) — positive:
-
-```
-score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long twin tails, pink hair with light blue streaks, blue eyes, large pink ribbon hair bow, star hair ornament, dangling star earrings, idol costume, white and pink frilled dress with long puffy sleeves, high collar, layered ruffled skirt to the knees, white thighhighs, pink ankle boots, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, hands clasped in front of waist, own hands together, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background
-```
-
-negative:
-
-```
-score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, microphone, holding microphone, stage, stage lights, flat color, cel shading, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet
-```
-
-`scarf`, seed 72004 — positive:
-
-```
-score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, shoulder-length straight black hair, brown eyes, soft smile, fair skin, very long red knitted scarf wrapped once around the neck, both long scarf ends hanging straight down the front of the body past the waist to the thighs, scarf fringe at the ends, beige knit sweater, dark green pleated skirt to the knees, black tights, brown loafers, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, arms at sides, relaxed arms, relaxed pose, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background
-```
-
-negative:
-
-```
-score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, hands in pockets, coat, jacket, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet
-```
-
-`three-quarter`, seed 250011 — positive:
-
-```
-score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, medium length straight brown hair, green eyes, small white hair clip, navy blue school blazer, white shirt, red ribbon tie, grey pleated skirt to the knees, black tights, brown loafers, fully clothed, empty hands, full body, head to toe, entire body in frame, standing, (three-quarter view:1.3), (head turned to the side:1.2), looking to the side, arms at sides, relaxed pose, gentle smile, feet visible, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background
-```
-
-negative:
-
-```
-score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, 2girls, multiple girls, holding, bag, weapon, clouds, sky, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, grey background, dark background, black background, spotlight, flat color, monochrome, lineart, cropped, out of frame, cut off feet, close-up, portrait, upper body, profile, from behind, sitting, kneeling, squatting, crouching, leg up, dynamic pose, arms raised, hand on face, cast shadow, floor, multiple views, reference sheet, front view, facing viewer
-```
-
-`wind`, seed 372108 — positive:
-
-```
-score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, solo, adult woman, very long twin tails reaching the knees, deep blue hair, amber eyes, large red hair ribbons with long trailing ends, white blouse with long fitted sleeves, red ribbon bow at the collar with long trailing ribbon ends, very wide flared tiered skirt, three ruffled layers, petticoat, skirt above the knees, knees visible, white thighhighs, red ankle boots, fully clothed, empty hands, full body, head to toe, entire body in frame, front view, facing viewer, looking at viewer, standing, legs apart, arms spread away from body, arms out to the sides, hands apart away from skirt, open hands, spread fingers, relaxed pose, gentle smile, feet visible, feet facing forward, shoes, anime illustration, detailed, soft shading, (white background:1.3), simple background, plain background
-```
-
-negative:
-
-```
-score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, clouds, cloud, sun, sky, sky background, grey background, blue background, gradient background, scenery, outdoors, from behind, back view, back of head, facing away, vignette, beige background, brown background, dark background, black background, spotlight, lighting gradient, flat color, cel shading, monochrome, lineart, long skirt, knee-length skirt, cape, legs together, knees together, crossed legs, hands on skirt, holding skirt, wide sleeves, cropped, out of frame, cut off feet, close-up, portrait, upper body, from side, profile, sitting, kneeling, dynamic pose, arms raised, hand on face, contact shadow, cast shadow, floor, multiple views, reference sheet
-```
-
-`look`, seed 2 (design `C`) — positive:
-
-```
-score_9, score_8_up, score_7_up, source_anime, masterpiece, best quality, highly detailed, 1girl, (solo:1.3), young adult woman, (black hair:1.2), (very short twintails:1.3), twintails ending at the jawline, tied high, neck and shoulders bare, black hair ribbons, blunt bangs, green eyes, eyes open, gentle smile, closed mouth, (dark navy blue knit sweater:1.2), white collared shirt, green necktie, (upper body:1.2), bust shot, shoulders and upper arms visible, arms relaxed at sides, (front view:1.2), (facing viewer:1.3), (looking at viewer:1.2), head straight, level eyes, symmetrical composition, centered, anime illustration, detailed, soft shading, vibrant colors, (plain light grey background:1.3), simple background, plain background
-```
-
-negative:
-
-```
-score_4, score_3, score_2, score_1, worst quality, low quality, lowres, blurry, jpeg artifacts, nsfw, nude, naked, cleavage, underwear, sexual, suggestive, child, loli, shota, kid, toddler, text, watermark, signature, logo, bad anatomy, bad hands, extra fingers, deformed, mutated, revealing clothes, bare shoulders, off shoulder, 2girls, multiple girls, holding, bag, weapon, hat, clouds, sky, gradient background, scenery, outdoors, from behind, back view, vignette, dark background, flat color, monochrome, lineart, open mouth, teeth, tongue, closed eyes, half-closed eyes, wind, floating hair, white hair, blonde hair, jacket, cropped, out of frame, cut off feet, from side, profile, kneeling, lying, crossed arms, hands in pockets, hands behind back, contact shadow, cast shadow, floor, ground, multiple views, reference sheet, arms touching body, hands on hips, long jacket, jacket covering skirt, number, wings, extra limbs, extra arms, full body, legs, feet, standing, looking away, looking up, looking down, head tilt, from above, from below, from side, three-quarter view, closed eyes, wink, school uniform with sailor collar, detailed background, classroom, window, multiple girls, 2koma, comic, multiple panels, split screen, panel border, grey hair, silver hair, blue hair, light blue hair, red hair, multicolored hair, streaked hair, colored inner hair, two-tone hair, blazer, grey sweater, hands on own face, hand on own cheek, chin rest, arms crossed over chest, hands on own shoulders, self hug, desk, table, folded arms, crossed arms, long hair, hair over shoulder, hair on chest, hair on arms, sidelocks past the chin, second person, object on shoulder
-```
-
-The first part of each is the head `comfy paint` puts in front of every
-prompt (`POSITIVE_HEAD` and `NEGATIVE_HEAD` in rig-parts `src/graphs.ts`);
-`wind/generation.json` gives the heads and the parts separately. The other
-two wordings' identity and costume are in `wind/candidates.json`.
-
-The strings of `reference-demo`'s other two variants (`shrine`, `gothic`) are in
-`reference-demo/candidates.json`, beside the figures their seeds were measured on. The
-first six `reference-sample` seeds ran with a shorter negative, which
-`reference-sample/generation.json` states.
+**Layers.** Each character has two [See-through](https://github.com/shitagaki-lab/see-through)
+runs (`full` on `inputs/st_input_full.png` and `head` on `inputs/st_input_head.png`)
+whose settings, layer tags and elapsed seconds are in `<key>/layers/{full,head}/meta.json`,
+with per-character input geometry recorded in `three-quarter/generation.json`,
+`wind/generation.json` and `look/generation.json`. For the four earlier corpus
+characters where `generation.json` and `meta.json` omit wrapper and crop provenance:
+`reference-sample` and `reference-demo` ran through
+[ComfyUI-See-through](https://github.com/jtydhr88/ComfyUI-See-through) tag `0.5.0`
+(commit `98d754bf04f668647919ab750eccb0e0640faa81`, RGB inputs, `reference-demo`
+head crop `790x790`); `scarf`, `demo`, `three-quarter` and `wind` were queued by
+`rig-parts comfy seethrough` (wrapper version unrecorded) on inputs cut by
+`rig-parts inputs` (`x 384` with `384 px` of white padding either side for `full`;
+RGBA with alpha 255 for `scarf` and `demo`; `scarf` head crop `370x370` at
+`[639, 144, 1009, 514]`; `demo` head crop `1125x1125` at `[268, 0, 1393, 1125]`
+after `rig-parts propose --head-box` shifted it down `269 px`).
 
 ## Terms
 
@@ -398,29 +200,20 @@ record (`https://civitai.com/api/v1/models/140272`), observed 2026-10-11:
 `false` (credit the model when sharing — the line above), `allowDerivatives`
 is `true`, `allowDifferentLicense` is `false`.
 
-`reference-sample`, `reference-demo`, `scarf` — on the CivitAI model page's
+`reference-sample`, `reference-demo`, `scarf` — **[Pony Diffusion V6 XL](https://civitai.com/models/257749)**, "V6 (start with this one)". On the CivitAI model page's
 API record for Pony Diffusion V6 XL (`https://civitai.com/api/v1/models/257749`),
 observed 2026-09-27: `allowCommercialUse` is `["Image", "RentCivit"]`,
 `allowNoCredit` is `false` (credit the model when sharing — this README does),
 `allowDerivatives` is `true`, `allowDifferentLicense` is `false`. Those fields
 are the publisher's statement about the model, reproduced here as observed;
 they are not a licence this repository grants. The same holds for the
-Hassaku XL fields above. `rigboy` (v1 and v2) uses the credited v1.3 Style A version
+Hassaku XL fields above. `rigboy` uses the credited v1.3 Style A version
 ([publisher version](https://civitai.com/models/140272?modelVersionId=1240288));
 its generation record retains that provenance without claiming an unrestricted
 licence for the checkpoint. `look` (like `dancer/painting_meta.json` and
 `trials/2026-10-17-txt2img-frontal-half-body`) records the checkpoint file name
 `novaAnimeXL_ilV80.safetensors` from its generation run; the run's records
 carry no publisher URL, licence or binary hash for that checkpoint.
-
-[`rigboy/v2`](rigboy/v2/README.md) derives its skeleton hierarchy, constraints
-and nine human animations from Esoteric Software LLC's Spineboy project file
-(`spineboy-pro.json`). Under the Spineboy project licence (`Copyright (c) 2013,
-Esoteric Software LLC`), the project file is released into the public domain
-and may be used as the basis for derivative work, whereas the Spineboy images
-may not be used for commercial use of any kind. `rigboy/v2` uses only the
-public-domain project file (`spineboy-pro.json`) and contains zero Spineboy
-images (verified by SHA-256 against all 42 Spineboy PNGs).
 
 See-through and its wrapper are not redistributed here, only their output.
 
