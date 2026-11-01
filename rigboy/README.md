@@ -2,7 +2,14 @@
 
 ![Seven modest motion and control samples](preview.webp)
 
-The first SD-style motion character rig in the rig-c examples: an original short-haired boy in a jacket, trousers and orange boots, in full side profile with a two-handed sci-fi toy grip. It takes the motion-demo role of Spineboy, with original artwork and authoring; no benchmark art, rig data or coordinates were copied.
+The first SD-style motion character rig in the rig-c examples: an original short-haired boy in a jacket, trousers and orange boots, in full side profile with a two-handed sci-fi toy grip. It takes the motion-demo role of Spineboy, with original artwork and authoring; no benchmark art, rig data or coordinates were copied in v1.
+
+## Versions: v1 (this directory) and [`v2/`](v2/README.md)
+
+`rigboy` ships two versions side by side rather than replacing v1:
+
+- **v1 (`rigboy/`, documented below):** Built from a single side-profile painting (`seed 781301`) with three weighted leg meshes (2,297 triangles across 23 regions) and seven modest custom motion/control samples (`idle`, `walk`, `run`, `jump`, `aim`, `shoot`, `hit`). Retained because it is the baseline corpus entry that demonstrates the single-painting mesh-fold boundary on deep knee bends ([issue #78](https://github.com/rig-c/examples/issues/78)) and serves existing consumers pinned to `rigboy/build/skeleton.model.json`.
+- **[`v2/` (`rigboy/v2/`)](v2/README.md):** Built from articulated pieces with circular joint caps (`seed 805082`, 20 region attachments, **0 meshes**) mapped directly onto the public-domain Spineboy skeleton, constraints and nine human animations (`idle`, `walk`, `run`, `jump`, `shoot`, `aim`, `idle-turn`, `run-to-idle`, `death`) at `rigboy/v2/rig/` and `rigboy/v2/build/` ([issue #80](https://github.com/rig-c/examples/issues/80)). See [`rigboy/v2/README.md`](v2/README.md) for the Spineboy mapping table, joint-gap and fold readings, credits, and rebuild instructions.
 
 | Sample | What it demonstrates |
 | --- | --- |

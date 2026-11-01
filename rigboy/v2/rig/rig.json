@@ -19,14 +19,14 @@
     {
       "name": "hip",
       "parent": "root",
-      "y": 142.025947,
+      "y": 156.375947,
       "x": 1.126526
     },
     {
       "name": "crosshair",
       "parent": "root",
       "x": 188.2767383801231,
-      "y": 354.03910008757765,
+      "y": 361.3891,
       "color": "ff3f00ff",
       "icon": "circle"
     },
@@ -42,8 +42,8 @@
     {
       "name": "rear-foot-target",
       "parent": "root",
-      "x": 38.48978016731056,
-      "y": 0.261833852834404,
+      "x": 20.489780167310563,
+      "y": 6.111834,
       "color": "ff3f00ff",
       "icon": "ik"
     },
@@ -143,16 +143,16 @@
       "name": "front-fist",
       "parent": "front-bracer",
       "length": 63.07545085054885,
-      "x": 52.31727447608105,
-      "y": 0.12365837777249976,
+      "x": 52.141329237947495,
+      "y": -0.49200652554595825,
       "rotation": 12.433234,
       "color": "00ff04ff"
     },
     {
       "name": "front-foot-target",
       "parent": "root",
-      "x": -8.411673008512254,
-      "y": 0.024959592825539653,
+      "x": 21.588326991487747,
+      "y": 9.87496,
       "color": "ff3f00ff",
       "icon": "ik"
     },
@@ -186,8 +186,8 @@
       "name": "front-foot",
       "parent": "front-shin",
       "length": 30.186462197481823,
-      "x": 61.644144023156315,
-      "y": -0.21096836815291284,
+      "x": 61.165553108794725,
+      "y": -0.8539697186107014,
       "rotation": 51.26577,
       "color": "00ff04ff"
     },
@@ -195,8 +195,8 @@
       "name": "front-foot-tip",
       "parent": "front-foot",
       "length": 34.83469814174643,
-      "x": 30.186411711333374,
-      "y": -0.05520863949192412,
+      "x": 30.98744778726504,
+      "y": -0.026205104259137198,
       "rotation": -1.675728,
       "inherit": "noRotationOrReflection",
       "color": "00ff04ff"
@@ -220,16 +220,17 @@
       "name": "rear-bracer",
       "parent": "rear-upper-arm",
       "length": 32.53621059681044,
-      "x": 44.477016536633826,
+      "x": 44.26488450227786,
       "rotation": 23.15295,
-      "color": "ff000dff"
+      "color": "ff000dff",
+      "y": -0.565685424949238
     },
     {
       "name": "gun",
       "parent": "rear-bracer",
       "length": 33.659953951245974,
-      "x": 32.53498632758193,
-      "y": -0.2822492941650555,
+      "x": 32.952453092362106,
+      "y": 0.15446743359331472,
       "rotation": -5.427727,
       "color": "ff000dff"
     },
@@ -339,11 +340,6 @@
       "attachment": "rear-upper-arm"
     },
     {
-      "name": "under-rear-wrist",
-      "bone": "gun",
-      "attachment": "under-rear-wrist"
-    },
-    {
       "name": "rear-bracer",
       "bone": "rear-bracer",
       "attachment": "rear-bracer"
@@ -359,26 +355,6 @@
       "attachment": "rear_fist"
     },
     {
-      "name": "rear-foot",
-      "bone": "rear-foot",
-      "attachment": "rear-foot"
-    },
-    {
-      "name": "rigboy-rear-ankle-band",
-      "bone": "rear-foot",
-      "attachment": "rear_ankle_band"
-    },
-    {
-      "name": "under-rear-hip",
-      "bone": "torso",
-      "attachment": "under-rear-hip"
-    },
-    {
-      "name": "under-rear-knee",
-      "bone": "rear-shin",
-      "attachment": "under-rear-knee"
-    },
-    {
       "name": "rear-thigh",
       "bone": "rear-thigh",
       "attachment": "rear-thigh"
@@ -389,14 +365,19 @@
       "attachment": "rear-shin"
     },
     {
+      "name": "rear-foot",
+      "bone": "rear-foot",
+      "attachment": "rear-foot"
+    },
+    {
+      "name": "rigboy-rear-ankle-band",
+      "bone": "rear-foot",
+      "attachment": "rear_ankle_band"
+    },
+    {
       "name": "neck",
       "bone": "neck",
       "attachment": "neck"
-    },
-    {
-      "name": "under-groin",
-      "bone": "torso",
-      "attachment": "under-groin"
     },
     {
       "name": "torso",
@@ -424,14 +405,14 @@
       "attachment": "front-thigh"
     },
     {
-      "name": "front-foot",
-      "bone": "front-foot",
-      "attachment": "front-foot"
-    },
-    {
       "name": "front-shin",
       "bone": "front-shin",
       "attachment": "front-shin"
+    },
+    {
+      "name": "front-foot",
+      "bone": "front-foot",
+      "attachment": "front-foot"
     },
     {
       "name": "mouth",
@@ -526,8 +507,8 @@
           "image": "front-fist.png",
           "width": 416,
           "height": 624,
-          "x": -129.0726,
-          "y": -8.696331,
+          "x": -128.7682273437738,
+          "y": -8.132986268825741,
           "rotation": 46.95944,
           "scaleY": 0.99999994
         }
@@ -538,9 +519,9 @@
           "image": "front-foot.png",
           "width": 416,
           "height": 624,
-          "x": -214.69234,
-          "y": 97.66713,
-          "rotation": 47.483723,
+          "x": -132.460403,
+          "y": 198.346096,
+          "rotation": 16.483723,
           "scaleY": 0.99999994
         }
       },
@@ -594,10 +575,10 @@
           "image": "gun.png",
           "width": 730,
           "height": 400,
-          "x": 62.482674,
-          "y": 10.889955,
-          "rotation": -138.33244,
-          "scaleX": 0.16743854,
+          "x": 50,
+          "y": 14.5,
+          "rotation": -2.85,
+          "scaleX": -0.16743854,
           "scaleY": 0.16743852
         }
       },
@@ -640,8 +621,8 @@
           "image": "rear-bracer.png",
           "width": 416,
           "height": 624,
-          "x": -68.84368,
-          "y": 2.4207644,
+          "x": -68.42621323521983,
+          "y": 2.85748112775837,
           "rotation": 136.36986
         }
       },
@@ -651,9 +632,9 @@
           "image": "rear-foot.png",
           "width": 416,
           "height": 624,
-          "x": -220.4874,
-          "y": -4.393449,
-          "rotation": 110.114624
+          "x": -220.526852,
+          "y": 1.379744,
+          "rotation": 108.614624
         }
       },
       "rear-shin": {
@@ -684,8 +665,8 @@
           "image": "rear-upper-arm.png",
           "width": 416,
           "height": 624,
-          "x": -24.289118,
-          "y": 4.065864,
+          "x": -25.089118,
+          "y": 3.565864,
           "rotation": 135
         }
       },
@@ -720,50 +701,6 @@
           "x": 111.61766,
           "y": -5.0502048,
           "rotation": -88.34332
-        }
-      },
-      "under-rear-wrist": {
-        "under-rear-wrist": {
-          "path": "under-rear-wrist",
-          "image": "under-rear-wrist.png",
-          "width": 416,
-          "height": 624,
-          "x": -101.179793,
-          "y": -6.898522,
-          "rotation": 141.797587
-        }
-      },
-      "under-rear-hip": {
-        "under-rear-hip": {
-          "path": "under-rear-hip",
-          "image": "under-rear-hip.png",
-          "width": 416,
-          "height": 624,
-          "x": 112.42974,
-          "y": 9.164723,
-          "rotation": -81.06119
-        }
-      },
-      "under-rear-knee": {
-        "under-rear-knee": {
-          "path": "under-rear-knee",
-          "image": "under-rear-knee.png",
-          "width": 416,
-          "height": 624,
-          "x": -182.708281,
-          "y": -4.229928,
-          "rotation": 100.72988
-        }
-      },
-      "under-groin": {
-        "under-groin": {
-          "path": "under-groin",
-          "image": "under-groin.png",
-          "width": 416,
-          "height": 624,
-          "x": 60.287335,
-          "y": -102.615704,
-          "rotation": -147.308894
         }
       }
     }
