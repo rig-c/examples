@@ -28,3 +28,7 @@ jobs:
             fi
           fi
           echo "no local home paths"
+      - name: Check README word cap, heading allowlist, and planted failures
+        run: |
+          node scripts/check-readme.mjs
+          node --test scripts/check-readme.test.mjs
