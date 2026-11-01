@@ -16,13 +16,13 @@
       "name": "hip",
       "parent": "root",
       "x": 1.126526,
-      "y": 149.02594
+      "y": 156.37595
     },
     {
       "name": "crosshair",
       "parent": "root",
       "x": 188.27673,
-      "y": 354.0391,
+      "y": 361.3891,
       "editor": {
         "color": "ff3f00ff",
         "icon": "circle"
@@ -43,7 +43,7 @@
       "name": "rear-foot-target",
       "parent": "root",
       "x": 20.48978,
-      "y": 0.26183385,
+      "y": 6.111834,
       "editor": {
         "color": "ff3f00ff",
         "icon": "ik"
@@ -178,7 +178,7 @@
       "name": "front-foot-target",
       "parent": "root",
       "x": 21.588327,
-      "y": 0.024959592,
+      "y": 9.87496,
       "editor": {
         "color": "ff3f00ff",
         "icon": "ik"
@@ -689,9 +689,9 @@
           "rear-foot": {
             "kind": "region",
             "path": "rear-foot",
-            "x": -220.4874,
-            "y": -4.393449,
-            "rotation": 110.114624,
+            "x": -220.52686,
+            "y": 1.379744,
+            "rotation": 108.614624,
             "width": 416,
             "height": 624,
             "atlas": {
@@ -860,9 +860,9 @@
           "front-foot": {
             "kind": "region",
             "path": "front-foot",
-            "x": -213.8913,
-            "y": 97.69614,
-            "rotation": 47.483723,
+            "x": -132.4604,
+            "y": 198.3461,
+            "rotation": 16.483723,
             "scaleY": 0.99999994,
             "width": 416,
             "height": 624,
@@ -14650,6 +14650,6 @@
     }
   ],
   "spine": {
-    "sha256": "9926d0c4cd687fe77d54e24ce89a7269d5adc7a668b2233164c1561b030c6b8d"
+    "sha256": "8aaf654d088b7ba2af03f5544dabcfa50cf7dad2ee35dfee2e90ee87f74bb478"
   }
 }

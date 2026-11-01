@@ -75,21 +75,22 @@ All bars are measured directly on the compiled rig (`rigboy/v2/build/`):
 1. **Compile gate (`rigc build`):** **PASS (exit `0`)** — `23 / 23` measured assertions pass under `--profile rig-play --pack --page-edges free --pack-shape polygon` (`17 / 17` under `--profile spine --copy-images`).
 2. **Mesh folds (`rigc render --folds`):** **PASS (`0 of 0` meshes fold)** across all 9 animations (`meshAttachments = 0`).
 3. **Joint-disc gaps (`rig/disc-radii.json`, 12 limb joints at `1528×1864`):** **PASS (`12 / 12` joints at `0` background pixels across all 9 clips, `108 / 108` joint-clip pairs).**
-4. **Ankle bend vs `spineboy-pro.json` (`|d| <= 15°`):** **PASS (`0` samples over `15°` on both front and rear ankles across all 9 clips; max `|d| = 12.98°`).**
+4. **Ankle bend vs `spineboy-pro.json` (`|d| <= 15°`):** **PASS (`0` samples over `15°` on both front and rear ankles across all 9 clips at 241 samples/clip; max `|d| = 14.60°`).**
+5. **Painted sole angle & grounding (`<= 5°` vs Spineboy, `idle` sole within `2 px` of `y = 0`, planted toes `>= idle` min `y`):** **PASS (`idle` front `+1.90°` / `y = +1.05 px`, rear `+1.00°` / `y = +1.91 px`; `walk` planted max `|d| = 2.45°` front / `3.29°` rear; `run` planted max `|d| = 3.97°` front / `1.61°` rear).**
 
 ### Per-clip summary (Round 6 baseline vs Final v2)
 
-| Animation | Frames (`discgate`) | Joint discs at `0 px` (Round 6 -> Final) | Open disc pixels (Round 6 -> Final) | Front ankle max `|d|` / `>15°` (Round 6 -> Final) | Rear ankle max `|d|` / `>15°` (Round 6 -> Final) | Verdict |
+| Animation | Frames (`discgate`) | Joint discs at `0 px` (Round 6 -> Final) | Open disc pixels (Round 6 -> Final) | Front ankle max `|d|` / `>15°` (Round 6 -> Final, 241 samples) | Rear ankle max `|d|` / `>15°` (Round 6 -> Final, 241 samples) | Verdict |
 | --- | ---: | --- | --- | --- | --- | --- |
-| `walk` | `31f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `13.82° (0/31)` -> **`12.98° (0/31)`** | `12.01° (0/31)` -> **`12.01° (0/31)`** | **PASS** |
-| `run` | `21f @ 30fps` | `10/12` -> **`12/12`** | `5px` (`near wrist` `2f/3px`, `near ankle` `2f/2px`) -> **`0px`** | `23.98° (12/41)` -> **`10.81° (0/41)`** | `40.91° (17/41)` -> **`10.83° (0/41)`** | **PASS** |
-| `jump` | `41f @ 30fps` | `9/12` -> **`12/12`** | `76px` (`near shoulder` `8f/68px`, `near wrist` `2f/2px`, `near ankle` `6f/6px`) -> **`0px`** | `7.28° (0/41)` -> **`6.97° (0/41)`** | `0.00° (0/41)` -> **`0.00° (0/41)`** | **PASS** |
-| `death` | `60f @ 12fps` | `10/12` -> **`12/12`** | `44px` (`near shoulder` `4f/43px`, `far elbow` `1f/1px`) -> **`0px`** | `0.00° (0/41)` -> **`0.00° (0/41)`** | `0.03° (0/41)` -> **`0.12° (0/41)`** | **PASS** |
-| `shoot` | `20f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `7.22° (0/41)` -> **`6.93° (0/41)`** | `20.06° (41/41)` -> **`11.57° (0/41)`** | **PASS** |
-| `idle` | `51f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `3.18° (0/41)` -> **`2.20° (0/41)`** | `25.81° (41/41)` -> **`7.73° (0/41)`** | **PASS** |
-| `aim` | `1f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `7.22° (0/1)` -> **`6.93° (0/1)`** | `20.06° (1/1)` -> **`11.57° (0/1)`** | **PASS** |
-| `idle-turn` | `9f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `4.49° (0/41)` -> **`4.57° (0/41)`** | `25.42° (37/41)` -> **`12.86° (0/41)`** | **PASS** |
-| `run-to-idle` | `9f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `11.36° (0/41)` -> **`10.16° (0/41)`** | `27.34° (14/41)` -> **`7.21° (0/41)`** | **PASS** |
+| `walk` | `31f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `13.82°` -> **`14.60° (0/241)`** | `12.01°` -> **`14.48° (0/241)`** | **PASS** |
+| `run` | `21f @ 30fps` | `10/12` -> **`12/12`** | `5px` (`near wrist` `2f/3px`, `near ankle` `2f/2px`) -> **`0px`** | `23.98°` -> **`12.40° (0/241)`** | `40.91°` -> **`12.89° (0/241)`** | **PASS** |
+| `jump` | `41f @ 30fps` | `9/12` -> **`12/12`** | `76px` (`near shoulder` `8f/68px`, `near wrist` `2f/2px`, `near ankle` `6f/6px`) -> **`0px`** | `7.28°` -> **`8.48° (0/241)`** | `0.00°` -> **`0.00° (0/241)`** | **PASS** |
+| `death` | `60f @ 12fps` | `10/12` -> **`12/12`** | `44px` (`near shoulder` `4f/43px`, `far elbow` `1f/1px`) -> **`0px`** | `0.00°` -> **`0.00° (0/241)`** | `0.03°` -> **`0.12° (0/241)`** | **PASS** |
+| `shoot` | `20f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `7.22°` -> **`1.71° (0/241)`** | `20.06°` -> **`12.82° (0/241)`** | **PASS** |
+| `idle` | `51f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `3.18°` -> **`5.34° (0/241)`** | `25.81°` -> **`13.80° (0/241)`** | **PASS** |
+| `aim` | `1f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `7.22°` -> **`1.71° (0/1)`** | `20.06°` -> **`12.82° (0/1)`** | **PASS** |
+| `idle-turn` | `9f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `4.49°` -> **`5.09° (0/241)`** | `25.42°` -> **`14.53° (0/241)`** | **PASS** |
+| `run-to-idle` | `9f @ 30fps` | `12/12` -> **`12/12`** | `0px` -> **`0px`** | `11.36°` -> **`11.73° (0/241)`** | `27.34°` -> **`14.59° (0/241)`** | **PASS** |
 
 ---
 
@@ -114,17 +115,18 @@ Source reference: Esoteric Software LLC's `spineboy-pro.json` (`24ccffc13e334e72
 
 The uniform base scale factor from `spineboy-pro.json` to the `416×624` v2 canvas is $S = 0.621722553915$ ($1/S = 1.608434491725$).
 
-- **16 kept bones follow pure uniform scale $S$** ($\Delta x = 0, \Delta y = 0, \Delta\text{length} = 0, \Delta\text{rotation} = 0^\circ$):
-  `root`, `crosshair`, `aim-constraint-target`, `rear-leg-target`, `front-leg-target`, `gun-tip`, `hair1`, `hair2`, `hair3`, `hair4`, `muzzle`, `muzzle-ring`, `muzzle-ring2`, `muzzle-ring3`, `muzzle-ring4`, `head-control`.
-- **24 kept bones depart from uniform scale $S$** (all 40 bones keep $\Delta\text{rotation} = 0.0^\circ$):
+- **15 kept bones follow pure uniform scale $S$** ($\Delta x = 0, \Delta y = 0, \Delta\text{length} = 0, \Delta\text{rotation} = 0^\circ$):
+  `root`, `aim-constraint-target`, `rear-leg-target`, `front-leg-target`, `gun-tip`, `hair1`, `hair2`, `hair3`, `hair4`, `muzzle`, `muzzle-ring`, `muzzle-ring2`, `muzzle-ring3`, `muzzle-ring4`, `head-control`.
+- **25 kept bones depart from uniform scale $S$** (all 40 bones keep $\Delta\text{rotation} = 0.0^\circ$):
   1. **Axial proportion refit (`b10e-proportion-axis`):** 17 segment lengths and 14 child local `x` origins shifted along their parent bone axes to match `rigboy v2` proportions.
   2. **Joint-pivot and cap-centre alignment:** 5 proximal origins (`hip`, `front-thigh`, `rear-thigh`, `front-shoulder`, `back-shoulder`) placed on the painted joint centres in Round 2, plus sub-pixel cap-centre alignment (`0.60..0.80 px`, with inverse child-attachment offsets preserving rest world pose) on `front-fist`, `front-foot` (`front-foot-tip`), and `rear-bracer` (`gun`).
-  3. **IK target & hip height tuning:** `hip.y + 7.0 px` (`149.0259`), `front-foot-target.x + 30.0 px` (`21.5883`), and `rear-foot-target.x - 18.0 px` (`20.4898`) to align the two-bone leg IK targets with the forward `front-thigh` (`+7.27`) and rear `rear-thigh` (`-9.28`) hip sockets.
+  3. **IK target, hip & sole grounding tuning:** `front-foot` (`-31.0°`) and `rear-foot` (`-1.5°`) attachments rotated around their ankle origins so the painted boot soles match Spineboy's flat sole angle, with grounding height adjustments on `hip.y` (`156.3759`), `crosshair.y` (`361.3891`), `front-foot-target` (`(21.5883, 9.8750)`), and `rear-foot-target` (`(20.4898, 6.1118)`).
 
 | Bone | Parent | Source `(x, y, length)` | Uniform $S \times \text{src}$ `(x, y, length)` | Final `rigboy v2` `(x, y, length)` | $\Delta$ from $S$ `(\Delta x, \Delta y, \Delta\text{length})` |
 | --- | --- | --- | --- | --- | --- |
-| `hip` | `root` | `(0.00, 247.27, 0.00)` | `(0.0000, 153.7333, 0.0000)` | `(1.1265, 149.0259, 0.0000)` | `(+1.1265, -4.7074, +0.0000)` |
-| `rear-foot-target` | `root` | `(61.91, 0.42, 0.00)` | `(38.4898, 0.2618, 0.0000)` | `(20.4898, 0.2618, 0.0000)` | `(-18.0000, +0.0000, +0.0000)` |
+| `hip` | `root` | `(0.00, 247.27, 0.00)` | `(0.0000, 153.7333, 0.0000)` | `(1.1265, 156.3759, 0.0000)` | `(+1.1265, +2.6426, +0.0000)` |
+| `crosshair` | `root` | `(311.58, 569.45, 0.00)` | `(193.7191, 354.0391, 0.0000)` | `(193.7191, 361.3891, 0.0000)` | `(+0.0000, +7.3500, +0.0000)` |
+| `rear-foot-target` | `root` | `(61.91, 0.42, 0.00)` | `(38.4898, 0.2618, 0.0000)` | `(20.4898, 6.1118, 0.0000)` | `(-18.0000, +5.8500, +0.0000)` |
 | `rear-thigh` | `hip` | `(8.91, -5.63, 85.72)` | `(5.5416, -3.4982, 53.2938)` | `(-9.2784, 1.3543, 70.6872)` | `(-14.8200, +4.8526, +17.3934)` |
 | `rear-shin` | `rear-thigh` | `(86.10, -1.33, 121.88)` | `(53.5303, -0.8240, 75.7739)` | `(70.6824, -0.8240, 51.0748)` | `(+17.1521, -0.0000, -24.6991)` |
 | `rear-foot` | `rear-shin` | `(121.46, -0.76, 51.58)` | `(75.5138, -0.4695, 32.0696)` | `(51.0726, -0.4695, 37.2202)` | `(-24.4412, -0.0000, +5.1506)` |
@@ -136,7 +138,7 @@ The uniform base scale factor from `spineboy-pro.json` to the `416×624` v2 canv
 | `front-upper-arm` | `front-shoulder` | `(0.00, 0.00, 69.45)` | `(0.0000, 0.0000, 43.1800)` | `(0.0000, 0.0000, 61.9276)` | `(+0.0000, +0.0000, +18.7476)` |
 | `front-bracer` | `front-upper-arm` | `(68.80, -0.68, 40.57)` | `(42.7765, -0.4252, 25.2233)` | `(61.9262, -0.4252, 52.3174)` | `(+19.1497, -0.0000, +27.0941)` |
 | `front-fist` | `front-bracer` | `(40.57, 0.20, 65.39)` | `(25.2230, 0.1237, 40.6515)` | `(52.1413, -0.4920, 63.0755)` | `(+26.9183, -0.6157, +22.4239)` |
-| `front-foot-target` | `root` | `(-13.53, 0.04, 0.00)` | `(-8.4117, 0.0250, 0.0000)` | `(21.5883, 0.0250, 0.0000)` | `(+30.0000, +0.0000, +0.0000)` |
+| `front-foot-target` | `root` | `(-13.53, 0.04, 0.00)` | `(-8.4117, 0.0250, 0.0000)` | `(21.5883, 9.8750, 0.0000)` | `(+30.0000, +9.8500, +0.0000)` |
 | `front-thigh` | `hip` | `(-17.46, -11.64, 74.81)` | `(-10.8546, -7.2395, 46.5089)` | `(7.2672, 4.7437, 72.2278)` | `(+18.1218, +11.9832, +25.7189)` |
 | `front-shin` | `front-thigh` | `(78.69, 1.60, 128.77)` | `(48.9234, 0.9958, 80.0577)` | `(72.2209, 0.9958, 61.6445)` | `(+23.2975, +0.0000, -18.4132)` |
 | `front-foot` | `front-shin` | `(128.76, -0.34, 41.01)` | `(80.0503, -0.2110, 25.4961)` | `(61.1656, -0.8540, 30.1865)` | `(-18.8848, -0.6430, +4.6903)` |

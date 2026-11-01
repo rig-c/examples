@@ -1,10 +1,10 @@
 {
   "skeleton": {
     "spine": "4.3.13",
-    "x": -520.0878,
-    "y": -141.70158,
-    "width": 944.1373,
-    "height": 783.2996,
+    "x": -520.07996,
+    "y": -134.8544,
+    "width": 977.2602,
+    "height": 783.8024,
     "images": "./images/",
     "audio": null
   },
@@ -17,13 +17,13 @@
       "name": "hip",
       "parent": "root",
       "x": 1.126526,
-      "y": 149.02594
+      "y": 156.37595
     },
     {
       "name": "crosshair",
       "parent": "root",
       "x": 188.27673,
-      "y": 354.0391,
+      "y": 361.3891,
       "color": "ff3f00ff",
       "icon": "circle"
     },
@@ -40,7 +40,7 @@
       "name": "rear-foot-target",
       "parent": "root",
       "x": 20.48978,
-      "y": 0.26183385,
+      "y": 6.111834,
       "color": "ff3f00ff",
       "icon": "ik"
     },
@@ -149,7 +149,7 @@
       "name": "front-foot-target",
       "parent": "root",
       "x": 21.588327,
-      "y": 0.024959592,
+      "y": 9.87496,
       "color": "ff3f00ff",
       "icon": "ik"
     },
@@ -650,11 +650,11 @@
         },
         "front-foot": {
           "front-foot": {
-            "x": -213.8913,
-            "y": 97.69614,
+            "x": -132.4604,
+            "y": 198.3461,
             "path": "front-foot",
             "scaleY": 0.99999994,
-            "rotation": 47.483723,
+            "rotation": 16.483723,
             "width": 416,
             "height": 624
           }
@@ -753,10 +753,10 @@
         },
         "rear-foot": {
           "rear-foot": {
-            "x": -220.4874,
-            "y": -4.393449,
+            "x": -220.52686,
+            "y": 1.379744,
             "path": "rear-foot",
-            "rotation": 110.114624,
+            "rotation": 108.614624,
             "width": 416,
             "height": 624
           }
