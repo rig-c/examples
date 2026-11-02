@@ -22,6 +22,9 @@ const help = `Usage: node family/scripts/render-readme-preview.mjs [options]
   --mp4 <clip.mp4>         optional ffmpeg H.264 over --background #rrggbb
   --crf 0..51             (default23)
   --cut-layers            extra split-slot capture for render-outfit-switch.mjs
+  --isolate <key>[:<slot>,...]  one lineup character alone at its place, optionally only those
+                          slots: frames and isolate.json in <evidence>, no preview; read by
+                          measure-preview-overlaps.py
   --preflight             bounded8x8 PNG→WebP reader probe; NOT loop acceptance
   --help                  show help without importing Playwright or rendering
 PLAYWRIGHT_MODULE selects an explicit Playwright module; PYTHON selects Python.
@@ -29,7 +32,7 @@ Renderer gives no closure verdict; preview-loop.py checks encoded wrap MAE≤max
 and reports first versus one-period endpoint visible difference. Bulk frames are temporary receipts.`;
 
 export function parsePreviewArgs(args) {
-  const values = new Set(['--outfit','--out','--evidence','--width','--quality','--mp4','--background','--crf']);
+  const values = new Set(['--outfit','--out','--evidence','--width','--quality','--mp4','--background','--crf','--isolate']);
   const flags = new Set(['--reuse-frames','--cut-layers','--preflight','--help']);
   const seen = new Set(), parsed = {};
   for (let i = 0; i < args.length; i++) {
@@ -41,6 +44,7 @@ export function parsePreviewArgs(args) {
   }
   if (parsed['--help'] && args.length !== 1) throw Error('PREVIEW_HELP_ALONE');
   if (parsed['--preflight'] && (parsed['--reuse-frames'] || parsed['--mp4'] || parsed['--cut-layers'])) throw Error('PREVIEW_PREFLIGHT_MODE_REFUSED');
+  if (parsed['--isolate'] && (parsed['--preflight'] || parsed['--mp4'] || parsed['--cut-layers'] || parsed['--out'] || parsed['--reuse-frames'])) throw Error('PREVIEW_ISOLATE_MODE_REFUSED');
   return parsed;
 }
 
@@ -48,6 +52,7 @@ export async function renderPreview(args = process.argv.slice(2)) {
 const parsed = parsePreviewArgs(args);
 if (parsed['--help']) { console.log(help); return; }
 const preflight = Boolean(parsed['--preflight']);
+const [isolateKey, isolateSlots] = parsed['--isolate'] === undefined ? [null, null] : [parsed['--isolate'].split(':')[0], parsed['--isolate'].split(':')[1]?.split(',') ?? null];
 
 function option(name, fallback) { const i = args.indexOf(name); return i < 0 ? fallback : args[i + 1]; }
 const evidence = path.resolve(option('--evidence', `.lane-evidence/family-preview-${option('--outfit', 'office')}`));
@@ -55,7 +60,8 @@ const mp4 = option('--mp4', null) === null ? null : path.resolve(option('--mp4')
 const outfit = option('--outfit', 'office');
 const defaultName = `family-preview${outfit === 'office' ? '' : '-'+outfit}.webp`;
 const publishedDocs = path.join(family, 'docs');
-const output = mp4 !== null && option('--out', null) === null ? null : path.resolve(option('--out', path.join(preflight ? evidence : publishedDocs, defaultName)));
+// An isolated render is a measurement, not a preview: its frames and isolate.json are the output.
+const output = isolateKey || (mp4 !== null && option('--out', null) === null) ? null : path.resolve(option('--out', path.join(preflight ? evidence : publishedDocs, defaultName)));
 if (!OUTFITS.includes(outfit)) throw new Error(`outfit must be one of ${OUTFITS.join(', ')}; got ${outfit}`);
 if (output !== null && !output.endsWith('.webp')) throw Error('PREVIEW_WEBP_EXTENSION_REQUIRED');
 if (preflight && output !== null && (output === publishedDocs || output.startsWith(publishedDocs + path.sep))) throw Error('PREFLIGHT_OUT_IS_PUBLISHED');
@@ -75,7 +81,15 @@ const quality = Number(option('--quality', '80'));
 if (![800,960,1200].includes(requestedWidth) || !Number.isFinite(quality) || quality < 1 || quality > 100) throw new Error('width must be 800, 960 or 1200; quality must be 1..100');
 const outputWidth = preflight ? 8 : requestedWidth;
 const outputHeight = preflight ? 8 : Math.round(height * outputWidth / width);
-const lineup = [['roa', 0, 0, 3], ['luna', 435, .06, 2], ['jinni', 995, .45, 4], ['naru', 1540, .85, 3], ['nova', 1915, 1.25, 2]];
+// [key, offset, phase, z], in scene pixels; the scene is drawn at `scene.scale` from `scene.left`, `scene.top`.
+const scene = { left: 319, top: 1000, scale: .42 };
+const lineup = [['roa', 0, 0, 10], ['luna', 352, .06, 30], ['jinni', 657, .45, 40], ['naru', 1022, .85, 50], ['nova', 1355, 1.25, 60]];
+// A character in two depths at once is drawn twice from one pose: each layer is another instance
+// of a lineup character at another z, clipped to a path in that character's root pixels. The
+// paths are measured per outfit by measure-preview-overlaps.py, which says what each one holds.
+const overlapsFile = 'scripts/preview-overlaps.json';
+const layers = isolateKey ? [] : JSON.parse(await fs.readFile(path.join(family, overlapsFile), 'utf8')).outfits[outfit].map(({ key, z, clip }) => ({ key, z, clip }));
+if (isolateKey) { const entry = lineup.find(([key]) => key === isolateKey); if (!entry) throw new Error(`--isolate names no lineup character: ${isolateKey}`); lineup.splice(0, lineup.length, entry); }
 const modelRoot = outfit === 'office' ? "'/'+key" : `'/outfits/${outfit}/'+key`;
 const modelPath = key => outfitAssets(key, outfit).modelUrl.slice(1);
 for (const [key] of lineup) if (modelPath(key) !== (outfit === 'office' ? key : `outfits/${outfit}/${key}`) + '/out/check/build/skeleton.model.json') throw new Error(`viewer outfit path for ${key} changed`);
@@ -95,7 +109,7 @@ await fs.mkdir(evidence, { recursive: true });
 for (const target of [output, mp4]) if (target !== null) await fs.mkdir(path.dirname(target), { recursive: true });
 const sha = async filename => createHash('sha256').update(await fs.readFile(filename)).digest('hex');
 const sources={};
-for(const relative of ['accepted-inputs.json','viewer/assets/player.js',...lineup.map(([key])=>modelPath(key))]) sources[relative]=await sha(path.join(family,relative));
+for(const relative of ['accepted-inputs.json','viewer/assets/player.js',...(isolateKey ? [] : [overlapsFile]),...lineup.map(([key])=>modelPath(key))]) sources[relative]=await sha(path.join(family,relative));
 for(const [key] of lineup) {
   const relative=modelPath(key);
   const model=JSON.parse(await fs.readFile(path.join(family,relative),'utf8'));
@@ -106,10 +120,10 @@ for(const [key] of lineup) {
   }
 }
 const captureInputs = path.join(evidence,'capture-inputs.json');
-const settings = { width, height, duration, frames, lineup };
+const settings = { width, height, duration, frames, scene, lineup, layers, ...(isolateKey ? { isolate: { key: isolateKey, slots: isolateSlots } } : {}) };
 const html = `<!doctype html><meta charset="utf-8"><style>
 html,body{margin:0;width:${width}px;height:${height}px;overflow:hidden;background:transparent}
-#scene{position:absolute;transform-origin:0 0;transform:scale(.42);left:192px;top:1000px}
+#scene{position:absolute;transform-origin:0 0;transform:scale(${scene.scale});left:${scene.left}px;top:${scene.top}px}
 </style><div id="scene"></div><script type="module">
 import { l as loadModel, R as RigPlayer } from '/viewer/assets/player.js';
 const settings = ${JSON.stringify(settings)};
@@ -125,11 +139,20 @@ function closed(index) {
   if (u < .46) return 1;
   const t = (u-.46)/.54; return 1-t*t*(3-2*t);
 }
+const instances = [];
 for (const [index, [key, offset, offsetPhase, z]] of settings.lineup.entries()) {
-  const root = document.querySelector('#scene').appendChild(document.createElement('div'));
-  root.style.cssText = 'position:absolute;left:'+offset+'px;top:0;z-index:'+z;
+  instances.push({ index, key, offset, offsetPhase, z, slots: settings.isolate?.slots ?? null, clip: null });
+  for (const layer of settings.layers.filter(layer => layer.key === key)) instances.push({ index, key, offset, offsetPhase, z: layer.z, slots: null, clip: layer.clip });
+}
+for (const { index, key, offset, offsetPhase, z, slots, clip } of instances) {
+  // The player manages its root's own clip-path, so depth and clipping live on a wrapper.
+  const wrap = document.querySelector('#scene').appendChild(document.createElement('div'));
+  wrap.style.cssText = 'position:absolute;left:'+offset+'px;top:0;z-index:'+z;
+  if (clip) wrap.style.clipPath = "path('"+clip+"')";
+  const root = wrap.appendChild(document.createElement('div'));
+  root.style.cssText = 'position:absolute;left:0;top:0';
   const assets = await loadModel({ modelUrl: ${modelRoot}+'/out/check/build/skeleton.model.json' });
-  const player = new RigPlayer(root, assets, { adjust(pose) {
+  const player = new RigPlayer(root, assets, { slots, adjust(pose) {
     if (!pose.names.includes('eye_r') || !pose.names.includes('eye_l')) return;
     const c = closed(index);
     for (const name of ['eye_r','eye_l']) { const b=pose.bone(name); b.scaleY=(b.setup.scaleY??1)*(1-c*.88); }
@@ -137,7 +160,7 @@ for (const [index, [key, offset, offsetPhase, z]] of settings.lineup.entries()) 
   }});
   player.play('idle');
   if (offsetPhase) player.frame(offsetPhase);
-  entries.push({key, assets, player});
+  entries.push({key, assets, player, base: !clip});
 }
 function step() {
   tick++;
@@ -149,7 +172,7 @@ function draw() { for(const {player} of entries) player.draw(); }
 draw();
 globalThis.capture = {
   next(){ for(let i=0;i<2;i++) step(); draw(); return { tick, time:phase() }; },
-  stats(){ return entries.map(({key,player})=>({key,time:player.time,bounds:player.bounds(),meshBackend:player.renderer.meshBackend,meshBackendActive:player.renderer.meshBackendActive})); },
+  stats(){ return entries.filter(e=>e.base).map(({key,player})=>({key,time:player.time,bounds:player.bounds(),meshBackend:player.renderer.meshBackend,meshBackendActive:player.renderer.meshBackendActive})); },
   dispose(){ for(const {player,assets} of entries){player.dispose();assets.dispose();} }
 };
 ${cutLayers ? `globalThis.capture.only=(key,slots,invert)=>{for(const e of entries){if(slots===null){e.player.slots=null;continue;}const s=new Set(slots);e.player.slots=key===null||e.key===key?(n=>s.has(n)!==invert):(()=>false);}draw();};
@@ -212,6 +235,7 @@ try {
   for(let i=0;i<=frames;i++) { const name=`frame-${String(i).padStart(3,'0')}.png`; receipt.frames[name]=await sha(path.join(evidence,name)); }
   await fs.writeFile(captureInputs,JSON.stringify(receipt,null,2)+'\n');
   await fs.writeFile(path.join(evidence,'runtime.json'), JSON.stringify(await page.evaluate(()=>globalThis.capture.stats()),null,2)+'\n');
+  if(isolateKey) await fs.writeFile(path.join(evidence,'isolate.json'), JSON.stringify({outfit,...settings,frameSHA256:receipt.frames},null,2)+'\n');
   await page.evaluate(()=>globalThis.capture.dispose());
   await context.close();
 } finally {
